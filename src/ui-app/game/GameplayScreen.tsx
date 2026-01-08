@@ -1,10 +1,15 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HUD from '../components/HUD';
-import RadialWheel, { Species } from '../components/RadialWheel';
 import PixiGame from './PixiGame';
 import { useGameEngine } from './useGameEngine';
 import type { Channel } from '@engine/audio/types';
+
+interface Species {
+  code: string;
+  name: string;
+  color: string;
+}
 
 // Default colors for species that don't have one
 const DEFAULT_COLORS = [
@@ -88,6 +93,33 @@ function GameplayScreen() {
     }
   }, [selectedChannel, gameActions]);
 
+  // Keyboard controls for laptop/desktop
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Only handle keys during active gameplay
+      if (gameState.roundState !== 'playing') return;
+
+      // Left channel: A, ArrowLeft, or 1
+      if (e.key === 'a' || e.key === 'A' || e.key === 'ArrowLeft' || e.key === '1') {
+        handleChannelTap('left');
+      }
+      // Right channel: D, ArrowRight, or 2
+      else if (e.key === 'd' || e.key === 'D' || e.key === 'ArrowRight' || e.key === '2') {
+        handleChannelTap('right');
+      }
+      // Species selection: number keys 3-9 or letter keys
+      else if (e.key >= '3' && e.key <= '9') {
+        const index = parseInt(e.key) - 3;
+        if (index < speciesForWheel.length) {
+          handleSpeciesSelect(speciesForWheel[index].code);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [gameState.roundState, handleChannelTap, handleSpeciesSelect, speciesForWheel]);
+
   // Handle back button
   const handleBack = useCallback(() => {
     gameActions.reset();
@@ -136,6 +168,11 @@ function GameplayScreen() {
         <PixiGame
           width={dimensions.width}
           height={dimensions.height}
+          scheduledEvents={gameState.scheduledEvents}
+          activeEvents={gameState.activeEvents}
+          roundStartTime={gameState.roundStartTime}
+          roundState={gameState.roundState}
+          currentFeedback={gameState.currentFeedback}
           onChannelTap={handleChannelTap}
         />
 
@@ -174,13 +211,55 @@ function GameplayScreen() {
         )}
       </div>
 
-      {/* Radial species wheel */}
-      <RadialWheel
-        species={speciesForWheel}
-        selectedSpecies={selectedSpecies}
-        onSelect={handleSpeciesSelect}
-        disabled={gameState.roundState !== 'playing'}
-      />
+      {/* Dual species buttons - left and right columns */}
+      <div className="dual-input-panel">
+        <div className="input-column left">
+          <div className="column-label">LEFT EAR</div>
+          <div className="species-buttons">
+            {speciesForWheel.map((sp) => (
+              <button
+                key={sp.code}
+                className={`species-btn ${selectedSpecies === sp.code ? 'selected' : ''}`}
+                style={{ borderColor: sp.color, backgroundColor: selectedSpecies === sp.code ? sp.color : undefined }}
+                onClick={() => {
+                  gameActions.submitInput(sp.code, 'left');
+                  const flashEl = document.getElementById('flash-left');
+                  if (flashEl) {
+                    flashEl.classList.add('active');
+                    setTimeout(() => flashEl.classList.remove('active'), 150);
+                  }
+                }}
+                disabled={gameState.roundState !== 'playing'}
+              >
+                {sp.code}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="input-column right">
+          <div className="column-label">RIGHT EAR</div>
+          <div className="species-buttons">
+            {speciesForWheel.map((sp) => (
+              <button
+                key={sp.code}
+                className={`species-btn ${selectedSpecies === sp.code ? 'selected' : ''}`}
+                style={{ borderColor: sp.color, backgroundColor: selectedSpecies === sp.code ? sp.color : undefined }}
+                onClick={() => {
+                  gameActions.submitInput(sp.code, 'right');
+                  const flashEl = document.getElementById('flash-right');
+                  if (flashEl) {
+                    flashEl.classList.add('active');
+                    setTimeout(() => flashEl.classList.remove('active'), 150);
+                  }
+                }}
+                disabled={gameState.roundState !== 'playing'}
+              >
+                {sp.code}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Dev: End round button */}
       {gameState.roundState === 'playing' && (
@@ -402,6 +481,96 @@ function GameplayScreen() {
 
         .dev-end-button:hover {
           opacity: 1;
+        }
+
+        .dual-input-panel {
+          display: flex;
+          justify-content: space-between;
+          padding: 8px 12px;
+          padding-bottom: calc(12px + var(--safe-area-bottom, 0px));
+          background: linear-gradient(0deg, var(--color-surface) 0%, rgba(26, 26, 46, 0.9) 100%);
+          gap: 20px;
+        }
+
+        .input-column {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .input-column.left {
+          align-items: flex-start;
+        }
+
+        .input-column.right {
+          align-items: flex-end;
+        }
+
+        .column-label {
+          font-size: 10px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          padding: 2px 8px;
+          border-radius: 4px;
+        }
+
+        .input-column.left .column-label {
+          color: #81C784;
+          background: rgba(129, 199, 132, 0.15);
+        }
+
+        .input-column.right .column-label {
+          color: #64B5F6;
+          background: rgba(100, 181, 246, 0.15);
+        }
+
+        .species-buttons {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+
+        .input-column.left .species-buttons {
+          justify-content: flex-start;
+        }
+
+        .input-column.right .species-buttons {
+          justify-content: flex-end;
+        }
+
+        .species-btn {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          border: 3px solid;
+          background: var(--color-surface);
+          color: var(--color-text);
+          font-size: 10px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.15s ease-out;
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        .species-btn:hover:not(:disabled) {
+          transform: scale(1.1);
+        }
+
+        .species-btn:active:not(:disabled) {
+          transform: scale(0.95);
+        }
+
+        .species-btn.selected {
+          color: var(--color-background);
+          transform: scale(1.05);
+        }
+
+        .species-btn:disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
         }
       `}</style>
     </div>

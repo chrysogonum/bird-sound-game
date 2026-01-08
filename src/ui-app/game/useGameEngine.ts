@@ -47,6 +47,12 @@ export interface FeedbackData {
   timestamp: number;
 }
 
+/** Scheduled event with clip metadata for rendering */
+export interface ScheduledEvent extends GameEvent {
+  spectrogramPath: string | null;
+  filePath: string;
+}
+
 /** Game engine state */
 export interface GameEngineState {
   roundState: RoundState;
@@ -61,6 +67,8 @@ export interface GameEngineState {
   perfectCount: number;
   missCount: number;
   activeEvents: ActiveEvent[];
+  scheduledEvents: ScheduledEvent[];
+  roundStartTime: number;
   currentFeedback: FeedbackData | null;
   species: SpeciesInfo[];
   isAudioReady: boolean;
@@ -74,6 +82,9 @@ export interface GameEngineActions {
   submitInput: (speciesCode: string, channel: Channel) => void;
   reset: () => void;
 }
+
+/** Audio plays this many ms BEFORE the tile reaches the hit zone */
+const AUDIO_LEAD_TIME_MS = 2500;
 
 /** Default level config for testing */
 const DEFAULT_LEVEL: LevelConfig = {
@@ -136,6 +147,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const [perfectCount, setPerfectCount] = useState(0);
   const [missCount, setMissCount] = useState(0);
   const [activeEvents, setActiveEvents] = useState<ActiveEvent[]>([]);
+  const [scheduledEvents, setScheduledEvents] = useState<ScheduledEvent[]>([]);
+  const [roundStartTime, setRoundStartTime] = useState(0);
   const [currentFeedback, setCurrentFeedback] = useState<FeedbackData | null>(null);
   const [isAudioReady, setIsAudioReady] = useState(false);
 
@@ -362,21 +375,29 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
   /**
    * Schedule an event to play
+   * Audio plays AUDIO_LEAD_TIME_MS before the tile reaches the hit zone,
+   * giving the player time to hear and identify the bird.
    */
   const scheduleEvent = useCallback((event: GameEvent) => {
     const now = performance.now();
     const roundStart = roundStartTimeRef.current;
-    const delay = Math.max(0, event.scheduled_time_ms - (now - roundStart));
 
-    const timerId = window.setTimeout(() => {
-      // Get clip info
+    // Audio plays earlier than scheduled_time (when tile hits zone)
+    const audioPlayTime = event.scheduled_time_ms - AUDIO_LEAD_TIME_MS;
+    const audioDelay = Math.max(0, audioPlayTime - (now - roundStart));
+
+    // Schedule audio to play early (as tile scrolls down)
+    const audioTimerId = window.setTimeout(() => {
       const clip = getClipById(event.clip_id);
       if (!clip) return;
-
-      // Play the audio
       playAudio(clip.file_path, event.channel, event.event_id);
+    }, audioDelay);
+    eventTimersRef.current.push(audioTimerId);
 
-      // Add to active events
+    // Schedule scoring window to open at the hit zone time
+    const hitZoneDelay = Math.max(0, event.scheduled_time_ms - (now - roundStart));
+    const hitZoneTimerId = window.setTimeout(() => {
+      // Add to active events (scoring window opens)
       setActiveEvents((prev) => [
         ...prev,
         {
@@ -405,9 +426,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           return prev;
         });
       }, windowDuration);
-    }, delay);
-
-    eventTimersRef.current.push(timerId);
+    }, hitZoneDelay);
+    eventTimersRef.current.push(hitZoneTimerId);
   }, [getClipById, playAudio]);
 
   /**
@@ -440,9 +460,22 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const events = generateEvents();
     generatedEventsRef.current = events;
 
+    // Create scheduled events with clip metadata
+    const scheduled: ScheduledEvent[] = events.map((event) => {
+      const clip = getClipById(event.clip_id);
+      return {
+        ...event,
+        spectrogramPath: clip?.spectrogram_path || null,
+        filePath: clip?.file_path || '',
+      };
+    });
+    setScheduledEvents(scheduled);
+
     // Start the round
+    const startTime = performance.now();
     setRoundState('playing');
-    roundStartTimeRef.current = performance.now();
+    setRoundStartTime(startTime);
+    roundStartTimeRef.current = startTime;
 
     // Schedule all events
     for (const event of events) {
@@ -613,6 +646,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     setPerfectCount(0);
     setMissCount(0);
     setActiveEvents([]);
+    setScheduledEvents([]);
+    setRoundStartTime(0);
     setCurrentFeedback(null);
     setTimeRemaining(level.round_duration_sec);
   }, [endRound, level.round_duration_sec]);
@@ -652,6 +687,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     perfectCount,
     missCount,
     activeEvents,
+    scheduledEvents,
+    roundStartTime,
     currentFeedback,
     species,
     isAudioReady,

@@ -1,9 +1,16 @@
 import { useEffect, useRef, useCallback, memo } from 'react';
 import * as PIXI from 'pixi.js';
+import type { ScheduledEvent, ActiveEvent, FeedbackData } from './useGameEngine';
+import type { RoundState } from '@engine/game/types';
 
 export interface PixiGameProps {
   width: number;
   height: number;
+  scheduledEvents: ScheduledEvent[];
+  activeEvents: ActiveEvent[];
+  roundStartTime: number;
+  roundState: RoundState;
+  currentFeedback: FeedbackData | null;
   onChannelTap?: (channel: 'left' | 'right') => void;
 }
 
@@ -17,40 +24,75 @@ const COLORS = {
   laneRight: 0x4a90d9,
   text: 0xffffff,
   textMuted: 0xa0a0b0,
+  perfect: 0x4caf50,
+  good: 0x4caf50,
+  partial: 0xf5a623,
+  miss: 0xe57373,
 };
 
-function PixiGame({ width, height, onChannelTap }: PixiGameProps) {
+// Tile dimensions
+const TILE_WIDTH_RATIO = 0.55; // Ratio of lane width
+const TILE_HEIGHT = 70;
+const SCROLL_SPEED = 200; // pixels per second
+const HIT_ZONE_Y_RATIO = 0.82; // 82% from top
+
+interface TileState {
+  container: PIXI.Container;
+  eventId: string;
+  scheduledTimeMs: number;
+  channel: 'left' | 'right';
+  speciesCode: string;
+  hasBeenScored: boolean;
+  feedbackType: string | null;
+  feedbackStartTime: number;
+}
+
+function PixiGame({
+  width,
+  height,
+  scheduledEvents,
+  activeEvents,
+  roundStartTime,
+  roundState,
+  currentFeedback,
+  onChannelTap,
+}: PixiGameProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<PIXI.Application | null>(null);
+  const tilesRef = useRef<Map<string, TileState>>(new Map());
+  const tileContainerRef = useRef<PIXI.Container | null>(null);
 
-  const handleTap = useCallback((e: React.MouseEvent | React.TouchEvent) => {
-    if (!onChannelTap || !containerRef.current) return;
+  const handleTap = useCallback(
+    (e: React.MouseEvent | React.TouchEvent) => {
+      if (!onChannelTap || !containerRef.current) return;
 
-    let clientX: number;
-    if ('touches' in e) {
-      clientX = e.touches[0]?.clientX ?? 0;
-    } else {
-      clientX = e.clientX;
-    }
+      let clientX: number;
+      if ('touches' in e) {
+        clientX = e.touches[0]?.clientX ?? 0;
+      } else {
+        clientX = e.clientX;
+      }
 
-    const rect = containerRef.current.getBoundingClientRect();
-    const relativeX = clientX - rect.left;
-    const centerX = rect.width / 2;
+      const rect = containerRef.current.getBoundingClientRect();
+      const relativeX = clientX - rect.left;
+      const centerX = rect.width / 2;
 
-    // Dead zone in center (10% of width)
-    const deadZoneWidth = rect.width * 0.1;
-    if (Math.abs(relativeX - centerX) < deadZoneWidth / 2) {
-      return; // Tap in dead zone
-    }
+      // Dead zone in center (10% of width)
+      const deadZoneWidth = rect.width * 0.1;
+      if (Math.abs(relativeX - centerX) < deadZoneWidth / 2) {
+        return;
+      }
 
-    const channel = relativeX < centerX ? 'left' : 'right';
-    onChannelTap(channel);
-  }, [onChannelTap]);
+      const channel = relativeX < centerX ? 'left' : 'right';
+      onChannelTap(channel);
+    },
+    [onChannelTap]
+  );
 
+  // Initialize PixiJS app
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Create PixiJS application (v7 API)
     const app = new PIXI.Application({
       width,
       height,
@@ -63,17 +105,22 @@ function PixiGame({ width, height, onChannelTap }: PixiGameProps) {
     containerRef.current.appendChild(app.view as HTMLCanvasElement);
     appRef.current = app;
 
-    // Create game elements
+    // Create static elements
     createLanes(app, width, height);
     createHitZones(app, width, height);
     createCenterDivider(app, width, height);
-    createPlaceholderTiles(app, width, height);
+
+    // Create container for tiles
+    const tileContainer = new PIXI.Container();
+    app.stage.addChild(tileContainer);
+    tileContainerRef.current = tileContainer;
 
     return () => {
       if (appRef.current) {
         appRef.current.destroy(true, { children: true });
         appRef.current = null;
       }
+      tilesRef.current.clear();
     };
   }, [width, height]);
 
@@ -82,14 +129,123 @@ function PixiGame({ width, height, onChannelTap }: PixiGameProps) {
     if (appRef.current) {
       appRef.current.renderer.resize(width, height);
 
-      // Clear and recreate
-      appRef.current.stage.removeChildren();
-      createLanes(appRef.current, width, height);
-      createHitZones(appRef.current, width, height);
-      createCenterDivider(appRef.current, width, height);
-      createPlaceholderTiles(appRef.current, width, height);
+      // Recreate static elements
+      const app = appRef.current;
+      // Remove all except tile container
+      while (app.stage.children.length > 0) {
+        app.stage.removeChildAt(0);
+      }
+
+      createLanes(app, width, height);
+      createHitZones(app, width, height);
+      createCenterDivider(app, width, height);
+
+      const tileContainer = new PIXI.Container();
+      app.stage.addChild(tileContainer);
+      tileContainerRef.current = tileContainer;
+
+      // Recreate tiles
+      tilesRef.current.clear();
     }
   }, [width, height]);
+
+  // Create tiles when scheduledEvents change
+  useEffect(() => {
+    const tileContainer = tileContainerRef.current;
+    if (!tileContainer) return;
+
+    // Clear existing tiles
+    tileContainer.removeChildren();
+    tilesRef.current.clear();
+
+    if (roundState !== 'playing' || scheduledEvents.length === 0) return;
+
+    const laneWidth = width / 2;
+    const tileWidth = laneWidth * TILE_WIDTH_RATIO;
+    const hitZoneY = height * HIT_ZONE_Y_RATIO;
+
+    // Create a tile for each scheduled event
+    for (const event of scheduledEvents) {
+      const tile = createTile(
+        event,
+        laneWidth,
+        tileWidth,
+        TILE_HEIGHT,
+        hitZoneY
+      );
+
+      tileContainer.addChild(tile.container);
+      tilesRef.current.set(event.event_id, tile);
+    }
+  }, [scheduledEvents, roundState, width, height]);
+
+  // Animation loop
+  useEffect(() => {
+    if (roundState !== 'playing' || !appRef.current) return;
+
+    const hitZoneY = height * HIT_ZONE_Y_RATIO;
+    let animationId: number;
+
+    const animate = () => {
+      const currentTime = performance.now();
+      const elapsedMs = currentTime - roundStartTime;
+
+      // Update each tile's position
+      for (const tile of tilesRef.current.values()) {
+        if (tile.hasBeenScored && tile.feedbackType) {
+          // Animate feedback
+          const feedbackElapsed = currentTime - tile.feedbackStartTime;
+          if (feedbackElapsed > 500) {
+            // Fade out and remove
+            tile.container.alpha = Math.max(0, 1 - (feedbackElapsed - 500) / 200);
+            if (tile.container.alpha <= 0) {
+              tile.container.visible = false;
+            }
+          }
+        } else {
+          // Calculate Y position based on time
+          const timeToHitMs = tile.scheduledTimeMs - elapsedMs;
+          const timeToHitSec = timeToHitMs / 1000;
+          const distanceFromHitZone = timeToHitSec * SCROLL_SPEED;
+          tile.container.y = hitZoneY - distanceFromHitZone;
+
+          // Hide if past hit zone by too much
+          if (tile.container.y > hitZoneY + 100) {
+            tile.container.alpha = Math.max(0, 1 - (tile.container.y - hitZoneY - 100) / 50);
+          }
+        }
+      }
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    animationId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationId);
+    };
+  }, [roundState, roundStartTime, height]);
+
+  // Handle feedback - update tiles when scored
+  useEffect(() => {
+    if (!currentFeedback) return;
+
+    // Find the tile that was just scored
+    // Look for active events that match the feedback channel
+    for (const activeEvent of activeEvents) {
+      if (activeEvent.hasBeenScored && activeEvent.channel === currentFeedback.channel) {
+        const tile = tilesRef.current.get(activeEvent.event_id);
+        if (tile && !tile.feedbackType) {
+          tile.hasBeenScored = true;
+          tile.feedbackType = currentFeedback.type;
+          tile.feedbackStartTime = performance.now();
+
+          // Update tile visuals for feedback
+          updateTileFeedback(tile, currentFeedback.type, currentFeedback.score);
+        }
+      }
+    }
+  }, [currentFeedback, activeEvents]);
 
   return (
     <div
@@ -105,6 +261,111 @@ function PixiGame({ width, height, onChannelTap }: PixiGameProps) {
       }}
     />
   );
+}
+
+function createTile(
+  event: ScheduledEvent,
+  laneWidth: number,
+  tileWidth: number,
+  tileHeight: number,
+  _hitZoneY: number
+): TileState {
+  const container = new PIXI.Container();
+
+  // Position at lane center
+  const x = event.channel === 'left' ? laneWidth / 2 : laneWidth + laneWidth / 2;
+  container.x = x;
+
+  // Background color based on channel
+  const bgColor = event.channel === 'left' ? COLORS.laneLeft : COLORS.laneRight;
+
+  // Tile background
+  const background = new PIXI.Graphics();
+  background.beginFill(bgColor, 0.4);
+  background.lineStyle(2, bgColor, 0.8);
+  background.drawRoundedRect(-tileWidth / 2, -tileHeight / 2, tileWidth, tileHeight, 8);
+  background.endFill();
+  container.addChild(background);
+
+  // Spectrogram placeholder lines (no species label - that would give it away!)
+  const lines = new PIXI.Graphics();
+  for (let i = 0; i < 6; i++) {
+    const lineY = -tileHeight / 2 + 10 + i * 10;
+    const lineW = (Math.random() * 0.4 + 0.4) * tileWidth;
+    const lineX = -lineW / 2 + (Math.random() - 0.5) * 20;
+    lines.beginFill(0xffffff, 0.2 + Math.random() * 0.2);
+    lines.drawRect(lineX, lineY, lineW, 2);
+    lines.endFill();
+  }
+  container.addChild(lines);
+
+  // Question mark to indicate "identify me!"
+  const questionStyle = new PIXI.TextStyle({
+    fontFamily: 'Inter, sans-serif',
+    fontSize: 18,
+    fill: 0xffffff,
+    fontWeight: '700',
+  });
+
+  const question = new PIXI.Text('?', questionStyle);
+  question.anchor.set(0.5);
+  question.position.set(0, 0);
+  question.alpha = 0.4;
+  container.addChild(question);
+
+  return {
+    container,
+    eventId: event.event_id,
+    scheduledTimeMs: event.scheduled_time_ms,
+    channel: event.channel,
+    speciesCode: event.species_code,
+    hasBeenScored: false,
+    feedbackType: null,
+    feedbackStartTime: 0,
+  };
+}
+
+function updateTileFeedback(tile: TileState, type: string, score: number) {
+  const container = tile.container;
+
+  // Get feedback color
+  const color = type === 'perfect' || type === 'good'
+    ? COLORS.perfect
+    : type === 'partial'
+    ? COLORS.partial
+    : COLORS.miss;
+
+  // Add glow overlay
+  const glow = new PIXI.Graphics();
+  const tileWidth = 100; // approximate
+  const tileHeight = 70;
+  glow.beginFill(color, 0.5);
+  glow.drawRoundedRect(-tileWidth / 2, -tileHeight / 2, tileWidth, tileHeight, 8);
+  glow.endFill();
+  container.addChildAt(glow, 1);
+
+  // Add score popup
+  if (score > 0) {
+    const scoreStyle = new PIXI.TextStyle({
+      fontFamily: 'JetBrains Mono, monospace',
+      fontSize: 20,
+      fontWeight: '700',
+      fill: color,
+      stroke: 0x000000,
+      strokeThickness: 3,
+    });
+
+    const scoreText = new PIXI.Text(`+${score}`, scoreStyle);
+    scoreText.anchor.set(0.5);
+    scoreText.position.set(0, -tileHeight / 2 - 15);
+    container.addChild(scoreText);
+  }
+
+  // Scale effect
+  container.scale.set(1.1);
+  setTimeout(() => {
+    container.scale.set(1);
+  }, 100);
 }
 
 function createLanes(app: PIXI.Application, width: number, height: number) {
@@ -147,7 +408,7 @@ function createLanes(app: PIXI.Application, width: number, height: number) {
 
 function createHitZones(app: PIXI.Application, width: number, height: number) {
   const laneWidth = width / 2;
-  const hitZoneY = height * 0.85; // 85% from top
+  const hitZoneY = height * HIT_ZONE_Y_RATIO;
   const hitZoneHeight = 4;
 
   // Left hit zone
@@ -195,61 +456,6 @@ function createCenterDivider(app: PIXI.Application, width: number, height: numbe
   divider.endFill();
 
   app.stage.addChild(divider);
-}
-
-function createPlaceholderTiles(app: PIXI.Application, width: number, height: number) {
-  const laneWidth = width / 2;
-  const tileWidth = laneWidth * 0.6;
-  const tileHeight = 80;
-
-  // Create a few placeholder tiles in each lane
-  const placeholderPositions = [
-    { lane: 'left', y: 0.2 },
-    { lane: 'left', y: 0.5 },
-    { lane: 'right', y: 0.35 },
-    { lane: 'right', y: 0.65 },
-  ];
-
-  placeholderPositions.forEach(({ lane, y: yPercent }) => {
-    const x = lane === 'left' ? laneWidth / 2 : laneWidth + laneWidth / 2;
-    const y = height * yPercent;
-    const color = lane === 'left' ? COLORS.laneLeft : COLORS.laneRight;
-
-    // Tile background (simulating spectrogram)
-    const tile = new PIXI.Graphics();
-    tile.beginFill(color, 0.3);
-    tile.lineStyle(2, color, 0.6);
-    tile.drawRoundedRect(x - tileWidth / 2, y, tileWidth, tileHeight, 8);
-    tile.endFill();
-    app.stage.addChild(tile);
-
-    // Simulated spectrogram lines
-    const lines = new PIXI.Graphics();
-    for (let i = 0; i < 8; i++) {
-      const lineY = y + 10 + i * 8;
-      const lineW = (Math.random() * 0.5 + 0.3) * tileWidth;
-      const lineX = x - lineW / 2 + (Math.random() - 0.5) * 20;
-      lines.beginFill(0xffffff, 0.2 + Math.random() * 0.3);
-      lines.drawRect(lineX, lineY, lineW, 2);
-      lines.endFill();
-    }
-    app.stage.addChild(lines);
-
-    // Species label on tile
-    const labelStyle = new PIXI.TextStyle({
-      fontFamily: 'Inter, sans-serif',
-      fontSize: 11,
-      fill: 0xffffff,
-      fontWeight: '700',
-    });
-
-    const speciesCode = lane === 'left' ? 'NOCA' : 'BLJA';
-    const label = new PIXI.Text(speciesCode, labelStyle);
-    label.anchor.set(0.5);
-    label.position.set(x, y + tileHeight + 12);
-    label.alpha = 0.7;
-    app.stage.addChild(label);
-  });
 }
 
 export default memo(PixiGame);
