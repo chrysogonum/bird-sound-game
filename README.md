@@ -139,9 +139,9 @@ tests/          # Vitest test files
 
 | Phase | Description | Status |
 |-------|-------------|--------|
-| O | Project setup & navigation | 🔄 |
-| P | Gameplay layout (static) | ⏳ |
-| Q | Engine integration | ⏳ |
+| O | Project setup & navigation | ✅ |
+| P | Gameplay layout (static) | ✅ |
+| Q | Engine integration | 🔄 |
 | R | Tile animation & feedback | ⏳ |
 | S | Supporting screens | ⏳ |
 | T | Polish & mobile testing | ⏳ |
