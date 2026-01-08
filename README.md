@@ -114,22 +114,24 @@ tests/          # Vitest test files
 
 ## Implementation Status
 
-| Phase | Description | Status |
-|-------|-------------|--------|
-| A | Audio ingestion & tagging | ✅ |
-| B | Stereo playback engine | ✅ |
-| C | Input & scoring loop | ✅ |
-| D | Level system | ✅ |
-| E | UX polish & feedback | ✅ |
-| F | Game modes | 🔄 |
-| G | Pack system | ⏳ |
-| H | Difficulty modifiers | ⏳ |
-| I | Random Soundfield | ⏳ |
-| J | Progression & stats | ⏳ |
-| K | Spectrogram generation | ⏳ |
-| L | Lane renderer | ⏳ |
-| M | Visual modes | ⏳ |
-| N | Confusion analytics | ⏳ |
+| Phase | Description | Tests | Status |
+|-------|-------------|-------|--------|
+| A | Audio ingestion & tagging | ✓ | ✅ |
+| B | Stereo playback engine | 23 | ✅ |
+| C | Input & scoring loop | 37 | ✅ |
+| D | Level system | 35 | ✅ |
+| E | UX polish & feedback | 45 | ✅ |
+| F | Game modes | 54 | ✅ |
+| G | Pack system | 44 | ✅ |
+| H | Difficulty modifiers | 29 | ✅ |
+| I | Random Soundfield | 47 | ✅ |
+| J | Progression & stats | — | ⏳ |
+| K | Spectrogram generation | — | ⏳ |
+| L | Lane renderer | — | ⏳ |
+| M | Visual modes | — | ⏳ |
+| N | Confusion analytics | — | ⏳ |
+
+**Total: 314 tests passing**
 
 ## Documentation
 
