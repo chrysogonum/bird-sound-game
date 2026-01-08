@@ -44,6 +44,8 @@ export interface GameEvent {
   scoring_window_end_ms: number;
   /** Duration of the clip in ms */
   duration_ms: number;
+  /** Vocalization type (song or call) */
+  vocalization_type?: 'song' | 'call';
 }
 
 /** Event density configuration (events per second) */
