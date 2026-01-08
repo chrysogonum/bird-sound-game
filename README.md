@@ -125,13 +125,13 @@ tests/          # Vitest test files
 | G | Pack system | 44 | ✅ |
 | H | Difficulty modifiers | 29 | ✅ |
 | I | Random Soundfield | 47 | ✅ |
-| J | Progression & stats | — | ⏳ |
+| J | Progression & stats | 59 | ✅ |
 | K | Spectrogram generation | — | ⏳ |
 | L | Lane renderer | — | ⏳ |
 | M | Visual modes | — | ⏳ |
 | N | Confusion analytics | — | ⏳ |
 
-**Total: 314 tests passing**
+**Total: 373 tests passing**
 
 ## Documentation
 
