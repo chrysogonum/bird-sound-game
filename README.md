@@ -144,7 +144,9 @@ tests/          # Vitest test files
 | Q | Engine integration | ✅ |
 | R | Tile animation & feedback | ✅ |
 | S | Supporting screens | ✅ |
-| T | Polish & mobile testing | 🔄 |
+| T | Polish & mobile testing | ✅ |
+
+**UI: ALL PHASES COMPLETE** • PWA-ready • 204KB gzipped
 
 **Stack:** React (screens) + PixiJS (gameplay) • Mobile-first • Portrait • PWA
 
