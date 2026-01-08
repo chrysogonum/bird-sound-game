@@ -142,8 +142,8 @@ tests/          # Vitest test files
 | O | Project setup & navigation | ✅ |
 | P | Gameplay layout (static) | ✅ |
 | Q | Engine integration | ✅ |
-| R | Tile animation & feedback | 🔄 |
-| S | Supporting screens | ⏳ |
+| R | Tile animation & feedback | ✅ |
+| S | Supporting screens | 🔄 |
 | T | Polish & mobile testing | ⏳ |
 
 **Stack:** React (screens) + PixiJS (gameplay) • Mobile-first • Portrait • PWA
