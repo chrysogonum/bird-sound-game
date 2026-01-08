@@ -126,12 +126,12 @@ tests/          # Vitest test files
 | H | Difficulty modifiers | 29 | ✅ |
 | I | Random Soundfield | 47 | ✅ |
 | J | Progression & stats | 59 | ✅ |
-| K | Spectrogram generation | — | ⏳ |
-| L | Lane renderer | — | ⏳ |
+| K | Spectrogram generation | ✓ | ✅ |
+| L | Lane renderer | 52 | ✅ |
 | M | Visual modes | — | ⏳ |
 | N | Confusion analytics | — | ⏳ |
 
-**Total: 373 tests passing**
+**Total: 425 tests passing**
 
 ## Documentation
 
