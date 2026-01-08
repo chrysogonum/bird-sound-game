@@ -128,10 +128,10 @@ tests/          # Vitest test files
 | J | Progression & stats | 59 | ✅ |
 | K | Spectrogram generation | ✓ | ✅ |
 | L | Lane renderer | 52 | ✅ |
-| M | Visual modes | — | ⏳ |
-| N | Confusion analytics | — | ⏳ |
+| M | Visual modes | 60 | ✅ |
+| N | Confusion analytics | — | 🔄 |
 
-**Total: 425 tests passing**
+**Total: 485 tests passing**
 
 ## Documentation
 
