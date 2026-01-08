@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Clip",
+  "description": "Schema for bird audio clip metadata",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "clip_id",
+      "species_code",
+      "common_name",
+      "vocalization_type",
+      "duration_ms",
+      "quality_score",
+      "source",
+      "source_id",
+      "file_path"
+    ],
+    "properties": {
+      "clip_id": {
+        "type": "string",
+        "description": "Unique identifier for the clip"
+      },
+      "species_code": {
+        "type": "string",
+        "pattern": "^[A-Z]{4}$",
+        "description": "4-letter species code"
+      },
+      "common_name": {
+        "type": "string",
+        "description": "Common name of the bird species"
+      },
+      "vocalization_type": {
+        "type": "string",
+        "enum": ["song", "call"],
+        "description": "Type of vocalization"
+      },
+      "duration_ms": {
+        "type": "number",
+        "minimum": 500,
+        "maximum": 3000,
+        "description": "Duration in milliseconds (500-3000)"
+      },
+      "quality_score": {
+        "type": "number",
+        "minimum": 1,
+        "maximum": 5,
+        "description": "Quality score (1-5)"
+      },
+      "source": {
+        "type": "string",
+        "enum": ["macaulay", "xenocanto", "demo"],
+        "description": "Audio source"
+      },
+      "source_id": {
+        "type": "string",
+        "description": "ID from the source database"
+      },
+      "file_path": {
+        "type": "string",
+        "description": "Path to the audio file"
+      },
+      "spectrogram_path": {
+        "type": ["string", "null"],
+        "description": "Path to the spectrogram image"
+      }
+    },
+    "additionalProperties": false
+  }
+}

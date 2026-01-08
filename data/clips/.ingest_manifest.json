@@ -1,0 +1,57 @@
+[
+  {
+    "file_path": "data/clips/NOCA_1070756.wav",
+    "species_name": "Northern Cardinal",
+    "species_code": "NOCA",
+    "source": "xenocanto",
+    "source_id": "XC1070756",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/CARW_995314.wav",
+    "species_name": "Carolina Wren",
+    "species_code": "CARW",
+    "source": "xenocanto",
+    "source_id": "XC995314",
+    "vocalization_type": "call",
+    "duration_ms": 1917,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/BLJA_1046664.wav",
+    "species_name": "Blue Jay",
+    "species_code": "BLJA",
+    "source": "xenocanto",
+    "source_id": "XC1046664",
+    "vocalization_type": "",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/AMCR_1056042.wav",
+    "species_name": "American Crow",
+    "species_code": "AMCR",
+    "source": "xenocanto",
+    "source_id": "XC1056042",
+    "vocalization_type": "call",
+    "duration_ms": 2357,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/TUTI_1035994.wav",
+    "species_name": "Tufted Titmouse",
+    "species_code": "TUTI",
+    "source": "xenocanto",
+    "source_id": "XC1035994",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]
