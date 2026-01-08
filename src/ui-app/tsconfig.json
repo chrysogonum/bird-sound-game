@@ -21,7 +21,8 @@
       "@screens/*": ["./screens/*"],
       "@components/*": ["./components/*"],
       "@game/*": ["./game/*"],
-      "@styles/*": ["./styles/*"]
+      "@styles/*": ["./styles/*"],
+      "@engine/*": ["../*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

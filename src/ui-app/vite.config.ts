@@ -11,6 +11,7 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './components'),
       '@game': path.resolve(__dirname, './game'),
       '@styles': path.resolve(__dirname, './styles'),
+      '@engine': path.resolve(__dirname, '../'),
     },
   },
   server: {
