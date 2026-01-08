@@ -9,7 +9,7 @@
     "source": "xenocanto",
     "source_id": "XC1056042",
     "file_path": "data/clips/AMCR_1056042.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMCR_1056042.png"
   },
   {
     "clip_id": "BLJA_824faa3e",
@@ -21,7 +21,7 @@
     "source": "xenocanto",
     "source_id": "XC1046664",
     "file_path": "data/clips/BLJA_1046664.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BLJA_1046664.png"
   },
   {
     "clip_id": "CARW_846ffdee",
@@ -33,7 +33,7 @@
     "source": "xenocanto",
     "source_id": "XC995314",
     "file_path": "data/clips/CARW_995314.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/CARW_995314.png"
   },
   {
     "clip_id": "NOCA_fc10a42a",
@@ -45,7 +45,7 @@
     "source": "xenocanto",
     "source_id": "XC1070756",
     "file_path": "data/clips/NOCA_1070756.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOCA_1070756.png"
   },
   {
     "clip_id": "TUTI_b7ca26c5",
@@ -57,6 +57,6 @@
     "source": "xenocanto",
     "source_id": "XC1035994",
     "file_path": "data/clips/TUTI_1035994.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/TUTI_1035994.png"
   }
 ]
