@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "level.schema.json",
+  "title": "Levels",
+  "description": "Array of level configurations for SoundField: Birds",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "level_id",
+      "pack_id",
+      "mode",
+      "round_duration_sec",
+      "species_count",
+      "event_density",
+      "overlap_probability",
+      "scoring_window_ms",
+      "spectrogram_mode"
+    ],
+    "properties": {
+      "level_id": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Unique level identifier"
+      },
+      "pack_id": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Associated pack identifier"
+      },
+      "mode": {
+        "type": "string",
+        "enum": ["campaign", "practice", "challenge", "random"],
+        "description": "Game mode for this level"
+      },
+      "round_duration_sec": {
+        "type": "integer",
+        "minimum": 10,
+        "maximum": 60,
+        "description": "Duration of round in seconds"
+      },
+      "species_count": {
+        "type": "integer",
+        "minimum": 4,
+        "maximum": 12,
+        "description": "Number of species on the wheel"
+      },
+      "event_density": {
+        "type": "string",
+        "enum": ["low", "medium", "high"],
+        "description": "Event frequency/density"
+      },
+      "overlap_probability": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 0.75,
+        "description": "Probability of overlapping events (0-0.75)"
+      },
+      "scoring_window_ms": {
+        "type": "integer",
+        "minimum": 300,
+        "maximum": 2000,
+        "description": "Width of scoring window in milliseconds"
+      },
+      "spectrogram_mode": {
+        "type": "string",
+        "enum": ["full", "fading", "none"],
+        "description": "Spectrogram visibility mode"
+      }
+    },
+    "additionalProperties": false
+  },
+  "minItems": 1
+}

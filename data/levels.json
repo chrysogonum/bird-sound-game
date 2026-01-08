@@ -1,0 +1,57 @@
+[
+  {
+    "level_id": 1,
+    "pack_id": "common_se_birds",
+    "mode": "campaign",
+    "round_duration_sec": 30,
+    "species_count": 5,
+    "event_density": "low",
+    "overlap_probability": 0,
+    "scoring_window_ms": 2000,
+    "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 2,
+    "pack_id": "common_se_birds",
+    "mode": "campaign",
+    "round_duration_sec": 30,
+    "species_count": 6,
+    "event_density": "low",
+    "overlap_probability": 0,
+    "scoring_window_ms": 1500,
+    "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 3,
+    "pack_id": "common_se_birds",
+    "mode": "campaign",
+    "round_duration_sec": 45,
+    "species_count": 7,
+    "event_density": "medium",
+    "overlap_probability": 0.15,
+    "scoring_window_ms": 1200,
+    "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 4,
+    "pack_id": "common_se_birds",
+    "mode": "campaign",
+    "round_duration_sec": 45,
+    "species_count": 9,
+    "event_density": "medium",
+    "overlap_probability": 0.35,
+    "scoring_window_ms": 1000,
+    "spectrogram_mode": "fading"
+  },
+  {
+    "level_id": 5,
+    "pack_id": "common_se_birds",
+    "mode": "campaign",
+    "round_duration_sec": 60,
+    "species_count": 11,
+    "event_density": "high",
+    "overlap_probability": 0.6,
+    "scoring_window_ms": 500,
+    "spectrogram_mode": "none"
+  }
+]
