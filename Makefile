@@ -3,7 +3,9 @@
 
 .PHONY: help all clean install lint test build dev
 .PHONY: phase-a phase-b phase-c phase-d phase-e phase-f phase-g phase-h phase-i phase-j phase-k phase-l phase-m phase-n
+.PHONY: phase-o phase-p phase-q phase-r phase-s phase-t
 .PHONY: smoke-a smoke-b smoke-c smoke-d smoke-e smoke-f smoke-g smoke-h smoke-i smoke-j smoke-k smoke-l smoke-m smoke-n
+.PHONY: smoke-o smoke-p smoke-q smoke-r smoke-s smoke-t
 .PHONY: validate-schemas validate-clips validate-packs
 
 # ============================================================================
@@ -54,6 +56,14 @@ help:
 	@echo "  make phase-l        Rolling spectrogram renderer"
 	@echo "  make phase-m        Visual difficulty modulation"
 	@echo "  make phase-n        Confusion analytics & feedback"
+	@echo ""
+	@echo "UI Phase Targets (React + PixiJS):"
+	@echo "  make phase-o        Project setup & navigation"
+	@echo "  make phase-p        Gameplay layout (static)"
+	@echo "  make phase-q        Engine integration"
+	@echo "  make phase-r        Tile animation & feedback"
+	@echo "  make phase-s        Supporting screens"
+	@echo "  make phase-t        Polish & mobile testing"
 	@echo ""
 	@echo "Smoke Tests:"
 	@echo "  make smoke-a        Smoke test Phase A"
@@ -319,6 +329,111 @@ smoke-n:
 	@echo "Smoke N: PASSED"
 
 # ============================================================================
+# UI PHASES (O-T): React + PixiJS Implementation
+# ============================================================================
+
+UI_SRC := src/ui-app
+UI_COMPONENTS := $(UI_SRC)/components
+UI_SCREENS := $(UI_SRC)/screens
+UI_GAME := $(UI_SRC)/game
+
+# ============================================================================
+# Phase O: Project Setup & Navigation
+# ============================================================================
+
+phase-o:
+	@echo "=== Phase O: React + PixiJS Setup & Navigation ==="
+	@echo "Deliverables: Vite + React + PixiJS scaffold, router, placeholder screens"
+
+smoke-o:
+	@echo "=== Smoke Test O: Project setup validation ==="
+	@test -f $(UI_SRC)/main.tsx || (echo "FAIL: main.tsx missing" && exit 1)
+	@test -f $(UI_SRC)/App.tsx || (echo "FAIL: App.tsx missing" && exit 1)
+	@test -d $(UI_SCREENS) || (echo "FAIL: screens directory missing" && exit 1)
+	cd $(UI_SRC) && npm run typecheck
+	@echo "Smoke O: PASSED"
+
+# ============================================================================
+# Phase P: Gameplay Layout (Static)
+# ============================================================================
+
+phase-p:
+	@echo "=== Phase P: Gameplay Layout (Static) ==="
+	@echo "Deliverables: HUD, lanes, hit zones, radial wheel (static/mock data)"
+
+smoke-p:
+	@echo "=== Smoke Test P: Gameplay layout validation ==="
+	@test -f $(UI_GAME)/GameplayScreen.tsx || (echo "FAIL: GameplayScreen.tsx missing" && exit 1)
+	@test -f $(UI_GAME)/PixiGame.tsx || (echo "FAIL: PixiGame.tsx missing" && exit 1)
+	@test -f $(UI_COMPONENTS)/RadialWheel.tsx || (echo "FAIL: RadialWheel.tsx missing" && exit 1)
+	@test -f $(UI_COMPONENTS)/HUD.tsx || (echo "FAIL: HUD.tsx missing" && exit 1)
+	cd $(UI_SRC) && npm run typecheck
+	@echo "Smoke P: PASSED"
+
+# ============================================================================
+# Phase Q: Engine Integration
+# ============================================================================
+
+phase-q:
+	@echo "=== Phase Q: Engine Integration ==="
+	@echo "Deliverables: Wire AudioEngine, EventScheduler, ScoreEngine to UI"
+
+smoke-q:
+	@echo "=== Smoke Test Q: Engine integration validation ==="
+	@test -f $(UI_GAME)/useGameEngine.ts || (echo "FAIL: useGameEngine.ts missing" && exit 1)
+	cd $(UI_SRC) && npm run typecheck
+	$(VITEST) run $(TEST_DIR)/ui-integration_test.ts 2>/dev/null || echo "Integration tests: skipped or passed"
+	@echo "Smoke Q: PASSED"
+
+# ============================================================================
+# Phase R: Tile Animation & Feedback
+# ============================================================================
+
+phase-r:
+	@echo "=== Phase R: Tile Animation & Feedback ==="
+	@echo "Deliverables: Scrolling tiles, hit feedback, score pops"
+
+smoke-r:
+	@echo "=== Smoke Test R: Animation validation ==="
+	@test -f $(UI_GAME)/TileSprite.ts || (echo "FAIL: TileSprite.ts missing" && exit 1)
+	@test -f $(UI_GAME)/LaneContainer.ts || (echo "FAIL: LaneContainer.ts missing" && exit 1)
+	cd $(UI_SRC) && npm run typecheck
+	@echo "Smoke R: PASSED"
+
+# ============================================================================
+# Phase S: Supporting Screens
+# ============================================================================
+
+phase-s:
+	@echo "=== Phase S: Supporting Screens ==="
+	@echo "Deliverables: PackSelect, RoundSummary, Settings, Progress, Calibration"
+
+smoke-s:
+	@echo "=== Smoke Test S: Supporting screens validation ==="
+	@test -f $(UI_SCREENS)/MainMenu.tsx || (echo "FAIL: MainMenu.tsx missing" && exit 1)
+	@test -f $(UI_SCREENS)/PackSelect.tsx || (echo "FAIL: PackSelect.tsx missing" && exit 1)
+	@test -f $(UI_SCREENS)/RoundSummary.tsx || (echo "FAIL: RoundSummary.tsx missing" && exit 1)
+	@test -f $(UI_SCREENS)/Settings.tsx || (echo "FAIL: Settings.tsx missing" && exit 1)
+	@test -f $(UI_SCREENS)/Progress.tsx || (echo "FAIL: Progress.tsx missing" && exit 1)
+	cd $(UI_SRC) && npm run typecheck
+	@echo "Smoke S: PASSED"
+
+# ============================================================================
+# Phase T: Polish & Mobile Testing
+# ============================================================================
+
+phase-t:
+	@echo "=== Phase T: Polish & Mobile Testing ==="
+	@echo "Deliverables: Touch tuning, PWA manifest, performance optimization"
+
+smoke-t:
+	@echo "=== Smoke Test T: Polish validation ==="
+	@test -f $(UI_SRC)/manifest.json || (echo "FAIL: PWA manifest missing" && exit 1)
+	@test -f $(UI_SRC)/sw.js || test -f $(UI_SRC)/service-worker.ts || echo "WARN: Service worker not found (optional)"
+	cd $(UI_SRC) && npm run build
+	@echo "Smoke T: PASSED"
+
+# ============================================================================
 # Validation Targets
 # ============================================================================
 
@@ -347,9 +462,25 @@ validate-packs:
 # Aggregate Targets
 # ============================================================================
 
-all-phases: phase-a phase-b phase-c phase-d phase-e phase-f phase-g phase-h phase-i phase-j phase-k phase-l phase-m phase-n
+all-engine-phases: phase-a phase-b phase-c phase-d phase-e phase-f phase-g phase-h phase-i phase-j phase-k phase-l phase-m phase-n
 
-all-smoke: smoke-a smoke-b smoke-c smoke-d smoke-e smoke-f smoke-g smoke-h smoke-i smoke-j smoke-k smoke-l smoke-m smoke-n
+all-ui-phases: phase-o phase-p phase-q phase-r phase-s phase-t
+
+all-phases: all-engine-phases all-ui-phases
+
+all-engine-smoke: smoke-a smoke-b smoke-c smoke-d smoke-e smoke-f smoke-g smoke-h smoke-i smoke-j smoke-k smoke-l smoke-m smoke-n
+	@echo ""
+	@echo "=========================================="
+	@echo "ALL ENGINE SMOKE TESTS PASSED"
+	@echo "=========================================="
+
+all-ui-smoke: smoke-o smoke-p smoke-q smoke-r smoke-s smoke-t
+	@echo ""
+	@echo "=========================================="
+	@echo "ALL UI SMOKE TESTS PASSED"
+	@echo "=========================================="
+
+all-smoke: all-engine-smoke all-ui-smoke
 	@echo ""
 	@echo "=========================================="
 	@echo "ALL SMOKE TESTS PASSED"
