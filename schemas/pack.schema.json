@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pack",
+  "description": "Schema for bird species pack definition",
+  "type": "object",
+  "required": [
+    "pack_id",
+    "display_name",
+    "description",
+    "species",
+    "vocalization_weights"
+  ],
+  "properties": {
+    "pack_id": {
+      "type": "string",
+      "pattern": "^[a-z_]+$",
+      "description": "Unique identifier for the pack (lowercase with underscores)"
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display name for the pack"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the pack"
+    },
+    "species": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{4}$"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Array of 4-letter species codes"
+    },
+    "vocalization_weights": {
+      "type": "object",
+      "required": ["song", "call"],
+      "properties": {
+        "song": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Weight for songs (0-1)"
+        },
+        "call": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Weight for calls (0-1)"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Vocalization type weights"
+    },
+    "overlap_multiplier": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 2.0,
+      "default": 1.0,
+      "description": "Multiplier for overlap probability (0.5-2.0)"
+    },
+    "tempo_multiplier": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 2.0,
+      "default": 1.0,
+      "description": "Multiplier for event tempo (0.5-2.0)"
+    },
+    "seasonal_context": {
+      "type": ["string", "null"],
+      "description": "Optional seasonal context (e.g., 'spring', 'winter')"
+    }
+  },
+  "additionalProperties": false
+}
