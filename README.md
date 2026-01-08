@@ -114,6 +114,8 @@ tests/          # Vitest test files
 
 ## Implementation Status
 
+### Engine (Complete)
+
 | Phase | Description | Tests | Status |
 |-------|-------------|-------|--------|
 | A | Audio ingestion & tagging | ✓ | ✅ |
@@ -131,7 +133,20 @@ tests/          # Vitest test files
 | M | Visual modes | 60 | ✅ |
 | N | Confusion analytics | 37 | ✅ |
 
-**Total: 522 tests passing — ALL PHASES COMPLETE**
+**Engine: 522 tests passing**
+
+### UI (React + PixiJS)
+
+| Phase | Description | Status |
+|-------|-------------|--------|
+| O | Project setup & navigation | 🔄 |
+| P | Gameplay layout (static) | ⏳ |
+| Q | Engine integration | ⏳ |
+| R | Tile animation & feedback | ⏳ |
+| S | Supporting screens | ⏳ |
+| T | Polish & mobile testing | ⏳ |
+
+**Stack:** React (screens) + PixiJS (gameplay) • Mobile-first • Portrait • PWA
 
 ## Documentation
 
