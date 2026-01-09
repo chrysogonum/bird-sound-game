@@ -22,7 +22,12 @@ interface RoundResults {
   species: Array<{ code: string; name: string }>;
   mode?: string;
   packId?: string;
+  levelId?: number;
+  levelTitle?: string;
 }
+
+// Total number of campaign levels (should match levels.json)
+const TOTAL_CAMPAIGN_LEVELS = 6;
 
 function RoundSummary() {
   const navigate = useNavigate();
@@ -36,6 +41,23 @@ function RoundSummary() {
       try {
         const parsed: RoundResults = JSON.parse(saved);
         setResults(parsed);
+
+        // Save progress for campaign mode
+        if (parsed.mode === 'campaign' && parsed.levelId) {
+          const progressKey = 'soundfield_progress';
+          const existingProgress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+          const levelKey = `level_${parsed.levelId}`;
+          const existingBest = existingProgress[levelKey]?.bestScore || 0;
+
+          existingProgress[levelKey] = {
+            completed: true,
+            bestScore: Math.max(existingBest, parsed.score),
+            accuracy: parsed.totalEvents > 0
+              ? Math.round((parsed.eventsScored / parsed.totalEvents) * 100)
+              : 0,
+          };
+          localStorage.setItem(progressKey, JSON.stringify(existingProgress));
+        }
 
         // Build species breakdown with names - include ALL species from the pack
         const breakdown: SpeciesResult[] = [];
@@ -70,9 +92,18 @@ function RoundSummary() {
     ? Math.round((results.eventsScored / results.totalEvents) * 100)
     : 0;
 
+  const isCampaign = results?.mode === 'campaign';
+  const currentLevel = results?.levelId || 1;
+  const hasNextLevel = isCampaign && currentLevel < TOTAL_CAMPAIGN_LEVELS;
+
   return (
     <div className="screen screen-center">
       <h1>ROUND COMPLETE</h1>
+      {isCampaign && (
+        <p className="text-muted" style={{ marginTop: '-8px', marginBottom: '16px' }}>
+          Level {currentLevel}: {results?.levelTitle || 'Campaign'}
+        </p>
+      )}
 
       <div className="card" style={{ width: '100%', maxWidth: '320px', marginBottom: '24px' }}>
         <div className="flex-row justify-between" style={{ marginBottom: '16px' }}>
@@ -148,21 +179,36 @@ function RoundSummary() {
         </div>
       )}
 
-      <div className="flex-row gap-md" style={{ width: '100%', maxWidth: '320px' }}>
-        <button
-          className="btn-primary"
-          onClick={() => {
-            const mode = results?.mode || 'campaign';
-            const pack = results?.packId || 'common_se_birds';
-            navigate(`/gameplay?mode=${mode}&pack=${pack}`);
-          }}
-          style={{ flex: 1 }}
-        >
-          Play Again
-        </button>
-        <button className="btn-secondary" onClick={() => navigate('/')} style={{ flex: 1 }}>
-          Menu
-        </button>
+      <div className="flex-col gap-md" style={{ width: '100%', maxWidth: '320px' }}>
+        {hasNextLevel && (
+          <button
+            className="btn-primary"
+            onClick={() => {
+              const pack = results?.packId || 'common_se_birds';
+              navigate(`/gameplay?mode=campaign&pack=${pack}&level=${currentLevel + 1}`);
+            }}
+            style={{ width: '100%' }}
+          >
+            Next Level
+          </button>
+        )}
+        <div className="flex-row gap-md">
+          <button
+            className={hasNextLevel ? 'btn-secondary' : 'btn-primary'}
+            onClick={() => {
+              const mode = results?.mode || 'campaign';
+              const pack = results?.packId || 'common_se_birds';
+              const level = results?.levelId || 1;
+              navigate(`/gameplay?mode=${mode}&pack=${pack}&level=${level}`);
+            }}
+            style={{ flex: 1 }}
+          >
+            Play Again
+          </button>
+          <button className="btn-secondary" onClick={() => navigate('/')} style={{ flex: 1 }}>
+            Menu
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -191,11 +191,17 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const missCountRef = useRef<number>(0);
   const maxStreakRef = useRef<number>(0);
 
-  // Dynamic event spawning - one at a time, spawn next when current is done
+  // Dynamic event spawning
   const eventQueueRef = useRef<GameEvent[]>([]);
   const currentEventIndexRef = useRef<number>(0);
-  const currentEventIdRef = useRef<string | null>(null); // Track which event is current
-  const currentEventTimerRef = useRef<number | null>(null); // Timer for current event's end
+
+  // Single mode: one event at a time (legacy refs for backwards compatibility)
+  const currentEventIdRef = useRef<string | null>(null);
+  const currentEventTimerRef = useRef<number | null>(null);
+
+  // Offset mode: per-channel tracking
+  const channelEventIdRef = useRef<{ left: string | null; right: string | null }>({ left: null, right: null });
+  const channelTimerRef = useRef<{ left: number | null; right: number | null }>({ left: null, right: null });
 
   /**
    * Load clips.json data
@@ -367,6 +373,61 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   }, []);
 
   /**
+   * Select clips for a species based on clip_selection mode.
+   * - "canonical": only canonical clips
+   * - number (e.g., 3): canonical + up to (N-1) non-canonical clips
+   * - "all": all non-rejected clips
+   */
+  const selectClipsForSpecies = useCallback((
+    speciesCode: string,
+    allClips: ClipMetadata[],
+    clipSelection: 'canonical' | number | 'all',
+    random: () => number
+  ): ClipMetadata[] => {
+    // Get all non-rejected clips for this species
+    const speciesClips = allClips.filter(
+      (c) => c.species_code === speciesCode && !c.rejected
+    );
+
+    if (speciesClips.length === 0) return [];
+
+    // Find canonical clip(s)
+    const canonicalClips = speciesClips.filter((c) => c.canonical);
+    const nonCanonicalClips = speciesClips.filter((c) => !c.canonical);
+
+    if (clipSelection === 'canonical') {
+      // Only canonical clips
+      return canonicalClips.length > 0 ? canonicalClips : speciesClips.slice(0, 1);
+    }
+
+    if (clipSelection === 'all') {
+      // All clips for this species
+      return speciesClips;
+    }
+
+    // Number mode: canonical + up to (N-1) others
+    const maxClips = clipSelection as number;
+    const result: ClipMetadata[] = [];
+
+    // Always include canonical first
+    if (canonicalClips.length > 0) {
+      result.push(...canonicalClips);
+    }
+
+    // Shuffle non-canonical and add up to (maxClips - canonical count)
+    const shuffledNonCanonical = [...nonCanonicalClips];
+    for (let i = shuffledNonCanonical.length - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      [shuffledNonCanonical[i], shuffledNonCanonical[j]] = [shuffledNonCanonical[j], shuffledNonCanonical[i]];
+    }
+
+    const slotsRemaining = maxClips - result.length;
+    result.push(...shuffledNonCanonical.slice(0, slotsRemaining));
+
+    return result;
+  }, []);
+
+  /**
    * Generate event templates for the round.
    * With dynamic spawning, timing is calculated when events spawn, not upfront.
    * We generate plenty of events so fast players don't run out.
@@ -376,26 +437,56 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const seed = Date.now();
     const random = createSeededRandom(seed);
 
-    // Filter clips: exclude rejected, and optionally limit to canonical only
-    const availableClips = clips
-      .filter((c) => !c.rejected)  // Always exclude rejected clips
-      .filter((c) => !level.canonical_only || c.canonical);  // Optionally limit to canonical
+    // Determine clip selection mode (new field takes precedence over legacy)
+    const clipSelection = level.clip_selection ?? (level.canonical_only ? 'canonical' : 'all');
 
-    // Get clips organized by species
+    // Determine species pool
+    let selectedSpecies: string[];
+    if (level.species_pool && level.species_pool.length > 0) {
+      // Use fixed species pool from level config
+      selectedSpecies = [...level.species_pool];
+    } else {
+      // Get all available species from clips
+      const allSpecies = new Set<string>();
+      for (const clip of clips) {
+        if (!clip.rejected) {
+          allSpecies.add(clip.species_code);
+        }
+      }
+      // Shuffle and select
+      const speciesArray = Array.from(allSpecies);
+      for (let i = speciesArray.length - 1; i > 0; i--) {
+        const j = Math.floor(random() * (i + 1));
+        [speciesArray[i], speciesArray[j]] = [speciesArray[j], speciesArray[i]];
+      }
+      selectedSpecies = speciesArray.slice(0, level.species_count);
+    }
+
+    // Build clip pools for each selected species
     const speciesClips = new Map<string, ClipMetadata[]>();
-    for (const clip of availableClips) {
-      const existing = speciesClips.get(clip.species_code) || [];
-      existing.push(clip);
-      speciesClips.set(clip.species_code, existing);
+    for (const speciesCode of selectedSpecies) {
+      const clipsForSpecies = selectClipsForSpecies(speciesCode, clips, clipSelection, random);
+      if (clipsForSpecies.length > 0) {
+        speciesClips.set(speciesCode, clipsForSpecies);
+      }
     }
 
-    // Select random species for this level (shuffle then take first N)
-    const availableSpecies = Array.from(speciesClips.keys());
-    for (let i = availableSpecies.length - 1; i > 0; i--) {
-      const j = Math.floor(random() * (i + 1));
-      [availableSpecies[i], availableSpecies[j]] = [availableSpecies[j], availableSpecies[i]];
+    // Filter to only species that have clips available
+    selectedSpecies = selectedSpecies.filter((s) => speciesClips.has(s));
+
+    if (selectedSpecies.length === 0) {
+      console.error('No species with available clips!');
+      return [];
     }
-    const selectedSpecies = availableSpecies.slice(0, level.species_count);
+
+    // Debug logging
+    console.log('generateEvents:', {
+      clipSelection,
+      selectedSpecies,
+      clipsPerSpecies: Object.fromEntries(
+        Array.from(speciesClips.entries()).map(([k, v]) => [k, v.map(c => c.clip_id)])
+      ),
+    });
 
     // Generate plenty of events - with fast identification, players could go through many
     // Assume minimum ~2 seconds per bird, so 30 second round = max ~15 birds
@@ -428,7 +519,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     }
 
     return events;
-  }, [clips, level]);
+  }, [clips, level, selectClipsForSpecies]);
 
   /**
    * Get clip metadata by ID
@@ -439,17 +530,22 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
   /**
    * Spawn the next event from the queue.
-   * Called when round starts and when each event is completed.
-   * Only ONE event is active at a time (for beginner mode).
+   * @param targetChannel - For offset mode, which channel to spawn on.
+   *                        For single mode, ignored (uses event's assigned channel).
    */
-  const spawnNextEvent = useCallback(() => {
+  const spawnNextEvent = useCallback((targetChannel?: Channel) => {
     const queue = eventQueueRef.current;
     const index = currentEventIndexRef.current;
+    const channelMode = level.channel_mode || 'single';
 
     // Check if there are more events
     if (index >= queue.length) {
       // No more events - round will end when timer expires
-      currentEventIdRef.current = null;
+      if (channelMode === 'single') {
+        currentEventIdRef.current = null;
+      } else if (targetChannel) {
+        channelEventIdRef.current[targetChannel] = null;
+      }
       return;
     }
 
@@ -461,54 +557,90 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const remainingMs = roundDurationMs - elapsedMs;
 
     // Don't spawn if there's not enough time for a meaningful play
-    // Need at least 2 seconds for player to hear and identify
     const minPlayableTimeMs = 2000;
     if (remainingMs < minPlayableTimeMs) {
-      currentEventIdRef.current = null;
+      if (channelMode === 'single') {
+        currentEventIdRef.current = null;
+      } else if (targetChannel) {
+        channelEventIdRef.current[targetChannel] = null;
+      }
       return;
-    }
-
-    // Cancel any pending timer from previous event
-    if (currentEventTimerRef.current !== null) {
-      clearTimeout(currentEventTimerRef.current);
-      currentEventTimerRef.current = null;
     }
 
     // Get next event template
     const eventTemplate = queue[index];
     currentEventIndexRef.current = index + 1;
 
+    // Determine the channel for this event
+    let eventChannel: Channel;
+    if (channelMode === 'offset' && targetChannel) {
+      // In offset mode, use the target channel
+      eventChannel = targetChannel;
+    } else {
+      // In single mode, use the event's pre-assigned channel
+      eventChannel = eventTemplate.channel;
+    }
+
+    // Cancel any pending timer for this channel (single mode) or specific channel (offset mode)
+    if (channelMode === 'single') {
+      if (currentEventTimerRef.current !== null) {
+        clearTimeout(currentEventTimerRef.current);
+        currentEventTimerRef.current = null;
+      }
+    } else {
+      const existingTimer = channelTimerRef.current[eventChannel];
+      if (existingTimer !== null) {
+        clearTimeout(existingTimer);
+        channelTimerRef.current[eventChannel] = null;
+      }
+    }
+
     // Tile should enter NOW, hit zone in audioLeadTimeMs
     const tileEnterTimeMs = elapsedMs;
     const hitZoneTimeMs = elapsedMs + audioLeadTimeMs;
 
-    // Create the actual event with real timing
+    // Create the actual event with real timing and correct channel
     const event: GameEvent = {
       ...eventTemplate,
+      channel: eventChannel,
       scheduled_time_ms: hitZoneTimeMs,
       scoring_window_start_ms: tileEnterTimeMs,
       scoring_window_end_ms: hitZoneTimeMs + 500, // 500ms grace after hit zone
     };
 
     // Track this as the current event
-    currentEventIdRef.current = event.event_id;
-
-    // Add to generated events for results tracking
-    generatedEventsRef.current.push(event);
+    if (channelMode === 'single') {
+      currentEventIdRef.current = event.event_id;
+    } else {
+      channelEventIdRef.current[eventChannel] = event.event_id;
+    }
 
     // Add to scheduled events for PixiGame rendering
     const clip = getClipById(event.clip_id);
+
+    if (!clip) {
+      console.error('spawnNextEvent: clip not found for clip_id:', event.clip_id, 'species:', event.species_code);
+      // Skip this event and try the next one
+      if (channelMode === 'single') {
+        spawnNextEvent();
+      } else if (targetChannel) {
+        spawnNextEvent(targetChannel);
+      }
+      return;
+    }
+
+    // Add to generated events for results tracking (only if clip exists)
+    generatedEventsRef.current.push(event);
+
     const scheduledEvent: ScheduledEvent = {
       ...event,
-      spectrogramPath: clip?.spectrogram_path || null,
-      filePath: clip?.file_path || '',
+      spectrogramPath: clip.spectrogram_path || null,
+      filePath: clip.file_path,
     };
     setScheduledEvents((prev) => [...prev, scheduledEvent]);
 
     // Start audio immediately (tile is entering now)
-    if (clip) {
-      playAudio(clip.file_path, event.channel, event.event_id, event.scheduled_time_ms);
-    }
+    playAudio(clip.file_path, eventChannel, event.event_id, event.scheduled_time_ms);
 
     // Add to active events (scoring window opens immediately)
     setActiveEvents((prev) => [
@@ -523,12 +655,17 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Set up scoring window end (when tile passes hit zone)
     const windowDuration = audioLeadTimeMs + 500; // Full scroll + grace period
     const eventId = event.event_id; // Capture for closure
-    currentEventTimerRef.current = window.setTimeout(() => {
-      // Only process if THIS event is still the current one
-      if (currentEventIdRef.current !== eventId) return;
+    const eventChannelCapture = eventChannel; // Capture channel for closure
 
-      // Clear the timer ref
-      currentEventTimerRef.current = null;
+    const timerId = window.setTimeout(() => {
+      // Verify this event is still the current one for its channel
+      if (channelMode === 'single') {
+        if (currentEventIdRef.current !== eventId) return;
+        currentEventTimerRef.current = null;
+      } else {
+        if (channelEventIdRef.current[eventChannelCapture] !== eventId) return;
+        channelTimerRef.current[eventChannelCapture] = null;
+      }
 
       // Stop the looping audio
       stopAudio(eventId);
@@ -552,33 +689,67 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
       // Spawn next event after a brief delay (so miss feedback is visible)
       window.setTimeout(() => {
-        spawnNextEvent();
+        if (channelMode === 'single') {
+          spawnNextEvent();
+        } else {
+          spawnNextEvent(eventChannelCapture);
+        }
       }, 200);
     }, windowDuration);
-  }, [getClipById, playAudio, stopAudio, audioLeadTimeMs, level.round_duration_sec]);
+
+    // Store timer reference
+    if (channelMode === 'single') {
+      currentEventTimerRef.current = timerId;
+    } else {
+      channelTimerRef.current[eventChannel] = timerId;
+    }
+  }, [getClipById, playAudio, stopAudio, audioLeadTimeMs, level.round_duration_sec, level.channel_mode]);
 
   /**
    * Called when player correctly identifies a bird - spawn next immediately
    */
-  const onEventCompleted = useCallback((eventId: string) => {
-    // Only process if this is the current event
-    if (currentEventIdRef.current !== eventId) return;
+  const onEventCompleted = useCallback((eventId: string, channel: Channel) => {
+    const channelMode = level.channel_mode || 'single';
 
-    // Cancel the timeout for this event
-    if (currentEventTimerRef.current !== null) {
-      clearTimeout(currentEventTimerRef.current);
-      currentEventTimerRef.current = null;
+    if (channelMode === 'single') {
+      // Single mode: verify this is the current event
+      if (currentEventIdRef.current !== eventId) return;
+
+      // Cancel the timeout for this event
+      if (currentEventTimerRef.current !== null) {
+        clearTimeout(currentEventTimerRef.current);
+        currentEventTimerRef.current = null;
+      }
+
+      // Clear current event reference
+      currentEventIdRef.current = null;
+
+      // Stop audio for this event
+      stopAudio(eventId);
+
+      // Spawn next event immediately (no delay for successful IDs)
+      spawnNextEvent();
+    } else {
+      // Offset mode: verify this event is current for its channel
+      if (channelEventIdRef.current[channel] !== eventId) return;
+
+      // Cancel the timeout for this channel
+      const existingTimer = channelTimerRef.current[channel];
+      if (existingTimer !== null) {
+        clearTimeout(existingTimer);
+        channelTimerRef.current[channel] = null;
+      }
+
+      // Clear channel event reference
+      channelEventIdRef.current[channel] = null;
+
+      // Stop audio for this event
+      stopAudio(eventId);
+
+      // Spawn next event on this channel immediately
+      spawnNextEvent(channel);
     }
-
-    // Clear current event reference
-    currentEventIdRef.current = null;
-
-    // Stop audio for this event
-    stopAudio(eventId);
-
-    // Spawn next event immediately (no delay for successful IDs)
-    spawnNextEvent();
-  }, [stopAudio, spawnNextEvent]);
+  }, [stopAudio, spawnNextEvent, level.channel_mode]);
 
   /**
    * Initialize the engine (load clips, set up audio)
@@ -642,11 +813,23 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const eventTemplates = generateEvents();
     eventQueueRef.current = eventTemplates;
     currentEventIndexRef.current = 0;
+
+    // Reset single mode refs
     currentEventIdRef.current = null;
     if (currentEventTimerRef.current !== null) {
       clearTimeout(currentEventTimerRef.current);
       currentEventTimerRef.current = null;
     }
+
+    // Reset offset mode refs
+    channelEventIdRef.current = { left: null, right: null };
+    if (channelTimerRef.current.left !== null) {
+      clearTimeout(channelTimerRef.current.left);
+    }
+    if (channelTimerRef.current.right !== null) {
+      clearTimeout(channelTimerRef.current.right);
+    }
+    channelTimerRef.current = { left: null, right: null };
 
     // Start the round
     const startTime = performance.now();
@@ -654,8 +837,16 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     setRoundStartTime(startTime);
     roundStartTimeRef.current = startTime;
 
-    // Spawn the first event immediately
-    spawnNextEvent();
+    const channelMode = level.channel_mode || 'single';
+
+    if (channelMode === 'single') {
+      // Spawn one event
+      spawnNextEvent();
+    } else {
+      // Offset mode: spawn events on both channels
+      spawnNextEvent('left');
+      spawnNextEvent('right');
+    }
 
     // Start countdown timer
     timerRef.current = window.setInterval(() => {
@@ -673,7 +864,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       endRound();
     }, level.round_duration_sec * 1000);
     eventTimersRef.current.push(roundEndTimerId);
-  }, [roundState, clips.length, level.round_duration_sec, generateEvents, spawnNextEvent]);
+  }, [roundState, clips.length, level.round_duration_sec, level.channel_mode, generateEvents, spawnNextEvent]);
 
   /**
    * End the current round
@@ -687,12 +878,22 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       timerRef.current = null;
     }
 
-    // Clear the current event timer (prevents spawning more events)
+    // Clear single mode event timer
     if (currentEventTimerRef.current !== null) {
       clearTimeout(currentEventTimerRef.current);
       currentEventTimerRef.current = null;
     }
     currentEventIdRef.current = null;
+
+    // Clear offset mode channel timers
+    if (channelTimerRef.current.left !== null) {
+      clearTimeout(channelTimerRef.current.left);
+    }
+    if (channelTimerRef.current.right !== null) {
+      clearTimeout(channelTimerRef.current.right);
+    }
+    channelTimerRef.current = { left: null, right: null };
+    channelEventIdRef.current = { left: null, right: null };
 
     // Clear all other pending timers
     for (const timerId of eventTimersRef.current) {
@@ -744,12 +945,14 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       maxStreak: maxStreakRef.current,
       speciesResults,
       species: species.map(s => ({ code: s.code, name: s.name })),
-      // Save mode/pack so "Play Again" can return to same mode
+      // Save mode/pack/level so "Play Again" and "Next Level" work
       mode: level.mode,
       packId: level.pack_id,
+      levelId: level.level_id,
+      levelTitle: level.title,
     };
     localStorage.setItem('soundfield_round_results', JSON.stringify(roundResults));
-  }, [species, level.mode, level.pack_id]);
+  }, [species, level.mode, level.pack_id, level.level_id, level.title]);
 
   /**
    * Calculate score breakdown
@@ -824,11 +1027,16 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
     const currentTime = performance.now();
     const roundTime = currentTime - roundStartTimeRef.current;
+    const channelMode = level.channel_mode || 'single';
 
-    // Find the active event that matches this input timing
+    // Find the active event that matches this input
+    // In offset mode, match by channel; in single mode, match any active event
     const matchingEvent = activeEvents.find((e) => {
       if (e.hasBeenScored) return false;
-      return roundTime >= e.scoring_window_start_ms && roundTime <= e.scoring_window_end_ms;
+      if (roundTime < e.scoring_window_start_ms || roundTime > e.scoring_window_end_ms) return false;
+      // In offset mode, only match events on the input channel
+      if (channelMode === 'offset' && e.channel !== channel) return false;
+      return true;
     });
 
     if (!matchingEvent) {
@@ -845,7 +1053,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     }
     // Move on to next bird immediately (whether correct or wrong)
     // This keeps the game flowing without awkward pauses
-    onEventCompleted(matchingEvent.event_id);
+    onEventCompleted(matchingEvent.event_id, matchingEvent.channel);
 
     // Update state
     setActiveEvents((prev) =>
@@ -912,7 +1120,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     setTimeout(() => {
       setCurrentFeedback((prev) => (prev?.id === feedback.id ? null : prev));
     }, 500);
-  }, [roundState, activeEvents, calculateBreakdown, stopAudio, onEventCompleted, maxStreak]);
+  }, [roundState, activeEvents, calculateBreakdown, onEventCompleted, maxStreak, level.channel_mode]);
 
   /**
    * Reset to idle state

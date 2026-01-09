@@ -13,6 +13,12 @@ export type SpectrogramMode = 'full' | 'fading' | 'none';
 /** Game modes */
 export type GameMode = 'campaign' | 'practice' | 'challenge' | 'random';
 
+/** Channel modes for gameplay */
+export type ChannelMode = 'single' | 'offset';
+
+/** Clip selection modes */
+export type ClipSelection = 'canonical' | number | 'all';
+
 /** Level configuration from levels.json */
 export interface LevelConfig {
   level_id: number;
@@ -26,6 +32,14 @@ export interface LevelConfig {
   spectrogram_mode: SpectrogramMode;
   /** If true, only use canonical (beginner) clips for each species */
   canonical_only?: boolean;
+  /** Clip selection: "canonical" = only canonical, number = canonical + (N-1) others, "all" = all clips */
+  clip_selection?: ClipSelection;
+  /** Channel mode: "single" = one bird at a time, "offset" = both channels can be active */
+  channel_mode?: ChannelMode;
+  /** Fixed species pool for this level (null/undefined = random from pack) */
+  species_pool?: string[];
+  /** Level title for UI display */
+  title?: string;
 }
 
 /** Runtime game event */

@@ -24,7 +24,7 @@ const DEFAULT_COLORS = [
   '#A1887F',
 ];
 
-// Level configs for different modes
+// Fallback configs for non-campaign modes
 const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> = {
   campaign: {
     mode: 'campaign',
@@ -34,7 +34,8 @@ const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> 
     overlap_probability: 0,
     scoring_window_ms: 2000,
     spectrogram_mode: 'full',
-    canonical_only: true,  // Beginner: one sound per species
+    clip_selection: 'canonical',
+    channel_mode: 'single',
   },
   practice: {
     mode: 'practice',
@@ -44,7 +45,8 @@ const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> 
     overlap_probability: 0,
     scoring_window_ms: 3000,
     spectrogram_mode: 'full',
-    canonical_only: true,  // Practice: focus on canonical sounds
+    clip_selection: 'canonical',
+    channel_mode: 'single',
   },
   challenge: {
     mode: 'challenge',
@@ -54,7 +56,8 @@ const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> 
     overlap_probability: 0,
     scoring_window_ms: 1500,
     spectrogram_mode: 'fading',
-    canonical_only: false,  // Challenge: all sound variations
+    clip_selection: 'all',
+    channel_mode: 'offset',
   },
   random: {
     mode: 'random',
@@ -64,7 +67,8 @@ const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> 
     overlap_probability: 0,
     scoring_window_ms: 2000,
     spectrogram_mode: 'full',
-    canonical_only: false,  // Random: all sound variations
+    clip_selection: 'all',
+    channel_mode: 'single',
   },
 };
 
@@ -75,20 +79,45 @@ function GameplayScreen() {
   const [dimensions, setDimensions] = useState({ width: 400, height: 400 });
   const [selectedChannel, setSelectedChannel] = useState<Channel | null>(null);
   const [selectedSpecies, setSelectedSpecies] = useState<string | null>(null);
+  const [campaignLevels, setCampaignLevels] = useState<LevelConfig[]>([]);
 
-  // Read mode and pack from URL params
+  // Read mode, pack, and level from URL params
   const mode = (searchParams.get('mode') || 'campaign') as GameMode;
   const packId = searchParams.get('pack') || 'common_se_birds';
+  const levelId = parseInt(searchParams.get('level') || '1', 10);
+
+  // Load campaign levels from levels.json
+  useEffect(() => {
+    fetch('/data/levels.json')
+      .then((res) => res.json())
+      .then((levels: LevelConfig[]) => {
+        setCampaignLevels(levels);
+      })
+      .catch((err) => {
+        console.error('Failed to load levels.json:', err);
+      });
+  }, []);
 
   // Build level config based on mode
   const levelConfig = useMemo((): LevelConfig => {
+    if (mode === 'campaign' && campaignLevels.length > 0) {
+      // Find the requested level from levels.json
+      const level = campaignLevels.find((l) => l.level_id === levelId);
+      if (level) {
+        return level;
+      }
+      // Fallback to first level if not found
+      return campaignLevels[0];
+    }
+
+    // For non-campaign modes, use hardcoded configs
     const modeConfig = MODE_CONFIGS[mode] || MODE_CONFIGS.campaign;
     return {
       level_id: 1,
       pack_id: packId,
       ...modeConfig,
     };
-  }, [mode, packId]);
+  }, [mode, packId, levelId, campaignLevels]);
 
   // Use the game engine hook with the level config
   const [gameState, gameActions] = useGameEngine(levelConfig);
@@ -215,6 +244,8 @@ function GameplayScreen() {
         maxStreak={gameState.maxStreak}
         timeRemaining={gameState.timeRemaining}
         mode={mode}
+        levelId={levelConfig.level_id}
+        levelTitle={levelConfig.title}
       />
 
       {/* Back button overlay */}

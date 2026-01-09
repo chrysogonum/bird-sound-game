@@ -66,6 +66,28 @@
         "type": "string",
         "enum": ["full", "fading", "none"],
         "description": "Spectrogram visibility mode"
+      },
+      "clip_selection": {
+        "oneOf": [
+          { "type": "string", "enum": ["canonical", "all"] },
+          { "type": "integer", "minimum": 1 }
+        ],
+        "description": "Clip selection: 'canonical' = only canonical clips, number = canonical + (N-1) others, 'all' = all clips"
+      },
+      "channel_mode": {
+        "type": "string",
+        "enum": ["single", "offset"],
+        "description": "Channel mode: 'single' = one bird at a time, 'offset' = both channels can be active with offset timing"
+      },
+      "species_pool": {
+        "type": "array",
+        "items": { "type": "string" },
+        "minItems": 1,
+        "description": "Fixed species codes for this level (omit for random selection from pack)"
+      },
+      "title": {
+        "type": "string",
+        "description": "Display title for the level"
       }
     },
     "additionalProperties": false

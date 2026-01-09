@@ -6,6 +6,8 @@ export interface HUDProps {
   maxStreak: number;
   timeRemaining: number;
   mode?: string;
+  levelId?: number;
+  levelTitle?: string;
 }
 
 const MODE_LABELS: Record<string, string> = {
@@ -15,7 +17,7 @@ const MODE_LABELS: Record<string, string> = {
   random: 'Random',
 };
 
-function HUD({ score, streak, maxStreak, timeRemaining, mode }: HUDProps) {
+function HUD({ score, streak, maxStreak, timeRemaining, mode, levelId, levelTitle }: HUDProps) {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
   const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
@@ -28,9 +30,11 @@ function HUD({ score, streak, maxStreak, timeRemaining, mode }: HUDProps) {
       </div>
 
       <div className="hud-center">
-        {mode && (
+        {mode === 'campaign' && levelId ? (
+          <span className="hud-mode">Level {levelId}{levelTitle ? `: ${levelTitle}` : ''}</span>
+        ) : mode ? (
           <span className="hud-mode">{MODE_LABELS[mode] || mode}</span>
-        )}
+        ) : null}
         <div className="hud-streak">
           {Array.from({ length: maxStreak }).map((_, i) => (
             <span
