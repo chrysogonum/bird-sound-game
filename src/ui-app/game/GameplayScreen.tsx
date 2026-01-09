@@ -101,12 +101,17 @@ function GameplayScreen() {
   // Build level config based on mode
   const levelConfig = useMemo((): LevelConfig => {
     if (mode === 'campaign' && campaignLevels.length > 0) {
-      // Find the requested level from levels.json
-      const level = campaignLevels.find((l) => l.level_id === levelId);
+      // Find the requested level from levels.json (match both pack_id AND level_id)
+      const level = campaignLevels.find((l) => l.pack_id === packId && l.level_id === levelId);
       if (level) {
         return level;
       }
-      // Fallback to first level if not found
+      // Fallback to first level for this pack if not found
+      const packFirstLevel = campaignLevels.find((l) => l.pack_id === packId);
+      if (packFirstLevel) {
+        return packFirstLevel;
+      }
+      // Ultimate fallback to first level
       return campaignLevels[0];
     }
 

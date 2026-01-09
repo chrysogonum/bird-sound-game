@@ -116,14 +116,35 @@ const DEFAULT_LEVEL: LevelConfig = {
 
 /** Species colors for UI */
 const SPECIES_COLORS: Record<string, string> = {
+  // Original 5
   NOCA: '#E57373',
-  BLJA: '#4FC3F7',
   CARW: '#81C784',
+  BLJA: '#4FC3F7',
   AMCR: '#424242',
   TUTI: '#FFD54F',
-  EABL: '#4A90D9',
-  MODO: '#A1887F',
+  // Expanded pack
+  BEKI: '#00BCD4',
+  RSHA: '#8D6E63',
+  AMGO: '#FFEB3B',
+  CACH: '#B0BEC5',
+  PIWA: '#AED581',
+  WTSP: '#BCAAA4',
+  HOFI: '#EF9A9A',
+  EABL: '#64B5F6',
   AMRO: '#FF8A65',
+  HETH: '#D7CCC8',
+  BHNU: '#A1887F',
+  BRCR: '#8D6E63',
+  WBNU: '#80CBC4',
+  YBSA: '#FFF59D',
+  RBWO: '#CE93D8',
+  DOWO: '#90A4AE',
+  HAWO: '#CFD8DC',
+  NOFL: '#FFCC80',
+  PIWO: '#B39DDB',
+  BRTH: '#A1887F',
+  GRCA: '#78909C',
+  MODO: '#BCAAA4',
 };
 
 /**
@@ -226,9 +247,17 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       const data: ClipMetadata[] = await response.json();
       setClips(data);
 
-      // Extract unique species
+      // Filter by species_pool if level specifies it
+      const speciesPool = level.species_pool;
+      const allowedSpecies = speciesPool ? new Set(speciesPool) : null;
+
+      // Extract unique species (filtered by species_pool if present)
       const speciesMap = new Map<string, SpeciesInfo>();
       for (const clip of data) {
+        // Skip if we have a species_pool and this species isn't in it
+        if (allowedSpecies && !allowedSpecies.has(clip.species_code)) {
+          continue;
+        }
         if (!speciesMap.has(clip.species_code)) {
           speciesMap.set(clip.species_code, {
             code: clip.species_code,
@@ -241,7 +270,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     } catch (error) {
       console.error('Error loading clips:', error);
     }
-  }, []);
+  }, [level.species_pool]);
 
   /**
    * Initialize audio context
@@ -873,9 +902,15 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       // Spawn one event
       spawnNextEvent();
     } else {
-      // Offset mode: spawn events on both channels
+      // Offset mode: spawn events on both channels with staggered start
+      // First channel starts immediately, second channel delayed so player
+      // can process the first bird before the second appears
       spawnNextEvent('left');
-      spawnNextEvent('right');
+      const staggerDelayMs = 1500; // 1.5 second delay for second channel
+      const staggerTimerId = window.setTimeout(() => {
+        spawnNextEvent('right');
+      }, staggerDelayMs);
+      eventTimersRef.current.push(staggerTimerId);
     }
 
     // Start countdown timer

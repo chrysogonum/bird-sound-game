@@ -74,11 +74,35 @@ DEFAULT_SPECIES = [
 
 # Species characteristics for demo audio generation (frequency range in Hz)
 SPECIES_CHARACTERISTICS = {
+    # Original 5 starter species
     "Northern Cardinal": {"code": "NOCA", "freq_base": 2800, "freq_range": 1500, "voc_type": "song"},
     "Carolina Wren": {"code": "CARW", "freq_base": 3200, "freq_range": 1200, "voc_type": "song"},
     "Blue Jay": {"code": "BLJA", "freq_base": 2200, "freq_range": 800, "voc_type": "call"},
     "American Crow": {"code": "AMCR", "freq_base": 800, "freq_range": 400, "voc_type": "call"},
     "Tufted Titmouse": {"code": "TUTI", "freq_base": 3500, "freq_range": 1000, "voc_type": "song"},
+    # Expanded pack species (22 additional)
+    "Belted Kingfisher": {"code": "BEKI", "freq_base": 2000, "freq_range": 1000, "voc_type": "call"},
+    "Red-shouldered Hawk": {"code": "RSHA", "freq_base": 1500, "freq_range": 800, "voc_type": "call"},
+    "American Goldfinch": {"code": "AMGO", "freq_base": 4000, "freq_range": 1500, "voc_type": "song"},
+    "Carolina Chickadee": {"code": "CACH", "freq_base": 3800, "freq_range": 1200, "voc_type": "song"},
+    "Pine Warbler": {"code": "PIWA", "freq_base": 3500, "freq_range": 800, "voc_type": "song", "query": 'gen:"Setophaga" sp:"pinus"'},
+    "White-throated Sparrow": {"code": "WTSP", "freq_base": 3200, "freq_range": 1000, "voc_type": "song"},
+    "House Finch": {"code": "HOFI", "freq_base": 3500, "freq_range": 1500, "voc_type": "song"},
+    "Eastern Bluebird": {"code": "EABL", "freq_base": 3000, "freq_range": 1200, "voc_type": "song"},
+    "American Robin": {"code": "AMRO", "freq_base": 2500, "freq_range": 1200, "voc_type": "song"},
+    "Hermit Thrush": {"code": "HETH", "freq_base": 2800, "freq_range": 1500, "voc_type": "song"},
+    "Brown-headed Nuthatch": {"code": "BHNU", "freq_base": 3500, "freq_range": 800, "voc_type": "call"},
+    "Brown Creeper": {"code": "BRCR", "freq_base": 6000, "freq_range": 2000, "voc_type": "song"},
+    "White-breasted Nuthatch": {"code": "WBNU", "freq_base": 2500, "freq_range": 800, "voc_type": "call"},
+    "Yellow-bellied Sapsucker": {"code": "YBSA", "freq_base": 2000, "freq_range": 600, "voc_type": "call"},
+    "Red-bellied Woodpecker": {"code": "RBWO", "freq_base": 2200, "freq_range": 800, "voc_type": "call"},
+    "Downy Woodpecker": {"code": "DOWO", "freq_base": 4000, "freq_range": 1000, "voc_type": "call"},
+    "Hairy Woodpecker": {"code": "HAWO", "freq_base": 3500, "freq_range": 1000, "voc_type": "call"},
+    "Northern Flicker": {"code": "NOFL", "freq_base": 2500, "freq_range": 1000, "voc_type": "call"},
+    "Pileated Woodpecker": {"code": "PIWO", "freq_base": 1800, "freq_range": 800, "voc_type": "call"},
+    "Brown Thrasher": {"code": "BRTH", "freq_base": 2800, "freq_range": 1500, "voc_type": "song"},
+    "Gray Catbird": {"code": "GRCA", "freq_base": 3000, "freq_range": 2000, "voc_type": "song"},
+    "Mourning Dove": {"code": "MODO", "freq_base": 500, "freq_range": 300, "voc_type": "song"},
 }
 
 
@@ -110,9 +134,9 @@ def fetch_xeno_canto_recordings(species_name: str, max_results: int = 5) -> list
         return []
 
     # API v3 requires tag-based queries. Plain text like "cardinal" returns nothing.
-    # Format: en:"English Name"+q:A (quality A recordings)
+    # Format: en:"English Name" - filter quality client-side for flexibility
     # Note: cnt:"United States" filter often returns 0 results, so we filter client-side
-    query = urllib.parse.quote(f'en:"{species_name}" q:A')
+    query = urllib.parse.quote(f'en:"{species_name}"')
     url = f"https://xeno-canto.org/api/3/recordings?query={query}&key={api_key}&per_page=100"
 
     try:
@@ -127,11 +151,11 @@ def fetch_xeno_canto_recordings(species_name: str, max_results: int = 5) -> list
 
         recordings = data.get('recordings', [])
 
-        # Filter for US recordings, quality A/B, and reasonable length
+        # Filter for US/Canada recordings, quality A/B, and reasonable length
         good_recordings = []
         for rec in recordings:
-            # Prefer US recordings for SE USA focus
-            if rec.get('cnt') != 'United States':
+            # Prefer US/Canada recordings for North American focus
+            if rec.get('cnt') not in ['United States', 'Canada']:
                 continue
             if rec.get('q') not in ['A', 'B']:
                 continue

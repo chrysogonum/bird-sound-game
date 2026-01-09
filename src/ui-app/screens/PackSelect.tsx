@@ -8,10 +8,8 @@ interface Pack {
 }
 
 const PACKS: Pack[] = [
-  { id: 'common_se_birds', name: 'Common SE Birds', speciesCount: 31, isUnlocked: true },
-  { id: 'spring_warblers', name: 'Spring Warblers', speciesCount: 6, isUnlocked: true },
-  { id: 'sparrows', name: 'Sparrows', speciesCount: 6, isUnlocked: false },
-  { id: 'woodpeckers', name: 'Woodpeckers', speciesCount: 4, isUnlocked: false },
+  { id: 'starter_birds', name: '5 Common Backyard Birds', speciesCount: 5, isUnlocked: true },
+  { id: 'expanded_backyard', name: 'Expanded Backyard Birds', speciesCount: 27, isUnlocked: true },
 ];
 
 function PackSelect() {
