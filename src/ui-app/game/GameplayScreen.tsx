@@ -34,6 +34,7 @@ const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> 
     overlap_probability: 0,
     scoring_window_ms: 2000,
     spectrogram_mode: 'full',
+    canonical_only: true,  // Beginner: one sound per species
   },
   practice: {
     mode: 'practice',
@@ -43,6 +44,7 @@ const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> 
     overlap_probability: 0,
     scoring_window_ms: 3000,
     spectrogram_mode: 'full',
+    canonical_only: true,  // Practice: focus on canonical sounds
   },
   challenge: {
     mode: 'challenge',
@@ -52,6 +54,7 @@ const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> 
     overlap_probability: 0,
     scoring_window_ms: 1500,
     spectrogram_mode: 'fading',
+    canonical_only: false,  // Challenge: all sound variations
   },
   random: {
     mode: 'random',
@@ -61,6 +64,7 @@ const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> 
     overlap_probability: 0,
     scoring_window_ms: 2000,
     spectrogram_mode: 'full',
+    canonical_only: false,  // Random: all sound variations
   },
 };
 

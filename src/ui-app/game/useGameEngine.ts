@@ -22,6 +22,8 @@ export interface ClipMetadata {
   source_id: string;
   file_path: string;
   spectrogram_path: string | null;
+  /** If true, this is the canonical/beginner sound for this species */
+  canonical?: boolean;
 }
 
 /** Species data for UI display */
@@ -372,9 +374,14 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const seed = Date.now();
     const random = createSeededRandom(seed);
 
+    // Filter clips if canonical_only mode (beginner levels)
+    const availableClips = level.canonical_only
+      ? clips.filter((c) => c.canonical)
+      : clips;
+
     // Get clips organized by species
     const speciesClips = new Map<string, ClipMetadata[]>();
-    for (const clip of clips) {
+    for (const clip of availableClips) {
       const existing = speciesClips.get(clip.species_code) || [];
       existing.push(clip);
       speciesClips.set(clip.species_code, existing);

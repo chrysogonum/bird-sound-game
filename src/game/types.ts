@@ -24,6 +24,8 @@ export interface LevelConfig {
   overlap_probability: number;
   scoring_window_ms: number;
   spectrogram_mode: SpectrogramMode;
+  /** If true, only use canonical (beginner) clips for each species */
+  canonical_only?: boolean;
 }
 
 /** Runtime game event */
