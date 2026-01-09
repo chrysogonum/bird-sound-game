@@ -108,9 +108,12 @@ tests/          # Vitest test files
 |--------|--------|
 | Species correct | +50 |
 | Channel correct | +25 |
-| Timing perfect | +25 |
-| Timing partial | +10 |
+| Timing (early) | +25 |
+| Timing (medium) | +20 |
+| Timing (late) | +15 |
 | **Maximum** | **+100** |
+
+Earlier identification = more points. Identify within ~1.75 seconds for max timing bonus.
 
 ## Implementation Status
 
