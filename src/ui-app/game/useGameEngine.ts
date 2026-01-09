@@ -51,6 +51,13 @@ export interface FeedbackData {
   timestamp: number;
 }
 
+/** Confusion data for round summary */
+export interface ConfusionEntry {
+  expectedSpecies: string;
+  guessedSpecies: string | null;
+  channel: Channel;
+}
+
 /** Scheduled event with clip metadata for rendering */
 export interface ScheduledEvent extends GameEvent {
   spectrogramPath: string | null;
@@ -161,21 +168,26 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const [activeEvents, setActiveEvents] = useState<ActiveEvent[]>([]);
   const [scheduledEvents, setScheduledEvents] = useState<ScheduledEvent[]>([]);
   const [roundStartTime, setRoundStartTime] = useState(0);
-  const [scrollSpeed] = useState(() => {
+  // Speed multiplier ref - tracks current setting for dynamic calculations
+  // Declared before scrollSpeed since useState initializer uses it
+  const speedMultiplierRef = useRef<number>(1.0);
+
+  // Base audio lead time at 1.0x speed
+  // At higher speeds, tiles travel faster so lead time decreases
+  const BASE_AUDIO_LEAD_TIME_MS = 5000;
+
+  const [scrollSpeed, setScrollSpeed] = useState(() => {
     // Base speed from difficulty
     const baseSpeed = SCROLL_SPEED_BY_DENSITY[level.event_density] || 100;
     // Multiplier from settings (0.5x to 2.0x)
     const savedMultiplier = localStorage.getItem('soundfield_scroll_speed');
     const multiplier = savedMultiplier ? parseFloat(savedMultiplier) : 1.0;
+    // Initialize ref with current multiplier
+    speedMultiplierRef.current = multiplier;
     return baseSpeed * multiplier;
   });
   const [currentFeedback, setCurrentFeedback] = useState<FeedbackData | null>(null);
   const [isAudioReady, setIsAudioReady] = useState(false);
-
-  // Audio lead time: start audio when tile enters visible area
-  // At 100px/sec and ~600px to travel, that's ~6 seconds
-  // Use 5 seconds as a good default - audio plays most of the journey
-  const audioLeadTimeMs = 5000;
 
   // Refs for timer and event scheduling
   const timerRef = useRef<number | null>(null);
@@ -190,6 +202,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const channelCorrectRef = useRef<number>(0);
   const missCountRef = useRef<number>(0);
   const maxStreakRef = useRef<number>(0);
+  const confusionDataRef = useRef<ConfusionEntry[]>([]);
 
   // Dynamic event spawning
   const eventQueueRef = useRef<GameEvent[]>([]);
@@ -538,6 +551,10 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const index = currentEventIndexRef.current;
     const channelMode = level.channel_mode || 'single';
 
+    // Calculate audio lead time based on current speed multiplier
+    // Higher speed = shorter lead time (tiles move faster)
+    const audioLeadTimeMs = BASE_AUDIO_LEAD_TIME_MS / speedMultiplierRef.current;
+
     // Check if there are more events
     if (index >= queue.length) {
       // No more events - round will end when timer expires
@@ -656,6 +673,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const windowDuration = audioLeadTimeMs + 500; // Full scroll + grace period
     const eventId = event.event_id; // Capture for closure
     const eventChannelCapture = eventChannel; // Capture channel for closure
+    const eventSpeciesCapture = event.species_code; // Capture species for miss tracking
 
     const timerId = window.setTimeout(() => {
       // Verify this event is still the current one for its channel
@@ -683,6 +701,12 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           setMissCount((m) => m + 1);
           missCountRef.current += 1;
           setStreak(0);
+          // Record miss in confusion data
+          confusionDataRef.current.push({
+            expectedSpecies: eventSpeciesCapture,
+            guessedSpecies: null,
+            channel: eventChannelCapture,
+          });
         }
         return prev;
       });
@@ -703,7 +727,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     } else {
       channelTimerRef.current[eventChannel] = timerId;
     }
-  }, [getClipById, playAudio, stopAudio, audioLeadTimeMs, level.round_duration_sec, level.channel_mode]);
+  }, [getClipById, playAudio, stopAudio, level.round_duration_sec, level.channel_mode]);
 
   /**
    * Called when player correctly identifies a bird - spawn next immediately
@@ -787,6 +811,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     console.log('AudioContext state:', ctx.state);
     setIsAudioReady(true);
 
+    // Re-read scroll speed from settings (in case user changed it)
+    const baseSpeed = SCROLL_SPEED_BY_DENSITY[level.event_density] || 100;
+    const savedMultiplier = localStorage.getItem('soundfield_scroll_speed');
+    const multiplier = savedMultiplier ? parseFloat(savedMultiplier) : 1.0;
+    speedMultiplierRef.current = multiplier;
+    setScrollSpeed(baseSpeed * multiplier);
+
     // Reset state
     setScore(0);
     setStreak(0);
@@ -807,6 +838,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     channelCorrectRef.current = 0;
     missCountRef.current = 0;
     maxStreakRef.current = 0;
+    confusionDataRef.current = [];
     generatedEventsRef.current = []; // Will be populated as events spawn
 
     // Generate event templates (species, clip, channel - but not timing)
@@ -950,6 +982,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       packId: level.pack_id,
       levelId: level.level_id,
       levelTitle: level.title,
+      // Confusion data for summary
+      confusionData: confusionDataRef.current,
     };
     localStorage.setItem('soundfield_round_results', JSON.stringify(roundResults));
   }, [species, level.mode, level.pack_id, level.level_id, level.title]);
@@ -1058,6 +1092,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
     // Calculate score
     const breakdown = calculateBreakdown(matchingEvent, speciesCode, channel, roundTime);
+
+    // Record confusion data for summary
+    confusionDataRef.current.push({
+      expectedSpecies: matchingEvent.species_code,
+      guessedSpecies: speciesCode,
+      channel: matchingEvent.channel,
+    });
 
     // Track this event as scored (in ref for endRound to access)
     if (breakdown.speciesCorrect) {
@@ -1174,6 +1215,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
     const updateVolumes = () => {
       const elapsed = performance.now() - roundStartTimeRef.current;
+      // Calculate audio lead time based on current speed multiplier
+      const audioLeadTimeMs = BASE_AUDIO_LEAD_TIME_MS / speedMultiplierRef.current;
 
       // Update gain for each active audio
       for (const [eventId, gainNode] of activeGainsRef.current.entries()) {
@@ -1200,7 +1243,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         cancelAnimationFrame(volumeUpdateRef.current);
       }
     };
-  }, [roundState, audioLeadTimeMs]);
+  }, [roundState]);
 
   /**
    * Clean up on unmount

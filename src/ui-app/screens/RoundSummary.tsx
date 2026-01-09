@@ -9,6 +9,12 @@ interface SpeciesResult {
   accuracy: number;
 }
 
+interface ConfusionEntry {
+  expectedSpecies: string;
+  guessedSpecies: string | null;
+  channel: 'left' | 'right';
+}
+
 interface RoundResults {
   score: number;
   eventsScored: number;
@@ -24,15 +30,23 @@ interface RoundResults {
   packId?: string;
   levelId?: number;
   levelTitle?: string;
+  confusionData?: ConfusionEntry[];
 }
 
 // Total number of campaign levels (should match levels.json)
 const TOTAL_CAMPAIGN_LEVELS = 6;
 
+interface ConfusionSummaryItem {
+  expectedSpecies: string;
+  guessedSpecies: string | null;
+  count: number;
+}
+
 function RoundSummary() {
   const navigate = useNavigate();
   const [results, setResults] = useState<RoundResults | null>(null);
   const [speciesBreakdown, setSpeciesBreakdown] = useState<SpeciesResult[]>([]);
+  const [confusionSummary, setConfusionSummary] = useState<ConfusionSummaryItem[]>([]);
 
   useEffect(() => {
     // Load results from localStorage
@@ -82,6 +96,33 @@ function RoundSummary() {
           return a.code.localeCompare(b.code);
         });
         setSpeciesBreakdown(breakdown);
+
+        // Build confusion summary - only include mistakes and misses
+        if (parsed.confusionData && parsed.confusionData.length > 0) {
+          const confusionMap = new Map<string, number>();
+
+          for (const entry of parsed.confusionData) {
+            // Skip correct identifications
+            if (entry.guessedSpecies === entry.expectedSpecies) continue;
+
+            // Create a key for this confusion pair
+            const key = `${entry.expectedSpecies}|${entry.guessedSpecies ?? 'MISS'}`;
+            confusionMap.set(key, (confusionMap.get(key) || 0) + 1);
+          }
+
+          // Convert to array and sort by count (most common first)
+          const summary: ConfusionSummaryItem[] = [];
+          for (const [key, count] of confusionMap.entries()) {
+            const [expected, guessed] = key.split('|');
+            summary.push({
+              expectedSpecies: expected,
+              guessedSpecies: guessed === 'MISS' ? null : guessed,
+              count,
+            });
+          }
+          summary.sort((a, b) => b.count - a.count);
+          setConfusionSummary(summary);
+        }
       } catch (e) {
         console.error('Failed to parse round results:', e);
       }
@@ -173,6 +214,26 @@ function RoundSummary() {
                     }}
                   />
                 </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {confusionSummary.length > 0 && (
+        <div className="card" style={{ width: '100%', maxWidth: '320px', marginBottom: '24px' }}>
+          <h3 style={{ marginBottom: '12px' }}>Confusion Summary</h3>
+          {confusionSummary.map((item, index) => (
+            <div key={index} style={{ marginBottom: '8px', fontSize: '14px' }}>
+              {item.guessedSpecies === null ? (
+                <span>
+                  You missed <span className="text-accent">{item.expectedSpecies}</span>: {item.count} time{item.count !== 1 ? 's' : ''}
+                </span>
+              ) : (
+                <span>
+                  You heard <span className="text-accent">{item.expectedSpecies}</span> but picked{' '}
+                  <span className="text-error">{item.guessedSpecies}</span>: {item.count} time{item.count !== 1 ? 's' : ''}
+                </span>
               )}
             </div>
           ))}
