@@ -449,9 +449,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     }, audioDelay);
     eventTimersRef.current.push(audioTimerId);
 
-    // Schedule scoring window to open at the hit zone time
-    const hitZoneDelay = Math.max(0, event.scheduled_time_ms - (now - roundStart));
-    const hitZoneTimerId = window.setTimeout(() => {
+    // Schedule scoring window to open when tile FIRST touches the line
+    // (not when center reaches line - that feels too late)
+    const scoringWindowOpenTime = event.scoring_window_start_ms;
+    const scoringWindowDelay = Math.max(0, scoringWindowOpenTime - (now - roundStart));
+    const scoringTimerId = window.setTimeout(() => {
       // Add to active events (scoring window opens)
       setActiveEvents((prev) => [
         ...prev,
@@ -463,7 +465,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       ]);
 
       // Set up scoring window end
-      const windowDuration = event.scoring_window_end_ms - event.scheduled_time_ms;
+      const windowDuration = event.scoring_window_end_ms - scoringWindowOpenTime;
       window.setTimeout(() => {
         // Stop the looping audio
         stopAudio(event.event_id);
@@ -484,8 +486,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           return prev;
         });
       }, windowDuration);
-    }, hitZoneDelay);
-    eventTimersRef.current.push(hitZoneTimerId);
+    }, scoringWindowDelay);
+    eventTimersRef.current.push(scoringTimerId);
   }, [getClipById, playAudio, stopAudio, audioLeadTimeMs]);
 
   /**
@@ -593,9 +595,12 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const channelCorrectResult = inputChannel === event.channel;
 
     // Check timing - use the input time passed in
+    // Perfect window: while tile is visually touching the hit zone
+    // Tile is 70px tall, at 100px/sec = 700ms to pass through
+    // Use 500ms tolerance = generous "touching the line" window
     const perfectTimeMs = event.scheduled_time_ms;
     const deviation = Math.abs(inputTime - perfectTimeMs);
-    const isPerfect = deviation <= 100; // 100ms tolerance
+    const isPerfect = deviation <= 500; // 500ms = tile touching line
 
     const speciesPoints = speciesCorrectResult ? SCORE_VALUES.SPECIES_CORRECT : 0;
     const channelPoints = channelCorrectResult ? SCORE_VALUES.CHANNEL_CORRECT : 0;
