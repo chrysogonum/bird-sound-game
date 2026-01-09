@@ -150,23 +150,30 @@ function PixiGame({
     }
   }, [width, height]);
 
-  // Create tiles when scheduledEvents change
+  // Add tiles for NEW scheduled events (don't recreate existing ones)
   useEffect(() => {
     const tileContainer = tileContainerRef.current;
     if (!tileContainer) return;
 
-    // Clear existing tiles
-    tileContainer.removeChildren();
-    tilesRef.current.clear();
+    if (roundState !== 'playing') {
+      // Clear all tiles when not playing
+      tileContainer.removeChildren();
+      tilesRef.current.clear();
+      return;
+    }
 
-    if (roundState !== 'playing' || scheduledEvents.length === 0) return;
+    if (scheduledEvents.length === 0) return;
 
     const laneWidth = width / 2;
     const tileWidth = laneWidth * TILE_WIDTH_RATIO;
     const hitZoneY = height * HIT_ZONE_Y_RATIO;
 
-    // Create a tile for each scheduled event
+    // Only create tiles for events that don't already have one
     for (const event of scheduledEvents) {
+      if (tilesRef.current.has(event.event_id)) {
+        continue; // Already has a tile, skip
+      }
+
       const tile = createTile(
         event,
         laneWidth,
@@ -241,8 +248,21 @@ function PixiGame({
           tile.feedbackType = currentFeedback.type;
           tile.feedbackStartTime = performance.now();
 
-          // Update tile visuals for feedback
-          updateTileFeedback(tile, currentFeedback.type, currentFeedback.score);
+          // Species correctly identified: Quick flash and immediate removal
+          // This includes perfect, good, and partial where species was right
+          const speciesCorrect = currentFeedback.breakdown?.speciesCorrect;
+          if (speciesCorrect) {
+            // Brief success flash
+            updateTileFeedback(tile, currentFeedback.type, currentFeedback.score);
+            // Scale up briefly then hide
+            tile.container.scale.set(1.3);
+            setTimeout(() => {
+              tile.container.visible = false;
+            }, 150); // Very quick - tile disappears almost instantly
+          } else {
+            // Species wrong: Show feedback animation (slower fade)
+            updateTileFeedback(tile, currentFeedback.type, currentFeedback.score);
+          }
         }
       }
     }

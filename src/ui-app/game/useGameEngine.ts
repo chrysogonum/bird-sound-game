@@ -178,6 +178,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const eventTimersRef = useRef<number[]>([]);
   const roundStartTimeRef = useRef<number>(0);
   const generatedEventsRef = useRef<GameEvent[]>([]);
+  const scoredEventsRef = useRef<Set<string>>(new Set()); // Track event IDs that were scored
+
+  // Dynamic event spawning - one at a time, spawn next when current is done
+  const eventQueueRef = useRef<GameEvent[]>([]);
+  const currentEventIndexRef = useRef<number>(0);
+  const currentEventIdRef = useRef<string | null>(null); // Track which event is current
+  const currentEventTimerRef = useRef<number | null>(null); // Timer for current event's end
 
   /**
    * Load clips.json data
@@ -277,8 +284,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       const gainNode = ctx.createGain();
       const panner = ctx.createStereoPanner();
 
-      // Start at moderate volume - will ramp up as tile approaches
-      gainNode.gain.value = 0.4;
+      // Start quiet - volume ramps up as tile approaches hit zone
+      gainNode.gain.value = 0.2;
 
       // Set up panning (-1 for left, 1 for right)
       panner.pan.value = channel === 'left' ? -1 : 1;
@@ -329,10 +336,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   }, []);
 
   /**
-   * Generate events for the round
+   * Generate event templates for the round.
+   * With dynamic spawning, timing is calculated when events spawn, not upfront.
+   * We generate plenty of events so fast players don't run out.
    */
   const generateEvents = useCallback((): GameEvent[] => {
-    const roundDurationMs = level.round_duration_sec * 1000;
     const events: GameEvent[] = [];
     const seed = Date.now();
     const random = createSeededRandom(seed);
@@ -349,20 +357,12 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const availableSpecies = Array.from(speciesClips.keys());
     const selectedSpecies = availableSpecies.slice(0, level.species_count);
 
-    // Gap timing based on density
-    // "low" = beginner: one bird at a time (gap > audio lead time)
-    const gapConfig = {
-      low: { min: 6000, max: 8000 },     // 6-8 seconds = one at a time
-      medium: { min: 3000, max: 5000 },  // some overlap possible
-      high: { min: 1500, max: 2500 },    // frequent overlap
-    };
-    const { min: minGap, max: maxGap } = gapConfig[level.event_density];
-    const halfWindow = level.scoring_window_ms / 2;
+    // Generate plenty of events - with fast identification, players could go through many
+    // Assume minimum ~2 seconds per bird, so 30 second round = max ~15 birds
+    // Generate extra to be safe
+    const maxEvents = Math.ceil(level.round_duration_sec / 2) + 5;
 
-    let currentTimeMs = 1000; // Start 1 second in
-    let eventIndex = 0;
-
-    while (currentTimeMs < roundDurationMs - 3000) {
+    for (let eventIndex = 0; eventIndex < maxEvents; eventIndex++) {
       // Select random species
       const speciesCode = selectedSpecies[Math.floor(random() * selectedSpecies.length)];
       const speciesClipList = speciesClips.get(speciesCode) || [];
@@ -373,49 +373,18 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       // Select random channel
       const channel: Channel = random() < 0.5 ? 'left' : 'right';
 
+      // Timing is placeholder - will be set dynamically when event spawns
       events.push({
         event_id: `evt_${eventIndex}_${seed}`,
         clip_id: clip.clip_id,
         species_code: speciesCode,
         channel,
-        scheduled_time_ms: currentTimeMs,
-        scoring_window_start_ms: currentTimeMs - halfWindow,
-        scoring_window_end_ms: currentTimeMs + halfWindow,
+        scheduled_time_ms: 0, // Will be set when spawned
+        scoring_window_start_ms: 0,
+        scoring_window_end_ms: 0,
         duration_ms: clip.duration_ms,
         vocalization_type: clip.vocalization_type,
       });
-
-      eventIndex++;
-
-      // Add overlap event if configured
-      if (level.overlap_probability > 0 && random() < level.overlap_probability) {
-        const overlapSpecies = selectedSpecies[Math.floor(random() * selectedSpecies.length)];
-        const overlapClips = speciesClips.get(overlapSpecies) || [];
-        const overlapClip = overlapClips[Math.floor(random() * overlapClips.length)];
-
-        if (overlapClip) {
-          const overlapChannel: Channel = channel === 'left' ? 'right' : 'left';
-          const offset = Math.floor(random() * 400) - 200;
-
-          events.push({
-            event_id: `evt_${eventIndex}_${seed}`,
-            clip_id: overlapClip.clip_id,
-            species_code: overlapSpecies,
-            channel: overlapChannel,
-            scheduled_time_ms: currentTimeMs + offset,
-            scoring_window_start_ms: currentTimeMs + offset - halfWindow,
-            scoring_window_end_ms: currentTimeMs + offset + halfWindow,
-            duration_ms: overlapClip.duration_ms,
-            vocalization_type: overlapClip.vocalization_type,
-          });
-
-          eventIndex++;
-        }
-      }
-
-      // Calculate next event time
-      const gap = minGap + Math.floor(random() * (maxGap - minGap));
-      currentTimeMs += gap;
     }
 
     return events;
@@ -429,66 +398,136 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   }, [clips]);
 
   /**
-   * Schedule an event to play
-   * Audio plays AUDIO_LEAD_TIME_MS before the tile reaches the hit zone,
-   * giving the player time to hear and identify the bird.
+   * Spawn the next event from the queue.
+   * Called when round starts and when each event is completed.
+   * Only ONE event is active at a time (for beginner mode).
    */
-  const scheduleEvent = useCallback((event: GameEvent) => {
+  const spawnNextEvent = useCallback(() => {
+    const queue = eventQueueRef.current;
+    const index = currentEventIndexRef.current;
+
+    // Check if there are more events
+    if (index >= queue.length) {
+      // No more events - round will end when timer expires
+      currentEventIdRef.current = null;
+      return;
+    }
+
+    // Cancel any pending timer from previous event
+    if (currentEventTimerRef.current !== null) {
+      clearTimeout(currentEventTimerRef.current);
+      currentEventTimerRef.current = null;
+    }
+
+    // Get next event template
+    const eventTemplate = queue[index];
+    currentEventIndexRef.current = index + 1;
+
+    // Calculate timing based on NOW - tile enters immediately
     const now = performance.now();
     const roundStart = roundStartTimeRef.current;
+    const elapsedMs = now - roundStart;
 
-    // Audio plays earlier than scheduled_time (when tile hits zone)
-    const audioPlayTime = event.scheduled_time_ms - audioLeadTimeMs;
-    const audioDelay = Math.max(0, audioPlayTime - (now - roundStart));
+    // Tile should enter NOW, hit zone in audioLeadTimeMs
+    const tileEnterTimeMs = elapsedMs;
+    const hitZoneTimeMs = elapsedMs + audioLeadTimeMs;
 
-    // Schedule audio to play early (as tile scrolls down)
-    const audioTimerId = window.setTimeout(() => {
-      const clip = getClipById(event.clip_id);
-      if (!clip) return;
+    // Create the actual event with real timing
+    const event: GameEvent = {
+      ...eventTemplate,
+      scheduled_time_ms: hitZoneTimeMs,
+      scoring_window_start_ms: tileEnterTimeMs,
+      scoring_window_end_ms: hitZoneTimeMs + 500, // 500ms grace after hit zone
+    };
+
+    // Track this as the current event
+    currentEventIdRef.current = event.event_id;
+
+    // Add to generated events for results tracking
+    generatedEventsRef.current.push(event);
+
+    // Add to scheduled events for PixiGame rendering
+    const clip = getClipById(event.clip_id);
+    const scheduledEvent: ScheduledEvent = {
+      ...event,
+      spectrogramPath: clip?.spectrogram_path || null,
+      filePath: clip?.file_path || '',
+    };
+    setScheduledEvents((prev) => [...prev, scheduledEvent]);
+
+    // Start audio immediately (tile is entering now)
+    if (clip) {
       playAudio(clip.file_path, event.channel, event.event_id, event.scheduled_time_ms);
-    }, audioDelay);
-    eventTimersRef.current.push(audioTimerId);
+    }
 
-    // Schedule scoring window to open when tile FIRST touches the line
-    // (not when center reaches line - that feels too late)
-    const scoringWindowOpenTime = event.scoring_window_start_ms;
-    const scoringWindowDelay = Math.max(0, scoringWindowOpenTime - (now - roundStart));
-    const scoringTimerId = window.setTimeout(() => {
-      // Add to active events (scoring window opens)
-      setActiveEvents((prev) => [
-        ...prev,
-        {
-          ...event,
-          isActive: true,
-          hasBeenScored: false,
-        },
-      ]);
+    // Add to active events (scoring window opens immediately)
+    setActiveEvents((prev) => [
+      ...prev,
+      {
+        ...event,
+        isActive: true,
+        hasBeenScored: false,
+      },
+    ]);
 
-      // Set up scoring window end
-      const windowDuration = event.scoring_window_end_ms - scoringWindowOpenTime;
+    // Set up scoring window end (when tile passes hit zone)
+    const windowDuration = audioLeadTimeMs + 500; // Full scroll + grace period
+    const eventId = event.event_id; // Capture for closure
+    currentEventTimerRef.current = window.setTimeout(() => {
+      // Only process if THIS event is still the current one
+      if (currentEventIdRef.current !== eventId) return;
+
+      // Clear the timer ref
+      currentEventTimerRef.current = null;
+
+      // Stop the looping audio
+      stopAudio(eventId);
+
+      setActiveEvents((prev) =>
+        prev.map((e) =>
+          e.event_id === eventId ? { ...e, isActive: false } : e
+        )
+      );
+
+      // Check if this event was never scored (miss)
+      setActiveEvents((prev) => {
+        const ev = prev.find((e) => e.event_id === eventId);
+        if (ev && !ev.hasBeenScored) {
+          setMissCount((m) => m + 1);
+          setStreak(0);
+        }
+        return prev;
+      });
+
+      // Spawn next event after a short delay (so miss feedback is visible)
       window.setTimeout(() => {
-        // Stop the looping audio
-        stopAudio(event.event_id);
-
-        setActiveEvents((prev) =>
-          prev.map((e) =>
-            e.event_id === event.event_id ? { ...e, isActive: false } : e
-          )
-        );
-
-        // Check if this event was never scored (miss)
-        setActiveEvents((prev) => {
-          const ev = prev.find((e) => e.event_id === event.event_id);
-          if (ev && !ev.hasBeenScored) {
-            setMissCount((m) => m + 1);
-            setStreak(0);
-          }
-          return prev;
-        });
-      }, windowDuration);
-    }, scoringWindowDelay);
-    eventTimersRef.current.push(scoringTimerId);
+        spawnNextEvent();
+      }, 500);
+    }, windowDuration);
   }, [getClipById, playAudio, stopAudio, audioLeadTimeMs]);
+
+  /**
+   * Called when player correctly identifies a bird - spawn next immediately
+   */
+  const onEventCompleted = useCallback((eventId: string) => {
+    // Only process if this is the current event
+    if (currentEventIdRef.current !== eventId) return;
+
+    // Cancel the timeout for this event
+    if (currentEventTimerRef.current !== null) {
+      clearTimeout(currentEventTimerRef.current);
+      currentEventTimerRef.current = null;
+    }
+
+    // Clear current event reference
+    currentEventIdRef.current = null;
+
+    // Stop audio for this event
+    stopAudio(eventId);
+
+    // Spawn next event immediately (no delay for successful IDs)
+    spawnNextEvent();
+  }, [stopAudio, spawnNextEvent]);
 
   /**
    * Initialize the engine (load clips, set up audio)
@@ -513,23 +552,21 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     setPerfectCount(0);
     setMissCount(0);
     setActiveEvents([]);
+    setScheduledEvents([]); // Start empty - events added dynamically
     setCurrentFeedback(null);
     setTimeRemaining(level.round_duration_sec);
+    scoredEventsRef.current.clear();
+    generatedEventsRef.current = []; // Will be populated as events spawn
 
-    // Generate events
-    const events = generateEvents();
-    generatedEventsRef.current = events;
-
-    // Create scheduled events with clip metadata
-    const scheduled: ScheduledEvent[] = events.map((event) => {
-      const clip = getClipById(event.clip_id);
-      return {
-        ...event,
-        spectrogramPath: clip?.spectrogram_path || null,
-        filePath: clip?.file_path || '',
-      };
-    });
-    setScheduledEvents(scheduled);
+    // Generate event templates (species, clip, channel - but not timing)
+    const eventTemplates = generateEvents();
+    eventQueueRef.current = eventTemplates;
+    currentEventIndexRef.current = 0;
+    currentEventIdRef.current = null;
+    if (currentEventTimerRef.current !== null) {
+      clearTimeout(currentEventTimerRef.current);
+      currentEventTimerRef.current = null;
+    }
 
     // Start the round
     const startTime = performance.now();
@@ -537,10 +574,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     setRoundStartTime(startTime);
     roundStartTimeRef.current = startTime;
 
-    // Schedule all events
-    for (const event of events) {
-      scheduleEvent(event);
-    }
+    // Spawn the first event immediately
+    spawnNextEvent();
 
     // Start countdown timer
     timerRef.current = window.setInterval(() => {
@@ -552,7 +587,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         return prev - 1;
       });
     }, 1000);
-  }, [roundState, clips.length, level.round_duration_sec, generateEvents, scheduleEvent]);
+
+    // Round ends when timer expires (dynamic spawning means we don't know exact end)
+    const roundEndTimerId = window.setTimeout(() => {
+      endRound();
+    }, level.round_duration_sec * 1000);
+    eventTimersRef.current.push(roundEndTimerId);
+  }, [roundState, clips.length, level.round_duration_sec, generateEvents, spawnNextEvent]);
 
   /**
    * End the current round
@@ -560,18 +601,26 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const endRound = useCallback(() => {
     setRoundState('ended');
 
-    // Clear timers
+    // Clear the countdown timer
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
     }
 
+    // Clear the current event timer (prevents spawning more events)
+    if (currentEventTimerRef.current !== null) {
+      clearTimeout(currentEventTimerRef.current);
+      currentEventTimerRef.current = null;
+    }
+    currentEventIdRef.current = null;
+
+    // Clear all other pending timers
     for (const timerId of eventTimersRef.current) {
       clearTimeout(timerId);
     }
     eventTimersRef.current = [];
 
-    // Stop all playing audio
+    // Stop ALL playing audio immediately
     for (const source of activeSourcesRef.current.values()) {
       try {
         source.stop();
@@ -580,10 +629,50 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       }
     }
     activeSourcesRef.current.clear();
-  }, []);
+    activeGainsRef.current.clear();
+    activeEventTimesRef.current.clear();
+
+    // Compile and save round results for summary screen
+    const speciesResults: Record<string, { total: number; correct: number }> = {};
+
+    // Count results per species from all generated events
+    for (const event of generatedEventsRef.current) {
+      const speciesCode = event.species_code;
+      if (!speciesResults[speciesCode]) {
+        speciesResults[speciesCode] = { total: 0, correct: 0 };
+      }
+      speciesResults[speciesCode].total++;
+
+      // Check if this event was scored correctly (using ref, not stale state)
+      if (scoredEventsRef.current.has(event.event_id)) {
+        speciesResults[speciesCode].correct++;
+      }
+    }
+
+    const totalScored = scoredEventsRef.current.size;
+
+    // Save to localStorage for summary screen
+    const roundResults = {
+      score,
+      eventsScored: totalScored,
+      totalEvents: generatedEventsRef.current.length,
+      speciesCorrect,
+      channelCorrect,
+      perfectCount,
+      missCount,
+      maxStreak,
+      speciesResults,
+      species: species.map(s => ({ code: s.code, name: s.name })),
+    };
+    localStorage.setItem('soundfield_round_results', JSON.stringify(roundResults));
+  }, [score, speciesCorrect, channelCorrect, perfectCount, missCount, maxStreak, species]);
 
   /**
    * Calculate score breakdown
+   * NEW SCORING: Earlier identification = MORE points!
+   * - Species correct: 50 points (required)
+   * - Channel correct: 25 points (bonus)
+   * - Timing: 0-25 points based on how early (early = more)
    */
   const calculateBreakdown = useCallback((
     event: ActiveEvent,
@@ -594,17 +683,50 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const speciesCorrectResult = inputSpecies === event.species_code;
     const channelCorrectResult = inputChannel === event.channel;
 
-    // Check timing - use the input time passed in
-    // Perfect window: while tile is visually touching the hit zone
-    // Tile is 70px tall, at 100px/sec = 700ms to pass through
-    // Use 500ms tolerance = generous "touching the line" window
-    const perfectTimeMs = event.scheduled_time_ms;
-    const deviation = Math.abs(inputTime - perfectTimeMs);
-    const isPerfect = deviation <= 500; // 500ms = tile touching line
+    // Calculate timing bonus - EARLIER = MORE POINTS
+    // inputTime is ms since round start
+    // event.scheduled_time_ms is when tile hits the finish line
+    // scoring_window_start_ms is when tile entered screen
+    const hitZoneTime = event.scheduled_time_ms;
+    const enterTime = event.scoring_window_start_ms;
+    const totalWindow = hitZoneTime - enterTime; // Time from enter to hit zone
+    const timeBeforeHitZone = hitZoneTime - inputTime; // How early they identified
+
+    // Calculate early bonus: 100% if at very top, 0% if at hit zone
+    // Clamp between 0 and 1
+    const earlyRatio = Math.max(0, Math.min(1, timeBeforeHitZone / totalWindow));
+
+    // Timing points: 25 points max, scales with how early
+    // Very early (>80% remaining): 25 points
+    // Early (60-80%): 20 points
+    // Medium (40-60%): 15 points
+    // Late (20-40%): 10 points
+    // Very late (<20%): 5 points
+    let timingPoints: number;
+    if (earlyRatio >= 0.8) {
+      timingPoints = 25;
+    } else if (earlyRatio >= 0.6) {
+      timingPoints = 20;
+    } else if (earlyRatio >= 0.4) {
+      timingPoints = 15;
+    } else if (earlyRatio >= 0.2) {
+      timingPoints = 10;
+    } else {
+      timingPoints = 5;
+    }
+
+    // Determine timing accuracy label
+    let timingAccuracy: 'perfect' | 'partial' | 'miss';
+    if (earlyRatio >= 0.6) {
+      timingAccuracy = 'perfect'; // Early identification = perfect
+    } else if (earlyRatio >= 0.2) {
+      timingAccuracy = 'partial';
+    } else {
+      timingAccuracy = 'partial'; // Still got it, just late
+    }
 
     const speciesPoints = speciesCorrectResult ? SCORE_VALUES.SPECIES_CORRECT : 0;
     const channelPoints = channelCorrectResult ? SCORE_VALUES.CHANNEL_CORRECT : 0;
-    const timingPoints = isPerfect ? SCORE_VALUES.TIMING_PERFECT : SCORE_VALUES.TIMING_PARTIAL;
 
     return {
       speciesPoints,
@@ -613,7 +735,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       totalPoints: speciesPoints + channelPoints + timingPoints,
       speciesCorrect: speciesCorrectResult,
       channelCorrect: channelCorrectResult,
-      timingAccuracy: isPerfect ? 'perfect' : 'partial',
+      timingAccuracy,
     };
   }, []);
 
@@ -640,8 +762,15 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Calculate score
     const breakdown = calculateBreakdown(matchingEvent, speciesCode, channel, roundTime);
 
-    // Stop the looping audio for this event
-    stopAudio(matchingEvent.event_id);
+    // Track this event as scored (in ref for endRound to access)
+    if (breakdown.speciesCorrect) {
+      scoredEventsRef.current.add(matchingEvent.event_id);
+      // Correct identification - spawn next event immediately!
+      onEventCompleted(matchingEvent.event_id);
+    } else {
+      // Wrong species - just stop the audio, don't spawn next yet
+      stopAudio(matchingEvent.event_id);
+    }
 
     // Update state
     setActiveEvents((prev) =>
@@ -696,7 +825,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     setTimeout(() => {
       setCurrentFeedback((prev) => (prev?.id === feedback.id ? null : prev));
     }, 500);
-  }, [roundState, activeEvents, calculateBreakdown, stopAudio, maxStreak]);
+  }, [roundState, activeEvents, calculateBreakdown, stopAudio, onEventCompleted, maxStreak]);
 
   /**
    * Reset to idle state
@@ -742,8 +871,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         const timeUntilHit = hitTimeMs - elapsed;
         const progress = Math.max(0, Math.min(1, 1 - (timeUntilHit / audioLeadTimeMs)));
 
-        // Volume ramps from 0.4 to 1.0
-        const volume = 0.4 + (progress * 0.6);
+        // Volume ramps from 0.2 (tile at top) to 1.0 (tile at hit zone)
+        const volume = 0.2 + (progress * 0.8);
         gainNode.gain.value = volume;
       }
 
