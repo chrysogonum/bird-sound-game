@@ -241,7 +241,6 @@ function GameplayScreen() {
       <HUD
         score={gameState.score}
         streak={gameState.streak}
-        maxStreak={gameState.maxStreak}
         timeRemaining={gameState.timeRemaining}
         mode={mode}
         levelId={levelConfig.level_id}

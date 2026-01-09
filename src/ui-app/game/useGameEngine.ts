@@ -69,7 +69,6 @@ export interface GameEngineState {
   roundState: RoundState;
   score: number;
   streak: number;
-  maxStreak: number;
   timeRemaining: number;
   totalTime: number;
   eventsScored: number;
@@ -158,7 +157,6 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const [roundState, setRoundState] = useState<RoundState>('idle');
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
-  const [maxStreak] = useState(5);
   const [timeRemaining, setTimeRemaining] = useState(level.round_duration_sec);
   const [eventsScored, setEventsScored] = useState(0);
   const [speciesCorrect, setSpeciesCorrect] = useState(0);
@@ -1132,13 +1130,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       setPerfectCount((p) => p + 1);
       perfectCountRef.current += 1;
       setStreak((s) => {
-        const newStreak = Math.min(s + 1, maxStreak);
+        const newStreak = s + 1;
         maxStreakRef.current = Math.max(maxStreakRef.current, newStreak);
         return newStreak;
       });
     } else if (breakdown.totalPoints > 0) {
       setStreak((s) => {
-        const newStreak = Math.min(s + 1, maxStreak);
+        const newStreak = s + 1;
         maxStreakRef.current = Math.max(maxStreakRef.current, newStreak);
         return newStreak;
       });
@@ -1179,7 +1177,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     setTimeout(() => {
       setCurrentFeedback((prev) => (prev?.id === feedback.id ? null : prev));
     }, 500);
-  }, [roundState, activeEvents, calculateBreakdown, onEventCompleted, maxStreak, level.channel_mode]);
+  }, [roundState, activeEvents, calculateBreakdown, onEventCompleted, level.channel_mode]);
 
   /**
    * Reset to idle state
@@ -1274,7 +1272,6 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     roundState,
     score,
     streak,
-    maxStreak,
     timeRemaining,
     totalTime: level.round_duration_sec,
     eventsScored,

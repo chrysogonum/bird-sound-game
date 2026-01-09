@@ -3,7 +3,6 @@ import { memo } from 'react';
 export interface HUDProps {
   score: number;
   streak: number;
-  maxStreak: number;
   timeRemaining: number;
   mode?: string;
   levelId?: number;
@@ -17,7 +16,7 @@ const MODE_LABELS: Record<string, string> = {
   random: 'Random',
 };
 
-function HUD({ score, streak, maxStreak, timeRemaining, mode, levelId, levelTitle }: HUDProps) {
+function HUD({ score, streak, timeRemaining, mode, levelId, levelTitle }: HUDProps) {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
   const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
@@ -36,14 +35,13 @@ function HUD({ score, streak, maxStreak, timeRemaining, mode, levelId, levelTitl
           <span className="hud-mode">{MODE_LABELS[mode] || mode}</span>
         ) : null}
         <div className="hud-streak">
-          {Array.from({ length: maxStreak }).map((_, i) => (
-            <span
-              key={i}
-              className={`streak-dot ${i < streak ? 'active' : ''}`}
-            >
-              {i < streak ? '●' : '○'}
-            </span>
-          ))}
+          {streak === 0 ? (
+            <span className="streak-dot">○</span>
+          ) : (
+            Array.from({ length: streak }).map((_, i) => (
+              <span key={i} className="streak-dot active">●</span>
+            ))
+          )}
         </div>
       </div>
 
