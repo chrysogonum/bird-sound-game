@@ -10,28 +10,28 @@ function MainMenu() {
       <div className="flex-col gap-md" style={{ width: '100%', maxWidth: '320px' }}>
         <button
           className="btn-primary"
-          onClick={() => navigate('/pack-select')}
+          onClick={() => navigate('/pack-select?mode=campaign')}
         >
           Campaign
         </button>
 
         <button
           className="btn-primary"
-          onClick={() => navigate('/pack-select')}
+          onClick={() => navigate('/pack-select?mode=practice')}
         >
           Practice
         </button>
 
         <button
           className="btn-primary"
-          onClick={() => navigate('/pack-select')}
+          onClick={() => navigate('/pack-select?mode=challenge')}
         >
           Challenge
         </button>
 
         <button
           className="btn-primary"
-          onClick={() => navigate('/gameplay')}
+          onClick={() => navigate('/gameplay?mode=random')}
         >
           Random
         </button>

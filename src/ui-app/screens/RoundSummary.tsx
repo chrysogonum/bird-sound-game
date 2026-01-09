@@ -20,6 +20,8 @@ interface RoundResults {
   maxStreak: number;
   speciesResults: Record<string, { total: number; correct: number }>;
   species: Array<{ code: string; name: string }>;
+  mode?: string;
+  packId?: string;
 }
 
 function RoundSummary() {
@@ -147,7 +149,15 @@ function RoundSummary() {
       )}
 
       <div className="flex-row gap-md" style={{ width: '100%', maxWidth: '320px' }}>
-        <button className="btn-primary" onClick={() => navigate('/gameplay')} style={{ flex: 1 }}>
+        <button
+          className="btn-primary"
+          onClick={() => {
+            const mode = results?.mode || 'campaign';
+            const pack = results?.packId || 'common_se_birds';
+            navigate(`/gameplay?mode=${mode}&pack=${pack}`);
+          }}
+          style={{ flex: 1 }}
+        >
           Play Again
         </button>
         <button className="btn-secondary" onClick={() => navigate('/')} style={{ flex: 1 }}>

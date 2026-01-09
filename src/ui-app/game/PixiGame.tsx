@@ -40,6 +40,7 @@ interface TileState {
   container: PIXI.Container;
   eventId: string;
   scheduledTimeMs: number;
+  enterTimeMs: number; // When tile should be at top of screen
   channel: 'left' | 'right';
   speciesCode: string;
   hasBeenScored: boolean;
@@ -182,6 +183,9 @@ function PixiGame({
         hitZoneY
       );
 
+      // Set initial Y position immediately (tile enters at top)
+      tile.container.y = -TILE_HEIGHT;
+
       tileContainer.addChild(tile.container);
       tilesRef.current.set(event.event_id, tile);
     }
@@ -211,11 +215,17 @@ function PixiGame({
             }
           }
         } else {
-          // Calculate Y position based on time
-          const timeToHitMs = tile.scheduledTimeMs - elapsedMs;
-          const timeToHitSec = timeToHitMs / 1000;
-          const distanceFromHitZone = timeToHitSec * scrollSpeed;
-          tile.container.y = hitZoneY - distanceFromHitZone;
+          // Calculate Y position based on progress from enter to hit zone
+          // Tile enters at enterTimeMs (y = -TILE_HEIGHT, above screen)
+          // Tile hits zone at scheduledTimeMs (y = hitZoneY)
+          const totalTravelTime = tile.scheduledTimeMs - tile.enterTimeMs;
+          const timeSinceEnter = elapsedMs - tile.enterTimeMs;
+          const progress = Math.max(0, timeSinceEnter / totalTravelTime);
+
+          // Start above screen, end at hit zone
+          const startY = -TILE_HEIGHT;
+          const endY = hitZoneY;
+          tile.container.y = startY + progress * (endY - startY);
 
           // Hide if past hit zone by too much
           if (tile.container.y > hitZoneY + 100) {
@@ -338,6 +348,7 @@ function createTile(
     container,
     eventId: event.event_id,
     scheduledTimeMs: event.scheduled_time_ms,
+    enterTimeMs: event.scoring_window_start_ms,
     channel: event.channel,
     speciesCode: event.species_code,
     hasBeenScored: false,

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 interface Pack {
   id: string;
@@ -16,10 +16,13 @@ const PACKS: Pack[] = [
 
 function PackSelect() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const mode = searchParams.get('mode') || 'campaign';
 
   const handlePackSelect = (pack: Pack) => {
     if (pack.isUnlocked) {
-      navigate('/gameplay');
+      // Pass mode and pack to gameplay
+      navigate(`/gameplay?mode=${mode}&pack=${pack.id}`);
     }
   };
 

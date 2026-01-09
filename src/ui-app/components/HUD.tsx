@@ -5,9 +5,17 @@ export interface HUDProps {
   streak: number;
   maxStreak: number;
   timeRemaining: number;
+  mode?: string;
 }
 
-function HUD({ score, streak, maxStreak, timeRemaining }: HUDProps) {
+const MODE_LABELS: Record<string, string> = {
+  campaign: 'Campaign',
+  practice: 'Practice',
+  challenge: 'Challenge',
+  random: 'Random',
+};
+
+function HUD({ score, streak, maxStreak, timeRemaining, mode }: HUDProps) {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
   const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
@@ -19,15 +27,20 @@ function HUD({ score, streak, maxStreak, timeRemaining }: HUDProps) {
         <span className="hud-value">{score.toLocaleString()}</span>
       </div>
 
-      <div className="hud-streak">
-        {Array.from({ length: maxStreak }).map((_, i) => (
-          <span
-            key={i}
-            className={`streak-dot ${i < streak ? 'active' : ''}`}
-          >
-            {i < streak ? '●' : '○'}
-          </span>
-        ))}
+      <div className="hud-center">
+        {mode && (
+          <span className="hud-mode">{MODE_LABELS[mode] || mode}</span>
+        )}
+        <div className="hud-streak">
+          {Array.from({ length: maxStreak }).map((_, i) => (
+            <span
+              key={i}
+              className={`streak-dot ${i < streak ? 'active' : ''}`}
+            >
+              {i < streak ? '●' : '○'}
+            </span>
+          ))}
+        </div>
       </div>
 
       <div className="hud-timer">
@@ -65,6 +78,23 @@ function HUD({ score, streak, maxStreak, timeRemaining }: HUDProps) {
           font-size: 20px;
           font-weight: 600;
           color: var(--color-accent);
+        }
+
+        .hud-center {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+        }
+
+        .hud-mode {
+          font-size: 10px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: var(--color-text-muted);
+          padding: 2px 8px;
+          border-radius: 4px;
+          background: rgba(255, 255, 255, 0.1);
         }
 
         .hud-streak {

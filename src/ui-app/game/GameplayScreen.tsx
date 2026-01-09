@@ -1,9 +1,10 @@
-import { useState, useCallback, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useCallback, useRef, useEffect, useMemo } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import HUD from '../components/HUD';
 import PixiGame from './PixiGame';
 import { useGameEngine } from './useGameEngine';
 import type { Channel } from '@engine/audio/types';
+import type { LevelConfig, GameMode } from '@engine/game/types';
 
 interface Species {
   code: string;
@@ -23,15 +24,70 @@ const DEFAULT_COLORS = [
   '#A1887F',
 ];
 
+// Level configs for different modes
+const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> = {
+  campaign: {
+    mode: 'campaign',
+    round_duration_sec: 30,
+    species_count: 5,
+    event_density: 'low',
+    overlap_probability: 0,
+    scoring_window_ms: 2000,
+    spectrogram_mode: 'full',
+  },
+  practice: {
+    mode: 'practice',
+    round_duration_sec: 60,
+    species_count: 3,
+    event_density: 'low',
+    overlap_probability: 0,
+    scoring_window_ms: 3000,
+    spectrogram_mode: 'full',
+  },
+  challenge: {
+    mode: 'challenge',
+    round_duration_sec: 60,
+    species_count: 8,
+    event_density: 'medium',
+    overlap_probability: 0,
+    scoring_window_ms: 1500,
+    spectrogram_mode: 'fading',
+  },
+  random: {
+    mode: 'random',
+    round_duration_sec: 45,
+    species_count: 6,
+    event_density: 'low',
+    overlap_probability: 0,
+    scoring_window_ms: 2000,
+    spectrogram_mode: 'full',
+  },
+};
+
 function GameplayScreen() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const gameContainerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 400, height: 400 });
   const [selectedChannel, setSelectedChannel] = useState<Channel | null>(null);
   const [selectedSpecies, setSelectedSpecies] = useState<string | null>(null);
 
-  // Use the game engine hook
-  const [gameState, gameActions] = useGameEngine();
+  // Read mode and pack from URL params
+  const mode = (searchParams.get('mode') || 'campaign') as GameMode;
+  const packId = searchParams.get('pack') || 'common_se_birds';
+
+  // Build level config based on mode
+  const levelConfig = useMemo((): LevelConfig => {
+    const modeConfig = MODE_CONFIGS[mode] || MODE_CONFIGS.campaign;
+    return {
+      level_id: 1,
+      pack_id: packId,
+      ...modeConfig,
+    };
+  }, [mode, packId]);
+
+  // Use the game engine hook with the level config
+  const [gameState, gameActions] = useGameEngine(levelConfig);
 
   // Initialize engine on mount
   useEffect(() => {
@@ -154,6 +210,7 @@ function GameplayScreen() {
         streak={gameState.streak}
         maxStreak={gameState.maxStreak}
         timeRemaining={gameState.timeRemaining}
+        mode={mode}
       />
 
       {/* Back button overlay */}
