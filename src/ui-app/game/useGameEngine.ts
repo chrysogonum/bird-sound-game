@@ -78,7 +78,7 @@ export interface GameEngineState {
 /** Game engine actions */
 export interface GameEngineActions {
   initialize: () => Promise<void>;
-  startRound: () => void;
+  startRound: () => Promise<void>;
   endRound: () => void;
   submitInput: (speciesCode: string, channel: Channel) => void;
   reset: () => void;
@@ -246,17 +246,24 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Check cache
     const cached = bufferCacheRef.current.get(filePath);
     if (cached) {
+      console.log('loadAudioBuffer: Using cached buffer for', filePath);
       return cached;
     }
+
+    console.log('loadAudioBuffer: Fetching', filePath);
 
     // Fetch and decode
     const response = await fetch(`/${filePath}`);
     if (!response.ok) {
+      console.error('loadAudioBuffer: Fetch failed', response.status, response.statusText);
       throw new Error(`Failed to load audio: ${filePath}`);
     }
 
+    console.log('loadAudioBuffer: Fetch OK, decoding...');
     const arrayBuffer = await response.arrayBuffer();
     const audioBuffer = await ctx.decodeAudioData(arrayBuffer);
+
+    console.log('loadAudioBuffer: Decoded OK, duration:', audioBuffer.duration);
 
     // Cache it
     bufferCacheRef.current.set(filePath, audioBuffer);
@@ -274,18 +281,31 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     scheduledHitTimeMs: number
   ) => {
     const ctx = audioContextRef.current;
-    if (!ctx) return;
+    if (!ctx) {
+      console.error('playAudio: No AudioContext!');
+      return;
+    }
+
+    console.log('playAudio:', filePath, 'ctx.state:', ctx.state);
 
     try {
+      // Ensure context is running (iOS fix)
+      if (ctx.state === 'suspended') {
+        console.log('playAudio: Context suspended, trying to resume...');
+        await ctx.resume();
+      }
+
       const buffer = await loadAudioBuffer(filePath);
+      console.log('playAudio: Buffer loaded, duration:', buffer.duration);
 
       // Create audio nodes
       const source = ctx.createBufferSource();
       const gainNode = ctx.createGain();
       const panner = ctx.createStereoPanner();
 
-      // Start quiet - volume ramps up as tile approaches hit zone
-      gainNode.gain.value = 0.2;
+      // Start at moderate volume - ramps up as tile approaches hit zone
+      // Using 0.5 instead of 0.2 so it's audible on mobile devices
+      gainNode.gain.value = 0.5;
 
       // Set up panning (-1 for left, 1 for right)
       panner.pan.value = channel === 'left' ? -1 : 1;
@@ -313,6 +333,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
       // Play immediately
       source.start();
+      console.log('playAudio: Started playing');
     } catch (error) {
       console.error('Error playing audio:', error);
     }
@@ -540,8 +561,30 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   /**
    * Start a new round
    */
-  const startRound = useCallback(() => {
+  const startRound = useCallback(async () => {
     if (roundState !== 'idle' || clips.length === 0) return;
+
+    // CRITICAL for iOS: Create/resume AudioContext during user gesture (tap)
+    let ctx = audioContextRef.current;
+    if (!ctx) {
+      // Create AudioContext during user tap (required for iOS)
+      ctx = new AudioContext();
+      audioContextRef.current = ctx;
+      console.log('AudioContext created during tap');
+    }
+
+    if (ctx.state === 'suspended') {
+      try {
+        await ctx.resume();
+        console.log('AudioContext resumed, state:', ctx.state);
+      } catch (e) {
+        console.error('Failed to resume AudioContext:', e);
+      }
+    }
+
+    // Double-check it's running
+    console.log('AudioContext state:', ctx.state);
+    setIsAudioReady(true);
 
     // Reset state
     setScore(0);
@@ -871,8 +914,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         const timeUntilHit = hitTimeMs - elapsed;
         const progress = Math.max(0, Math.min(1, 1 - (timeUntilHit / audioLeadTimeMs)));
 
-        // Volume ramps from 0.2 (tile at top) to 1.0 (tile at hit zone)
-        const volume = 0.2 + (progress * 0.8);
+        // Volume ramps from 0.5 (tile at top) to 1.0 (tile at hit zone)
+        const volume = 0.5 + (progress * 0.5);
         gainNode.gain.value = volume;
       }
 
