@@ -956,10 +956,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
   /**
    * Calculate score breakdown
-   * NEW SCORING: Earlier identification = MORE points!
-   * - Species correct: 50 points (required)
-   * - Channel correct: 25 points (bonus)
-   * - Timing: 0-25 points based on how early (early = more)
+   * SCORING: Based on screen position when identified
+   * - Top 25% of screen: 100% of points
+   * - 25-50%: 75% of points
+   * - 50-75%: 50% of points
+   * - Bottom 25%: 25% of points
+   *
+   * Base points: Species correct (required) + Channel correct (bonus)
    */
   const calculateBreakdown = useCallback((
     event: ActiveEvent,
@@ -970,49 +973,58 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const speciesCorrectResult = inputSpecies === event.species_code;
     const channelCorrectResult = inputChannel === event.channel;
 
-    // Calculate timing bonus - EARLIER = MORE POINTS
+    // Calculate position on screen (1.0 = top, 0.0 = hit zone)
     // inputTime is ms since round start
     // event.scheduled_time_ms is when tile hits the finish line
     // scoring_window_start_ms is when tile entered screen
     const hitZoneTime = event.scheduled_time_ms;
     const enterTime = event.scoring_window_start_ms;
-    const totalWindow = hitZoneTime - enterTime; // Time from enter to hit zone
-    const timeBeforeHitZone = hitZoneTime - inputTime; // How early they identified
+    const totalWindow = hitZoneTime - enterTime;
+    const timeBeforeHitZone = hitZoneTime - inputTime;
+    const positionRatio = Math.max(0, Math.min(1, timeBeforeHitZone / totalWindow));
 
-    // Calculate early bonus: 100% if at very top, 0% if at hit zone
-    // Clamp between 0 and 1
-    const earlyRatio = Math.max(0, Math.min(1, timeBeforeHitZone / totalWindow));
-
-    // Timing points: 25 points max, scales with how early
-    // With 5-second travel time:
-    // Early (>65% remaining): 25 points - within first 1.75 seconds
-    // Medium (35-65%): 20 points - within 1.75-3.25 seconds
-    // Late (<35%): 15 points - last 1.75 seconds
-    let timingPoints: number;
-    if (earlyRatio >= 0.65) {
-      timingPoints = 25;
-    } else if (earlyRatio >= 0.35) {
-      timingPoints = 20;
-    } else {
-      timingPoints = 15;
-    }
-
-    // Determine timing accuracy label
+    // Determine timing multiplier based on which quarter of screen
+    // Top 25% (positionRatio >= 0.75): 100%
+    // 25-50% (positionRatio >= 0.50): 75%
+    // 50-75% (positionRatio >= 0.25): 50%
+    // Bottom 25% (positionRatio < 0.25): 25%
+    let timingMultiplier: number;
     let timingAccuracy: 'perfect' | 'partial' | 'miss';
-    if (earlyRatio >= 0.35) {
-      timingAccuracy = 'perfect'; // Good identification speed
+
+    if (positionRatio >= 0.75) {
+      timingMultiplier = 1.0;
+      timingAccuracy = 'perfect';
+    } else if (positionRatio >= 0.50) {
+      timingMultiplier = 0.75;
+      timingAccuracy = 'perfect';
+    } else if (positionRatio >= 0.25) {
+      timingMultiplier = 0.50;
+      timingAccuracy = 'partial';
     } else {
-      timingAccuracy = 'partial'; // Still got it, just late
+      timingMultiplier = 0.25;
+      timingAccuracy = 'partial';
     }
 
-    const speciesPoints = speciesCorrectResult ? SCORE_VALUES.SPECIES_CORRECT : 0;
-    const channelPoints = channelCorrectResult ? SCORE_VALUES.CHANNEL_CORRECT : 0;
+    // Calculate base points (what you'd get with perfect timing)
+    // Species MUST be correct to get any points
+    // Channel is a bonus only if species is also correct
+    const baseSpeciesPoints = speciesCorrectResult ? SCORE_VALUES.SPECIES_CORRECT : 0;
+    const baseChannelPoints = (speciesCorrectResult && channelCorrectResult) ? SCORE_VALUES.CHANNEL_CORRECT : 0;
+    const baseTotal = baseSpeciesPoints + baseChannelPoints;
+
+    // Apply timing multiplier to get actual points
+    const totalPoints = Math.round(baseTotal * timingMultiplier);
+
+    // For breakdown display, scale each component
+    const speciesPoints = Math.round(baseSpeciesPoints * timingMultiplier);
+    const channelPoints = Math.round(baseChannelPoints * timingMultiplier);
+    const timingPoints = 0; // No longer a separate category
 
     return {
       speciesPoints,
       channelPoints,
       timingPoints,
-      totalPoints: speciesPoints + channelPoints + timingPoints,
+      totalPoints,
       speciesCorrect: speciesCorrectResult,
       channelCorrect: channelCorrectResult,
       timingAccuracy,
@@ -1074,7 +1086,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       setChannelCorrect((c) => c + 1);
       channelCorrectRef.current += 1;
     }
-    if (breakdown.totalPoints === SCORE_VALUES.MAX_PER_EVENT) {
+    const maxPossible = SCORE_VALUES.SPECIES_CORRECT + SCORE_VALUES.CHANNEL_CORRECT;
+    if (breakdown.totalPoints === maxPossible) {
       setPerfectCount((p) => p + 1);
       perfectCountRef.current += 1;
       setStreak((s) => {
@@ -1093,15 +1106,20 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     }
 
     // Determine feedback type
+    // Perfect: both correct AND top 25% of screen (full points)
+    // Good: both correct but lower on screen
+    // Partial: species correct, channel wrong
+    // Miss: species wrong
     let feedbackType: FeedbackType;
-    if (breakdown.totalPoints === SCORE_VALUES.MAX_PER_EVENT) {
-      feedbackType = 'perfect';
+    const maxPossiblePoints = SCORE_VALUES.SPECIES_CORRECT + SCORE_VALUES.CHANNEL_CORRECT; // 75
+    if (breakdown.totalPoints === maxPossiblePoints) {
+      feedbackType = 'perfect'; // Both correct + top 25%
     } else if (breakdown.speciesCorrect && breakdown.channelCorrect) {
-      feedbackType = 'good';
-    } else if (breakdown.totalPoints > 0) {
-      feedbackType = 'partial';
+      feedbackType = 'good'; // Both correct but not top 25%
+    } else if (breakdown.speciesCorrect) {
+      feedbackType = 'partial'; // Species right, channel wrong
     } else {
-      feedbackType = 'miss';
+      feedbackType = 'miss'; // Species wrong
     }
 
     // Show feedback
