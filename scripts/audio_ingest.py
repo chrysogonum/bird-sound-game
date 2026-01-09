@@ -4,12 +4,29 @@ Audio Ingestion Pipeline for SoundField: Birds
 
 Downloads bird audio from Xeno-canto, preprocesses to:
 - Mono audio
-- 0.5-3.0 second duration
+- 0.5-3.0 second duration (trimmed to loudest section)
 - -16 LUFS loudness normalization
 
+XENO-CANTO API SETUP (required):
+    1. Create account at https://xeno-canto.org
+    2. Verify your email
+    3. Get API key from https://xeno-canto.org/account
+    4. Set environment variable:
+       export XENO_CANTO_API_KEY='your-api-key-here'
+    5. For persistence, add to ~/.zshrc or ~/.bashrc
+
 Usage:
-    python audio_ingest.py --output <output_dir> [--species <species_list>] [--max-per-species <n>]
-    python audio_ingest.py --output <output_dir> --demo  # Generate demo clips
+    # Test API connection first
+    python audio_ingest.py --test-api
+
+    # Download clips for default species
+    python audio_ingest.py --output data/clips --max-per-species 3
+
+    # Download clips for specific species
+    python audio_ingest.py --output data/clips --species "Northern Cardinal" "Blue Jay"
+
+    # Generate synthetic demo clips (no API needed)
+    python audio_ingest.py --output data/clips --demo
 """
 
 import argparse
@@ -76,36 +93,57 @@ def get_api_key() -> str:
 
 
 def fetch_xeno_canto_recordings(species_name: str, max_results: int = 5) -> list:
-    """Fetch recording metadata from Xeno-canto API v3."""
+    """
+    Fetch recording metadata from Xeno-canto API v3.
+
+    API v3 REQUIREMENTS (as of 2025):
+    - Requires API key: get from https://xeno-canto.org/account
+    - Set via: export XENO_CANTO_API_KEY='your-key'
+    - Queries MUST use tags (en:, q:, cnt:, etc.) - plain text searches return 0 results
+    - Tag format: en:"Species Name" (quotes required for multi-word values)
+    - Multiple tags joined with + in URL
+
+    See: https://xeno-canto.org/explore/api
+    """
     api_key = get_api_key()
     if not api_key:
         return []
 
-    # API v3 uses tags: en: for English name, q: for quality, cnt: for country
-    # Search for exact English name with high quality from US
-    query_parts = [f'en:"{species_name}"', 'q:A', 'cnt:"United States"']
-    query = urllib.parse.quote(' '.join(query_parts))
-    url = f"https://xeno-canto.org/api/3/recordings?query={query}&key={api_key}"
+    # API v3 requires tag-based queries. Plain text like "cardinal" returns nothing.
+    # Format: en:"English Name"+q:A (quality A recordings)
+    # Note: cnt:"United States" filter often returns 0 results, so we filter client-side
+    query = urllib.parse.quote(f'en:"{species_name}" q:A')
+    url = f"https://xeno-canto.org/api/3/recordings?query={query}&key={api_key}&per_page=100"
 
     try:
         req = urllib.request.Request(url, headers={'User-Agent': 'SoundField-Birds/1.0'})
         with urllib.request.urlopen(req, timeout=30) as response:
             data = json.loads(response.read().decode())
 
+        # Check for API errors
+        if 'error' in data:
+            print(f"  API Error: {data.get('error')} - {data.get('message')}")
+            return []
+
         recordings = data.get('recordings', [])
-        # Filter for high quality (A or B) and reasonable length
+
+        # Filter for US recordings, quality A/B, and reasonable length
         good_recordings = []
         for rec in recordings:
-            if rec.get('q') in ['A', 'B']:
-                try:
-                    length_parts = rec.get('length', '0:00').split(':')
-                    if len(length_parts) == 2:
-                        minutes, seconds = int(length_parts[0]), int(length_parts[1])
-                        total_seconds = minutes * 60 + seconds
-                        if 1 <= total_seconds <= 30:  # Reasonable source length
-                            good_recordings.append(rec)
-                except (ValueError, IndexError):
-                    continue
+            # Prefer US recordings for SE USA focus
+            if rec.get('cnt') != 'United States':
+                continue
+            if rec.get('q') not in ['A', 'B']:
+                continue
+            try:
+                length_parts = rec.get('length', '0:00').split(':')
+                if len(length_parts) == 2:
+                    minutes, seconds = int(length_parts[0]), int(length_parts[1])
+                    total_seconds = minutes * 60 + seconds
+                    if 3 <= total_seconds <= 90:  # Will be trimmed to 3s
+                        good_recordings.append(rec)
+            except (ValueError, IndexError):
+                continue
 
         return good_recordings[:max_results]
 
@@ -416,15 +454,69 @@ def ingest_from_xeno_canto(species_list: list, output_dir: str, max_per_species:
     return processed_files
 
 
+def test_api_connection() -> bool:
+    """Test Xeno-canto API connection and return True if working."""
+    api_key = get_api_key()
+    if not api_key:
+        return False
+
+    print("Testing Xeno-canto API v3 connection...")
+    print(f"  API key: {api_key[:8]}...{api_key[-4:]}")
+
+    # Test with a known species
+    test_species = "Northern Cardinal"
+    query = urllib.parse.quote(f'en:"{test_species}" q:A')
+    url = f"https://xeno-canto.org/api/3/recordings?query={query}&key={api_key}&per_page=5"
+
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'SoundField-Birds/1.0'})
+        with urllib.request.urlopen(req, timeout=30) as response:
+            data = json.loads(response.read().decode())
+
+        if 'error' in data:
+            print(f"  ERROR: {data.get('error')} - {data.get('message')}")
+            print("\n  Troubleshooting:")
+            print("  - Verify your API key at https://xeno-canto.org/account")
+            print("  - Make sure your email is verified")
+            print("  - Try regenerating your API key")
+            return False
+
+        num_recordings = data.get('numRecordings', 0)
+        print(f"  SUCCESS! Found {num_recordings} recordings for '{test_species}'")
+
+        # Show a sample
+        recs = data.get('recordings', [])[:3]
+        if recs:
+            print("\n  Sample recordings:")
+            for r in recs:
+                print(f"    XC{r['id']}: {r.get('type', '?')} ({r.get('length', '?')}) - {r.get('cnt', '?')}")
+
+        return True
+
+    except Exception as e:
+        print(f"  ERROR: {e}")
+        return False
+
+
 def main():
     parser = argparse.ArgumentParser(description='Audio ingestion pipeline for SoundField: Birds')
-    parser.add_argument('--output', required=True, help='Output directory for processed audio')
+    parser.add_argument('--output', help='Output directory for processed audio')
     parser.add_argument('--species', nargs='+', help='Species names to fetch')
     parser.add_argument('--max-per-species', type=int, default=1, help='Max recordings per species')
     parser.add_argument('--manifest', help='Output manifest JSON file')
     parser.add_argument('--demo', action='store_true', help='Generate demo clips instead of downloading')
+    parser.add_argument('--test-api', action='store_true', help='Test API connection and exit')
 
     args = parser.parse_args()
+
+    # Handle --test-api
+    if args.test_api:
+        success = test_api_connection()
+        return 0 if success else 1
+
+    # Require --output for actual ingestion
+    if not args.output:
+        parser.error("--output is required (or use --test-api to verify API connection)")
 
     species_list = args.species if args.species else DEFAULT_SPECIES
 
