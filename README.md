@@ -30,13 +30,19 @@ Bird call plays in LEFT ear
 
 ## Current Species (v1)
 
-Southeastern U.S. focus:
-- Northern Cardinal (NOCA)
-- Carolina Wren (CARW)
-- Blue Jay (BLJA)
-- American Crow (AMCR)
-- Tufted Titmouse (TUTI)
-- *...expanding to 30-50 species*
+Southeastern U.S. focus with multiple vocalizations per species:
+
+| Species | Code | Clips | Variety |
+|---------|------|-------|---------|
+| Northern Cardinal | NOCA | 5 | songs + calls |
+| Carolina Wren | CARW | 5 | songs + calls |
+| Blue Jay | BLJA | 4 | songs + calls |
+| American Crow | AMCR | 5 | songs + calls |
+| Tufted Titmouse | TUTI | 5 | songs + calls |
+
+**24 total clips** sourced from Xeno-canto (Quality A, SE USA recordings).
+
+*...expanding to 30-50 species*
 
 ## Tech Stack
 

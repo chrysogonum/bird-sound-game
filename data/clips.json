@@ -1,6 +1,18 @@
 [
   {
-    "clip_id": "AMCR_180c06d4",
+    "clip_id": "AMCR_5dc3ea81",
+    "species_code": "AMCR",
+    "common_name": "American Crow",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1007629",
+    "file_path": "data/clips/AMCR_1007629.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "AMCR_695343a5",
     "species_code": "AMCR",
     "common_name": "American Crow",
     "vocalization_type": "call",
@@ -9,22 +21,142 @@
     "source": "xenocanto",
     "source_id": "XC1056042",
     "file_path": "data/clips/AMCR_1056042.wav",
-    "spectrogram_path": "data/spectrograms/AMCR_1056042.png"
+    "spectrogram_path": null
   },
   {
-    "clip_id": "BLJA_824faa3e",
+    "clip_id": "AMCR_832d2f7c",
+    "species_code": "AMCR",
+    "common_name": "American Crow",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC316302",
+    "file_path": "data/clips/AMCR_316302.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "AMCR_ce169fd8",
+    "species_code": "AMCR",
+    "common_name": "American Crow",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC667361",
+    "file_path": "data/clips/AMCR_667361.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "AMCR_6f2decc2",
+    "species_code": "AMCR",
+    "common_name": "American Crow",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC905503",
+    "file_path": "data/clips/AMCR_905503.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "BLJA_4d24986e",
+    "species_code": "BLJA",
+    "common_name": "Blue Jay",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1010650",
+    "file_path": "data/clips/BLJA_1010650.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "BLJA_76d513ef",
+    "species_code": "BLJA",
+    "common_name": "Blue Jay",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1046664",
+    "file_path": "data/clips/BLJA_1046664.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "BLJA_b1072e6f",
+    "species_code": "BLJA",
+    "common_name": "Blue Jay",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC861979",
+    "file_path": "data/clips/BLJA_861979.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "BLJA_bee9d26d",
     "species_code": "BLJA",
     "common_name": "Blue Jay",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 5,
     "source": "xenocanto",
-    "source_id": "XC1046664",
-    "file_path": "data/clips/BLJA_1046664.wav",
-    "spectrogram_path": "data/spectrograms/BLJA_1046664.png"
+    "source_id": "XC933595",
+    "file_path": "data/clips/BLJA_933595.wav",
+    "spectrogram_path": null
   },
   {
-    "clip_id": "CARW_846ffdee",
+    "clip_id": "CARW_0e9ac3b0",
+    "species_code": "CARW",
+    "common_name": "Carolina Wren",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1010648",
+    "file_path": "data/clips/CARW_1010648.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "CARW_642438f1",
+    "species_code": "CARW",
+    "common_name": "Carolina Wren",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC899254",
+    "file_path": "data/clips/CARW_899254.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "CARW_812fa85b",
+    "species_code": "CARW",
+    "common_name": "Carolina Wren",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC941065",
+    "file_path": "data/clips/CARW_941065.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "CARW_e7ad1d58",
+    "species_code": "CARW",
+    "common_name": "Carolina Wren",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC951784",
+    "file_path": "data/clips/CARW_951784.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "CARW_22fffea4",
     "species_code": "CARW",
     "common_name": "Carolina Wren",
     "vocalization_type": "call",
@@ -33,10 +165,34 @@
     "source": "xenocanto",
     "source_id": "XC995314",
     "file_path": "data/clips/CARW_995314.wav",
-    "spectrogram_path": "data/spectrograms/CARW_995314.png"
+    "spectrogram_path": null
   },
   {
-    "clip_id": "NOCA_fc10a42a",
+    "clip_id": "NOCA_6928cf31",
+    "species_code": "NOCA",
+    "common_name": "Northern Cardinal",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1010609",
+    "file_path": "data/clips/NOCA_1010609.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "NOCA_44da87c1",
+    "species_code": "NOCA",
+    "common_name": "Northern Cardinal",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1010649",
+    "file_path": "data/clips/NOCA_1010649.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "NOCA_bf58b6be",
     "species_code": "NOCA",
     "common_name": "Northern Cardinal",
     "vocalization_type": "call",
@@ -45,18 +201,90 @@
     "source": "xenocanto",
     "source_id": "XC1070756",
     "file_path": "data/clips/NOCA_1070756.wav",
-    "spectrogram_path": "data/spectrograms/NOCA_1070756.png"
+    "spectrogram_path": null
   },
   {
-    "clip_id": "TUTI_b7ca26c5",
+    "clip_id": "NOCA_4c5b6edd",
+    "species_code": "NOCA",
+    "common_name": "Northern Cardinal",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC598016",
+    "file_path": "data/clips/NOCA_598016.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "NOCA_9a6c697d",
+    "species_code": "NOCA",
+    "common_name": "Northern Cardinal",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC809789",
+    "file_path": "data/clips/NOCA_809789.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "TUTI_f36cadb6",
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
     "vocalization_type": "call",
     "duration_ms": 3000,
     "quality_score": 5,
     "source": "xenocanto",
+    "source_id": "XC1010613",
+    "file_path": "data/clips/TUTI_1010613.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "TUTI_30e21ab1",
+    "species_code": "TUTI",
+    "common_name": "Tufted Titmouse",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
     "source_id": "XC1035994",
     "file_path": "data/clips/TUTI_1035994.wav",
-    "spectrogram_path": "data/spectrograms/TUTI_1035994.png"
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "TUTI_b1b95388",
+    "species_code": "TUTI",
+    "common_name": "Tufted Titmouse",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC60068",
+    "file_path": "data/clips/TUTI_60068.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "TUTI_63d49267",
+    "species_code": "TUTI",
+    "common_name": "Tufted Titmouse",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC884288",
+    "file_path": "data/clips/TUTI_884288.wav",
+    "spectrogram_path": null
+  },
+  {
+    "clip_id": "TUTI_520b1686",
+    "species_code": "TUTI",
+    "common_name": "Tufted Titmouse",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC895984",
+    "file_path": "data/clips/TUTI_895984.wav",
+    "spectrogram_path": null
   }
 ]
