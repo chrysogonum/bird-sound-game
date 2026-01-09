@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SoundField: Clip Review - Select Canonical Sounds</title>
+  <title>SoundField: Clip Review</title>
   <style>
     * { box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 20px;
       background: #1a1a2e;
@@ -22,6 +22,24 @@
       margin-bottom: 20px;
       border-left: 4px solid #4fc3f7;
     }
+    .instructions ul { margin: 10px 0 0 0; padding-left: 20px; }
+    .instructions li { margin: 5px 0; }
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #333;
+      color: #888;
+    }
+    .filter-btn.active { background: #4fc3f7; color: #000; }
     .species-group {
       background: #16213e;
       border-radius: 12px;
@@ -42,6 +60,7 @@
       color: #000;
     }
     .species-name { font-size: 18px; color: #aaa; }
+    .species-stats { font-size: 14px; color: #666; margin-left: auto; }
     .clip-row {
       display: flex;
       align-items: center;
@@ -50,43 +69,72 @@
       background: #1a1a2e;
       border-radius: 8px;
       margin-bottom: 10px;
+      border: 2px solid transparent;
     }
     .clip-row:hover { background: #222244; }
-    .clip-row.selected {
-      background: #1e3a1e;
-      border: 2px solid #4caf50;
-    }
+    .clip-row.canonical { border-color: #4caf50; background: #1e3a1e; }
+    .clip-row.rejected { border-color: #f44336; background: #3a1e1e; opacity: 0.6; }
+    .clip-row.new { border-color: #ff9800; }
     .clip-info {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 4px;
+      min-width: 120px;
     }
     .clip-id { font-family: monospace; color: #4fc3f7; }
-    .clip-type {
-      font-size: 12px;
+    .clip-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge {
+      font-size: 11px;
       padding: 2px 8px;
       border-radius: 4px;
       display: inline-block;
-      width: fit-content;
     }
-    .clip-type.song { background: #2e7d32; color: #fff; }
-    .clip-type.call { background: #f57c00; color: #fff; }
-    audio { width: 250px; height: 36px; }
-    .select-btn {
-      padding: 8px 16px;
-      border: none;
+    .badge.song { background: #2e7d32; color: #fff; }
+    .badge.call { background: #f57c00; color: #fff; }
+    .badge.new { background: #ff9800; color: #000; }
+    .badge.canonical { background: #4caf50; color: #fff; }
+    .badge.rejected { background: #f44336; color: #fff; }
+    audio { width: 200px; height: 36px; flex-shrink: 0; }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .action-btn {
+      padding: 6px 12px;
+      border: 2px solid;
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
+      font-size: 12px;
+      background: transparent;
       transition: all 0.2s;
     }
-    .select-btn.unselected {
-      background: #333;
-      color: #888;
+    .action-btn.canonical-btn {
+      border-color: #4caf50;
+      color: #4caf50;
     }
-    .select-btn.selected {
+    .action-btn.canonical-btn:hover,
+    .action-btn.canonical-btn.active {
       background: #4caf50;
+      color: #fff;
+    }
+    .action-btn.reject-btn {
+      border-color: #f44336;
+      color: #f44336;
+    }
+    .action-btn.reject-btn:hover,
+    .action-btn.reject-btn.active {
+      background: #f44336;
+      color: #fff;
+    }
+    .action-btn.clear-btn {
+      border-color: #666;
+      color: #666;
+    }
+    .action-btn.clear-btn:hover {
+      background: #666;
       color: #fff;
     }
     .output-section {
@@ -96,72 +144,167 @@
       margin-top: 30px;
     }
     .output-section h2 { color: #4fc3f7; margin-top: 0; }
+    .output-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .output-tab {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #333;
+      color: #888;
+    }
+    .output-tab.active { background: #4fc3f7; color: #000; }
     #output {
       background: #1a1a2e;
       padding: 15px;
       border-radius: 8px;
       font-family: monospace;
+      font-size: 13px;
       white-space: pre;
       overflow-x: auto;
+      max-height: 300px;
+      overflow-y: auto;
     }
-    .copy-btn {
-      background: #4fc3f7;
-      color: #000;
-      border: none;
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .copy-btn, .apply-btn {
       padding: 10px 20px;
+      border: none;
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
-      margin-top: 10px;
     }
+    .copy-btn { background: #4fc3f7; color: #000; }
     .copy-btn:hover { background: #81d4fa; }
+    .apply-btn { background: #4caf50; color: #fff; }
+    .apply-btn:hover { background: #66bb6a; }
+    .stats-bar {
+      background: #0d1520;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .stat { color: #888; }
+    .stat strong { color: #fff; }
   </style>
 </head>
 <body>
-  <h1>SoundField: Select Canonical Sounds</h1>
+  <h1>SoundField: Clip Review</h1>
 
   <div class="instructions">
-    <strong>Instructions:</strong> Listen to each clip and select the ONE that sounds most "textbook" for each species.
-    This will be the sound used in beginner Level 1. Other clips will be introduced in later levels.
+    <strong>Workflow for new clips:</strong>
+    <ul>
+      <li><strong>Listen</strong> to each clip using the audio player</li>
+      <li><strong>Canonical</strong> - Mark ONE clip per species as the "textbook" beginner sound</li>
+      <li><strong>Reject</strong> - Mark clips with issues (background noise, other birds, poor quality)</li>
+      <li><strong>Copy JSON</strong> and share with Claude to apply changes</li>
+    </ul>
+  </div>
+
+  <div class="stats-bar" id="stats-bar">Loading...</div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="new">New (unreviewed)</button>
+    <button class="filter-btn" data-filter="canonical">Canonical</button>
+    <button class="filter-btn" data-filter="rejected">Rejected</button>
+    <button class="filter-btn" data-filter="active">Active (not rejected)</button>
   </div>
 
   <div id="clips-container"></div>
 
   <div class="output-section">
-    <h2>Your Selections</h2>
-    <div id="output">Select one clip per species...</div>
-    <button class="copy-btn" onclick="copyOutput()">Copy JSON</button>
+    <h2>Review Output</h2>
+    <div class="output-tabs">
+      <button class="output-tab active" data-output="summary">Summary</button>
+      <button class="output-tab" data-output="canonical">Canonical JSON</button>
+      <button class="output-tab" data-output="rejected">Rejected JSON</button>
+      <button class="output-tab" data-output="full">Full Changes</button>
+    </div>
+    <div id="output">Loading...</div>
+    <div class="btn-row">
+      <button class="copy-btn" onclick="copyOutput()">Copy to Clipboard</button>
+    </div>
   </div>
 
   <script>
     const SPECIES_COLORS = {
-      NOCA: '#E57373',
-      BLJA: '#4FC3F7',
-      CARW: '#81C784',
-      AMCR: '#757575',
-      TUTI: '#FFD54F',
+      NOCA: '#E57373', BLJA: '#4FC3F7', CARW: '#81C784',
+      AMCR: '#757575', TUTI: '#FFD54F', EABL: '#64B5F6',
+      MODO: '#A1887F', AMRO: '#FF8A65', RBWO: '#CE93D8',
+      DOWO: '#90A4AE', BCCH: '#FFF176', WBNU: '#80CBC4',
     };
 
     const SPECIES_NAMES = {
-      NOCA: 'Northern Cardinal',
-      BLJA: 'Blue Jay',
-      CARW: 'Carolina Wren',
-      AMCR: 'American Crow',
-      TUTI: 'Tufted Titmouse',
+      NOCA: 'Northern Cardinal', BLJA: 'Blue Jay', CARW: 'Carolina Wren',
+      AMCR: 'American Crow', TUTI: 'Tufted Titmouse', EABL: 'Eastern Bluebird',
+      MODO: 'Mourning Dove', AMRO: 'American Robin', RBWO: 'Red-bellied Woodpecker',
+      DOWO: 'Downy Woodpecker', BCCH: 'Black-capped Chickadee', WBNU: 'White-breasted Nuthatch',
     };
 
-    // Will be populated from clips.json
     let clips = [];
-    let selections = {};
+    let changes = { canonical: {}, rejected: [] };
+    let currentFilter = 'all';
+    let currentOutput = 'summary';
 
     async function loadClips() {
-      const response = await fetch('clips.json');
-      clips = await response.json();
+      try {
+        const response = await fetch('clips.json');
+        clips = await response.json();
+
+        // Initialize changes from existing data
+        for (const clip of clips) {
+          if (clip.canonical) {
+            changes.canonical[clip.species_code] = clip.source_id;
+          }
+          if (clip.rejected) {
+            changes.rejected.push(clip.source_id);
+          }
+        }
+
+        renderAll();
+      } catch (e) {
+        document.getElementById('clips-container').innerHTML =
+          '<p style="color: #f44336;">Error loading clips.json. Make sure you\'re running a local server.</p>';
+      }
+    }
+
+    function renderAll() {
+      renderStats();
       renderClips();
+      updateOutput();
+    }
+
+    function renderStats() {
+      const total = clips.length;
+      const canonical = Object.keys(changes.canonical).length;
+      const rejected = changes.rejected.length;
+      const active = total - rejected;
+      const unreviewed = clips.filter(c => !c.canonical && !c.rejected && !changes.canonical[c.species_code] !== c.source_id && !changes.rejected.includes(c.source_id)).length;
+      const species = new Set(clips.map(c => c.species_code)).size;
+
+      document.getElementById('stats-bar').innerHTML = `
+        <span class="stat"><strong>${total}</strong> total clips</span>
+        <span class="stat"><strong>${species}</strong> species</span>
+        <span class="stat"><strong>${canonical}</strong> canonical</span>
+        <span class="stat"><strong>${rejected}</strong> rejected</span>
+        <span class="stat"><strong>${active}</strong> active</span>
+      `;
     }
 
     function renderClips() {
       const container = document.getElementById('clips-container');
+      container.innerHTML = '';
 
       // Group by species
       const bySpecies = {};
@@ -171,37 +314,78 @@
         bySpecies[code].push(clip);
       }
 
-      // Render each species group
-      const speciesOrder = ['NOCA', 'CARW', 'TUTI', 'BLJA', 'AMCR'];
+      // Sort species
+      const speciesOrder = Object.keys(bySpecies).sort();
+
       for (const code of speciesOrder) {
-        const speciesClips = bySpecies[code] || [];
-        if (speciesClips.length === 0) continue;
+        const speciesClips = bySpecies[code];
+
+        // Apply filter
+        const filteredClips = speciesClips.filter(clip => {
+          const isCanonical = changes.canonical[clip.species_code] === clip.source_id;
+          const isRejected = changes.rejected.includes(clip.source_id);
+          const isNew = !clip.canonical && !clip.rejected;
+
+          switch (currentFilter) {
+            case 'new': return isNew && !isCanonical && !isRejected;
+            case 'canonical': return isCanonical;
+            case 'rejected': return isRejected;
+            case 'active': return !isRejected;
+            default: return true;
+          }
+        });
+
+        if (filteredClips.length === 0) continue;
 
         const group = document.createElement('div');
         group.className = 'species-group';
+
+        const activeCount = speciesClips.filter(c => !changes.rejected.includes(c.source_id)).length;
+        const color = SPECIES_COLORS[code] || '#888';
+
         group.innerHTML = `
           <div class="species-header">
-            <span class="species-code" style="background: ${SPECIES_COLORS[code]}">${code}</span>
-            <span class="species-name">${SPECIES_NAMES[code]}</span>
+            <span class="species-code" style="background: ${color}">${code}</span>
+            <span class="species-name">${SPECIES_NAMES[code] || code}</span>
+            <span class="species-stats">${activeCount} active / ${speciesClips.length} total</span>
           </div>
         `;
 
-        for (const clip of speciesClips) {
+        for (const clip of filteredClips) {
+          const isCanonical = changes.canonical[clip.species_code] === clip.source_id;
+          const isRejected = changes.rejected.includes(clip.source_id);
+          const isNew = !clip.canonical && !clip.rejected && !isCanonical && !isRejected;
+
           const row = document.createElement('div');
           row.className = 'clip-row';
+          if (isCanonical) row.classList.add('canonical');
+          if (isRejected) row.classList.add('rejected');
+          if (isNew) row.classList.add('new');
           row.id = `row-${clip.clip_id}`;
 
-          const typeClass = clip.vocalization_type === 'song' ? 'song' : 'call';
+          const badges = [];
+          badges.push(`<span class="badge ${clip.vocalization_type}">${clip.vocalization_type}</span>`);
+          if (isNew) badges.push('<span class="badge new">NEW</span>');
+          if (isCanonical) badges.push('<span class="badge canonical">CANONICAL</span>');
+          if (isRejected) badges.push('<span class="badge rejected">REJECTED</span>');
 
           row.innerHTML = `
             <div class="clip-info">
               <span class="clip-id">${clip.source_id}</span>
-              <span class="clip-type ${typeClass}">${clip.vocalization_type}</span>
+              <div class="clip-badges">${badges.join('')}</div>
             </div>
             <audio controls src="clips/${clip.file_path.split('/').pop()}"></audio>
-            <button class="select-btn unselected" onclick="selectClip('${code}', '${clip.source_id}', '${clip.clip_id}')">
-              Select
-            </button>
+            <div class="actions">
+              <button class="action-btn canonical-btn ${isCanonical ? 'active' : ''}"
+                      onclick="toggleCanonical('${clip.species_code}', '${clip.source_id}')"
+                      ${isRejected ? 'disabled' : ''}>
+                Canonical
+              </button>
+              <button class="action-btn reject-btn ${isRejected ? 'active' : ''}"
+                      onclick="toggleRejected('${clip.source_id}', '${clip.species_code}')">
+                Reject
+              </button>
+            </div>
           `;
 
           group.appendChild(row);
@@ -211,39 +395,58 @@
       }
     }
 
-    function selectClip(speciesCode, sourceId, clipId) {
-      // Deselect previous for this species
-      if (selections[speciesCode]) {
-        const prevRow = document.getElementById(`row-${selections[speciesCode].clipId}`);
-        if (prevRow) {
-          prevRow.classList.remove('selected');
-          prevRow.querySelector('.select-btn').className = 'select-btn unselected';
-          prevRow.querySelector('.select-btn').textContent = 'Select';
+    function toggleCanonical(speciesCode, sourceId) {
+      if (changes.canonical[speciesCode] === sourceId) {
+        delete changes.canonical[speciesCode];
+      } else {
+        changes.canonical[speciesCode] = sourceId;
+      }
+      renderAll();
+    }
+
+    function toggleRejected(sourceId, speciesCode) {
+      const idx = changes.rejected.indexOf(sourceId);
+      if (idx >= 0) {
+        changes.rejected.splice(idx, 1);
+      } else {
+        changes.rejected.push(sourceId);
+        // If this was canonical, remove it
+        if (changes.canonical[speciesCode] === sourceId) {
+          delete changes.canonical[speciesCode];
         }
       }
-
-      // Select new
-      selections[speciesCode] = { sourceId, clipId };
-      const row = document.getElementById(`row-${clipId}`);
-      row.classList.add('selected');
-      row.querySelector('.select-btn').className = 'select-btn selected';
-      row.querySelector('.select-btn').textContent = 'Selected';
-
-      updateOutput();
+      renderAll();
     }
 
     function updateOutput() {
       const output = document.getElementById('output');
 
-      const canonical = {};
-      for (const [code, data] of Object.entries(selections)) {
-        canonical[code] = data.sourceId;
-      }
+      switch (currentOutput) {
+        case 'summary':
+          const lines = ['=== Review Summary ===\n'];
+          lines.push(`Canonical clips (${Object.keys(changes.canonical).length}):`);
+          for (const [code, id] of Object.entries(changes.canonical).sort()) {
+            lines.push(`  ${code}: ${id}`);
+          }
+          lines.push(`\nRejected clips (${changes.rejected.length}):`);
+          for (const id of changes.rejected.sort()) {
+            const clip = clips.find(c => c.source_id === id);
+            lines.push(`  ${id} (${clip?.species_code || '?'})`);
+          }
+          output.textContent = lines.join('\n');
+          break;
 
-      if (Object.keys(canonical).length === 0) {
-        output.textContent = 'Select one clip per species...';
-      } else {
-        output.textContent = JSON.stringify(canonical, null, 2);
+        case 'canonical':
+          output.textContent = JSON.stringify(changes.canonical, null, 2);
+          break;
+
+        case 'rejected':
+          output.textContent = JSON.stringify(changes.rejected, null, 2);
+          break;
+
+        case 'full':
+          output.textContent = JSON.stringify(changes, null, 2);
+          break;
       }
     }
 
@@ -252,9 +455,29 @@
       navigator.clipboard.writeText(output).then(() => {
         const btn = document.querySelector('.copy-btn');
         btn.textContent = 'Copied!';
-        setTimeout(() => btn.textContent = 'Copy JSON', 2000);
+        setTimeout(() => btn.textContent = 'Copy to Clipboard', 2000);
       });
     }
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderClips();
+      });
+    });
+
+    // Output tabs
+    document.querySelectorAll('.output-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.output-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentOutput = tab.dataset.output;
+        updateOutput();
+      });
+    });
 
     // Load on page load
     loadClips();

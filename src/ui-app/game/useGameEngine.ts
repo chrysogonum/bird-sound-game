@@ -24,6 +24,8 @@ export interface ClipMetadata {
   spectrogram_path: string | null;
   /** If true, this is the canonical/beginner sound for this species */
   canonical?: boolean;
+  /** If true, this clip is excluded from gameplay (quality issues, etc.) */
+  rejected?: boolean;
 }
 
 /** Species data for UI display */
@@ -374,10 +376,10 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const seed = Date.now();
     const random = createSeededRandom(seed);
 
-    // Filter clips if canonical_only mode (beginner levels)
-    const availableClips = level.canonical_only
-      ? clips.filter((c) => c.canonical)
-      : clips;
+    // Filter clips: exclude rejected, and optionally limit to canonical only
+    const availableClips = clips
+      .filter((c) => !c.rejected)  // Always exclude rejected clips
+      .filter((c) => !level.canonical_only || c.canonical);  // Optionally limit to canonical
 
     // Get clips organized by species
     const speciesClips = new Map<string, ClipMetadata[]>();
