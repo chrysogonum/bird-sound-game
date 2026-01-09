@@ -380,8 +380,12 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       speciesClips.set(clip.species_code, existing);
     }
 
-    // Select species for this level
+    // Select random species for this level (shuffle then take first N)
     const availableSpecies = Array.from(speciesClips.keys());
+    for (let i = availableSpecies.length - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      [availableSpecies[i], availableSpecies[j]] = [availableSpecies[j], availableSpecies[i]];
+    }
     const selectedSpecies = availableSpecies.slice(0, level.species_count);
 
     // Generate plenty of events - with fast identification, players could go through many
