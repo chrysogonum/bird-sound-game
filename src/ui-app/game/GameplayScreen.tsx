@@ -172,6 +172,7 @@ function GameplayScreen() {
           activeEvents={gameState.activeEvents}
           roundStartTime={gameState.roundStartTime}
           roundState={gameState.roundState}
+          scrollSpeed={gameState.scrollSpeed}
           currentFeedback={gameState.currentFeedback}
           onChannelTap={handleChannelTap}
         />

@@ -69,6 +69,7 @@ export interface GameEngineState {
   activeEvents: ActiveEvent[];
   scheduledEvents: ScheduledEvent[];
   roundStartTime: number;
+  scrollSpeed: number;
   currentFeedback: FeedbackData | null;
   species: SpeciesInfo[];
   isAudioReady: boolean;
@@ -83,8 +84,12 @@ export interface GameEngineActions {
   reset: () => void;
 }
 
-/** Audio plays this many ms BEFORE the tile reaches the hit zone */
-const AUDIO_LEAD_TIME_MS = 2500;
+/** Scroll speed based on difficulty (pixels per second) */
+const SCROLL_SPEED_BY_DENSITY: Record<string, number> = {
+  low: 100,      // Beginner: slow and leisurely
+  medium: 150,   // Intermediate
+  high: 200,     // Expert: fast-paced
+};
 
 /** Default level config for testing */
 const DEFAULT_LEVEL: LevelConfig = {
@@ -94,7 +99,7 @@ const DEFAULT_LEVEL: LevelConfig = {
   round_duration_sec: 30,
   species_count: 5,
   event_density: 'low',
-  overlap_probability: 0,
+  overlap_probability: 0,  // No overlaps for beginners
   scoring_window_ms: 2000,
   spectrogram_mode: 'full',
 };
@@ -130,6 +135,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const audioContextRef = useRef<AudioContext | null>(null);
   const bufferCacheRef = useRef<Map<string, AudioBuffer>>(new Map());
   const activeSourcesRef = useRef<Map<string, AudioBufferSourceNode>>(new Map());
+  const activeGainsRef = useRef<Map<string, GainNode>>(new Map());
+  const activeEventTimesRef = useRef<Map<string, number>>(new Map()); // eventId -> scheduled hit time
+  const volumeUpdateRef = useRef<number | null>(null);
 
   // Clips and species data
   const [clips, setClips] = useState<ClipMetadata[]>([]);
@@ -149,8 +157,21 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const [activeEvents, setActiveEvents] = useState<ActiveEvent[]>([]);
   const [scheduledEvents, setScheduledEvents] = useState<ScheduledEvent[]>([]);
   const [roundStartTime, setRoundStartTime] = useState(0);
+  const [scrollSpeed] = useState(() => {
+    // Base speed from difficulty
+    const baseSpeed = SCROLL_SPEED_BY_DENSITY[level.event_density] || 100;
+    // Multiplier from settings (0.5x to 2.0x)
+    const savedMultiplier = localStorage.getItem('soundfield_scroll_speed');
+    const multiplier = savedMultiplier ? parseFloat(savedMultiplier) : 1.0;
+    return baseSpeed * multiplier;
+  });
   const [currentFeedback, setCurrentFeedback] = useState<FeedbackData | null>(null);
   const [isAudioReady, setIsAudioReady] = useState(false);
+
+  // Audio lead time: start audio when tile enters visible area
+  // At 100px/sec and ~600px to travel, that's ~6 seconds
+  // Use 5 seconds as a good default - audio plays most of the journey
+  const audioLeadTimeMs = 5000;
 
   // Refs for timer and event scheduling
   const timerRef = useRef<number | null>(null);
@@ -237,8 +258,14 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
   /**
    * Play audio on a specific channel
+   * Audio starts quiet and gets louder as tile approaches hit zone
    */
-  const playAudio = useCallback(async (filePath: string, channel: Channel, eventId: string) => {
+  const playAudio = useCallback(async (
+    filePath: string,
+    channel: Channel,
+    eventId: string,
+    scheduledHitTimeMs: number
+  ) => {
     const ctx = audioContextRef.current;
     if (!ctx) return;
 
@@ -250,6 +277,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       const gainNode = ctx.createGain();
       const panner = ctx.createStereoPanner();
 
+      // Start at moderate volume - will ramp up as tile approaches
+      gainNode.gain.value = 0.4;
+
       // Set up panning (-1 for left, 1 for right)
       panner.pan.value = channel === 'left' ? -1 : 1;
 
@@ -259,12 +289,19 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       gainNode.connect(panner);
       panner.connect(ctx.destination);
 
-      // Track active source
-      activeSourcesRef.current.set(eventId, source);
+      // Loop the audio until tile reaches hit zone
+      source.loop = true;
 
-      // Clean up when done
+      // Track active source, gain, and timing
+      activeSourcesRef.current.set(eventId, source);
+      activeGainsRef.current.set(eventId, gainNode);
+      activeEventTimesRef.current.set(eventId, scheduledHitTimeMs);
+
+      // Clean up when done (only called when we explicitly stop it)
       source.onended = () => {
         activeSourcesRef.current.delete(eventId);
+        activeGainsRef.current.delete(eventId);
+        activeEventTimesRef.current.delete(eventId);
       };
 
       // Play immediately
@@ -273,6 +310,23 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       console.error('Error playing audio:', error);
     }
   }, [loadAudioBuffer]);
+
+  /**
+   * Stop audio for a specific event
+   */
+  const stopAudio = useCallback((eventId: string) => {
+    const source = activeSourcesRef.current.get(eventId);
+    if (source) {
+      try {
+        source.stop();
+      } catch {
+        // Already stopped
+      }
+    }
+    activeSourcesRef.current.delete(eventId);
+    activeGainsRef.current.delete(eventId);
+    activeEventTimesRef.current.delete(eventId);
+  }, []);
 
   /**
    * Generate events for the round
@@ -296,10 +350,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const selectedSpecies = availableSpecies.slice(0, level.species_count);
 
     // Gap timing based on density
+    // "low" = beginner: one bird at a time (gap > audio lead time)
     const gapConfig = {
-      low: { min: 3000, max: 5000 },
-      medium: { min: 1500, max: 3000 },
-      high: { min: 800, max: 1500 },
+      low: { min: 6000, max: 8000 },     // 6-8 seconds = one at a time
+      medium: { min: 3000, max: 5000 },  // some overlap possible
+      high: { min: 1500, max: 2500 },    // frequent overlap
     };
     const { min: minGap, max: maxGap } = gapConfig[level.event_density];
     const halfWindow = level.scoring_window_ms / 2;
@@ -383,14 +438,14 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const roundStart = roundStartTimeRef.current;
 
     // Audio plays earlier than scheduled_time (when tile hits zone)
-    const audioPlayTime = event.scheduled_time_ms - AUDIO_LEAD_TIME_MS;
+    const audioPlayTime = event.scheduled_time_ms - audioLeadTimeMs;
     const audioDelay = Math.max(0, audioPlayTime - (now - roundStart));
 
     // Schedule audio to play early (as tile scrolls down)
     const audioTimerId = window.setTimeout(() => {
       const clip = getClipById(event.clip_id);
       if (!clip) return;
-      playAudio(clip.file_path, event.channel, event.event_id);
+      playAudio(clip.file_path, event.channel, event.event_id, event.scheduled_time_ms);
     }, audioDelay);
     eventTimersRef.current.push(audioTimerId);
 
@@ -410,6 +465,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       // Set up scoring window end
       const windowDuration = event.scoring_window_end_ms - event.scheduled_time_ms;
       window.setTimeout(() => {
+        // Stop the looping audio
+        stopAudio(event.event_id);
+
         setActiveEvents((prev) =>
           prev.map((e) =>
             e.event_id === event.event_id ? { ...e, isActive: false } : e
@@ -428,7 +486,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       }, windowDuration);
     }, hitZoneDelay);
     eventTimersRef.current.push(hitZoneTimerId);
-  }, [getClipById, playAudio]);
+  }, [getClipById, playAudio, stopAudio, audioLeadTimeMs]);
 
   /**
    * Initialize the engine (load clips, set up audio)
@@ -577,6 +635,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Calculate score
     const breakdown = calculateBreakdown(matchingEvent, speciesCode, channel, roundTime);
 
+    // Stop the looping audio for this event
+    stopAudio(matchingEvent.event_id);
+
     // Update state
     setActiveEvents((prev) =>
       prev.map((e) =>
@@ -630,7 +691,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     setTimeout(() => {
       setCurrentFeedback((prev) => (prev?.id === feedback.id ? null : prev));
     }, 500);
-  }, [roundState, activeEvents, calculateBreakdown, maxStreak]);
+  }, [roundState, activeEvents, calculateBreakdown, stopAudio, maxStreak]);
 
   /**
    * Reset to idle state
@@ -653,12 +714,56 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   }, [endRound, level.round_duration_sec]);
 
   /**
+   * Volume ramping loop - makes audio louder as tiles approach hit zone
+   */
+  useEffect(() => {
+    if (roundState !== 'playing') {
+      if (volumeUpdateRef.current) {
+        cancelAnimationFrame(volumeUpdateRef.current);
+        volumeUpdateRef.current = null;
+      }
+      return;
+    }
+
+    const updateVolumes = () => {
+      const elapsed = performance.now() - roundStartTimeRef.current;
+
+      // Update gain for each active audio
+      for (const [eventId, gainNode] of activeGainsRef.current.entries()) {
+        const hitTimeMs = activeEventTimesRef.current.get(eventId);
+        if (hitTimeMs === undefined) continue;
+
+        // Calculate progress: 0 = audio just started, 1 = at hit zone
+        const timeUntilHit = hitTimeMs - elapsed;
+        const progress = Math.max(0, Math.min(1, 1 - (timeUntilHit / audioLeadTimeMs)));
+
+        // Volume ramps from 0.4 to 1.0
+        const volume = 0.4 + (progress * 0.6);
+        gainNode.gain.value = volume;
+      }
+
+      volumeUpdateRef.current = requestAnimationFrame(updateVolumes);
+    };
+
+    volumeUpdateRef.current = requestAnimationFrame(updateVolumes);
+
+    return () => {
+      if (volumeUpdateRef.current) {
+        cancelAnimationFrame(volumeUpdateRef.current);
+      }
+    };
+  }, [roundState, audioLeadTimeMs]);
+
+  /**
    * Clean up on unmount
    */
   useEffect(() => {
     return () => {
       if (timerRef.current) {
         clearInterval(timerRef.current);
+      }
+      if (volumeUpdateRef.current) {
+        cancelAnimationFrame(volumeUpdateRef.current);
       }
       for (const timerId of eventTimersRef.current) {
         clearTimeout(timerId);
@@ -689,6 +794,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     activeEvents,
     scheduledEvents,
     roundStartTime,
+    scrollSpeed,
     currentFeedback,
     species,
     isAudioReady,

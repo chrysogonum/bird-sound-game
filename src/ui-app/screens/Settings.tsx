@@ -1,13 +1,43 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type SpectrogramMode = 'full' | 'fading' | 'none';
 
+// Storage keys
+const STORAGE_KEYS = {
+  SCROLL_SPEED: 'soundfield_scroll_speed',
+  SPECTROGRAM_MODE: 'soundfield_spectrogram_mode',
+  HIGH_CONTRAST: 'soundfield_high_contrast',
+};
+
 function Settings() {
   const navigate = useNavigate();
-  const [spectrogramMode, setSpectrogramMode] = useState<SpectrogramMode>('full');
-  const [scrollSpeed, setScrollSpeed] = useState(1.0);
-  const [highContrast, setHighContrast] = useState(false);
+
+  // Load from localStorage on mount
+  const [spectrogramMode, setSpectrogramMode] = useState<SpectrogramMode>(() => {
+    const saved = localStorage.getItem(STORAGE_KEYS.SPECTROGRAM_MODE);
+    return (saved as SpectrogramMode) || 'full';
+  });
+  const [scrollSpeed, setScrollSpeed] = useState(() => {
+    const saved = localStorage.getItem(STORAGE_KEYS.SCROLL_SPEED);
+    return saved ? parseFloat(saved) : 1.0;
+  });
+  const [highContrast, setHighContrast] = useState(() => {
+    return localStorage.getItem(STORAGE_KEYS.HIGH_CONTRAST) === 'true';
+  });
+
+  // Save to localStorage when changed
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.SPECTROGRAM_MODE, spectrogramMode);
+  }, [spectrogramMode]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.SCROLL_SPEED, scrollSpeed.toString());
+  }, [scrollSpeed]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.HIGH_CONTRAST, highContrast.toString());
+  }, [highContrast]);
 
   return (
     <div className="screen">

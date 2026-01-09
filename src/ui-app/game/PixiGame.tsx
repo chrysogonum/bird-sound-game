@@ -10,6 +10,7 @@ export interface PixiGameProps {
   activeEvents: ActiveEvent[];
   roundStartTime: number;
   roundState: RoundState;
+  scrollSpeed: number;
   currentFeedback: FeedbackData | null;
   onChannelTap?: (channel: 'left' | 'right') => void;
 }
@@ -33,7 +34,6 @@ const COLORS = {
 // Tile dimensions
 const TILE_WIDTH_RATIO = 0.55; // Ratio of lane width
 const TILE_HEIGHT = 70;
-const SCROLL_SPEED = 200; // pixels per second
 const HIT_ZONE_Y_RATIO = 0.82; // 82% from top
 
 interface TileState {
@@ -54,6 +54,7 @@ function PixiGame({
   activeEvents,
   roundStartTime,
   roundState,
+  scrollSpeed,
   currentFeedback,
   onChannelTap,
 }: PixiGameProps) {
@@ -206,7 +207,7 @@ function PixiGame({
           // Calculate Y position based on time
           const timeToHitMs = tile.scheduledTimeMs - elapsedMs;
           const timeToHitSec = timeToHitMs / 1000;
-          const distanceFromHitZone = timeToHitSec * SCROLL_SPEED;
+          const distanceFromHitZone = timeToHitSec * scrollSpeed;
           tile.container.y = hitZoneY - distanceFromHitZone;
 
           // Hide if past hit zone by too much
@@ -224,7 +225,7 @@ function PixiGame({
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [roundState, roundStartTime, height]);
+  }, [roundState, roundStartTime, height, scrollSpeed]);
 
   // Handle feedback - update tiles when scored
   useEffect(() => {
