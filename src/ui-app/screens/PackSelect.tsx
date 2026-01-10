@@ -37,7 +37,7 @@ const PACKS: Pack[] = [
     name: 'Expanded Local Birds',
     speciesCount: 27,
     isUnlocked: true,
-    description: 'Ready for more? 10 random birds per round from 27 eastern US species.',
+    description: 'Ready for more? 9 random birds per round from 27 eastern US species.',
   },
   {
     id: 'sparrows',
@@ -163,7 +163,8 @@ function PackSelect() {
         lineHeight: 1.5,
       }}>
         Choose a bird pack to practice. Each pack has 6 levels that build your listening skills,
-        from learning signature sounds to mastering full repertoires.
+        from learning signature sounds to mastering full repertoires. Pro tip: once you've mastered
+        the sounds, try playing with your device muted and identify birds by their spectrograms alone!
       </p>
 
       <div

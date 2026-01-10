@@ -43,7 +43,7 @@ function Help() {
           />
           <PackInfo
             name="Expanded Local Birds"
-            description="27 species from the eastern US. Each round picks 10 random birds, so every game is different!"
+            description="27 species from the eastern US. Each round picks 9 random birds, so every game is different!"
           />
           <PackInfo
             name="Sparrows"
@@ -75,6 +75,7 @@ function Help() {
           <Tip>Use Bird Reference on the Pack Select screen to preview sounds.</Tip>
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
           <Tip>Check the round summary to see which birds need practice.</Tip>
+          <Tip>Once you've mastered the sounds, try playing muted - identify birds by their spectrograms alone!</Tip>
         </Section>
 
         {/* Spectrograms */}

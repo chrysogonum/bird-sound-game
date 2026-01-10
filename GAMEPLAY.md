@@ -40,7 +40,7 @@ These birds have bold, recognizable voices - a great foundation for building you
 ### Expanded Local Birds
 *For the growing birder*
 
-Ready for more? This pack includes 27 species from the eastern United States, from the cheerful American Goldfinch to the drumming woodpeckers. Each round randomly selects 10 birds, so you'll encounter different combinations each time you play.
+Ready for more? This pack includes 27 species from the eastern United States, from the cheerful American Goldfinch to the drumming woodpeckers. Each round randomly selects 9 birds, so you'll encounter different combinations each time you play.
 
 ### Sparrows
 *Master the subtle singers*
@@ -113,6 +113,8 @@ All recordings, both ears, full speed. You've trained your ear to recognize thes
 5. **Don't rush.** You have time to listen. Let the sound register before you tap.
 
 6. **Learn from mistakes.** The round summary shows which birds gave you trouble. Focus on those in the Bird Reference section.
+
+7. **Try spectrogram-only mode.** Once you've mastered the sounds, challenge yourself by playing with your device muted. Can you identify birds by their spectrograms alone?
 
 ## The Spectrograms
 
