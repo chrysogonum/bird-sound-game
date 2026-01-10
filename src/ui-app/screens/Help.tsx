@@ -70,7 +70,7 @@ function Help() {
 
         {/* Tips */}
         <Section title="Tips">
-          <Tip>Use headphones. The left/right distinction matters!</Tip>
+          <Tip>Use headphones - unless you want everyone to know you're a bird nerd! Left/right matters for scoring, and phone speakers vary in stereo quality.</Tip>
           <Tip>Start with the Starter Pack, even if you're eager for more.</Tip>
           <Tip>Use Bird Reference on the Pack Select screen to preview sounds.</Tip>
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
