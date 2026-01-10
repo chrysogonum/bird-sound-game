@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 
 interface Pack {
   id: string;
@@ -156,17 +156,21 @@ function PackSelect() {
         <h2 style={{ margin: 0 }}>Select Pack</h2>
       </div>
 
-      <p style={{
+      <div style={{
         fontSize: '14px',
         color: 'var(--color-text-muted)',
         marginBottom: '20px',
-        lineHeight: 1.5,
+        lineHeight: 1.6,
       }}>
-        Choose a bird pack to practice. Each pack has 6 levels that build your listening skills,
-        from learning signature sounds to mastering full repertoires. New to the 4-letter bird codes?
-        Check the Bird Reference section below to see codes with full names. Pro tip: once you've
-        mastered the sounds, try playing muted and identify birds by their spectrograms alone!
-      </p>
+        <ul style={{ margin: 0, paddingLeft: '20px' }}>
+          <li>Each pack has 6 levels - from signature sounds to full repertoires</li>
+          <li>New to 4-letter codes? See the Bird Reference section below</li>
+          <li>Pro tip: Once expert, try playing muted using only spectrograms!</li>
+        </ul>
+        <div style={{ marginTop: '8px' }}>
+          <Link to="/help" style={{ color: 'var(--color-accent)' }}>How to Play</Link> for full instructions
+        </div>
+      </div>
 
       <div
         style={{

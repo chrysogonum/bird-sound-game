@@ -76,6 +76,7 @@ function Help() {
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
           <Tip>Check the round summary to see which birds need practice.</Tip>
           <Tip>Once you've mastered the sounds, try playing muted - identify birds by their spectrograms alone!</Tip>
+          <Tip>Adjust tile speed in Settings if things move too fast (or too slow).</Tip>
         </Section>
 
         {/* Bird Codes */}
