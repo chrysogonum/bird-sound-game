@@ -10,7 +10,7 @@ export interface HUDProps {
 }
 
 const MODE_LABELS: Record<string, string> = {
-  campaign: 'Campaign',
+  campaign: 'Learn',
   practice: 'Practice',
   challenge: 'Challenge',
   random: 'Random',

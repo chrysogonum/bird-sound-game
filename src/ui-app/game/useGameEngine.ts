@@ -4,7 +4,7 @@
  * This hook manages the game lifecycle and provides all state/callbacks needed for gameplay.
  */
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import type { Channel } from '@engine/audio/types';
 import type { GameEvent, LevelConfig, RoundState } from '@engine/game/types';
 import type { ScoreBreakdown, FeedbackType } from '@engine/scoring/types';
@@ -172,7 +172,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
   // Clips and species data
   const [clips, setClips] = useState<ClipMetadata[]>([]);
-  const [species, setSpecies] = useState<SpeciesInfo[]>([]);
+  const [allPoolSpecies, setAllPoolSpecies] = useState<SpeciesInfo[]>([]); // All species in the pool
+  const [species, setSpecies] = useState<SpeciesInfo[]>([]); // Selected species for current round
+
+  // Debug: log when species changes
+  useEffect(() => {
+    console.log('species state changed, now has', species.length, 'species:', species.map(s => s.code));
+  }, [species]);
 
   // Game state
   const [roundState, setRoundState] = useState<RoundState>('idle');
@@ -239,6 +245,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
    * Load clips.json data
    */
   const loadClips = useCallback(async () => {
+    console.log('loadClips called with level:', {
+      pack_id: level.pack_id,
+      species_pool_length: level.species_pool?.length,
+      species_count: level.species_count,
+    });
     try {
       const response = await fetch('/data/clips.json');
       if (!response.ok) {
@@ -266,11 +277,22 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           });
         }
       }
-      setSpecies(Array.from(speciesMap.values()));
+
+      const poolSpecies = Array.from(speciesMap.values());
+      setAllPoolSpecies(poolSpecies);
+
+      // If pool size equals species_count, use all (no random selection needed)
+      // Otherwise, leave species empty until round start (will be randomly selected)
+      if (!level.species_count || poolSpecies.length <= level.species_count) {
+        setSpecies(poolSpecies);
+      } else {
+        // Will be selected at round start - show all for now so button is enabled
+        setSpecies(poolSpecies);
+      }
     } catch (error) {
       console.error('Error loading clips:', error);
     }
-  }, [level.species_pool]);
+  }, [level.species_pool, level.species_count]);
 
   /**
    * Initialize audio context
@@ -472,7 +494,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
    * With dynamic spawning, timing is calculated when events spawn, not upfront.
    * We generate plenty of events so fast players don't run out.
    */
-  const generateEvents = useCallback((): GameEvent[] => {
+  const generateEvents = useCallback((roundSpecies?: string[]): GameEvent[] => {
     const events: GameEvent[] = [];
     const seed = Date.now();
     const random = createSeededRandom(seed);
@@ -480,21 +502,24 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Determine clip selection mode (new field takes precedence over legacy)
     const clipSelection = level.clip_selection ?? (level.canonical_only ? 'canonical' : 'all');
 
-    // Determine species pool
+    // Use provided round species, or fall back to level's species_pool
     let selectedSpecies: string[];
-    if (level.species_pool && level.species_pool.length > 0) {
+    if (roundSpecies && roundSpecies.length > 0) {
+      // Use species selected for this round
+      selectedSpecies = [...roundSpecies];
+    } else if (level.species_pool && level.species_pool.length > 0) {
       // Use fixed species pool from level config
       selectedSpecies = [...level.species_pool];
     } else {
       // Get all available species from clips
-      const allSpecies = new Set<string>();
+      const availableSpecies = new Set<string>();
       for (const clip of clips) {
         if (!clip.rejected) {
-          allSpecies.add(clip.species_code);
+          availableSpecies.add(clip.species_code);
         }
       }
       // Shuffle and select
-      const speciesArray = Array.from(allSpecies);
+      const speciesArray = Array.from(availableSpecies);
       for (let i = speciesArray.length - 1; i > 0; i--) {
         const j = Math.floor(random() * (i + 1));
         [speciesArray[i], speciesArray[j]] = [speciesArray[j], speciesArray[i]];
@@ -814,6 +839,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
    * Start a new round
    */
   const startRound = useCallback(async () => {
+    console.log('startRound called, roundState:', roundState, 'clips.length:', clips.length);
     if (roundState !== 'idle' || clips.length === 0) return;
 
     // CRITICAL for iOS: Create/resume AudioContext during user gesture (tap)
@@ -868,8 +894,30 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     confusionDataRef.current = [];
     generatedEventsRef.current = []; // Will be populated as events spawn
 
+    // Select species for this round
+    let roundSpeciesCodes: string[] | undefined;
+    console.log('startRound: allPoolSpecies.length =', allPoolSpecies.length, 'species_count =', level.species_count);
+    if (level.species_count && allPoolSpecies.length > level.species_count) {
+      // Randomly select species_count species from the pool
+      const shuffled = [...allPoolSpecies];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      // Sort alphabetically by species code for consistent display
+      const selectedForRound = shuffled.slice(0, level.species_count).sort((a, b) => a.code.localeCompare(b.code));
+      console.log('Random selection: setting species to', selectedForRound.length, 'species:', selectedForRound.map(s => s.code));
+      setSpecies(selectedForRound);
+      roundSpeciesCodes = selectedForRound.map(s => s.code);
+    } else {
+      // Use all pool species
+      console.log('Using all pool species:', allPoolSpecies.length);
+      setSpecies(allPoolSpecies);
+      roundSpeciesCodes = allPoolSpecies.map(s => s.code);
+    }
+
     // Generate event templates (species, clip, channel - but not timing)
-    const eventTemplates = generateEvents();
+    const eventTemplates = generateEvents(roundSpeciesCodes);
     eventQueueRef.current = eventTemplates;
     currentEventIndexRef.current = 0;
 
@@ -929,7 +977,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       endRound();
     }, level.round_duration_sec * 1000);
     eventTimersRef.current.push(roundEndTimerId);
-  }, [roundState, clips.length, level.round_duration_sec, level.channel_mode, generateEvents, spawnNextEvent]);
+  }, [roundState, clips.length, level.round_duration_sec, level.channel_mode, level.species_count, allPoolSpecies, generateEvents, spawnNextEvent]);
 
   /**
    * End the current round
@@ -1323,13 +1371,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     isAudioReady,
   };
 
-  const actions: GameEngineActions = {
+  const actions: GameEngineActions = useMemo(() => ({
     initialize,
     startRound,
     endRound,
     submitInput,
     reset,
-  };
+  }), [initialize, startRound, endRound, submitInput, reset]);
 
   return [state, actions];
 }

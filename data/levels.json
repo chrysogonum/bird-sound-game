@@ -96,7 +96,14 @@
     "title": "Expanded Flock",
     "round_duration_sec": 30,
     "species_count": 10,
-    "species_pool": ["NOCA", "CARW", "BLJA", "AMGO", "EABL", "MODO", "RBWO", "RSHA", "BRTH", "GRCA"],
+    "species_pool": [
+      "NOCA", "CARW", "BLJA", "AMCR", "TUTI",
+      "BEKI", "RSHA", "AMGO", "CACH", "PIWA",
+      "WTSP", "HOFI", "EABL", "AMRO", "HETH",
+      "BHNU", "BRCR", "WBNU", "YBSA", "RBWO",
+      "DOWO", "HAWO", "NOFL", "PIWO", "BRTH",
+      "GRCA", "MODO"
+    ],
     "clip_selection": "canonical",
     "channel_mode": "single",
     "event_density": "low",

@@ -12,28 +12,34 @@ function MainMenu() {
           className="btn-primary"
           onClick={() => navigate('/pack-select?mode=campaign')}
         >
-          Campaign
+          Learn
         </button>
 
         <button
           className="btn-primary"
-          onClick={() => navigate('/pack-select?mode=practice')}
+          disabled
+          style={{ opacity: 0.4, cursor: 'not-allowed' }}
         >
           Practice
+          <span style={{ fontSize: '10px', display: 'block', opacity: 0.7 }}>Coming soon</span>
         </button>
 
         <button
           className="btn-primary"
-          onClick={() => navigate('/pack-select?mode=challenge')}
+          disabled
+          style={{ opacity: 0.4, cursor: 'not-allowed' }}
         >
           Challenge
+          <span style={{ fontSize: '10px', display: 'block', opacity: 0.7 }}>Coming soon</span>
         </button>
 
         <button
           className="btn-primary"
-          onClick={() => navigate('/gameplay?mode=random')}
+          disabled
+          style={{ opacity: 0.4, cursor: 'not-allowed' }}
         >
           Random
+          <span style={{ fontSize: '10px', display: 'block', opacity: 0.7 }}>Coming soon</span>
         </button>
       </div>
 

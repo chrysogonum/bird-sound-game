@@ -88,9 +88,11 @@ function GameplayScreen() {
 
   // Load campaign levels from levels.json
   useEffect(() => {
+    console.log('Fetching levels.json...');
     fetch('/data/levels.json')
       .then((res) => res.json())
       .then((levels: LevelConfig[]) => {
+        console.log('Loaded', levels.length, 'levels from levels.json');
         setCampaignLevels(levels);
       })
       .catch((err) => {
@@ -100,22 +102,27 @@ function GameplayScreen() {
 
   // Build level config based on mode
   const levelConfig = useMemo((): LevelConfig => {
+    console.log('levelConfig useMemo: mode =', mode, 'packId =', packId, 'campaignLevels.length =', campaignLevels.length);
     if (mode === 'campaign' && campaignLevels.length > 0) {
       // Find the requested level from levels.json (match both pack_id AND level_id)
       const level = campaignLevels.find((l) => l.pack_id === packId && l.level_id === levelId);
       if (level) {
+        console.log('Found level from levels.json:', level.pack_id, level.title, 'species_pool:', level.species_pool?.length);
         return level;
       }
       // Fallback to first level for this pack if not found
       const packFirstLevel = campaignLevels.find((l) => l.pack_id === packId);
       if (packFirstLevel) {
+        console.log('Using first level for pack:', packFirstLevel.pack_id, packFirstLevel.title);
         return packFirstLevel;
       }
       // Ultimate fallback to first level
+      console.log('Ultimate fallback to first level');
       return campaignLevels[0];
     }
 
     // For non-campaign modes, use hardcoded configs
+    console.log('Using hardcoded MODE_CONFIGS (no campaign levels loaded yet)');
     const modeConfig = MODE_CONFIGS[mode] || MODE_CONFIGS.campaign;
     return {
       level_id: 1,
@@ -127,10 +134,25 @@ function GameplayScreen() {
   // Use the game engine hook with the level config
   const [gameState, gameActions] = useGameEngine(levelConfig);
 
-  // Initialize engine on mount
+  // Initialize engine when level config is ready (wait for levels.json to load)
+  const lastLevelKeyRef = useRef<string | null>(null);
   useEffect(() => {
-    gameActions.initialize();
-  }, [gameActions]);
+    // Don't initialize until we have the real level config with species_pool
+    if (mode === 'campaign' && campaignLevels.length === 0) {
+      console.log('Waiting for levels.json to load...');
+      return;
+    }
+
+    // Include species_pool length in key so we reinitialize when real config loads
+    const speciesPoolKey = levelConfig.species_pool?.length ?? 'none';
+    const key = `${levelConfig.pack_id}-${levelConfig.level_id}-${speciesPoolKey}`;
+    console.log('Init effect: key =', key, 'lastKey =', lastLevelKeyRef.current);
+    if (lastLevelKeyRef.current !== key) {
+      lastLevelKeyRef.current = key;
+      console.log('Initializing for', key);
+      gameActions.initialize();
+    }
+  }, [mode, campaignLevels.length, levelConfig.pack_id, levelConfig.level_id, levelConfig.species_pool, gameActions]);
 
   // Update dimensions on mount and resize
   useEffect(() => {
@@ -222,8 +244,12 @@ function GameplayScreen() {
 
   // Handle start round
   const handleStart = useCallback(() => {
+    console.log('handleStart clicked, isAudioReady:', gameState.isAudioReady, 'species.length:', gameState.species.length);
     if (gameState.isAudioReady && gameState.species.length > 0) {
+      console.log('Calling startRound...');
       gameActions.startRound();
+    } else {
+      console.log('Not calling startRound - conditions not met');
     }
   }, [gameState.isAudioReady, gameState.species.length, gameActions]);
 
