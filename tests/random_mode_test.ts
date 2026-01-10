@@ -18,9 +18,10 @@ const createMockClip = (id: string, vocalizationType: 'song' | 'call'): ClipMeta
   common_name: 'Test Bird',
   vocalization_type: vocalizationType,
   duration_ms: 2000,
-  audio_path: `clips/${id}.mp3`,
+  file_path: `clips/${id}.mp3`,
   spectrogram_path: `spectrograms/${id}.png`,
-  quality: 'A',
+  quality_score: 1.0,
+  source: 'xenocanto',
   source_id: 'XC123',
 });
 

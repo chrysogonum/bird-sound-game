@@ -158,7 +158,7 @@ export class ProgressView {
       levels.push({
         levelId,
         unlocked,
-        completed: stats?.completions > 0 ?? false,
+        completed: (stats?.completions ?? 0) > 0,
         bestScore: stats?.bestScore ?? 0,
         bestAccuracy: stats?.bestAccuracy ?? 0,
         attempts: stats?.attempts ?? 0,

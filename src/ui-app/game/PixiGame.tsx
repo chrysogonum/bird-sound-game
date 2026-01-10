@@ -46,7 +46,11 @@ interface TileState {
   hasBeenScored: boolean;
   feedbackType: string | null;
   feedbackStartTime: number;
+  spectrogramPath: string | null;
 }
+
+// Cache for loaded spectrogram textures
+const textureCache = new Map<string, PIXI.Texture>();
 
 function PixiGame({
   width,
@@ -180,7 +184,8 @@ function PixiGame({
         laneWidth,
         tileWidth,
         TILE_HEIGHT,
-        hitZoneY
+        hitZoneY,
+        event.spectrogramPath
       );
 
       // Set initial Y position immediately (tile enters at top)
@@ -299,7 +304,8 @@ function createTile(
   laneWidth: number,
   tileWidth: number,
   tileHeight: number,
-  _hitZoneY: number
+  _hitZoneY: number,
+  spectrogramPath: string | null
 ): TileState {
   const container = new PIXI.Container();
 
@@ -318,31 +324,52 @@ function createTile(
   background.endFill();
   container.addChild(background);
 
-  // Spectrogram placeholder lines (no species label - that would give it away!)
-  const lines = new PIXI.Graphics();
-  for (let i = 0; i < 6; i++) {
-    const lineY = -tileHeight / 2 + 10 + i * 10;
-    const lineW = (Math.random() * 0.4 + 0.4) * tileWidth;
-    const lineX = -lineW / 2 + (Math.random() - 0.5) * 20;
-    lines.beginFill(0xffffff, 0.2 + Math.random() * 0.2);
-    lines.drawRect(lineX, lineY, lineW, 2);
-    lines.endFill();
+  // Try to load and display spectrogram
+  if (spectrogramPath) {
+    // Check cache first
+    let texture = textureCache.get(spectrogramPath);
+    if (!texture) {
+      // Load texture (async but we'll add it when ready)
+      texture = PIXI.Texture.from(`/${spectrogramPath}`);
+      textureCache.set(spectrogramPath, texture);
+    }
+
+    const sprite = new PIXI.Sprite(texture);
+    sprite.anchor.set(0.5);
+    sprite.position.set(0, 0);
+    // Scale to fit within tile with some padding
+    const maxWidth = tileWidth - 16;
+    const maxHeight = tileHeight - 16;
+    sprite.width = maxWidth;
+    sprite.height = maxHeight;
+    container.addChild(sprite);
+  } else {
+    // Fallback: Spectrogram placeholder lines (no species label - that would give it away!)
+    const lines = new PIXI.Graphics();
+    for (let i = 0; i < 6; i++) {
+      const lineY = -tileHeight / 2 + 10 + i * 10;
+      const lineW = (Math.random() * 0.4 + 0.4) * tileWidth;
+      const lineX = -lineW / 2 + (Math.random() - 0.5) * 20;
+      lines.beginFill(0xffffff, 0.2 + Math.random() * 0.2);
+      lines.drawRect(lineX, lineY, lineW, 2);
+      lines.endFill();
+    }
+    container.addChild(lines);
+
+    // Question mark to indicate "identify me!"
+    const questionStyle = new PIXI.TextStyle({
+      fontFamily: 'Inter, sans-serif',
+      fontSize: 18,
+      fill: 0xffffff,
+      fontWeight: '700',
+    });
+
+    const question = new PIXI.Text('?', questionStyle);
+    question.anchor.set(0.5);
+    question.position.set(0, 0);
+    question.alpha = 0.4;
+    container.addChild(question);
   }
-  container.addChild(lines);
-
-  // Question mark to indicate "identify me!"
-  const questionStyle = new PIXI.TextStyle({
-    fontFamily: 'Inter, sans-serif',
-    fontSize: 18,
-    fill: 0xffffff,
-    fontWeight: '700',
-  });
-
-  const question = new PIXI.Text('?', questionStyle);
-  question.anchor.set(0.5);
-  question.position.set(0, 0);
-  question.alpha = 0.4;
-  container.addChild(question);
 
   return {
     container,
@@ -354,6 +381,7 @@ function createTile(
     hasBeenScored: false,
     feedbackType: null,
     feedbackStartTime: 0,
+    spectrogramPath,
   };
 }
 

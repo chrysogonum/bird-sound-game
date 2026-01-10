@@ -22,7 +22,7 @@
     "source": "xenocanto",
     "source_id": "AMCR_1056042",
     "file_path": "data/clips/AMCR_1056042.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/AMCR_1056042.png",
     "rejected": true
   },
   {
@@ -35,7 +35,7 @@
     "source": "xenocanto",
     "source_id": "AMCR_316302",
     "file_path": "data/clips/AMCR_316302.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/AMCR_316302.png",
     "canonical": true
   },
   {
@@ -48,7 +48,7 @@
     "source": "xenocanto",
     "source_id": "AMCR_667361",
     "file_path": "data/clips/AMCR_667361.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMCR_667361.png"
   },
   {
     "clip_id": "AMCR_6943684a",
@@ -73,7 +73,7 @@
     "source": "xenocanto",
     "source_id": "AMGO_1033750",
     "file_path": "data/clips/AMGO_1033750.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMGO_1033750.png"
   },
   {
     "clip_id": "AMGO_8b56eb69",
@@ -111,7 +111,7 @@
     "source": "xenocanto",
     "source_id": "AMGO_1034479",
     "file_path": "data/clips/AMGO_1034479.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/AMGO_1034479.png",
     "canonical": true
   },
   {
@@ -137,7 +137,7 @@
     "source": "xenocanto",
     "source_id": "AMGO_638294",
     "file_path": "data/clips/AMGO_638294.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMGO_638294.png"
   },
   {
     "clip_id": "AMGO_dd0e4d7c",
@@ -149,7 +149,7 @@
     "source": "xenocanto",
     "source_id": "AMGO_690945",
     "file_path": "data/clips/AMGO_690945.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMGO_690945.png"
   },
   {
     "clip_id": "AMGO_9a202af9",
@@ -161,7 +161,7 @@
     "source": "xenocanto",
     "source_id": "AMGO_720038",
     "file_path": "data/clips/AMGO_720038.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMGO_720038.png"
   },
   {
     "clip_id": "AMGO_b0e6327b",
@@ -186,7 +186,7 @@
     "source": "xenocanto",
     "source_id": "AMGO_934263",
     "file_path": "data/clips/AMGO_934263.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMGO_934263.png"
   },
   {
     "clip_id": "AMRO_ef226de1",
@@ -198,7 +198,7 @@
     "source": "xenocanto",
     "source_id": "AMRO_1010651",
     "file_path": "data/clips/AMRO_1010651.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMRO_1010651.png"
   },
   {
     "clip_id": "AMRO_8dae0c13",
@@ -210,7 +210,7 @@
     "source": "xenocanto",
     "source_id": "AMRO_1046358",
     "file_path": "data/clips/AMRO_1046358.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/AMRO_1046358.png",
     "canonical": true
   },
   {
@@ -223,7 +223,7 @@
     "source": "xenocanto",
     "source_id": "AMRO_1047670",
     "file_path": "data/clips/AMRO_1047670.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMRO_1047670.png"
   },
   {
     "clip_id": "AMRO_4c9beb65",
@@ -235,7 +235,7 @@
     "source": "xenocanto",
     "source_id": "AMRO_825254",
     "file_path": "data/clips/AMRO_825254.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMRO_825254.png"
   },
   {
     "clip_id": "AMRO_f265854b",
@@ -247,7 +247,7 @@
     "source": "xenocanto",
     "source_id": "AMRO_860362",
     "file_path": "data/clips/AMRO_860362.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMRO_860362.png"
   },
   {
     "clip_id": "AMRO_975c1e58",
@@ -272,7 +272,7 @@
     "source": "xenocanto",
     "source_id": "AMRO_999597",
     "file_path": "data/clips/AMRO_999597.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMRO_999597.png"
   },
   {
     "clip_id": "AMRO_9ca18355",
@@ -284,7 +284,7 @@
     "source": "xenocanto",
     "source_id": "AMRO_999642",
     "file_path": "data/clips/AMRO_999642.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMRO_999642.png"
   },
   {
     "clip_id": "AMRO_adccef59",
@@ -296,7 +296,7 @@
     "source": "xenocanto",
     "source_id": "AMRO_999643",
     "file_path": "data/clips/AMRO_999643.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/AMRO_999643.png"
   },
   {
     "clip_id": "AMRO_1c3e2d0c",
@@ -334,7 +334,7 @@
     "source": "xenocanto",
     "source_id": "BEKI_1034325",
     "file_path": "data/clips/BEKI_1034325.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/BEKI_1034325.png",
     "canonical": true
   },
   {
@@ -360,7 +360,7 @@
     "source": "xenocanto",
     "source_id": "BEKI_448752",
     "file_path": "data/clips/BEKI_448752.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BEKI_448752.png"
   },
   {
     "clip_id": "BEKI_0708306a",
@@ -372,7 +372,7 @@
     "source": "xenocanto",
     "source_id": "BEKI_451359",
     "file_path": "data/clips/BEKI_451359.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BEKI_451359.png"
   },
   {
     "clip_id": "BEKI_f9d2a4af",
@@ -384,7 +384,7 @@
     "source": "xenocanto",
     "source_id": "BEKI_590595",
     "file_path": "data/clips/BEKI_590595.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BEKI_590595.png"
   },
   {
     "clip_id": "BEKI_57233d59",
@@ -409,7 +409,7 @@
     "source": "xenocanto",
     "source_id": "BEKI_612651",
     "file_path": "data/clips/BEKI_612651.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BEKI_612651.png"
   },
   {
     "clip_id": "BEKI_2fb3c947",
@@ -434,7 +434,7 @@
     "source": "xenocanto",
     "source_id": "BEKI_628808",
     "file_path": "data/clips/BEKI_628808.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BEKI_628808.png"
   },
   {
     "clip_id": "BHNU_5e0fa9f9",
@@ -472,7 +472,7 @@
     "source": "xenocanto",
     "source_id": "BHNU_570311",
     "file_path": "data/clips/BHNU_570311.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BHNU_570311.png"
   },
   {
     "clip_id": "BHNU_9c303697",
@@ -497,7 +497,7 @@
     "source": "xenocanto",
     "source_id": "BHNU_651187",
     "file_path": "data/clips/BHNU_651187.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/BHNU_651187.png",
     "canonical": true
   },
   {
@@ -510,7 +510,7 @@
     "source": "xenocanto",
     "source_id": "BHNU_714465",
     "file_path": "data/clips/BHNU_714465.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BHNU_714465.png"
   },
   {
     "clip_id": "BHNU_f3d1a382",
@@ -522,7 +522,7 @@
     "source": "xenocanto",
     "source_id": "BHNU_714466",
     "file_path": "data/clips/BHNU_714466.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BHNU_714466.png"
   },
   {
     "clip_id": "BHNU_f5f305bb",
@@ -534,7 +534,7 @@
     "source": "xenocanto",
     "source_id": "BHNU_726413",
     "file_path": "data/clips/BHNU_726413.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BHNU_726413.png"
   },
   {
     "clip_id": "BHNU_874162de",
@@ -572,7 +572,7 @@
     "source": "xenocanto",
     "source_id": "BLJA_1010650",
     "file_path": "data/clips/BLJA_1010650.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BLJA_1010650.png"
   },
   {
     "clip_id": "BLJA_b47ff483",
@@ -584,7 +584,7 @@
     "source": "xenocanto",
     "source_id": "BLJA_1046664",
     "file_path": "data/clips/BLJA_1046664.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BLJA_1046664.png"
   },
   {
     "clip_id": "BLJA_8911f92c",
@@ -596,7 +596,7 @@
     "source": "xenocanto",
     "source_id": "BLJA_861979",
     "file_path": "data/clips/BLJA_861979.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/BLJA_861979.png",
     "canonical": true
   },
   {
@@ -609,7 +609,7 @@
     "source": "xenocanto",
     "source_id": "BLJA_933595",
     "file_path": "data/clips/BLJA_933595.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BLJA_933595.png"
   },
   {
     "clip_id": "BRCR_0cfae8e8",
@@ -634,7 +634,7 @@
     "source": "xenocanto",
     "source_id": "BRCR_709621",
     "file_path": "data/clips/BRCR_709621.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/BRCR_709621.png",
     "canonical": true
   },
   {
@@ -647,7 +647,7 @@
     "source": "xenocanto",
     "source_id": "BRCR_744286",
     "file_path": "data/clips/BRCR_744286.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRCR_744286.png"
   },
   {
     "clip_id": "BRCR_14251866",
@@ -711,7 +711,7 @@
     "source": "xenocanto",
     "source_id": "BRCR_933554",
     "file_path": "data/clips/BRCR_933554.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRCR_933554.png"
   },
   {
     "clip_id": "BRCR_3d7dd47e",
@@ -723,7 +723,7 @@
     "source": "xenocanto",
     "source_id": "BRCR_933558",
     "file_path": "data/clips/BRCR_933558.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRCR_933558.png"
   },
   {
     "clip_id": "BRCR_501be7c3",
@@ -735,7 +735,7 @@
     "source": "xenocanto",
     "source_id": "BRCR_938850",
     "file_path": "data/clips/BRCR_938850.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRCR_938850.png"
   },
   {
     "clip_id": "BRTH_4e1f7fd7",
@@ -760,7 +760,7 @@
     "source": "xenocanto",
     "source_id": "BRTH_1011716",
     "file_path": "data/clips/BRTH_1011716.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRTH_1011716.png"
   },
   {
     "clip_id": "BRTH_5faee0b4",
@@ -798,7 +798,7 @@
     "source": "xenocanto",
     "source_id": "BRTH_803817",
     "file_path": "data/clips/BRTH_803817.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/BRTH_803817.png",
     "canonical": true
   },
   {
@@ -811,7 +811,7 @@
     "source": "xenocanto",
     "source_id": "BRTH_839369",
     "file_path": "data/clips/BRTH_839369.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRTH_839369.png"
   },
   {
     "clip_id": "BRTH_310c05cc",
@@ -836,7 +836,7 @@
     "source": "xenocanto",
     "source_id": "BRTH_939190",
     "file_path": "data/clips/BRTH_939190.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRTH_939190.png"
   },
   {
     "clip_id": "BRTH_f94cdb02",
@@ -848,7 +848,7 @@
     "source": "xenocanto",
     "source_id": "BRTH_982365",
     "file_path": "data/clips/BRTH_982365.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRTH_982365.png"
   },
   {
     "clip_id": "BRTH_1a0c5161",
@@ -860,7 +860,7 @@
     "source": "xenocanto",
     "source_id": "BRTH_996863",
     "file_path": "data/clips/BRTH_996863.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/BRTH_996863.png"
   },
   {
     "clip_id": "CACH_aa922fcb",
@@ -885,7 +885,7 @@
     "source": "xenocanto",
     "source_id": "CACH_877921",
     "file_path": "data/clips/CACH_877921.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/CACH_877921.png"
   },
   {
     "clip_id": "CACH_fc3455b6",
@@ -897,7 +897,7 @@
     "source": "xenocanto",
     "source_id": "CACH_877922",
     "file_path": "data/clips/CACH_877922.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/CACH_877922.png",
     "canonical": true
   },
   {
@@ -910,7 +910,7 @@
     "source": "xenocanto",
     "source_id": "CACH_877923",
     "file_path": "data/clips/CACH_877923.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/CACH_877923.png"
   },
   {
     "clip_id": "CACH_ebd81d3e",
@@ -922,7 +922,7 @@
     "source": "xenocanto",
     "source_id": "CACH_884282",
     "file_path": "data/clips/CACH_884282.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/CACH_884282.png"
   },
   {
     "clip_id": "CACH_89ffbec8",
@@ -947,7 +947,7 @@
     "source": "xenocanto",
     "source_id": "CACH_933606",
     "file_path": "data/clips/CACH_933606.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/CACH_933606.png"
   },
   {
     "clip_id": "CACH_2a292b42",
@@ -998,7 +998,7 @@
     "source": "xenocanto",
     "source_id": "CARW_1010648",
     "file_path": "data/clips/CARW_1010648.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/CARW_1010648.png"
   },
   {
     "clip_id": "CARW_927ee4fc",
@@ -1023,7 +1023,7 @@
     "source": "xenocanto",
     "source_id": "CARW_941065",
     "file_path": "data/clips/CARW_941065.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/CARW_941065.png",
     "canonical": true
   },
   {
@@ -1036,7 +1036,7 @@
     "source": "xenocanto",
     "source_id": "CARW_951784",
     "file_path": "data/clips/CARW_951784.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/CARW_951784.png"
   },
   {
     "clip_id": "CARW_b6c038de",
@@ -1048,7 +1048,7 @@
     "source": "xenocanto",
     "source_id": "CARW_995314",
     "file_path": "data/clips/CARW_995314.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/CARW_995314.png"
   },
   {
     "clip_id": "DOWO_4d925a8d",
@@ -1060,7 +1060,7 @@
     "source": "xenocanto",
     "source_id": "DOWO_1002817",
     "file_path": "data/clips/DOWO_1002817.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/DOWO_1002817.png"
   },
   {
     "clip_id": "DOWO_a548faf6",
@@ -1085,7 +1085,7 @@
     "source": "xenocanto",
     "source_id": "DOWO_1036590",
     "file_path": "data/clips/DOWO_1036590.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/DOWO_1036590.png"
   },
   {
     "clip_id": "DOWO_8fd07c30",
@@ -1097,7 +1097,7 @@
     "source": "xenocanto",
     "source_id": "DOWO_1048814",
     "file_path": "data/clips/DOWO_1048814.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/DOWO_1048814.png"
   },
   {
     "clip_id": "DOWO_1437a652",
@@ -1109,7 +1109,7 @@
     "source": "xenocanto",
     "source_id": "DOWO_1049467",
     "file_path": "data/clips/DOWO_1049467.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/DOWO_1049467.png",
     "canonical": true
   },
   {
@@ -1122,7 +1122,7 @@
     "source": "xenocanto",
     "source_id": "DOWO_772366",
     "file_path": "data/clips/DOWO_772366.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/DOWO_772366.png"
   },
   {
     "clip_id": "DOWO_b70931fd",
@@ -1134,7 +1134,7 @@
     "source": "xenocanto",
     "source_id": "DOWO_772367",
     "file_path": "data/clips/DOWO_772367.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/DOWO_772367.png"
   },
   {
     "clip_id": "DOWO_b203294c",
@@ -1172,7 +1172,7 @@
     "source": "xenocanto",
     "source_id": "DOWO_982935",
     "file_path": "data/clips/DOWO_982935.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/DOWO_982935.png"
   },
   {
     "clip_id": "EABL_c7a59038",
@@ -1197,7 +1197,7 @@
     "source": "xenocanto",
     "source_id": "EABL_608740",
     "file_path": "data/clips/EABL_608740.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/EABL_608740.png"
   },
   {
     "clip_id": "EABL_af9e616b",
@@ -1235,7 +1235,7 @@
     "source": "xenocanto",
     "source_id": "EABL_712412",
     "file_path": "data/clips/EABL_712412.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/EABL_712412.png"
   },
   {
     "clip_id": "EABL_d6d74976",
@@ -1247,7 +1247,7 @@
     "source": "xenocanto",
     "source_id": "EABL_844282",
     "file_path": "data/clips/EABL_844282.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/EABL_844282.png"
   },
   {
     "clip_id": "EABL_e55df0d5",
@@ -1259,7 +1259,7 @@
     "source": "xenocanto",
     "source_id": "EABL_890146",
     "file_path": "data/clips/EABL_890146.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/EABL_890146.png"
   },
   {
     "clip_id": "EABL_674bf0de",
@@ -1271,7 +1271,7 @@
     "source": "xenocanto",
     "source_id": "EABL_890150",
     "file_path": "data/clips/EABL_890150.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/EABL_890150.png"
   },
   {
     "clip_id": "EABL_4b402f17",
@@ -1296,7 +1296,7 @@
     "source": "xenocanto",
     "source_id": "EABL_890154",
     "file_path": "data/clips/EABL_890154.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/EABL_890154.png",
     "canonical": true
   },
   {
@@ -1309,7 +1309,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1002792",
     "file_path": "data/clips/GRCA_1002792.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_1002792.png"
   },
   {
     "clip_id": "GRCA_dfd0c403",
@@ -1321,7 +1321,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1010845",
     "file_path": "data/clips/GRCA_1010845.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_1010845.png"
   },
   {
     "clip_id": "GRCA_4cc643c8",
@@ -1333,7 +1333,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1012942",
     "file_path": "data/clips/GRCA_1012942.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_1012942.png"
   },
   {
     "clip_id": "GRCA_195deae5",
@@ -1345,7 +1345,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1012947",
     "file_path": "data/clips/GRCA_1012947.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_1012947.png"
   },
   {
     "clip_id": "GRCA_fc17827a",
@@ -1357,7 +1357,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1012948",
     "file_path": "data/clips/GRCA_1012948.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_1012948.png"
   },
   {
     "clip_id": "GRCA_8bfafcc3",
@@ -1369,7 +1369,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1013399",
     "file_path": "data/clips/GRCA_1013399.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/GRCA_1013399.png",
     "canonical": true
   },
   {
@@ -1382,7 +1382,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1013400",
     "file_path": "data/clips/GRCA_1013400.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_1013400.png"
   },
   {
     "clip_id": "GRCA_55d87614",
@@ -1394,7 +1394,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1013402",
     "file_path": "data/clips/GRCA_1013402.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_1013402.png"
   },
   {
     "clip_id": "GRCA_e84f98b9",
@@ -1406,7 +1406,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_1016556",
     "file_path": "data/clips/GRCA_1016556.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_1016556.png"
   },
   {
     "clip_id": "GRCA_c05c1cd8",
@@ -1418,7 +1418,7 @@
     "source": "xenocanto",
     "source_id": "GRCA_998812",
     "file_path": "data/clips/GRCA_998812.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/GRCA_998812.png"
   },
   {
     "clip_id": "HAWO_3b236601",
@@ -1443,7 +1443,7 @@
     "source": "xenocanto",
     "source_id": "HAWO_1028817",
     "file_path": "data/clips/HAWO_1028817.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HAWO_1028817.png"
   },
   {
     "clip_id": "HAWO_1c5d70b6",
@@ -1455,7 +1455,7 @@
     "source": "xenocanto",
     "source_id": "HAWO_1039174",
     "file_path": "data/clips/HAWO_1039174.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/HAWO_1039174.png",
     "canonical": true
   },
   {
@@ -1494,7 +1494,7 @@
     "source": "xenocanto",
     "source_id": "HAWO_951714",
     "file_path": "data/clips/HAWO_951714.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HAWO_951714.png"
   },
   {
     "clip_id": "HAWO_77398e0e",
@@ -1532,7 +1532,7 @@
     "source": "xenocanto",
     "source_id": "HAWO_988849",
     "file_path": "data/clips/HAWO_988849.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HAWO_988849.png"
   },
   {
     "clip_id": "HAWO_1763dfab",
@@ -1544,7 +1544,7 @@
     "source": "xenocanto",
     "source_id": "HAWO_994605",
     "file_path": "data/clips/HAWO_994605.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HAWO_994605.png"
   },
   {
     "clip_id": "HETH_2b7f7db2",
@@ -1556,7 +1556,7 @@
     "source": "xenocanto",
     "source_id": "HETH_1036596",
     "file_path": "data/clips/HETH_1036596.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HETH_1036596.png"
   },
   {
     "clip_id": "HETH_5446fd5a",
@@ -1568,7 +1568,7 @@
     "source": "xenocanto",
     "source_id": "HETH_1037508",
     "file_path": "data/clips/HETH_1037508.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/HETH_1037508.png",
     "canonical": true
   },
   {
@@ -1581,7 +1581,7 @@
     "source": "xenocanto",
     "source_id": "HETH_1048898",
     "file_path": "data/clips/HETH_1048898.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HETH_1048898.png"
   },
   {
     "clip_id": "HETH_15380b54",
@@ -1658,7 +1658,7 @@
     "source": "xenocanto",
     "source_id": "HETH_957962",
     "file_path": "data/clips/HETH_957962.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HETH_957962.png"
   },
   {
     "clip_id": "HETH_edebe9de",
@@ -1670,7 +1670,7 @@
     "source": "xenocanto",
     "source_id": "HETH_963177",
     "file_path": "data/clips/HETH_963177.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HETH_963177.png"
   },
   {
     "clip_id": "HOFI_5ff6f4f2",
@@ -1682,7 +1682,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_743810",
     "file_path": "data/clips/HOFI_743810.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HOFI_743810.png"
   },
   {
     "clip_id": "HOFI_a8021e88",
@@ -1694,7 +1694,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_764681",
     "file_path": "data/clips/HOFI_764681.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HOFI_764681.png"
   },
   {
     "clip_id": "HOFI_0927b0c9",
@@ -1706,7 +1706,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_790022",
     "file_path": "data/clips/HOFI_790022.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HOFI_790022.png"
   },
   {
     "clip_id": "HOFI_56418328",
@@ -1718,7 +1718,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_875451",
     "file_path": "data/clips/HOFI_875451.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HOFI_875451.png"
   },
   {
     "clip_id": "HOFI_1208c330",
@@ -1730,7 +1730,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_898674",
     "file_path": "data/clips/HOFI_898674.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HOFI_898674.png"
   },
   {
     "clip_id": "HOFI_3ec4941d",
@@ -1742,7 +1742,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_899902",
     "file_path": "data/clips/HOFI_899902.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HOFI_899902.png"
   },
   {
     "clip_id": "HOFI_b915f84e",
@@ -1754,7 +1754,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_900139",
     "file_path": "data/clips/HOFI_900139.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HOFI_900139.png"
   },
   {
     "clip_id": "HOFI_da8febee",
@@ -1766,7 +1766,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_900143",
     "file_path": "data/clips/HOFI_900143.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/HOFI_900143.png"
   },
   {
     "clip_id": "HOFI_e94c737b",
@@ -1778,7 +1778,7 @@
     "source": "xenocanto",
     "source_id": "HOFI_900144",
     "file_path": "data/clips/HOFI_900144.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/HOFI_900144.png",
     "canonical": true
   },
   {
@@ -1817,7 +1817,7 @@
     "source": "xenocanto",
     "source_id": "MODO_580701",
     "file_path": "data/clips/MODO_580701.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/MODO_580701.png"
   },
   {
     "clip_id": "MODO_b1e8d36d",
@@ -1829,7 +1829,7 @@
     "source": "xenocanto",
     "source_id": "MODO_583574",
     "file_path": "data/clips/MODO_583574.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/MODO_583574.png",
     "canonical": true
   },
   {
@@ -1855,7 +1855,7 @@
     "source": "xenocanto",
     "source_id": "MODO_613539",
     "file_path": "data/clips/MODO_613539.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/MODO_613539.png"
   },
   {
     "clip_id": "MODO_e87e0a42",
@@ -1880,7 +1880,7 @@
     "source": "xenocanto",
     "source_id": "MODO_638304",
     "file_path": "data/clips/MODO_638304.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/MODO_638304.png"
   },
   {
     "clip_id": "MODO_1a856a37",
@@ -1918,7 +1918,7 @@
     "source": "xenocanto",
     "source_id": "MODO_940517",
     "file_path": "data/clips/MODO_940517.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/MODO_940517.png"
   },
   {
     "clip_id": "NOCA_2d906ebd",
@@ -1930,7 +1930,7 @@
     "source": "xenocanto",
     "source_id": "NOCA_1010609",
     "file_path": "data/clips/NOCA_1010609.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOCA_1010609.png"
   },
   {
     "clip_id": "NOCA_9656f444",
@@ -1942,7 +1942,7 @@
     "source": "xenocanto",
     "source_id": "NOCA_1010649",
     "file_path": "data/clips/NOCA_1010649.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOCA_1010649.png"
   },
   {
     "clip_id": "NOCA_baa1cf26",
@@ -1954,7 +1954,7 @@
     "source": "xenocanto",
     "source_id": "NOCA_1070756",
     "file_path": "data/clips/NOCA_1070756.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOCA_1070756.png"
   },
   {
     "clip_id": "NOCA_2e985230",
@@ -1966,7 +1966,7 @@
     "source": "xenocanto",
     "source_id": "NOCA_598016",
     "file_path": "data/clips/NOCA_598016.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/NOCA_598016.png",
     "canonical": true
   },
   {
@@ -1979,7 +1979,7 @@
     "source": "xenocanto",
     "source_id": "NOCA_809789",
     "file_path": "data/clips/NOCA_809789.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOCA_809789.png"
   },
   {
     "clip_id": "NOFL_51af709d",
@@ -1991,7 +1991,7 @@
     "source": "xenocanto",
     "source_id": "NOFL_1007124",
     "file_path": "data/clips/NOFL_1007124.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOFL_1007124.png"
   },
   {
     "clip_id": "NOFL_75e6bad8",
@@ -2029,7 +2029,7 @@
     "source": "xenocanto",
     "source_id": "NOFL_1033749",
     "file_path": "data/clips/NOFL_1033749.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/NOFL_1033749.png",
     "canonical": true
   },
   {
@@ -2055,7 +2055,7 @@
     "source": "xenocanto",
     "source_id": "NOFL_753469",
     "file_path": "data/clips/NOFL_753469.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOFL_753469.png"
   },
   {
     "clip_id": "NOFL_b67f771e",
@@ -2067,7 +2067,7 @@
     "source": "xenocanto",
     "source_id": "NOFL_768323",
     "file_path": "data/clips/NOFL_768323.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOFL_768323.png"
   },
   {
     "clip_id": "NOFL_c5055ae4",
@@ -2079,7 +2079,7 @@
     "source": "xenocanto",
     "source_id": "NOFL_776026",
     "file_path": "data/clips/NOFL_776026.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOFL_776026.png"
   },
   {
     "clip_id": "NOFL_2f98f0b5",
@@ -2091,7 +2091,7 @@
     "source": "xenocanto",
     "source_id": "NOFL_786153",
     "file_path": "data/clips/NOFL_786153.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOFL_786153.png"
   },
   {
     "clip_id": "NOFL_ca50a95f",
@@ -2103,7 +2103,7 @@
     "source": "xenocanto",
     "source_id": "NOFL_786154",
     "file_path": "data/clips/NOFL_786154.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/NOFL_786154.png"
   },
   {
     "clip_id": "PIWA_004a4f83",
@@ -2115,7 +2115,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_1002534",
     "file_path": "data/clips/PIWA_1002534.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWA_1002534.png"
   },
   {
     "clip_id": "PIWA_59d52da0",
@@ -2140,7 +2140,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_476138",
     "file_path": "data/clips/PIWA_476138.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWA_476138.png"
   },
   {
     "clip_id": "PIWA_39341fcb",
@@ -2165,7 +2165,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_895213",
     "file_path": "data/clips/PIWA_895213.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWA_895213.png"
   },
   {
     "clip_id": "PIWA_e1f6ad88",
@@ -2177,7 +2177,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_895216",
     "file_path": "data/clips/PIWA_895216.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWA_895216.png"
   },
   {
     "clip_id": "PIWA_da532d67",
@@ -2202,7 +2202,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_895228",
     "file_path": "data/clips/PIWA_895228.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWA_895228.png"
   },
   {
     "clip_id": "PIWA_68800484",
@@ -2214,7 +2214,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_901095",
     "file_path": "data/clips/PIWA_901095.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/PIWA_901095.png",
     "canonical": true
   },
   {
@@ -2253,7 +2253,7 @@
     "source": "xenocanto",
     "source_id": "PIWO_570955",
     "file_path": "data/clips/PIWO_570955.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWO_570955.png"
   },
   {
     "clip_id": "PIWO_06196c34",
@@ -2265,7 +2265,7 @@
     "source": "xenocanto",
     "source_id": "PIWO_582550",
     "file_path": "data/clips/PIWO_582550.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWO_582550.png"
   },
   {
     "clip_id": "PIWO_6ba55a8c",
@@ -2277,7 +2277,7 @@
     "source": "xenocanto",
     "source_id": "PIWO_586579",
     "file_path": "data/clips/PIWO_586579.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWO_586579.png"
   },
   {
     "clip_id": "PIWO_632d2a2d",
@@ -2302,7 +2302,7 @@
     "source": "xenocanto",
     "source_id": "PIWO_599834",
     "file_path": "data/clips/PIWO_599834.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWO_599834.png"
   },
   {
     "clip_id": "PIWO_6ca58888",
@@ -2314,7 +2314,7 @@
     "source": "xenocanto",
     "source_id": "PIWO_649554",
     "file_path": "data/clips/PIWO_649554.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWO_649554.png"
   },
   {
     "clip_id": "PIWO_0164988d",
@@ -2339,7 +2339,7 @@
     "source": "xenocanto",
     "source_id": "PIWO_797066",
     "file_path": "data/clips/PIWO_797066.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/PIWO_797066.png",
     "canonical": true
   },
   {
@@ -2352,7 +2352,7 @@
     "source": "xenocanto",
     "source_id": "PIWO_828370",
     "file_path": "data/clips/PIWO_828370.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/PIWO_828370.png"
   },
   {
     "clip_id": "RBWO_11055b13",
@@ -2364,7 +2364,7 @@
     "source": "xenocanto",
     "source_id": "RBWO_1012058",
     "file_path": "data/clips/RBWO_1012058.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RBWO_1012058.png"
   },
   {
     "clip_id": "RBWO_779e3f43",
@@ -2389,7 +2389,7 @@
     "source": "xenocanto",
     "source_id": "RBWO_687174",
     "file_path": "data/clips/RBWO_687174.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RBWO_687174.png"
   },
   {
     "clip_id": "RBWO_8fc389c9",
@@ -2401,7 +2401,7 @@
     "source": "xenocanto",
     "source_id": "RBWO_691788",
     "file_path": "data/clips/RBWO_691788.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RBWO_691788.png"
   },
   {
     "clip_id": "RBWO_58d4a65a",
@@ -2413,7 +2413,7 @@
     "source": "xenocanto",
     "source_id": "RBWO_692437",
     "file_path": "data/clips/RBWO_692437.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RBWO_692437.png"
   },
   {
     "clip_id": "RBWO_d136f498",
@@ -2425,7 +2425,7 @@
     "source": "xenocanto",
     "source_id": "RBWO_713254",
     "file_path": "data/clips/RBWO_713254.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/RBWO_713254.png",
     "canonical": true
   },
   {
@@ -2438,7 +2438,7 @@
     "source": "xenocanto",
     "source_id": "RBWO_713255",
     "file_path": "data/clips/RBWO_713255.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RBWO_713255.png"
   },
   {
     "clip_id": "RBWO_dde005bd",
@@ -2463,7 +2463,7 @@
     "source": "xenocanto",
     "source_id": "RBWO_780787",
     "file_path": "data/clips/RBWO_780787.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RBWO_780787.png"
   },
   {
     "clip_id": "RBWO_ffbccacb",
@@ -2475,7 +2475,7 @@
     "source": "xenocanto",
     "source_id": "RBWO_962378",
     "file_path": "data/clips/RBWO_962378.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RBWO_962378.png"
   },
   {
     "clip_id": "RSHA_6df49691",
@@ -2487,7 +2487,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_712976",
     "file_path": "data/clips/RSHA_712976.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RSHA_712976.png"
   },
   {
     "clip_id": "RSHA_2a7ed889",
@@ -2499,7 +2499,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_729076",
     "file_path": "data/clips/RSHA_729076.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RSHA_729076.png"
   },
   {
     "clip_id": "RSHA_c56a5076",
@@ -2524,7 +2524,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_809281",
     "file_path": "data/clips/RSHA_809281.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RSHA_809281.png"
   },
   {
     "clip_id": "RSHA_544879d0",
@@ -2536,7 +2536,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_878472",
     "file_path": "data/clips/RSHA_878472.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RSHA_878472.png"
   },
   {
     "clip_id": "RSHA_0333cd04",
@@ -2548,7 +2548,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_892537",
     "file_path": "data/clips/RSHA_892537.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/RSHA_892537.png",
     "canonical": true
   },
   {
@@ -2561,7 +2561,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_923439",
     "file_path": "data/clips/RSHA_923439.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RSHA_923439.png"
   },
   {
     "clip_id": "RSHA_99c5f257",
@@ -2573,7 +2573,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_933584",
     "file_path": "data/clips/RSHA_933584.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RSHA_933584.png"
   },
   {
     "clip_id": "RSHA_5eff1ce0",
@@ -2585,7 +2585,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_952544",
     "file_path": "data/clips/RSHA_952544.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RSHA_952544.png"
   },
   {
     "clip_id": "RSHA_06ef0bd5",
@@ -2597,7 +2597,7 @@
     "source": "xenocanto",
     "source_id": "RSHA_980329",
     "file_path": "data/clips/RSHA_980329.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/RSHA_980329.png"
   },
   {
     "clip_id": "TUTI_026c7001",
@@ -2622,7 +2622,7 @@
     "source": "xenocanto",
     "source_id": "TUTI_1035994",
     "file_path": "data/clips/TUTI_1035994.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/TUTI_1035994.png"
   },
   {
     "clip_id": "TUTI_f41b5880",
@@ -2634,7 +2634,7 @@
     "source": "xenocanto",
     "source_id": "TUTI_60068",
     "file_path": "data/clips/TUTI_60068.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/TUTI_60068.png"
   },
   {
     "clip_id": "TUTI_73876786",
@@ -2646,7 +2646,7 @@
     "source": "xenocanto",
     "source_id": "TUTI_884288",
     "file_path": "data/clips/TUTI_884288.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/TUTI_884288.png",
     "canonical": true
   },
   {
@@ -2672,7 +2672,7 @@
     "source": "xenocanto",
     "source_id": "WBNU_1000259",
     "file_path": "data/clips/WBNU_1000259.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WBNU_1000259.png"
   },
   {
     "clip_id": "WBNU_df833332",
@@ -2684,7 +2684,7 @@
     "source": "xenocanto",
     "source_id": "WBNU_728659",
     "file_path": "data/clips/WBNU_728659.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WBNU_728659.png"
   },
   {
     "clip_id": "WBNU_1582a318",
@@ -2696,7 +2696,7 @@
     "source": "xenocanto",
     "source_id": "WBNU_762303",
     "file_path": "data/clips/WBNU_762303.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WBNU_762303.png"
   },
   {
     "clip_id": "WBNU_be7c1332",
@@ -2708,7 +2708,7 @@
     "source": "xenocanto",
     "source_id": "WBNU_810120",
     "file_path": "data/clips/WBNU_810120.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WBNU_810120.png"
   },
   {
     "clip_id": "WBNU_710de0d2",
@@ -2733,7 +2733,7 @@
     "source": "xenocanto",
     "source_id": "WBNU_925187",
     "file_path": "data/clips/WBNU_925187.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/WBNU_925187.png",
     "canonical": true
   },
   {
@@ -2746,7 +2746,7 @@
     "source": "xenocanto",
     "source_id": "WBNU_925191",
     "file_path": "data/clips/WBNU_925191.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WBNU_925191.png"
   },
   {
     "clip_id": "WBNU_c081b323",
@@ -2758,7 +2758,7 @@
     "source": "xenocanto",
     "source_id": "WBNU_942746",
     "file_path": "data/clips/WBNU_942746.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WBNU_942746.png"
   },
   {
     "clip_id": "WBNU_a6a3e85c",
@@ -2796,7 +2796,7 @@
     "source": "xenocanto",
     "source_id": "WTSP_1015145",
     "file_path": "data/clips/WTSP_1015145.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WTSP_1015145.png"
   },
   {
     "clip_id": "WTSP_5f6f48c2",
@@ -2808,7 +2808,7 @@
     "source": "xenocanto",
     "source_id": "WTSP_714082",
     "file_path": "data/clips/WTSP_714082.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WTSP_714082.png"
   },
   {
     "clip_id": "WTSP_5f7255ea",
@@ -2833,7 +2833,7 @@
     "source": "xenocanto",
     "source_id": "WTSP_726915",
     "file_path": "data/clips/WTSP_726915.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/WTSP_726915.png",
     "canonical": true
   },
   {
@@ -2872,7 +2872,7 @@
     "source": "xenocanto",
     "source_id": "WTSP_793715",
     "file_path": "data/clips/WTSP_793715.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WTSP_793715.png"
   },
   {
     "clip_id": "WTSP_3768dd58",
@@ -2884,7 +2884,7 @@
     "source": "xenocanto",
     "source_id": "WTSP_821692",
     "file_path": "data/clips/WTSP_821692.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WTSP_821692.png"
   },
   {
     "clip_id": "WTSP_15a1bcd5",
@@ -2896,7 +2896,7 @@
     "source": "xenocanto",
     "source_id": "WTSP_915935",
     "file_path": "data/clips/WTSP_915935.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/WTSP_915935.png"
   },
   {
     "clip_id": "WTSP_4b964ad1",
@@ -2921,7 +2921,7 @@
     "source": "xenocanto",
     "source_id": "YBSA_1011116",
     "file_path": "data/clips/YBSA_1011116.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/YBSA_1011116.png"
   },
   {
     "clip_id": "YBSA_92de087e",
@@ -2946,7 +2946,7 @@
     "source": "xenocanto",
     "source_id": "YBSA_1038387",
     "file_path": "data/clips/YBSA_1038387.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/YBSA_1038387.png"
   },
   {
     "clip_id": "YBSA_48c4dee8",
@@ -2958,7 +2958,7 @@
     "source": "xenocanto",
     "source_id": "YBSA_629141",
     "file_path": "data/clips/YBSA_629141.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/YBSA_629141.png"
   },
   {
     "clip_id": "YBSA_9cd08d95",
@@ -2970,7 +2970,7 @@
     "source": "xenocanto",
     "source_id": "YBSA_663258",
     "file_path": "data/clips/YBSA_663258.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/YBSA_663258.png",
     "canonical": true
   },
   {
@@ -2983,7 +2983,7 @@
     "source": "xenocanto",
     "source_id": "YBSA_803622",
     "file_path": "data/clips/YBSA_803622.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/YBSA_803622.png"
   },
   {
     "clip_id": "YBSA_b9b83910",
@@ -2995,7 +2995,7 @@
     "source": "xenocanto",
     "source_id": "YBSA_870691",
     "file_path": "data/clips/YBSA_870691.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/YBSA_870691.png"
   },
   {
     "clip_id": "YBSA_fa74a4ae",
@@ -3007,7 +3007,7 @@
     "source": "xenocanto",
     "source_id": "YBSA_871633",
     "file_path": "data/clips/YBSA_871633.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/YBSA_871633.png"
   },
   {
     "clip_id": "YBSA_feaeda8d",
@@ -3019,7 +3019,7 @@
     "source": "xenocanto",
     "source_id": "YBSA_892544",
     "file_path": "data/clips/YBSA_892544.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/YBSA_892544.png"
   },
   {
     "clip_id": "YBSA_155329ce",
@@ -3031,6 +3031,6 @@
     "source": "xenocanto",
     "source_id": "YBSA_899093",
     "file_path": "data/clips/YBSA_899093.wav",
-    "spectrogram_path": null
+    "spectrogram_path": "data/spectrograms/YBSA_899093.png"
   }
 ]

@@ -5,9 +5,9 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "dev": "vite --config src/ui-app/vite.config.ts src/ui-app",
+    "build": "tsc && vite build --config src/ui-app/vite.config.ts src/ui-app",
+    "preview": "vite preview --config src/ui-app/vite.config.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint src tests"

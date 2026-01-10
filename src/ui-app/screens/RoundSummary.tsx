@@ -73,28 +73,23 @@ function RoundSummary() {
           localStorage.setItem(progressKey, JSON.stringify(existingProgress));
         }
 
-        // Build species breakdown with names - include ALL species from the pack
+        // Build species breakdown - only include species that were in this round
         const breakdown: SpeciesResult[] = [];
         for (const speciesInfo of parsed.species) {
           const data = parsed.speciesResults[speciesInfo.code] || { total: 0, correct: 0 };
-          breakdown.push({
-            code: speciesInfo.code,
-            name: speciesInfo.name,
-            total: data.total,
-            correct: data.correct,
-            accuracy: data.total > 0 ? Math.round((data.correct / data.total) * 100) : 0,
-          });
+          // Only include species that had at least one event in this round
+          if (data.total > 0) {
+            breakdown.push({
+              code: speciesInfo.code,
+              name: speciesInfo.name,
+              total: data.total,
+              correct: data.correct,
+              accuracy: Math.round((data.correct / data.total) * 100),
+            });
+          }
         }
-        // Sort: species with encounters first (by accuracy), then species with no encounters
-        breakdown.sort((a, b) => {
-          // Put species with no encounters at the end
-          if (a.total === 0 && b.total > 0) return 1;
-          if (b.total === 0 && a.total > 0) return -1;
-          // Both have encounters: sort by accuracy (worst first)
-          if (a.total > 0 && b.total > 0) return a.accuracy - b.accuracy;
-          // Both have no encounters: alphabetical
-          return a.code.localeCompare(b.code);
-        });
+        // Sort by accuracy (worst first, so players see what needs practice)
+        breakdown.sort((a, b) => a.accuracy - b.accuracy);
         setSpeciesBreakdown(breakdown);
 
         // Build confusion summary - only include mistakes and misses
@@ -138,7 +133,7 @@ function RoundSummary() {
   const hasNextLevel = isCampaign && currentLevel < TOTAL_CAMPAIGN_LEVELS;
 
   return (
-    <div className="screen screen-center">
+    <div className="screen screen-center" style={{ paddingTop: '48px' }}>
       <h1>ROUND COMPLETE</h1>
       {isCampaign && (
         <p className="text-muted" style={{ marginTop: '-8px', marginBottom: '16px' }}>
@@ -177,44 +172,38 @@ function RoundSummary() {
         <div className="card" style={{ width: '100%', maxWidth: '320px', marginBottom: '24px' }}>
           <h3 style={{ marginBottom: '12px' }}>Species Breakdown</h3>
           {speciesBreakdown.map((result) => (
-            <div key={result.code} style={{ marginBottom: '12px', opacity: result.total === 0 ? 0.5 : 1 }}>
+            <div key={result.code} style={{ marginBottom: '12px' }}>
               <div className="flex-row justify-between" style={{ marginBottom: '4px' }}>
                 <span style={{ fontSize: '14px' }}>
                   {result.code} <span className="text-muted">({result.name})</span>
                 </span>
                 <span style={{ fontSize: '14px' }}>
-                  {result.total === 0 ? (
-                    <span className="text-muted">Not in round</span>
-                  ) : (
-                    <>{result.correct}/{result.total} ({result.accuracy}%)</>
-                  )}
+                  {result.correct}/{result.total} ({result.accuracy}%)
                 </span>
               </div>
-              {result.total > 0 && (
+              <div
+                style={{
+                  height: '8px',
+                  backgroundColor: 'var(--color-background)',
+                  borderRadius: '4px',
+                  overflow: 'hidden',
+                }}
+              >
                 <div
                   style={{
-                    height: '8px',
-                    backgroundColor: 'var(--color-background)',
+                    width: `${result.accuracy}%`,
+                    height: '100%',
+                    backgroundColor:
+                      result.accuracy >= 80
+                        ? 'var(--color-success)'
+                        : result.accuracy >= 50
+                          ? 'var(--color-accent)'
+                          : 'var(--color-error)',
                     borderRadius: '4px',
-                    overflow: 'hidden',
+                    transition: 'width 0.3s ease',
                   }}
-                >
-                  <div
-                    style={{
-                      width: `${result.accuracy}%`,
-                      height: '100%',
-                      backgroundColor:
-                        result.accuracy >= 80
-                          ? 'var(--color-success)'
-                          : result.accuracy >= 50
-                            ? 'var(--color-accent)'
-                            : 'var(--color-error)',
-                      borderRadius: '4px',
-                      transition: 'width 0.3s ease',
-                    }}
-                  />
-                </div>
-              )}
+                />
+              </div>
             </div>
           ))}
         </div>
