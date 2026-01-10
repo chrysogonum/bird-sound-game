@@ -153,7 +153,7 @@ function PackSelect() {
         <button className="btn-icon" onClick={() => navigate(-1)} aria-label="Back">
           <BackIcon />
         </button>
-        <h2 style={{ margin: 0 }}>Select Pack</h2>
+        <h2 style={{ margin: 0 }}>Select a Bird Pack</h2>
       </div>
 
       <div style={{
