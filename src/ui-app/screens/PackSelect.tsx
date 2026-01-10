@@ -39,6 +39,20 @@ const PACKS: Pack[] = [
     isUnlocked: true,
     description: 'Ready for more? 10 random birds per round from 27 eastern US species.',
   },
+  {
+    id: 'sparrows',
+    name: 'Sparrows',
+    speciesCount: 7,
+    isUnlocked: true,
+    description: 'Master the subtle songs of seven sparrow species.',
+  },
+  {
+    id: 'woodpeckers',
+    name: 'Woodpeckers',
+    speciesCount: 7,
+    isUnlocked: true,
+    description: 'Learn the drums, calls, and rattles of seven woodpecker species.',
+  },
 ];
 
 // Species in each pack
@@ -51,6 +65,12 @@ const PACK_SPECIES: Record<string, string[]> = {
     'BHNU', 'BRCR', 'WBNU', 'YBSA', 'RBWO',
     'DOWO', 'HAWO', 'NOFL', 'PIWO', 'BRTH',
     'GRCA', 'MODO',
+  ],
+  sparrows: [
+    'WTSP', 'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP',
+  ],
+  woodpeckers: [
+    'DOWO', 'HAWO', 'RBWO', 'PIWO', 'YBSA', 'NOFL', 'RHWO',
   ],
 };
 

@@ -42,6 +42,30 @@ These birds have bold, recognizable voices - a great foundation for building you
 
 Ready for more? This pack includes 27 species from the eastern United States, from the cheerful American Goldfinch to the drumming woodpeckers. Each round randomly selects 10 birds, so you'll encounter different combinations each time you play.
 
+### Sparrows
+*Master the subtle singers*
+
+Sparrows are notoriously tricky - their songs can sound similar at first, but each species has distinctive patterns. This pack focuses on seven sparrow species:
+- **WTSP** - White-throated Sparrow (the "Old Sam Peabody" song)
+- **SOSP** - Song Sparrow (complex, musical phrases)
+- **CHSP** - Chipping Sparrow (dry, mechanical trill)
+- **SWSP** - Swamp Sparrow (slow, sweet trill)
+- **SASP** - Savannah Sparrow (buzzy, insect-like song)
+- **FISP** - Field Sparrow (accelerating bouncing ball)
+- **LISP** - Lincoln's Sparrow (bubbly, wren-like song)
+
+### Woodpeckers
+*Drums, rattles, and calls*
+
+Woodpeckers communicate with drums, calls, and rattles - very different from songbird melodies. Learn to distinguish seven species:
+- **DOWO** - Downy Woodpecker (short, high "pik" call)
+- **HAWO** - Hairy Woodpecker (sharper, louder "peek")
+- **RBWO** - Red-bellied Woodpecker (rolling "churr")
+- **PIWO** - Pileated Woodpecker (loud, laughing call)
+- **YBSA** - Yellow-bellied Sapsucker (cat-like mewing)
+- **NOFL** - Northern Flicker (loud "wick-wick-wick")
+- **RHWO** - Red-headed Woodpecker (harsh "tchur" call)
+
 ## The Levels
 
 Each pack has six levels that progressively challenge your listening skills:

@@ -247,6 +247,10 @@
       BHNU: '#A1887F', BRCR: '#8D6E63', WBNU: '#80CBC4', YBSA: '#FFF59D', RBWO: '#CE93D8',
       DOWO: '#90A4AE', HAWO: '#CFD8DC', NOFL: '#FFCC80', PIWO: '#B39DDB', BRTH: '#A1887F',
       GRCA: '#78909C', MODO: '#BCAAA4',
+      // Sparrows pack
+      SOSP: '#D4A574', CHSP: '#C9B896', SWSP: '#8B7355', SASP: '#BDB76B', FISP: '#DEB887', LISP: '#BC8F8F',
+      // Additional woodpecker
+      RHWO: '#DC143C',
     };
 
     const SPECIES_NAMES = {
@@ -261,6 +265,11 @@
       WBNU: 'White-breasted Nuthatch', YBSA: 'Yellow-bellied Sapsucker', RBWO: 'Red-bellied Woodpecker',
       DOWO: 'Downy Woodpecker', HAWO: 'Hairy Woodpecker', NOFL: 'Northern Flicker',
       PIWO: 'Pileated Woodpecker', BRTH: 'Brown Thrasher', GRCA: 'Gray Catbird', MODO: 'Mourning Dove',
+      // Sparrows pack
+      SOSP: 'Song Sparrow', CHSP: 'Chipping Sparrow', SWSP: 'Swamp Sparrow',
+      SASP: 'Savannah Sparrow', FISP: 'Field Sparrow', LISP: "Lincoln's Sparrow",
+      // Additional woodpecker
+      RHWO: 'Red-headed Woodpecker',
     };
 
     let clips = [];
@@ -335,7 +344,10 @@
         const filteredClips = speciesClips.filter(clip => {
           const isCanonical = changes.canonical[clip.species_code] === clip.source_id;
           const isRejected = changes.rejected.includes(clip.source_id);
-          const isNew = !clip.canonical && !clip.rejected;
+          // New species that need review (sparrows + RHWO)
+          const NEW_SPECIES = ['SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP', 'RHWO'];
+          const isNewSpecies = NEW_SPECIES.includes(clip.species_code);
+          const isNew = isNewSpecies && !clip.canonical && !clip.rejected;
 
           switch (currentFilter) {
             case 'new': return isNew && !isCanonical && !isRejected;
@@ -365,7 +377,9 @@
         for (const clip of filteredClips) {
           const isCanonical = changes.canonical[clip.species_code] === clip.source_id;
           const isRejected = changes.rejected.includes(clip.source_id);
-          const isNew = !clip.canonical && !clip.rejected && !isCanonical && !isRejected;
+          const NEW_SPECIES = ['SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP', 'RHWO'];
+          const isNewSpecies = NEW_SPECIES.includes(clip.species_code);
+          const isNew = isNewSpecies && !clip.canonical && !clip.rejected && !isCanonical && !isRejected;
 
           const row = document.createElement('div');
           row.className = 'clip-row';

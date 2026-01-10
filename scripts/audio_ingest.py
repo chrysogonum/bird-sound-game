@@ -103,6 +103,15 @@ SPECIES_CHARACTERISTICS = {
     "Brown Thrasher": {"code": "BRTH", "freq_base": 2800, "freq_range": 1500, "voc_type": "song"},
     "Gray Catbird": {"code": "GRCA", "freq_base": 3000, "freq_range": 2000, "voc_type": "song"},
     "Mourning Dove": {"code": "MODO", "freq_base": 500, "freq_range": 300, "voc_type": "song"},
+    # New sparrows pack
+    "Song Sparrow": {"code": "SOSP", "freq_base": 3200, "freq_range": 1500, "voc_type": "song"},
+    "Chipping Sparrow": {"code": "CHSP", "freq_base": 4500, "freq_range": 500, "voc_type": "song"},
+    "Swamp Sparrow": {"code": "SWSP", "freq_base": 3000, "freq_range": 800, "voc_type": "song"},
+    "Savannah Sparrow": {"code": "SASP", "freq_base": 4000, "freq_range": 1200, "voc_type": "song"},
+    "Field Sparrow": {"code": "FISP", "freq_base": 3500, "freq_range": 1500, "voc_type": "song"},
+    "Lincoln's Sparrow": {"code": "LISP", "freq_base": 3300, "freq_range": 1200, "voc_type": "song"},
+    # Additional woodpecker
+    "Red-headed Woodpecker": {"code": "RHWO", "freq_base": 2000, "freq_range": 800, "voc_type": "call"},
 }
 
 
