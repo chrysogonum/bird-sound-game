@@ -330,7 +330,7 @@ function createTile(
     let texture = textureCache.get(spectrogramPath);
     if (!texture) {
       // Load texture (async but we'll add it when ready)
-      texture = PIXI.Texture.from(`/${spectrogramPath}`);
+      texture = PIXI.Texture.from(`${import.meta.env.BASE_URL}${spectrogramPath}`);
       textureCache.set(spectrogramPath, texture);
     }
 

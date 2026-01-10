@@ -89,7 +89,7 @@ function GameplayScreen() {
   // Load campaign levels from levels.json
   useEffect(() => {
     console.log('Fetching levels.json...');
-    fetch('/data/levels.json')
+    fetch(`${import.meta.env.BASE_URL}data/levels.json`)
       .then((res) => res.json())
       .then((levels: LevelConfig[]) => {
         console.log('Loaded', levels.length, 'levels from levels.json');

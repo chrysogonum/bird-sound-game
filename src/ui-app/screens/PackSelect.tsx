@@ -85,7 +85,7 @@ function PackSelect() {
 
   // Load clips data
   useEffect(() => {
-    fetch('/data/clips.json')
+    fetch(`${import.meta.env.BASE_URL}data/clips.json`)
       .then((res) => res.json())
       .then((data: ClipData[]) => setClips(data))
       .catch((err) => console.error('Failed to load clips:', err));
@@ -103,7 +103,7 @@ function PackSelect() {
       return {
         code,
         name: clip?.common_name || code,
-        canonicalClipPath: clip ? `/data/clips/${clip.file_path.split('/').pop()}` : null,
+        canonicalClipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     }).sort((a, b) => a.code.localeCompare(b.code));
   };

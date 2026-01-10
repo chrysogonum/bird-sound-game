@@ -20,7 +20,7 @@ function Settings() {
   });
   const [scrollSpeed, setScrollSpeed] = useState(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.SCROLL_SPEED);
-    return saved ? parseFloat(saved) : 1.0;
+    return saved ? parseFloat(saved) : 0.5;
   });
   const [highContrast, setHighContrast] = useState(() => {
     return localStorage.getItem(STORAGE_KEYS.HIGH_CONTRAST) === 'true';

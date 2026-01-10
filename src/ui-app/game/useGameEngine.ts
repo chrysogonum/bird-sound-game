@@ -207,7 +207,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const baseSpeed = SCROLL_SPEED_BY_DENSITY[level.event_density] || 100;
     // Multiplier from settings (0.5x to 2.0x)
     const savedMultiplier = localStorage.getItem('soundfield_scroll_speed');
-    const multiplier = savedMultiplier ? parseFloat(savedMultiplier) : 1.0;
+    const multiplier = savedMultiplier ? parseFloat(savedMultiplier) : 0.5;
     // Initialize ref with current multiplier
     speedMultiplierRef.current = multiplier;
     return baseSpeed * multiplier;
@@ -252,7 +252,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       species_count: level.species_count,
     });
     try {
-      const response = await fetch('/data/clips.json');
+      const response = await fetch(`${import.meta.env.BASE_URL}data/clips.json`);
       if (!response.ok) {
         throw new Error('Failed to load clips.json');
       }
@@ -333,7 +333,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     console.log('loadAudioBuffer: Fetching', filePath);
 
     // Fetch and decode
-    const response = await fetch(`/${filePath}`);
+    const response = await fetch(`${import.meta.env.BASE_URL}${filePath}`);
     if (!response.ok) {
       console.error('loadAudioBuffer: Fetch failed', response.status, response.statusText);
       throw new Error(`Failed to load audio: ${filePath}`);
@@ -891,7 +891,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Re-read scroll speed from settings (in case user changed it)
     const baseSpeed = SCROLL_SPEED_BY_DENSITY[level.event_density] || 100;
     const savedMultiplier = localStorage.getItem('soundfield_scroll_speed');
-    const multiplier = savedMultiplier ? parseFloat(savedMultiplier) : 1.0;
+    const multiplier = savedMultiplier ? parseFloat(savedMultiplier) : 0.5;
     speedMultiplierRef.current = multiplier;
     setScrollSpeed(baseSpeed * multiplier);
 

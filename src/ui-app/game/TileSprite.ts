@@ -130,7 +130,7 @@ export class TileSprite extends PIXI.Container {
 
       if (!texture) {
         // Load texture
-        const loaded = await PIXI.Assets.load(`/${path}`);
+        const loaded = await PIXI.Assets.load(`${import.meta.env.BASE_URL}${path}`);
         if (!loaded) {
           console.warn(`Failed to load spectrogram texture: ${path}`);
           return;
