@@ -330,6 +330,9 @@ function GameplayScreen() {
           <div className={`feedback-overlay ${gameState.currentFeedback.type} ${gameState.currentFeedback.channel}`}>
             <div className="feedback-score">+{gameState.currentFeedback.score}</div>
             <div className="feedback-type">{gameState.currentFeedback.type.toUpperCase()}</div>
+            {gameState.currentFeedback.type === 'miss' && gameState.currentFeedback.expectedSpecies && (
+              <div className="feedback-correct">Was: {gameState.currentFeedback.expectedSpecies}</div>
+            )}
           </div>
         )}
       </div>
@@ -567,6 +570,16 @@ function GameplayScreen() {
           font-weight: 600;
           color: rgba(255, 255, 255, 0.8);
           text-align: center;
+        }
+
+        .feedback-correct {
+          font-size: 14px;
+          font-weight: 700;
+          color: white;
+          text-align: center;
+          margin-top: 4px;
+          padding-top: 4px;
+          border-top: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         @keyframes feedbackPop {

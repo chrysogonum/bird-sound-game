@@ -49,6 +49,7 @@ export interface FeedbackData {
   breakdown: ScoreBreakdown;
   channel: Channel;
   timestamp: number;
+  expectedSpecies?: string; // The correct species (shown on miss)
 }
 
 /** Confusion data for round summary */
@@ -759,6 +760,29 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
             guessedSpecies: null,
             channel: eventChannelCapture,
           });
+          // Show miss feedback with correct answer
+          const missFeedback: FeedbackData = {
+            id: `miss_${Date.now()}`,
+            type: 'miss',
+            score: 0,
+            breakdown: {
+              speciesCorrect: false,
+              channelCorrect: false,
+              timingAccuracy: 'miss' as const,
+              speciesPoints: 0,
+              channelPoints: 0,
+              timingPoints: 0,
+              totalPoints: 0,
+            },
+            channel: eventChannelCapture,
+            timestamp: performance.now(),
+            expectedSpecies: eventSpeciesCapture,
+          };
+          setCurrentFeedback(missFeedback);
+          // Clear feedback after longer duration so user can see correct answer
+          setTimeout(() => {
+            setCurrentFeedback((f) => (f?.id === missFeedback.id ? null : f));
+          }, 800);
         }
         return prev;
       });
@@ -1244,7 +1268,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       feedbackType = 'miss'; // Species wrong
     }
 
-    // Show feedback
+    // Show feedback (include expected species for miss feedback)
     const feedback: FeedbackData = {
       id: `feedback_${Date.now()}`,
       type: feedbackType,
@@ -1252,14 +1276,15 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       breakdown,
       channel: matchingEvent.channel,
       timestamp: currentTime,
+      expectedSpecies: feedbackType === 'miss' ? matchingEvent.species_code : undefined,
     };
 
     setCurrentFeedback(feedback);
 
-    // Clear feedback after animation
+    // Clear feedback after animation (longer for miss so user can see correct answer)
     setTimeout(() => {
       setCurrentFeedback((prev) => (prev?.id === feedback.id ? null : prev));
-    }, 500);
+    }, feedbackType === 'miss' ? 800 : 500);
   }, [roundState, activeEvents, calculateBreakdown, onEventCompleted, level.channel_mode]);
 
   /**
