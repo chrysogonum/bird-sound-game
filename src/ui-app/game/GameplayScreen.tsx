@@ -555,7 +555,7 @@ function GameplayScreen() {
 
         .feedback-overlay.miss {
           background: var(--color-error);
-          animation: feedbackPopMiss 2s ease-out forwards;
+          animation: feedbackPopMiss 1.5s ease-out forwards;
         }
 
         .feedback-score {

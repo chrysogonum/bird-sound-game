@@ -782,7 +782,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           // Clear feedback after longer duration so user can see correct answer
           setTimeout(() => {
             setCurrentFeedback((f) => (f?.id === missFeedback.id ? null : f));
-          }, 2000);
+          }, 1500);
         }
         return prev;
       });
@@ -1284,7 +1284,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Clear feedback after animation (longer for miss so user can see correct answer)
     setTimeout(() => {
       setCurrentFeedback((prev) => (prev?.id === feedback.id ? null : prev));
-    }, feedbackType === 'miss' ? 2000 : 500);
+    }, feedbackType === 'miss' ? 1500 : 500);
   }, [roundState, activeEvents, calculateBreakdown, onEventCompleted, level.channel_mode]);
 
   /**
