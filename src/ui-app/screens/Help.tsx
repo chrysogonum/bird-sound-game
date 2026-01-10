@@ -45,6 +45,14 @@ function Help() {
             name="Expanded Local Birds"
             description="27 species from the eastern US. Each round picks 10 random birds, so every game is different!"
           />
+          <PackInfo
+            name="Sparrows"
+            description="Master the subtle singers! Seven sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, and Lincoln's."
+          />
+          <PackInfo
+            name="Woodpeckers"
+            description="Drums, rattles, and calls. Learn seven species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, and Red-headed."
+          />
         </Section>
 
         {/* The Levels */}
