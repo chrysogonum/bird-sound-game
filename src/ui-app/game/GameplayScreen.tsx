@@ -555,6 +555,7 @@ function GameplayScreen() {
 
         .feedback-overlay.miss {
           background: var(--color-error);
+          animation: feedbackPopMiss 2s ease-out forwards;
         }
 
         .feedback-score {
@@ -597,6 +598,28 @@ function GameplayScreen() {
           100% {
             opacity: 0;
             transform: translateY(-80%) scale(1);
+          }
+        }
+
+        @keyframes feedbackPopMiss {
+          0% {
+            opacity: 0;
+            transform: translateY(-50%) scale(0.8);
+          }
+          5% {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+          }
+          10% {
+            transform: translateY(-50%) scale(1);
+          }
+          85% {
+            opacity: 1;
+            transform: translateY(-50%) scale(1);
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(-70%) scale(1);
           }
         }
 
