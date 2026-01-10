@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review: New Sparrows & Woodpecker</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #eee;
+    }
+    h1 { color: #4fc3f7; margin-bottom: 10px; }
+    .instructions {
+      background: #16213e;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #4fc3f7;
+    }
+    .species-group {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .species-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    .species-code {
+      font-size: 24px;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: #000;
+    }
+    .species-name { font-size: 18px; color: #aaa; }
+    .species-stats { font-size: 14px; color: #666; margin-left: auto; }
+    .clip-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px;
+      background: #1a1a2e;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border: 2px solid transparent;
+    }
+    .clip-row:hover { background: #222244; }
+    .clip-row.canonical { border-color: #4caf50; background: #1e3a1e; }
+    .clip-row.rejected { border-color: #f44336; background: #3a1e1e; opacity: 0.6; }
+    .clip-info { flex: 1; min-width: 120px; }
+    .clip-id { font-family: monospace; color: #4fc3f7; }
+    audio { width: 200px; height: 36px; flex-shrink: 0; }
+    .actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .action-btn {
+      padding: 6px 12px;
+      border: 2px solid;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 12px;
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .action-btn.canonical-btn { border-color: #4caf50; color: #4caf50; }
+    .action-btn.canonical-btn:hover, .action-btn.canonical-btn.active { background: #4caf50; color: #fff; }
+    .action-btn.reject-btn { border-color: #f44336; color: #f44336; }
+    .action-btn.reject-btn:hover, .action-btn.reject-btn.active { background: #f44336; color: #fff; }
+    .output-section {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      position: sticky;
+      bottom: 20px;
+    }
+    .output-section h2 { color: #4fc3f7; margin-top: 0; }
+    #output {
+      background: #1a1a2e;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 13px;
+      white-space: pre;
+      overflow-x: auto;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .copy-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #4fc3f7;
+      color: #000;
+      margin-top: 10px;
+    }
+    .copy-btn:hover { background: #81d4fa; }
+    .progress {
+      background: #0d1520;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+    }
+    .progress span { color: #888; }
+    .progress strong { color: #fff; }
+  </style>
+</head>
+<body>
+  <h1>Review: New Sparrows & Woodpecker</h1>
+
+  <div class="instructions">
+    <strong>For each species:</strong> Mark <strong>ONE</strong> clip as Canonical (best example), reject any with issues. Unmarked clips will be included as variations.
+  </div>
+
+  <div class="progress" id="progress">Loading...</div>
+  <div id="clips-container"></div>
+
+  <div class="output-section">
+    <h2>Copy this JSON when done:</h2>
+    <div id="output">{}</div>
+    <button class="copy-btn" onclick="copyOutput()">Copy to Clipboard</button>
+  </div>
+
+  <script>
+    const NEW_SPECIES = ['CHSP', 'FISP', 'LISP', 'RHWO', 'SASP', 'SOSP', 'SWSP'];
+
+    const SPECIES_INFO = {
+      SOSP: { name: 'Song Sparrow', color: '#D4A574' },
+      CHSP: { name: 'Chipping Sparrow', color: '#C9B896' },
+      SWSP: { name: 'Swamp Sparrow', color: '#8B7355' },
+      SASP: { name: 'Savannah Sparrow', color: '#BDB76B' },
+      FISP: { name: 'Field Sparrow', color: '#DEB887' },
+      LISP: { name: "Lincoln's Sparrow", color: '#BC8F8F' },
+      RHWO: { name: 'Red-headed Woodpecker', color: '#DC143C' },
+    };
+
+    let clips = [];
+    let decisions = { canonical: {}, rejected: [] };
+
+    async function loadClips() {
+      const response = await fetch('clips.json');
+      const allClips = await response.json();
+
+      // Only load clips for new species, ignore any existing decisions
+      clips = allClips.filter(c => NEW_SPECIES.includes(c.species_code));
+
+      renderAll();
+    }
+
+    function renderAll() {
+      renderProgress();
+      renderClips();
+      updateOutput();
+    }
+
+    function renderProgress() {
+      const total = clips.length;
+      const canonical = Object.keys(decisions.canonical).length;
+      const rejected = decisions.rejected.length;
+      const speciesWithCanonical = Object.keys(decisions.canonical).length;
+
+      document.getElementById('progress').innerHTML = `
+        <span><strong>${speciesWithCanonical}/7</strong> species have canonical</span>
+        <span><strong>${canonical}</strong> canonical</span>
+        <span><strong>${rejected}</strong> rejected</span>
+        <span><strong>${total - rejected}</strong> will be included</span>
+      `;
+    }
+
+    function renderClips() {
+      const container = document.getElementById('clips-container');
+      container.innerHTML = '';
+
+      for (const code of NEW_SPECIES) {
+        const speciesClips = clips.filter(c => c.species_code === code);
+        if (speciesClips.length === 0) continue;
+
+        const info = SPECIES_INFO[code];
+        const group = document.createElement('div');
+        group.className = 'species-group';
+
+        const hasCanonical = decisions.canonical[code] ? 'Yes' : 'No';
+        const rejectedCount = speciesClips.filter(c => decisions.rejected.includes(c.source_id)).length;
+
+        group.innerHTML = `
+          <div class="species-header">
+            <span class="species-code" style="background: ${info.color}">${code}</span>
+            <span class="species-name">${info.name}</span>
+            <span class="species-stats">Canonical: ${hasCanonical} | Rejected: ${rejectedCount}/${speciesClips.length}</span>
+          </div>
+        `;
+
+        for (const clip of speciesClips) {
+          const isCanonical = decisions.canonical[code] === clip.source_id;
+          const isRejected = decisions.rejected.includes(clip.source_id);
+
+          const row = document.createElement('div');
+          row.className = 'clip-row';
+          if (isCanonical) row.classList.add('canonical');
+          if (isRejected) row.classList.add('rejected');
+
+          row.innerHTML = `
+            <div class="clip-info">
+              <span class="clip-id">${clip.source_id}</span>
+            </div>
+            <audio controls src="clips/${clip.file_path.split('/').pop()}"></audio>
+            <div class="actions">
+              <button class="action-btn canonical-btn ${isCanonical ? 'active' : ''}"
+                      onclick="toggleCanonical('${code}', '${clip.source_id}')"
+                      ${isRejected ? 'disabled' : ''}>
+                Canonical
+              </button>
+              <button class="action-btn reject-btn ${isRejected ? 'active' : ''}"
+                      onclick="toggleRejected('${clip.source_id}', '${code}')">
+                Reject
+              </button>
+            </div>
+          `;
+
+          group.appendChild(row);
+        }
+
+        container.appendChild(group);
+      }
+    }
+
+    function toggleCanonical(code, sourceId) {
+      if (decisions.canonical[code] === sourceId) {
+        delete decisions.canonical[code];
+      } else {
+        decisions.canonical[code] = sourceId;
+      }
+      renderAll();
+    }
+
+    function toggleRejected(sourceId, code) {
+      const idx = decisions.rejected.indexOf(sourceId);
+      if (idx >= 0) {
+        decisions.rejected.splice(idx, 1);
+      } else {
+        decisions.rejected.push(sourceId);
+        if (decisions.canonical[code] === sourceId) {
+          delete decisions.canonical[code];
+        }
+      }
+      renderAll();
+    }
+
+    function updateOutput() {
+      document.getElementById('output').textContent = JSON.stringify(decisions, null, 2);
+    }
+
+    function copyOutput() {
+      navigator.clipboard.writeText(JSON.stringify(decisions, null, 2)).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy to Clipboard', 2000);
+      });
+    }
+
+    loadClips();
+  </script>
+</body>
+</html>

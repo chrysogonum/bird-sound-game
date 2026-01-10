@@ -1,0 +1,41 @@
+{
+  "pack_id": "expanded_backyard",
+  "display_name": "Expanded Backyard Birds",
+  "description": "27 species commonly found in backyards across eastern North America. Includes woodpeckers, songbirds, and raptors.",
+  "species": [
+    "NOCA",
+    "CARW",
+    "BLJA",
+    "AMCR",
+    "TUTI",
+    "BEKI",
+    "RSHA",
+    "AMGO",
+    "CACH",
+    "PIWA",
+    "WTSP",
+    "HOFI",
+    "EABL",
+    "AMRO",
+    "HETH",
+    "BHNU",
+    "BRCR",
+    "WBNU",
+    "YBSA",
+    "RBWO",
+    "DOWO",
+    "HAWO",
+    "NOFL",
+    "PIWO",
+    "BRTH",
+    "GRCA",
+    "MODO"
+  ],
+  "vocalization_weights": {
+    "song": 0.6,
+    "call": 0.4
+  },
+  "overlap_multiplier": 1.0,
+  "tempo_multiplier": 1.0,
+  "seasonal_context": null
+}
