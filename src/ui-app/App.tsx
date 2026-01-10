@@ -5,6 +5,7 @@ import GameplayScreen from './game/GameplayScreen';
 import RoundSummary from './screens/RoundSummary';
 import Settings from './screens/Settings';
 import Progress from './screens/Progress';
+import Help from './screens/Help';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/summary" element={<RoundSummary />} />
       <Route path="/settings" element={<Settings />} />
       <Route path="/progress" element={<Progress />} />
+      <Route path="/help" element={<Help />} />
     </Routes>
   );
 }

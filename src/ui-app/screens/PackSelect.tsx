@@ -6,6 +6,7 @@ interface Pack {
   name: string;
   speciesCount: number;
   isUnlocked: boolean;
+  description: string;
 }
 
 interface ClipData {
@@ -24,8 +25,20 @@ interface BirdInfo {
 }
 
 const PACKS: Pack[] = [
-  { id: 'starter_birds', name: '5 Common Backyard Birds', speciesCount: 5, isUnlocked: true },
-  { id: 'expanded_backyard', name: 'Expanded Local Birds', speciesCount: 27, isUnlocked: true },
+  {
+    id: 'starter_birds',
+    name: '5 Common Backyard Birds',
+    speciesCount: 5,
+    isUnlocked: true,
+    description: 'Start here! Five distinctive birds with bold, recognizable voices.',
+  },
+  {
+    id: 'expanded_backyard',
+    name: 'Expanded Local Birds',
+    speciesCount: 27,
+    isUnlocked: true,
+    description: 'Ready for more? 10 random birds per round from 27 eastern US species.',
+  },
 ];
 
 // Species in each pack
@@ -116,12 +129,22 @@ function PackSelect() {
 
   return (
     <div className="screen" style={{ paddingBottom: '24px' }}>
-      <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
+      <div className="flex-row items-center gap-md" style={{ marginBottom: '16px' }}>
         <button className="btn-icon" onClick={() => navigate(-1)} aria-label="Back">
           <BackIcon />
         </button>
         <h2 style={{ margin: 0 }}>Select Pack</h2>
       </div>
+
+      <p style={{
+        fontSize: '14px',
+        color: 'var(--color-text-muted)',
+        marginBottom: '20px',
+        lineHeight: 1.5,
+      }}>
+        Choose a bird pack to practice. Each pack has 6 levels that build your listening skills,
+        from learning signature sounds to mastering full repertoires.
+      </p>
 
       <div
         style={{
@@ -184,10 +207,20 @@ function PackSelect() {
                   fontWeight: 600,
                   color: '#f5f0e6',
                   lineHeight: 1.3,
-                  marginBottom: '8px',
+                  marginBottom: '6px',
                 }}
               >
                 {pack.name}
+              </div>
+              <div
+                style={{
+                  fontSize: '12px',
+                  color: 'rgba(245, 240, 230, 0.6)',
+                  lineHeight: 1.4,
+                  marginBottom: '10px',
+                }}
+              >
+                {pack.description}
               </div>
               <div
                 style={{
