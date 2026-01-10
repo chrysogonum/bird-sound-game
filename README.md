@@ -2,6 +2,8 @@
 
 A rhythm-game–style training app that teaches players to identify bird sounds in real time. Think **Guitar Hero for birding**.
 
+### [Play the Game](https://chrysogonum.github.io/bird-sound-game/)
+
 ## What Is This?
 
 Players identify:
