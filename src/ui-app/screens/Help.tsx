@@ -78,6 +78,31 @@ function Help() {
           <Tip>Once you've mastered the sounds, try playing muted - identify birds by their spectrograms alone!</Tip>
         </Section>
 
+        {/* Bird Codes */}
+        <Section title="The 4-Letter Codes">
+          <p>
+            Birders use standardized 4-letter codes (called "Alpha codes") as shorthand for species names.
+            They're easy to learn:
+          </p>
+          <div style={{
+            background: 'var(--color-surface)',
+            padding: '12px',
+            borderRadius: '8px',
+            marginTop: '8px',
+            fontSize: '14px',
+            lineHeight: 1.6
+          }}>
+            <div><strong>Two-word names:</strong> First 2 letters of each word</div>
+            <div style={{ color: 'var(--color-text-muted)', marginLeft: '12px' }}>
+              Northern Cardinal → NO + CA → NOCA
+            </div>
+            <div style={{ marginTop: '8px' }}><strong>Three-word names:</strong> 1 + 1 + 2 letters</div>
+            <div style={{ color: 'var(--color-text-muted)', marginLeft: '12px' }}>
+              Red-bellied Woodpecker → R + B + WO → RBWO
+            </div>
+          </div>
+        </Section>
+
         {/* Spectrograms */}
         <Section title="The Spectrograms">
           <p>

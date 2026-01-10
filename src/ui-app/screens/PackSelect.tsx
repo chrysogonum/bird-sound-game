@@ -163,8 +163,9 @@ function PackSelect() {
         lineHeight: 1.5,
       }}>
         Choose a bird pack to practice. Each pack has 6 levels that build your listening skills,
-        from learning signature sounds to mastering full repertoires. Pro tip: once you've mastered
-        the sounds, try playing with your device muted and identify birds by their spectrograms alone!
+        from learning signature sounds to mastering full repertoires. New to the 4-letter bird codes?
+        Check the Bird Reference section below to see codes with full names. Pro tip: once you've
+        mastered the sounds, try playing muted and identify birds by their spectrograms alone!
       </p>
 
       <div
