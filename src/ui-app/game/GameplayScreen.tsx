@@ -103,6 +103,36 @@ function GameplayScreen() {
   // Build level config based on mode
   const levelConfig = useMemo((): LevelConfig => {
     console.log('levelConfig useMemo: mode =', mode, 'packId =', packId, 'campaignLevels.length =', campaignLevels.length);
+
+    // Handle custom pack specially - build config from sessionStorage
+    if (packId === 'custom') {
+      let customSpecies: string[] = [];
+      try {
+        const savedJson = sessionStorage.getItem('roundSpecies');
+        if (savedJson) {
+          customSpecies = JSON.parse(savedJson);
+        }
+      } catch (e) {
+        console.error('Failed to parse custom species:', e);
+      }
+      console.log('Custom pack: using species from sessionStorage:', customSpecies);
+      return {
+        level_id: 1,
+        pack_id: 'custom',
+        mode: 'campaign',
+        title: 'Custom Pack',
+        round_duration_sec: 30,
+        species_count: customSpecies.length,
+        species_pool: customSpecies,
+        clip_selection: 'canonical',
+        channel_mode: 'single',
+        event_density: 'low',
+        overlap_probability: 0,
+        scoring_window_ms: 2000,
+        spectrogram_mode: 'full',
+      };
+    }
+
     if (mode === 'campaign' && campaignLevels.length > 0) {
       // Find the requested level from levels.json (match both pack_id AND level_id)
       const level = campaignLevels.find((l) => l.pack_id === packId && l.level_id === levelId);
@@ -138,7 +168,8 @@ function GameplayScreen() {
   const lastLevelKeyRef = useRef<string | null>(null);
   useEffect(() => {
     // Don't initialize until we have the real level config with species_pool
-    if (mode === 'campaign' && campaignLevels.length === 0) {
+    // (except for custom pack which doesn't need levels.json)
+    if (mode === 'campaign' && campaignLevels.length === 0 && packId !== 'custom') {
       console.log('Waiting for levels.json to load...');
       return;
     }

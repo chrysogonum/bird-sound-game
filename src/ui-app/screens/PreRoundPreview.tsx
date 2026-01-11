@@ -70,9 +70,9 @@ function PreRoundPreview() {
     const pool = levelConfig.species_pool || [];
     const count = levelConfig.species_count || pool.length;
 
-    // Shuffle and take count
+    // Shuffle and take count, then sort alphabetically for display
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    const selected = shuffled.slice(0, count);
+    const selected = shuffled.slice(0, count).sort();
 
     // Build species info with canonical clips
     const speciesInfo: SelectedSpecies[] = selected.map((code, index) => {
@@ -183,19 +183,45 @@ function PreRoundPreview() {
   return (
     <div className="screen" style={{ display: 'flex', flexDirection: 'column' }}>
       {/* Header */}
-      <div style={{ marginBottom: '16px' }}>
-        <button
-          className="btn-icon"
-          onClick={() => navigate(`/level-select?pack=${packId}`)}
-          aria-label="Back"
-          style={{ marginBottom: '8px' }}
-        >
-          <BackIcon />
-        </button>
-        <h2 style={{ margin: 0, fontSize: '18px' }}>{packName}</h2>
-        <div style={{ fontSize: '14px', color: 'var(--color-accent)' }}>
-          Level {level.level_id}: {level.title}
+      <div style={{ marginBottom: '12px' }}>
+        <div className="flex-row items-center" style={{ marginBottom: '8px' }}>
+          <button
+            className="btn-icon"
+            onClick={() => navigate(`/level-select?pack=${packId}`)}
+            aria-label="Back"
+          >
+            <BackIcon />
+          </button>
+          <div style={{ flex: 1, marginLeft: '8px' }}>
+            <h2 style={{ margin: 0, fontSize: '16px' }}>{packName}</h2>
+            <div style={{ fontSize: '13px', color: 'var(--color-accent)' }}>
+              Level {level.level_id}: {level.title}
+            </div>
+          </div>
         </div>
+
+        {/* Ready button - prominent at top */}
+        <button
+          onClick={handleReady}
+          style={{
+            width: '100%',
+            padding: '14px',
+            fontSize: '16px',
+            fontWeight: 700,
+            background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '12px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 12px rgba(45, 90, 39, 0.3)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+          }}
+        >
+          Ready to Play <PlayArrowIcon />
+        </button>
       </div>
 
       {/* Preview section */}
@@ -212,8 +238,19 @@ function PreRoundPreview() {
           color: 'var(--color-text-muted)',
           marginBottom: '20px',
           textAlign: 'center',
+          maxWidth: '280px',
         }}>
-          Tap to preview each bird's sound
+          {level.level_id === 1 ? (
+            'Tap to preview each bird\'s signature sound'
+          ) : (
+            <>
+              Tap to preview signature sounds.
+              <br />
+              <span style={{ fontSize: '12px', opacity: 0.8 }}>
+                You'll hear variations during play!
+              </span>
+            </>
+          )}
         </div>
 
         {/* Species grid */}
@@ -311,26 +348,6 @@ function PreRoundPreview() {
         )}
       </div>
 
-      {/* Ready button */}
-      <div style={{ padding: '16px 0', paddingBottom: 'calc(16px + var(--safe-area-bottom, 0px))' }}>
-        <button
-          onClick={handleReady}
-          style={{
-            width: '100%',
-            padding: '16px',
-            fontSize: '18px',
-            fontWeight: 700,
-            background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '12px',
-            cursor: 'pointer',
-            boxShadow: '0 4px 12px rgba(45, 90, 39, 0.3)',
-          }}
-        >
-          Ready to Play
-        </button>
-      </div>
 
       {/* Pulse animation */}
       <style>{`
@@ -359,6 +376,14 @@ function ShuffleIcon() {
       <path d="M21 16v5h-5" />
       <path d="M15 15l6 6" />
       <path d="M4 4l5 5" />
+    </svg>
+  );
+}
+
+function PlayArrowIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z" />
     </svg>
   );
 }

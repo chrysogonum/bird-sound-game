@@ -293,14 +293,28 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       const poolSpecies = Array.from(speciesMap.values());
       setAllPoolSpecies(poolSpecies);
 
-      // If pool size equals species_count, use all (no random selection needed)
-      // Otherwise, leave species empty until round start (will be randomly selected)
-      if (!level.species_count || poolSpecies.length <= level.species_count) {
-        setSpecies(poolSpecies);
-      } else {
-        // Will be selected at round start - show all for now so button is enabled
-        setSpecies(poolSpecies);
+      // Check for pre-selected species from PreRoundPreview
+      const preSelectedJson = sessionStorage.getItem('roundSpecies');
+      if (preSelectedJson) {
+        try {
+          const preSelected = JSON.parse(preSelectedJson) as string[];
+          // Filter to species that exist in the pool
+          const preSelectedSpecies = poolSpecies
+            .filter(s => preSelected.includes(s.code))
+            .sort((a, b) => a.code.localeCompare(b.code));
+          if (preSelectedSpecies.length > 0) {
+            console.log('loadClips: Using pre-selected species:', preSelectedSpecies.map(s => s.code));
+            setSpecies(preSelectedSpecies);
+            return; // Don't fall through to default selection
+          }
+        } catch (e) {
+          console.error('Failed to parse pre-selected species in loadClips:', e);
+        }
       }
+
+      // If pool size equals species_count, use all (no random selection needed)
+      // Otherwise, will be randomly selected at round start - show all for now so button is enabled
+      setSpecies(poolSpecies);
     } catch (error) {
       console.error('Error loading clips:', error);
     }
@@ -682,18 +696,23 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const now = performance.now();
     const roundStart = roundStartTimeRef.current;
     const elapsedMs = now - roundStart;
-    const roundDurationMs = level.round_duration_sec * 1000;
-    const remainingMs = roundDurationMs - elapsedMs;
 
-    // Don't spawn if there's not enough time for a meaningful play
-    const minPlayableTimeMs = 2000;
-    if (remainingMs < minPlayableTimeMs) {
-      if (channelMode === 'single') {
-        currentEventIdRef.current = null;
-      } else if (targetChannel) {
-        channelEventIdRef.current[targetChannel] = null;
+    // In continuous mode, don't check time remaining - keep spawning events
+    // In normal mode, stop if we don't have enough time left
+    if (!continuousModeRef.current) {
+      const roundDurationMs = level.round_duration_sec * 1000;
+      const remainingMs = roundDurationMs - elapsedMs;
+
+      // Don't spawn if there's not enough time for a meaningful play
+      const minPlayableTimeMs = 2000;
+      if (remainingMs < minPlayableTimeMs) {
+        if (channelMode === 'single') {
+          currentEventIdRef.current = null;
+        } else if (targetChannel) {
+          channelEventIdRef.current[targetChannel] = null;
+        }
+        return;
       }
-      return;
     }
 
     // Get next event template
