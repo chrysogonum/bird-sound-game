@@ -9,6 +9,7 @@ import type { Channel } from '@engine/audio/types';
 import type { GameEvent, LevelConfig, RoundState } from '@engine/game/types';
 import type { ScoreBreakdown, FeedbackType } from '@engine/scoring/types';
 import { SCORE_VALUES } from '@engine/scoring/types';
+import { getAudioAdapter, type PannerNode } from '@engine/audio/CrossBrowserAudioAdapter';
 
 /** Clip metadata from clips.json */
 export interface ClipMetadata {
@@ -168,6 +169,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const bufferCacheRef = useRef<Map<string, AudioBuffer>>(new Map());
   const activeSourcesRef = useRef<Map<string, AudioBufferSourceNode>>(new Map());
   const activeGainsRef = useRef<Map<string, GainNode>>(new Map());
+  const activePannersRef = useRef<Map<string, PannerNode>>(new Map()); // Cross-browser panners
   const activeEventTimesRef = useRef<Map<string, number>>(new Map()); // eventId -> scheduled hit time
   const volumeUpdateRef = useRef<number | null>(null);
 
@@ -213,7 +215,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     return baseSpeed * multiplier;
   });
   const [currentFeedback, setCurrentFeedback] = useState<FeedbackData | null>(null);
-  const [isAudioReady, setIsAudioReady] = useState(false);
+  // Default to true - AudioContext will be created on user tap in startRound (required for iOS anyway)
+  const [isAudioReady, setIsAudioReady] = useState(true);
 
   // Refs for timer and event scheduling
   const timerRef = useRef<number | null>(null);
@@ -299,19 +302,36 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
    * Initialize audio context
    */
   const initializeAudio = useCallback(async () => {
+    // If already initialized, just ensure isAudioReady is set
     if (audioContextRef.current) {
+      console.log('initializeAudio: Already initialized, setting isAudioReady');
+      setIsAudioReady(true);
       return;
     }
 
-    const ctx = new AudioContext();
-    audioContextRef.current = ctx;
+    try {
+      // Log browser info for debugging
+      const audioAdapter = getAudioAdapter();
+      console.log('initializeAudio: Browser capabilities:', audioAdapter.getCapabilities());
 
-    // Resume if suspended (for iOS Safari)
-    if (ctx.state === 'suspended') {
-      await ctx.resume();
+      const ctx = new AudioContext();
+      audioContextRef.current = ctx;
+      console.log('initializeAudio: AudioContext created, state:', ctx.state);
+
+      // Resume if suspended (for iOS Safari and Chrome)
+      if (ctx.state === 'suspended') {
+        console.log('initializeAudio: AudioContext suspended, attempting resume...');
+        await ctx.resume();
+        console.log('initializeAudio: AudioContext resumed, state:', ctx.state);
+      }
+
+      setIsAudioReady(true);
+      console.log('initializeAudio: Audio is ready!');
+    } catch (error) {
+      console.error('initializeAudio: Failed to initialize audio:', error);
+      // Still mark as ready so user can attempt to play (will create context on tap)
+      setIsAudioReady(true);
     }
-
-    setIsAudioReady(true);
   }, []);
 
   /**
@@ -378,35 +398,42 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       const buffer = await loadAudioBuffer(filePath);
       console.log('playAudio: Buffer loaded, duration:', buffer.duration);
 
-      // Create audio nodes
+      // Get cross-browser audio adapter
+      const audioAdapter = getAudioAdapter();
+      console.log('playAudio: Using adapter, capabilities:', audioAdapter.getCapabilities());
+
+      // Create audio nodes (using adapter for cross-browser panning)
       const source = ctx.createBufferSource();
       const gainNode = ctx.createGain();
-      const panner = ctx.createStereoPanner();
+      const panner = audioAdapter.createChannelPanner(ctx, channel);
 
       // Start at very low volume - ramps up dramatically as tile approaches hit zone
       gainNode.gain.value = 0.05;
 
-      // Set up panning (-1 for left, 1 for right)
-      panner.pan.value = channel === 'left' ? -1 : 1;
-
       // Connect chain: source -> gain -> panner -> destination
       source.buffer = buffer;
       source.connect(gainNode);
-      gainNode.connect(panner);
-      panner.connect(ctx.destination);
+      gainNode.connect(panner.output);
+      audioAdapter.connectPannerToDestination(panner, ctx.destination);
 
       // Loop the audio until tile reaches hit zone
       source.loop = true;
 
-      // Track active source, gain, and timing
+      // Track active source, gain, panner, and timing
       activeSourcesRef.current.set(eventId, source);
       activeGainsRef.current.set(eventId, gainNode);
+      activePannersRef.current.set(eventId, panner);
       activeEventTimesRef.current.set(eventId, scheduledHitTimeMs);
 
       // Clean up when done (only called when we explicitly stop it)
       source.onended = () => {
         activeSourcesRef.current.delete(eventId);
         activeGainsRef.current.delete(eventId);
+        const pannerToClean = activePannersRef.current.get(eventId);
+        if (pannerToClean) {
+          pannerToClean.disconnect();
+          activePannersRef.current.delete(eventId);
+        }
         activeEventTimesRef.current.delete(eventId);
       };
 
@@ -430,8 +457,14 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         // Already stopped
       }
     }
+    // Clean up panner
+    const panner = activePannersRef.current.get(eventId);
+    if (panner) {
+      panner.disconnect();
+    }
     activeSourcesRef.current.delete(eventId);
     activeGainsRef.current.delete(eventId);
+    activePannersRef.current.delete(eventId);
     activeEventTimesRef.current.delete(eventId);
   }, []);
 
@@ -554,6 +587,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       ),
     });
 
+    // Track clip usage to prevent excessive repetition
+    // Max 3 plays per clip per round
+    const MAX_CLIP_PLAYS = 3;
+    const clipUsageCount = new Map<string, number>();
+
     // Generate plenty of events - with fast identification, players could go through many
     // Assume minimum ~2 seconds per bird, so 30 second round = max ~15 birds
     // Generate extra to be safe
@@ -563,9 +601,20 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       // Select random species
       const speciesCode = selectedSpecies[Math.floor(random() * selectedSpecies.length)];
       const speciesClipList = speciesClips.get(speciesCode) || [];
-      const clip = speciesClipList[Math.floor(random() * speciesClipList.length)];
+
+      // Filter to clips that haven't hit the max play count
+      const availableClips = speciesClipList.filter(
+        c => (clipUsageCount.get(c.clip_id) || 0) < MAX_CLIP_PLAYS
+      );
+
+      // Select from available clips, or fall back to any clip if all are maxed
+      const clipPool = availableClips.length > 0 ? availableClips : speciesClipList;
+      const clip = clipPool[Math.floor(random() * clipPool.length)];
 
       if (!clip) continue;
+
+      // Track usage
+      clipUsageCount.set(clip.clip_id, (clipUsageCount.get(clip.clip_id) || 0) + 1);
 
       // Select random channel
       const channel: Channel = random() < 0.5 ? 'left' : 'right';
@@ -855,8 +904,20 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
    * Initialize the engine (load clips, set up audio)
    */
   const initialize = useCallback(async () => {
-    await loadClips();
-    await initializeAudio();
+    console.log('initialize: Starting...');
+    try {
+      // Run both in parallel so one failure doesn't block the other
+      await Promise.all([
+        loadClips().catch(err => console.error('initialize: loadClips failed:', err)),
+        initializeAudio().catch(err => console.error('initialize: initializeAudio failed:', err)),
+      ]);
+    } catch (error) {
+      console.error('initialize: Failed:', error);
+    }
+    // Always mark audio as ready so the button is enabled
+    // The actual AudioContext will be created on user tap if needed (required for iOS)
+    setIsAudioReady(true);
+    console.log('initialize: Complete, isAudioReady forced to true');
   }, [loadClips, initializeAudio]);
 
   /**
@@ -1046,8 +1107,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         // Already stopped
       }
     }
+    // Clean up all panners
+    for (const panner of activePannersRef.current.values()) {
+      panner.disconnect();
+    }
     activeSourcesRef.current.clear();
     activeGainsRef.current.clear();
+    activePannersRef.current.clear();
     activeEventTimesRef.current.clear();
 
     // Compile and save round results for summary screen
