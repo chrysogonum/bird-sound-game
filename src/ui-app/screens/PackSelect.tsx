@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 interface Pack {
   id: string;
@@ -76,8 +76,6 @@ const PACK_SPECIES: Record<string, string[]> = {
 
 function PackSelect() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const mode = searchParams.get('mode') || 'campaign';
 
   const [clips, setClips] = useState<ClipData[]>([]);
   const [playingClip, setPlayingClip] = useState<string | null>(null);
@@ -110,7 +108,7 @@ function PackSelect() {
 
   const handlePackSelect = (pack: Pack) => {
     if (pack.isUnlocked) {
-      navigate(`/gameplay?mode=${mode}&pack=${pack.id}`);
+      navigate(`/level-select?pack=${pack.id}`);
     }
   };
 
