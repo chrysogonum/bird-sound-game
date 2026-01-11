@@ -108,7 +108,7 @@ def main():
     with open(clips_json, 'r') as f:
         clips = json.load(f)
 
-    # All species (starter, expanded, sparrows, woodpeckers)
+    # All species (starter, expanded, sparrows, woodpeckers, warblers)
     expanded_species = [
         'NOCA', 'CARW', 'BLJA', 'AMCR', 'TUTI',  # Starter pack
         'BEKI', 'RSHA', 'AMGO', 'CACH', 'PIWA',
@@ -120,6 +120,11 @@ def main():
         'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP',
         # Additional woodpecker
         'RHWO',
+        # Spring Warblers pack
+        'AMRE', 'BAWW', 'BBWA', 'BLBW', 'BLPW', 'BTBW', 'BTNW', 'BWWA',
+        'CAWA', 'CMWA', 'CONW', 'COYE', 'CSWA', 'GWWA', 'KEWA', 'LOWA',
+        'MAWA', 'MOWA', 'NAWA', 'NOPA', 'NOWA', 'OCWA', 'OVEN', 'PAWA',
+        'PRAW', 'PROW', 'SWWA', 'TEWA', 'WIWA', 'YTWA',
     ]
 
     print(f"Generating spectrograms for expanded pack species...")

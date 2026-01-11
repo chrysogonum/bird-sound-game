@@ -206,7 +206,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   );
 
   // Total events in this round (for continuous mode)
-  const [totalEvents, setTotalEvents] = useState(0);
+  const [_totalEvents, _setTotalEvents] = useState(0);
 
   // Base audio lead time at 1.0x speed
   // At higher speeds, tiles travel faster so lead time decreases
@@ -1528,7 +1528,6 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
     const totalGenerated = eventQueueRef.current.length;
     const currentIndex = currentEventIndexRef.current;
-    const totalProcessed = eventsScored + missCount;
 
     // End if we've spawned all events and processed them all
     // (or if there are no more events to spawn and no active events)

@@ -6,7 +6,7 @@
 // Derive base URL from service worker's location (e.g., /bird-sound-game/)
 const BASE_URL = self.location.pathname.replace(/sw\.js$/, '');
 
-const CACHE_NAME = 'soundfield-birds-v3';
+const CACHE_NAME = 'soundfield-birds-v4';
 const STATIC_ASSETS = [
   BASE_URL,
   `${BASE_URL}index.html`,

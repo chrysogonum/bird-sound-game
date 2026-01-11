@@ -53,6 +53,13 @@ const PACKS: Pack[] = [
     isUnlocked: true,
     description: 'Learn the drums, calls, and rattles of seven woodpecker species.',
   },
+  {
+    id: 'spring_warblers',
+    name: 'Spring Warblers',
+    speciesCount: 31,
+    isUnlocked: true,
+    description: '31 wood-warblers of eastern spring migration. High-pitched songs and buzzy trills.',
+  },
 ];
 
 // Species in each pack
@@ -71,6 +78,12 @@ const PACK_SPECIES: Record<string, string[]> = {
   ],
   woodpeckers: [
     'DOWO', 'HAWO', 'RBWO', 'PIWO', 'YBSA', 'NOFL', 'RHWO',
+  ],
+  spring_warblers: [
+    'AMRE', 'BAWW', 'BBWA', 'BLBW', 'BLPW', 'BTBW', 'BTNW', 'BWWA',
+    'CAWA', 'CMWA', 'CONW', 'COYE', 'CSWA', 'GWWA', 'KEWA', 'LOWA',
+    'MAWA', 'MOWA', 'NAWA', 'NOPA', 'NOWA', 'OCWA', 'OVEN', 'PAWA',
+    'PIWA', 'PRAW', 'PROW', 'SWWA', 'TEWA', 'WIWA', 'YTWA',
   ],
 };
 

@@ -658,5 +658,125 @@
     "overlap_probability": 0,
     "scoring_window_ms": 2000,
     "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 1,
+    "pack_id": "spring_warblers",
+    "mode": "campaign",
+    "title": "Meet the Warblers",
+    "round_duration_sec": 30,
+    "species_count": 9,
+    "species_pool": [
+      "AMRE", "BAWW", "BBWA", "BLBW", "BLPW", "BTBW", "BTNW", "BWWA",
+      "CAWA", "CMWA", "CONW", "COYE", "CSWA", "GWWA", "KEWA", "LOWA",
+      "MAWA", "MOWA", "NAWA", "NOPA", "NOWA", "OCWA", "OVEN", "PAWA",
+      "PIWA", "PRAW", "PROW", "SWWA", "TEWA", "WIWA", "YTWA"
+    ],
+    "clip_selection": "canonical",
+    "channel_mode": "single",
+    "event_density": "low",
+    "overlap_probability": 0,
+    "scoring_window_ms": 2000,
+    "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 2,
+    "pack_id": "spring_warblers",
+    "mode": "campaign",
+    "title": "Warbler Variations",
+    "round_duration_sec": 30,
+    "species_count": 9,
+    "species_pool": [
+      "AMRE", "BAWW", "BBWA", "BLBW", "BLPW", "BTBW", "BTNW", "BWWA",
+      "CAWA", "CMWA", "CONW", "COYE", "CSWA", "GWWA", "KEWA", "LOWA",
+      "MAWA", "MOWA", "NAWA", "NOPA", "NOWA", "OCWA", "OVEN", "PAWA",
+      "PIWA", "PRAW", "PROW", "SWWA", "TEWA", "WIWA", "YTWA"
+    ],
+    "clip_selection": 3,
+    "channel_mode": "single",
+    "event_density": "low",
+    "overlap_probability": 0,
+    "scoring_window_ms": 2000,
+    "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 3,
+    "pack_id": "spring_warblers",
+    "mode": "campaign",
+    "title": "Full Repertoire",
+    "round_duration_sec": 30,
+    "species_count": 9,
+    "species_pool": [
+      "AMRE", "BAWW", "BBWA", "BLBW", "BLPW", "BTBW", "BTNW", "BWWA",
+      "CAWA", "CMWA", "CONW", "COYE", "CSWA", "GWWA", "KEWA", "LOWA",
+      "MAWA", "MOWA", "NAWA", "NOPA", "NOWA", "OCWA", "OVEN", "PAWA",
+      "PIWA", "PRAW", "PROW", "SWWA", "TEWA", "WIWA", "YTWA"
+    ],
+    "clip_selection": "all",
+    "channel_mode": "single",
+    "event_density": "low",
+    "overlap_probability": 0,
+    "scoring_window_ms": 2000,
+    "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 4,
+    "pack_id": "spring_warblers",
+    "mode": "campaign",
+    "title": "Both Ears",
+    "round_duration_sec": 30,
+    "species_count": 9,
+    "species_pool": [
+      "AMRE", "BAWW", "BBWA", "BLBW", "BLPW", "BTBW", "BTNW", "BWWA",
+      "CAWA", "CMWA", "CONW", "COYE", "CSWA", "GWWA", "KEWA", "LOWA",
+      "MAWA", "MOWA", "NAWA", "NOPA", "NOWA", "OCWA", "OVEN", "PAWA",
+      "PIWA", "PRAW", "PROW", "SWWA", "TEWA", "WIWA", "YTWA"
+    ],
+    "clip_selection": "canonical",
+    "channel_mode": "offset",
+    "event_density": "low",
+    "overlap_probability": 0,
+    "scoring_window_ms": 2000,
+    "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 5,
+    "pack_id": "spring_warblers",
+    "mode": "campaign",
+    "title": "Variations + Both Ears",
+    "round_duration_sec": 30,
+    "species_count": 9,
+    "species_pool": [
+      "AMRE", "BAWW", "BBWA", "BLBW", "BLPW", "BTBW", "BTNW", "BWWA",
+      "CAWA", "CMWA", "CONW", "COYE", "CSWA", "GWWA", "KEWA", "LOWA",
+      "MAWA", "MOWA", "NAWA", "NOPA", "NOWA", "OCWA", "OVEN", "PAWA",
+      "PIWA", "PRAW", "PROW", "SWWA", "TEWA", "WIWA", "YTWA"
+    ],
+    "clip_selection": 3,
+    "channel_mode": "offset",
+    "event_density": "low",
+    "overlap_probability": 0,
+    "scoring_window_ms": 2000,
+    "spectrogram_mode": "full"
+  },
+  {
+    "level_id": 6,
+    "pack_id": "spring_warblers",
+    "mode": "campaign",
+    "title": "Warbler Master",
+    "round_duration_sec": 30,
+    "species_count": 9,
+    "species_pool": [
+      "AMRE", "BAWW", "BBWA", "BLBW", "BLPW", "BTBW", "BTNW", "BWWA",
+      "CAWA", "CMWA", "CONW", "COYE", "CSWA", "GWWA", "KEWA", "LOWA",
+      "MAWA", "MOWA", "NAWA", "NOPA", "NOWA", "OCWA", "OVEN", "PAWA",
+      "PIWA", "PRAW", "PROW", "SWWA", "TEWA", "WIWA", "YTWA"
+    ],
+    "clip_selection": "all",
+    "channel_mode": "offset",
+    "event_density": "low",
+    "overlap_probability": 0,
+    "scoring_window_ms": 2000,
+    "spectrogram_mode": "full"
   }
 ]
