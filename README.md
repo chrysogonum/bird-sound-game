@@ -167,7 +167,9 @@ See `PRD-SoundField-Birds.md` for full requirements, data models, and acceptance
 
 ## License
 
-TBD
+MIT License - see [LICENSE](LICENSE) for details.
+
+Bird recordings from [Xeno-Canto](https://xeno-canto.org) retain their original CC licenses.
 
 ---
 
