@@ -66,6 +66,7 @@ function BirdIcon({ code, size = 56, color }: { code: string; size?: number; col
       flexDirection: 'column',
       alignItems: 'center',
       gap: '4px',
+      WebkitTapHighlightColor: 'transparent',
     }}>
       {hasIcon && (
         <span style={{
@@ -86,6 +87,7 @@ function BirdIcon({ code, size = 56, color }: { code: string; size?: number; col
           style={{
             borderRadius: '50%',
             objectFit: 'cover',
+            WebkitTapHighlightColor: 'transparent',
           }}
           onError={() => setHasIcon(false)}
         />
@@ -407,26 +409,12 @@ function PreRoundPreview() {
                 cursor: species.clipPath ? 'pointer' : 'not-allowed',
                 opacity: species.clipPath ? 1 : 0.5,
                 transition: 'transform 0.15s, background 0.15s',
+                WebkitTapHighlightColor: 'transparent',
               }}
             >
-              {/* Bird icon/code with pulse animation */}
-              <div style={{ position: 'relative' }}>
+              {/* Bird icon/code */}
+              <div style={{ position: 'relative', WebkitTapHighlightColor: 'transparent' }}>
                 <BirdIcon code={species.code} size={56} color={species.color} />
-                {playingCode === species.code && (
-                  <div style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: '64px',
-                    height: '64px',
-                    marginTop: '-4px',
-                    borderRadius: '50%',
-                    border: '2px solid white',
-                    animation: 'pulse 1s infinite',
-                    pointerEvents: 'none',
-                  }} />
-                )}
               </div>
               {/* Name */}
               <div style={{
@@ -472,11 +460,14 @@ function PreRoundPreview() {
       </div>
 
 
-      {/* Pulse animation */}
+      {/* Pulse animation and tap highlight fix */}
       <style>{`
         @keyframes pulse {
           0%, 100% { transform: scale(1); opacity: 1; }
           50% { transform: scale(1.1); opacity: 0.7; }
+        }
+        * {
+          -webkit-tap-highlight-color: transparent;
         }
       `}</style>
     </div>
