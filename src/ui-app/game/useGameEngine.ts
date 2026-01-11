@@ -982,23 +982,52 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Select species for this round
     let roundSpeciesCodes: string[] | undefined;
     console.log('startRound: allPoolSpecies.length =', allPoolSpecies.length, 'species_count =', level.species_count);
-    if (level.species_count && allPoolSpecies.length > level.species_count) {
-      // Randomly select species_count species from the pool
-      const shuffled = [...allPoolSpecies];
-      for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+
+    // Check for pre-selected species from PreRoundPreview
+    const preSelectedSpeciesJson = sessionStorage.getItem('roundSpecies');
+    if (preSelectedSpeciesJson) {
+      try {
+        const preSelected = JSON.parse(preSelectedSpeciesJson) as string[];
+        // Clear the session storage so it's not used again
+        sessionStorage.removeItem('roundSpecies');
+        // Filter to species that exist in allPoolSpecies
+        const validPreSelected = preSelected.filter(code =>
+          allPoolSpecies.some(s => s.code === code)
+        );
+        if (validPreSelected.length > 0) {
+          const selectedForRound = allPoolSpecies
+            .filter(s => validPreSelected.includes(s.code))
+            .sort((a, b) => a.code.localeCompare(b.code));
+          console.log('Using pre-selected species:', selectedForRound.map(s => s.code));
+          setSpecies(selectedForRound);
+          roundSpeciesCodes = selectedForRound.map(s => s.code);
+        }
+      } catch (e) {
+        console.error('Failed to parse pre-selected species:', e);
+        sessionStorage.removeItem('roundSpecies');
       }
-      // Sort alphabetically by species code for consistent display
-      const selectedForRound = shuffled.slice(0, level.species_count).sort((a, b) => a.code.localeCompare(b.code));
-      console.log('Random selection: setting species to', selectedForRound.length, 'species:', selectedForRound.map(s => s.code));
-      setSpecies(selectedForRound);
-      roundSpeciesCodes = selectedForRound.map(s => s.code);
-    } else {
-      // Use all pool species
-      console.log('Using all pool species:', allPoolSpecies.length);
-      setSpecies(allPoolSpecies);
-      roundSpeciesCodes = allPoolSpecies.map(s => s.code);
+    }
+
+    // If no pre-selected species, use normal selection logic
+    if (!roundSpeciesCodes) {
+      if (level.species_count && allPoolSpecies.length > level.species_count) {
+        // Randomly select species_count species from the pool
+        const shuffled = [...allPoolSpecies];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        // Sort alphabetically by species code for consistent display
+        const selectedForRound = shuffled.slice(0, level.species_count).sort((a, b) => a.code.localeCompare(b.code));
+        console.log('Random selection: setting species to', selectedForRound.length, 'species:', selectedForRound.map(s => s.code));
+        setSpecies(selectedForRound);
+        roundSpeciesCodes = selectedForRound.map(s => s.code);
+      } else {
+        // Use all pool species
+        console.log('Using all pool species:', allPoolSpecies.length);
+        setSpecies(allPoolSpecies);
+        roundSpeciesCodes = allPoolSpecies.map(s => s.code);
+      }
     }
 
     // Generate event templates (species, clip, channel - but not timing)

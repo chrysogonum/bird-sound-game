@@ -65,7 +65,7 @@ function LevelSelect() {
   }, [packId]);
 
   const handleLevelSelect = (level: LevelConfig) => {
-    navigate(`/gameplay?mode=campaign&pack=${packId}&level=${level.level_id}`);
+    navigate(`/preview?pack=${packId}&level=${level.level_id}`);
   };
 
   const packName = PACK_NAMES[packId] || packId;
