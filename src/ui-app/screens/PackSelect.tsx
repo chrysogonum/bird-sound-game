@@ -284,6 +284,30 @@ function PackSelect() {
         ))}
       </div>
 
+      {/* Create Custom Pack Button */}
+      <button
+        onClick={() => navigate('/custom-pack')}
+        style={{
+          width: '100%',
+          padding: '16px',
+          marginBottom: '32px',
+          background: 'var(--color-surface)',
+          border: '2px dashed var(--color-accent)',
+          borderRadius: '12px',
+          color: 'var(--color-accent)',
+          fontSize: '16px',
+          fontWeight: 600,
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+          transition: 'background 0.2s',
+        }}
+      >
+        <PlusIcon /> Create Custom Pack
+      </button>
+
       {/* Bird Reference Section */}
       <div style={{ marginTop: '16px' }}>
         <h3 style={{ fontSize: '16px', marginBottom: '16px', color: 'var(--color-text-muted)' }}>
@@ -389,6 +413,14 @@ function ArrowIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
       <path d="M5 12h14M12 5l7 7-7 7" />
+    </svg>
+  );
+}
+
+function PlusIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+      <path d="M12 5v14M5 12h14" />
     </svg>
   );
 }
