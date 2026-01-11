@@ -3,11 +3,14 @@
  * Provides offline support and caching for the PWA
  */
 
-const CACHE_NAME = 'soundfield-birds-v1';
+// Derive base URL from service worker's location (e.g., /bird-sound-game/)
+const BASE_URL = self.location.pathname.replace(/sw\.js$/, '');
+
+const CACHE_NAME = 'soundfield-birds-v4';
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json',
+  BASE_URL,
+  `${BASE_URL}index.html`,
+  `${BASE_URL}manifest.json`,
 ];
 
 // Install event - cache static assets
@@ -52,7 +55,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   // For audio files, use cache-first strategy
-  if (url.pathname.startsWith('/data/clips/') || url.pathname.startsWith('/data/spectrograms/')) {
+  if (url.pathname.startsWith(`${BASE_URL}data/clips/`) || url.pathname.startsWith(`${BASE_URL}data/spectrograms/`)) {
     event.respondWith(
       caches.open(CACHE_NAME).then((cache) => {
         return cache.match(request).then((cached) => {
@@ -93,7 +96,7 @@ self.addEventListener('fetch', (event) => {
           }
           // Return offline page for navigation requests
           if (request.mode === 'navigate') {
-            return caches.match('/');
+            return caches.match(BASE_URL);
           }
           return new Response('Offline', { status: 503 });
         });
