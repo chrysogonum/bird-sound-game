@@ -30,7 +30,30 @@ const PACK_NAMES: Record<string, string> = {
   expanded_backyard: 'Expanded Local Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
+  custom: 'Custom Pack',
 };
+
+// Level titles for custom pack
+const LEVEL_TITLES: Record<number, string> = {
+  1: 'Meet the Birds',
+  2: 'Sound Variations',
+  3: 'Full Repertoire',
+  4: 'Both Ears',
+  5: 'Variations + Both Ears',
+  6: 'Master Birder',
+};
+
+// Get clip selection mode for level
+function getLevelClipSelection(levelId: number): 'canonical' | number | 'all' {
+  if (levelId === 1 || levelId === 4) return 'canonical';
+  if (levelId === 2 || levelId === 5) return 3;
+  return 'all';
+}
+
+// Get channel mode for level
+function getLevelChannelMode(levelId: number): 'single' | 'offset' {
+  return levelId >= 4 ? 'offset' : 'single';
+}
 
 function PreRoundPreview() {
   const navigate = useNavigate();
@@ -45,16 +68,68 @@ function PreRoundPreview() {
   const [loading, setLoading] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  // Build species info from a list of codes (no shuffling)
+  const buildSpeciesInfo = useCallback((codes: string[], clipsData: ClipData[]): SelectedSpecies[] => {
+    return codes.sort().map((code, index) => {
+      const canonicalClip = clipsData.find(
+        c => c.species_code === code && c.canonical && !c.rejected
+      );
+      const anyClip = clipsData.find(c => c.species_code === code && !c.rejected);
+      const clip = canonicalClip || anyClip;
+
+      return {
+        code,
+        name: clip?.common_name || code,
+        color: SPECIES_COLORS[index % SPECIES_COLORS.length],
+        clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
+      };
+    });
+  }, []);
+
   // Load level and clips
   useEffect(() => {
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/levels.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/clips.json`).then(r => r.json()),
     ]).then(([levels, clipsData]: [LevelConfig[], ClipData[]]) => {
+      setClips(clipsData);
+
+      // Handle custom pack specially
+      if (packId === 'custom') {
+        const customSpeciesJson = localStorage.getItem('soundfield_custom_pack');
+        if (customSpeciesJson) {
+          try {
+            const customSpecies = JSON.parse(customSpeciesJson) as string[];
+            // Create synthetic level config for custom pack
+            const customLevel: LevelConfig = {
+              level_id: levelId,
+              pack_id: 'custom',
+              mode: 'campaign',
+              title: LEVEL_TITLES[levelId] || `Level ${levelId}`,
+              round_duration_sec: 30,
+              species_count: customSpecies.length,
+              species_pool: customSpecies,
+              clip_selection: getLevelClipSelection(levelId),
+              channel_mode: getLevelChannelMode(levelId),
+              event_density: 'low',
+              overlap_probability: 0,
+              scoring_window_ms: 2000,
+              spectrogram_mode: 'full',
+            };
+            setLevel(customLevel);
+            // For custom pack, use all selected species (no random subset)
+            setSelectedSpecies(buildSpeciesInfo(customSpecies, clipsData));
+          } catch (e) {
+            console.error('Failed to parse custom pack:', e);
+          }
+        }
+        setLoading(false);
+        return;
+      }
+
       const foundLevel = levels.find(l => l.pack_id === packId && l.level_id === levelId);
       if (foundLevel) {
         setLevel(foundLevel);
-        setClips(clipsData);
         // Select initial species
         selectRandomSpecies(foundLevel, clipsData);
       }
@@ -63,7 +138,7 @@ function PreRoundPreview() {
       console.error('Failed to load data:', err);
       setLoading(false);
     });
-  }, [packId, levelId]);
+  }, [packId, levelId, buildSpeciesInfo]);
 
   // Select random species from the pool
   const selectRandomSpecies = useCallback((levelConfig: LevelConfig, clipsData: ClipData[]) => {
@@ -187,7 +262,7 @@ function PreRoundPreview() {
         <div className="flex-row items-center" style={{ marginBottom: '8px' }}>
           <button
             className="btn-icon"
-            onClick={() => navigate(`/level-select?pack=${packId}`)}
+            onClick={() => navigate(packId === 'custom' ? '/custom-pack' : `/level-select?pack=${packId}`)}
             aria-label="Back"
           >
             <BackIcon />

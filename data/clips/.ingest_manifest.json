@@ -1,1 +1,112 @@
-[]
+[
+  {
+    "file_path": "data/clips/RHWO_1062474.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC1062474",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_959566.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC959566",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_940918.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC940918",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.2,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_845687.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC845687",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_818871.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC818871",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_794283.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC794283",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_794281.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC794281",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -21.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_774908.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC774908",
+    "vocalization_type": "drumming",
+    "duration_ms": 3000,
+    "loudness_lufs": -17.7,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_733937.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC733937",
+    "vocalization_type": "drumming",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/RHWO_733263.wav",
+    "species_name": "Red-headed Woodpecker",
+    "species_code": "RHWO",
+    "source": "xenocanto",
+    "source_id": "XC733263",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

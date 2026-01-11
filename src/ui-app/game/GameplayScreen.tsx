@@ -24,6 +24,28 @@ const DEFAULT_COLORS = [
   '#A1887F',
 ];
 
+// Level titles for custom pack
+const LEVEL_TITLES: Record<number, string> = {
+  1: 'Meet the Birds',
+  2: 'Sound Variations',
+  3: 'Full Repertoire',
+  4: 'Both Ears',
+  5: 'Variations + Both Ears',
+  6: 'Master Birder',
+};
+
+// Get clip selection mode for level
+function getLevelClipSelection(levelId: number): 'canonical' | number | 'all' {
+  if (levelId === 1 || levelId === 4) return 'canonical';
+  if (levelId === 2 || levelId === 5) return 3;
+  return 'all';
+}
+
+// Get channel mode for level
+function getLevelChannelMode(levelId: number): 'single' | 'offset' {
+  return levelId >= 4 ? 'offset' : 'single';
+}
+
 // Fallback configs for non-campaign modes
 const MODE_CONFIGS: Record<GameMode, Omit<LevelConfig, 'level_id' | 'pack_id'>> = {
   campaign: {
@@ -104,28 +126,38 @@ function GameplayScreen() {
   const levelConfig = useMemo((): LevelConfig => {
     console.log('levelConfig useMemo: mode =', mode, 'packId =', packId, 'campaignLevels.length =', campaignLevels.length);
 
-    // Handle custom pack specially - build config from sessionStorage
+    // Handle custom pack specially - build config from sessionStorage or localStorage
     if (packId === 'custom') {
       let customSpecies: string[] = [];
       try {
-        const savedJson = sessionStorage.getItem('roundSpecies');
-        if (savedJson) {
-          customSpecies = JSON.parse(savedJson);
+        // First try sessionStorage (set by preview screen)
+        const sessionJson = sessionStorage.getItem('roundSpecies');
+        if (sessionJson) {
+          customSpecies = JSON.parse(sessionJson);
+        } else {
+          // Fallback to localStorage (persistent custom pack)
+          const localJson = localStorage.getItem('soundfield_custom_pack');
+          if (localJson) {
+            customSpecies = JSON.parse(localJson);
+            // Also set in sessionStorage for game engine to use
+            sessionStorage.setItem('roundSpecies', localJson);
+          }
         }
       } catch (e) {
         console.error('Failed to parse custom species:', e);
       }
-      console.log('Custom pack: using species from sessionStorage:', customSpecies);
+      console.log('Custom pack: using species:', customSpecies, 'for level', levelId);
+
       return {
-        level_id: 1,
+        level_id: levelId,
         pack_id: 'custom',
         mode: 'campaign',
-        title: 'Custom Pack',
+        title: LEVEL_TITLES[levelId] || `Level ${levelId}`,
         round_duration_sec: 30,
         species_count: customSpecies.length,
         species_pool: customSpecies,
-        clip_selection: 'canonical',
-        channel_mode: 'single',
+        clip_selection: getLevelClipSelection(levelId),
+        channel_mode: getLevelChannelMode(levelId),
         event_density: 'low',
         overlap_probability: 0,
         scoring_window_ms: 2000,
