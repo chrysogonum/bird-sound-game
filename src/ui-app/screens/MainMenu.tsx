@@ -1,71 +1,71 @@
 import { useNavigate } from 'react-router-dom';
 
+// The 5 starter bird icons
+const HERO_BIRDS = ['NOCA', 'BLJA', 'TUTI', 'CAWR', 'AMCR'];
+
 function MainMenu() {
   const navigate = useNavigate();
 
   return (
-    <div className="screen screen-center" style={{ position: 'relative' }}>
-      {/* Decorative background birds */}
-      <div style={{
-        position: 'absolute',
-        top: '10%',
-        left: '5%',
-        opacity: 0.08,
-        transform: 'rotate(-15deg)',
-      }}>
-        <BirdSilhouette size={120} />
-      </div>
-      <div style={{
-        position: 'absolute',
-        bottom: '15%',
-        right: '8%',
-        opacity: 0.06,
-        transform: 'rotate(20deg) scaleX(-1)',
-      }}>
-        <BirdSilhouette size={100} />
-      </div>
-
+    <div className="screen screen-center" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Main content */}
       <div style={{
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '16px',
+        gap: '12px',
         zIndex: 1,
       }}>
-        {/* Logo area */}
+        {/* Bird icons arc */}
         <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
+          position: 'relative',
+          width: '280px',
+          height: '100px',
           marginBottom: '8px',
         }}>
-          <div style={{
-            width: '56px',
-            height: '56px',
-            borderRadius: '16px',
-            background: 'linear-gradient(135deg, var(--color-primary) 0%, #1a3d2a 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 4px 12px rgba(45, 90, 39, 0.3)',
-          }}>
-            <HeadphonesIcon />
-          </div>
+          {HERO_BIRDS.map((code, index) => {
+            // Position birds in an arc
+            const angle = -60 + (index * 30); // -60, -30, 0, 30, 60 degrees
+            const radius = 90;
+            const centerX = 140;
+            const centerY = 120;
+            const x = centerX + radius * Math.sin(angle * Math.PI / 180) - 28;
+            const y = centerY - radius * Math.cos(angle * Math.PI / 180) - 28;
+            const rotation = angle * 0.3; // Subtle tilt following the arc
+
+            return (
+              <img
+                key={code}
+                src={`${import.meta.env.BASE_URL}data/icons/${code}.png`}
+                alt={code}
+                style={{
+                  position: 'absolute',
+                  left: `${x}px`,
+                  top: `${y}px`,
+                  width: '56px',
+                  height: '56px',
+                  borderRadius: '50%',
+                  transform: `rotate(${rotation}deg)`,
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                }}
+              />
+            );
+          })}
         </div>
 
-        <h1 style={{ margin: 0, fontSize: '36px', letterSpacing: '-1px' }}>
-          SOUNDFIELD
-        </h1>
-        <div style={{
-          fontSize: '18px',
-          color: 'var(--color-accent)',
-          fontWeight: 600,
-          marginTop: '-12px',
-          letterSpacing: '3px',
+        {/* Title */}
+        <h1 style={{
+          margin: 0,
+          fontSize: '52px',
+          fontWeight: 800,
+          letterSpacing: '-2px',
+          background: 'linear-gradient(135deg, #FFD54F 0%, #FF8A65 50%, #E57373 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
         }}>
-          BIRDS
-        </div>
+          Chirp!
+        </h1>
 
         <p style={{
           color: 'var(--color-text-muted)',
@@ -73,7 +73,7 @@ function MainMenu() {
           maxWidth: '280px',
           textAlign: 'center',
           lineHeight: 1.5,
-          marginTop: '8px',
+          marginTop: '4px',
         }}>
           Train your ear to identify birds by their songs and calls
         </p>
@@ -185,16 +185,6 @@ function MainMenu() {
   );
 }
 
-function HeadphonesIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-      <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-      <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3v5z" />
-      <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3v5z" />
-    </svg>
-  );
-}
-
 function EarIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2">
@@ -249,14 +239,6 @@ function StatsIcon() {
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M3 3v18h18" />
       <path d="M7 16l4-4 4 4 6-6" />
-    </svg>
-  );
-}
-
-function BirdSilhouette({ size = 80 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 100 100" fill="currentColor">
-      <path d="M85 35c-5-3-12-2-18 1-3-8-10-14-19-16 2-3 3-7 2-11-1-5-5-8-9-7s-7 5-6 10c0 2 1 4 2 5-10 3-18 11-21 21-8-1-16 2-21 8-2 2-1 5 1 6s5 0 7-2c3-4 8-5 13-4 0 12 7 23 18 28l-8 12c-2 2-1 5 1 7 2 1 5 1 6-2l10-14c3 1 6 1 9 1 4 0 7-1 10-2l10 14c2 2 5 3 7 1s2-5 0-7l-8-12c11-5 18-16 18-28 5-1 10 0 13 4 2 2 5 3 7 2s3-4 1-6c-5-6-13-9-21-8z" />
     </svg>
   );
 }
