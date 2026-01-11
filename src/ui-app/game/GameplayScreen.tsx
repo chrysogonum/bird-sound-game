@@ -6,6 +6,59 @@ import { useGameEngine } from './useGameEngine';
 import type { Channel } from '@engine/audio/types';
 import type { LevelConfig, GameMode } from '@engine/game/types';
 
+// Bird icon component - shows icon with code label below
+function BirdIcon({ code, size = 32, color }: { code: string; size?: number; color?: string }) {
+  const [hasIcon, setHasIcon] = useState(true);
+  const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '2px',
+    }}>
+      {hasIcon && (
+        <span style={{
+          fontSize: '9px',
+          fontWeight: 600,
+          color: 'var(--color-text-muted)',
+          lineHeight: 1,
+        }}>
+          {code}
+        </span>
+      )}
+      {hasIcon ? (
+        <img
+          src={iconPath}
+          alt={code}
+          width={size}
+          height={size}
+          style={{
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }}
+          onError={() => setHasIcon(false)}
+        />
+      ) : (
+        <div style={{
+          width: size,
+          height: size,
+          borderRadius: '50%',
+          background: color || 'transparent',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: size * 0.35,
+          fontWeight: 700,
+        }}>
+          {code}
+        </div>
+      )}
+    </div>
+  );
+}
+
 interface Species {
   code: string;
   name: string;
@@ -409,7 +462,7 @@ function GameplayScreen() {
               <button
                 key={sp.code}
                 className={`species-btn ${selectedSpecies === sp.code ? 'selected' : ''}`}
-                style={{ borderColor: sp.color, backgroundColor: selectedSpecies === sp.code ? sp.color : undefined }}
+                style={{ backgroundColor: selectedSpecies === sp.code ? sp.color : undefined }}
                 onClick={() => {
                   gameActions.submitInput(sp.code, 'left');
                   const flashEl = document.getElementById('flash-left');
@@ -420,7 +473,7 @@ function GameplayScreen() {
                 }}
                 disabled={gameState.roundState !== 'playing'}
               >
-                {sp.code}
+                <BirdIcon code={sp.code} size={36} color={sp.color} />
               </button>
             ))}
           </div>
@@ -432,7 +485,7 @@ function GameplayScreen() {
               <button
                 key={sp.code}
                 className={`species-btn ${selectedSpecies === sp.code ? 'selected' : ''}`}
-                style={{ borderColor: sp.color, backgroundColor: selectedSpecies === sp.code ? sp.color : undefined }}
+                style={{ backgroundColor: selectedSpecies === sp.code ? sp.color : undefined }}
                 onClick={() => {
                   gameActions.submitInput(sp.code, 'right');
                   const flashEl = document.getElementById('flash-right');
@@ -443,7 +496,7 @@ function GameplayScreen() {
                 }}
                 disabled={gameState.roundState !== 'playing'}
               >
-                {sp.code}
+                <BirdIcon code={sp.code} size={36} color={sp.color} />
               </button>
             ))}
           </div>
@@ -763,10 +816,9 @@ function GameplayScreen() {
         }
 
         .species-btn {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          border: 3px solid;
+          padding: 6px;
+          border-radius: 12px;
+          border: 2px solid var(--color-text-muted);
           background: var(--color-surface);
           color: var(--color-text);
           font-size: 10px;

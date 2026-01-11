@@ -55,6 +55,60 @@ function getLevelChannelMode(levelId: number): 'single' | 'offset' {
   return levelId >= 4 ? 'offset' : 'single';
 }
 
+// Bird icon component - shows icon with code label below
+function BirdIcon({ code, size = 56, color }: { code: string; size?: number; color?: string }) {
+  const [hasIcon, setHasIcon] = useState(true);
+  const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
+
+  return (
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: '4px',
+    }}>
+      {hasIcon && (
+        <span style={{
+          fontSize: '10px',
+          fontWeight: 600,
+          color: 'var(--color-text-muted)',
+          lineHeight: 1,
+        }}>
+          {code}
+        </span>
+      )}
+      {hasIcon ? (
+        <img
+          src={iconPath}
+          alt={code}
+          width={size}
+          height={size}
+          style={{
+            borderRadius: '50%',
+            objectFit: 'cover',
+          }}
+          onError={() => setHasIcon(false)}
+        />
+      ) : (
+        <div style={{
+          width: size,
+          height: size,
+          borderRadius: '50%',
+          background: color || 'var(--color-surface)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: size * 0.25,
+          fontWeight: 700,
+          color: '#1A1A2E',
+        }}>
+          {code}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function PreRoundPreview() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -355,28 +409,22 @@ function PreRoundPreview() {
                 transition: 'transform 0.15s, background 0.15s',
               }}
             >
-              {/* Circle with code */}
-              <div style={{
-                width: '56px',
-                height: '56px',
-                borderRadius: '50%',
-                background: species.color,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 700,
-                fontSize: '14px',
-                color: '#1A1A2E',
-                position: 'relative',
-              }}>
-                {species.code}
+              {/* Bird icon/code with pulse animation */}
+              <div style={{ position: 'relative' }}>
+                <BirdIcon code={species.code} size={56} color={species.color} />
                 {playingCode === species.code && (
                   <div style={{
                     position: 'absolute',
-                    inset: '-4px',
+                    top: 0,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '64px',
+                    height: '64px',
+                    marginTop: '-4px',
                     borderRadius: '50%',
                     border: '2px solid white',
                     animation: 'pulse 1s infinite',
+                    pointerEvents: 'none',
                   }} />
                 )}
               </div>
