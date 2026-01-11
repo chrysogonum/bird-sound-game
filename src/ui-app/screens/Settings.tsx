@@ -8,6 +8,7 @@ const STORAGE_KEYS = {
   SCROLL_SPEED: 'soundfield_scroll_speed',
   SPECTROGRAM_MODE: 'soundfield_spectrogram_mode',
   HIGH_CONTRAST: 'soundfield_high_contrast',
+  CONTINUOUS_PLAY: 'soundfield_continuous_play',
 };
 
 function Settings() {
@@ -25,6 +26,9 @@ function Settings() {
   const [highContrast, setHighContrast] = useState(() => {
     return localStorage.getItem(STORAGE_KEYS.HIGH_CONTRAST) === 'true';
   });
+  const [continuousPlay, setContinuousPlay] = useState(() => {
+    return localStorage.getItem(STORAGE_KEYS.CONTINUOUS_PLAY) === 'true';
+  });
 
   // Save to localStorage when changed
   useEffect(() => {
@@ -38,6 +42,10 @@ function Settings() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.HIGH_CONTRAST, highContrast.toString());
   }, [highContrast]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.CONTINUOUS_PLAY, continuousPlay.toString());
+  }, [continuousPlay]);
 
   return (
     <div className="screen">
@@ -101,6 +109,25 @@ function Settings() {
               style={{ width: '60px' }}
             >
               {highContrast ? 'ON' : 'OFF'}
+            </button>
+          </div>
+        </div>
+
+        {/* Continuous Play */}
+        <div className="card">
+          <div className="flex-row justify-between items-center">
+            <div>
+              <h3 style={{ marginBottom: '4px' }}>Continuous Play</h3>
+              <div className="text-muted" style={{ fontSize: '14px' }}>
+                No timer - play until all clips done
+              </div>
+            </div>
+            <button
+              className={continuousPlay ? 'btn-primary' : 'btn-secondary'}
+              onClick={() => setContinuousPlay(!continuousPlay)}
+              style={{ width: '60px' }}
+            >
+              {continuousPlay ? 'ON' : 'OFF'}
             </button>
           </div>
         </div>

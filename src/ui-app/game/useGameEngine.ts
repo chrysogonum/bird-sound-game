@@ -200,6 +200,14 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   // Declared before scrollSpeed since useState initializer uses it
   const speedMultiplierRef = useRef<number>(1.0);
 
+  // Continuous play mode - read from localStorage
+  const continuousModeRef = useRef<boolean>(
+    typeof window !== 'undefined' && localStorage.getItem('soundfield_continuous_play') === 'true'
+  );
+
+  // Total events in this round (for continuous mode)
+  const [totalEvents, setTotalEvents] = useState(0);
+
   // Base audio lead time at 1.0x speed
   // At higher speeds, tiles travel faster so lead time decreases
   const BASE_AUDIO_LEAD_TIME_MS = 5000;
@@ -595,7 +603,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Generate plenty of events - with fast identification, players could go through many
     // Assume minimum ~2 seconds per bird, so 30 second round = max ~15 birds
     // Generate extra to be safe
-    const maxEvents = Math.ceil(level.round_duration_sec / 2) + 5;
+    // In continuous mode, generate many more events
+    const isContinuous = localStorage.getItem('soundfield_continuous_play') === 'true';
+    const maxEvents = isContinuous ? 100 : Math.ceil(level.round_duration_sec / 2) + 5;
 
     for (let eventIndex = 0; eventIndex < maxEvents; eventIndex++) {
       // Select random species
@@ -1075,22 +1085,34 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       eventTimersRef.current.push(staggerTimerId);
     }
 
-    // Start countdown timer
-    timerRef.current = window.setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 1) {
-          endRound();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
+    // In continuous mode, count up instead of counting down
+    // Read the setting fresh in case it changed
+    continuousModeRef.current = localStorage.getItem('soundfield_continuous_play') === 'true';
 
-    // Round ends when timer expires (dynamic spawning means we don't know exact end)
-    const roundEndTimerId = window.setTimeout(() => {
-      endRound();
-    }, level.round_duration_sec * 1000);
-    eventTimersRef.current.push(roundEndTimerId);
+    if (!continuousModeRef.current) {
+      // Start countdown timer (normal mode)
+      timerRef.current = window.setInterval(() => {
+        setTimeRemaining((prev) => {
+          if (prev <= 1) {
+            endRound();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      // Round ends when timer expires (dynamic spawning means we don't know exact end)
+      const roundEndTimerId = window.setTimeout(() => {
+        endRound();
+      }, level.round_duration_sec * 1000);
+      eventTimersRef.current.push(roundEndTimerId);
+    } else {
+      // Continuous mode: count up (show elapsed time)
+      setTimeRemaining(0);
+      timerRef.current = window.setInterval(() => {
+        setTimeRemaining((prev) => prev + 1);
+      }, 1000);
+    }
   }, [roundState, clips.length, level.round_duration_sec, level.channel_mode, level.species_count, allPoolSpecies, generateEvents, spawnNextEvent]);
 
   /**
@@ -1469,6 +1491,24 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       }
     };
   }, []);
+
+  // Check for continuous mode completion
+  // In continuous mode, end the round when all events have been processed
+  useEffect(() => {
+    if (roundState !== 'playing') return;
+    if (!continuousModeRef.current) return;
+
+    const totalGenerated = eventQueueRef.current.length;
+    const currentIndex = currentEventIndexRef.current;
+    const totalProcessed = eventsScored + missCount;
+
+    // End if we've spawned all events and processed them all
+    // (or if there are no more events to spawn and no active events)
+    if (totalGenerated > 0 && currentIndex >= totalGenerated && activeEvents.length === 0) {
+      console.log('Continuous mode: all events processed, ending round');
+      endRound();
+    }
+  }, [roundState, eventsScored, missCount, activeEvents.length, endRound]);
 
   // Assemble state and actions
   const state: GameEngineState = {
