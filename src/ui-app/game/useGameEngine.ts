@@ -610,8 +610,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     });
 
     // Track clip usage to prevent excessive repetition
-    // Max 3 plays per clip per round
-    const MAX_CLIP_PLAYS = 3;
+    // Max 2 plays per clip per round (tighter limit for better variety)
+    const MAX_CLIP_PLAYS = 2;
     const clipUsageCount = new Map<string, number>();
 
     // Generate plenty of events - with fast identification, players could go through many
@@ -631,9 +631,18 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         c => (clipUsageCount.get(c.clip_id) || 0) < MAX_CLIP_PLAYS
       );
 
-      // Select from available clips, or fall back to any clip if all are maxed
-      const clipPool = availableClips.length > 0 ? availableClips : speciesClipList;
-      const clip = clipPool[Math.floor(random() * clipPool.length)];
+      // Select clip: prefer available clips, fallback to least-used if all maxed
+      let clip: ClipMetadata | undefined;
+      if (availableClips.length > 0) {
+        clip = availableClips[Math.floor(random() * availableClips.length)];
+      } else {
+        // All clips maxed - pick the least-used one for better distribution
+        clip = speciesClipList.reduce((least, c) => {
+          const leastCount = clipUsageCount.get(least.clip_id) || 0;
+          const currentCount = clipUsageCount.get(c.clip_id) || 0;
+          return currentCount < leastCount ? c : least;
+        }, speciesClipList[0]);
+      }
 
       if (!clip) continue;
 
