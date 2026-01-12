@@ -48,7 +48,7 @@ function MainMenu() {
           lineHeight: 1.5,
           marginTop: '4px',
         }}>
-          Your study guide to bird songs
+          Your gamified study guide to bird songs
         </p>
 
         {/* Main Play Button */}

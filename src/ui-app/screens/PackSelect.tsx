@@ -36,9 +36,9 @@ const PACKS: Pack[] = [
   {
     id: 'expanded_backyard',
     name: 'Expanded Local Birds',
-    speciesCount: 38,
+    speciesCount: 39,
     isUnlocked: true,
-    description: 'Ready for more? 9 random birds per round from 38 eastern US species.',
+    description: 'Ready for more? 9 random birds per round from 39 eastern US species.',
   },
   {
     id: 'sparrows',
@@ -74,7 +74,7 @@ const PACK_SPECIES: Record<string, string[]> = {
     'DOWO', 'HAWO', 'NOFL', 'PIWO', 'BRTH',
     'GRCA', 'MODO', 'NOMO', 'GCKI', 'RCKI',
     'COHA', 'SSHA', 'RTHA', 'RTHU', 'BADO',
-    'COGR', 'FICR', 'CEWA',
+    'COGR', 'FICR', 'CEWA', 'EATO',
   ],
   sparrows: [
     'WTSP', 'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP',
