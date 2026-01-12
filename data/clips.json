@@ -10347,7 +10347,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1014826.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1014826.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1014827",
@@ -10359,7 +10360,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/CEWA_1014827.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1014827.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1014828",
@@ -10371,7 +10373,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1014828.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1014828.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1014829",
@@ -10383,7 +10386,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/CEWA_1014829.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1014829.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1014830",
@@ -10395,7 +10399,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1014830.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1014830.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1014831",
@@ -10407,7 +10412,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1014831.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1014831.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1014832",
@@ -10419,7 +10425,8 @@
     "quality_rating": "A",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/CEWA_1014832.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1014832.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1014833",
@@ -10431,7 +10438,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/CEWA_1014833.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1014833.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1056061",
@@ -10443,7 +10451,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1056061.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1056061.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1056063",
@@ -10455,7 +10464,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1056063.png"
+    "spectrogram_path": "data/spectrograms/CEWA_1056063.png",
+    "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "COGR_1011276",
@@ -10467,7 +10477,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1011276.png"
+    "spectrogram_path": "data/spectrograms/COGR_1011276.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1012859",
@@ -10479,7 +10490,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/COGR_1012859.png"
+    "spectrogram_path": "data/spectrograms/COGR_1012859.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1013475",
@@ -10491,7 +10503,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1013475.png"
+    "spectrogram_path": "data/spectrograms/COGR_1013475.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014329",
@@ -10503,7 +10516,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1014329.png"
+    "spectrogram_path": "data/spectrograms/COGR_1014329.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014490",
@@ -10515,7 +10529,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1014490.png"
+    "spectrogram_path": "data/spectrograms/COGR_1014490.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014491",
@@ -10527,7 +10542,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1014491.png"
+    "spectrogram_path": "data/spectrograms/COGR_1014491.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014939",
@@ -10539,7 +10555,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/COGR_1014939.png"
+    "spectrogram_path": "data/spectrograms/COGR_1014939.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014942",
@@ -10551,7 +10568,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/COGR_1014942.png"
+    "spectrogram_path": "data/spectrograms/COGR_1014942.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014943",
@@ -10563,7 +10581,8 @@
     "quality_rating": "A",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/COGR_1014943.png"
+    "spectrogram_path": "data/spectrograms/COGR_1014943.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_476643",
@@ -10575,7 +10594,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_476643.png"
+    "spectrogram_path": "data/spectrograms/COGR_476643.png",
+    "common_name": "Common Grackle"
   },
   {
     "clip_id": "FICR_264969",
@@ -10587,7 +10607,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_264969.png"
+    "spectrogram_path": "data/spectrograms/FICR_264969.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_264970",
@@ -10599,7 +10620,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/FICR_264970.png"
+    "spectrogram_path": "data/spectrograms/FICR_264970.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_265670",
@@ -10611,7 +10633,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_265670.png"
+    "spectrogram_path": "data/spectrograms/FICR_265670.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_265671",
@@ -10623,7 +10646,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_265671.png"
+    "spectrogram_path": "data/spectrograms/FICR_265671.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_286406",
@@ -10635,7 +10659,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_286406.png"
+    "spectrogram_path": "data/spectrograms/FICR_286406.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_345292",
@@ -10647,7 +10672,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_345292.png"
+    "spectrogram_path": "data/spectrograms/FICR_345292.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_459772",
@@ -10659,7 +10685,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/FICR_459772.png"
+    "spectrogram_path": "data/spectrograms/FICR_459772.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_815114",
@@ -10671,7 +10698,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/FICR_815114.png"
+    "spectrogram_path": "data/spectrograms/FICR_815114.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_822351",
@@ -10683,7 +10711,8 @@
     "quality_rating": "A",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/FICR_822351.png"
+    "spectrogram_path": "data/spectrograms/FICR_822351.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_902120",
@@ -10695,7 +10724,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/FICR_902120.png"
+    "spectrogram_path": "data/spectrograms/FICR_902120.png",
+    "common_name": "Fish Crow"
   },
   {
     "clip_id": "EATO_1038305",
@@ -10707,7 +10737,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_1038305.png"
+    "spectrogram_path": "data/spectrograms/EATO_1038305.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_413387",
@@ -10719,7 +10750,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_413387.png"
+    "spectrogram_path": "data/spectrograms/EATO_413387.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_419731",
@@ -10731,7 +10763,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_419731.png"
+    "spectrogram_path": "data/spectrograms/EATO_419731.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_422787",
@@ -10743,7 +10776,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_422787.png"
+    "spectrogram_path": "data/spectrograms/EATO_422787.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_432722",
@@ -10755,7 +10789,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_432722.png"
+    "spectrogram_path": "data/spectrograms/EATO_432722.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_433388",
@@ -10767,7 +10802,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_433388.png"
+    "spectrogram_path": "data/spectrograms/EATO_433388.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_444954",
@@ -10779,7 +10815,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_444954.png"
+    "spectrogram_path": "data/spectrograms/EATO_444954.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_554006",
@@ -10791,7 +10828,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_554006.png"
+    "spectrogram_path": "data/spectrograms/EATO_554006.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_554032",
@@ -10803,7 +10841,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_554032.png"
+    "spectrogram_path": "data/spectrograms/EATO_554032.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_559342",
@@ -10815,7 +10854,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_559342.png"
+    "spectrogram_path": "data/spectrograms/EATO_559342.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_086e6d42",
@@ -10828,7 +10868,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_086e6d42.png"
+    "spectrogram_path": "data/spectrograms/EATO_086e6d42.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_20ee509c",
@@ -10841,7 +10882,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_20ee509c.png"
+    "spectrogram_path": "data/spectrograms/EATO_20ee509c.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_25267109",
@@ -10854,7 +10896,8 @@
     "canonical": false,
     "rejected": true,
     "source": "xeno_canto",
-    "spectrogram_path": "data/spectrograms/EATO_25267109.png"
+    "spectrogram_path": "data/spectrograms/EATO_25267109.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_26588869",
@@ -10867,7 +10910,8 @@
     "canonical": false,
     "rejected": true,
     "source": "xeno_canto",
-    "spectrogram_path": "data/spectrograms/EATO_26588869.png"
+    "spectrogram_path": "data/spectrograms/EATO_26588869.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_29242847",
@@ -10880,7 +10924,8 @@
     "canonical": false,
     "rejected": true,
     "source": "xeno_canto",
-    "spectrogram_path": "data/spectrograms/EATO_29242847.png"
+    "spectrogram_path": "data/spectrograms/EATO_29242847.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_2d65538a",
@@ -10893,7 +10938,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_2d65538a.png"
+    "spectrogram_path": "data/spectrograms/EATO_2d65538a.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_2f0138b7",
@@ -10906,7 +10952,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_2f0138b7.png"
+    "spectrogram_path": "data/spectrograms/EATO_2f0138b7.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_36c30c93",
@@ -10919,7 +10966,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_36c30c93.png"
+    "spectrogram_path": "data/spectrograms/EATO_36c30c93.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_41350df5",
@@ -10932,7 +10980,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_41350df5.png"
+    "spectrogram_path": "data/spectrograms/EATO_41350df5.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_42454a2f",
@@ -10945,7 +10994,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_42454a2f.png"
+    "spectrogram_path": "data/spectrograms/EATO_42454a2f.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_47cf73c0",
@@ -10958,7 +11008,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_47cf73c0.png"
+    "spectrogram_path": "data/spectrograms/EATO_47cf73c0.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_48d22dfb",
@@ -10971,7 +11022,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_48d22dfb.png"
+    "spectrogram_path": "data/spectrograms/EATO_48d22dfb.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_48dc1ecc",
@@ -10984,7 +11036,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_48dc1ecc.png"
+    "spectrogram_path": "data/spectrograms/EATO_48dc1ecc.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_49fd39ee",
@@ -10997,7 +11050,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_49fd39ee.png"
+    "spectrogram_path": "data/spectrograms/EATO_49fd39ee.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_4ab53fc0",
@@ -11010,7 +11064,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_4ab53fc0.png"
+    "spectrogram_path": "data/spectrograms/EATO_4ab53fc0.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_4d4985c3",
@@ -11023,7 +11078,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_4d4985c3.png"
+    "spectrogram_path": "data/spectrograms/EATO_4d4985c3.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_5c251d3d",
@@ -11036,7 +11092,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_5c251d3d.png"
+    "spectrogram_path": "data/spectrograms/EATO_5c251d3d.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_5e86dfb7",
@@ -11049,7 +11106,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_5e86dfb7.png"
+    "spectrogram_path": "data/spectrograms/EATO_5e86dfb7.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_5ff7ff83",
@@ -11062,7 +11120,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_5ff7ff83.png"
+    "spectrogram_path": "data/spectrograms/EATO_5ff7ff83.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_62ba2f2f",
@@ -11075,7 +11134,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_62ba2f2f.png"
+    "spectrogram_path": "data/spectrograms/EATO_62ba2f2f.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_69d54465",
@@ -11088,7 +11148,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_69d54465.png"
+    "spectrogram_path": "data/spectrograms/EATO_69d54465.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_783ab277",
@@ -11101,7 +11162,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_783ab277.png"
+    "spectrogram_path": "data/spectrograms/EATO_783ab277.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_7e95256d",
@@ -11114,7 +11176,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_7e95256d.png"
+    "spectrogram_path": "data/spectrograms/EATO_7e95256d.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_82f5327d",
@@ -11127,7 +11190,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_82f5327d.png"
+    "spectrogram_path": "data/spectrograms/EATO_82f5327d.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_86f893bf",
@@ -11140,7 +11204,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_86f893bf.png"
+    "spectrogram_path": "data/spectrograms/EATO_86f893bf.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_874e14ce",
@@ -11153,7 +11218,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_874e14ce.png"
+    "spectrogram_path": "data/spectrograms/EATO_874e14ce.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_87cf8844",
@@ -11166,7 +11232,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_87cf8844.png"
+    "spectrogram_path": "data/spectrograms/EATO_87cf8844.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_8bebe209",
@@ -11179,7 +11246,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_8bebe209.png"
+    "spectrogram_path": "data/spectrograms/EATO_8bebe209.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_8fd862f5",
@@ -11192,7 +11260,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_8fd862f5.png"
+    "spectrogram_path": "data/spectrograms/EATO_8fd862f5.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_9549d208",
@@ -11205,7 +11274,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_9549d208.png"
+    "spectrogram_path": "data/spectrograms/EATO_9549d208.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_9ef2c5bc",
@@ -11218,7 +11288,8 @@
     "canonical": true,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_9ef2c5bc.png"
+    "spectrogram_path": "data/spectrograms/EATO_9ef2c5bc.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_9f12b918",
@@ -11231,7 +11302,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_9f12b918.png"
+    "spectrogram_path": "data/spectrograms/EATO_9f12b918.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_ab40420d",
@@ -11244,7 +11316,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_ab40420d.png"
+    "spectrogram_path": "data/spectrograms/EATO_ab40420d.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_b40c7a0e",
@@ -11257,7 +11330,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_b40c7a0e.png"
+    "spectrogram_path": "data/spectrograms/EATO_b40c7a0e.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_c21808f0",
@@ -11270,7 +11344,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_c21808f0.png"
+    "spectrogram_path": "data/spectrograms/EATO_c21808f0.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_cc70cabb",
@@ -11283,7 +11358,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_cc70cabb.png"
+    "spectrogram_path": "data/spectrograms/EATO_cc70cabb.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_ce8d1f18",
@@ -11296,7 +11372,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_ce8d1f18.png"
+    "spectrogram_path": "data/spectrograms/EATO_ce8d1f18.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_d4a9a5d6",
@@ -11309,7 +11386,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_d4a9a5d6.png"
+    "spectrogram_path": "data/spectrograms/EATO_d4a9a5d6.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_dc366274",
@@ -11322,7 +11400,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_dc366274.png"
+    "spectrogram_path": "data/spectrograms/EATO_dc366274.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_e1f5bcb5",
@@ -11335,7 +11414,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_e1f5bcb5.png"
+    "spectrogram_path": "data/spectrograms/EATO_e1f5bcb5.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_e263daf2",
@@ -11348,7 +11428,8 @@
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_e263daf2.png"
+    "spectrogram_path": "data/spectrograms/EATO_e263daf2.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_ed09849a",
@@ -11361,7 +11442,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_ed09849a.png"
+    "spectrogram_path": "data/spectrograms/EATO_ed09849a.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_edc6c990",
@@ -11374,7 +11456,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_edc6c990.png"
+    "spectrogram_path": "data/spectrograms/EATO_edc6c990.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_f77c9c0d",
@@ -11387,7 +11470,8 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_f77c9c0d.png"
+    "spectrogram_path": "data/spectrograms/EATO_f77c9c0d.png",
+    "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_fa1eb9b4",
@@ -11400,6 +11484,7 @@
     "canonical": false,
     "rejected": false,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_fa1eb9b4.png"
+    "spectrogram_path": "data/spectrograms/EATO_fa1eb9b4.png",
+    "common_name": "Eastern Towhee"
   }
 ]
