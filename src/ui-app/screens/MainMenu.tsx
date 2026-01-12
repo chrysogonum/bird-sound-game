@@ -147,7 +147,7 @@ function MainMenu() {
                 ))}
               </div>
               <div style={{ fontSize: '10px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
-                Tap the match!
+                Match the bird!
               </div>
             </div>
           </div>
