@@ -537,13 +537,6 @@ function GameplayScreen() {
         </div>
       </div>
 
-      {/* Dev: End round button */}
-      {gameState.roundState === 'playing' && (
-        <button className="dev-end-button" onClick={handleEndRound}>
-          End Round (dev)
-        </button>
-      )}
-
       <style>{`
         .gameplay-screen {
           display: flex;
@@ -799,25 +792,6 @@ function GameplayScreen() {
             opacity: 0;
             transform: translateY(-70%) scale(1);
           }
-        }
-
-        .dev-end-button {
-          position: absolute;
-          bottom: calc(170px + var(--safe-area-bottom, 0px));
-          right: 8px;
-          padding: 4px 8px;
-          font-size: 10px;
-          background: var(--color-surface);
-          border: 1px solid var(--color-text-muted);
-          border-radius: 4px;
-          color: var(--color-text-muted);
-          cursor: pointer;
-          opacity: 0.5;
-          z-index: 100;
-        }
-
-        .dev-end-button:hover {
-          opacity: 1;
         }
 
         .dual-input-panel {
