@@ -106,36 +106,76 @@ function MainMenu() {
           Play
         </button>
 
-        {/* How it works - compact */}
+        {/* How it works - visual gameplay preview */}
         <div style={{
           marginTop: '32px',
-          padding: '16px 20px',
+          padding: '20px',
           background: 'var(--color-surface)',
-          borderRadius: '12px',
-          maxWidth: '300px',
+          borderRadius: '16px',
+          maxWidth: '320px',
         }}>
           <div style={{
             display: 'flex',
-            justifyContent: 'space-around',
-            gap: '16px',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '12px',
           }}>
+            {/* Step 1: Spectrogram representing sound */}
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '24px', marginBottom: '4px' }}>
-                <EarIcon />
+              <div style={{
+                width: '64px',
+                height: '40px',
+                background: 'linear-gradient(180deg, #1a1a2e 0%, #0d1520 100%)',
+                borderRadius: '8px',
+                padding: '4px',
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+                gap: '2px',
+                boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.3)',
+              }}>
+                <SpectrogramMini />
               </div>
-              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>Listen</div>
+              <div style={{ fontSize: '10px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+                Hear a sound
+              </div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '24px', marginBottom: '4px' }}>
-                <BrainIcon />
-              </div>
-              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>Identify</div>
+
+            {/* Arrow */}
+            <div style={{ color: 'var(--color-accent)', fontSize: '20px', marginTop: '-16px' }}>
+              →
             </div>
+
+            {/* Step 2: Bird options */}
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '24px', marginBottom: '4px' }}>
-                <TapIcon />
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: '4px',
+              }}>
+                {['NOCA', 'BLJA', 'TUTI', 'CAWR'].map((code, i) => (
+                  <div
+                    key={code}
+                    style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '6px',
+                      overflow: 'hidden',
+                      border: i === 0 ? '2px solid var(--color-accent)' : '2px solid transparent',
+                      boxShadow: i === 0 ? '0 0 8px rgba(255, 152, 0, 0.4)' : 'none',
+                    }}
+                  >
+                    <img
+                      src={`${import.meta.env.BASE_URL}data/icons/${code}.png`}
+                      alt={code}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+                ))}
               </div>
-              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>Tap</div>
+              <div style={{ fontSize: '10px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+                Tap the match!
+              </div>
             </div>
           </div>
         </div>
@@ -185,32 +225,25 @@ function MainMenu() {
   );
 }
 
-function EarIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2">
-      <path d="M6 8.5a6.5 6.5 0 1 1 13 0c0 6-6 6-6 10.5a3.5 3.5 0 1 1-7 0" />
-      <path d="M15 8.5a2.5 2.5 0 0 0-5 0v1a2 2 0 0 0 4 0" />
-    </svg>
-  );
-}
+// Mini spectrogram visualization - looks like a bird song pattern
+function SpectrogramMini() {
+  // Heights simulate a rising bird song pattern
+  const bars = [6, 12, 18, 24, 20, 26, 22, 28, 16, 10, 20, 24];
 
-function BrainIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2">
-      <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
-      <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
-      <path d="M12 5v14" />
-    </svg>
-  );
-}
-
-function TapIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" strokeWidth="2">
-      <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
-      <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
-      <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
-      <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+    <svg width="56" height="28" viewBox="0 0 56 28">
+      {bars.map((height, i) => (
+        <rect
+          key={i}
+          x={i * 4.5 + 1}
+          y={28 - height}
+          width="3"
+          height={height}
+          rx="1"
+          fill={`hsl(${30 + i * 8}, 80%, ${50 + i * 2}%)`}
+          opacity={0.8 + i * 0.015}
+        />
+      ))}
     </svg>
   );
 }

@@ -156,6 +156,16 @@ function GameplayScreen() {
   const [selectedSpecies, setSelectedSpecies] = useState<string | null>(null);
   const [campaignLevels, setCampaignLevels] = useState<LevelConfig[]>([]);
 
+  // Training mode state (shows bird icons on tiles)
+  const [trainingMode, setTrainingMode] = useState(() => {
+    return localStorage.getItem('soundfield_training_mode') === 'true';
+  });
+
+  // Persist training mode to localStorage
+  useEffect(() => {
+    localStorage.setItem('soundfield_training_mode', String(trainingMode));
+  }, [trainingMode]);
+
   // Read mode, pack, and level from URL params
   const mode = (searchParams.get('mode') || 'campaign') as GameMode;
   const packId = searchParams.get('pack') || 'common_se_birds';
@@ -401,6 +411,29 @@ function GameplayScreen() {
         </svg>
       </button>
 
+      {/* Training mode toggle button */}
+      <button
+        className={`training-toggle ${trainingMode ? 'active' : ''}`}
+        onClick={() => setTrainingMode(!trainingMode)}
+        aria-label={trainingMode ? 'Disable training mode' : 'Enable training mode'}
+        title={trainingMode ? 'Training Mode ON - Icons visible' : 'Training Mode OFF'}
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          {/* Eye icon - open when training, closed when not */}
+          {trainingMode ? (
+            <>
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </>
+          ) : (
+            <>
+              <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24" />
+              <line x1="1" y1="1" x2="23" y2="23" />
+            </>
+          )}
+        </svg>
+      </button>
+
       {/* Game area with PixiJS canvas */}
       <div ref={gameContainerRef} className="game-container">
         <PixiGame
@@ -413,6 +446,7 @@ function GameplayScreen() {
           scrollSpeed={gameState.scrollSpeed}
           currentFeedback={gameState.currentFeedback}
           onChannelTap={handleChannelTap}
+          trainingMode={trainingMode}
         />
 
         {/* Channel flash overlays */}
@@ -539,6 +573,34 @@ function GameplayScreen() {
 
         .back-button:hover {
           background: rgba(0, 0, 0, 0.5);
+        }
+
+        .training-toggle {
+          position: absolute;
+          top: calc(12px + var(--safe-area-top, 0px));
+          left: 56px;
+          width: 40px;
+          height: 40px;
+          background: rgba(0, 0, 0, 0.3);
+          border: 2px solid transparent;
+          border-radius: 50%;
+          color: var(--color-text-muted);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 100;
+          transition: all 0.2s;
+        }
+
+        .training-toggle:hover {
+          background: rgba(0, 0, 0, 0.5);
+        }
+
+        .training-toggle.active {
+          background: rgba(76, 175, 80, 0.3);
+          border-color: rgba(76, 175, 80, 0.6);
+          color: #81C784;
         }
 
         .game-container {

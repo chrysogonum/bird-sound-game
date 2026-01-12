@@ -1,7 +1,7 @@
 {
   "pack_id": "spring_warblers",
-  "display_name": "Spring Warblers",
-  "description": "31 wood-warblers of eastern spring migration. High-pitched songs, buzzy trills, and musical phrases.",
+  "display_name": "Warbler Academy",
+  "description": "33 wood-warblers — 9 random per round. Use Custom Pack for focused warbler brain training!",
   "species": [
     "AMRE",
     "BAWW",
@@ -32,7 +32,9 @@
     "PROW",
     "SWWA",
     "TEWA",
+    "WEWA",
     "WIWA",
+    "YRWA",
     "YTWA"
   ],
   "vocalization_weights": {

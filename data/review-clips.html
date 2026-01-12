@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clip Curator - Chirp!</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #1a1a2e;
+      color: #eee;
+    }
+    h1 { color: #4fc3f7; margin-bottom: 10px; }
+    .instructions {
+      background: #16213e;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #4fc3f7;
+    }
+    .instructions ul { margin: 10px 0 0 0; padding-left: 20px; }
+    .instructions li { margin: 5px 0; }
+    .stats-bar {
+      background: #0d1520;
+      padding: 12px 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .stat { color: #888; }
+    .stat strong { color: #fff; }
+    .stat.changed strong { color: #ffeb3b; }
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #333;
+      color: #888;
+    }
+    .filter-btn.active { background: #4fc3f7; color: #000; }
+    select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      background: #333;
+      color: #fff;
+      font-size: 14px;
+    }
+    .species-group {
+      background: #16213e;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .species-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .species-header:hover { background: #1e2a4a; }
+    .species-code {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 6px 12px;
+      border-radius: 6px;
+      color: #000;
+    }
+    .species-name { font-size: 16px; color: #aaa; }
+    .species-stats { font-size: 14px; color: #666; margin-left: auto; }
+    .species-stats .enhance-count { color: #ff9800; }
+    .expand-icon {
+      font-size: 18px;
+      color: #666;
+      transition: transform 0.2s;
+    }
+    .species-group.expanded .expand-icon { transform: rotate(90deg); }
+    .clips-list {
+      display: none;
+      padding: 0 20px 20px;
+    }
+    .species-group.expanded .clips-list { display: block; }
+    .clip-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 12px;
+      background: #1a1a2e;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border: 2px solid transparent;
+    }
+    .clip-row:hover { background: #222244; }
+    .clip-row.canonical { border-color: #4caf50; background: #1e3a1e; }
+    .clip-row.rejected { border-color: #f44336; background: #3a1e1e; opacity: 0.6; }
+    .clip-row.enhance { border-color: #ff9800; }
+    .clip-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 100px;
+    }
+    .clip-id { font-family: monospace; color: #4fc3f7; font-size: 14px; }
+    .clip-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .badge.song { background: #2e7d32; color: #fff; }
+    .badge.call { background: #1565c0; color: #fff; }
+    .badge.canonical { background: #4caf50; color: #fff; }
+    .badge.rejected { background: #f44336; color: #fff; }
+    .badge.enhance { background: #ff9800; color: #000; }
+    .badge.changed { background: #ffeb3b; color: #000; }
+    .play-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      background: #4fc3f7;
+      color: #000;
+      min-width: 60px;
+    }
+    .play-btn:hover { background: #81d4fa; }
+    .play-btn.playing { background: #f44336; }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .action-btn {
+      padding: 6px 12px;
+      border: 2px solid;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 12px;
+      background: transparent;
+      transition: all 0.2s;
+    }
+    .action-btn.canonical-btn { border-color: #4caf50; color: #4caf50; }
+    .action-btn.canonical-btn:hover, .action-btn.canonical-btn.active { background: #4caf50; color: #fff; }
+    .action-btn.reject-btn { border-color: #f44336; color: #f44336; }
+    .action-btn.reject-btn:hover, .action-btn.reject-btn.active { background: #f44336; color: #fff; }
+    .action-btn.enhance-btn { border-color: #ff9800; color: #ff9800; }
+    .action-btn.enhance-btn:hover, .action-btn.enhance-btn.active { background: #ff9800; color: #000; }
+    .action-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .output-section {
+      background: #16213e;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .output-section h2 { color: #4fc3f7; margin-top: 0; }
+    #output {
+      background: #1a1a2e;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 12px;
+      white-space: pre;
+      overflow-x: auto;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .copy-btn, .reset-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .copy-btn { background: #4fc3f7; color: #000; }
+    .copy-btn:hover { background: #81d4fa; }
+    .reset-btn { background: #666; color: #fff; }
+    .reset-btn:hover { background: #888; }
+    .no-clips {
+      color: #888;
+      font-style: italic;
+      padding: 40px;
+      text-align: center;
+    }
+    .filter-section { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+    .filter-section label { color: #888; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Clip Curator</h1>
+
+  <div class="instructions">
+    <strong>Review and curate your clip library:</strong>
+    <ul>
+      <li><strong>Canonical</strong> - The best beginner-friendly example for each species</li>
+      <li><strong>Reject</strong> - Poor quality, background noise, wrong species, etc.</li>
+      <li><strong>Enhance</strong> - Flag clips that could benefit from AI denoising</li>
+      <li><strong>Yellow "changed" badge</strong> - Indicates a change from current clips.json</li>
+    </ul>
+  </div>
+
+  <div class="stats-bar" id="stats-bar">Loading...</div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="starter">Starter</button>
+    <button class="filter-btn" data-filter="expanded">Expanded</button>
+    <button class="filter-btn" data-filter="sparrows">Sparrows</button>
+    <button class="filter-btn" data-filter="woodpeckers">Woodpeckers</button>
+    <button class="filter-btn" data-filter="warblers">Warblers</button>
+    <button class="filter-btn" data-filter="newbirds" style="background: #ff9800; color: #000;">New Birds</button>
+    <span style="color: #666; margin: 0 10px;">|</span>
+    <select id="species-select">
+      <option value="">Jump to species...</option>
+    </select>
+    <div class="filter-section">
+      <label><input type="checkbox" id="hide-rejected"> Hide rejected</label>
+    </div>
+  </div>
+
+  <div id="clips-container"><div class="no-clips">Loading...</div></div>
+
+  <div class="output-section">
+    <h2>Export Changes</h2>
+    <p style="color: #888; margin-bottom: 15px;">Copy and share with Claude to update clips.json</p>
+    <div id="output">Loading...</div>
+    <div class="btn-row">
+      <button class="copy-btn" onclick="copyOutput()">Copy to Clipboard</button>
+      <button class="reset-btn" onclick="resetChanges()">Reset All Changes</button>
+    </div>
+  </div>
+
+  <script>
+    // Pack definitions
+    const PACKS = {
+      starter: ['NOCA', 'CAWR', 'TUTI', 'BLJA', 'AMCR'],
+      expanded: [
+        'NOCA', 'CAWR', 'BLJA', 'AMCR', 'TUTI',
+        'BEKI', 'RSHA', 'AMGO', 'CACH', 'PIWA',
+        'WTSP', 'HOFI', 'EABL', 'AMRO', 'HETH',
+        'BHNU', 'BRCR', 'WBNU', 'YBSA', 'RBWO',
+        'DOWO', 'HAWO', 'NOFL', 'PIWO', 'BRTH',
+        'GRCA', 'MODO', 'NOMO', 'GCKI', 'RCKI',
+        'COHA', 'SSHA', 'RTHA', 'RTHU',
+      ],
+      sparrows: ['WTSP', 'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP'],
+      woodpeckers: ['DOWO', 'HAWO', 'RBWO', 'PIWO', 'YBSA', 'NOFL', 'RHWO'],
+      warblers: [
+        'AMRE', 'BAWW', 'BBWA', 'BLBW', 'BLPW', 'BTBW', 'BTNW', 'BWWA',
+        'CAWA', 'CMWA', 'CONW', 'COYE', 'CSWA', 'GWWA', 'KEWA', 'LOWA',
+        'MAWA', 'MOWA', 'NAWA', 'NOPA', 'NOWA', 'OCWA', 'OVEN', 'PAWA',
+        'PIWA', 'PRAW', 'PROW', 'SWWA', 'TEWA', 'WEWA', 'WIWA', 'YRWA', 'YTWA',
+      ],
+      newbirds: ['NOMO', 'GCKI', 'RCKI', 'COHA', 'SSHA', 'RTHA', 'RTHU', 'BADO', 'WEWA', 'YRWA'],
+    };
+
+    const SPECIES_INFO = {
+      // Warblers
+      BWWA: { name: 'Blue-winged Warbler', color: '#FFD700' },
+      GWWA: { name: 'Golden-winged Warbler', color: '#C0C0C0' },
+      TEWA: { name: 'Tennessee Warbler', color: '#98FB98' },
+      OCWA: { name: 'Orange-crowned Warbler', color: '#FFA500' },
+      NAWA: { name: 'Nashville Warbler', color: '#ADFF2F' },
+      NOPA: { name: 'Northern Parula', color: '#4169E1' },
+      MAWA: { name: 'Magnolia Warbler', color: '#FFD700' },
+      CMWA: { name: 'Cape May Warbler', color: '#FF6347' },
+      BTBW: { name: 'Black-throated Blue Warbler', color: '#4682B4' },
+      BLBW: { name: 'Blackburnian Warbler', color: '#FF4500' },
+      BLPW: { name: 'Blackpoll Warbler', color: '#2F4F4F' },
+      BTNW: { name: 'Black-throated Green Warbler', color: '#228B22' },
+      CSWA: { name: 'Chestnut-sided Warbler', color: '#8B4513' },
+      BBWA: { name: 'Bay-breasted Warbler', color: '#A0522D' },
+      PRAW: { name: 'Prairie Warbler', color: '#9ACD32' },
+      PAWA: { name: 'Palm Warbler', color: '#D2691E' },
+      PIWA: { name: 'Pine Warbler', color: '#6B8E23' },
+      YTWA: { name: 'Yellow-throated Warbler', color: '#FFD700' },
+      PROW: { name: 'Prothonotary Warbler', color: '#FFD700' },
+      COYE: { name: 'Common Yellowthroat', color: '#FFD700' },
+      CAWA: { name: 'Canada Warbler', color: '#4169E1' },
+      WIWA: { name: "Wilson's Warbler", color: '#FFD700' },
+      WEWA: { name: 'Worm-eating Warbler', color: '#C4A484' },
+      YRWA: { name: 'Yellow-rumped Warbler', color: '#FFD700' },
+      AMRE: { name: 'American Redstart', color: '#FF4500' },
+      OVEN: { name: 'Ovenbird', color: '#D2691E' },
+      NOWA: { name: 'Northern Waterthrush', color: '#8B7355' },
+      LOWA: { name: 'Louisiana Waterthrush', color: '#A0522D' },
+      BAWW: { name: 'Black-and-white Warbler', color: '#696969' },
+      CONW: { name: 'Connecticut Warbler', color: '#808080' },
+      MOWA: { name: 'Mourning Warbler', color: '#556B2F' },
+      KEWA: { name: 'Kentucky Warbler', color: '#9ACD32' },
+      SWWA: { name: "Swainson's Warbler", color: '#8B7355' },
+      // Non-warblers
+      NOCA: { name: 'Northern Cardinal', color: '#DC143C' },
+      CAWR: { name: 'Carolina Wren', color: '#CD853F' },
+      BLJA: { name: 'Blue Jay', color: '#4169E1' },
+      AMCR: { name: 'American Crow', color: '#2F2F2F' },
+      TUTI: { name: 'Tufted Titmouse', color: '#A0A0A0' },
+      AMRO: { name: 'American Robin', color: '#8B4513' },
+      AMGO: { name: 'American Goldfinch', color: '#FFD700' },
+      MODO: { name: 'Mourning Dove', color: '#BC8F8F' },
+      HOFI: { name: 'House Finch', color: '#DC143C' },
+      WBNU: { name: 'White-breasted Nuthatch', color: '#4682B4' },
+      BHNU: { name: 'Brown-headed Nuthatch', color: '#8B7355' },
+      EABL: { name: 'Eastern Bluebird', color: '#4169E1' },
+      GRCA: { name: 'Gray Catbird', color: '#696969' },
+      CACH: { name: 'Carolina Chickadee', color: '#808080' },
+      BRCR: { name: 'Brown Creeper', color: '#8B7355' },
+      BRTH: { name: 'Brown Thrasher', color: '#CD853F' },
+      HETH: { name: 'Hermit Thrush', color: '#8B7355' },
+      RSHA: { name: 'Red-shouldered Hawk', color: '#8B4513' },
+      BEKI: { name: 'Belted Kingfisher', color: '#4682B4' },
+      DOWO: { name: 'Downy Woodpecker', color: '#2F2F2F' },
+      HAWO: { name: 'Hairy Woodpecker', color: '#2F2F2F' },
+      RBWO: { name: 'Red-bellied Woodpecker', color: '#DC143C' },
+      PIWO: { name: 'Pileated Woodpecker', color: '#DC143C' },
+      YBSA: { name: 'Yellow-bellied Sapsucker', color: '#FFD700' },
+      NOFL: { name: 'Northern Flicker', color: '#CD853F' },
+      RHWO: { name: 'Red-headed Woodpecker', color: '#DC143C' },
+      SOSP: { name: 'Song Sparrow', color: '#8B7355' },
+      WTSP: { name: 'White-throated Sparrow', color: '#808080' },
+      CHSP: { name: 'Chipping Sparrow', color: '#CD853F' },
+      SWSP: { name: 'Swamp Sparrow', color: '#8B4513' },
+      FISP: { name: 'Field Sparrow', color: '#DEB887' },
+      SASP: { name: 'Savannah Sparrow', color: '#9ACD32' },
+      LISP: { name: "Lincoln's Sparrow", color: '#8B7355' },
+      // New birds
+      NOMO: { name: 'Northern Mockingbird', color: '#808080' },
+      GCKI: { name: 'Golden-crowned Kinglet', color: '#FFD700' },
+      RCKI: { name: 'Ruby-crowned Kinglet', color: '#DC143C' },
+      COHA: { name: "Cooper's Hawk", color: '#8B4513' },
+      SSHA: { name: 'Sharp-shinned Hawk', color: '#A0522D' },
+      RTHA: { name: 'Red-tailed Hawk', color: '#CD853F' },
+      RTHU: { name: 'Ruby-throated Hummingbird', color: '#DC143C' },
+      BADO: { name: 'Barred Owl', color: '#8B4513' },
+    };
+
+    let allClips = [];
+    let originalState = { canonical: {}, rejected: new Set() };
+    let currentState = { canonical: {}, rejected: new Set(), enhance: new Set() };
+    let currentFilter = 'all';
+    let hideRejected = false;
+    let currentAudio = null;
+    let expandedSpecies = new Set();
+
+    async function init() {
+      try {
+        const response = await fetch('clips.json');
+        allClips = await response.json();
+        console.log(`Loaded ${allClips.length} clips`);
+
+        // Build original state from clips.json
+        for (const clip of allClips) {
+          if (clip.canonical) {
+            originalState.canonical[clip.species_code] = clip.clip_id;
+          }
+          if (clip.rejected) {
+            originalState.rejected.add(clip.clip_id);
+          }
+        }
+
+        // Copy to current state
+        currentState.canonical = { ...originalState.canonical };
+        currentState.rejected = new Set(originalState.rejected);
+        currentState.enhance = new Set();
+
+      } catch (e) {
+        console.error('Error loading clips.json:', e);
+        document.getElementById('clips-container').innerHTML = `
+          <div class="no-clips">Could not load clips.json</div>`;
+        return;
+      }
+
+      populateSpeciesSelect();
+      renderAll();
+
+      // Hide rejected checkbox
+      document.getElementById('hide-rejected').addEventListener('change', (e) => {
+        hideRejected = e.target.checked;
+        renderClips();
+      });
+    }
+
+    function populateSpeciesSelect() {
+      const select = document.getElementById('species-select');
+      const species = [...new Set(allClips.map(c => c.species_code))].sort();
+
+      for (const code of species) {
+        const info = SPECIES_INFO[code] || { name: code };
+        const opt = document.createElement('option');
+        opt.value = code;
+        opt.textContent = `${code} - ${info.name}`;
+        select.appendChild(opt);
+      }
+
+      select.addEventListener('change', (e) => {
+        if (e.target.value) {
+          expandedSpecies.add(e.target.value);
+          renderClips();
+          setTimeout(() => {
+            const el = document.getElementById(`species-${e.target.value}`);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+          e.target.value = '';
+        }
+      });
+    }
+
+    function renderAll() {
+      renderStats();
+      renderClips();
+      updateOutput();
+    }
+
+    function getFilteredClips() {
+      let clips = allClips.filter(c => !c.rejected || !hideRejected);
+
+      if (currentFilter !== 'all') {
+        const packSpecies = new Set(PACKS[currentFilter] || []);
+        clips = clips.filter(c => packSpecies.has(c.species_code));
+      }
+
+      return clips;
+    }
+
+    function countChanges() {
+      let changes = 0;
+
+      // Canonical changes
+      const allSpecies = new Set([
+        ...Object.keys(originalState.canonical),
+        ...Object.keys(currentState.canonical)
+      ]);
+      for (const species of allSpecies) {
+        if (originalState.canonical[species] !== currentState.canonical[species]) {
+          changes++;
+        }
+      }
+
+      // Rejected changes
+      for (const clipId of currentState.rejected) {
+        if (!originalState.rejected.has(clipId)) changes++;
+      }
+      for (const clipId of originalState.rejected) {
+        if (!currentState.rejected.has(clipId)) changes++;
+      }
+
+      return changes;
+    }
+
+    function renderStats() {
+      const filtered = getFilteredClips();
+      const total = filtered.length;
+      const activeClips = filtered.filter(c => !currentState.rejected.has(c.clip_id));
+      const canonical = Object.values(currentState.canonical).filter(id =>
+        filtered.some(c => c.clip_id === id)
+      ).length;
+      const rejected = filtered.filter(c => currentState.rejected.has(c.clip_id)).length;
+      const enhance = filtered.filter(c => currentState.enhance.has(c.clip_id)).length;
+      const species = new Set(filtered.map(c => c.species_code)).size;
+      const changes = countChanges();
+
+      document.getElementById('stats-bar').innerHTML = `
+        <span class="stat"><strong>${activeClips.length}</strong> active clips</span>
+        <span class="stat"><strong>${species}</strong> species</span>
+        <span class="stat"><strong>${canonical}</strong> canonical</span>
+        <span class="stat"><strong>${rejected}</strong> rejected</span>
+        ${enhance > 0 ? `<span class="stat"><strong>${enhance}</strong> to enhance</span>` : ''}
+        <span class="stat ${changes > 0 ? 'changed' : ''}"><strong>${changes}</strong> changes</span>
+      `;
+    }
+
+    function renderClips() {
+      const container = document.getElementById('clips-container');
+      const clips = getFilteredClips();
+
+      if (clips.length === 0) {
+        container.innerHTML = `<div class="no-clips">No clips found.</div>`;
+        return;
+      }
+
+      container.innerHTML = '';
+
+      // Group by species
+      const bySpecies = {};
+      for (const clip of clips) {
+        const code = clip.species_code;
+        if (!bySpecies[code]) bySpecies[code] = [];
+        bySpecies[code].push(clip);
+      }
+
+      const speciesOrder = Object.keys(bySpecies).sort();
+
+      for (const code of speciesOrder) {
+        const speciesClips = bySpecies[code];
+        const info = SPECIES_INFO[code] || { name: code, color: '#888' };
+        const isExpanded = expandedSpecies.has(code);
+
+        const hasCanonical = currentState.canonical[code] &&
+          speciesClips.some(c => c.clip_id === currentState.canonical[code]);
+        const rejectedCount = speciesClips.filter(c => currentState.rejected.has(c.clip_id)).length;
+        const enhanceCount = speciesClips.filter(c => currentState.enhance.has(c.clip_id)).length;
+        const activeCount = speciesClips.length - rejectedCount;
+
+        const group = document.createElement('div');
+        group.className = 'species-group' + (isExpanded ? ' expanded' : '');
+        group.id = `species-${code}`;
+
+        const header = document.createElement('div');
+        header.className = 'species-header';
+        header.innerHTML = `
+          <span class="expand-icon">&#9654;</span>
+          <span class="species-code" style="background: ${info.color}">${code}</span>
+          <span class="species-name">${info.name}</span>
+          <span class="species-stats">
+            ${hasCanonical ? '&#9733; ' : ''}${activeCount}/${speciesClips.length} clips
+            ${enhanceCount > 0 ? `<span class="enhance-count">(${enhanceCount} enhance)</span>` : ''}
+          </span>
+        `;
+        header.onclick = () => {
+          if (expandedSpecies.has(code)) {
+            expandedSpecies.delete(code);
+          } else {
+            expandedSpecies.add(code);
+          }
+          renderClips();
+        };
+
+        const clipsList = document.createElement('div');
+        clipsList.className = 'clips-list';
+
+        if (isExpanded) {
+          for (const clip of speciesClips) {
+            const isCanonical = currentState.canonical[code] === clip.clip_id;
+            const isRejected = currentState.rejected.has(clip.clip_id);
+            const isEnhance = currentState.enhance.has(clip.clip_id);
+
+            // Check if this clip's status changed
+            const wasCanonical = originalState.canonical[code] === clip.clip_id;
+            const wasRejected = originalState.rejected.has(clip.clip_id);
+            const hasChanged = (isCanonical !== wasCanonical) || (isRejected !== wasRejected);
+
+            if (hideRejected && isRejected) continue;
+
+            const row = document.createElement('div');
+            row.className = 'clip-row';
+            if (isCanonical) row.classList.add('canonical');
+            if (isRejected) row.classList.add('rejected');
+            if (isEnhance && !isRejected) row.classList.add('enhance');
+
+            const badges = [];
+            const vocType = clip.vocalization_type || 'song';
+            badges.push(`<span class="badge ${vocType}">${vocType}</span>`);
+            if (isCanonical) badges.push('<span class="badge canonical">CANONICAL</span>');
+            if (isRejected) badges.push('<span class="badge rejected">REJECTED</span>');
+            if (isEnhance) badges.push('<span class="badge enhance">ENHANCE</span>');
+            if (hasChanged) badges.push('<span class="badge changed">changed</span>');
+
+            // Extract source ID from file path or clip_id
+            const sourceId = clip.source_id || clip.file_path?.split('/').pop()?.replace('.wav', '') || clip.clip_id;
+
+            row.innerHTML = `
+              <div class="clip-info">
+                <span class="clip-id">${sourceId}</span>
+                <div class="clip-badges">${badges.join('')}</div>
+              </div>
+              <button class="play-btn" data-clip="${clip.clip_id}">Play</button>
+              <div class="actions">
+                <button class="action-btn canonical-btn ${isCanonical ? 'active' : ''}"
+                        onclick="toggleCanonical('${code}', '${clip.clip_id}')"
+                        ${isRejected ? 'disabled' : ''}>
+                  Canonical
+                </button>
+                <button class="action-btn enhance-btn ${isEnhance ? 'active' : ''}"
+                        onclick="toggleEnhance('${clip.clip_id}')"
+                        ${isRejected ? 'disabled' : ''}>
+                  Enhance
+                </button>
+                <button class="action-btn reject-btn ${isRejected ? 'active' : ''}"
+                        onclick="toggleRejected('${clip.clip_id}', '${code}')">
+                  Reject
+                </button>
+              </div>
+            `;
+
+            const playBtn = row.querySelector('.play-btn');
+            playBtn.onclick = () => playClip(clip, playBtn);
+
+            clipsList.appendChild(row);
+          }
+        }
+
+        group.appendChild(header);
+        group.appendChild(clipsList);
+        container.appendChild(group);
+      }
+    }
+
+    function playClip(clip, btn) {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+        document.querySelectorAll('.play-btn.playing').forEach(b => {
+          b.classList.remove('playing');
+          b.textContent = 'Play';
+        });
+      }
+
+      if (btn.classList.contains('playing')) {
+        return;
+      }
+
+      // Use file_path from clip data, adjusting for relative path
+      // file_path is "data/clips/XXX.wav", but we're in data/, so use "clips/XXX.wav"
+      const audioPath = clip.file_path.replace('data/', '');
+      const audio = new Audio(audioPath);
+      currentAudio = audio;
+      btn.classList.add('playing');
+      btn.textContent = 'Stop';
+
+      audio.play().catch(e => {
+        console.error('Error playing audio:', e);
+        btn.classList.remove('playing');
+        btn.textContent = 'Error';
+      });
+
+      audio.onended = () => {
+        btn.classList.remove('playing');
+        btn.textContent = 'Play';
+        currentAudio = null;
+      };
+    }
+
+    function toggleCanonical(speciesCode, clipId) {
+      if (currentState.canonical[speciesCode] === clipId) {
+        delete currentState.canonical[speciesCode];
+      } else {
+        currentState.canonical[speciesCode] = clipId;
+      }
+      renderAll();
+    }
+
+    function toggleRejected(clipId, speciesCode) {
+      if (currentState.rejected.has(clipId)) {
+        currentState.rejected.delete(clipId);
+      } else {
+        currentState.rejected.add(clipId);
+        // If rejecting canonical, remove canonical status
+        if (currentState.canonical[speciesCode] === clipId) {
+          delete currentState.canonical[speciesCode];
+        }
+        // Remove enhance flag if rejecting
+        currentState.enhance.delete(clipId);
+      }
+      renderAll();
+    }
+
+    function toggleEnhance(clipId) {
+      if (currentState.enhance.has(clipId)) {
+        currentState.enhance.delete(clipId);
+      } else {
+        currentState.enhance.add(clipId);
+      }
+      renderAll();
+    }
+
+    function updateOutput() {
+      const changes = {
+        canonical: {},
+        rejected: { add: [], remove: [] },
+        enhance: [...currentState.enhance],
+      };
+
+      // Find canonical changes
+      const allSpecies = new Set([
+        ...Object.keys(originalState.canonical),
+        ...Object.keys(currentState.canonical)
+      ]);
+      for (const species of allSpecies) {
+        if (originalState.canonical[species] !== currentState.canonical[species]) {
+          changes.canonical[species] = currentState.canonical[species] || null;
+        }
+      }
+
+      // Find rejected changes
+      for (const clipId of currentState.rejected) {
+        if (!originalState.rejected.has(clipId)) {
+          changes.rejected.add.push(clipId);
+        }
+      }
+      for (const clipId of originalState.rejected) {
+        if (!currentState.rejected.has(clipId)) {
+          changes.rejected.remove.push(clipId);
+        }
+      }
+
+      // Clean up empty sections
+      if (Object.keys(changes.canonical).length === 0) delete changes.canonical;
+      if (changes.rejected.add.length === 0 && changes.rejected.remove.length === 0) {
+        delete changes.rejected;
+      } else {
+        if (changes.rejected.add.length === 0) delete changes.rejected.add;
+        if (changes.rejected.remove.length === 0) delete changes.rejected.remove;
+      }
+      if (changes.enhance.length === 0) delete changes.enhance;
+
+      const hasChanges = Object.keys(changes).length > 0;
+      document.getElementById('output').textContent = hasChanges
+        ? JSON.stringify(changes, null, 2)
+        : '// No changes yet';
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('output').textContent;
+      navigator.clipboard.writeText(output).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy to Clipboard', 2000);
+      });
+    }
+
+    function resetChanges() {
+      if (!confirm('Reset all changes to match clips.json?')) return;
+      currentState.canonical = { ...originalState.canonical };
+      currentState.rejected = new Set(originalState.rejected);
+      currentState.enhance = new Set();
+      renderAll();
+    }
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        expandedSpecies.clear();
+        renderAll();
+      });
+    });
+
+    init();
+  </script>
+</body>
+</html>

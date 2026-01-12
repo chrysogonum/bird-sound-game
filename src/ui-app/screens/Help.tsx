@@ -79,6 +79,45 @@ function Help() {
           <Tip>Adjust tile speed in Settings if things move too fast (or too slow).</Tip>
         </Section>
 
+        {/* Training Mode */}
+        <Section title="Training Mode">
+          <p>
+            Toggle the <strong>eye icon</strong> in the top-right corner during gameplay to enable Training Mode.
+          </p>
+          <p>
+            When active, each tile shows its bird icon and species code alongside the spectrogram.
+            Use this to learn which spectrograms belong to which birds, then toggle off to challenge yourself!
+          </p>
+          <div style={{
+            background: 'var(--color-surface)',
+            padding: '12px',
+            borderRadius: '8px',
+            marginTop: '12px',
+            fontSize: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+          }}>
+            <span style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '32px',
+              height: '32px',
+              background: 'rgba(76, 175, 80, 0.3)',
+              border: '2px solid rgba(76, 175, 80, 0.6)',
+              borderRadius: '50%',
+              color: '#81C784',
+            }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </span>
+            <span style={{ color: 'var(--color-text-muted)' }}>Eye icon glows green when Training Mode is ON</span>
+          </div>
+        </Section>
+
         {/* Bird Codes */}
         <Section title="The 4-Letter Codes">
           <p>

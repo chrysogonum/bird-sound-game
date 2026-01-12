@@ -13,6 +13,7 @@ export interface PixiGameProps {
   scrollSpeed: number;
   currentFeedback: FeedbackData | null;
   onChannelTap?: (channel: 'left' | 'right') => void;
+  trainingMode?: boolean;
 }
 
 // Colors from design system
@@ -32,8 +33,8 @@ const COLORS = {
 };
 
 // Tile dimensions
-const TILE_WIDTH_RATIO = 0.55; // Ratio of lane width
-const TILE_HEIGHT = 70;
+const TILE_WIDTH_RATIO = 0.72; // Ratio of lane width (was 0.55)
+const TILE_HEIGHT = 85; // (was 70)
 const HIT_ZONE_Y_RATIO = 0.82; // 82% from top
 
 interface TileState {
@@ -62,6 +63,7 @@ function PixiGame({
   scrollSpeed,
   currentFeedback,
   onChannelTap,
+  trainingMode = false,
 }: PixiGameProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<PIXI.Application | null>(null);
@@ -185,7 +187,8 @@ function PixiGame({
         tileWidth,
         TILE_HEIGHT,
         hitZoneY,
-        event.spectrogramPath
+        event.spectrogramPath,
+        trainingMode
       );
 
       // Set initial Y position immediately (tile enters at top)
@@ -194,7 +197,7 @@ function PixiGame({
       tileContainer.addChild(tile.container);
       tilesRef.current.set(event.event_id, tile);
     }
-  }, [scheduledEvents, roundState, width, height]);
+  }, [scheduledEvents, roundState, width, height, trainingMode]);
 
   // Animation loop
   useEffect(() => {
@@ -305,7 +308,8 @@ function createTile(
   tileWidth: number,
   tileHeight: number,
   _hitZoneY: number,
-  spectrogramPath: string | null
+  spectrogramPath: string | null,
+  trainingMode: boolean = false
 ): TileState {
   const container = new PIXI.Container();
 
@@ -369,6 +373,38 @@ function createTile(
     question.position.set(0, 0);
     question.alpha = 0.4;
     container.addChild(question);
+  }
+
+  // Training mode: show bird icon and code
+  if (trainingMode) {
+    // Load bird icon
+    const iconPath = `${import.meta.env.BASE_URL}data/icons/${event.species_code}.png`;
+    let iconTexture = textureCache.get(iconPath);
+    if (!iconTexture) {
+      iconTexture = PIXI.Texture.from(iconPath);
+      textureCache.set(iconPath, iconTexture);
+    }
+
+    const iconSprite = new PIXI.Sprite(iconTexture);
+    iconSprite.anchor.set(0.5);
+    iconSprite.width = 32;
+    iconSprite.height = 32;
+    iconSprite.position.set(tileWidth / 2 - 20, -tileHeight / 2 + 20);
+    iconSprite.alpha = 0.9;
+    container.addChild(iconSprite);
+
+    // Species code label
+    const codeStyle = new PIXI.TextStyle({
+      fontFamily: 'Inter, sans-serif',
+      fontSize: 10,
+      fill: 0xffffff,
+      fontWeight: '700',
+    });
+    const codeLabel = new PIXI.Text(event.species_code, codeStyle);
+    codeLabel.anchor.set(0.5);
+    codeLabel.position.set(tileWidth / 2 - 20, -tileHeight / 2 + 38);
+    codeLabel.alpha = 0.8;
+    container.addChild(codeLabel);
   }
 
   return {

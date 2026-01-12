@@ -23,10 +23,10 @@ Build streaks for bonus points. Miss too many and the round ends.
 | Pack | Species | Description |
 |------|---------|-------------|
 | **5 Common Backyard Birds** | 5 | Start here — bold, distinctive voices |
-| **Expanded Local Birds** | 30 | Eastern US species, 9 random per round |
+| **Expanded Local Birds** | 35 | Eastern US species, 9 random per round |
 | **Sparrows** | 7 | Subtle songs of seven sparrow species |
 | **Woodpeckers** | 7 | Drums, calls, and rattles |
-| **Spring Warblers** | 31 | High-pitched songs of migration |
+| **Warbler Academy** | 33 | High-pitched songs of migration (experts only!) |
 
 **Custom Packs:** Build your own training session. Drill a nemesis bird, compare confusing species head-to-head, or mix from any pack.
 
@@ -52,13 +52,13 @@ Each pack has 6 levels of increasing challenge:
 
 ## Species Coverage
 
-**80 species** across 5 packs with 650+ audio clips:
+**74 species** across 5 packs with 670+ audio clips:
 
 - Backyard birds (cardinals, wrens, jays, chickadees)
-- Raptors (Red-shouldered Hawk)
+- Raptors (hawks, owl, hummingbird)
 - Woodpeckers (7 species from Downy to Pileated)
 - Sparrows (7 species including White-throated, Song, Field)
-- Warblers (31 spring migration species)
+- Warblers (33 spring migration species)
 
 All audio sourced from [Xeno-canto](https://xeno-canto.org) with quality A ratings.
 

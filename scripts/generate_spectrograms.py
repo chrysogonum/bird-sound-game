@@ -116,6 +116,9 @@ def main():
         'BHNU', 'BRCR', 'WBNU', 'YBSA', 'RBWO',
         'DOWO', 'HAWO', 'NOFL', 'PIWO', 'BRTH',
         'GRCA', 'MODO',
+        # New additions
+        'NOMO', 'GCKI', 'RCKI',
+        'COHA', 'SSHA', 'RTHA', 'RTHU', 'BADO',
         # Sparrows pack
         'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP',
         # Additional woodpecker
@@ -124,7 +127,7 @@ def main():
         'AMRE', 'BAWW', 'BBWA', 'BLBW', 'BLPW', 'BTBW', 'BTNW', 'BWWA',
         'CAWA', 'CMWA', 'CONW', 'COYE', 'CSWA', 'GWWA', 'KEWA', 'LOWA',
         'MAWA', 'MOWA', 'NAWA', 'NOPA', 'NOWA', 'OCWA', 'OVEN', 'PAWA',
-        'PRAW', 'PROW', 'SWWA', 'TEWA', 'WIWA', 'YTWA',
+        'PIWA', 'PRAW', 'PROW', 'SWWA', 'TEWA', 'WEWA', 'WIWA', 'YRWA', 'YTWA',
     ]
 
     print(f"Generating spectrograms for expanded pack species...")
