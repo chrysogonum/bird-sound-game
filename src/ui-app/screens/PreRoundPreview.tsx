@@ -407,6 +407,16 @@ function PreRoundPreview() {
           )}
         </div>
 
+        {/* Sound reminder */}
+        <div style={{
+          fontSize: '12px',
+          color: 'var(--color-text-muted)',
+          opacity: 0.7,
+          marginBottom: '16px',
+        }}>
+          🔊 Sound on for best experience
+        </div>
+
         {/* Species grid */}
         <div style={{
           display: 'grid',
