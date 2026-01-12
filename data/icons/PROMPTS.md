@@ -116,3 +116,92 @@ WBNU: Stylized icon of a White-breasted Nuthatch, simple flat design, circular f
 WTSP: Stylized icon of a White-throated Sparrow, simple flat design, circular frame, brown streaked with white throat and yellow lores, white background, game asset style, clean vector look, centered composition, no text
 YBSA: Stylized icon of a Yellow-bellied Sapsucker, simple flat design, circular frame, black and white with red forehead and yellow belly, white background, game asset style, clean vector look, centered composition, no text
 ```
+
+---
+
+## New Birds (3)
+
+| Code | Name | Prompt |
+|------|------|--------|
+| NOMO | Northern Mockingbird | Stylized icon of a Northern Mockingbird, simple flat design, circular frame, gray bird with white wing patches, white background, game asset style, clean vector look, centered composition, no text |
+| GCKI | Golden-crowned Kinglet | Stylized icon of a Golden-crowned Kinglet, simple flat design, circular frame, tiny olive bird with golden crown stripe, white background, game asset style, clean vector look, centered composition, no text |
+| RCKI | Ruby-crowned Kinglet | Stylized icon of a Ruby-crowned Kinglet, simple flat design, circular frame, tiny olive-gray bird with white eye ring, white background, game asset style, clean vector look, centered composition, no text |
+
+---
+
+## Spring Warblers (31)
+
+| Code | Name | Prompt |
+|------|------|--------|
+| AMRE | American Redstart | Stylized icon of an American Redstart, simple flat design, circular frame, black bird with orange patches on wings and tail, white background, game asset style, clean vector look, centered composition, no text |
+| BAWW | Black-and-white Warbler | Stylized icon of a Black-and-white Warbler, simple flat design, circular frame, striped black and white bird, white background, game asset style, clean vector look, centered composition, no text |
+| BBWA | Bay-breasted Warbler | Stylized icon of a Bay-breasted Warbler, simple flat design, circular frame, chestnut sides and cap with cream neck patch, white background, game asset style, clean vector look, centered composition, no text |
+| BLBW | Blackburnian Warbler | Stylized icon of a Blackburnian Warbler, simple flat design, circular frame, orange throat and face with black triangular ear patch, white background, game asset style, clean vector look, centered composition, no text |
+| BLPW | Blackpoll Warbler | Stylized icon of a Blackpoll Warbler, simple flat design, circular frame, black cap white cheeks streaked sides, white background, game asset style, clean vector look, centered composition, no text |
+| BTBW | Black-throated Blue Warbler | Stylized icon of a Black-throated Blue Warbler, simple flat design, circular frame, deep blue bird with black face and white wing patch, white background, game asset style, clean vector look, centered composition, no text |
+| BTNW | Black-throated Green Warbler | Stylized icon of a Black-throated Green Warbler, simple flat design, circular frame, olive-green with yellow face and black throat, white background, game asset style, clean vector look, centered composition, no text |
+| BWWA | Blue-winged Warbler | Stylized icon of a Blue-winged Warbler, simple flat design, circular frame, yellow head and body with blue-gray wings, white background, game asset style, clean vector look, centered composition, no text |
+| CAWA | Canada Warbler | Stylized icon of a Canada Warbler, simple flat design, circular frame, gray above yellow below with black necklace, white background, game asset style, clean vector look, centered composition, no text |
+| CMWA | Cape May Warbler | Stylized icon of a Cape May Warbler, simple flat design, circular frame, yellow with chestnut cheek patch and streaked breast, white background, game asset style, clean vector look, centered composition, no text |
+| CONW | Connecticut Warbler | Stylized icon of a Connecticut Warbler, simple flat design, circular frame, gray hood olive back yellow belly, white background, game asset style, clean vector look, centered composition, no text |
+| COYE | Common Yellowthroat | Stylized icon of a Common Yellowthroat, simple flat design, circular frame, yellow throat with bold black mask, white background, game asset style, clean vector look, centered composition, no text |
+| CSWA | Chestnut-sided Warbler | Stylized icon of a Chestnut-sided Warbler, simple flat design, circular frame, yellow cap white face chestnut sides, white background, game asset style, clean vector look, centered composition, no text |
+| GWWA | Golden-winged Warbler | Stylized icon of a Golden-winged Warbler, simple flat design, circular frame, gray bird with golden wing patch and black throat, white background, game asset style, clean vector look, centered composition, no text |
+| KEWA | Kentucky Warbler | Stylized icon of a Kentucky Warbler, simple flat design, circular frame, yellow below olive above with black sideburns, white background, game asset style, clean vector look, centered composition, no text |
+| LOWA | Louisiana Waterthrush | Stylized icon of a Louisiana Waterthrush, simple flat design, circular frame, brown above white below with streaked breast, white background, game asset style, clean vector look, centered composition, no text |
+| MAWA | Magnolia Warbler | Stylized icon of a Magnolia Warbler, simple flat design, circular frame, yellow with black streaks and white wing patch, white background, game asset style, clean vector look, centered composition, no text |
+| MOWA | Mourning Warbler | Stylized icon of a Mourning Warbler, simple flat design, circular frame, gray hood yellow belly olive back, white background, game asset style, clean vector look, centered composition, no text |
+| NAWA | Nashville Warbler | Stylized icon of a Nashville Warbler, simple flat design, circular frame, gray head yellow body with white eye ring, white background, game asset style, clean vector look, centered composition, no text |
+| NOPA | Northern Parula | Stylized icon of a Northern Parula, simple flat design, circular frame, blue-gray with yellow throat and chestnut breast band, white background, game asset style, clean vector look, centered composition, no text |
+| NOWA | Northern Waterthrush | Stylized icon of a Northern Waterthrush, simple flat design, circular frame, brown streaked thrush-like warbler, white background, game asset style, clean vector look, centered composition, no text |
+| OCWA | Orange-crowned Warbler | Stylized icon of an Orange-crowned Warbler, simple flat design, circular frame, plain olive-yellow warbler, white background, game asset style, clean vector look, centered composition, no text |
+| OVEN | Ovenbird | Stylized icon of an Ovenbird, simple flat design, circular frame, olive-brown with orange crown stripe and spotted breast, white background, game asset style, clean vector look, centered composition, no text |
+| PAWA | Palm Warbler | Stylized icon of a Palm Warbler, simple flat design, circular frame, rusty cap yellow undertail pumping tail, white background, game asset style, clean vector look, centered composition, no text |
+| PIWA | Pine Warbler | Stylized icon of a Pine Warbler, simple flat design, circular frame, olive-yellow warbler with wing bars, white background, game asset style, clean vector look, centered composition, no text |
+| PRAW | Prairie Warbler | Stylized icon of a Prairie Warbler, simple flat design, circular frame, yellow with black side streaks and face markings, white background, game asset style, clean vector look, centered composition, no text |
+| PROW | Prothonotary Warbler | Stylized icon of a Prothonotary Warbler, simple flat design, circular frame, bright golden-yellow head and breast with blue-gray wings, white background, game asset style, clean vector look, centered composition, no text |
+| SWWA | Swainson's Warbler | Stylized icon of a Swainson's Warbler, simple flat design, circular frame, plain brown above buffy below with pale eyebrow, white background, game asset style, clean vector look, centered composition, no text |
+| TEWA | Tennessee Warbler | Stylized icon of a Tennessee Warbler, simple flat design, circular frame, olive-green with gray head and white eyebrow, white background, game asset style, clean vector look, centered composition, no text |
+| WIWA | Wilson's Warbler | Stylized icon of a Wilson's Warbler, simple flat design, circular frame, bright yellow with black cap, white background, game asset style, clean vector look, centered composition, no text |
+| YTWA | Yellow-throated Warbler | Stylized icon of a Yellow-throated Warbler, simple flat design, circular frame, gray above with bright yellow throat and black face pattern, white background, game asset style, clean vector look, centered composition, no text |
+
+---
+
+## Quick Copy - New Birds + Warblers
+
+```
+NOMO: Stylized icon of a Northern Mockingbird, simple flat design, circular frame, gray bird with white wing patches, white background, game asset style, clean vector look, centered composition, no text
+GCKI: Stylized icon of a Golden-crowned Kinglet, simple flat design, circular frame, tiny olive bird with golden crown stripe, white background, game asset style, clean vector look, centered composition, no text
+RCKI: Stylized icon of a Ruby-crowned Kinglet, simple flat design, circular frame, tiny olive-gray bird with white eye ring, white background, game asset style, clean vector look, centered composition, no text
+AMRE: Stylized icon of an American Redstart, simple flat design, circular frame, black bird with orange patches on wings and tail, white background, game asset style, clean vector look, centered composition, no text
+BAWW: Stylized icon of a Black-and-white Warbler, simple flat design, circular frame, striped black and white bird, white background, game asset style, clean vector look, centered composition, no text
+BBWA: Stylized icon of a Bay-breasted Warbler, simple flat design, circular frame, chestnut sides and cap with cream neck patch, white background, game asset style, clean vector look, centered composition, no text
+BLBW: Stylized icon of a Blackburnian Warbler, simple flat design, circular frame, orange throat and face with black triangular ear patch, white background, game asset style, clean vector look, centered composition, no text
+BLPW: Stylized icon of a Blackpoll Warbler, simple flat design, circular frame, black cap white cheeks streaked sides, white background, game asset style, clean vector look, centered composition, no text
+BTBW: Stylized icon of a Black-throated Blue Warbler, simple flat design, circular frame, deep blue bird with black face and white wing patch, white background, game asset style, clean vector look, centered composition, no text
+BTNW: Stylized icon of a Black-throated Green Warbler, simple flat design, circular frame, olive-green with yellow face and black throat, white background, game asset style, clean vector look, centered composition, no text
+BWWA: Stylized icon of a Blue-winged Warbler, simple flat design, circular frame, yellow head and body with blue-gray wings, white background, game asset style, clean vector look, centered composition, no text
+CAWA: Stylized icon of a Canada Warbler, simple flat design, circular frame, gray above yellow below with black necklace, white background, game asset style, clean vector look, centered composition, no text
+CMWA: Stylized icon of a Cape May Warbler, simple flat design, circular frame, yellow with chestnut cheek patch and streaked breast, white background, game asset style, clean vector look, centered composition, no text
+CONW: Stylized icon of a Connecticut Warbler, simple flat design, circular frame, gray hood olive back yellow belly, white background, game asset style, clean vector look, centered composition, no text
+COYE: Stylized icon of a Common Yellowthroat, simple flat design, circular frame, yellow throat with bold black mask, white background, game asset style, clean vector look, centered composition, no text
+CSWA: Stylized icon of a Chestnut-sided Warbler, simple flat design, circular frame, yellow cap white face chestnut sides, white background, game asset style, clean vector look, centered composition, no text
+GWWA: Stylized icon of a Golden-winged Warbler, simple flat design, circular frame, gray bird with golden wing patch and black throat, white background, game asset style, clean vector look, centered composition, no text
+KEWA: Stylized icon of a Kentucky Warbler, simple flat design, circular frame, yellow below olive above with black sideburns, white background, game asset style, clean vector look, centered composition, no text
+LOWA: Stylized icon of a Louisiana Waterthrush, simple flat design, circular frame, brown above white below with streaked breast, white background, game asset style, clean vector look, centered composition, no text
+MAWA: Stylized icon of a Magnolia Warbler, simple flat design, circular frame, yellow with black streaks and white wing patch, white background, game asset style, clean vector look, centered composition, no text
+MOWA: Stylized icon of a Mourning Warbler, simple flat design, circular frame, gray hood yellow belly olive back, white background, game asset style, clean vector look, centered composition, no text
+NAWA: Stylized icon of a Nashville Warbler, simple flat design, circular frame, gray head yellow body with white eye ring, white background, game asset style, clean vector look, centered composition, no text
+NOPA: Stylized icon of a Northern Parula, simple flat design, circular frame, blue-gray with yellow throat and chestnut breast band, white background, game asset style, clean vector look, centered composition, no text
+NOWA: Stylized icon of a Northern Waterthrush, simple flat design, circular frame, brown streaked thrush-like warbler, white background, game asset style, clean vector look, centered composition, no text
+OCWA: Stylized icon of an Orange-crowned Warbler, simple flat design, circular frame, plain olive-yellow warbler, white background, game asset style, clean vector look, centered composition, no text
+OVEN: Stylized icon of an Ovenbird, simple flat design, circular frame, olive-brown with orange crown stripe and spotted breast, white background, game asset style, clean vector look, centered composition, no text
+PAWA: Stylized icon of a Palm Warbler, simple flat design, circular frame, rusty cap yellow undertail pumping tail, white background, game asset style, clean vector look, centered composition, no text
+PIWA: Stylized icon of a Pine Warbler, simple flat design, circular frame, olive-yellow warbler with wing bars, white background, game asset style, clean vector look, centered composition, no text
+PRAW: Stylized icon of a Prairie Warbler, simple flat design, circular frame, yellow with black side streaks and face markings, white background, game asset style, clean vector look, centered composition, no text
+PROW: Stylized icon of a Prothonotary Warbler, simple flat design, circular frame, bright golden-yellow head and breast with blue-gray wings, white background, game asset style, clean vector look, centered composition, no text
+SWWA: Stylized icon of a Swainson's Warbler, simple flat design, circular frame, plain brown above buffy below with pale eyebrow, white background, game asset style, clean vector look, centered composition, no text
+TEWA: Stylized icon of a Tennessee Warbler, simple flat design, circular frame, olive-green with gray head and white eyebrow, white background, game asset style, clean vector look, centered composition, no text
+WIWA: Stylized icon of a Wilson's Warbler, simple flat design, circular frame, bright yellow with black cap, white background, game asset style, clean vector look, centered composition, no text
+YTWA: Stylized icon of a Yellow-throated Warbler, simple flat design, circular frame, gray above with bright yellow throat and black face pattern, white background, game asset style, clean vector look, centered composition, no text
+```

@@ -231,6 +231,7 @@
     <button class="filter-btn" data-filter="sparrows">Sparrows</button>
     <button class="filter-btn" data-filter="woodpeckers">Woodpeckers</button>
     <button class="filter-btn" data-filter="warblers">Warblers</button>
+    <button class="filter-btn" data-filter="newbirds" style="background: #ff9800; color: #000;">New Birds</button>
     <span style="color: #666; margin: 0 10px;">|</span>
     <select id="species-select">
       <option value="">Jump to species...</option>
@@ -262,7 +263,7 @@
         'WTSP', 'HOFI', 'EABL', 'AMRO', 'HETH',
         'BHNU', 'BRCR', 'WBNU', 'YBSA', 'RBWO',
         'DOWO', 'HAWO', 'NOFL', 'PIWO', 'BRTH',
-        'GRCA', 'MODO',
+        'GRCA', 'MODO', 'NOMO', 'GCKI', 'RCKI',
       ],
       sparrows: ['WTSP', 'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP'],
       woodpeckers: ['DOWO', 'HAWO', 'RBWO', 'PIWO', 'YBSA', 'NOFL', 'RHWO'],
@@ -272,6 +273,7 @@
         'MAWA', 'MOWA', 'NAWA', 'NOPA', 'NOWA', 'OCWA', 'OVEN', 'PAWA',
         'PIWA', 'PRAW', 'PROW', 'SWWA', 'TEWA', 'WIWA', 'YTWA',
       ],
+      newbirds: ['NOMO', 'GCKI', 'RCKI'],
     };
 
     const SPECIES_INFO = {
@@ -341,6 +343,10 @@
       FISP: { name: 'Field Sparrow', color: '#DEB887' },
       SASP: { name: 'Savannah Sparrow', color: '#9ACD32' },
       LISP: { name: "Lincoln's Sparrow", color: '#8B7355' },
+      // New birds
+      NOMO: { name: 'Northern Mockingbird', color: '#808080' },
+      GCKI: { name: 'Golden-crowned Kinglet', color: '#FFD700' },
+      RCKI: { name: 'Ruby-crowned Kinglet', color: '#DC143C' },
     };
 
     let allClips = [];

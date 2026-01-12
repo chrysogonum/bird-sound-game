@@ -9287,5 +9287,321 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YTWA_649989.png"
+  },
+  {
+    "clip_id": "NOMO_693eb512",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_807449",
+    "file_path": "data/clips/NOMO_807449.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_807449.png"
+  },
+  {
+    "clip_id": "NOMO_a7083102",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_807536",
+    "file_path": "data/clips/NOMO_807536.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_807536.png"
+  },
+  {
+    "clip_id": "NOMO_a23b47f2",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_813943",
+    "file_path": "data/clips/NOMO_813943.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_813943.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "NOMO_53ddfb3a",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_862380",
+    "file_path": "data/clips/NOMO_862380.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_862380.png",
+    "canonical": true
+  },
+  {
+    "clip_id": "NOMO_fb6acda8",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_871912",
+    "file_path": "data/clips/NOMO_871912.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_871912.png"
+  },
+  {
+    "clip_id": "NOMO_126b6162",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_871984",
+    "file_path": "data/clips/NOMO_871984.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_871984.png"
+  },
+  {
+    "clip_id": "NOMO_332dd3fc",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_872514",
+    "file_path": "data/clips/NOMO_872514.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_872514.png"
+  },
+  {
+    "clip_id": "NOMO_c00f455a",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_901002",
+    "file_path": "data/clips/NOMO_901002.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_901002.png"
+  },
+  {
+    "clip_id": "NOMO_f6ff1a25",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_932559",
+    "file_path": "data/clips/NOMO_932559.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_932559.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "NOMO_6678cec2",
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "source_id": "NOMO_981689",
+    "file_path": "data/clips/NOMO_981689.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/NOMO_981689.png"
+  },
+  {
+    "clip_id": "GCKI_df1b5466",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1013478",
+    "file_path": "data/clips/GCKI_1013478.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1013478.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "GCKI_d231f572",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1013479",
+    "file_path": "data/clips/GCKI_1013479.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1013479.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "GCKI_2d02722d",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1013480",
+    "file_path": "data/clips/GCKI_1013480.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1013480.png"
+  },
+  {
+    "clip_id": "GCKI_73c237eb",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1013481",
+    "file_path": "data/clips/GCKI_1013481.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1013481.png",
+    "canonical": true
+  },
+  {
+    "clip_id": "GCKI_4eec8c6c",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1014750",
+    "file_path": "data/clips/GCKI_1014750.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1014750.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "GCKI_cceb4903",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1040799",
+    "file_path": "data/clips/GCKI_1040799.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1040799.png"
+  },
+  {
+    "clip_id": "GCKI_affa6a63",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1047665",
+    "file_path": "data/clips/GCKI_1047665.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1047665.png"
+  },
+  {
+    "clip_id": "GCKI_af6053b6",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1056041",
+    "file_path": "data/clips/GCKI_1056041.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1056041.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "GCKI_12f7ddbc",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1056060",
+    "file_path": "data/clips/GCKI_1056060.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1056060.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "GCKI_d7bc5034",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "source_id": "GCKI_1071802",
+    "file_path": "data/clips/GCKI_1071802.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/GCKI_1071802.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "RCKI_dfa6ffa8",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014439",
+    "file_path": "data/clips/RCKI_1014439.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014439.png"
+  },
+  {
+    "clip_id": "RCKI_a2f4bfc7",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014547",
+    "file_path": "data/clips/RCKI_1014547.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014547.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "RCKI_2c369a51",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014548",
+    "file_path": "data/clips/RCKI_1014548.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014548.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "RCKI_56e9490e",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014751",
+    "file_path": "data/clips/RCKI_1014751.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014751.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "RCKI_19cb58e0",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014752",
+    "file_path": "data/clips/RCKI_1014752.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014752.png",
+    "canonical": true
+  },
+  {
+    "clip_id": "RCKI_ebeb557d",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014753",
+    "file_path": "data/clips/RCKI_1014753.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014753.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "RCKI_142be45c",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014754",
+    "file_path": "data/clips/RCKI_1014754.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014754.png"
+  },
+  {
+    "clip_id": "RCKI_ffe1a45c",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014755",
+    "file_path": "data/clips/RCKI_1014755.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014755.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "RCKI_0d3e08fd",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014756",
+    "file_path": "data/clips/RCKI_1014756.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014756.png"
+  },
+  {
+    "clip_id": "RCKI_85a3f15c",
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "source_id": "RCKI_1014787",
+    "file_path": "data/clips/RCKI_1014787.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/RCKI_1014787.png"
   }
 ]
