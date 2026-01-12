@@ -26,45 +26,19 @@ function MainMenu() {
           }}
         />
 
-        {/* Title with CliffsNotes-inspired design */}
-        <div style={{
-          position: 'relative',
-          padding: '12px 24px',
-          background: '#1a1a1a',
-          borderRadius: '8px',
-          overflow: 'hidden',
+        {/* Title */}
+        <h1 style={{
+          margin: 0,
+          fontSize: '44px',
+          fontWeight: 800,
+          letterSpacing: '-1px',
+          background: 'linear-gradient(135deg, #FFD54F 0%, #FF8A65 50%, #E57373 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
         }}>
-          {/* Diagonal yellow stripes */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: '8px',
-            background: 'repeating-linear-gradient(135deg, #FFD54F 0px, #FFD54F 8px, #1a1a1a 8px, #1a1a1a 16px)',
-          }} />
-          <h1 style={{
-            margin: 0,
-            fontSize: '44px',
-            fontWeight: 800,
-            letterSpacing: '-1px',
-            color: '#FFD54F',
-            textShadow: '2px 2px 0 rgba(0,0,0,0.3)',
-            position: 'relative',
-            zIndex: 1,
-          }}>
-            ChipNotes!
-          </h1>
-          {/* Bottom stripes */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: '8px',
-            background: 'repeating-linear-gradient(135deg, #FFD54F 0px, #FFD54F 8px, #1a1a1a 8px, #1a1a1a 16px)',
-          }} />
-        </div>
+          ChipNotes!
+        </h1>
 
         <p style={{
           color: 'var(--color-text-muted)',
