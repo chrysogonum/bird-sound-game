@@ -126,6 +126,10 @@ YBSA: Stylized icon of a Yellow-bellied Sapsucker, simple flat design, circular 
 | NOMO | Northern Mockingbird | Stylized icon of a Northern Mockingbird, simple flat design, circular frame, gray bird with white wing patches, white background, game asset style, clean vector look, centered composition, no text |
 | GCKI | Golden-crowned Kinglet | Stylized icon of a Golden-crowned Kinglet, simple flat design, circular frame, tiny olive bird with golden crown stripe, white background, game asset style, clean vector look, centered composition, no text |
 | RCKI | Ruby-crowned Kinglet | Stylized icon of a Ruby-crowned Kinglet, simple flat design, circular frame, tiny olive-gray bird with white eye ring, white background, game asset style, clean vector look, centered composition, no text |
+| COHA | Cooper's Hawk | Stylized icon of a Cooper's Hawk, simple flat design, circular frame, blue-gray hawk with rusty barred breast and red eye, white background, game asset style, clean vector look, centered composition, no text |
+| SSHA | Sharp-shinned Hawk | Stylized icon of a Sharp-shinned Hawk, simple flat design, circular frame, small blue-gray hawk with rusty barred breast, white background, game asset style, clean vector look, centered composition, no text |
+| RTHA | Red-tailed Hawk | Stylized icon of a Red-tailed Hawk, simple flat design, circular frame, brown hawk with rusty red tail and pale chest, white background, game asset style, clean vector look, centered composition, no text |
+| RTHU | Ruby-throated Hummingbird | Stylized icon of a Ruby-throated Hummingbird, simple flat design, circular frame, tiny green bird with iridescent red throat, white background, game asset style, clean vector look, centered composition, no text |
 
 ---
 
@@ -173,6 +177,10 @@ YBSA: Stylized icon of a Yellow-bellied Sapsucker, simple flat design, circular 
 NOMO: Stylized icon of a Northern Mockingbird, simple flat design, circular frame, gray bird with white wing patches, white background, game asset style, clean vector look, centered composition, no text
 GCKI: Stylized icon of a Golden-crowned Kinglet, simple flat design, circular frame, tiny olive bird with golden crown stripe, white background, game asset style, clean vector look, centered composition, no text
 RCKI: Stylized icon of a Ruby-crowned Kinglet, simple flat design, circular frame, tiny olive-gray bird with white eye ring, white background, game asset style, clean vector look, centered composition, no text
+COHA: Stylized icon of a Cooper's Hawk, simple flat design, circular frame, blue-gray hawk with rusty barred breast and red eye, white background, game asset style, clean vector look, centered composition, no text
+SSHA: Stylized icon of a Sharp-shinned Hawk, simple flat design, circular frame, small blue-gray hawk with rusty barred breast, white background, game asset style, clean vector look, centered composition, no text
+RTHA: Stylized icon of a Red-tailed Hawk, simple flat design, circular frame, brown hawk with rusty red tail and pale chest, white background, game asset style, clean vector look, centered composition, no text
+RTHU: Stylized icon of a Ruby-throated Hummingbird, simple flat design, circular frame, tiny green bird with iridescent red throat, white background, game asset style, clean vector look, centered composition, no text
 AMRE: Stylized icon of an American Redstart, simple flat design, circular frame, black bird with orange patches on wings and tail, white background, game asset style, clean vector look, centered composition, no text
 BAWW: Stylized icon of a Black-and-white Warbler, simple flat design, circular frame, striped black and white bird, white background, game asset style, clean vector look, centered composition, no text
 BBWA: Stylized icon of a Bay-breasted Warbler, simple flat design, circular frame, chestnut sides and cap with cream neck patch, white background, game asset style, clean vector look, centered composition, no text
