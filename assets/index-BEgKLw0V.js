@@ -1316,7 +1316,7 @@ void main(void)\r
         .training-toggle {
           position: absolute;
           top: calc(12px + var(--safe-area-top, 0px));
-          right: 8px;
+          left: 56px;
           width: 40px;
           height: 40px;
           background: rgba(0, 0, 0, 0.3);
