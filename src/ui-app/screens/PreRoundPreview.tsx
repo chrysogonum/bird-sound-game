@@ -407,20 +407,6 @@ function PreRoundPreview() {
           )}
         </div>
 
-        {/* Tips */}
-        <div style={{
-          fontSize: '12px',
-          color: 'var(--color-text-muted)',
-          opacity: 0.7,
-          marginBottom: '16px',
-          textAlign: 'center',
-          lineHeight: 1.6,
-        }}>
-          🔊 Sound on for best experience
-          <br />
-          👁 Tap the eye icon during play to reveal birds
-        </div>
-
         {/* Species grid */}
         <div style={{
           display: 'grid',
