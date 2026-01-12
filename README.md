@@ -1,176 +1,125 @@
-# SoundField: Birds
+# Chirp!
 
-A rhythm-game–style training app that teaches players to identify bird sounds in real time. Think **Guitar Hero for birding**.
+A bird sound identification game that trains your ear and eye to recognize birds by their songs, calls, and spectrograms.
 
-### [Play the Game](https://chrysogonum.github.io/bird-sound-game/)
+### [Play Now](https://chrysogonum.github.io/bird-sound-game/)
 
 ## What Is This?
 
-Players identify:
-- **Which bird** (species via radial wheel)
-- **Which ear** (left/right channel)
-- **At the right moment** (timing accuracy)
+Chirp! helps you learn to identify birds by sound. Each round presents bird vocalizations as tiles scrolling down the screen. You hear the sound, see its spectrogram, and tap the matching bird before it reaches the bottom.
 
-**Core Principle:** Audio-first, visual-augmented. Audio is always primary; spectrograms are optional scaffolding that fade as skill improves.
+**The dual approach:** Learn to recognize both what birds *sound* like and what their songs *look* like. Spectrograms reveal patterns—rising whistles, buzzy trills, rapid chips—that become as recognizable as the sounds themselves.
 
-## Demo
+## How To Play
 
-```
-Bird call plays in LEFT ear
-→ Player taps LEFT side of screen
-→ Player selects "Carolina Wren" on wheel
-→ +100 points (species + channel + timing correct)
-```
+1. **Hear a sound** — A bird vocalization plays
+2. **See the spectrogram** — Visual fingerprint of the sound scrolls down
+3. **Tap the match** — Select the correct bird from the options at the bottom
+
+Build streaks for bonus points. Miss too many and the round ends.
+
+## Bird Packs
+
+| Pack | Species | Description |
+|------|---------|-------------|
+| **5 Common Backyard Birds** | 5 | Start here — bold, distinctive voices |
+| **Expanded Local Birds** | 30 | Eastern US species, 9 random per round |
+| **Sparrows** | 7 | Subtle songs of seven sparrow species |
+| **Woodpeckers** | 7 | Drums, calls, and rattles |
+| **Spring Warblers** | 31 | High-pitched songs of migration |
+
+**Custom Packs:** Build your own training session. Drill a nemesis bird, compare confusing species head-to-head, or mix from any pack.
+
+## Difficulty Levels
+
+Each pack has 6 levels of increasing challenge:
+
+1. **Meet the Birds** — Signature sounds only, one at a time
+2. **Getting Comfortable** — A few more variations
+3. **Building Skills** — Overlapping sounds begin
+4. **Intermediate** — Faster pace, more variety
+5. **Advanced** — Full repertoires, tighter timing
+6. **Expert** — All variations, maximum challenge
 
 ## Features
 
-- **4 Game Modes:** Campaign, Practice, Challenge, Random Soundfield
-- **Sound Packs:** Curated species groups (Common SE Birds, Spring Warblers, Sparrows, Woodpeckers)
-- **Progressive Difficulty:** Event density, overlap, timing windows, spectrogram visibility
-- **Real Audio:** Sourced from Xeno-canto, normalized and tagged
-- **Confusion Analytics:** Learn which species you mix up
+- **650+ curated clips** from Xeno-canto, hand-reviewed for quality
+- **Real spectrograms** generated for every clip
+- **Progressive learning** from single canonical sounds to full repertoires
+- **Continuous play mode** for relaxed practice (no timer)
+- **Pre-round preview** to hear/see birds before playing
+- **Custom pack builder** for targeted practice
 
-## Current Species (v1)
+## Species Coverage
 
-Southeastern U.S. focus with multiple vocalizations per species:
+**80 species** across 5 packs with 650+ audio clips:
 
-| Species | Code | Clips | Variety |
-|---------|------|-------|---------|
-| Northern Cardinal | NOCA | 5 | songs + calls |
-| Carolina Wren | CARW | 5 | songs + calls |
-| Blue Jay | BLJA | 4 | songs + calls |
-| American Crow | AMCR | 5 | songs + calls |
-| Tufted Titmouse | TUTI | 5 | songs + calls |
+- Backyard birds (cardinals, wrens, jays, chickadees)
+- Raptors (Red-shouldered Hawk)
+- Woodpeckers (7 species from Downy to Pileated)
+- Sparrows (7 species including White-throated, Song, Field)
+- Warblers (31 spring migration species)
 
-**24 total clips** sourced from Xeno-canto (Quality A, SE USA recordings).
-
-*...expanding to 30-50 species*
+All audio sourced from [Xeno-canto](https://xeno-canto.org) with quality A ratings.
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|------------|
-| Game Code | TypeScript |
-| Audio Engine | Web Audio API |
-| Asset Pipelines | Python |
-| Testing | Vitest |
-| Build | Make |
-
-## Quick Start
-
-```bash
-# Install dependencies
-make install
-
-# Run tests
-make test
-
-# Start dev server
-make dev
-```
+| Component | Technology |
+|-----------|------------|
+| Frontend | React + TypeScript |
+| Game Rendering | PixiJS 8 |
+| Audio | Web Audio API |
+| Hosting | GitHub Pages (PWA) |
+| Audio Pipeline | Python (scipy, matplotlib) |
 
 ## Development
 
-This project uses phased development with Make targets:
-
 ```bash
-make phase-a    # Audio ingestion
-make phase-b    # Playback engine
-make phase-c    # Input & scoring
-make phase-d    # Level system
-make phase-e    # UX polish
-make phase-f    # Game modes
-# ... phases G-N for packs, spectrograms, analytics
+# Install dependencies
+npm install
+
+# Run dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
-Validate any phase:
-```bash
-make smoke-b    # Run Phase B tests
-make ralph PHASE=c  # Build + test Phase C
-```
+## Audio Pipeline
+
+New species are added via:
+
+1. **Download** from Xeno-canto API (`scripts/audio_ingest.py`)
+2. **Normalize** to -16 LUFS, trim to 3 seconds
+3. **Review** using the clip curator tool (`data/review-clips.html`)
+4. **Generate spectrograms** (`scripts/generate_spectrograms.py`)
+5. **Update** clips.json with canonical/rejected flags
 
 ## Project Structure
 
 ```
-src/
-├── audio/      # AudioEngine, ChannelMixer
-├── input/      # RadialWheel, ChannelInput
-├── scoring/    # ScoreEngine, FeedbackRenderer
-├── game/       # LevelLoader, EventScheduler, RoundManager
-├── ui/         # HUD, RoundSummary, ConfusionMatrix, Calibration
-├── modes/      # Campaign, Practice, Challenge, Random
-├── packs/      # PackLoader, PackSelector
-├── visual/     # LaneRenderer, TileManager
-├── storage/    # ProgressStore
-└── stats/      # StatsCalculator, ConfusionTracker
+src/ui-app/
+├── screens/      # React screens (MainMenu, PackSelect, etc.)
+├── game/         # PixiJS gameplay + useGameEngine hook
+└── styles/       # Global CSS
 
-scripts/        # Python: audio_ingest, spectrogram_gen
-data/           # clips/, packs/, levels.json
-schemas/        # JSON schemas for validation
-tests/          # Vitest test files
+data/
+├── clips/        # WAV files (3s, normalized)
+├── spectrograms/ # PNG spectrograms
+├── icons/        # Bird icon assets
+├── packs/        # Pack configuration JSON
+└── clips.json    # Master clip metadata
 ```
-
-## Scoring
-
-| Result | Points |
-|--------|--------|
-| Species correct | +50 |
-| Channel correct | +25 |
-| Timing (early) | +25 |
-| Timing (medium) | +20 |
-| Timing (late) | +15 |
-| **Maximum** | **+100** |
-
-Earlier identification = more points. Identify within ~1.75 seconds for max timing bonus.
-
-## Implementation Status
-
-### Engine (Complete)
-
-| Phase | Description | Tests | Status |
-|-------|-------------|-------|--------|
-| A | Audio ingestion & tagging | ✓ | ✅ |
-| B | Stereo playback engine | 23 | ✅ |
-| C | Input & scoring loop | 37 | ✅ |
-| D | Level system | 35 | ✅ |
-| E | UX polish & feedback | 45 | ✅ |
-| F | Game modes | 54 | ✅ |
-| G | Pack system | 44 | ✅ |
-| H | Difficulty modifiers | 29 | ✅ |
-| I | Random Soundfield | 47 | ✅ |
-| J | Progression & stats | 59 | ✅ |
-| K | Spectrogram generation | ✓ | ✅ |
-| L | Lane renderer | 52 | ✅ |
-| M | Visual modes | 60 | ✅ |
-| N | Confusion analytics | 37 | ✅ |
-
-**Engine: 522 tests passing**
-
-### UI (React + PixiJS)
-
-| Phase | Description | Status |
-|-------|-------------|--------|
-| O | Project setup & navigation | ✅ |
-| P | Gameplay layout (static) | ✅ |
-| Q | Engine integration | ✅ |
-| R | Tile animation & feedback | ✅ |
-| S | Supporting screens | ✅ |
-| T | Polish & mobile testing | ✅ |
-
-**UI: ALL PHASES COMPLETE** • PWA-ready • 204KB gzipped
-
-**Stack:** React (screens) + PixiJS (gameplay) • Mobile-first • Portrait • PWA
-
-## Documentation
-
-See `PRD-SoundField-Birds.md` for full requirements, data models, and acceptance criteria.
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+MIT License
 
-Bird recordings from [Xeno-Canto](https://xeno-canto.org) retain their original CC licenses.
+Bird recordings from [Xeno-canto](https://xeno-canto.org) retain their original CC licenses.
 
 ---
 
-*Built with [Claude Code](https://claude.ai/code) using Ralph loops*
+*Built with [Claude Code](https://claude.ai/code)*
