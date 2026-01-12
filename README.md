@@ -66,8 +66,7 @@ Each pack has 6 levels of increasing challenge:
 
 **77 species** across 5 packs with 700+ audio clips:
 
-- Backyard birds (cardinals, wrens, jays, chickadees, grackles)
-- Raptors (hawks, owl, hummingbird)
+- Backyard birds (cardinals, wrens, jays, chickadees, crows)
 - Woodpeckers (7 species from Downy to Pileated)
 - Sparrows (7 species including White-throated, Song, Field)
 - Warblers (33 spring migration species)
