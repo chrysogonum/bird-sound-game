@@ -178,7 +178,7 @@ function PackSelect() {
         <ul style={{ margin: 0, paddingLeft: '20px' }}>
           <li>Each pack has 6 levels - from signature sounds to full repertoires</li>
           <li>Start with level 1, repeat until you are ready for harder levels</li>
-          <li>Pro tip: Enable "training" mode 👁 to kick-start your learning. See <Link to="/help" style={{ color: 'var(--color-accent)' }}>How to Play</Link> for full instructions</li>
+          <li>Pro tip: Enable "training" mode (👁) to kick-start your learning. See <Link to="/help" style={{ color: 'var(--color-accent)' }}>How to Play</Link> for full instructions</li>
           <li>Once you're an expert, try playing muted using only spectrograms!</li>
           <li style={{ fontWeight: 600 }}>🔊 Sound ON (unmute) for best experience!</li>
         </ul>
