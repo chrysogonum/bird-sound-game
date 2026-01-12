@@ -9867,7 +9867,8 @@
     "file_path": "data/clips/RTHA_914680.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHA_914680.png"
+    "spectrogram_path": "data/spectrograms/RTHA_914680.png",
+    "canonical": true
   },
   {
     "clip_id": "RTHA_f1674979",
