@@ -116,6 +116,7 @@ function PreRoundPreview() {
   const [searchParams] = useSearchParams();
   const packId = searchParams.get('pack') || 'starter_birds';
   const levelId = parseInt(searchParams.get('level') || '1', 10);
+  const keepBirds = searchParams.get('keepBirds') === 'true';
 
   const [level, setLevel] = useState<LevelConfig | null>(null);
   const [clips, setClips] = useState<ClipData[]>([]);
@@ -140,6 +141,34 @@ function PreRoundPreview() {
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     });
+  }, []);
+
+  // Select random species from the pool
+  const selectRandomSpecies = useCallback((levelConfig: LevelConfig, clipsData: ClipData[]) => {
+    const pool = levelConfig.species_pool || [];
+    const count = levelConfig.species_count || pool.length;
+
+    // Shuffle and take count, then sort alphabetically for display
+    const shuffled = [...pool].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, count).sort();
+
+    // Build species info with canonical clips
+    const speciesInfo: SelectedSpecies[] = selected.map((code, index) => {
+      const canonicalClip = clipsData.find(
+        c => c.species_code === code && c.canonical && !c.rejected
+      );
+      const anyClip = clipsData.find(c => c.species_code === code && !c.rejected);
+      const clip = canonicalClip || anyClip;
+
+      return {
+        code,
+        name: clip?.common_name || code,
+        color: SPECIES_COLORS[index % SPECIES_COLORS.length],
+        clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
+      };
+    });
+
+    setSelectedSpecies(speciesInfo);
   }, []);
 
   // Load level and clips
@@ -186,7 +215,29 @@ function PreRoundPreview() {
       const foundLevel = levels.find(l => l.pack_id === packId && l.level_id === levelId);
       if (foundLevel) {
         setLevel(foundLevel);
-        // Select initial species
+
+        // Check if we should keep the same birds from previous round
+        if (keepBirds) {
+          const savedSpecies = sessionStorage.getItem('roundSpecies');
+          if (savedSpecies) {
+            try {
+              const previousSpecies = JSON.parse(savedSpecies) as string[];
+              // Verify these species are still in the pool
+              const pool = foundLevel.species_pool || [];
+              const validSpecies = previousSpecies.filter(s => pool.includes(s));
+              if (validSpecies.length === previousSpecies.length) {
+                // All previous species are valid, use them
+                setSelectedSpecies(buildSpeciesInfo(validSpecies, clipsData));
+                setLoading(false);
+                return;
+              }
+            } catch (e) {
+              console.error('Failed to parse saved species:', e);
+            }
+          }
+        }
+
+        // Otherwise select new random species
         selectRandomSpecies(foundLevel, clipsData);
       }
       setLoading(false);
@@ -194,35 +245,7 @@ function PreRoundPreview() {
       console.error('Failed to load data:', err);
       setLoading(false);
     });
-  }, [packId, levelId, buildSpeciesInfo]);
-
-  // Select random species from the pool
-  const selectRandomSpecies = useCallback((levelConfig: LevelConfig, clipsData: ClipData[]) => {
-    const pool = levelConfig.species_pool || [];
-    const count = levelConfig.species_count || pool.length;
-
-    // Shuffle and take count, then sort alphabetically for display
-    const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    const selected = shuffled.slice(0, count).sort();
-
-    // Build species info with canonical clips
-    const speciesInfo: SelectedSpecies[] = selected.map((code, index) => {
-      const canonicalClip = clipsData.find(
-        c => c.species_code === code && c.canonical && !c.rejected
-      );
-      const anyClip = clipsData.find(c => c.species_code === code && !c.rejected);
-      const clip = canonicalClip || anyClip;
-
-      return {
-        code,
-        name: clip?.common_name || code,
-        color: SPECIES_COLORS[index % SPECIES_COLORS.length],
-        clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
-      };
-    });
-
-    setSelectedSpecies(speciesInfo);
-  }, []);
+  }, [packId, levelId, keepBirds, buildSpeciesInfo, selectRandomSpecies]);
 
   // Shuffle species
   const handleShuffle = () => {
