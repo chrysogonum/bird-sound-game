@@ -402,7 +402,7 @@ function createTile(
     });
     const codeLabel = new PIXI.Text(event.species_code, codeStyle);
     codeLabel.anchor.set(0.5);
-    codeLabel.position.set(tileWidth / 2 - 20, -tileHeight / 2 + 38);
+    codeLabel.position.set(tileWidth / 2 - 20, -tileHeight / 2 + 44);
     codeLabel.alpha = 0.8;
     container.addChild(codeLabel);
   }
