@@ -10028,5 +10028,99 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/RTHU_691886.png"
+  },
+  {
+    "clip_id": "BADO_00warning",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_00warning",
+    "file_path": "data/clips/BADO_00warning.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_00warning.png"
+  },
+  {
+    "clip_id": "BADO_3fc1aac7",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_3fc1aac7",
+    "file_path": "data/clips/BADO_3fc1aac7.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_3fc1aac7.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "BADO_628739bc",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_628739bc",
+    "file_path": "data/clips/BADO_628739bc.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_628739bc.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "BADO_6e950e4c",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_6e950e4c",
+    "file_path": "data/clips/BADO_6e950e4c.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_6e950e4c.png"
+  },
+  {
+    "clip_id": "BADO_a04d9a56",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_a04d9a56",
+    "file_path": "data/clips/BADO_a04d9a56.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_a04d9a56.png"
+  },
+  {
+    "clip_id": "BADO_cd219511",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_cd219511",
+    "file_path": "data/clips/BADO_cd219511.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_cd219511.png",
+    "canonical": true
+  },
+  {
+    "clip_id": "BADO_cda28705",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_cda28705",
+    "file_path": "data/clips/BADO_cda28705.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_cda28705.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "BADO_ecde4ff0",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_ecde4ff0",
+    "file_path": "data/clips/BADO_ecde4ff0.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_ecde4ff0.png"
+  },
+  {
+    "clip_id": "BADO_f5f22f40",
+    "species_code": "BADO",
+    "common_name": "Barred Owl",
+    "source_id": "BADO_f5f22f40",
+    "file_path": "data/clips/BADO_f5f22f40.wav",
+    "vocalization_type": "call",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/BADO_f5f22f40.png"
   }
 ]
