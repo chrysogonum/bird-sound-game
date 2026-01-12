@@ -81,11 +81,11 @@ function MainMenu() {
 
         {/* How it works - visual gameplay preview */}
         <div style={{
-          marginTop: '32px',
-          padding: '24px 32px',
+          marginTop: '24px',
+          padding: '16px 20px',
           background: 'var(--color-surface)',
           borderRadius: '16px',
-          maxWidth: '360px',
+          maxWidth: '340px',
         }}>
           <div style={{
             display: 'flex',
@@ -157,41 +157,41 @@ function MainMenu() {
       {/* Bottom nav icons */}
       <div style={{
         position: 'absolute',
-        bottom: 'calc(24px + var(--safe-area-bottom, 0px))',
+        bottom: 'calc(28px + var(--safe-area-bottom, 0px))',
         left: 0,
         right: 0,
         display: 'flex',
         justifyContent: 'center',
-        gap: '32px',
+        gap: '40px',
       }}>
         <button
           className="btn-icon"
           onClick={() => navigate('/help')}
           aria-label="How to Play"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
         >
           <HelpIcon />
-          <span style={{ fontSize: '10px', opacity: 0.6 }}>Help</span>
+          <span style={{ fontSize: '12px', opacity: 0.7 }}>Help</span>
         </button>
 
         <button
           className="btn-icon"
           onClick={() => navigate('/settings')}
           aria-label="Settings"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
         >
           <SettingsIcon />
-          <span style={{ fontSize: '10px', opacity: 0.6 }}>Settings</span>
+          <span style={{ fontSize: '12px', opacity: 0.7 }}>Settings</span>
         </button>
 
         <button
           className="btn-icon"
           onClick={() => navigate('/progress')}
           aria-label="Progress"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
         >
           <StatsIcon />
-          <span style={{ fontSize: '10px', opacity: 0.6 }}>Stats</span>
+          <span style={{ fontSize: '12px', opacity: 0.7 }}>Stats</span>
         </button>
       </div>
     </div>
@@ -223,7 +223,7 @@ function SpectrogramMini() {
 
 function HelpIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <circle cx="12" cy="12" r="10" />
       <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
       <line x1="12" y1="17" x2="12.01" y2="17" />
@@ -233,7 +233,7 @@ function HelpIcon() {
 
 function SettingsIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <circle cx="12" cy="12" r="3" />
       <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
     </svg>
@@ -242,7 +242,7 @@ function SettingsIcon() {
 
 function StatsIcon() {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M3 3v18h18" />
       <path d="M7 16l4-4 4 4 6-6" />
     </svg>
