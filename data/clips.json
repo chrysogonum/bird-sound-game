@@ -2557,7 +2557,7 @@
     "source": "xenocanto",
     "source_id": "CARW_899254",
     "file_path": "data/clips/CARW_899254.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/CARW_927ee4fc.png",
     "rejected": true
   },
   {
@@ -6182,7 +6182,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_570603",
     "file_path": "data/clips/PIWA_570603.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/PIWA_39341fcb.png",
     "rejected": true
   },
   {
@@ -6220,7 +6220,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_336979",
     "file_path": "data/clips/PIWA_336979.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/PIWA_59d52da0.png",
     "rejected": true
   },
   {
@@ -6272,7 +6272,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_933612",
     "file_path": "data/clips/PIWA_933612.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/PIWA_89d06f67.png",
     "rejected": true
   },
   {
@@ -6310,7 +6310,7 @@
     "source": "xenocanto",
     "source_id": "PIWA_895219",
     "file_path": "data/clips/PIWA_895219.wav",
-    "spectrogram_path": null,
+    "spectrogram_path": "data/spectrograms/PIWA_da532d67.png",
     "rejected": true
   },
   {
@@ -10346,7 +10346,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/CEWA_1014826.png"
   },
   {
     "clip_id": "CEWA_1014827",
@@ -10357,7 +10358,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/CEWA_1014827.png"
   },
   {
     "clip_id": "CEWA_1014828",
@@ -10368,7 +10370,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/CEWA_1014828.png"
   },
   {
     "clip_id": "CEWA_1014829",
@@ -10379,7 +10382,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/CEWA_1014829.png"
   },
   {
     "clip_id": "CEWA_1014830",
@@ -10390,7 +10394,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/CEWA_1014830.png"
   },
   {
     "clip_id": "CEWA_1014831",
@@ -10401,7 +10406,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/CEWA_1014831.png"
   },
   {
     "clip_id": "CEWA_1014832",
@@ -10412,7 +10418,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/CEWA_1014832.png"
   },
   {
     "clip_id": "CEWA_1014833",
@@ -10423,7 +10430,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/CEWA_1014833.png"
   },
   {
     "clip_id": "CEWA_1056061",
@@ -10434,7 +10442,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/CEWA_1056061.png"
   },
   {
     "clip_id": "CEWA_1056063",
@@ -10445,7 +10454,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/CEWA_1056063.png"
   },
   {
     "clip_id": "COGR_1011276",
@@ -10456,7 +10466,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/COGR_1011276.png"
   },
   {
     "clip_id": "COGR_1012859",
@@ -10467,7 +10478,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/COGR_1012859.png"
   },
   {
     "clip_id": "COGR_1013475",
@@ -10478,7 +10490,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/COGR_1013475.png"
   },
   {
     "clip_id": "COGR_1014329",
@@ -10489,7 +10502,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/COGR_1014329.png"
   },
   {
     "clip_id": "COGR_1014490",
@@ -10500,7 +10514,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/COGR_1014490.png"
   },
   {
     "clip_id": "COGR_1014491",
@@ -10511,7 +10526,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/COGR_1014491.png"
   },
   {
     "clip_id": "COGR_1014939",
@@ -10522,7 +10538,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/COGR_1014939.png"
   },
   {
     "clip_id": "COGR_1014942",
@@ -10533,7 +10550,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/COGR_1014942.png"
   },
   {
     "clip_id": "COGR_1014943",
@@ -10544,7 +10562,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/COGR_1014943.png"
   },
   {
     "clip_id": "COGR_476643",
@@ -10555,7 +10574,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/COGR_476643.png"
   },
   {
     "clip_id": "FICR_264969",
@@ -10566,7 +10586,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/FICR_264969.png"
   },
   {
     "clip_id": "FICR_264970",
@@ -10577,7 +10598,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/FICR_264970.png"
   },
   {
     "clip_id": "FICR_265670",
@@ -10588,7 +10610,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/FICR_265670.png"
   },
   {
     "clip_id": "FICR_265671",
@@ -10599,7 +10622,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/FICR_265671.png"
   },
   {
     "clip_id": "FICR_286406",
@@ -10610,7 +10634,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/FICR_286406.png"
   },
   {
     "clip_id": "FICR_345292",
@@ -10621,7 +10646,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/FICR_345292.png"
   },
   {
     "clip_id": "FICR_459772",
@@ -10632,7 +10658,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/FICR_459772.png"
   },
   {
     "clip_id": "FICR_815114",
@@ -10643,7 +10670,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/FICR_815114.png"
   },
   {
     "clip_id": "FICR_822351",
@@ -10654,7 +10682,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/FICR_822351.png"
   },
   {
     "clip_id": "FICR_902120",
@@ -10665,7 +10694,8 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "spectrogram_path": "data/spectrograms/FICR_902120.png"
   },
   {
     "clip_id": "EATO_1038305",
@@ -10676,7 +10706,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_1038305.png"
   },
   {
     "clip_id": "EATO_413387",
@@ -10687,7 +10718,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_413387.png"
   },
   {
     "clip_id": "EATO_419731",
@@ -10698,7 +10730,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_419731.png"
   },
   {
     "clip_id": "EATO_422787",
@@ -10709,7 +10742,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_422787.png"
   },
   {
     "clip_id": "EATO_432722",
@@ -10720,7 +10754,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_432722.png"
   },
   {
     "clip_id": "EATO_433388",
@@ -10731,7 +10766,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_433388.png"
   },
   {
     "clip_id": "EATO_444954",
@@ -10742,7 +10778,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_444954.png"
   },
   {
     "clip_id": "EATO_554006",
@@ -10753,7 +10790,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_554006.png"
   },
   {
     "clip_id": "EATO_554032",
@@ -10764,7 +10802,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_554032.png"
   },
   {
     "clip_id": "EATO_559342",
@@ -10775,7 +10814,8 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
-    "rejected": true
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms/EATO_559342.png"
   },
   {
     "clip_id": "EATO_086e6d42",
@@ -10787,7 +10827,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_086e6d42.png"
   },
   {
     "clip_id": "EATO_20ee509c",
@@ -10799,7 +10840,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_20ee509c.png"
   },
   {
     "clip_id": "EATO_25267109",
@@ -10811,7 +10853,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "xeno_canto"
+    "source": "xeno_canto",
+    "spectrogram_path": "data/spectrograms/EATO_25267109.png"
   },
   {
     "clip_id": "EATO_26588869",
@@ -10823,7 +10866,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "xeno_canto"
+    "source": "xeno_canto",
+    "spectrogram_path": "data/spectrograms/EATO_26588869.png"
   },
   {
     "clip_id": "EATO_29242847",
@@ -10835,7 +10879,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "xeno_canto"
+    "source": "xeno_canto",
+    "spectrogram_path": "data/spectrograms/EATO_29242847.png"
   },
   {
     "clip_id": "EATO_2d65538a",
@@ -10847,7 +10892,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_2d65538a.png"
   },
   {
     "clip_id": "EATO_2f0138b7",
@@ -10859,7 +10905,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_2f0138b7.png"
   },
   {
     "clip_id": "EATO_36c30c93",
@@ -10871,7 +10918,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_36c30c93.png"
   },
   {
     "clip_id": "EATO_41350df5",
@@ -10883,7 +10931,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_41350df5.png"
   },
   {
     "clip_id": "EATO_42454a2f",
@@ -10895,7 +10944,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_42454a2f.png"
   },
   {
     "clip_id": "EATO_47cf73c0",
@@ -10907,7 +10957,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_47cf73c0.png"
   },
   {
     "clip_id": "EATO_48d22dfb",
@@ -10919,7 +10970,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_48d22dfb.png"
   },
   {
     "clip_id": "EATO_48dc1ecc",
@@ -10931,7 +10983,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_48dc1ecc.png"
   },
   {
     "clip_id": "EATO_49fd39ee",
@@ -10943,7 +10996,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_49fd39ee.png"
   },
   {
     "clip_id": "EATO_4ab53fc0",
@@ -10955,7 +11009,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_4ab53fc0.png"
   },
   {
     "clip_id": "EATO_4d4985c3",
@@ -10967,7 +11022,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_4d4985c3.png"
   },
   {
     "clip_id": "EATO_5c251d3d",
@@ -10979,7 +11035,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_5c251d3d.png"
   },
   {
     "clip_id": "EATO_5e86dfb7",
@@ -10991,7 +11048,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_5e86dfb7.png"
   },
   {
     "clip_id": "EATO_5ff7ff83",
@@ -11003,7 +11061,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_5ff7ff83.png"
   },
   {
     "clip_id": "EATO_62ba2f2f",
@@ -11015,7 +11074,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_62ba2f2f.png"
   },
   {
     "clip_id": "EATO_69d54465",
@@ -11027,7 +11087,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_69d54465.png"
   },
   {
     "clip_id": "EATO_783ab277",
@@ -11039,7 +11100,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_783ab277.png"
   },
   {
     "clip_id": "EATO_7e95256d",
@@ -11051,7 +11113,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_7e95256d.png"
   },
   {
     "clip_id": "EATO_82f5327d",
@@ -11063,7 +11126,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_82f5327d.png"
   },
   {
     "clip_id": "EATO_86f893bf",
@@ -11075,7 +11139,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_86f893bf.png"
   },
   {
     "clip_id": "EATO_874e14ce",
@@ -11087,7 +11152,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_874e14ce.png"
   },
   {
     "clip_id": "EATO_87cf8844",
@@ -11099,7 +11165,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_87cf8844.png"
   },
   {
     "clip_id": "EATO_8bebe209",
@@ -11111,7 +11178,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_8bebe209.png"
   },
   {
     "clip_id": "EATO_8fd862f5",
@@ -11123,7 +11191,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_8fd862f5.png"
   },
   {
     "clip_id": "EATO_9549d208",
@@ -11135,7 +11204,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_9549d208.png"
   },
   {
     "clip_id": "EATO_9ef2c5bc",
@@ -11147,7 +11217,8 @@
     "quality_rating": "A",
     "canonical": true,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_9ef2c5bc.png"
   },
   {
     "clip_id": "EATO_9f12b918",
@@ -11159,7 +11230,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_9f12b918.png"
   },
   {
     "clip_id": "EATO_ab40420d",
@@ -11171,7 +11243,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_ab40420d.png"
   },
   {
     "clip_id": "EATO_b40c7a0e",
@@ -11183,7 +11256,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_b40c7a0e.png"
   },
   {
     "clip_id": "EATO_c21808f0",
@@ -11195,7 +11269,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_c21808f0.png"
   },
   {
     "clip_id": "EATO_cc70cabb",
@@ -11207,7 +11282,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_cc70cabb.png"
   },
   {
     "clip_id": "EATO_ce8d1f18",
@@ -11219,7 +11295,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_ce8d1f18.png"
   },
   {
     "clip_id": "EATO_d4a9a5d6",
@@ -11231,7 +11308,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_d4a9a5d6.png"
   },
   {
     "clip_id": "EATO_dc366274",
@@ -11243,7 +11321,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_dc366274.png"
   },
   {
     "clip_id": "EATO_e1f5bcb5",
@@ -11255,7 +11334,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_e1f5bcb5.png"
   },
   {
     "clip_id": "EATO_e263daf2",
@@ -11267,7 +11347,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_e263daf2.png"
   },
   {
     "clip_id": "EATO_ed09849a",
@@ -11279,7 +11360,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_ed09849a.png"
   },
   {
     "clip_id": "EATO_edc6c990",
@@ -11291,7 +11373,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_edc6c990.png"
   },
   {
     "clip_id": "EATO_f77c9c0d",
@@ -11303,7 +11386,8 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_f77c9c0d.png"
   },
   {
     "clip_id": "EATO_fa1eb9b4",
@@ -11315,6 +11399,7 @@
     "quality_rating": "A",
     "canonical": false,
     "rejected": false,
-    "source": "user_recording"
+    "source": "user_recording",
+    "spectrogram_path": "data/spectrograms/EATO_fa1eb9b4.png"
   }
 ]
