@@ -34,8 +34,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMCR_1007629",
-    "file_path": "data/clips/AMCR_1007629.wav",
-    "spectrogram_path": "data/spectrograms/AMCR_1007629.png",
+    "file_path": "data/clips-rejected/AMCR_1007629.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMCR_1007629.png",
     "rejected": true
   },
   {
@@ -47,8 +47,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMCR_1056042",
-    "file_path": "data/clips/AMCR_1056042.wav",
-    "spectrogram_path": "data/spectrograms/AMCR_1056042.png",
+    "file_path": "data/clips-rejected/AMCR_1056042.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMCR_1056042.png",
     "rejected": true
   },
   {
@@ -98,8 +98,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMCR_905503",
-    "file_path": "data/clips/AMCR_905503.wav",
-    "spectrogram_path": "data/spectrograms/AMCR_905503.png",
+    "file_path": "data/clips-rejected/AMCR_905503.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMCR_905503.png",
     "rejected": true
   },
   {
@@ -214,8 +214,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMGO_1056062",
-    "file_path": "data/clips/AMGO_1056062.wav",
-    "spectrogram_path": "data/spectrograms/AMGO_1056062.png",
+    "file_path": "data/clips-rejected/AMGO_1056062.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMGO_1056062.png",
     "rejected": true
   },
   {
@@ -291,8 +291,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMGO_1033751",
-    "file_path": "data/clips/AMGO_1033751.wav",
-    "spectrogram_path": "data/spectrograms/AMGO_1033751.png",
+    "file_path": "data/clips-rejected/AMGO_1033751.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMGO_1033751.png",
     "rejected": true
   },
   {
@@ -329,8 +329,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMGO_1034478",
-    "file_path": "data/clips/AMGO_1034478.wav",
-    "spectrogram_path": "data/spectrograms/AMGO_1034478.png",
+    "file_path": "data/clips-rejected/AMGO_1034478.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMGO_1034478.png",
     "rejected": true
   },
   {
@@ -342,8 +342,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMGO_723797",
-    "file_path": "data/clips/AMGO_723797.wav",
-    "spectrogram_path": "data/spectrograms/AMGO_723797.png",
+    "file_path": "data/clips-rejected/AMGO_723797.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMGO_723797.png",
     "rejected": true
   },
   {
@@ -483,8 +483,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMRO_999808",
-    "file_path": "data/clips/AMRO_999808.wav",
-    "spectrogram_path": "data/spectrograms/AMRO_999808.png",
+    "file_path": "data/clips-rejected/AMRO_999808.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMRO_999808.png",
     "rejected": true
   },
   {
@@ -572,8 +572,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "AMRO_892933",
-    "file_path": "data/clips/AMRO_892933.wav",
-    "spectrogram_path": "data/spectrograms/AMRO_892933.png",
+    "file_path": "data/clips-rejected/AMRO_892933.wav",
+    "spectrogram_path": "data/spectrograms-rejected/AMRO_892933.png",
     "rejected": true
   },
   {
@@ -878,8 +878,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BEKI_1035995",
-    "file_path": "data/clips/BEKI_1035995.wav",
-    "spectrogram_path": "data/spectrograms/BEKI_1035995.png",
+    "file_path": "data/clips-rejected/BEKI_1035995.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BEKI_1035995.png",
     "rejected": true
   },
   {
@@ -891,8 +891,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BEKI_624466",
-    "file_path": "data/clips/BEKI_624466.wav",
-    "spectrogram_path": "data/spectrograms/BEKI_624466.png",
+    "file_path": "data/clips-rejected/BEKI_624466.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BEKI_624466.png",
     "rejected": true
   },
   {
@@ -930,8 +930,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BEKI_600420",
-    "file_path": "data/clips/BEKI_600420.wav",
-    "spectrogram_path": "data/spectrograms/BEKI_600420.png",
+    "file_path": "data/clips-rejected/BEKI_600420.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BEKI_600420.png",
     "rejected": true
   },
   {
@@ -1020,8 +1020,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BEKI_1034322",
-    "file_path": "data/clips/BEKI_1034322.wav",
-    "spectrogram_path": "data/spectrograms/BEKI_1034322.png",
+    "file_path": "data/clips-rejected/BEKI_1034322.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BEKI_1034322.png",
     "rejected": true
   },
   {
@@ -1082,8 +1082,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BHNU_481983",
-    "file_path": "data/clips/BHNU_481983.wav",
-    "spectrogram_path": "data/spectrograms/BHNU_481983.png",
+    "file_path": "data/clips-rejected/BHNU_481983.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_481983.png",
     "rejected": true
   },
   {
@@ -1147,8 +1147,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BHNU_417815",
-    "file_path": "data/clips/BHNU_417815.wav",
-    "spectrogram_path": "data/spectrograms/BHNU_417815.png",
+    "file_path": "data/clips-rejected/BHNU_417815.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_417815.png",
     "rejected": true
   },
   {
@@ -1238,8 +1238,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BHNU_860797",
-    "file_path": "data/clips/BHNU_860797.wav",
-    "spectrogram_path": "data/spectrograms/BHNU_860797.png",
+    "file_path": "data/clips-rejected/BHNU_860797.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_860797.png",
     "rejected": true
   },
   {
@@ -1264,8 +1264,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BHNU_637179",
-    "file_path": "data/clips/BHNU_637179.wav",
-    "spectrogram_path": "data/spectrograms/BHNU_637179.png",
+    "file_path": "data/clips-rejected/BHNU_637179.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_637179.png",
     "rejected": true
   },
   {
@@ -1289,8 +1289,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BHNU_877067",
-    "file_path": "data/clips/BHNU_877067.wav",
-    "spectrogram_path": "data/spectrograms/BHNU_877067.png",
+    "file_path": "data/clips-rejected/BHNU_877067.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_877067.png",
     "rejected": true
   },
   {
@@ -1517,8 +1517,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRCR_1053947",
-    "file_path": "data/clips/BRCR_1053947.wav",
-    "spectrogram_path": "data/spectrograms/BRCR_1053947.png",
+    "file_path": "data/clips-rejected/BRCR_1053947.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_1053947.png",
     "rejected": true
   },
   {
@@ -1543,8 +1543,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRCR_749409",
-    "file_path": "data/clips/BRCR_749409.wav",
-    "spectrogram_path": "data/spectrograms/BRCR_749409.png",
+    "file_path": "data/clips-rejected/BRCR_749409.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_749409.png",
     "rejected": true
   },
   {
@@ -1581,8 +1581,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRCR_838763",
-    "file_path": "data/clips/BRCR_838763.wav",
-    "spectrogram_path": "data/spectrograms/BRCR_838763.png",
+    "file_path": "data/clips-rejected/BRCR_838763.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_838763.png",
     "rejected": true
   },
   {
@@ -1747,8 +1747,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRCR_783576",
-    "file_path": "data/clips/BRCR_783576.wav",
-    "spectrogram_path": "data/spectrograms/BRCR_783576.png",
+    "file_path": "data/clips-rejected/BRCR_783576.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_783576.png",
     "rejected": true
   },
   {
@@ -1760,8 +1760,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRCR_794671",
-    "file_path": "data/clips/BRCR_794671.wav",
-    "spectrogram_path": "data/spectrograms/BRCR_794671.png",
+    "file_path": "data/clips-rejected/BRCR_794671.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_794671.png",
     "rejected": true
   },
   {
@@ -1837,8 +1837,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRTH_939189",
-    "file_path": "data/clips/BRTH_939189.wav",
-    "spectrogram_path": "data/spectrograms/BRTH_939189.png",
+    "file_path": "data/clips-rejected/BRTH_939189.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRTH_939189.png",
     "rejected": true
   },
   {
@@ -1850,8 +1850,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRTH_1011715",
-    "file_path": "data/clips/BRTH_1011715.wav",
-    "spectrogram_path": "data/spectrograms/BRTH_1011715.png",
+    "file_path": "data/clips-rejected/BRTH_1011715.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRTH_1011715.png",
     "rejected": true
   },
   {
@@ -1863,8 +1863,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRTH_1011717",
-    "file_path": "data/clips/BRTH_1011717.wav",
-    "spectrogram_path": "data/spectrograms/BRTH_1011717.png",
+    "file_path": "data/clips-rejected/BRTH_1011717.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRTH_1011717.png",
     "rejected": true
   },
   {
@@ -2003,8 +2003,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "BRTH_1011718",
-    "file_path": "data/clips/BRTH_1011718.wav",
-    "spectrogram_path": "data/spectrograms/BRTH_1011718.png",
+    "file_path": "data/clips-rejected/BRTH_1011718.wav",
+    "spectrogram_path": "data/spectrograms-rejected/BRTH_1011718.png",
     "rejected": true
   },
   {
@@ -2236,8 +2236,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CACH_938770",
-    "file_path": "data/clips/CACH_938770.wav",
-    "spectrogram_path": "data/spectrograms/CACH_938770.png",
+    "file_path": "data/clips-rejected/CACH_938770.wav",
+    "spectrogram_path": "data/spectrograms-rejected/CACH_938770.png",
     "rejected": true
   },
   {
@@ -2313,8 +2313,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CACH_933605",
-    "file_path": "data/clips/CACH_933605.wav",
-    "spectrogram_path": "data/spectrograms/CACH_933605.png",
+    "file_path": "data/clips-rejected/CACH_933605.wav",
+    "spectrogram_path": "data/spectrograms-rejected/CACH_933605.png",
     "rejected": true
   },
   {
@@ -2403,8 +2403,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CACH_1010608",
-    "file_path": "data/clips/CACH_1010608.wav",
-    "spectrogram_path": "data/spectrograms/CACH_1010608.png",
+    "file_path": "data/clips-rejected/CACH_1010608.wav",
+    "spectrogram_path": "data/spectrograms-rejected/CACH_1010608.png",
     "rejected": true
   },
   {
@@ -2416,8 +2416,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CACH_959878",
-    "file_path": "data/clips/CACH_959878.wav",
-    "spectrogram_path": "data/spectrograms/CACH_959878.png",
+    "file_path": "data/clips-rejected/CACH_959878.wav",
+    "spectrogram_path": "data/spectrograms-rejected/CACH_959878.png",
     "rejected": true
   },
   {
@@ -2429,8 +2429,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CACH_955593",
-    "file_path": "data/clips/CACH_955593.wav",
-    "spectrogram_path": "data/spectrograms/CACH_955593.png",
+    "file_path": "data/clips-rejected/CACH_955593.wav",
+    "spectrogram_path": "data/spectrograms-rejected/CACH_955593.png",
     "rejected": true
   },
   {
@@ -2556,7 +2556,7 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CARW_899254",
-    "file_path": "data/clips/CARW_899254.wav",
+    "file_path": "data/clips-rejected/CARW_899254.wav",
     "spectrogram_path": "data/spectrograms/CARW_927ee4fc.png",
     "rejected": true
   },
@@ -2759,8 +2759,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CHSP_1014202",
-    "file_path": "data/clips/CHSP_1014202.wav",
-    "spectrogram_path": "data/spectrograms/CHSP_1014202.png",
+    "file_path": "data/clips-rejected/CHSP_1014202.wav",
+    "spectrogram_path": "data/spectrograms-rejected/CHSP_1014202.png",
     "rejected": true
   },
   {
@@ -2808,8 +2808,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CHSP_1013830",
-    "file_path": "data/clips/CHSP_1013830.wav",
-    "spectrogram_path": "data/spectrograms/CHSP_1013830.png",
+    "file_path": "data/clips-rejected/CHSP_1013830.wav",
+    "spectrogram_path": "data/spectrograms-rejected/CHSP_1013830.png",
     "rejected": true
   },
   {
@@ -2821,8 +2821,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "CHSP_1012059",
-    "file_path": "data/clips/CHSP_1012059.wav",
-    "spectrogram_path": "data/spectrograms/CHSP_1012059.png",
+    "file_path": "data/clips-rejected/CHSP_1012059.wav",
+    "spectrogram_path": "data/spectrograms-rejected/CHSP_1012059.png",
     "rejected": true
   },
   {
@@ -3068,8 +3068,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "DOWO_962370",
-    "file_path": "data/clips/DOWO_962370.wav",
-    "spectrogram_path": "data/spectrograms/DOWO_962370.png",
+    "file_path": "data/clips-rejected/DOWO_962370.wav",
+    "spectrogram_path": "data/spectrograms-rejected/DOWO_962370.png",
     "rejected": true
   },
   {
@@ -3182,8 +3182,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "DOWO_1033504",
-    "file_path": "data/clips/DOWO_1033504.wav",
-    "spectrogram_path": "data/spectrograms/DOWO_1033504.png",
+    "file_path": "data/clips-rejected/DOWO_1033504.wav",
+    "spectrogram_path": "data/spectrograms-rejected/DOWO_1033504.png",
     "rejected": true
   },
   {
@@ -3207,8 +3207,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "DOWO_897608",
-    "file_path": "data/clips/DOWO_897608.wav",
-    "spectrogram_path": "data/spectrograms/DOWO_897608.png",
+    "file_path": "data/clips-rejected/DOWO_897608.wav",
+    "spectrogram_path": "data/spectrograms-rejected/DOWO_897608.png",
     "rejected": true
   },
   {
@@ -3257,8 +3257,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "EABL_638302",
-    "file_path": "data/clips/EABL_638302.wav",
-    "spectrogram_path": "data/spectrograms/EABL_638302.png",
+    "file_path": "data/clips-rejected/EABL_638302.wav",
+    "spectrogram_path": "data/spectrograms-rejected/EABL_638302.png",
     "rejected": true
   },
   {
@@ -3270,8 +3270,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "EABL_890151",
-    "file_path": "data/clips/EABL_890151.wav",
-    "spectrogram_path": "data/spectrograms/EABL_890151.png",
+    "file_path": "data/clips-rejected/EABL_890151.wav",
+    "spectrogram_path": "data/spectrograms-rejected/EABL_890151.png",
     "rejected": true
   },
   {
@@ -3436,8 +3436,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "EABL_626711",
-    "file_path": "data/clips/EABL_626711.wav",
-    "spectrogram_path": "data/spectrograms/EABL_626711.png",
+    "file_path": "data/clips-rejected/EABL_626711.wav",
+    "spectrogram_path": "data/spectrograms-rejected/EABL_626711.png",
     "rejected": true
   },
   {
@@ -3462,8 +3462,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "EABL_1045482",
-    "file_path": "data/clips/EABL_1045482.wav",
-    "spectrogram_path": "data/spectrograms/EABL_1045482.png",
+    "file_path": "data/clips-rejected/EABL_1045482.wav",
+    "spectrogram_path": "data/spectrograms-rejected/EABL_1045482.png",
     "rejected": true
   },
   {
@@ -3577,8 +3577,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "FISP_901416",
-    "file_path": "data/clips/FISP_901416.wav",
-    "spectrogram_path": "data/spectrograms/FISP_901416.png",
+    "file_path": "data/clips-rejected/FISP_901416.wav",
+    "spectrogram_path": "data/spectrograms-rejected/FISP_901416.png",
     "rejected": true
   },
   {
@@ -3602,8 +3602,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "FISP_1014921",
-    "file_path": "data/clips/FISP_1014921.wav",
-    "spectrogram_path": "data/spectrograms/FISP_1014921.png",
+    "file_path": "data/clips-rejected/FISP_1014921.wav",
+    "spectrogram_path": "data/spectrograms-rejected/FISP_1014921.png",
     "rejected": true
   },
   {
@@ -3615,8 +3615,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "FISP_1036169",
-    "file_path": "data/clips/FISP_1036169.wav",
-    "spectrogram_path": "data/spectrograms/FISP_1036169.png",
+    "file_path": "data/clips-rejected/FISP_1036169.wav",
+    "spectrogram_path": "data/spectrograms-rejected/FISP_1036169.png",
     "rejected": true
   },
   {
@@ -3654,8 +3654,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "FISP_1014922",
-    "file_path": "data/clips/FISP_1014922.wav",
-    "spectrogram_path": "data/spectrograms/FISP_1014922.png",
+    "file_path": "data/clips-rejected/FISP_1014922.wav",
+    "spectrogram_path": "data/spectrograms-rejected/FISP_1014922.png",
     "rejected": true
   },
   {
@@ -3742,8 +3742,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "FISP_1014920",
-    "file_path": "data/clips/FISP_1014920.wav",
-    "spectrogram_path": "data/spectrograms/FISP_1014920.png",
+    "file_path": "data/clips-rejected/FISP_1014920.wav",
+    "spectrogram_path": "data/spectrograms-rejected/FISP_1014920.png",
     "rejected": true
   },
   {
@@ -4045,8 +4045,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HAWO_988846",
-    "file_path": "data/clips/HAWO_988846.wav",
-    "spectrogram_path": "data/spectrograms/HAWO_988846.png",
+    "file_path": "data/clips-rejected/HAWO_988846.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_988846.png",
     "rejected": true
   },
   {
@@ -4135,8 +4135,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HAWO_1011106",
-    "file_path": "data/clips/HAWO_1011106.wav",
-    "spectrogram_path": "data/spectrograms/HAWO_1011106.png",
+    "file_path": "data/clips-rejected/HAWO_1011106.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_1011106.png",
     "rejected": true
   },
   {
@@ -4148,8 +4148,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HAWO_860504",
-    "file_path": "data/clips/HAWO_860504.wav",
-    "spectrogram_path": "data/spectrograms/HAWO_860504.png",
+    "file_path": "data/clips-rejected/HAWO_860504.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_860504.png",
     "rejected": true
   },
   {
@@ -4161,8 +4161,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HAWO_961053",
-    "file_path": "data/clips/HAWO_961053.wav",
-    "spectrogram_path": "data/spectrograms/HAWO_961053.png",
+    "file_path": "data/clips-rejected/HAWO_961053.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_961053.png",
     "rejected": true
   },
   {
@@ -4288,8 +4288,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HAWO_1069803",
-    "file_path": "data/clips/HAWO_1069803.wav",
-    "spectrogram_path": "data/spectrograms/HAWO_1069803.png",
+    "file_path": "data/clips-rejected/HAWO_1069803.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_1069803.png",
     "rejected": true
   },
   {
@@ -4366,8 +4366,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HETH_1060759",
-    "file_path": "data/clips/HETH_1060759.wav",
-    "spectrogram_path": "data/spectrograms/HETH_1060759.png",
+    "file_path": "data/clips-rejected/HETH_1060759.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HETH_1060759.png",
     "rejected": true
   },
   {
@@ -4379,8 +4379,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HETH_933564",
-    "file_path": "data/clips/HETH_933564.wav",
-    "spectrogram_path": "data/spectrograms/HETH_933564.png",
+    "file_path": "data/clips-rejected/HETH_933564.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HETH_933564.png",
     "rejected": true
   },
   {
@@ -4506,8 +4506,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HETH_933565",
-    "file_path": "data/clips/HETH_933565.wav",
-    "spectrogram_path": "data/spectrograms/HETH_933565.png",
+    "file_path": "data/clips-rejected/HETH_933565.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HETH_933565.png",
     "rejected": true
   },
   {
@@ -4519,8 +4519,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HETH_933563",
-    "file_path": "data/clips/HETH_933563.wav",
-    "spectrogram_path": "data/spectrograms/HETH_933563.png",
+    "file_path": "data/clips-rejected/HETH_933563.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HETH_933563.png",
     "rejected": true
   },
   {
@@ -4532,8 +4532,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HETH_1071279",
-    "file_path": "data/clips/HETH_1071279.wav",
-    "spectrogram_path": "data/spectrograms/HETH_1071279.png",
+    "file_path": "data/clips-rejected/HETH_1071279.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HETH_1071279.png",
     "rejected": true
   },
   {
@@ -4796,8 +4796,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "HOFI_941235",
-    "file_path": "data/clips/HOFI_941235.wav",
-    "spectrogram_path": "data/spectrograms/HOFI_941235.png",
+    "file_path": "data/clips-rejected/HOFI_941235.wav",
+    "spectrogram_path": "data/spectrograms-rejected/HOFI_941235.png",
     "rejected": true
   },
   {
@@ -5004,8 +5004,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "LISP_1014975",
-    "file_path": "data/clips/LISP_1014975.wav",
-    "spectrogram_path": "data/spectrograms/LISP_1014975.png",
+    "file_path": "data/clips-rejected/LISP_1014975.wav",
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014975.png",
     "rejected": true
   },
   {
@@ -5017,8 +5017,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "LISP_1014971",
-    "file_path": "data/clips/LISP_1014971.wav",
-    "spectrogram_path": "data/spectrograms/LISP_1014971.png",
+    "file_path": "data/clips-rejected/LISP_1014971.wav",
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014971.png",
     "rejected": true
   },
   {
@@ -5067,8 +5067,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "LISP_1014978",
-    "file_path": "data/clips/LISP_1014978.wav",
-    "spectrogram_path": "data/spectrograms/LISP_1014978.png",
+    "file_path": "data/clips-rejected/LISP_1014978.wav",
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014978.png",
     "rejected": true
   },
   {
@@ -5080,8 +5080,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "LISP_1014973",
-    "file_path": "data/clips/LISP_1014973.wav",
-    "spectrogram_path": "data/spectrograms/LISP_1014973.png",
+    "file_path": "data/clips-rejected/LISP_1014973.wav",
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014973.png",
     "rejected": true
   },
   {
@@ -5105,8 +5105,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "LISP_1014976",
-    "file_path": "data/clips/LISP_1014976.wav",
-    "spectrogram_path": "data/spectrograms/LISP_1014976.png",
+    "file_path": "data/clips-rejected/LISP_1014976.wav",
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014976.png",
     "rejected": true
   },
   {
@@ -5234,8 +5234,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "MODO_807126",
-    "file_path": "data/clips/MODO_807126.wav",
-    "spectrogram_path": "data/spectrograms/MODO_807126.png",
+    "file_path": "data/clips-rejected/MODO_807126.wav",
+    "spectrogram_path": "data/spectrograms-rejected/MODO_807126.png",
     "rejected": true
   },
   {
@@ -5247,8 +5247,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "MODO_691623",
-    "file_path": "data/clips/MODO_691623.wav",
-    "spectrogram_path": "data/spectrograms/MODO_691623.png",
+    "file_path": "data/clips-rejected/MODO_691623.wav",
+    "spectrogram_path": "data/spectrograms-rejected/MODO_691623.png",
     "rejected": true
   },
   {
@@ -5260,8 +5260,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "MODO_495471",
-    "file_path": "data/clips/MODO_495471.wav",
-    "spectrogram_path": "data/spectrograms/MODO_495471.png",
+    "file_path": "data/clips-rejected/MODO_495471.wav",
+    "spectrogram_path": "data/spectrograms-rejected/MODO_495471.png",
     "rejected": true
   },
   {
@@ -5440,8 +5440,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "MODO_583581",
-    "file_path": "data/clips/MODO_583581.wav",
-    "spectrogram_path": "data/spectrograms/MODO_583581.png",
+    "file_path": "data/clips-rejected/MODO_583581.wav",
+    "spectrogram_path": "data/spectrograms-rejected/MODO_583581.png",
     "rejected": true
   },
   {
@@ -5465,8 +5465,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "MODO_621374",
-    "file_path": "data/clips/MODO_621374.wav",
-    "spectrogram_path": "data/spectrograms/MODO_621374.png",
+    "file_path": "data/clips-rejected/MODO_621374.wav",
+    "spectrogram_path": "data/spectrograms-rejected/MODO_621374.png",
     "rejected": true
   },
   {
@@ -5707,8 +5707,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "NOFL_1069251",
-    "file_path": "data/clips/NOFL_1069251.wav",
-    "spectrogram_path": "data/spectrograms/NOFL_1069251.png",
+    "file_path": "data/clips-rejected/NOFL_1069251.wav",
+    "spectrogram_path": "data/spectrograms-rejected/NOFL_1069251.png",
     "rejected": true
   },
   {
@@ -5847,8 +5847,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "NOFL_1009102",
-    "file_path": "data/clips/NOFL_1009102.wav",
-    "spectrogram_path": "data/spectrograms/NOFL_1009102.png",
+    "file_path": "data/clips-rejected/NOFL_1009102.wav",
+    "spectrogram_path": "data/spectrograms-rejected/NOFL_1009102.png",
     "rejected": true
   },
   {
@@ -5912,8 +5912,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "NOFL_1029783",
-    "file_path": "data/clips/NOFL_1029783.wav",
-    "spectrogram_path": "data/spectrograms/NOFL_1029783.png",
+    "file_path": "data/clips-rejected/NOFL_1029783.wav",
+    "spectrogram_path": "data/spectrograms-rejected/NOFL_1029783.png",
     "rejected": true
   },
   {
@@ -6181,7 +6181,7 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "PIWA_570603",
-    "file_path": "data/clips/PIWA_570603.wav",
+    "file_path": "data/clips-rejected/PIWA_570603.wav",
     "spectrogram_path": "data/spectrograms/PIWA_39341fcb.png",
     "rejected": true
   },
@@ -6219,7 +6219,7 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "PIWA_336979",
-    "file_path": "data/clips/PIWA_336979.wav",
+    "file_path": "data/clips-rejected/PIWA_336979.wav",
     "spectrogram_path": "data/spectrograms/PIWA_59d52da0.png",
     "rejected": true
   },
@@ -6271,7 +6271,7 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "PIWA_933612",
-    "file_path": "data/clips/PIWA_933612.wav",
+    "file_path": "data/clips-rejected/PIWA_933612.wav",
     "spectrogram_path": "data/spectrograms/PIWA_89d06f67.png",
     "rejected": true
   },
@@ -6309,7 +6309,7 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "PIWA_895219",
-    "file_path": "data/clips/PIWA_895219.wav",
+    "file_path": "data/clips-rejected/PIWA_895219.wav",
     "spectrogram_path": "data/spectrograms/PIWA_da532d67.png",
     "rejected": true
   },
@@ -6346,8 +6346,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "PIWO_714469",
-    "file_path": "data/clips/PIWO_714469.wav",
-    "spectrogram_path": "data/spectrograms/PIWO_714469.png",
+    "file_path": "data/clips-rejected/PIWO_714469.wav",
+    "spectrogram_path": "data/spectrograms-rejected/PIWO_714469.png",
     "rejected": true
   },
   {
@@ -6359,8 +6359,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "PIWO_1029787",
-    "file_path": "data/clips/PIWO_1029787.wav",
-    "spectrogram_path": "data/spectrograms/PIWO_1029787.png",
+    "file_path": "data/clips-rejected/PIWO_1029787.wav",
+    "spectrogram_path": "data/spectrograms-rejected/PIWO_1029787.png",
     "rejected": true
   },
   {
@@ -6487,8 +6487,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "PIWO_595205",
-    "file_path": "data/clips/PIWO_595205.wav",
-    "spectrogram_path": "data/spectrograms/PIWO_595205.png",
+    "file_path": "data/clips-rejected/PIWO_595205.wav",
+    "spectrogram_path": "data/spectrograms-rejected/PIWO_595205.png",
     "rejected": true
   },
   {
@@ -6856,8 +6856,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "RBWO_1049468",
-    "file_path": "data/clips/RBWO_1049468.wav",
-    "spectrogram_path": "data/spectrograms/RBWO_1049468.png",
+    "file_path": "data/clips-rejected/RBWO_1049468.wav",
+    "spectrogram_path": "data/spectrograms-rejected/RBWO_1049468.png",
     "rejected": true
   },
   {
@@ -6920,8 +6920,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "RBWO_755629",
-    "file_path": "data/clips/RBWO_755629.wav",
-    "spectrogram_path": "data/spectrograms/RBWO_755629.png",
+    "file_path": "data/clips-rejected/RBWO_755629.wav",
+    "spectrogram_path": "data/spectrograms-rejected/RBWO_755629.png",
     "rejected": true
   },
   {
@@ -6994,8 +6994,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "RHWO_794281",
-    "file_path": "data/clips/RHWO_794281.wav",
-    "spectrogram_path": "data/spectrograms/RHWO_794281.png",
+    "file_path": "data/clips-rejected/RHWO_794281.wav",
+    "spectrogram_path": "data/spectrograms-rejected/RHWO_794281.png",
     "rejected": true
   },
   {
@@ -7007,8 +7007,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "RHWO_794283",
-    "file_path": "data/clips/RHWO_794283.wav",
-    "spectrogram_path": "data/spectrograms/RHWO_794283.png",
+    "file_path": "data/clips-rejected/RHWO_794283.wav",
+    "spectrogram_path": "data/spectrograms-rejected/RHWO_794283.png",
     "rejected": true
   },
   {
@@ -7198,8 +7198,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "RHWO_733263",
-    "file_path": "data/clips/RHWO_733263.wav",
-    "spectrogram_path": "data/spectrograms/RHWO_733263.png",
+    "file_path": "data/clips-rejected/RHWO_733263.wav",
+    "spectrogram_path": "data/spectrograms-rejected/RHWO_733263.png",
     "rejected": true
   },
   {
@@ -7450,8 +7450,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "RSHA_792166",
-    "file_path": "data/clips/RSHA_792166.wav",
-    "spectrogram_path": "data/spectrograms/RSHA_792166.png",
+    "file_path": "data/clips-rejected/RSHA_792166.wav",
+    "spectrogram_path": "data/spectrograms-rejected/RSHA_792166.png",
     "rejected": true
   },
   {
@@ -7630,8 +7630,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SASP_1021624",
-    "file_path": "data/clips/SASP_1021624.wav",
-    "spectrogram_path": "data/spectrograms/SASP_1021624.png",
+    "file_path": "data/clips-rejected/SASP_1021624.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SASP_1021624.png",
     "rejected": true
   },
   {
@@ -7667,8 +7667,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SASP_1021623",
-    "file_path": "data/clips/SASP_1021623.wav",
-    "spectrogram_path": "data/spectrograms/SASP_1021623.png",
+    "file_path": "data/clips-rejected/SASP_1021623.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SASP_1021623.png",
     "rejected": true
   },
   {
@@ -7704,8 +7704,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SASP_1014987",
-    "file_path": "data/clips/SASP_1014987.wav",
-    "spectrogram_path": "data/spectrograms/SASP_1014987.png",
+    "file_path": "data/clips-rejected/SASP_1014987.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SASP_1014987.png",
     "rejected": true
   },
   {
@@ -7907,8 +7907,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SOSP_1049157",
-    "file_path": "data/clips/SOSP_1049157.wav",
-    "spectrogram_path": "data/spectrograms/SOSP_1049157.png",
+    "file_path": "data/clips-rejected/SOSP_1049157.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SOSP_1049157.png",
     "rejected": true
   },
   {
@@ -7932,8 +7932,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SOSP_1049227",
-    "file_path": "data/clips/SOSP_1049227.wav",
-    "spectrogram_path": "data/spectrograms/SOSP_1049227.png",
+    "file_path": "data/clips-rejected/SOSP_1049227.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SOSP_1049227.png",
     "rejected": true
   },
   {
@@ -8100,8 +8100,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SWSP_1012745",
-    "file_path": "data/clips/SWSP_1012745.wav",
-    "spectrogram_path": "data/spectrograms/SWSP_1012745.png",
+    "file_path": "data/clips-rejected/SWSP_1012745.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1012745.png",
     "rejected": true
   },
   {
@@ -8113,8 +8113,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SWSP_1020776",
-    "file_path": "data/clips/SWSP_1020776.wav",
-    "spectrogram_path": "data/spectrograms/SWSP_1020776.png",
+    "file_path": "data/clips-rejected/SWSP_1020776.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1020776.png",
     "rejected": true
   },
   {
@@ -8126,8 +8126,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SWSP_1012747",
-    "file_path": "data/clips/SWSP_1012747.wav",
-    "spectrogram_path": "data/spectrograms/SWSP_1012747.png",
+    "file_path": "data/clips-rejected/SWSP_1012747.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1012747.png",
     "rejected": true
   },
   {
@@ -8151,8 +8151,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SWSP_1012746",
-    "file_path": "data/clips/SWSP_1012746.wav",
-    "spectrogram_path": "data/spectrograms/SWSP_1012746.png",
+    "file_path": "data/clips-rejected/SWSP_1012746.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1012746.png",
     "rejected": true
   },
   {
@@ -8213,8 +8213,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "SWSP_1013212",
-    "file_path": "data/clips/SWSP_1013212.wav",
-    "spectrogram_path": "data/spectrograms/SWSP_1013212.png",
+    "file_path": "data/clips-rejected/SWSP_1013212.wav",
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1013212.png",
     "rejected": true
   },
   {
@@ -8329,8 +8329,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "TUTI_1010613",
-    "file_path": "data/clips/TUTI_1010613.wav",
-    "spectrogram_path": "data/spectrograms/TUTI_1010613.png",
+    "file_path": "data/clips-rejected/TUTI_1010613.wav",
+    "spectrogram_path": "data/spectrograms-rejected/TUTI_1010613.png",
     "rejected": true
   },
   {
@@ -8394,8 +8394,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "TUTI_895984",
-    "file_path": "data/clips/TUTI_895984.wav",
-    "spectrogram_path": "data/spectrograms/TUTI_895984.png",
+    "file_path": "data/clips-rejected/TUTI_895984.wav",
+    "spectrogram_path": "data/spectrograms-rejected/TUTI_895984.png",
     "rejected": true
   },
   {
@@ -8494,8 +8494,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "WBNU_871628",
-    "file_path": "data/clips/WBNU_871628.wav",
-    "spectrogram_path": "data/spectrograms/WBNU_871628.png",
+    "file_path": "data/clips-rejected/WBNU_871628.wav",
+    "spectrogram_path": "data/spectrograms-rejected/WBNU_871628.png",
     "rejected": true
   },
   {
@@ -8624,8 +8624,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "WBNU_959184",
-    "file_path": "data/clips/WBNU_959184.wav",
-    "spectrogram_path": "data/spectrograms/WBNU_959184.png",
+    "file_path": "data/clips-rejected/WBNU_959184.wav",
+    "spectrogram_path": "data/spectrograms-rejected/WBNU_959184.png",
     "rejected": true
   },
   {
@@ -8686,8 +8686,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "WBNU_961987",
-    "file_path": "data/clips/WBNU_961987.wav",
-    "spectrogram_path": "data/spectrograms/WBNU_961987.png",
+    "file_path": "data/clips-rejected/WBNU_961987.wav",
+    "spectrogram_path": "data/spectrograms-rejected/WBNU_961987.png",
     "rejected": true
   },
   {
@@ -8775,8 +8775,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "WTSP_940087",
-    "file_path": "data/clips/WTSP_940087.wav",
-    "spectrogram_path": "data/spectrograms/WTSP_940087.png",
+    "file_path": "data/clips-rejected/WTSP_940087.wav",
+    "spectrogram_path": "data/spectrograms-rejected/WTSP_940087.png",
     "rejected": true
   },
   {
@@ -8800,8 +8800,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "WTSP_714084",
-    "file_path": "data/clips/WTSP_714084.wav",
-    "spectrogram_path": "data/spectrograms/WTSP_714084.png",
+    "file_path": "data/clips-rejected/WTSP_714084.wav",
+    "spectrogram_path": "data/spectrograms-rejected/WTSP_714084.png",
     "rejected": true
   },
   {
@@ -8813,8 +8813,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "WTSP_772287",
-    "file_path": "data/clips/WTSP_772287.wav",
-    "spectrogram_path": "data/spectrograms/WTSP_772287.png",
+    "file_path": "data/clips-rejected/WTSP_772287.wav",
+    "spectrogram_path": "data/spectrograms-rejected/WTSP_772287.png",
     "rejected": true
   },
   {
@@ -8980,8 +8980,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "WTSP_792207",
-    "file_path": "data/clips/WTSP_792207.wav",
-    "spectrogram_path": "data/spectrograms/WTSP_792207.png",
+    "file_path": "data/clips-rejected/WTSP_792207.wav",
+    "spectrogram_path": "data/spectrograms-rejected/WTSP_792207.png",
     "rejected": true
   },
   {
@@ -9171,8 +9171,8 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "YBSA_1014604",
-    "file_path": "data/clips/YBSA_1014604.wav",
-    "spectrogram_path": "data/spectrograms/YBSA_1014604.png",
+    "file_path": "data/clips-rejected/YBSA_1014604.wav",
+    "spectrogram_path": "data/spectrograms-rejected/YBSA_1014604.png",
     "rejected": true
   },
   {
@@ -9313,10 +9313,10 @@
     "species_code": "NOMO",
     "common_name": "Northern Mockingbird",
     "source_id": "NOMO_813943",
-    "file_path": "data/clips/NOMO_813943.wav",
+    "file_path": "data/clips-rejected/NOMO_813943.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/NOMO_813943.png",
+    "spectrogram_path": "data/spectrograms-rejected/NOMO_813943.png",
     "rejected": true
   },
   {
@@ -9375,10 +9375,10 @@
     "species_code": "NOMO",
     "common_name": "Northern Mockingbird",
     "source_id": "NOMO_932559",
-    "file_path": "data/clips/NOMO_932559.wav",
+    "file_path": "data/clips-rejected/NOMO_932559.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/NOMO_932559.png",
+    "spectrogram_path": "data/spectrograms-rejected/NOMO_932559.png",
     "rejected": true
   },
   {
@@ -9396,10 +9396,10 @@
     "species_code": "GCKI",
     "common_name": "Golden-crowned Kinglet",
     "source_id": "GCKI_1013478",
-    "file_path": "data/clips/GCKI_1013478.wav",
+    "file_path": "data/clips-rejected/GCKI_1013478.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/GCKI_1013478.png",
+    "spectrogram_path": "data/spectrograms-rejected/GCKI_1013478.png",
     "rejected": true
   },
   {
@@ -9407,10 +9407,10 @@
     "species_code": "GCKI",
     "common_name": "Golden-crowned Kinglet",
     "source_id": "GCKI_1013479",
-    "file_path": "data/clips/GCKI_1013479.wav",
+    "file_path": "data/clips-rejected/GCKI_1013479.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/GCKI_1013479.png",
+    "spectrogram_path": "data/spectrograms-rejected/GCKI_1013479.png",
     "rejected": true
   },
   {
@@ -9439,10 +9439,10 @@
     "species_code": "GCKI",
     "common_name": "Golden-crowned Kinglet",
     "source_id": "GCKI_1014750",
-    "file_path": "data/clips/GCKI_1014750.wav",
+    "file_path": "data/clips-rejected/GCKI_1014750.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/GCKI_1014750.png",
+    "spectrogram_path": "data/spectrograms-rejected/GCKI_1014750.png",
     "rejected": true
   },
   {
@@ -9470,10 +9470,10 @@
     "species_code": "GCKI",
     "common_name": "Golden-crowned Kinglet",
     "source_id": "GCKI_1056041",
-    "file_path": "data/clips/GCKI_1056041.wav",
+    "file_path": "data/clips-rejected/GCKI_1056041.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/GCKI_1056041.png",
+    "spectrogram_path": "data/spectrograms-rejected/GCKI_1056041.png",
     "rejected": true
   },
   {
@@ -9481,10 +9481,10 @@
     "species_code": "GCKI",
     "common_name": "Golden-crowned Kinglet",
     "source_id": "GCKI_1056060",
-    "file_path": "data/clips/GCKI_1056060.wav",
+    "file_path": "data/clips-rejected/GCKI_1056060.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/GCKI_1056060.png",
+    "spectrogram_path": "data/spectrograms-rejected/GCKI_1056060.png",
     "rejected": true
   },
   {
@@ -9492,10 +9492,10 @@
     "species_code": "GCKI",
     "common_name": "Golden-crowned Kinglet",
     "source_id": "GCKI_1071802",
-    "file_path": "data/clips/GCKI_1071802.wav",
+    "file_path": "data/clips-rejected/GCKI_1071802.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/GCKI_1071802.png",
+    "spectrogram_path": "data/spectrograms-rejected/GCKI_1071802.png",
     "rejected": true
   },
   {
@@ -9513,10 +9513,10 @@
     "species_code": "RCKI",
     "common_name": "Ruby-crowned Kinglet",
     "source_id": "RCKI_1014547",
-    "file_path": "data/clips/RCKI_1014547.wav",
+    "file_path": "data/clips-rejected/RCKI_1014547.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RCKI_1014547.png",
+    "spectrogram_path": "data/spectrograms-rejected/RCKI_1014547.png",
     "rejected": true
   },
   {
@@ -9524,10 +9524,10 @@
     "species_code": "RCKI",
     "common_name": "Ruby-crowned Kinglet",
     "source_id": "RCKI_1014548",
-    "file_path": "data/clips/RCKI_1014548.wav",
+    "file_path": "data/clips-rejected/RCKI_1014548.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RCKI_1014548.png",
+    "spectrogram_path": "data/spectrograms-rejected/RCKI_1014548.png",
     "rejected": true
   },
   {
@@ -9535,10 +9535,10 @@
     "species_code": "RCKI",
     "common_name": "Ruby-crowned Kinglet",
     "source_id": "RCKI_1014751",
-    "file_path": "data/clips/RCKI_1014751.wav",
+    "file_path": "data/clips-rejected/RCKI_1014751.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RCKI_1014751.png",
+    "spectrogram_path": "data/spectrograms-rejected/RCKI_1014751.png",
     "rejected": true
   },
   {
@@ -9557,10 +9557,10 @@
     "species_code": "RCKI",
     "common_name": "Ruby-crowned Kinglet",
     "source_id": "RCKI_1014753",
-    "file_path": "data/clips/RCKI_1014753.wav",
+    "file_path": "data/clips-rejected/RCKI_1014753.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RCKI_1014753.png",
+    "spectrogram_path": "data/spectrograms-rejected/RCKI_1014753.png",
     "rejected": true
   },
   {
@@ -9578,10 +9578,10 @@
     "species_code": "RCKI",
     "common_name": "Ruby-crowned Kinglet",
     "source_id": "RCKI_1014755",
-    "file_path": "data/clips/RCKI_1014755.wav",
+    "file_path": "data/clips-rejected/RCKI_1014755.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RCKI_1014755.png",
+    "spectrogram_path": "data/spectrograms-rejected/RCKI_1014755.png",
     "rejected": true
   },
   {
@@ -9609,10 +9609,10 @@
     "species_code": "COHA",
     "common_name": "Cooper's Hawk",
     "source_id": "COHA_1001470",
-    "file_path": "data/clips/COHA_1001470.wav",
+    "file_path": "data/clips-rejected/COHA_1001470.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/COHA_1001470.png",
+    "spectrogram_path": "data/spectrograms-rejected/COHA_1001470.png",
     "rejected": true
   },
   {
@@ -9620,10 +9620,10 @@
     "species_code": "COHA",
     "common_name": "Cooper's Hawk",
     "source_id": "COHA_771790",
-    "file_path": "data/clips/COHA_771790.wav",
+    "file_path": "data/clips-rejected/COHA_771790.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/COHA_771790.png",
+    "spectrogram_path": "data/spectrograms-rejected/COHA_771790.png",
     "rejected": true
   },
   {
@@ -9631,10 +9631,10 @@
     "species_code": "COHA",
     "common_name": "Cooper's Hawk",
     "source_id": "COHA_794271",
-    "file_path": "data/clips/COHA_794271.wav",
+    "file_path": "data/clips-rejected/COHA_794271.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/COHA_794271.png",
+    "spectrogram_path": "data/spectrograms-rejected/COHA_794271.png",
     "rejected": true
   },
   {
@@ -9683,10 +9683,10 @@
     "species_code": "COHA",
     "common_name": "Cooper's Hawk",
     "source_id": "COHA_922581",
-    "file_path": "data/clips/COHA_922581.wav",
+    "file_path": "data/clips-rejected/COHA_922581.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/COHA_922581.png",
+    "spectrogram_path": "data/spectrograms-rejected/COHA_922581.png",
     "rejected": true
   },
   {
@@ -9714,10 +9714,10 @@
     "species_code": "SSHA",
     "common_name": "Sharp-shinned Hawk",
     "source_id": "SSHA_1014684",
-    "file_path": "data/clips/SSHA_1014684.wav",
+    "file_path": "data/clips-rejected/SSHA_1014684.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/SSHA_1014684.png",
+    "spectrogram_path": "data/spectrograms-rejected/SSHA_1014684.png",
     "rejected": true
   },
   {
@@ -9745,10 +9745,10 @@
     "species_code": "SSHA",
     "common_name": "Sharp-shinned Hawk",
     "source_id": "SSHA_660802",
-    "file_path": "data/clips/SSHA_660802.wav",
+    "file_path": "data/clips-rejected/SSHA_660802.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/SSHA_660802.png",
+    "spectrogram_path": "data/spectrograms-rejected/SSHA_660802.png",
     "rejected": true
   },
   {
@@ -9766,10 +9766,10 @@
     "species_code": "SSHA",
     "common_name": "Sharp-shinned Hawk",
     "source_id": "SSHA_747525",
-    "file_path": "data/clips/SSHA_747525.wav",
+    "file_path": "data/clips-rejected/SSHA_747525.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/SSHA_747525.png",
+    "spectrogram_path": "data/spectrograms-rejected/SSHA_747525.png",
     "rejected": true
   },
   {
@@ -9777,10 +9777,10 @@
     "species_code": "SSHA",
     "common_name": "Sharp-shinned Hawk",
     "source_id": "SSHA_778069",
-    "file_path": "data/clips/SSHA_778069.wav",
+    "file_path": "data/clips-rejected/SSHA_778069.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/SSHA_778069.png",
+    "spectrogram_path": "data/spectrograms-rejected/SSHA_778069.png",
     "rejected": true
   },
   {
@@ -9788,10 +9788,10 @@
     "species_code": "SSHA",
     "common_name": "Sharp-shinned Hawk",
     "source_id": "SSHA_778070",
-    "file_path": "data/clips/SSHA_778070.wav",
+    "file_path": "data/clips-rejected/SSHA_778070.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/SSHA_778070.png",
+    "spectrogram_path": "data/spectrograms-rejected/SSHA_778070.png",
     "rejected": true
   },
   {
@@ -9810,10 +9810,10 @@
     "species_code": "SSHA",
     "common_name": "Sharp-shinned Hawk",
     "source_id": "SSHA_939383",
-    "file_path": "data/clips/SSHA_939383.wav",
+    "file_path": "data/clips-rejected/SSHA_939383.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/SSHA_939383.png",
+    "spectrogram_path": "data/spectrograms-rejected/SSHA_939383.png",
     "rejected": true
   },
   {
@@ -9821,10 +9821,10 @@
     "species_code": "RTHA",
     "common_name": "Red-tailed Hawk",
     "source_id": "RTHA_1033919",
-    "file_path": "data/clips/RTHA_1033919.wav",
+    "file_path": "data/clips-rejected/RTHA_1033919.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHA_1033919.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHA_1033919.png",
     "rejected": true
   },
   {
@@ -9842,10 +9842,10 @@
     "species_code": "RTHA",
     "common_name": "Red-tailed Hawk",
     "source_id": "RTHA_809879",
-    "file_path": "data/clips/RTHA_809879.wav",
+    "file_path": "data/clips-rejected/RTHA_809879.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHA_809879.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHA_809879.png",
     "rejected": true
   },
   {
@@ -9853,10 +9853,10 @@
     "species_code": "RTHA",
     "common_name": "Red-tailed Hawk",
     "source_id": "RTHA_824513",
-    "file_path": "data/clips/RTHA_824513.wav",
+    "file_path": "data/clips-rejected/RTHA_824513.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHA_824513.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHA_824513.png",
     "rejected": true
   },
   {
@@ -9875,10 +9875,10 @@
     "species_code": "RTHA",
     "common_name": "Red-tailed Hawk",
     "source_id": "RTHA_973855",
-    "file_path": "data/clips/RTHA_973855.wav",
+    "file_path": "data/clips-rejected/RTHA_973855.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHA_973855.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHA_973855.png",
     "rejected": true
   },
   {
@@ -9896,10 +9896,10 @@
     "species_code": "RTHA",
     "common_name": "Red-tailed Hawk",
     "source_id": "RTHA_973857",
-    "file_path": "data/clips/RTHA_973857.wav",
+    "file_path": "data/clips-rejected/RTHA_973857.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHA_973857.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHA_973857.png",
     "rejected": true
   },
   {
@@ -9907,10 +9907,10 @@
     "species_code": "RTHA",
     "common_name": "Red-tailed Hawk",
     "source_id": "RTHA_973862",
-    "file_path": "data/clips/RTHA_973862.wav",
+    "file_path": "data/clips-rejected/RTHA_973862.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHA_973862.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHA_973862.png",
     "rejected": true
   },
   {
@@ -9948,10 +9948,10 @@
     "species_code": "RTHU",
     "common_name": "Ruby-throated Hummingbird",
     "source_id": "RTHU_139835",
-    "file_path": "data/clips/RTHU_139835.wav",
+    "file_path": "data/clips-rejected/RTHU_139835.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHU_139835.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHU_139835.png",
     "rejected": true
   },
   {
@@ -9970,10 +9970,10 @@
     "species_code": "RTHU",
     "common_name": "Ruby-throated Hummingbird",
     "source_id": "RTHU_195616",
-    "file_path": "data/clips/RTHU_195616.wav",
+    "file_path": "data/clips-rejected/RTHU_195616.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHU_195616.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHU_195616.png",
     "rejected": true
   },
   {
@@ -9981,10 +9981,10 @@
     "species_code": "RTHU",
     "common_name": "Ruby-throated Hummingbird",
     "source_id": "RTHU_333513",
-    "file_path": "data/clips/RTHU_333513.wav",
+    "file_path": "data/clips-rejected/RTHU_333513.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHU_333513.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHU_333513.png",
     "rejected": true
   },
   {
@@ -10002,10 +10002,10 @@
     "species_code": "RTHU",
     "common_name": "Ruby-throated Hummingbird",
     "source_id": "RTHU_577496",
-    "file_path": "data/clips/RTHU_577496.wav",
+    "file_path": "data/clips-rejected/RTHU_577496.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHU_577496.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHU_577496.png",
     "rejected": true
   },
   {
@@ -10013,10 +10013,10 @@
     "species_code": "RTHU",
     "common_name": "Ruby-throated Hummingbird",
     "source_id": "RTHU_588003",
-    "file_path": "data/clips/RTHU_588003.wav",
+    "file_path": "data/clips-rejected/RTHU_588003.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/RTHU_588003.png",
+    "spectrogram_path": "data/spectrograms-rejected/RTHU_588003.png",
     "rejected": true
   },
   {
@@ -10044,10 +10044,10 @@
     "species_code": "BADO",
     "common_name": "Barred Owl",
     "source_id": "BADO_3fc1aac7",
-    "file_path": "data/clips/BADO_3fc1aac7.wav",
+    "file_path": "data/clips-rejected/BADO_3fc1aac7.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/BADO_3fc1aac7.png",
+    "spectrogram_path": "data/spectrograms-rejected/BADO_3fc1aac7.png",
     "rejected": true
   },
   {
@@ -10055,10 +10055,10 @@
     "species_code": "BADO",
     "common_name": "Barred Owl",
     "source_id": "BADO_628739bc",
-    "file_path": "data/clips/BADO_628739bc.wav",
+    "file_path": "data/clips-rejected/BADO_628739bc.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/BADO_628739bc.png",
+    "spectrogram_path": "data/spectrograms-rejected/BADO_628739bc.png",
     "rejected": true
   },
   {
@@ -10097,10 +10097,10 @@
     "species_code": "BADO",
     "common_name": "Barred Owl",
     "source_id": "BADO_cda28705",
-    "file_path": "data/clips/BADO_cda28705.wav",
+    "file_path": "data/clips-rejected/BADO_cda28705.wav",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/BADO_cda28705.png",
+    "spectrogram_path": "data/spectrograms-rejected/BADO_cda28705.png",
     "rejected": true
   },
   {
@@ -10128,10 +10128,10 @@
     "species_code": "WEWA",
     "common_name": "Worm-eating Warbler",
     "source_id": "WEWA_1038386",
-    "file_path": "data/clips/WEWA_1038386.wav",
+    "file_path": "data/clips-rejected/WEWA_1038386.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/WEWA_1038386.png",
+    "spectrogram_path": "data/spectrograms-rejected/WEWA_1038386.png",
     "rejected": true
   },
   {
@@ -10139,10 +10139,10 @@
     "species_code": "WEWA",
     "common_name": "Worm-eating Warbler",
     "source_id": "WEWA_1001954",
-    "file_path": "data/clips/WEWA_1001954.wav",
+    "file_path": "data/clips-rejected/WEWA_1001954.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/WEWA_1001954.png",
+    "spectrogram_path": "data/spectrograms-rejected/WEWA_1001954.png",
     "rejected": true
   },
   {
@@ -10150,10 +10150,10 @@
     "species_code": "WEWA",
     "common_name": "Worm-eating Warbler",
     "source_id": "WEWA_938773",
-    "file_path": "data/clips/WEWA_938773.wav",
+    "file_path": "data/clips-rejected/WEWA_938773.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/WEWA_938773.png",
+    "spectrogram_path": "data/spectrograms-rejected/WEWA_938773.png",
     "rejected": true
   },
   {
@@ -10161,10 +10161,10 @@
     "species_code": "WEWA",
     "common_name": "Worm-eating Warbler",
     "source_id": "WEWA_933618",
-    "file_path": "data/clips/WEWA_933618.wav",
+    "file_path": "data/clips-rejected/WEWA_933618.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/WEWA_933618.png",
+    "spectrogram_path": "data/spectrograms-rejected/WEWA_933618.png",
     "rejected": true
   },
   {
@@ -10182,10 +10182,10 @@
     "species_code": "WEWA",
     "common_name": "Worm-eating Warbler",
     "source_id": "WEWA_902735",
-    "file_path": "data/clips/WEWA_902735.wav",
+    "file_path": "data/clips-rejected/WEWA_902735.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/WEWA_902735.png",
+    "spectrogram_path": "data/spectrograms-rejected/WEWA_902735.png",
     "rejected": true
   },
   {
@@ -10214,10 +10214,10 @@
     "species_code": "WEWA",
     "common_name": "Worm-eating Warbler",
     "source_id": "WEWA_692213",
-    "file_path": "data/clips/WEWA_692213.wav",
+    "file_path": "data/clips-rejected/WEWA_692213.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/WEWA_692213.png",
+    "spectrogram_path": "data/spectrograms-rejected/WEWA_692213.png",
     "rejected": true
   },
   {
@@ -10246,10 +10246,10 @@
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "source_id": "YRWA_1011288",
-    "file_path": "data/clips/YRWA_1011288.wav",
+    "file_path": "data/clips-rejected/YRWA_1011288.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/YRWA_1011288.png",
+    "spectrogram_path": "data/spectrograms-rejected/YRWA_1011288.png",
     "rejected": true
   },
   {
@@ -10257,10 +10257,10 @@
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "source_id": "YRWA_1012832",
-    "file_path": "data/clips/YRWA_1012832.wav",
+    "file_path": "data/clips-rejected/YRWA_1012832.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/YRWA_1012832.png",
+    "spectrogram_path": "data/spectrograms-rejected/YRWA_1012832.png",
     "rejected": true
   },
   {
@@ -10268,10 +10268,10 @@
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "source_id": "YRWA_1012833",
-    "file_path": "data/clips/YRWA_1012833.wav",
+    "file_path": "data/clips-rejected/YRWA_1012833.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/YRWA_1012833.png",
+    "spectrogram_path": "data/spectrograms-rejected/YRWA_1012833.png",
     "rejected": true
   },
   {
@@ -10279,10 +10279,10 @@
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "source_id": "YRWA_1012964",
-    "file_path": "data/clips/YRWA_1012964.wav",
+    "file_path": "data/clips-rejected/YRWA_1012964.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/YRWA_1012964.png",
+    "spectrogram_path": "data/spectrograms-rejected/YRWA_1012964.png",
     "rejected": true
   },
   {
@@ -10290,10 +10290,10 @@
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "source_id": "YRWA_1012965",
-    "file_path": "data/clips/YRWA_1012965.wav",
+    "file_path": "data/clips-rejected/YRWA_1012965.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/YRWA_1012965.png",
+    "spectrogram_path": "data/spectrograms-rejected/YRWA_1012965.png",
     "rejected": true
   },
   {
@@ -10321,10 +10321,10 @@
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "source_id": "YRWA_1013412",
-    "file_path": "data/clips/YRWA_1013412.wav",
+    "file_path": "data/clips-rejected/YRWA_1013412.wav",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "spectrogram_path": "data/spectrograms/YRWA_1013412.png",
+    "spectrogram_path": "data/spectrograms-rejected/YRWA_1013412.png",
     "rejected": true
   },
   {
@@ -10341,13 +10341,13 @@
     "clip_id": "CEWA_1014826",
     "species_code": "CEWA",
     "species_name": "Cedar Waxwing",
-    "file_path": "data/clips/CEWA_1014826.wav",
+    "file_path": "data/clips-rejected/CEWA_1014826.wav",
     "xeno_canto_id": "1014826",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1014826.png",
+    "spectrogram_path": "data/spectrograms-rejected/CEWA_1014826.png",
     "common_name": "Cedar Waxwing"
   },
   {
@@ -10367,13 +10367,13 @@
     "clip_id": "CEWA_1014828",
     "species_code": "CEWA",
     "species_name": "Cedar Waxwing",
-    "file_path": "data/clips/CEWA_1014828.wav",
+    "file_path": "data/clips-rejected/CEWA_1014828.wav",
     "xeno_canto_id": "1014828",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1014828.png",
+    "spectrogram_path": "data/spectrograms-rejected/CEWA_1014828.png",
     "common_name": "Cedar Waxwing"
   },
   {
@@ -10393,26 +10393,26 @@
     "clip_id": "CEWA_1014830",
     "species_code": "CEWA",
     "species_name": "Cedar Waxwing",
-    "file_path": "data/clips/CEWA_1014830.wav",
+    "file_path": "data/clips-rejected/CEWA_1014830.wav",
     "xeno_canto_id": "1014830",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1014830.png",
+    "spectrogram_path": "data/spectrograms-rejected/CEWA_1014830.png",
     "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1014831",
     "species_code": "CEWA",
     "species_name": "Cedar Waxwing",
-    "file_path": "data/clips/CEWA_1014831.wav",
+    "file_path": "data/clips-rejected/CEWA_1014831.wav",
     "xeno_canto_id": "1014831",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1014831.png",
+    "spectrogram_path": "data/spectrograms-rejected/CEWA_1014831.png",
     "common_name": "Cedar Waxwing"
   },
   {
@@ -10445,39 +10445,39 @@
     "clip_id": "CEWA_1056061",
     "species_code": "CEWA",
     "species_name": "Cedar Waxwing",
-    "file_path": "data/clips/CEWA_1056061.wav",
+    "file_path": "data/clips-rejected/CEWA_1056061.wav",
     "xeno_canto_id": "1056061",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1056061.png",
+    "spectrogram_path": "data/spectrograms-rejected/CEWA_1056061.png",
     "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "CEWA_1056063",
     "species_code": "CEWA",
     "species_name": "Cedar Waxwing",
-    "file_path": "data/clips/CEWA_1056063.wav",
+    "file_path": "data/clips-rejected/CEWA_1056063.wav",
     "xeno_canto_id": "1056063",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/CEWA_1056063.png",
+    "spectrogram_path": "data/spectrograms-rejected/CEWA_1056063.png",
     "common_name": "Cedar Waxwing"
   },
   {
     "clip_id": "COGR_1011276",
     "species_code": "COGR",
     "species_name": "Common Grackle",
-    "file_path": "data/clips/COGR_1011276.wav",
+    "file_path": "data/clips-rejected/COGR_1011276.wav",
     "xeno_canto_id": "1011276",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1011276.png",
+    "spectrogram_path": "data/spectrograms-rejected/COGR_1011276.png",
     "common_name": "Common Grackle"
   },
   {
@@ -10497,52 +10497,52 @@
     "clip_id": "COGR_1013475",
     "species_code": "COGR",
     "species_name": "Common Grackle",
-    "file_path": "data/clips/COGR_1013475.wav",
+    "file_path": "data/clips-rejected/COGR_1013475.wav",
     "xeno_canto_id": "1013475",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1013475.png",
+    "spectrogram_path": "data/spectrograms-rejected/COGR_1013475.png",
     "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014329",
     "species_code": "COGR",
     "species_name": "Common Grackle",
-    "file_path": "data/clips/COGR_1014329.wav",
+    "file_path": "data/clips-rejected/COGR_1014329.wav",
     "xeno_canto_id": "1014329",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1014329.png",
+    "spectrogram_path": "data/spectrograms-rejected/COGR_1014329.png",
     "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014490",
     "species_code": "COGR",
     "species_name": "Common Grackle",
-    "file_path": "data/clips/COGR_1014490.wav",
+    "file_path": "data/clips-rejected/COGR_1014490.wav",
     "xeno_canto_id": "1014490",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1014490.png",
+    "spectrogram_path": "data/spectrograms-rejected/COGR_1014490.png",
     "common_name": "Common Grackle"
   },
   {
     "clip_id": "COGR_1014491",
     "species_code": "COGR",
     "species_name": "Common Grackle",
-    "file_path": "data/clips/COGR_1014491.wav",
+    "file_path": "data/clips-rejected/COGR_1014491.wav",
     "xeno_canto_id": "1014491",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_1014491.png",
+    "spectrogram_path": "data/spectrograms-rejected/COGR_1014491.png",
     "common_name": "Common Grackle"
   },
   {
@@ -10588,26 +10588,26 @@
     "clip_id": "COGR_476643",
     "species_code": "COGR",
     "species_name": "Common Grackle",
-    "file_path": "data/clips/COGR_476643.wav",
+    "file_path": "data/clips-rejected/COGR_476643.wav",
     "xeno_canto_id": "476643",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/COGR_476643.png",
+    "spectrogram_path": "data/spectrograms-rejected/COGR_476643.png",
     "common_name": "Common Grackle"
   },
   {
     "clip_id": "FICR_264969",
     "species_code": "FICR",
     "species_name": "Fish Crow",
-    "file_path": "data/clips/FICR_264969.wav",
+    "file_path": "data/clips-rejected/FICR_264969.wav",
     "xeno_canto_id": "264969",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_264969.png",
+    "spectrogram_path": "data/spectrograms-rejected/FICR_264969.png",
     "common_name": "Fish Crow"
   },
   {
@@ -10627,52 +10627,52 @@
     "clip_id": "FICR_265670",
     "species_code": "FICR",
     "species_name": "Fish Crow",
-    "file_path": "data/clips/FICR_265670.wav",
+    "file_path": "data/clips-rejected/FICR_265670.wav",
     "xeno_canto_id": "265670",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_265670.png",
+    "spectrogram_path": "data/spectrograms-rejected/FICR_265670.png",
     "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_265671",
     "species_code": "FICR",
     "species_name": "Fish Crow",
-    "file_path": "data/clips/FICR_265671.wav",
+    "file_path": "data/clips-rejected/FICR_265671.wav",
     "xeno_canto_id": "265671",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_265671.png",
+    "spectrogram_path": "data/spectrograms-rejected/FICR_265671.png",
     "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_286406",
     "species_code": "FICR",
     "species_name": "Fish Crow",
-    "file_path": "data/clips/FICR_286406.wav",
+    "file_path": "data/clips-rejected/FICR_286406.wav",
     "xeno_canto_id": "286406",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_286406.png",
+    "spectrogram_path": "data/spectrograms-rejected/FICR_286406.png",
     "common_name": "Fish Crow"
   },
   {
     "clip_id": "FICR_345292",
     "species_code": "FICR",
     "species_name": "Fish Crow",
-    "file_path": "data/clips/FICR_345292.wav",
+    "file_path": "data/clips-rejected/FICR_345292.wav",
     "xeno_canto_id": "345292",
     "vocalization_type": "call",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/FICR_345292.png",
+    "spectrogram_path": "data/spectrograms-rejected/FICR_345292.png",
     "common_name": "Fish Crow"
   },
   {
@@ -10731,144 +10731,144 @@
     "clip_id": "EATO_1038305",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_1038305.wav",
+    "file_path": "data/clips-rejected/EATO_1038305.wav",
     "xeno_canto_id": "1038305",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_1038305.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_1038305.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_413387",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_413387.wav",
+    "file_path": "data/clips-rejected/EATO_413387.wav",
     "xeno_canto_id": "413387",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_413387.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_413387.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_419731",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_419731.wav",
+    "file_path": "data/clips-rejected/EATO_419731.wav",
     "xeno_canto_id": "419731",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_419731.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_419731.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_422787",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_422787.wav",
+    "file_path": "data/clips-rejected/EATO_422787.wav",
     "xeno_canto_id": "422787",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_422787.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_422787.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_432722",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_432722.wav",
+    "file_path": "data/clips-rejected/EATO_432722.wav",
     "xeno_canto_id": "432722",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_432722.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_432722.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_433388",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_433388.wav",
+    "file_path": "data/clips-rejected/EATO_433388.wav",
     "xeno_canto_id": "433388",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_433388.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_433388.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_444954",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_444954.wav",
+    "file_path": "data/clips-rejected/EATO_444954.wav",
     "xeno_canto_id": "444954",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_444954.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_444954.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_554006",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_554006.wav",
+    "file_path": "data/clips-rejected/EATO_554006.wav",
     "xeno_canto_id": "554006",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_554006.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_554006.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_554032",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_554032.wav",
+    "file_path": "data/clips-rejected/EATO_554032.wav",
     "xeno_canto_id": "554032",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_554032.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_554032.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_559342",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_559342.wav",
+    "file_path": "data/clips-rejected/EATO_559342.wav",
     "xeno_canto_id": "559342",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
-    "spectrogram_path": "data/spectrograms/EATO_559342.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_559342.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_086e6d42",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_086e6d42.wav",
+    "file_path": "data/clips-rejected/EATO_086e6d42.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_086e6d42.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_086e6d42.png",
     "common_name": "Eastern Towhee"
   },
   {
@@ -10889,126 +10889,126 @@
     "clip_id": "EATO_25267109",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_25267109.wav",
+    "file_path": "data/clips-rejected/EATO_25267109.wav",
     "xeno_canto_id": "25267109",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "xeno_canto",
-    "spectrogram_path": "data/spectrograms/EATO_25267109.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_25267109.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_26588869",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_26588869.wav",
+    "file_path": "data/clips-rejected/EATO_26588869.wav",
     "xeno_canto_id": "26588869",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "xeno_canto",
-    "spectrogram_path": "data/spectrograms/EATO_26588869.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_26588869.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_29242847",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_29242847.wav",
+    "file_path": "data/clips-rejected/EATO_29242847.wav",
     "xeno_canto_id": "29242847",
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "xeno_canto",
-    "spectrogram_path": "data/spectrograms/EATO_29242847.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_29242847.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_2d65538a",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_2d65538a.wav",
+    "file_path": "data/clips-rejected/EATO_2d65538a.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_2d65538a.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_2d65538a.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_2f0138b7",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_2f0138b7.wav",
+    "file_path": "data/clips-rejected/EATO_2f0138b7.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_2f0138b7.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_2f0138b7.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_36c30c93",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_36c30c93.wav",
+    "file_path": "data/clips-rejected/EATO_36c30c93.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_36c30c93.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_36c30c93.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_41350df5",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_41350df5.wav",
+    "file_path": "data/clips-rejected/EATO_41350df5.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_41350df5.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_41350df5.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_42454a2f",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_42454a2f.wav",
+    "file_path": "data/clips-rejected/EATO_42454a2f.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_42454a2f.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_42454a2f.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_47cf73c0",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_47cf73c0.wav",
+    "file_path": "data/clips-rejected/EATO_47cf73c0.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_47cf73c0.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_47cf73c0.png",
     "common_name": "Eastern Towhee"
   },
   {
@@ -11029,42 +11029,42 @@
     "clip_id": "EATO_48dc1ecc",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_48dc1ecc.wav",
+    "file_path": "data/clips-rejected/EATO_48dc1ecc.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_48dc1ecc.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_48dc1ecc.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_49fd39ee",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_49fd39ee.wav",
+    "file_path": "data/clips-rejected/EATO_49fd39ee.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_49fd39ee.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_49fd39ee.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_4ab53fc0",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_4ab53fc0.wav",
+    "file_path": "data/clips-rejected/EATO_4ab53fc0.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_4ab53fc0.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_4ab53fc0.png",
     "common_name": "Eastern Towhee"
   },
   {
@@ -11085,70 +11085,70 @@
     "clip_id": "EATO_5c251d3d",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_5c251d3d.wav",
+    "file_path": "data/clips-rejected/EATO_5c251d3d.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_5c251d3d.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_5c251d3d.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_5e86dfb7",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_5e86dfb7.wav",
+    "file_path": "data/clips-rejected/EATO_5e86dfb7.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_5e86dfb7.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_5e86dfb7.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_5ff7ff83",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_5ff7ff83.wav",
+    "file_path": "data/clips-rejected/EATO_5ff7ff83.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_5ff7ff83.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_5ff7ff83.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_62ba2f2f",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_62ba2f2f.wav",
+    "file_path": "data/clips-rejected/EATO_62ba2f2f.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_62ba2f2f.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_62ba2f2f.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_69d54465",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_69d54465.wav",
+    "file_path": "data/clips-rejected/EATO_69d54465.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_69d54465.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_69d54465.png",
     "common_name": "Eastern Towhee"
   },
   {
@@ -11169,14 +11169,14 @@
     "clip_id": "EATO_7e95256d",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_7e95256d.wav",
+    "file_path": "data/clips-rejected/EATO_7e95256d.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_7e95256d.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_7e95256d.png",
     "common_name": "Eastern Towhee"
   },
   {
@@ -11197,84 +11197,84 @@
     "clip_id": "EATO_86f893bf",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_86f893bf.wav",
+    "file_path": "data/clips-rejected/EATO_86f893bf.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_86f893bf.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_86f893bf.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_874e14ce",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_874e14ce.wav",
+    "file_path": "data/clips-rejected/EATO_874e14ce.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_874e14ce.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_874e14ce.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_87cf8844",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_87cf8844.wav",
+    "file_path": "data/clips-rejected/EATO_87cf8844.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_87cf8844.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_87cf8844.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_8bebe209",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_8bebe209.wav",
+    "file_path": "data/clips-rejected/EATO_8bebe209.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_8bebe209.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_8bebe209.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_8fd862f5",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_8fd862f5.wav",
+    "file_path": "data/clips-rejected/EATO_8fd862f5.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_8fd862f5.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_8fd862f5.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_9549d208",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_9549d208.wav",
+    "file_path": "data/clips-rejected/EATO_9549d208.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_9549d208.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_9549d208.png",
     "common_name": "Eastern Towhee"
   },
   {
@@ -11295,42 +11295,42 @@
     "clip_id": "EATO_9f12b918",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_9f12b918.wav",
+    "file_path": "data/clips-rejected/EATO_9f12b918.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_9f12b918.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_9f12b918.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_ab40420d",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_ab40420d.wav",
+    "file_path": "data/clips-rejected/EATO_ab40420d.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_ab40420d.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_ab40420d.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_b40c7a0e",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_b40c7a0e.wav",
+    "file_path": "data/clips-rejected/EATO_b40c7a0e.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_b40c7a0e.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_b40c7a0e.png",
     "common_name": "Eastern Towhee"
   },
   {
@@ -11351,84 +11351,84 @@
     "clip_id": "EATO_cc70cabb",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_cc70cabb.wav",
+    "file_path": "data/clips-rejected/EATO_cc70cabb.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_cc70cabb.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_cc70cabb.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_ce8d1f18",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_ce8d1f18.wav",
+    "file_path": "data/clips-rejected/EATO_ce8d1f18.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_ce8d1f18.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_ce8d1f18.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_d4a9a5d6",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_d4a9a5d6.wav",
+    "file_path": "data/clips-rejected/EATO_d4a9a5d6.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_d4a9a5d6.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_d4a9a5d6.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_dc366274",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_dc366274.wav",
+    "file_path": "data/clips-rejected/EATO_dc366274.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_dc366274.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_dc366274.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_e1f5bcb5",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_e1f5bcb5.wav",
+    "file_path": "data/clips-rejected/EATO_e1f5bcb5.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_e1f5bcb5.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_e1f5bcb5.png",
     "common_name": "Eastern Towhee"
   },
   {
     "clip_id": "EATO_e263daf2",
     "species_code": "EATO",
     "species_name": "Eastern Towhee",
-    "file_path": "data/clips/EATO_e263daf2.wav",
+    "file_path": "data/clips-rejected/EATO_e263daf2.wav",
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
     "canonical": false,
     "rejected": true,
     "source": "user_recording",
-    "spectrogram_path": "data/spectrograms/EATO_e263daf2.png",
+    "spectrogram_path": "data/spectrograms-rejected/EATO_e263daf2.png",
     "common_name": "Eastern Towhee"
   },
   {
