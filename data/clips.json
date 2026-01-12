@@ -10229,5 +10229,112 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/WEWA_654638.png"
+  },
+  {
+    "clip_id": "YRWA_f7f95260",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1000573",
+    "file_path": "data/clips/YRWA_1000573.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1000573.png",
+    "canonical": true
+  },
+  {
+    "clip_id": "YRWA_3d6440a1",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1011288",
+    "file_path": "data/clips/YRWA_1011288.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1011288.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "YRWA_08efc768",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1012832",
+    "file_path": "data/clips/YRWA_1012832.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1012832.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "YRWA_60ea0894",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1012833",
+    "file_path": "data/clips/YRWA_1012833.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1012833.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "YRWA_4e06488e",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1012964",
+    "file_path": "data/clips/YRWA_1012964.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1012964.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "YRWA_929cf474",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1012965",
+    "file_path": "data/clips/YRWA_1012965.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1012965.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "YRWA_f826a661",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1013276",
+    "file_path": "data/clips/YRWA_1013276.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1013276.png"
+  },
+  {
+    "clip_id": "YRWA_3a4a8c62",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1013277",
+    "file_path": "data/clips/YRWA_1013277.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1013277.png"
+  },
+  {
+    "clip_id": "YRWA_a0a80465",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1013412",
+    "file_path": "data/clips/YRWA_1013412.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1013412.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "YRWA_1f2fa838",
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "source_id": "YRWA_1013755",
+    "file_path": "data/clips/YRWA_1013755.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/YRWA_1013755.png"
   }
 ]

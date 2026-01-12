@@ -169,6 +169,7 @@ YBSA: Stylized icon of a Yellow-bellied Sapsucker, simple flat design, circular 
 | TEWA | Tennessee Warbler | Stylized icon of a Tennessee Warbler, simple flat design, circular frame, olive-green with gray head and white eyebrow, white background, game asset style, clean vector look, centered composition, no text |
 | WEWA | Worm-eating Warbler | Stylized icon of a Worm-eating Warbler, simple flat design, circular frame, buffy-tan head with bold black stripes, olive-brown back, white background, game asset style, clean vector look, centered composition, no text |
 | WIWA | Wilson's Warbler | Stylized icon of a Wilson's Warbler, simple flat design, circular frame, bright yellow with black cap, white background, game asset style, clean vector look, centered composition, no text |
+| YRWA | Yellow-rumped Warbler | Stylized icon of a Yellow-rumped Warbler, simple flat design, circular frame, blue-gray above with yellow rump and side patches, white throat, white background, game asset style, clean vector look, centered composition, no text |
 | YTWA | Yellow-throated Warbler | Stylized icon of a Yellow-throated Warbler, simple flat design, circular frame, gray above with bright yellow throat and black face pattern, white background, game asset style, clean vector look, centered composition, no text |
 
 ---
@@ -215,5 +216,6 @@ SWWA: Stylized icon of a Swainson's Warbler, simple flat design, circular frame,
 TEWA: Stylized icon of a Tennessee Warbler, simple flat design, circular frame, olive-green with gray head and white eyebrow, white background, game asset style, clean vector look, centered composition, no text
 WEWA: Stylized icon of a Worm-eating Warbler, simple flat design, circular frame, buffy-tan head with bold black stripes, olive-brown back, white background, game asset style, clean vector look, centered composition, no text
 WIWA: Stylized icon of a Wilson's Warbler, simple flat design, circular frame, bright yellow with black cap, white background, game asset style, clean vector look, centered composition, no text
+YRWA: Stylized icon of a Yellow-rumped Warbler, simple flat design, circular frame, blue-gray above with yellow rump and side patches, white throat, white background, game asset style, clean vector look, centered composition, no text
 YTWA: Stylized icon of a Yellow-throated Warbler, simple flat design, circular frame, gray above with bright yellow throat and black face pattern, white background, game asset style, clean vector look, centered composition, no text
 ```
