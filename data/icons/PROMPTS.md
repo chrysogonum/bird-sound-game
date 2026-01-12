@@ -130,6 +130,7 @@ YBSA: Stylized icon of a Yellow-bellied Sapsucker, simple flat design, circular 
 | SSHA | Sharp-shinned Hawk | Stylized icon of a Sharp-shinned Hawk, simple flat design, circular frame, small blue-gray hawk with rusty barred breast, white background, game asset style, clean vector look, centered composition, no text |
 | RTHA | Red-tailed Hawk | Stylized icon of a Red-tailed Hawk, simple flat design, circular frame, brown hawk with rusty red tail and pale chest, white background, game asset style, clean vector look, centered composition, no text |
 | RTHU | Ruby-throated Hummingbird | Stylized icon of a Ruby-throated Hummingbird, simple flat design, circular frame, tiny green bird with iridescent red throat, white background, game asset style, clean vector look, centered composition, no text |
+| BADO | Barred Owl | Stylized icon of a Barred Owl, simple flat design, circular frame, large brown owl with dark barring on chest and dark eyes, white background, game asset style, clean vector look, centered composition, no text |
 
 ---
 
@@ -181,6 +182,7 @@ COHA: Stylized icon of a Cooper's Hawk, simple flat design, circular frame, blue
 SSHA: Stylized icon of a Sharp-shinned Hawk, simple flat design, circular frame, small blue-gray hawk with rusty barred breast, white background, game asset style, clean vector look, centered composition, no text
 RTHA: Stylized icon of a Red-tailed Hawk, simple flat design, circular frame, brown hawk with rusty red tail and pale chest, white background, game asset style, clean vector look, centered composition, no text
 RTHU: Stylized icon of a Ruby-throated Hummingbird, simple flat design, circular frame, tiny green bird with iridescent red throat, white background, game asset style, clean vector look, centered composition, no text
+BADO: Stylized icon of a Barred Owl, simple flat design, circular frame, large brown owl with dark barring on chest and dark eyes, white background, game asset style, clean vector look, centered composition, no text
 AMRE: Stylized icon of an American Redstart, simple flat design, circular frame, black bird with orange patches on wings and tail, white background, game asset style, clean vector look, centered composition, no text
 BAWW: Stylized icon of a Black-and-white Warbler, simple flat design, circular frame, striped black and white bird, white background, game asset style, clean vector look, centered composition, no text
 BBWA: Stylized icon of a Bay-breasted Warbler, simple flat design, circular frame, chestnut sides and cap with cream neck patch, white background, game asset style, clean vector look, centered composition, no text
