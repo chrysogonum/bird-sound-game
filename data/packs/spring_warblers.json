@@ -1,7 +1,7 @@
 {
   "pack_id": "spring_warblers",
-  "display_name": "Spring Warblers",
-  "description": "32 wood-warblers of eastern spring migration. High-pitched songs, buzzy trills, and musical phrases.",
+  "display_name": "Warbler Academy",
+  "description": "33 wood-warblers of eastern spring migration. High-pitched songs, buzzy trills, and musical phrases.",
   "species": [
     "AMRE",
     "BAWW",
@@ -27,6 +27,7 @@
     "OCWA",
     "OVEN",
     "PAWA",
+    "PIWA",
     "PRAW",
     "PROW",
     "SWWA",
