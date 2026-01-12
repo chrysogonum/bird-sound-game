@@ -5,7 +5,7 @@
 <h1 align="center">ChipNotes!</h1>
 
 <p align="center">
-  <strong>Your gamified study guide to bird songs</strong><br>
+  <strong>Your gamified study guide to bird sounds</strong><br>
   Learn to identify birds by their songs, calls, and spectrograms.
 </p>
 
