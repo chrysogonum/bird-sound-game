@@ -219,3 +219,10 @@ WIWA: Stylized icon of a Wilson's Warbler, simple flat design, circular frame, b
 YRWA: Stylized icon of a Yellow-rumped Warbler, simple flat design, circular frame, blue-gray above with yellow rump and side patches, white throat, white background, game asset style, clean vector look, centered composition, no text
 YTWA: Stylized icon of a Yellow-throated Warbler, simple flat design, circular frame, gray above with bright yellow throat and black face pattern, white background, game asset style, clean vector look, centered composition, no text
 ```
+
+### Additional Backyard Birds (V3)
+| Code | Name | Prompt |
+|------|------|--------|
+| COGR | Common Grackle | Stylized icon of a Common Grackle, simple flat design, circular frame, iridescent black bird with long tail and yellow eye, white background, game asset style, clean vector look, centered composition, no text |
+| FICR | Fish Crow | Stylized icon of a Fish Crow, simple flat design, circular frame, sleek all-black crow, white background, game asset style, clean vector look, centered composition, no text |
+| CEWA | Cedar Waxwing | Stylized icon of a Cedar Waxwing, simple flat design, circular frame, sleek tan bird with black mask yellow tail tip and crest, white background, game asset style, clean vector look, centered composition, no text |

@@ -1,8 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 
-// The 5 starter bird icons
-const HERO_BIRDS = ['NOCA', 'BLJA', 'TUTI', 'CAWR', 'AMCR'];
-
 function MainMenu() {
   const navigate = useNavigate();
 
@@ -16,55 +13,31 @@ function MainMenu() {
         gap: '12px',
         zIndex: 1,
       }}>
-        {/* Bird icons arc */}
-        <div style={{
-          position: 'relative',
-          width: '280px',
-          height: '100px',
-          marginBottom: '8px',
-        }}>
-          {HERO_BIRDS.map((code, index) => {
-            // Position birds in an arc
-            const angle = -60 + (index * 30); // -60, -30, 0, 30, 60 degrees
-            const radius = 90;
-            const centerX = 140;
-            const centerY = 120;
-            const x = centerX + radius * Math.sin(angle * Math.PI / 180) - 28;
-            const y = centerY - radius * Math.cos(angle * Math.PI / 180) - 28;
-            const rotation = angle * 0.3; // Subtle tilt following the arc
-
-            return (
-              <img
-                key={code}
-                src={`${import.meta.env.BASE_URL}data/icons/${code}.png`}
-                alt={code}
-                style={{
-                  position: 'absolute',
-                  left: `${x}px`,
-                  top: `${y}px`,
-                  width: '56px',
-                  height: '56px',
-                  borderRadius: '50%',
-                  transform: `rotate(${rotation}deg)`,
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-                }}
-              />
-            );
-          })}
-        </div>
+        {/* Owl Professor hero image */}
+        <img
+          src={`${import.meta.env.BASE_URL}data/icons/OwlHeadphones.png`}
+          alt="ChipNotes Owl Professor"
+          style={{
+            width: '180px',
+            height: '180px',
+            borderRadius: '50%',
+            boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
+            marginBottom: '8px',
+          }}
+        />
 
         {/* Title */}
         <h1 style={{
           margin: 0,
-          fontSize: '52px',
+          fontSize: '44px',
           fontWeight: 800,
-          letterSpacing: '-2px',
+          letterSpacing: '-1px',
           background: 'linear-gradient(135deg, #FFD54F 0%, #FF8A65 50%, #E57373 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
         }}>
-          Chirp!
+          ChipNotes!
         </h1>
 
         <p style={{
@@ -75,7 +48,7 @@ function MainMenu() {
           lineHeight: 1.5,
           marginTop: '4px',
         }}>
-          Train your ear to identify birds by their songs and calls
+          Your study guide to bird songs
         </p>
 
         {/* Main Play Button */}

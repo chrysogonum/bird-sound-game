@@ -82,7 +82,7 @@ function Help() {
         {/* Training Mode */}
         <Section title="Training Mode">
           <p>
-            Toggle the <strong>eye icon</strong> in the top-right corner during gameplay to enable Training Mode.
+            Toggle the <strong>eye icon</strong> (next to the back button) during gameplay to enable Training Mode.
           </p>
           <p>
             When active, each tile shows its bird icon and species code alongside the spectrogram.

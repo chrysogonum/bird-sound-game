@@ -1,12 +1,23 @@
-# Chirp!
+<p align="center">
+  <img src="data/icons/OwlHeadphones.png" alt="ChipNotes Owl Professor" width="200">
+</p>
 
-A bird sound identification game that trains your ear and eye to recognize birds by their songs, calls, and spectrograms.
+<h1 align="center">ChipNotes!</h1>
 
-### [Play Now](https://chrysogonum.github.io/bird-sound-game/)
+<p align="center">
+  <strong>Your study guide to bird songs</strong><br>
+  Learn to identify birds by their songs, calls, and spectrograms.
+</p>
+
+<p align="center">
+  <a href="https://chrysogonum.github.io/bird-sound-game/">Play Now</a>
+</p>
+
+---
 
 ## What Is This?
 
-Chirp! helps you learn to identify birds by sound. Each round presents bird vocalizations as tiles scrolling down the screen. You hear the sound, see its spectrogram, and tap the matching bird before it reaches the bottom.
+ChipNotes! helps you learn to identify birds by sound. Each round presents bird vocalizations as tiles scrolling down the screen. You hear the sound, see its spectrogram, and tap the matching bird before it reaches the bottom.
 
 **The dual approach:** Learn to recognize both what birds *sound* like and what their songs *look* like. Spectrograms reveal patterns—rising whistles, buzzy trills, rapid chips—that become as recognizable as the sounds themselves.
 
@@ -23,7 +34,7 @@ Build streaks for bonus points. Miss too many and the round ends.
 | Pack | Species | Description |
 |------|---------|-------------|
 | **5 Common Backyard Birds** | 5 | Start here — bold, distinctive voices |
-| **Expanded Local Birds** | 35 | Eastern US species, 9 random per round |
+| **Expanded Local Birds** | 38 | Eastern US species, 9 random per round |
 | **Sparrows** | 7 | Subtle songs of seven sparrow species |
 | **Woodpeckers** | 7 | Drums, calls, and rattles |
 | **Warbler Academy** | 33 | High-pitched songs of migration (experts only!) |
@@ -43,8 +54,9 @@ Each pack has 6 levels of increasing challenge:
 
 ## Features
 
-- **650+ curated clips** from Xeno-canto, hand-reviewed for quality
+- **700+ curated clips** from Xeno-canto, hand-reviewed for quality
 - **Real spectrograms** generated for every clip
+- **Training Mode** — Toggle to show bird icons on tiles while learning
 - **Progressive learning** from single canonical sounds to full repertoires
 - **Continuous play mode** for relaxed practice (no timer)
 - **Pre-round preview** to hear/see birds before playing
@@ -52,9 +64,9 @@ Each pack has 6 levels of increasing challenge:
 
 ## Species Coverage
 
-**74 species** across 5 packs with 670+ audio clips:
+**77 species** across 5 packs with 700+ audio clips:
 
-- Backyard birds (cardinals, wrens, jays, chickadees)
+- Backyard birds (cardinals, wrens, jays, chickadees, grackles)
 - Raptors (hawks, owl, hummingbird)
 - Woodpeckers (7 species from Downy to Pileated)
 - Sparrows (7 species including White-throated, Song, Field)

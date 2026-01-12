@@ -119,6 +119,7 @@ def main():
         # New additions
         'NOMO', 'GCKI', 'RCKI',
         'COHA', 'SSHA', 'RTHA', 'RTHU', 'BADO',
+        'COGR', 'FICR', 'CEWA',
         # Sparrows pack
         'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP',
         # Additional woodpecker
