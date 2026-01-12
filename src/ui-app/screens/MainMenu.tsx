@@ -26,19 +26,45 @@ function MainMenu() {
           }}
         />
 
-        {/* Title */}
-        <h1 style={{
-          margin: 0,
-          fontSize: '44px',
-          fontWeight: 800,
-          letterSpacing: '-1px',
-          background: 'linear-gradient(135deg, #FFD54F 0%, #FF8A65 50%, #E57373 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+        {/* Title with CliffsNotes-inspired design */}
+        <div style={{
+          position: 'relative',
+          padding: '12px 24px',
+          background: '#1a1a1a',
+          borderRadius: '8px',
+          overflow: 'hidden',
         }}>
-          ChipNotes!
-        </h1>
+          {/* Diagonal yellow stripes */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            height: '8px',
+            background: 'repeating-linear-gradient(135deg, #FFD54F 0px, #FFD54F 8px, #1a1a1a 8px, #1a1a1a 16px)',
+          }} />
+          <h1 style={{
+            margin: 0,
+            fontSize: '44px',
+            fontWeight: 800,
+            letterSpacing: '-1px',
+            color: '#FFD54F',
+            textShadow: '2px 2px 0 rgba(0,0,0,0.3)',
+            position: 'relative',
+            zIndex: 1,
+          }}>
+            ChipNotes!
+          </h1>
+          {/* Bottom stripes */}
+          <div style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: '8px',
+            background: 'repeating-linear-gradient(135deg, #FFD54F 0px, #FFD54F 8px, #1a1a1a 8px, #1a1a1a 16px)',
+          }} />
+        </div>
 
         <p style={{
           color: 'var(--color-text-muted)',
@@ -82,25 +108,25 @@ function MainMenu() {
         {/* How it works - visual gameplay preview */}
         <div style={{
           marginTop: '32px',
-          padding: '20px',
+          padding: '24px 32px',
           background: 'var(--color-surface)',
           borderRadius: '16px',
-          maxWidth: '320px',
+          maxWidth: '360px',
         }}>
           <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '12px',
+            gap: '20px',
           }}>
             {/* Step 1: Spectrogram representing sound */}
             <div style={{ textAlign: 'center' }}>
               <div style={{
-                width: '64px',
-                height: '40px',
+                width: '88px',
+                height: '56px',
                 background: 'linear-gradient(180deg, #1a1a2e 0%, #0d1520 100%)',
-                borderRadius: '8px',
-                padding: '4px',
+                borderRadius: '10px',
+                padding: '6px',
                 display: 'flex',
                 alignItems: 'flex-end',
                 justifyContent: 'center',
@@ -109,13 +135,13 @@ function MainMenu() {
               }}>
                 <SpectrogramMini />
               </div>
-              <div style={{ fontSize: '10px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
                 Hear a sound
               </div>
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', fontSize: '20px', marginTop: '-16px' }}>
+            <div style={{ color: 'var(--color-accent)', fontSize: '28px', marginTop: '-20px' }}>
               →
             </div>
 
@@ -124,18 +150,18 @@ function MainMenu() {
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '4px',
+                gap: '6px',
               }}>
                 {['NOCA', 'BLJA', 'TUTI', 'CAWR'].map((code, i) => (
                   <div
                     key={code}
                     style={{
-                      width: '28px',
-                      height: '28px',
-                      borderRadius: '6px',
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '8px',
                       overflow: 'hidden',
                       border: i === 0 ? '2px solid var(--color-accent)' : '2px solid transparent',
-                      boxShadow: i === 0 ? '0 0 8px rgba(255, 152, 0, 0.4)' : 'none',
+                      boxShadow: i === 0 ? '0 0 10px rgba(255, 152, 0, 0.4)' : 'none',
                     }}
                   >
                     <img
@@ -146,7 +172,7 @@ function MainMenu() {
                   </div>
                 ))}
               </div>
-              <div style={{ fontSize: '10px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
                 Match the bird!
               </div>
             </div>
@@ -201,18 +227,18 @@ function MainMenu() {
 // Mini spectrogram visualization - looks like a bird song pattern
 function SpectrogramMini() {
   // Heights simulate a rising bird song pattern
-  const bars = [6, 12, 18, 24, 20, 26, 22, 28, 16, 10, 20, 24];
+  const bars = [8, 16, 24, 32, 26, 34, 28, 36, 20, 12, 26, 32];
 
   return (
-    <svg width="56" height="28" viewBox="0 0 56 28">
+    <svg width="76" height="40" viewBox="0 0 76 40">
       {bars.map((height, i) => (
         <rect
           key={i}
-          x={i * 4.5 + 1}
-          y={28 - height}
-          width="3"
+          x={i * 6 + 2}
+          y={40 - height}
+          width="4"
           height={height}
-          rx="1"
+          rx="1.5"
           fill={`hsl(${30 + i * 8}, 80%, ${50 + i * 2}%)`}
           opacity={0.8 + i * 0.015}
         />
