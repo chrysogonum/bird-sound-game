@@ -167,6 +167,7 @@ YBSA: Stylized icon of a Yellow-bellied Sapsucker, simple flat design, circular 
 | PROW | Prothonotary Warbler | Stylized icon of a Prothonotary Warbler, simple flat design, circular frame, bright golden-yellow head and breast with blue-gray wings, white background, game asset style, clean vector look, centered composition, no text |
 | SWWA | Swainson's Warbler | Stylized icon of a Swainson's Warbler, simple flat design, circular frame, plain brown above buffy below with pale eyebrow, white background, game asset style, clean vector look, centered composition, no text |
 | TEWA | Tennessee Warbler | Stylized icon of a Tennessee Warbler, simple flat design, circular frame, olive-green with gray head and white eyebrow, white background, game asset style, clean vector look, centered composition, no text |
+| WEWA | Worm-eating Warbler | Stylized icon of a Worm-eating Warbler, simple flat design, circular frame, buffy-tan head with bold black stripes, olive-brown back, white background, game asset style, clean vector look, centered composition, no text |
 | WIWA | Wilson's Warbler | Stylized icon of a Wilson's Warbler, simple flat design, circular frame, bright yellow with black cap, white background, game asset style, clean vector look, centered composition, no text |
 | YTWA | Yellow-throated Warbler | Stylized icon of a Yellow-throated Warbler, simple flat design, circular frame, gray above with bright yellow throat and black face pattern, white background, game asset style, clean vector look, centered composition, no text |
 
@@ -212,6 +213,7 @@ PRAW: Stylized icon of a Prairie Warbler, simple flat design, circular frame, ye
 PROW: Stylized icon of a Prothonotary Warbler, simple flat design, circular frame, bright golden-yellow head and breast with blue-gray wings, white background, game asset style, clean vector look, centered composition, no text
 SWWA: Stylized icon of a Swainson's Warbler, simple flat design, circular frame, plain brown above buffy below with pale eyebrow, white background, game asset style, clean vector look, centered composition, no text
 TEWA: Stylized icon of a Tennessee Warbler, simple flat design, circular frame, olive-green with gray head and white eyebrow, white background, game asset style, clean vector look, centered composition, no text
+WEWA: Stylized icon of a Worm-eating Warbler, simple flat design, circular frame, buffy-tan head with bold black stripes, olive-brown back, white background, game asset style, clean vector look, centered composition, no text
 WIWA: Stylized icon of a Wilson's Warbler, simple flat design, circular frame, bright yellow with black cap, white background, game asset style, clean vector look, centered composition, no text
 YTWA: Stylized icon of a Yellow-throated Warbler, simple flat design, circular frame, gray above with bright yellow throat and black face pattern, white background, game asset style, clean vector look, centered composition, no text
 ```

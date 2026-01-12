@@ -10122,5 +10122,112 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/BADO_f5f22f40.png"
+  },
+  {
+    "clip_id": "WEWA_e47eba48",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_1038386",
+    "file_path": "data/clips/WEWA_1038386.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_1038386.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "WEWA_fdb295b0",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_1001954",
+    "file_path": "data/clips/WEWA_1001954.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_1001954.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "WEWA_ff9309aa",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_938773",
+    "file_path": "data/clips/WEWA_938773.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_938773.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "WEWA_788c9d60",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_933618",
+    "file_path": "data/clips/WEWA_933618.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_933618.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "WEWA_166264b7",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_933617",
+    "file_path": "data/clips/WEWA_933617.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_933617.png"
+  },
+  {
+    "clip_id": "WEWA_a731d421",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_902735",
+    "file_path": "data/clips/WEWA_902735.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_902735.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "WEWA_3f09b292",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_828191",
+    "file_path": "data/clips/WEWA_828191.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_828191.png",
+    "canonical": true
+  },
+  {
+    "clip_id": "WEWA_e5b38f3c",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_730180",
+    "file_path": "data/clips/WEWA_730180.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_730180.png"
+  },
+  {
+    "clip_id": "WEWA_74db4c04",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_692213",
+    "file_path": "data/clips/WEWA_692213.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_692213.png",
+    "rejected": true
+  },
+  {
+    "clip_id": "WEWA_8cfd72c8",
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "source_id": "WEWA_654638",
+    "file_path": "data/clips/WEWA_654638.wav",
+    "vocalization_type": "song",
+    "quality_rating": "A",
+    "spectrogram_path": "data/spectrograms/WEWA_654638.png"
   }
 ]
