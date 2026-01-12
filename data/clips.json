@@ -3,27 +3,27 @@
     "clip_id": "AMCR_1007629",
     "species_code": "AMCR",
     "common_name": "American Crow",
-    "file_path": "data/clips/AMCR_1007629.wav",
+    "file_path": "data/clips-rejected/AMCR_1007629.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1007629",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMCR_1007629.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMCR_1007629.png"
   },
   {
     "clip_id": "AMCR_1056042",
     "species_code": "AMCR",
     "common_name": "American Crow",
-    "file_path": "data/clips/AMCR_1056042.wav",
+    "file_path": "data/clips-rejected/AMCR_1056042.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1056042",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMCR_1056042.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMCR_1056042.png"
   },
   {
     "clip_id": "AMCR_13810124",
@@ -106,14 +106,14 @@
     "clip_id": "AMCR_905503",
     "species_code": "AMCR",
     "common_name": "American Crow",
-    "file_path": "data/clips/AMCR_905503.wav",
+    "file_path": "data/clips-rejected/AMCR_905503.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC905503",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMCR_905503.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMCR_905503.png"
   },
   {
     "clip_id": "AMCR_91a986ce",
@@ -157,27 +157,27 @@
     "clip_id": "AMGO_1033751",
     "species_code": "AMGO",
     "common_name": "American Goldfinch",
-    "file_path": "data/clips/AMGO_1033751.wav",
+    "file_path": "data/clips-rejected/AMGO_1033751.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1033751",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMGO_1033751.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMGO_1033751.png"
   },
   {
     "clip_id": "AMGO_1034478",
     "species_code": "AMGO",
     "common_name": "American Goldfinch",
-    "file_path": "data/clips/AMGO_1034478.wav",
+    "file_path": "data/clips-rejected/AMGO_1034478.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1034478",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMGO_1034478.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMGO_1034478.png"
   },
   {
     "clip_id": "AMGO_1034479",
@@ -196,14 +196,14 @@
     "clip_id": "AMGO_1056062",
     "species_code": "AMGO",
     "common_name": "American Goldfinch",
-    "file_path": "data/clips/AMGO_1056062.wav",
+    "file_path": "data/clips-rejected/AMGO_1056062.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1056062",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMGO_1056062.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMGO_1056062.png"
   },
   {
     "clip_id": "AMGO_4fe76388",
@@ -273,14 +273,14 @@
     "clip_id": "AMGO_723797",
     "species_code": "AMGO",
     "common_name": "American Goldfinch",
-    "file_path": "data/clips/AMGO_723797.wav",
+    "file_path": "data/clips-rejected/AMGO_723797.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC723797",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMGO_723797.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMGO_723797.png"
   },
   {
     "clip_id": "AMGO_8b56eb69",
@@ -541,14 +541,14 @@
     "clip_id": "AMRO_892933",
     "species_code": "AMRO",
     "common_name": "American Robin",
-    "file_path": "data/clips/AMRO_892933.wav",
+    "file_path": "data/clips-rejected/AMRO_892933.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC892933",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMRO_892933.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMRO_892933.png"
   },
   {
     "clip_id": "AMRO_8dae0c13",
@@ -619,14 +619,14 @@
     "clip_id": "AMRO_999808",
     "species_code": "AMRO",
     "common_name": "American Robin",
-    "file_path": "data/clips/AMRO_999808.wav",
+    "file_path": "data/clips-rejected/AMRO_999808.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC999808",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMRO_999808.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/AMRO_999808.png"
   },
   {
     "clip_id": "AMRO_9ca18355",
@@ -834,14 +834,14 @@
     "clip_id": "BEKI_1034322",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
-    "file_path": "data/clips/BEKI_1034322.wav",
+    "file_path": "data/clips-rejected/BEKI_1034322.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1034322",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BEKI_1034322.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BEKI_1034322.png"
   },
   {
     "clip_id": "BEKI_1034325",
@@ -860,14 +860,14 @@
     "clip_id": "BEKI_1035995",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
-    "file_path": "data/clips/BEKI_1035995.wav",
+    "file_path": "data/clips-rejected/BEKI_1035995.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1035995",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BEKI_1035995.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BEKI_1035995.png"
   },
   {
     "clip_id": "BEKI_1e5ebecf",
@@ -951,14 +951,14 @@
     "clip_id": "BEKI_600420",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
-    "file_path": "data/clips/BEKI_600420.wav",
+    "file_path": "data/clips-rejected/BEKI_600420.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC600420",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BEKI_600420.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BEKI_600420.png"
   },
   {
     "clip_id": "BEKI_612651",
@@ -977,14 +977,14 @@
     "clip_id": "BEKI_624466",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
-    "file_path": "data/clips/BEKI_624466.wav",
+    "file_path": "data/clips-rejected/BEKI_624466.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC624466",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BEKI_624466.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BEKI_624466.png"
   },
   {
     "clip_id": "BEKI_628808",
@@ -1090,27 +1090,27 @@
     "clip_id": "BHNU_417815",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
-    "file_path": "data/clips/BHNU_417815.wav",
+    "file_path": "data/clips-rejected/BHNU_417815.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC417815",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BHNU_417815.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_417815.png"
   },
   {
     "clip_id": "BHNU_481983",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
-    "file_path": "data/clips/BHNU_481983.wav",
+    "file_path": "data/clips-rejected/BHNU_481983.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC481983",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BHNU_481983.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_481983.png"
   },
   {
     "clip_id": "BHNU_4ba93e5f",
@@ -1155,14 +1155,14 @@
     "clip_id": "BHNU_637179",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
-    "file_path": "data/clips/BHNU_637179.wav",
+    "file_path": "data/clips-rejected/BHNU_637179.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC637179",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BHNU_637179.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_637179.png"
   },
   {
     "clip_id": "BHNU_651187",
@@ -1220,14 +1220,14 @@
     "clip_id": "BHNU_860797",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
-    "file_path": "data/clips/BHNU_860797.wav",
+    "file_path": "data/clips-rejected/BHNU_860797.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC860797",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BHNU_860797.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_860797.png"
   },
   {
     "clip_id": "BHNU_874162de",
@@ -1246,14 +1246,14 @@
     "clip_id": "BHNU_877067",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
-    "file_path": "data/clips/BHNU_877067.wav",
+    "file_path": "data/clips-rejected/BHNU_877067.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC877067",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BHNU_877067.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BHNU_877067.png"
   },
   {
     "clip_id": "BHNU_9c303697",
@@ -1525,14 +1525,14 @@
     "clip_id": "BRCR_1053947",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
-    "file_path": "data/clips/BRCR_1053947.wav",
+    "file_path": "data/clips-rejected/BRCR_1053947.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1053947",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRCR_1053947.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_1053947.png"
   },
   {
     "clip_id": "BRCR_14251866",
@@ -1651,53 +1651,53 @@
     "clip_id": "BRCR_749409",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
-    "file_path": "data/clips/BRCR_749409.wav",
+    "file_path": "data/clips-rejected/BRCR_749409.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC749409",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRCR_749409.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_749409.png"
   },
   {
     "clip_id": "BRCR_783576",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
-    "file_path": "data/clips/BRCR_783576.wav",
+    "file_path": "data/clips-rejected/BRCR_783576.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC783576",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRCR_783576.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_783576.png"
   },
   {
     "clip_id": "BRCR_794671",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
-    "file_path": "data/clips/BRCR_794671.wav",
+    "file_path": "data/clips-rejected/BRCR_794671.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC794671",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRCR_794671.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_794671.png"
   },
   {
     "clip_id": "BRCR_838763",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
-    "file_path": "data/clips/BRCR_838763.wav",
+    "file_path": "data/clips-rejected/BRCR_838763.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC838763",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRCR_838763.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRCR_838763.png"
   },
   {
     "clip_id": "BRCR_933554",
@@ -1768,14 +1768,14 @@
     "clip_id": "BRTH_1011715",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
-    "file_path": "data/clips/BRTH_1011715.wav",
+    "file_path": "data/clips-rejected/BRTH_1011715.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1011715",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRTH_1011715.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRTH_1011715.png"
   },
   {
     "clip_id": "BRTH_1011716",
@@ -1794,27 +1794,27 @@
     "clip_id": "BRTH_1011717",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
-    "file_path": "data/clips/BRTH_1011717.wav",
+    "file_path": "data/clips-rejected/BRTH_1011717.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1011717",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRTH_1011717.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRTH_1011717.png"
   },
   {
     "clip_id": "BRTH_1011718",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
-    "file_path": "data/clips/BRTH_1011718.wav",
+    "file_path": "data/clips-rejected/BRTH_1011718.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1011718",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRTH_1011718.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRTH_1011718.png"
   },
   {
     "clip_id": "BRTH_1a0c5161",
@@ -1910,14 +1910,14 @@
     "clip_id": "BRTH_939189",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
-    "file_path": "data/clips/BRTH_939189.wav",
+    "file_path": "data/clips-rejected/BRTH_939189.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC939189",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BRTH_939189.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/BRTH_939189.png"
   },
   {
     "clip_id": "BRTH_939190",
@@ -2218,14 +2218,14 @@
     "clip_id": "CACH_1010608",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
-    "file_path": "data/clips/CACH_1010608.wav",
+    "file_path": "data/clips-rejected/CACH_1010608.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1010608",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/CACH_1010608.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/CACH_1010608.png"
   },
   {
     "clip_id": "CACH_2a292b42",
@@ -2321,14 +2321,14 @@
     "clip_id": "CACH_933605",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
-    "file_path": "data/clips/CACH_933605.wav",
+    "file_path": "data/clips-rejected/CACH_933605.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC933605",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/CACH_933605.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/CACH_933605.png"
   },
   {
     "clip_id": "CACH_933606",
@@ -2347,40 +2347,40 @@
     "clip_id": "CACH_938770",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
-    "file_path": "data/clips/CACH_938770.wav",
+    "file_path": "data/clips-rejected/CACH_938770.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC938770",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/CACH_938770.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/CACH_938770.png"
   },
   {
     "clip_id": "CACH_955593",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
-    "file_path": "data/clips/CACH_955593.wav",
+    "file_path": "data/clips-rejected/CACH_955593.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC955593",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/CACH_955593.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/CACH_955593.png"
   },
   {
     "clip_id": "CACH_959878",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
-    "file_path": "data/clips/CACH_959878.wav",
+    "file_path": "data/clips-rejected/CACH_959878.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC959878",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/CACH_959878.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/CACH_959878.png"
   },
   {
     "clip_id": "CACH_987493cc",
@@ -2588,14 +2588,14 @@
     "clip_id": "CHSP_1012059",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
-    "file_path": "data/clips/CHSP_1012059.wav",
+    "file_path": "data/clips-rejected/CHSP_1012059.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1012059",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/CHSP_1012059.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/CHSP_1012059.png"
   },
   {
     "clip_id": "CHSP_1012541",
@@ -2653,14 +2653,14 @@
     "clip_id": "CHSP_1013830",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
-    "file_path": "data/clips/CHSP_1013830.wav",
+    "file_path": "data/clips-rejected/CHSP_1013830.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1013830",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/CHSP_1013830.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/CHSP_1013830.png"
   },
   {
     "clip_id": "CHSP_1014201",
@@ -2679,14 +2679,14 @@
     "clip_id": "CHSP_1014202",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
-    "file_path": "data/clips/CHSP_1014202.wav",
+    "file_path": "data/clips-rejected/CHSP_1014202.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014202",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/CHSP_1014202.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/CHSP_1014202.png"
   },
   {
     "clip_id": "CHSP_1024787",
@@ -2998,14 +2998,14 @@
     "clip_id": "DOWO_1033504",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
-    "file_path": "data/clips/DOWO_1033504.wav",
+    "file_path": "data/clips-rejected/DOWO_1033504.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1033504",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/DOWO_1033504.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/DOWO_1033504.png"
   },
   {
     "clip_id": "DOWO_1036590",
@@ -3126,14 +3126,14 @@
     "clip_id": "DOWO_897608",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
-    "file_path": "data/clips/DOWO_897608.wav",
+    "file_path": "data/clips-rejected/DOWO_897608.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC897608",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/DOWO_897608.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/DOWO_897608.png"
   },
   {
     "clip_id": "DOWO_8fd07c30",
@@ -3151,14 +3151,14 @@
     "clip_id": "DOWO_962370",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
-    "file_path": "data/clips/DOWO_962370.wav",
+    "file_path": "data/clips-rejected/DOWO_962370.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC962370",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/DOWO_962370.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/DOWO_962370.png"
   },
   {
     "clip_id": "DOWO_982935",
@@ -3239,14 +3239,14 @@
     "clip_id": "EABL_1045482",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
-    "file_path": "data/clips/EABL_1045482.wav",
+    "file_path": "data/clips-rejected/EABL_1045482.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1045482",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EABL_1045482.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/EABL_1045482.png"
   },
   {
     "clip_id": "EABL_1c79cf7c",
@@ -3291,27 +3291,27 @@
     "clip_id": "EABL_626711",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
-    "file_path": "data/clips/EABL_626711.wav",
+    "file_path": "data/clips-rejected/EABL_626711.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC626711",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EABL_626711.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/EABL_626711.png"
   },
   {
     "clip_id": "EABL_638302",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
-    "file_path": "data/clips/EABL_638302.wav",
+    "file_path": "data/clips-rejected/EABL_638302.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC638302",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EABL_638302.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/EABL_638302.png"
   },
   {
     "clip_id": "EABL_674bf0de",
@@ -3381,14 +3381,14 @@
     "clip_id": "EABL_890151",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
-    "file_path": "data/clips/EABL_890151.wav",
+    "file_path": "data/clips-rejected/EABL_890151.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC890151",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EABL_890151.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/EABL_890151.png"
   },
   {
     "clip_id": "EABL_890154",
@@ -3507,40 +3507,40 @@
     "clip_id": "FISP_1014920",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
-    "file_path": "data/clips/FISP_1014920.wav",
+    "file_path": "data/clips-rejected/FISP_1014920.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014920",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/FISP_1014920.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/FISP_1014920.png"
   },
   {
     "clip_id": "FISP_1014921",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
-    "file_path": "data/clips/FISP_1014921.wav",
+    "file_path": "data/clips-rejected/FISP_1014921.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014921",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/FISP_1014921.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/FISP_1014921.png"
   },
   {
     "clip_id": "FISP_1014922",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
-    "file_path": "data/clips/FISP_1014922.wav",
+    "file_path": "data/clips-rejected/FISP_1014922.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014922",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/FISP_1014922.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/FISP_1014922.png"
   },
   {
     "clip_id": "FISP_1015150",
@@ -3559,14 +3559,14 @@
     "clip_id": "FISP_1036169",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
-    "file_path": "data/clips/FISP_1036169.wav",
+    "file_path": "data/clips-rejected/FISP_1036169.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1036169",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/FISP_1036169.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/FISP_1036169.png"
   },
   {
     "clip_id": "FISP_1d21f159",
@@ -3662,14 +3662,14 @@
     "clip_id": "FISP_901416",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
-    "file_path": "data/clips/FISP_901416.wav",
+    "file_path": "data/clips-rejected/FISP_901416.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC901416",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/FISP_901416.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/FISP_901416.png"
   },
   {
     "clip_id": "FISP_924416",
@@ -4053,14 +4053,14 @@
     "clip_id": "HAWO_1011106",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
-    "file_path": "data/clips/HAWO_1011106.wav",
+    "file_path": "data/clips-rejected/HAWO_1011106.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1011106",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HAWO_1011106.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_1011106.png"
   },
   {
     "clip_id": "HAWO_1028817",
@@ -4092,14 +4092,14 @@
     "clip_id": "HAWO_1069803",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
-    "file_path": "data/clips/HAWO_1069803.wav",
+    "file_path": "data/clips-rejected/HAWO_1069803.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1069803",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HAWO_1069803.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_1069803.png"
   },
   {
     "clip_id": "HAWO_1763dfab",
@@ -4169,14 +4169,14 @@
     "clip_id": "HAWO_860504",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
-    "file_path": "data/clips/HAWO_860504.wav",
+    "file_path": "data/clips-rejected/HAWO_860504.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC860504",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HAWO_860504.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_860504.png"
   },
   {
     "clip_id": "HAWO_94eca2ba",
@@ -4207,27 +4207,27 @@
     "clip_id": "HAWO_961053",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
-    "file_path": "data/clips/HAWO_961053.wav",
+    "file_path": "data/clips-rejected/HAWO_961053.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC961053",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HAWO_961053.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_961053.png"
   },
   {
     "clip_id": "HAWO_988846",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
-    "file_path": "data/clips/HAWO_988846.wav",
+    "file_path": "data/clips-rejected/HAWO_988846.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC988846",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HAWO_988846.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HAWO_988846.png"
   },
   {
     "clip_id": "HAWO_988849",
@@ -4335,27 +4335,27 @@
     "clip_id": "HETH_1060759",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
-    "file_path": "data/clips/HETH_1060759.wav",
+    "file_path": "data/clips-rejected/HETH_1060759.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1060759",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HETH_1060759.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HETH_1060759.png"
   },
   {
     "clip_id": "HETH_1071279",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
-    "file_path": "data/clips/HETH_1071279.wav",
+    "file_path": "data/clips-rejected/HETH_1071279.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1071279",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HETH_1071279.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HETH_1071279.png"
   },
   {
     "clip_id": "HETH_15380b54",
@@ -4424,40 +4424,40 @@
     "clip_id": "HETH_933563",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
-    "file_path": "data/clips/HETH_933563.wav",
+    "file_path": "data/clips-rejected/HETH_933563.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC933563",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HETH_933563.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HETH_933563.png"
   },
   {
     "clip_id": "HETH_933564",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
-    "file_path": "data/clips/HETH_933564.wav",
+    "file_path": "data/clips-rejected/HETH_933564.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC933564",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HETH_933564.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HETH_933564.png"
   },
   {
     "clip_id": "HETH_933565",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
-    "file_path": "data/clips/HETH_933565.wav",
+    "file_path": "data/clips-rejected/HETH_933565.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC933565",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HETH_933565.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HETH_933565.png"
   },
   {
     "clip_id": "HETH_957962",
@@ -4729,14 +4729,14 @@
     "clip_id": "HOFI_941235",
     "species_code": "HOFI",
     "common_name": "House Finch",
-    "file_path": "data/clips/HOFI_941235.wav",
+    "file_path": "data/clips-rejected/HOFI_941235.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC941235",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOFI_941235.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/HOFI_941235.png"
   },
   {
     "clip_id": "HOFI_a8021e88",
@@ -4869,14 +4869,14 @@
     "clip_id": "LISP_1014971",
     "species_code": "LISP",
     "common_name": "Lincoln's Sparrow",
-    "file_path": "data/clips/LISP_1014971.wav",
+    "file_path": "data/clips-rejected/LISP_1014971.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014971",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/LISP_1014971.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014971.png"
   },
   {
     "clip_id": "LISP_1014972",
@@ -4895,14 +4895,14 @@
     "clip_id": "LISP_1014973",
     "species_code": "LISP",
     "common_name": "Lincoln's Sparrow",
-    "file_path": "data/clips/LISP_1014973.wav",
+    "file_path": "data/clips-rejected/LISP_1014973.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014973",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/LISP_1014973.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014973.png"
   },
   {
     "clip_id": "LISP_1014974",
@@ -4921,27 +4921,27 @@
     "clip_id": "LISP_1014975",
     "species_code": "LISP",
     "common_name": "Lincoln's Sparrow",
-    "file_path": "data/clips/LISP_1014975.wav",
+    "file_path": "data/clips-rejected/LISP_1014975.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014975",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/LISP_1014975.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014975.png"
   },
   {
     "clip_id": "LISP_1014976",
     "species_code": "LISP",
     "common_name": "Lincoln's Sparrow",
-    "file_path": "data/clips/LISP_1014976.wav",
+    "file_path": "data/clips-rejected/LISP_1014976.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014976",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/LISP_1014976.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014976.png"
   },
   {
     "clip_id": "LISP_1014977",
@@ -4960,14 +4960,14 @@
     "clip_id": "LISP_1014978",
     "species_code": "LISP",
     "common_name": "Lincoln's Sparrow",
-    "file_path": "data/clips/LISP_1014978.wav",
+    "file_path": "data/clips-rejected/LISP_1014978.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014978",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/LISP_1014978.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/LISP_1014978.png"
   },
   {
     "clip_id": "LISP_1014979",
@@ -5280,14 +5280,14 @@
     "clip_id": "MODO_495471",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
-    "file_path": "data/clips/MODO_495471.wav",
+    "file_path": "data/clips-rejected/MODO_495471.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC495471",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/MODO_495471.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/MODO_495471.png"
   },
   {
     "clip_id": "MODO_580701",
@@ -5319,14 +5319,14 @@
     "clip_id": "MODO_583581",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
-    "file_path": "data/clips/MODO_583581.wav",
+    "file_path": "data/clips-rejected/MODO_583581.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC583581",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/MODO_583581.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/MODO_583581.png"
   },
   {
     "clip_id": "MODO_613539",
@@ -5345,14 +5345,14 @@
     "clip_id": "MODO_621374",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
-    "file_path": "data/clips/MODO_621374.wav",
+    "file_path": "data/clips-rejected/MODO_621374.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC621374",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/MODO_621374.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/MODO_621374.png"
   },
   {
     "clip_id": "MODO_638304",
@@ -5371,27 +5371,27 @@
     "clip_id": "MODO_691623",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
-    "file_path": "data/clips/MODO_691623.wav",
+    "file_path": "data/clips-rejected/MODO_691623.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC691623",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/MODO_691623.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/MODO_691623.png"
   },
   {
     "clip_id": "MODO_807126",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
-    "file_path": "data/clips/MODO_807126.wav",
+    "file_path": "data/clips-rejected/MODO_807126.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC807126",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/MODO_807126.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/MODO_807126.png"
   },
   {
     "clip_id": "MODO_80851a8a",
@@ -5728,27 +5728,27 @@
     "clip_id": "NOFL_1009102",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
-    "file_path": "data/clips/NOFL_1009102.wav",
+    "file_path": "data/clips-rejected/NOFL_1009102.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1009102",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/NOFL_1009102.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/NOFL_1009102.png"
   },
   {
     "clip_id": "NOFL_1029783",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
-    "file_path": "data/clips/NOFL_1029783.wav",
+    "file_path": "data/clips-rejected/NOFL_1029783.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1029783",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/NOFL_1029783.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/NOFL_1029783.png"
   },
   {
     "clip_id": "NOFL_1033749",
@@ -5767,14 +5767,14 @@
     "clip_id": "NOFL_1069251",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
-    "file_path": "data/clips/NOFL_1069251.wav",
+    "file_path": "data/clips-rejected/NOFL_1069251.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1069251",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/NOFL_1069251.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/NOFL_1069251.png"
   },
   {
     "clip_id": "NOFL_1c25d83b",
@@ -6379,14 +6379,14 @@
     "clip_id": "PIWO_1029787",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
-    "file_path": "data/clips/PIWO_1029787.wav",
+    "file_path": "data/clips-rejected/PIWO_1029787.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1029787",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/PIWO_1029787.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/PIWO_1029787.png"
   },
   {
     "clip_id": "PIWO_2cec6a83",
@@ -6456,14 +6456,14 @@
     "clip_id": "PIWO_595205",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
-    "file_path": "data/clips/PIWO_595205.wav",
+    "file_path": "data/clips-rejected/PIWO_595205.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC595205",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/PIWO_595205.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/PIWO_595205.png"
   },
   {
     "clip_id": "PIWO_599834",
@@ -6544,14 +6544,14 @@
     "clip_id": "PIWO_714469",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
-    "file_path": "data/clips/PIWO_714469.wav",
+    "file_path": "data/clips-rejected/PIWO_714469.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC714469",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/PIWO_714469.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/PIWO_714469.png"
   },
   {
     "clip_id": "PIWO_797066",
@@ -6712,14 +6712,14 @@
     "clip_id": "RBWO_1049468",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
-    "file_path": "data/clips/RBWO_1049468.wav",
+    "file_path": "data/clips-rejected/RBWO_1049468.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1049468",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/RBWO_1049468.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/RBWO_1049468.png"
   },
   {
     "clip_id": "RBWO_11055b13",
@@ -6838,14 +6838,14 @@
     "clip_id": "RBWO_755629",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
-    "file_path": "data/clips/RBWO_755629.wav",
+    "file_path": "data/clips-rejected/RBWO_755629.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC755629",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/RBWO_755629.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/RBWO_755629.png"
   },
   {
     "clip_id": "RBWO_779e3f43",
@@ -7039,14 +7039,14 @@
     "clip_id": "RHWO_733263",
     "species_code": "RHWO",
     "common_name": "Red-headed Woodpecker",
-    "file_path": "data/clips/RHWO_733263.wav",
+    "file_path": "data/clips-rejected/RHWO_733263.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC733263",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/RHWO_733263.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/RHWO_733263.png"
   },
   {
     "clip_id": "RHWO_733937",
@@ -7078,27 +7078,27 @@
     "clip_id": "RHWO_794281",
     "species_code": "RHWO",
     "common_name": "Red-headed Woodpecker",
-    "file_path": "data/clips/RHWO_794281.wav",
+    "file_path": "data/clips-rejected/RHWO_794281.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC794281",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/RHWO_794281.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/RHWO_794281.png"
   },
   {
     "clip_id": "RHWO_794283",
     "species_code": "RHWO",
     "common_name": "Red-headed Woodpecker",
-    "file_path": "data/clips/RHWO_794283.wav",
+    "file_path": "data/clips-rejected/RHWO_794283.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC794283",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/RHWO_794283.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/RHWO_794283.png"
   },
   {
     "clip_id": "RHWO_812951b9",
@@ -7305,14 +7305,14 @@
     "clip_id": "RSHA_792166",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
-    "file_path": "data/clips/RSHA_792166.wav",
+    "file_path": "data/clips-rejected/RSHA_792166.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC792166",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/RSHA_792166.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/RSHA_792166.png"
   },
   {
     "clip_id": "RSHA_809281",
@@ -7484,14 +7484,14 @@
     "clip_id": "SASP_1014987",
     "species_code": "SASP",
     "common_name": "Savannah Sparrow",
-    "file_path": "data/clips/SASP_1014987.wav",
+    "file_path": "data/clips-rejected/SASP_1014987.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014987",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SASP_1014987.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SASP_1014987.png"
   },
   {
     "clip_id": "SASP_1014989",
@@ -7523,27 +7523,27 @@
     "clip_id": "SASP_1021623",
     "species_code": "SASP",
     "common_name": "Savannah Sparrow",
-    "file_path": "data/clips/SASP_1021623.wav",
+    "file_path": "data/clips-rejected/SASP_1021623.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1021623",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SASP_1021623.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SASP_1021623.png"
   },
   {
     "clip_id": "SASP_1021624",
     "species_code": "SASP",
     "common_name": "Savannah Sparrow",
-    "file_path": "data/clips/SASP_1021624.wav",
+    "file_path": "data/clips-rejected/SASP_1021624.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1021624",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SASP_1021624.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SASP_1021624.png"
   },
   {
     "clip_id": "SASP_1021629",
@@ -7803,27 +7803,27 @@
     "clip_id": "SOSP_1049157",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
-    "file_path": "data/clips/SOSP_1049157.wav",
+    "file_path": "data/clips-rejected/SOSP_1049157.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1049157",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SOSP_1049157.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SOSP_1049157.png"
   },
   {
     "clip_id": "SOSP_1049227",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
-    "file_path": "data/clips/SOSP_1049227.wav",
+    "file_path": "data/clips-rejected/SOSP_1049227.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1049227",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SOSP_1049227.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SOSP_1049227.png"
   },
   {
     "clip_id": "SOSP_1056054",
@@ -7991,40 +7991,40 @@
     "clip_id": "SWSP_1012745",
     "species_code": "SWSP",
     "common_name": "Swamp Sparrow",
-    "file_path": "data/clips/SWSP_1012745.wav",
+    "file_path": "data/clips-rejected/SWSP_1012745.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1012745",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SWSP_1012745.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1012745.png"
   },
   {
     "clip_id": "SWSP_1012746",
     "species_code": "SWSP",
     "common_name": "Swamp Sparrow",
-    "file_path": "data/clips/SWSP_1012746.wav",
+    "file_path": "data/clips-rejected/SWSP_1012746.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1012746",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SWSP_1012746.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1012746.png"
   },
   {
     "clip_id": "SWSP_1012747",
     "species_code": "SWSP",
     "common_name": "Swamp Sparrow",
-    "file_path": "data/clips/SWSP_1012747.wav",
+    "file_path": "data/clips-rejected/SWSP_1012747.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1012747",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SWSP_1012747.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1012747.png"
   },
   {
     "clip_id": "SWSP_1012748",
@@ -8056,14 +8056,14 @@
     "clip_id": "SWSP_1013212",
     "species_code": "SWSP",
     "common_name": "Swamp Sparrow",
-    "file_path": "data/clips/SWSP_1013212.wav",
+    "file_path": "data/clips-rejected/SWSP_1013212.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1013212",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SWSP_1013212.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1013212.png"
   },
   {
     "clip_id": "SWSP_1013530",
@@ -8082,14 +8082,14 @@
     "clip_id": "SWSP_1020776",
     "species_code": "SWSP",
     "common_name": "Swamp Sparrow",
-    "file_path": "data/clips/SWSP_1020776.wav",
+    "file_path": "data/clips-rejected/SWSP_1020776.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1020776",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SWSP_1020776.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/SWSP_1020776.png"
   },
   {
     "clip_id": "SWSP_1172be38",
@@ -8337,14 +8337,14 @@
     "clip_id": "TUTI_1010613",
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
-    "file_path": "data/clips/TUTI_1010613.wav",
+    "file_path": "data/clips-rejected/TUTI_1010613.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1010613",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/TUTI_1010613.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/TUTI_1010613.png"
   },
   {
     "clip_id": "TUTI_1035994",
@@ -8415,14 +8415,14 @@
     "clip_id": "TUTI_895984",
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
-    "file_path": "data/clips/TUTI_895984.wav",
+    "file_path": "data/clips-rejected/TUTI_895984.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC895984",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/TUTI_895984.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/TUTI_895984.png"
   },
   {
     "clip_id": "TUTI_f41b5880",
@@ -8541,14 +8541,14 @@
     "clip_id": "WBNU_871628",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
-    "file_path": "data/clips/WBNU_871628.wav",
+    "file_path": "data/clips-rejected/WBNU_871628.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC871628",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WBNU_871628.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/WBNU_871628.png"
   },
   {
     "clip_id": "WBNU_925187",
@@ -8593,27 +8593,27 @@
     "clip_id": "WBNU_959184",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
-    "file_path": "data/clips/WBNU_959184.wav",
+    "file_path": "data/clips-rejected/WBNU_959184.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC959184",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WBNU_959184.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/WBNU_959184.png"
   },
   {
     "clip_id": "WBNU_961987",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
-    "file_path": "data/clips/WBNU_961987.wav",
+    "file_path": "data/clips-rejected/WBNU_961987.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC961987",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WBNU_961987.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/WBNU_961987.png"
   },
   {
     "clip_id": "WBNU_a6a3e85c",
@@ -8834,14 +8834,14 @@
     "clip_id": "WTSP_714084",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
-    "file_path": "data/clips/WTSP_714084.wav",
+    "file_path": "data/clips-rejected/WTSP_714084.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC714084",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WTSP_714084.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/WTSP_714084.png"
   },
   {
     "clip_id": "WTSP_726915",
@@ -8860,27 +8860,27 @@
     "clip_id": "WTSP_772287",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
-    "file_path": "data/clips/WTSP_772287.wav",
+    "file_path": "data/clips-rejected/WTSP_772287.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC772287",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WTSP_772287.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/WTSP_772287.png"
   },
   {
     "clip_id": "WTSP_792207",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
-    "file_path": "data/clips/WTSP_792207.wav",
+    "file_path": "data/clips-rejected/WTSP_792207.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC792207",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WTSP_792207.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/WTSP_792207.png"
   },
   {
     "clip_id": "WTSP_793715",
@@ -8937,14 +8937,14 @@
     "clip_id": "WTSP_940087",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
-    "file_path": "data/clips/WTSP_940087.wav",
+    "file_path": "data/clips-rejected/WTSP_940087.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC940087",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WTSP_940087.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/WTSP_940087.png"
   },
   {
     "clip_id": "WTSP_a66fc131",
@@ -9001,14 +9001,14 @@
     "clip_id": "YBSA_1014604",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
-    "file_path": "data/clips/YBSA_1014604.wav",
+    "file_path": "data/clips-rejected/YBSA_1014604.wav",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "source": "xeno-canto",
     "source_id": "XC1014604",
     "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/YBSA_1014604.png"
+    "rejected": true,
+    "spectrogram_path": "data/spectrograms-rejected/YBSA_1014604.png"
   },
   {
     "clip_id": "YBSA_1038387",
