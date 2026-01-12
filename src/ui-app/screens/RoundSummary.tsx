@@ -132,6 +132,11 @@ function RoundSummary() {
 
   // Navigation helpers - all go through preview
   const goToLevel = (level: number) => {
+    // If keeping same birds, save species to sessionStorage before navigating
+    if (keepSameBirds && results?.species) {
+      const speciesCodes = results.species.map(s => s.code);
+      sessionStorage.setItem('roundSpecies', JSON.stringify(speciesCodes));
+    }
     const keepParam = keepSameBirds ? '&keepBirds=true' : '';
     navigate(`/preview?pack=${packId}&level=${level}${keepParam}`);
   };
