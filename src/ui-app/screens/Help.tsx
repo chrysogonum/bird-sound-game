@@ -165,6 +165,14 @@ function Help() {
             a community library of bird sounds from around the world.
           </p>
         </Section>
+
+        {/* About */}
+        <Section title="About">
+          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
+            Made with 🎧 by Peter Repetti<br />
+            AI pair programming by Claude
+          </p>
+        </Section>
       </div>
     </div>
   );
