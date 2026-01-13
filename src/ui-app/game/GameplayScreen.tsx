@@ -391,7 +391,7 @@ function GameplayScreen() {
   // Handle end round
   const handleEndRound = useCallback(() => {
     gameActions.endRound();
-    navigate('/summary');
+    navigate('/summary', { replace: true });
   }, [navigate, gameActions]);
 
   // Auto-navigate to summary when round ends
@@ -408,7 +408,7 @@ function GameplayScreen() {
       } catch (e) {
         console.error('Failed to update results with training mode flag:', e);
       }
-      navigate('/summary');
+      navigate('/summary', { replace: true });
     }
   }, [gameState.roundState, navigate]);
 
