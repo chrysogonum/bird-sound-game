@@ -1323,20 +1323,24 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       timingAccuracy = 'partial';
     }
 
-    // Calculate base points (what you'd get with perfect timing)
+    // Calculate points
     // Species MUST be correct to get any points
     // Channel is a bonus only if species is also correct
-    const baseSpeciesPoints = speciesCorrectResult ? SCORE_VALUES.SPECIES_CORRECT : 0;
-    const baseChannelPoints = (speciesCorrectResult && channelCorrectResult) ? SCORE_VALUES.CHANNEL_CORRECT : 0;
-    const baseTotal = baseSpeciesPoints + baseChannelPoints;
+    // Timing bonus is added for early identification (top 25% of screen)
+    const speciesPoints = speciesCorrectResult ? SCORE_VALUES.SPECIES_CORRECT : 0;
+    const channelPoints = (speciesCorrectResult && channelCorrectResult) ? SCORE_VALUES.CHANNEL_CORRECT : 0;
 
-    // Apply timing multiplier to get actual points
-    const totalPoints = Math.round(baseTotal * timingMultiplier);
+    // Timing bonus: +25 for perfect timing (top 25%), +10 for good timing (25-50%)
+    let timingPoints = 0;
+    if (speciesCorrectResult && channelCorrectResult) {
+      if (positionRatio >= 0.75) {
+        timingPoints = SCORE_VALUES.TIMING_PERFECT; // +25
+      } else if (positionRatio >= 0.50) {
+        timingPoints = SCORE_VALUES.TIMING_PARTIAL; // +10
+      }
+    }
 
-    // For breakdown display, scale each component
-    const speciesPoints = Math.round(baseSpeciesPoints * timingMultiplier);
-    const channelPoints = Math.round(baseChannelPoints * timingMultiplier);
-    const timingPoints = 0; // No longer a separate category
+    const totalPoints = speciesPoints + channelPoints + timingPoints;
 
     return {
       speciesPoints,
