@@ -34,7 +34,7 @@ Build streaks for bonus points. Miss too many and the round ends.
 | Pack | Species | Description |
 |------|---------|-------------|
 | **5 Common Backyard Birds** | 5 | Start here — bold, distinctive voices |
-| **Expanded Local Birds** | 38 | Eastern US species, 9 random per round |
+| **Expanded Local Birds** | 39 | Eastern US species, 9 random per round |
 | **Sparrows** | 7 | Subtle songs of seven sparrow species |
 | **Woodpeckers** | 7 | Drums, calls, and rattles |
 | **Warbler Academy** | 33 | High-pitched songs of migration (experts only!) |

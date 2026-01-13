@@ -31,6 +31,7 @@ interface RoundResults {
   levelId?: number;
   levelTitle?: string;
   confusionData?: ConfusionEntry[];
+  usedTrainingMode?: boolean;
 }
 
 // Total number of campaign levels per pack
@@ -48,7 +49,9 @@ function RoundSummary() {
   const [speciesBreakdown, setSpeciesBreakdown] = useState<SpeciesResult[]>([]);
   const [confusionSummary, setConfusionSummary] = useState<ConfusionSummaryItem[]>([]);
   const [showLevelPicker, setShowLevelPicker] = useState(false);
-  const [keepSameBirds, setKeepSameBirds] = useState(false);
+  const [keepSameBirds, setKeepSameBirds] = useState(() => {
+    return localStorage.getItem('soundfield_keep_same_birds') === 'true';
+  });
 
   useEffect(() => {
     // Load results from localStorage
@@ -188,6 +191,24 @@ function RoundSummary() {
           <span>Best Streak</span>
           <span>{results?.maxStreak || 0}</span>
         </div>
+        {results?.usedTrainingMode && (
+          <div style={{
+            marginTop: '12px',
+            paddingTop: '12px',
+            borderTop: '1px solid var(--color-surface)',
+            fontSize: '13px',
+            color: 'var(--color-text-muted)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            Training Mode was used
+          </div>
+        )}
       </div>
 
       {/* Species Breakdown */}
@@ -254,7 +275,10 @@ function RoundSummary() {
             <input
               type="checkbox"
               checked={keepSameBirds}
-              onChange={(e) => setKeepSameBirds(e.target.checked)}
+              onChange={(e) => {
+                setKeepSameBirds(e.target.checked);
+                localStorage.setItem('soundfield_keep_same_birds', String(e.target.checked));
+              }}
               style={{
                 width: '18px',
                 height: '18px',
@@ -344,7 +368,7 @@ function RoundSummary() {
               Packs
             </button>
             <button className="btn-secondary" onClick={goToMenu} style={{ flex: 1 }}>
-              Menu
+              Home
             </button>
           </div>
         </div>

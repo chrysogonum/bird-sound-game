@@ -983,6 +983,20 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       }
     }
 
+    // CRITICAL for iOS: Use HTML5 Audio to unlock audio in "playback" mode
+    // HTML5 Audio ignores the silent switch, and playing it first establishes
+    // the audio session in a way that WebAudio can then use
+    try {
+      // Tiny silent MP3 as base64 data URI (smallest valid MP3)
+      const silentDataUri = 'data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAABhgC7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAAYYoRwmHAAAAAAD/+1DEAAAHAAGf9AAAIgAANIAAAARMQU1FMy4xMDBVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/7UMQbA8AAAaQAAAAgAAA0gAAABFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV';
+      const silentAudio = new Audio(silentDataUri);
+      silentAudio.volume = 0.01;
+      await silentAudio.play();
+      console.log('HTML5 silent audio played to unlock iOS audio session');
+    } catch (e) {
+      console.error('Failed to play HTML5 silent audio:', e);
+    }
+
     // Double-check it's running
     console.log('AudioContext state:', ctx.state);
     setIsAudioReady(true);
@@ -1072,6 +1086,26 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const eventTemplates = generateEvents(roundSpeciesCodes);
     eventQueueRef.current = eventTemplates;
     currentEventIndexRef.current = 0;
+
+    // CRITICAL for iOS Safari: Preload all audio buffers during the user tap gesture
+    // This satisfies Safari's privacy requirements that fetch/decode happen during user interaction
+    const uniqueClipIds = [...new Set(eventTemplates.map(e => e.clip_id))];
+    console.log('Preloading', uniqueClipIds.length, 'audio clips during tap gesture...');
+
+    const preloadPromises = uniqueClipIds.map(async (clipId) => {
+      const clip = clips.find(c => c.clip_id === clipId);
+      if (clip) {
+        try {
+          await loadAudioBuffer(clip.file_path);
+        } catch (err) {
+          console.error('Failed to preload clip:', clipId, err);
+        }
+      }
+    });
+
+    // Wait for all clips to preload
+    await Promise.all(preloadPromises);
+    console.log('Audio preloading complete');
 
     // Reset single mode refs
     currentEventIdRef.current = null;

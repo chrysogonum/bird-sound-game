@@ -161,9 +161,16 @@ function GameplayScreen() {
     return localStorage.getItem('soundfield_training_mode') === 'true';
   });
 
-  // Persist training mode to localStorage
+  // Track if training mode was used at any point during the round
+  const usedTrainingModeRef = useRef(false);
+
+  // Persist training mode to localStorage and track usage
   useEffect(() => {
     localStorage.setItem('soundfield_training_mode', String(trainingMode));
+    // If training mode is enabled, mark it as used for this round
+    if (trainingMode) {
+      usedTrainingModeRef.current = true;
+    }
   }, [trainingMode]);
 
   // Read mode, pack, and level from URL params
@@ -373,11 +380,13 @@ function GameplayScreen() {
     console.log('handleStart clicked, isAudioReady:', gameState.isAudioReady, 'species.length:', gameState.species.length);
     if (gameState.isAudioReady && gameState.species.length > 0) {
       console.log('Calling startRound...');
+      // Reset training mode tracking for new round (but keep current state)
+      usedTrainingModeRef.current = trainingMode; // If already on, count it
       gameActions.startRound();
     } else {
       console.log('Not calling startRound - conditions not met');
     }
-  }, [gameState.isAudioReady, gameState.species.length, gameActions]);
+  }, [gameState.isAudioReady, gameState.species.length, gameActions, trainingMode]);
 
   // Handle end round
   const handleEndRound = useCallback(() => {
@@ -388,6 +397,17 @@ function GameplayScreen() {
   // Auto-navigate to summary when round ends
   useEffect(() => {
     if (gameState.roundState === 'ended') {
+      // Add training mode usage flag to saved results
+      try {
+        const savedResults = localStorage.getItem('soundfield_round_results');
+        if (savedResults) {
+          const results = JSON.parse(savedResults);
+          results.usedTrainingMode = usedTrainingModeRef.current;
+          localStorage.setItem('soundfield_round_results', JSON.stringify(results));
+        }
+      } catch (e) {
+        console.error('Failed to update results with training mode flag:', e);
+      }
       navigate('/summary');
     }
   }, [gameState.roundState, navigate]);

@@ -43,7 +43,7 @@ function Help() {
           />
           <PackInfo
             name="Expanded Local Birds"
-            description="27 species from the eastern US. Each round picks 9 random birds, so every game is different!"
+            description="39 species from the eastern US. Each round picks 9 random birds, so every game is different!"
           />
           <PackInfo
             name="Sparrows"
@@ -52,6 +52,10 @@ function Help() {
           <PackInfo
             name="Woodpeckers"
             description="Drums, rattles, and calls. Learn seven species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, and Red-headed."
+          />
+          <PackInfo
+            name="Warbler Academy"
+            description="For experts! 33 wood-warbler species with their high-pitched, buzzy songs. Each round picks 9 random warblers to challenge your ear."
           />
         </Section>
 
