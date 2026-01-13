@@ -49,9 +49,6 @@ function RoundSummary() {
   const [speciesBreakdown, setSpeciesBreakdown] = useState<SpeciesResult[]>([]);
   const [confusionSummary, setConfusionSummary] = useState<ConfusionSummaryItem[]>([]);
   const [showLevelPicker, setShowLevelPicker] = useState(false);
-  const [keepSameBirds, setKeepSameBirds] = useState(() => {
-    return localStorage.getItem('soundfield_keep_same_birds') === 'true';
-  });
 
   useEffect(() => {
     // Load results from localStorage
@@ -135,13 +132,12 @@ function RoundSummary() {
 
   // Navigation helpers - all go through preview
   const goToLevel = (level: number) => {
-    // If keeping same birds, save species to sessionStorage before navigating
-    if (keepSameBirds && results?.species) {
+    // Always save current species to sessionStorage so they persist to next round
+    if (results?.species) {
       const speciesCodes = results.species.map(s => s.code);
       sessionStorage.setItem('roundSpecies', JSON.stringify(speciesCodes));
     }
-    const keepParam = keepSameBirds ? '&keepBirds=true' : '';
-    navigate(`/preview?pack=${packId}&level=${level}${keepParam}`);
+    navigate(`/preview?pack=${packId}&level=${level}&keepBirds=true`);
   };
 
   const goToLevelSelect = () => {
@@ -261,35 +257,6 @@ function RoundSummary() {
 
       {/* Navigation Buttons */}
       <div style={{ width: '100%', maxWidth: '320px', margin: '0 auto' }}>
-        {/* Keep Same Birds Toggle */}
-        {isCampaign && (
-          <label style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            marginBottom: '16px',
-            cursor: 'pointer',
-            fontSize: '14px',
-            color: 'var(--color-text-muted)',
-          }}>
-            <input
-              type="checkbox"
-              checked={keepSameBirds}
-              onChange={(e) => {
-                setKeepSameBirds(e.target.checked);
-                localStorage.setItem('soundfield_keep_same_birds', String(e.target.checked));
-              }}
-              style={{
-                width: '18px',
-                height: '18px',
-                accentColor: 'var(--color-primary)',
-                cursor: 'pointer',
-              }}
-            />
-            Keep same birds for next level
-          </label>
-        )}
-
         {/* Level Navigation Row */}
         {isCampaign && (
           <div className="flex-row gap-md" style={{ marginBottom: '12px' }}>

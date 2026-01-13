@@ -43,7 +43,7 @@ function Help() {
           />
           <PackInfo
             name="Expanded Local Birds"
-            description="39 species from the eastern US. Each round picks 9 random birds, so every game is different!"
+            description="39 species from the eastern US. Nine birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
           />
           <PackInfo
             name="Sparrows"
@@ -55,7 +55,7 @@ function Help() {
           />
           <PackInfo
             name="Warbler Academy"
-            description="For experts! 33 wood-warbler species with their high-pitched, buzzy songs. Each round picks 9 random warblers to challenge your ear."
+            description="For experts! 33 wood-warbler species with their high-pitched, buzzy songs. Nine warblers are selected randomly - shuffle for a new set anytime."
           />
         </Section>
 
@@ -77,6 +77,7 @@ function Help() {
           <Tip>Use headphones - unless you want everyone to know you're a bird nerd! Left/right matters for scoring, and phone speakers vary in stereo quality.</Tip>
           <Tip>Start with the Starter Pack, even if you're eager for more.</Tip>
           <Tip>Use Bird Reference on the Pack Select screen to preview sounds.</Tip>
+          <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
           <Tip>Check the round summary to see which birds need practice.</Tip>
           <Tip>Once you've mastered the sounds, try playing muted - identify birds by their spectrograms alone!</Tip>
