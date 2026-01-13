@@ -376,6 +376,9 @@ function PackSelect() {
           <div style={{ marginBottom: '8px' }}>
             <span style={{ color: 'var(--color-accent)' }}>→</span> Constantly confuse Kinglets and Creepers? Put them head-to-head!
           </div>
+          <div style={{ marginBottom: '8px' }}>
+            <span style={{ color: 'var(--color-accent)' }}>→</span> Warbler Wizard Wannabe? Training starts here!
+          </div>
           <div>
             <span style={{ color: 'var(--color-accent)' }}>→</span> Mix species from any pack — your rules, your practice.
           </div>
