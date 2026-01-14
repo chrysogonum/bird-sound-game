@@ -18,11 +18,18 @@ interface ClipData {
   rejected?: boolean;
 }
 
+interface BirdClip {
+  id: string;
+  path: string;
+  isCanonical: boolean;
+}
+
 interface BirdInfo {
   code: string;
   name: string;
   canonicalClipPath: string | null;
   clipCount: number;
+  allClips: BirdClip[];
 }
 
 const PACKS: Pack[] = [
@@ -95,6 +102,7 @@ function PackSelect() {
 
   const [clips, setClips] = useState<ClipData[]>([]);
   const [playingClip, setPlayingClip] = useState<string | null>(null);
+  const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Load clips data
@@ -112,11 +120,28 @@ function PackSelect() {
       const speciesClips = clips.filter((c) => c.species_code === code && !c.rejected);
       const canonicalClip = speciesClips.find((c) => c.canonical);
       const clip = canonicalClip || speciesClips[0];
+
+      // Build all clips list, canonical first
+      const allClips: BirdClip[] = speciesClips
+        .sort((a, b) => {
+          // Canonical first
+          if (a.canonical && !b.canonical) return -1;
+          if (!a.canonical && b.canonical) return 1;
+          // Then by clip_id
+          return a.clip_id.localeCompare(b.clip_id);
+        })
+        .map((c) => ({
+          id: c.clip_id,
+          path: `${import.meta.env.BASE_URL}data/clips/${c.file_path.split('/').pop()}`,
+          isCanonical: !!c.canonical,
+        }));
+
       return {
         code,
         name: clip?.common_name || code,
         canonicalClipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
         clipCount: speciesClips.length,
+        allClips,
       };
     }).sort((a, b) => a.code.localeCompare(b.code));
   };
@@ -420,61 +445,140 @@ function PackSelect() {
                 gap: '8px',
               }}
             >
-              {getBirdsForPack(pack.id).map((bird) => (
-                <div
-                  key={bird.code}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    padding: '8px 12px',
-                    background: 'var(--color-surface)',
-                    borderRadius: '8px',
-                  }}
-                >
-                  <BirdIcon code={bird.code} size={36} />
-                  <div style={{ minWidth: 0, flex: 1 }}>
-                    <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-accent)' }}>
-                      {bird.code}
-                    </div>
+              {getBirdsForPack(pack.id).map((bird) => {
+                const isExpanded = expandedBird === bird.code;
+                return (
+                  <div
+                    key={bird.code}
+                    style={{
+                      background: 'var(--color-surface)',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    {/* Main bird row */}
                     <div
                       style={{
-                        fontSize: '12px',
-                        color: 'var(--color-text)',
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        padding: '8px 12px',
+                        cursor: bird.clipCount > 1 ? 'pointer' : 'default',
+                      }}
+                      onClick={() => {
+                        if (bird.clipCount > 1) {
+                          setExpandedBird(isExpanded ? null : bird.code);
+                        }
                       }}
                     >
-                      {bird.name}
+                      <BirdIcon code={bird.code} size={36} />
+                      <div style={{ minWidth: 0, flex: 1 }}>
+                        <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-accent)' }}>
+                          {bird.code}
+                        </div>
+                        <div
+                          style={{
+                            fontSize: '12px',
+                            color: 'var(--color-text)',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                          }}
+                        >
+                          {bird.name}
+                        </div>
+                        <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
+                          {bird.clipCount} clip{bird.clipCount !== 1 ? 's' : ''}
+                          {bird.clipCount > 1 && (
+                            <span style={{ marginLeft: '4px', color: 'var(--color-accent)' }}>
+                              {isExpanded ? '▲' : '▼'}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          bird.canonicalClipPath && playSound(bird.canonicalClipPath, bird.code);
+                        }}
+                        disabled={!bird.canonicalClipPath}
+                        style={{
+                          width: '28px',
+                          height: '28px',
+                          borderRadius: '50%',
+                          border: 'none',
+                          background: playingClip === bird.code ? 'var(--color-accent)' : 'var(--color-primary)',
+                          color: 'white',
+                          cursor: bird.canonicalClipPath ? 'pointer' : 'not-allowed',
+                          opacity: bird.canonicalClipPath ? 1 : 0.3,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          flexShrink: 0,
+                        }}
+                        aria-label={`Play ${bird.name}`}
+                      >
+                        {playingClip === bird.code ? <StopIcon /> : <PlayIcon />}
+                      </button>
                     </div>
-                    <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
-                      {bird.clipCount} clip{bird.clipCount !== 1 ? 's' : ''}
-                    </div>
+
+                    {/* Expanded clips list */}
+                    {isExpanded && bird.allClips.length > 0 && (
+                      <div
+                        style={{
+                          borderTop: '1px solid rgba(255,255,255,0.1)',
+                          padding: '8px 12px',
+                          background: 'rgba(0,0,0,0.2)',
+                        }}
+                      >
+                        <div style={{ fontSize: '10px', color: 'var(--color-text-muted)', marginBottom: '8px' }}>
+                          All {bird.clipCount} clips:
+                        </div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                          {bird.allClips.map((clip, index) => (
+                            <div
+                              key={clip.id}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                              }}
+                            >
+                              <button
+                                onClick={() => playSound(clip.path, clip.id)}
+                                style={{
+                                  width: '24px',
+                                  height: '24px',
+                                  borderRadius: '50%',
+                                  border: 'none',
+                                  background: playingClip === clip.id ? 'var(--color-accent)' : 'rgba(255,255,255,0.15)',
+                                  color: 'white',
+                                  cursor: 'pointer',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  flexShrink: 0,
+                                }}
+                                aria-label={`Play clip ${index + 1}`}
+                              >
+                                {playingClip === clip.id ? <StopIcon size={8} /> : <PlayIcon size={8} />}
+                              </button>
+                              <span style={{ fontSize: '11px', color: 'var(--color-text)' }}>
+                                Clip {index + 1}
+                                {clip.isCanonical && (
+                                  <span style={{ marginLeft: '6px', fontSize: '9px', color: 'var(--color-accent)' }}>
+                                    ★ signature
+                                  </span>
+                                )}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                  <button
-                    onClick={() => bird.canonicalClipPath && playSound(bird.canonicalClipPath, bird.code)}
-                    disabled={!bird.canonicalClipPath}
-                    style={{
-                      width: '28px',
-                      height: '28px',
-                      borderRadius: '50%',
-                      border: 'none',
-                      background: playingClip === bird.code ? 'var(--color-accent)' : 'var(--color-primary)',
-                      color: 'white',
-                      cursor: bird.canonicalClipPath ? 'pointer' : 'not-allowed',
-                      opacity: bird.canonicalClipPath ? 1 : 0.3,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
-                    aria-label={`Play ${bird.name}`}
-                  >
-                    {playingClip === bird.code ? <StopIcon /> : <PlayIcon />}
-                  </button>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         ))}
@@ -492,17 +596,17 @@ function HomeIcon() {
   );
 }
 
-function PlayIcon() {
+function PlayIcon({ size = 14 }: { size?: number }) {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
       <path d="M8 5v14l11-7z" />
     </svg>
   );
 }
 
-function StopIcon() {
+function StopIcon({ size = 12 }: { size?: number }) {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
       <rect x="6" y="6" width="12" height="12" />
     </svg>
   );

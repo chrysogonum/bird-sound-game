@@ -132,17 +132,6 @@ function Settings() {
           </div>
         </div>
 
-        {/* Audio */}
-        <div className="card">
-          <h3>Audio</h3>
-          <div className="text-muted" style={{ fontSize: '14px', marginBottom: '12px' }}>
-            Run headphone calibration
-          </div>
-          <button className="btn-secondary" style={{ width: '100%' }}>
-            Calibrate Headphones
-          </button>
-        </div>
-
         {/* Reset */}
         <div className="card">
           <button

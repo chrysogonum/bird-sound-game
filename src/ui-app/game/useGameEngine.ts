@@ -622,8 +622,21 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const maxEvents = isContinuous ? 100 : Math.ceil(level.round_duration_sec / 2) + 5;
 
     for (let eventIndex = 0; eventIndex < maxEvents; eventIndex++) {
-      // Select random species
-      const speciesCode = selectedSpecies[Math.floor(random() * selectedSpecies.length)];
+      // Find species that still have clips under the max play limit
+      const speciesWithAvailableClips = selectedSpecies.filter(code => {
+        const clipList = speciesClips.get(code) || [];
+        return clipList.some(c => (clipUsageCount.get(c.clip_id) || 0) < MAX_CLIP_PLAYS);
+      });
+
+      // Select species: prefer those with available clips, fallback to any if all maxed
+      let speciesCode: string;
+      if (speciesWithAvailableClips.length > 0) {
+        speciesCode = speciesWithAvailableClips[Math.floor(random() * speciesWithAvailableClips.length)];
+      } else {
+        // All species have maxed clips - pick any species
+        speciesCode = selectedSpecies[Math.floor(random() * selectedSpecies.length)];
+      }
+
       const speciesClipList = speciesClips.get(speciesCode) || [];
 
       // Filter to clips that haven't hit the max play count

@@ -14,6 +14,8 @@ export interface PixiGameProps {
   currentFeedback: FeedbackData | null;
   onChannelTap?: (channel: 'left' | 'right') => void;
   trainingMode?: boolean;
+  spectrogramMode?: 'full' | 'fading' | 'none';
+  highContrast?: boolean;
 }
 
 // Colors from design system
@@ -64,6 +66,8 @@ function PixiGame({
   currentFeedback,
   onChannelTap,
   trainingMode = false,
+  spectrogramMode = 'full',
+  highContrast = false,
 }: PixiGameProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<PIXI.Application | null>(null);
@@ -188,7 +192,9 @@ function PixiGame({
         TILE_HEIGHT,
         hitZoneY,
         event.spectrogramPath,
-        trainingMode
+        trainingMode,
+        spectrogramMode,
+        highContrast
       );
 
       // Set initial Y position immediately (tile enters at top)
@@ -197,7 +203,7 @@ function PixiGame({
       tileContainer.addChild(tile.container);
       tilesRef.current.set(event.event_id, tile);
     }
-  }, [scheduledEvents, roundState, width, height, trainingMode]);
+  }, [scheduledEvents, roundState, width, height, trainingMode, spectrogramMode, highContrast]);
 
   // Animation loop
   useEffect(() => {
@@ -235,6 +241,21 @@ function PixiGame({
           const endY = hitZoneY;
           tile.container.y = startY + progress * (endY - startY);
 
+          // Fading mode: fade out spectrogram as tile approaches hit zone
+          if (spectrogramMode === 'fading') {
+            const spectrogramSprite = tile.container.getChildByName('spectrogram') as PIXI.Sprite | null;
+            if (spectrogramSprite) {
+              // Start fading at 30% progress, fully faded by 80%
+              if (progress < 0.3) {
+                spectrogramSprite.alpha = 1;
+              } else if (progress < 0.8) {
+                spectrogramSprite.alpha = 1 - (progress - 0.3) / 0.5;
+              } else {
+                spectrogramSprite.alpha = 0;
+              }
+            }
+          }
+
           // Hide if past hit zone by too much
           if (tile.container.y > hitZoneY + 100) {
             tile.container.alpha = Math.max(0, 1 - (tile.container.y - hitZoneY - 100) / 50);
@@ -250,7 +271,7 @@ function PixiGame({
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [roundState, roundStartTime, height, scrollSpeed]);
+  }, [roundState, roundStartTime, height, scrollSpeed, spectrogramMode]);
 
   // Handle feedback - update tiles when scored
   useEffect(() => {
@@ -270,13 +291,13 @@ function PixiGame({
           // This includes perfect, good, and partial where species was right
           const speciesCorrect = currentFeedback.breakdown?.speciesCorrect;
           if (speciesCorrect) {
-            // Brief success flash
+            // Success flash with score display
             updateTileFeedback(tile, currentFeedback.type, currentFeedback.score);
-            // Scale up briefly then hide
+            // Scale up briefly then hide - give player time to see score
             tile.container.scale.set(1.3);
             setTimeout(() => {
               tile.container.visible = false;
-            }, 150); // Very quick - tile disappears almost instantly
+            }, 400); // Long enough to see score at high speeds
           } else {
             // Species wrong: Show feedback animation (slower fade)
             updateTileFeedback(tile, currentFeedback.type, currentFeedback.score);
@@ -309,7 +330,9 @@ function createTile(
   tileHeight: number,
   _hitZoneY: number,
   spectrogramPath: string | null,
-  trainingMode: boolean = false
+  trainingMode: boolean = false,
+  spectrogramMode: 'full' | 'fading' | 'none' = 'full',
+  highContrast: boolean = false
 ): TileState {
   const container = new PIXI.Container();
 
@@ -320,16 +343,23 @@ function createTile(
   // Background color based on channel
   const bgColor = event.channel === 'left' ? COLORS.laneLeft : COLORS.laneRight;
 
-  // Tile background
+  // Tile background - higher opacity and thicker border in high contrast mode
   const background = new PIXI.Graphics();
-  background.beginFill(bgColor, 0.4);
-  background.lineStyle(2, bgColor, 0.8);
+  const bgAlpha = highContrast ? 0.7 : 0.4;
+  const borderWidth = highContrast ? 4 : 2;
+  const borderAlpha = highContrast ? 1.0 : 0.8;
+  background.beginFill(bgColor, bgAlpha);
+  background.lineStyle(borderWidth, bgColor, borderAlpha);
   background.drawRoundedRect(-tileWidth / 2, -tileHeight / 2, tileWidth, tileHeight, 8);
   background.endFill();
   container.addChild(background);
 
-  // Try to load and display spectrogram
-  if (spectrogramPath) {
+  let spectrogramSprite: PIXI.Sprite | null = null;
+
+  // Show spectrogram based on mode
+  const showSpectrogram = spectrogramMode !== 'none' && spectrogramPath;
+
+  if (showSpectrogram) {
     // Check cache first
     let texture = textureCache.get(spectrogramPath);
     if (!texture) {
@@ -346,9 +376,11 @@ function createTile(
     const maxHeight = tileHeight - 16;
     sprite.width = maxWidth;
     sprite.height = maxHeight;
+    sprite.name = 'spectrogram'; // Name it so we can find it later for fading
     container.addChild(sprite);
+    spectrogramSprite = sprite;
   } else {
-    // Fallback: Spectrogram placeholder lines (no species label - that would give it away!)
+    // No spectrogram: show placeholder lines
     const lines = new PIXI.Graphics();
     for (let i = 0; i < 6; i++) {
       const lineY = -tileHeight / 2 + 10 + i * 10;

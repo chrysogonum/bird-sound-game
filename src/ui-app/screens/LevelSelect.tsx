@@ -8,7 +8,104 @@ const PACK_NAMES: Record<string, string> = {
   expanded_backyard: 'Expanded Local Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
+  custom: 'Custom Pack',
 };
+
+// Generate standard levels for custom packs
+function generateCustomLevels(speciesCount: number): LevelConfig[] {
+  return [
+    {
+      level_id: 1,
+      pack_id: 'custom',
+      mode: 'campaign',
+      title: 'Meet Your Birds',
+      round_duration_sec: 30,
+      species_count: speciesCount,
+      species_pool: [],
+      clip_selection: 'canonical',
+      channel_mode: 'single',
+      event_density: 'low',
+      overlap_probability: 0,
+      scoring_window_ms: 2000,
+      spectrogram_mode: 'full',
+    },
+    {
+      level_id: 2,
+      pack_id: 'custom',
+      mode: 'campaign',
+      title: 'Sound Variations',
+      round_duration_sec: 30,
+      species_count: speciesCount,
+      species_pool: [],
+      clip_selection: 3,
+      channel_mode: 'single',
+      event_density: 'low',
+      overlap_probability: 0,
+      scoring_window_ms: 2000,
+      spectrogram_mode: 'full',
+    },
+    {
+      level_id: 3,
+      pack_id: 'custom',
+      mode: 'campaign',
+      title: 'Full Repertoire',
+      round_duration_sec: 30,
+      species_count: speciesCount,
+      species_pool: [],
+      clip_selection: 'all',
+      channel_mode: 'single',
+      event_density: 'low',
+      overlap_probability: 0,
+      scoring_window_ms: 2000,
+      spectrogram_mode: 'full',
+    },
+    {
+      level_id: 4,
+      pack_id: 'custom',
+      mode: 'campaign',
+      title: 'Both Ears',
+      round_duration_sec: 30,
+      species_count: speciesCount,
+      species_pool: [],
+      clip_selection: 'canonical',
+      channel_mode: 'offset',
+      event_density: 'low',
+      overlap_probability: 0,
+      scoring_window_ms: 2000,
+      spectrogram_mode: 'full',
+    },
+    {
+      level_id: 5,
+      pack_id: 'custom',
+      mode: 'campaign',
+      title: 'Variations + Both Ears',
+      round_duration_sec: 30,
+      species_count: speciesCount,
+      species_pool: [],
+      clip_selection: 3,
+      channel_mode: 'offset',
+      event_density: 'low',
+      overlap_probability: 0,
+      scoring_window_ms: 2000,
+      spectrogram_mode: 'full',
+    },
+    {
+      level_id: 6,
+      pack_id: 'custom',
+      mode: 'campaign',
+      title: 'Master Birder',
+      round_duration_sec: 30,
+      species_count: speciesCount,
+      species_pool: [],
+      clip_selection: 'all',
+      channel_mode: 'offset',
+      event_density: 'low',
+      overlap_probability: 0,
+      scoring_window_ms: 2000,
+      spectrogram_mode: 'full',
+    },
+  ];
+}
 
 // Level descriptions based on config
 function getLevelDescription(level: LevelConfig): string {
@@ -51,6 +148,27 @@ function LevelSelect() {
 
   // Load levels for this pack
   useEffect(() => {
+    // Handle custom pack specially - generate levels dynamically
+    if (packId === 'custom') {
+      try {
+        const saved = localStorage.getItem('soundfield_custom_pack');
+        if (saved) {
+          const speciesCodes = JSON.parse(saved);
+          if (Array.isArray(speciesCodes) && speciesCodes.length > 0) {
+            setLevels(generateCustomLevels(speciesCodes.length));
+            setLoading(false);
+            return;
+          }
+        }
+        // No custom pack saved - redirect to builder
+        navigate('/custom-pack', { replace: true });
+      } catch (e) {
+        console.error('Failed to load custom pack:', e);
+        navigate('/custom-pack', { replace: true });
+      }
+      return;
+    }
+
     fetch(`${import.meta.env.BASE_URL}data/levels.json`)
       .then((res) => res.json())
       .then((allLevels: LevelConfig[]) => {
@@ -62,7 +180,7 @@ function LevelSelect() {
         console.error('Failed to load levels:', err);
         setLoading(false);
       });
-  }, [packId]);
+  }, [packId, navigate]);
 
   const handleLevelSelect = (level: LevelConfig) => {
     navigate(`/preview?pack=${packId}&level=${level.level_id}`);
@@ -74,7 +192,7 @@ function LevelSelect() {
     <div className="screen" style={{ paddingBottom: '24px' }}>
       {/* Header */}
       <div className="flex-row items-center gap-md" style={{ marginBottom: '8px' }}>
-        <button className="btn-icon" onClick={() => navigate('/pack-select')} aria-label="Back">
+        <button className="btn-icon" onClick={() => navigate(packId === 'custom' ? '/custom-pack' : '/pack-select')} aria-label="Back">
           <BackIcon />
         </button>
         <div>

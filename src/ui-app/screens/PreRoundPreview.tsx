@@ -70,10 +70,11 @@ function BirdIcon({ code, size = 56, color }: { code: string; size?: number; col
     }}>
       {hasIcon && (
         <span style={{
-          fontSize: '10px',
-          fontWeight: 600,
-          color: 'var(--color-text-muted)',
+          fontSize: '11px',
+          fontWeight: 700,
+          color: '#FFFFFF',
           lineHeight: 1,
+          textShadow: '0 1px 2px rgba(0,0,0,0.5)',
         }}>
           {code}
         </span>
@@ -123,7 +124,25 @@ function PreRoundPreview() {
   const [selectedSpecies, setSelectedSpecies] = useState<SelectedSpecies[]>([]);
   const [playingCode, setPlayingCode] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [trainingMode, setTrainingMode] = useState(() => {
+    try {
+      return localStorage.getItem('soundfield_training_mode') === 'true';
+    } catch {
+      return false;
+    }
+  });
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Toggle training mode
+  const handleTrainingModeToggle = () => {
+    const newValue = !trainingMode;
+    setTrainingMode(newValue);
+    try {
+      localStorage.setItem('soundfield_training_mode', String(newValue));
+    } catch (e) {
+      console.error('Failed to save training mode:', e);
+    }
+  };
 
   // Build species info from a list of codes (no shuffling)
   const buildSpeciesInfo = useCallback((codes: string[], clipsData: ClipData[]): SelectedSpecies[] => {
@@ -341,7 +360,7 @@ function PreRoundPreview() {
         <div className="flex-row items-center" style={{ marginBottom: '8px' }}>
           <button
             className="btn-icon"
-            onClick={() => navigate(packId === 'custom' ? '/custom-pack' : `/level-select?pack=${packId}`)}
+            onClick={() => navigate(`/level-select?pack=${packId}`)}
             aria-label="Back"
           >
             <BackIcon />
@@ -376,6 +395,60 @@ function PreRoundPreview() {
         >
           Ready to Play <PlayArrowIcon />
         </button>
+
+        {/* Training Mode toggle */}
+        <button
+          onClick={handleTrainingModeToggle}
+          style={{
+            width: '100%',
+            marginTop: '8px',
+            padding: '10px 14px',
+            background: trainingMode ? 'rgba(245, 166, 35, 0.15)' : 'var(--color-surface)',
+            border: trainingMode ? '1px solid var(--color-accent)' : '1px solid transparent',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            transition: 'all 0.15s',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <EyeIcon filled={trainingMode} />
+            <span style={{ fontSize: '14px', color: 'var(--color-text)' }}>
+              Training Mode
+            </span>
+          </div>
+          <div style={{
+            width: '40px',
+            height: '22px',
+            borderRadius: '11px',
+            background: trainingMode ? 'var(--color-accent)' : 'var(--color-text-muted)',
+            position: 'relative',
+            transition: 'background 0.15s',
+          }}>
+            <div style={{
+              width: '18px',
+              height: '18px',
+              borderRadius: '50%',
+              background: 'white',
+              position: 'absolute',
+              top: '2px',
+              left: trainingMode ? '20px' : '2px',
+              transition: 'left 0.15s',
+            }} />
+          </div>
+        </button>
+        {trainingMode && (
+          <div style={{
+            fontSize: '11px',
+            color: 'var(--color-text-muted)',
+            marginTop: '4px',
+            paddingLeft: '4px',
+          }}>
+            Bird icons will appear on tiles during play
+          </div>
+        )}
       </div>
 
       {/* Preview section */}
@@ -521,6 +594,15 @@ function PlayArrowIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
       <path d="M8 5v14l11-7z" />
+    </svg>
+  );
+}
+
+function EyeIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={filled ? 'var(--color-accent)' : 'var(--color-text-muted)'} strokeWidth="2">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+      <circle cx="12" cy="12" r="3" fill={filled ? 'var(--color-accent)' : 'none'} />
     </svg>
   );
 }

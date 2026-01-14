@@ -20,10 +20,11 @@ function BirdIcon({ code, size = 32, color }: { code: string; size?: number; col
     }}>
       {hasIcon && (
         <span style={{
-          fontSize: '9px',
-          fontWeight: 600,
-          color: 'var(--color-text-muted)',
+          fontSize: '10px',
+          fontWeight: 700,
+          color: '#FFFFFF',
           lineHeight: 1,
+          textShadow: '0 1px 2px rgba(0,0,0,0.5)',
         }}>
           {code}
         </span>
@@ -164,6 +165,17 @@ function GameplayScreen() {
   // Track if training mode was used at any point during the round
   const usedTrainingModeRef = useRef(false);
 
+  // Spectrogram mode from settings (full, fading, none)
+  const spectrogramModeSetting = useMemo(() => {
+    const saved = localStorage.getItem('soundfield_spectrogram_mode');
+    return (saved as 'full' | 'fading' | 'none') || 'full';
+  }, []);
+
+  // High contrast mode from settings
+  const highContrastSetting = useMemo(() => {
+    return localStorage.getItem('soundfield_high_contrast') === 'true';
+  }, []);
+
   // Persist training mode to localStorage and track usage
   useEffect(() => {
     localStorage.setItem('soundfield_training_mode', String(trainingMode));
@@ -231,7 +243,7 @@ function GameplayScreen() {
         event_density: 'low',
         overlap_probability: 0,
         scoring_window_ms: 2000,
-        spectrogram_mode: 'full',
+        spectrogram_mode: spectrogramModeSetting,
       };
     }
 
@@ -240,17 +252,18 @@ function GameplayScreen() {
       const level = campaignLevels.find((l) => l.pack_id === packId && l.level_id === levelId);
       if (level) {
         console.log('Found level from levels.json:', level.pack_id, level.title, 'species_pool:', level.species_pool?.length);
-        return level;
+        // Apply user's spectrogram mode setting
+        return { ...level, spectrogram_mode: spectrogramModeSetting };
       }
       // Fallback to first level for this pack if not found
       const packFirstLevel = campaignLevels.find((l) => l.pack_id === packId);
       if (packFirstLevel) {
         console.log('Using first level for pack:', packFirstLevel.pack_id, packFirstLevel.title);
-        return packFirstLevel;
+        return { ...packFirstLevel, spectrogram_mode: spectrogramModeSetting };
       }
       // Ultimate fallback to first level
       console.log('Ultimate fallback to first level');
-      return campaignLevels[0];
+      return { ...campaignLevels[0], spectrogram_mode: spectrogramModeSetting };
     }
 
     // For non-campaign modes, use hardcoded configs
@@ -260,8 +273,9 @@ function GameplayScreen() {
       level_id: 1,
       pack_id: packId,
       ...modeConfig,
+      spectrogram_mode: spectrogramModeSetting,
     };
-  }, [mode, packId, levelId, campaignLevels]);
+  }, [mode, packId, levelId, campaignLevels, spectrogramModeSetting]);
 
   // Use the game engine hook with the level config
   const [gameState, gameActions] = useGameEngine(levelConfig);
@@ -302,6 +316,27 @@ function GameplayScreen() {
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
+  // Refs to track state for cleanup (avoids stale closure)
+  const gameActionsRef = useRef(gameActions);
+  gameActionsRef.current = gameActions;
+  const roundStateRef = useRef(gameState.roundState);
+  roundStateRef.current = gameState.roundState;
+
+  // Cleanup on unmount - stop audio when navigating away (e.g., browser back button)
+  // Only reset if still playing - don't overwrite results if round already ended
+  useEffect(() => {
+    return () => {
+      if (roundStateRef.current === 'playing') {
+        gameActionsRef.current.reset();
+      }
+    };
+  }, []); // Empty deps - only runs on true unmount
+
+  // Check if continuous mode is enabled
+  const isContinuousMode = useMemo(() => {
+    return localStorage.getItem('soundfield_continuous_play') === 'true';
   }, []);
 
   // Convert species from engine to RadialWheel format
@@ -388,9 +423,20 @@ function GameplayScreen() {
     }
   }, [gameState.isAudioReady, gameState.species.length, gameActions, trainingMode]);
 
-  // Handle end round
+  // Handle end round (manual end via button)
   const handleEndRound = useCallback(() => {
     gameActions.endRound();
+    // Add training mode flag before navigating (same as auto-end effect)
+    try {
+      const savedResults = localStorage.getItem('soundfield_round_results');
+      if (savedResults) {
+        const results = JSON.parse(savedResults);
+        results.usedTrainingMode = usedTrainingModeRef.current;
+        localStorage.setItem('soundfield_round_results', JSON.stringify(results));
+      }
+    } catch (e) {
+      console.error('Failed to update results with training mode flag:', e);
+    }
     navigate('/summary', { replace: true });
   }, [navigate, gameActions]);
 
@@ -454,6 +500,17 @@ function GameplayScreen() {
         </svg>
       </button>
 
+      {/* End Round button for continuous mode */}
+      {isContinuousMode && gameState.roundState === 'playing' && (
+        <button
+          className="end-round-button"
+          onClick={handleEndRound}
+          aria-label="End round"
+        >
+          End Round
+        </button>
+      )}
+
       {/* Game area with PixiJS canvas */}
       <div ref={gameContainerRef} className="game-container">
         <PixiGame
@@ -467,6 +524,8 @@ function GameplayScreen() {
           currentFeedback={gameState.currentFeedback}
           onChannelTap={handleChannelTap}
           trainingMode={trainingMode}
+          spectrogramMode={levelConfig.spectrogram_mode}
+          highContrast={highContrastSetting}
         />
 
         {/* Channel flash overlays */}
@@ -614,6 +673,26 @@ function GameplayScreen() {
           background: rgba(76, 175, 80, 0.3);
           border-color: rgba(76, 175, 80, 0.6);
           color: #81C784;
+        }
+
+        .end-round-button {
+          position: absolute;
+          top: calc(12px + var(--safe-area-top, 0px));
+          right: 12px;
+          padding: 8px 16px;
+          background: rgba(229, 115, 115, 0.8);
+          border: none;
+          border-radius: 20px;
+          color: white;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          z-index: 100;
+          transition: background 0.2s;
+        }
+
+        .end-round-button:hover {
+          background: rgba(229, 115, 115, 1);
         }
 
         .game-container {

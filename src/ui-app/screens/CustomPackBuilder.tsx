@@ -121,18 +121,15 @@ function CustomPackBuilder() {
     };
   };
 
-  // Save and play
+  // Save and go to level select
   const handleSaveAndPlay = () => {
     if (selectedCodes.length === 0) return;
 
     // Save to localStorage
     localStorage.setItem(CUSTOM_PACK_KEY, JSON.stringify(selectedCodes));
 
-    // Store for gameplay
-    sessionStorage.setItem('roundSpecies', JSON.stringify(selectedCodes));
-
-    // Navigate to gameplay with custom pack
-    navigate('/gameplay?mode=campaign&pack=custom&level=1');
+    // Navigate to level select for custom pack
+    navigate('/level-select?pack=custom');
   };
 
   // Clear selection
@@ -184,7 +181,7 @@ function CustomPackBuilder() {
       </div>
 
       {/* Search */}
-      <div style={{ flexShrink: 0, marginBottom: '12px' }}>
+      <div style={{ flexShrink: 0, marginBottom: '12px', position: 'relative' }}>
         <input
           type="text"
           placeholder="Search birds..."
@@ -193,6 +190,7 @@ function CustomPackBuilder() {
           style={{
             width: '100%',
             padding: '10px 12px',
+            paddingRight: searchQuery ? '36px' : '12px',
             background: 'var(--color-surface)',
             border: '1px solid var(--color-text-muted)',
             borderRadius: '8px',
@@ -200,6 +198,32 @@ function CustomPackBuilder() {
             fontSize: '14px',
           }}
         />
+        {searchQuery && (
+          <button
+            onClick={() => setSearchQuery('')}
+            style={{
+              position: 'absolute',
+              right: '8px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              background: 'var(--color-text-muted)',
+              border: 'none',
+              borderRadius: '50%',
+              width: '20px',
+              height: '20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              padding: 0,
+            }}
+            aria-label="Clear search"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-background)" strokeWidth="3">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* Selected count */}
@@ -339,7 +363,7 @@ function CustomPackBuilder() {
           }}
         >
           {selectedCodes.length > 0
-            ? `Play with ${selectedCodes.length} Bird${selectedCodes.length > 1 ? 's' : ''}`
+            ? `Choose Level (${selectedCodes.length} Bird${selectedCodes.length > 1 ? 's' : ''})`
             : 'Select birds to play'}
         </button>
       </div>
