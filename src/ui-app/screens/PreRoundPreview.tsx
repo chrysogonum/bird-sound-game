@@ -124,6 +124,7 @@ function PreRoundPreview() {
   const [selectedSpecies, setSelectedSpecies] = useState<SelectedSpecies[]>([]);
   const [playingCode, setPlayingCode] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
+  const [preloadStatus, setPreloadStatus] = useState<'idle' | 'loading' | 'ready'>('idle');
   const [trainingMode, setTrainingMode] = useState(() => {
     try {
       return localStorage.getItem('soundfield_training_mode') === 'true';
@@ -266,6 +267,47 @@ function PreRoundPreview() {
     });
   }, [packId, levelId, keepBirds, buildSpeciesInfo, selectRandomSpecies]);
 
+  // Preload all clips for selected species in the background
+  useEffect(() => {
+    if (selectedSpecies.length === 0 || clips.length === 0) {
+      setPreloadStatus('idle');
+      return;
+    }
+
+    // Get all clips for the selected species (not just canonical)
+    const speciesCodes = selectedSpecies.map(s => s.code);
+    const clipsToPreload = clips.filter(
+      c => speciesCodes.includes(c.species_code) && !c.rejected
+    );
+
+    if (clipsToPreload.length === 0) {
+      setPreloadStatus('ready');
+      return;
+    }
+
+    setPreloadStatus('loading');
+    console.log(`Preloading ${clipsToPreload.length} clips for ${speciesCodes.length} species...`);
+
+    // Fetch all clips to warm browser cache
+    const preloadPromises = clipsToPreload.map(async (clip) => {
+      const url = `${import.meta.env.BASE_URL}${clip.file_path}`;
+      try {
+        const response = await fetch(url);
+        if (response.ok) {
+          // Just fetching is enough to cache - we don't need to decode here
+          await response.arrayBuffer();
+        }
+      } catch (err) {
+        console.warn('Failed to preload:', clip.file_path, err);
+      }
+    });
+
+    Promise.all(preloadPromises).then(() => {
+      console.log('Preloading complete!');
+      setPreloadStatus('ready');
+    });
+  }, [selectedSpecies, clips]);
+
   // Shuffle species
   const handleShuffle = () => {
     if (level && clips.length > 0) {
@@ -275,6 +317,8 @@ function PreRoundPreview() {
         audioRef.current = null;
         setPlayingCode(null);
       }
+      // Reset preload status - new birds need new clips
+      setPreloadStatus('idle');
       selectRandomSpecies(level, clips);
     }
   };
@@ -395,6 +439,27 @@ function PreRoundPreview() {
         >
           Ready to Play <PlayArrowIcon />
         </button>
+        {/* Preload status indicator */}
+        {preloadStatus === 'loading' && (
+          <div style={{
+            marginTop: '6px',
+            fontSize: '11px',
+            color: 'var(--color-text-muted)',
+            textAlign: 'center',
+          }}>
+            Loading sounds...
+          </div>
+        )}
+        {preloadStatus === 'ready' && (
+          <div style={{
+            marginTop: '6px',
+            fontSize: '11px',
+            color: 'var(--color-success)',
+            textAlign: 'center',
+          }}>
+            Sounds ready
+          </div>
+        )}
 
         {/* Training Mode toggle */}
         <button
