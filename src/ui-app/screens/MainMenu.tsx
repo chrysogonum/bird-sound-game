@@ -23,6 +23,7 @@ function MainMenu() {
       if (container.scrollTop === 0) {
         startY = e.touches[0].clientY;
         isPulling = true;
+        console.log('Pull-to-refresh: Touch started');
       }
     };
 
@@ -39,6 +40,7 @@ function MainMenu() {
         // Apply rubber band effect (diminishing returns)
         const dampenedDistance = Math.pow(distance, 0.85);
         setPullDistance(Math.min(dampenedDistance, PULL_THRESHOLD * 1.5));
+        console.log('Pull distance:', Math.min(dampenedDistance, PULL_THRESHOLD * 1.5).toFixed(0));
       }
     };
 
@@ -310,7 +312,7 @@ function MainMenu() {
         color: 'var(--color-text-muted)',
         opacity: 0.85,
       }}>
-        v3.1 | Made with 🎧 🐦 🎵 and ❤️
+        v3.11 | Made with 🎧 🐦 🎵 and ❤️
       </div>
     </div>
   );

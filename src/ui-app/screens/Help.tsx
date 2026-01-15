@@ -181,6 +181,16 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
+          <VersionEntry version="3.11" date="January 15, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Fixed missing audio during gameplay:</strong> Resolved 202 broken clip references and missing files</li>
+              <li>All species now have valid canonical clips for Level 1</li>
+              <li>Added Pull-to-Refresh gesture on main menu for PWA users</li>
+              <li>Improved error logging for audio decode failures</li>
+              <li>Service worker cache updated to v6 for fresh data loading</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.1" date="January 15, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Fixed blank spectrograms:</strong> Resolved async texture loading race condition</li>
