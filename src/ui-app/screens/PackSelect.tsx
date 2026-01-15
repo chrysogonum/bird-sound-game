@@ -258,7 +258,7 @@ function PackSelect() {
             expanded_backyard: 'AMGO',
             sparrows: 'WTSP',
             woodpeckers: 'PIWO',
-            spring_warblers: 'PROW',
+            spring_warblers: 'BLBW',
             western_birds: 'STJA',
           };
 
