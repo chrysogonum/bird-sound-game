@@ -8,6 +8,7 @@ const PACK_NAMES: Record<string, string> = {
   expanded_backyard: 'Expanded Eastern US Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
+  spring_warblers: 'Warbler Academy',
   western_birds: 'Western Backyard Birds',
   custom: 'Custom Pack',
 };
