@@ -38,20 +38,24 @@ function Help() {
         {/* The Packs */}
         <Section title="The Packs">
           <PackInfo
-            name="5 Common Backyard Birds"
+            name="5 Common Eastern US Backyard Birds"
             description="Perfect for beginners. Five distinctive birds you'll hear in your own backyard: Cardinal, Carolina Wren, Titmouse, Blue Jay, and Crow."
           />
           <PackInfo
-            name="Expanded Local Birds"
+            name="Expanded Eastern US Birds"
             description="39 species from the eastern US. Nine birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
           />
           <PackInfo
             name="Sparrows"
-            description="Master the subtle singers! Seven sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, and Lincoln's."
+            description="Master the subtle singers! Eight sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, Lincoln's, and White-crowned."
           />
           <PackInfo
             name="Woodpeckers"
             description="Drums, rattles, and calls. Learn seven species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, and Red-headed."
+          />
+          <PackInfo
+            name="Western Backyard Birds"
+            description="14 common backyard species from western North America: Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Cassin's Finch, Pine Siskin, Evening Grosbeak, and more."
           />
           <PackInfo
             name="Warbler Academy"

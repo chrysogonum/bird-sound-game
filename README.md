@@ -33,10 +33,11 @@ Build streaks for bonus points. Miss too many and the round ends.
 
 | Pack | Species | Description |
 |------|---------|-------------|
-| **5 Common Backyard Birds** | 5 | Start here — bold, distinctive voices |
-| **Expanded Local Birds** | 39 | Eastern US species, 9 random per round |
-| **Sparrows** | 7 | Subtle songs of seven sparrow species |
+| **5 Common Eastern US Backyard Birds** | 5 | Start here — bold, distinctive voices |
+| **Expanded Eastern US Birds** | 39 | Eastern US species, 9 random per round |
+| **Sparrows** | 8 | Subtle songs of eight sparrow species |
 | **Woodpeckers** | 7 | Drums, calls, and rattles |
+| **Western Backyard Birds** | 14 | Common backyard birds of western North America |
 | **Warbler Academy** | 33 | High-pitched songs of migration (experts only!) |
 
 **Custom Packs:** Build your own training session. Drill a nemesis bird, compare confusing species head-to-head, or mix from any pack.
@@ -64,14 +65,15 @@ Each pack has 6 levels of increasing challenge:
 
 ## Species Coverage
 
-**77 species** across 5 packs with 700+ audio clips:
+**91 species** across 6 packs with 700+ audio clips:
 
-- Backyard birds (cardinals, wrens, jays, chickadees, crows)
+- Eastern backyard birds (cardinals, wrens, jays, chickadees, crows, robins, bluebirds)
+- Western backyard birds (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, and more)
 - Woodpeckers (7 species from Downy to Pileated)
-- Sparrows (7 species including White-throated, Song, Field)
+- Sparrows (8 species including White-throated, White-crowned, Song, Field)
 - Warblers (33 spring migration species)
 
-All audio sourced from [Xeno-canto](https://xeno-canto.org) with quality A ratings.
+Audio sourced from [Xeno-canto](https://xeno-canto.org) and [Cornell Lab of Ornithology](https://www.birds.cornell.edu/), with quality A ratings.
 
 ## Tech Stack
 

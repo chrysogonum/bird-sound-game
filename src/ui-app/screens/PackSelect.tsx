@@ -35,14 +35,14 @@ interface BirdInfo {
 const PACKS: Pack[] = [
   {
     id: 'starter_birds',
-    name: '5 Common Backyard Birds',
+    name: '5 Common Eastern US Backyard Birds',
     speciesCount: 5,
     isUnlocked: true,
     description: 'Start here! Five distinctive birds with bold, recognizable voices.',
   },
   {
     id: 'expanded_backyard',
-    name: 'Expanded Local Birds',
+    name: 'Expanded Eastern US Birds',
     speciesCount: 39,
     isUnlocked: true,
     description: 'Ready for more? 9 random birds per round from 39 eastern US species.',
@@ -50,9 +50,9 @@ const PACKS: Pack[] = [
   {
     id: 'sparrows',
     name: 'Sparrows',
-    speciesCount: 7,
+    speciesCount: 8,
     isUnlocked: true,
-    description: 'Master the subtle songs of seven sparrow species.',
+    description: 'Master the subtle songs of eight sparrow species.',
   },
   {
     id: 'woodpeckers',
@@ -60,6 +60,13 @@ const PACKS: Pack[] = [
     speciesCount: 7,
     isUnlocked: true,
     description: 'Learn the drums, calls, and rattles of seven woodpecker species.',
+  },
+  {
+    id: 'western_birds',
+    name: 'Western Backyard Birds',
+    speciesCount: 14,
+    isUnlocked: true,
+    description: 'Common backyard birds of western North America, from the Pacific coast to the Rockies.',
   },
   {
     id: 'spring_warblers',
@@ -84,7 +91,7 @@ const PACK_SPECIES: Record<string, string[]> = {
     'COGR', 'FICR', 'CEWA', 'EATO',
   ],
   sparrows: [
-    'WTSP', 'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP',
+    'WTSP', 'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP', 'WCSP',
   ],
   woodpeckers: [
     'DOWO', 'HAWO', 'RBWO', 'PIWO', 'YBSA', 'NOFL', 'RHWO',
@@ -94,6 +101,10 @@ const PACK_SPECIES: Record<string, string[]> = {
     'CAWA', 'CMWA', 'CONW', 'COYE', 'CSWA', 'GWWA', 'KEWA', 'LOWA',
     'MAWA', 'MOWA', 'NAWA', 'NOPA', 'NOWA', 'OCWA', 'OVEN', 'PAWA',
     'PIWA', 'PRAW', 'PROW', 'SWWA', 'TEWA', 'WEWA', 'WIWA', 'YRWA', 'YTWA',
+  ],
+  western_birds: [
+    'STJA', 'WESJ', 'BCCH', 'WCSP', 'CAFI', 'PISI', 'EVGR',
+    'MODO', 'DOWO', 'NOFL', 'WBNU', 'HOFI', 'AMGO', 'RWBL',
   ],
 };
 
@@ -225,9 +236,8 @@ function PackSelect() {
             sparrows: 'linear-gradient(135deg, #6b5344 0%, #4a3a2e 100%)',           // Earthy brown
             woodpeckers: 'linear-gradient(135deg, #6e3d3d 0%, #4a2a2a 100%)',        // Deep red
             spring_warblers: 'linear-gradient(135deg, #7a6b2d 0%, #5a4a1a 100%)',    // Golden olive
+            western_birds: 'linear-gradient(135deg, #5a4a7a 0%, #3a2a5a 100%)',      // Mountain purple
           };
-          const isWarblers = pack.id === 'spring_warblers';
-
           return (
           <button
             key={pack.id}
@@ -246,7 +256,6 @@ function PackSelect() {
               opacity: pack.isUnlocked ? 1 : 0.5,
               cursor: pack.isUnlocked ? 'pointer' : 'not-allowed',
               transition: 'transform 0.2s, box-shadow 0.2s',
-              ...(isWarblers && { gridColumn: '1 / -1' }),
             }}
             onMouseEnter={(e) => {
               if (pack.isUnlocked) {
@@ -294,23 +303,6 @@ function PackSelect() {
                 }}
               >
                 {pack.description}
-                {isWarblers && (
-                  <span
-                    style={{
-                      marginLeft: '8px',
-                      padding: '2px 6px',
-                      background: 'rgba(255, 200, 50, 0.3)',
-                      color: '#ffd54f',
-                      borderRadius: '4px',
-                      fontSize: '10px',
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.5px',
-                    }}
-                  >
-                    🎓 Experts Only
-                  </span>
-                )}
               </div>
               <div
                 style={{
