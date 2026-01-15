@@ -120,7 +120,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1034479",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMGO_1034479.png",
     "quality_score": 4
@@ -9890,7 +9890,7 @@
     "source_id": "cornell_026",
     "file_path": "data/clips/AMGO_cornell_026_1.wav",
     "spectrogram_path": "data/spectrograms/AMGO_cornell_026_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
