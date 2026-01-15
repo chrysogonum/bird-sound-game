@@ -383,13 +383,20 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
     console.log('loadAudioBuffer: Fetch OK, decoding...');
     const arrayBuffer = await response.arrayBuffer();
-    const audioBuffer = await ctx.decodeAudioData(arrayBuffer);
 
-    console.log('loadAudioBuffer: Decoded OK, duration:', audioBuffer.duration);
+    try {
+      const audioBuffer = await ctx.decodeAudioData(arrayBuffer);
+      console.log('loadAudioBuffer: Decoded OK, duration:', audioBuffer.duration);
 
-    // Cache it
-    bufferCacheRef.current.set(filePath, audioBuffer);
-    return audioBuffer;
+      // Cache it
+      bufferCacheRef.current.set(filePath, audioBuffer);
+      return audioBuffer;
+    } catch (decodeError) {
+      console.error(`❌ DECODE FAILED for ${filePath}:`, decodeError);
+      console.error('  This file cannot be played in Web Audio API (gameplay)');
+      console.error('  File size:', arrayBuffer.byteLength, 'bytes');
+      throw new Error(`Cannot decode audio file: ${filePath} - ${decodeError}`);
+    }
   }, []);
 
   /**
@@ -463,7 +470,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       source.start();
       console.log('playAudio: Started playing');
     } catch (error) {
-      console.error('Error playing audio:', error);
+      console.error('❌ playAudio FAILED for', filePath);
+      console.error('   Error:', error);
+      console.error('   This bird will have no audio during gameplay!');
     }
   }, [loadAudioBuffer]);
 

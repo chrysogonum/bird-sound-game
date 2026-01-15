@@ -334,6 +334,9 @@ function PreRoundPreview() {
 
   // Play preview sound
   const playPreview = (species: SelectedSpecies) => {
+    console.log(`[Preview] Attempting to play: ${species.code}`);
+    console.log(`[Preview] Clip path: ${species.clipPath}`);
+
     // Stop current audio
     if (audioRef.current) {
       audioRef.current.pause();
@@ -346,14 +349,23 @@ function PreRoundPreview() {
       return;
     }
 
-    if (!species.clipPath) return;
+    if (!species.clipPath) {
+      console.error(`[Preview] No clip path for ${species.code}!`);
+      return;
+    }
 
     const audio = new Audio(species.clipPath);
     audioRef.current = audio;
     setPlayingCode(species.code);
 
-    audio.play().catch(err => console.error('Failed to play:', err));
+    audio.play()
+      .then(() => console.log(`[Preview] Playing ${species.code} successfully`))
+      .catch(err => {
+        console.error(`[Preview] Failed to play ${species.code}:`, err);
+        console.error(`[Preview] Clip path was: ${species.clipPath}`);
+      });
     audio.onended = () => {
+      console.log(`[Preview] ${species.code} finished playing`);
       setPlayingCode(null);
       audioRef.current = null;
     };
