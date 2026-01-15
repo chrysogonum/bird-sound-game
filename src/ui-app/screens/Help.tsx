@@ -181,37 +181,14 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
-          <VersionEntry version="3.11" date="January 15, 2026">
+          <VersionEntry version="3.13" date="January 15, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Fixed missing audio during gameplay:</strong> Resolved 202 broken clip references and missing files</li>
-              <li>All species now have valid canonical clips for Level 1</li>
-              <li>Added Pull-to-Refresh gesture on main menu for PWA users</li>
-              <li>Improved error logging for audio decode failures</li>
-              <li>Service worker cache updated to v6 for fresh data loading</li>
-            </ul>
-          </VersionEntry>
-
-          <VersionEntry version="3.1" date="January 15, 2026">
-            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Fixed blank spectrograms:</strong> Resolved async texture loading race condition</li>
-              <li>Enhanced loading indicator with real-time progress bar and clip counter</li>
-              <li>Improved Training Mode tooltip clarity</li>
-              <li>Brightened version footer and icons for better visibility</li>
-              <li>Clarified headphone/unmute instructions on pack selection</li>
-            </ul>
-          </VersionEntry>
-
-          <VersionEntry version="3.0" date="January 14, 2026">
-            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Western Backyard Birds pack: 14 new species</strong> (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, and more)</li>
+              <li><strong>Western Backyard Birds pack:</strong> 14 new species including Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, and more. Fixed to use 9 random birds per round.</li>
+              <li><strong>Audio improvements:</strong> Restored canonical clips for 71+ species, resolved 202 broken audio references, cleaned up duplicate EATO clips (11→5)</li>
+              <li><strong>UI refinements:</strong> Black backgrounds on Training Mode labels for better readability, Warbler Academy icon updated to Blackburnian Warbler, improved loading indicators</li>
+              <li><strong>Bird Reference enhancements:</strong> Collapsible packs with expand/collapse controls, source badges (Xeno-canto, Cornell, contributors), pack cards with representative bird icons</li>
+              <li><strong>Fixed blank spectrograms</strong> (async texture loading), added pull-to-refresh on main menu, audio preloading on preview screen</li>
               <li>Added White-crowned Sparrow to Sparrows pack (now 8 species)</li>
-              <li>Bird Reference: Collapsible packs with expand/collapse controls</li>
-              <li>Bird Reference: Source badges (Xeno-canto, Cornell, contributor names)</li>
-              <li>Pack cards now feature representative bird icons</li>
-              <li>Simplified pack names for cleaner mobile display</li>
-              <li>Improved main menu spacing and layout</li>
-              <li>Audio clips now preload on preview screen for smoother gameplay</li>
-              <li>Fixed duplicate clips in database</li>
             </ul>
           </VersionEntry>
 
