@@ -41,6 +41,55 @@ python3 scripts/audio_tagger.py
 - Verify clips.json was updated (check file modification time)
 - Spot check that new species codes appear in clips.json
 
+### 2.5. Mark Canonical Clips (CRITICAL!)
+**NEW SPECIES NEED CANONICAL CLIPS FOR LEVEL 1 TO WORK!**
+
+Run this script to ensure all species have canonical clips marked:
+```bash
+python3 << 'EOF'
+import json
+import os
+
+# Load clips
+with open('data/clips.json', 'r') as f:
+    clips = json.load(f)
+
+# Group by species
+from collections import defaultdict
+by_species = defaultdict(list)
+for clip in clips:
+    species = clip.get('species_code')
+    if species:
+        by_species[species].append(clip)
+
+# For each species without a canonical clip, mark the first valid one
+changes = []
+for species, species_clips in by_species.items():
+    canonical = [c for c in species_clips if c.get('canonical') and not c.get('rejected')]
+    if not canonical:
+        # Find first valid clip with existing file
+        for clip in species_clips:
+            file_path = f"src/ui-app/public/{clip.get('file_path', '')}"
+            if os.path.exists(file_path) and not clip.get('rejected'):
+                clip['canonical'] = True
+                changes.append(f"{species}: Set {clip['clip_id']} as canonical")
+                break
+
+if changes:
+    with open('data/clips.json', 'w') as f:
+        json.dump(clips, f, indent=2)
+    print(f"✓ Set canonical clips for {len(changes)} species:")
+    for change in changes:
+        print(f"  {change}")
+else:
+    print("✓ All species already have canonical clips")
+EOF
+```
+
+**Verify:**
+- Check that output shows canonical clips were set for new species
+- If you see "All species already have canonical clips", that's good!
+
 ### 3. Generate Spectrograms
 ```bash
 make spectrogram-gen
@@ -165,12 +214,13 @@ npm run deploy  # Retry
 
 ## Common Pitfalls to Avoid
 
-1. **Untracked icon files** - Always check `git status` for ?? files
-2. **Missing spectrograms** - Run spectrogram_gen.py and verify output
-3. **clips.json not updated** - Run audio_tagger.py after adding files
-4. **Icon count ≠ species count** - Verify all icons exist before committing
-5. **Disk space** - Clean dist/ and bird-sound-game/ if deployment fails
-6. **Schema validation** - Run `make validate-schemas` before committing
+1. **Missing canonical clips** - CRITICAL! Run the canonical clip script (Step 2.5) or Level 1 will break
+2. **Missing audio files referenced in clips.json** - Verify files exist before running audio_tagger.py
+3. **Untracked icon files** - Always check `git status` for ?? files
+4. **Missing spectrograms** - Run spectrogram_gen.py and verify output
+5. **Icon count ≠ species count** - Verify all icons exist before committing
+6. **Disk space** - Clean dist/ and bird-sound-game/ if deployment fails
+7. **Schema validation** - Run `make validate-schemas` before committing
 
 ## Success Criteria
 
@@ -178,9 +228,11 @@ npm run deploy  # Retry
 - [ ] All spectrograms generated in data/spectrograms/
 - [ ] All icons exist in data/icons/
 - [ ] clips.json updated with metadata
+- [ ] **CRITICAL: All new species have canonical clips marked** (Step 2.5)
+- [ ] No missing file references in clips.json (all file_path entries exist on disk)
 - [ ] Pack JSON updated with new species
 - [ ] Schema validation passes
-- [ ] Local testing successful
+- [ ] Local testing successful (especially Level 1 with new species)
 - [ ] All files tracked in git (no ?? in git status for new species)
 - [ ] Committed with descriptive message
 - [ ] Pushed to GitHub
