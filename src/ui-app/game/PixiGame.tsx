@@ -70,14 +70,16 @@ async function loadTextureAsync(path: string): Promise<PIXI.Texture | null> {
   // Create and cache the loading Promise
   const loadPromise = (async () => {
     try {
+      console.log(`[Texture] Loading: ${fullPath}`);
       const texture = await PIXI.Assets.load(fullPath);
       if (!texture || !texture.valid) {
-        console.warn(`Invalid texture loaded: ${path}`);
+        console.error(`[Texture] Invalid texture loaded: ${path}`, { fullPath, texture });
         return null;
       }
+      console.log(`[Texture] Success: ${path}`);
       return texture as PIXI.Texture;
     } catch (error) {
-      console.warn(`Failed to load spectrogram texture: ${path}`, error);
+      console.error(`[Texture] Failed to load: ${path}`, { fullPath, error });
       return null;
     }
   })();
@@ -404,6 +406,11 @@ function createTile(
         sprite.name = 'spectrogram'; // Name it so we can find it later for fading
         // Add behind bird icon if in training mode (at index 1, after background)
         container.addChildAt(sprite, 1);
+        console.log(`[Sprite] Added spectrogram to tile: ${spectrogramPath}`);
+      } else if (!texture) {
+        console.error(`[Sprite] Texture null for: ${spectrogramPath}`);
+      } else if (!container.parent) {
+        console.warn(`[Sprite] Container removed before sprite could be added: ${spectrogramPath}`);
       }
     });
   }
