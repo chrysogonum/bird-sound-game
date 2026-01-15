@@ -49,7 +49,7 @@
       },
       "source": {
         "type": "string",
-        "enum": ["macaulay", "xenocanto", "demo"],
+        "enum": ["macaulay", "xenocanto", "cornell", "demo", "user_recording"],
         "description": "Audio source"
       },
       "source_id": {
@@ -63,6 +63,26 @@
       "spectrogram_path": {
         "type": ["string", "null"],
         "description": "Path to the spectrogram image"
+      },
+      "canonical": {
+        "type": "boolean",
+        "description": "Whether this is a canonical/signature clip for the species"
+      },
+      "rejected": {
+        "type": "boolean",
+        "description": "Whether this clip has been rejected/excluded from gameplay"
+      },
+      "quality_rating": {
+        "type": ["string", "null"],
+        "description": "Quality rating (legacy field, use quality_score instead)"
+      },
+      "species_name": {
+        "type": ["string", "null"],
+        "description": "Legacy field, use common_name instead"
+      },
+      "xeno_canto_id": {
+        "type": ["string", "null"],
+        "description": "Legacy field, use source_id instead"
       }
     },
     "additionalProperties": false

@@ -300,7 +300,7 @@ export class ProgressStore {
     const [first, second] = [speciesA, speciesB].sort();
 
     // Find existing pair
-    let pair = stats.confusionPairs.find(
+    const pair = stats.confusionPairs.find(
       (p) => p.speciesA === first && p.speciesB === second
     );
 

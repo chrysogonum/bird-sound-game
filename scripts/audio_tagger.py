@@ -66,6 +66,14 @@ SPECIES_MAP = {
     'KEWA': 'Kentucky Warbler',
     'HOWA': 'Hooded Warbler',
     'WEVI': 'White-eyed Vireo',
+    # Western birds pack species
+    'STJA': "Steller's Jay",
+    'WESJ': 'Western Scrub-Jay',
+    'BCCH': 'Black-capped Chickadee',
+    'WCSP': 'White-crowned Sparrow',
+    'CAFI': "Cassin's Finch",
+    'PISI': 'Pine Siskin',
+    'EVGR': 'Evening Grosbeak',
     # 2-letter code aliases
     'NC': 'Northern Cardinal',
     'CW': 'Carolina Wren',

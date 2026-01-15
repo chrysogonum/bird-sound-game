@@ -227,3 +227,31 @@ YTWA: Stylized icon of a Yellow-throated Warbler, simple flat design, circular f
 | FICR | Fish Crow | Stylized icon of a Fish Crow, simple flat design, circular frame, sleek all-black crow, white background, game asset style, clean vector look, centered composition, no text |
 | CEWA | Cedar Waxwing | Stylized icon of a Cedar Waxwing, simple flat design, circular frame, sleek tan bird with black mask yellow tail tip and crest, white background, game asset style, clean vector look, centered composition, no text |
 | EATO | Eastern Towhee | Stylized icon of an Eastern Towhee, simple flat design, circular frame, black head and back with rufous sides and white belly, red eye, white background, game asset style, clean vector look, centered composition, no text |
+
+---
+
+## Western Birds Pack (V3.0)
+
+| Code | Name | Prompt |
+|------|------|--------|
+| STJA | Steller's Jay | Stylized icon of a Steller's Jay, simple flat design, circular frame, deep blue bird with dark crest and black head, white background, game asset style, clean vector look, centered composition, no text |
+| WESJ | Western Scrub-Jay | Stylized icon of a Western Scrub-Jay, simple flat design, circular frame, bright blue bird with gray back and white throat, white background, game asset style, clean vector look, centered composition, no text |
+| BCCH | Black-capped Chickadee | Stylized icon of a Black-capped Chickadee, simple flat design, circular frame, small gray bird with black cap and bib, white cheeks, white background, game asset style, clean vector look, centered composition, no text |
+| WCSP | White-crowned Sparrow | Stylized icon of a White-crowned Sparrow, simple flat design, circular frame, brown sparrow with bold black and white striped crown, white background, game asset style, clean vector look, centered composition, no text |
+| CAFI | Cassin's Finch | Stylized icon of a Cassin's Finch, simple flat design, circular frame, rosy-red finch with streaked brown back and notched tail, white background, game asset style, clean vector look, centered composition, no text |
+| PISI | Pine Siskin | Stylized icon of a Pine Siskin, simple flat design, circular frame, heavily streaked brown finch with yellow wing bars and tail base, white background, game asset style, clean vector look, centered composition, no text |
+| EVGR | Evening Grosbeak | Stylized icon of an Evening Grosbeak, simple flat design, circular frame, chunky yellow and black bird with massive pale bill and white wing patches, white background, game asset style, clean vector look, centered composition, no text |
+| RWBL | Red-winged Blackbird | Stylized icon of a Red-winged Blackbird, simple flat design, circular frame, black bird with bright red and yellow shoulder patches, white background, game asset style, clean vector look, centered composition, no text |
+
+### Quick Copy - Western Birds
+
+```
+STJA: Stylized icon of a Steller's Jay, simple flat design, circular frame, deep blue bird with dark crest and black head, white background, game asset style, clean vector look, centered composition, no text
+WESJ: Stylized icon of a Western Scrub-Jay, simple flat design, circular frame, bright blue bird with gray back and white throat, white background, game asset style, clean vector look, centered composition, no text
+BCCH: Stylized icon of a Black-capped Chickadee, simple flat design, circular frame, small gray bird with black cap and bib, white cheeks, white background, game asset style, clean vector look, centered composition, no text
+WCSP: Stylized icon of a White-crowned Sparrow, simple flat design, circular frame, brown sparrow with bold black and white striped crown, white background, game asset style, clean vector look, centered composition, no text
+CAFI: Stylized icon of a Cassin's Finch, simple flat design, circular frame, rosy-red finch with streaked brown back and notched tail, white background, game asset style, clean vector look, centered composition, no text
+PISI: Stylized icon of a Pine Siskin, simple flat design, circular frame, heavily streaked brown finch with yellow wing bars and tail base, white background, game asset style, clean vector look, centered composition, no text
+EVGR: Stylized icon of an Evening Grosbeak, simple flat design, circular frame, chunky yellow and black bird with massive pale bill and white wing patches, white background, game asset style, clean vector look, centered composition, no text
+RWBL: Stylized icon of a Red-winged Blackbird, simple flat design, circular frame, black bird with bright red and yellow shoulder patches, white background, game asset style, clean vector look, centered composition, no text
+```

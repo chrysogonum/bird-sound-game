@@ -354,8 +354,6 @@ function createTile(
   background.endFill();
   container.addChild(background);
 
-  let spectrogramSprite: PIXI.Sprite | null = null;
-
   // Show spectrogram based on mode
   const showSpectrogram = spectrogramMode !== 'none' && spectrogramPath;
 
@@ -378,7 +376,6 @@ function createTile(
     sprite.height = maxHeight;
     sprite.name = 'spectrogram'; // Name it so we can find it later for fading
     container.addChild(sprite);
-    spectrogramSprite = sprite;
   } else {
     // No spectrogram: show placeholder lines
     const lines = new PIXI.Graphics();

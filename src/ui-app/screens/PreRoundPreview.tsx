@@ -26,10 +26,11 @@ const SPECIES_COLORS = [
 
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
-  starter_birds: '5 Common Backyard Birds',
-  expanded_backyard: 'Expanded Local Birds',
+  starter_birds: '5 Common Eastern US Backyard Birds',
+  expanded_backyard: 'Expanded Eastern US Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
+  western_birds: 'Western Backyard Birds',
   custom: 'Custom Pack',
 };
 
@@ -511,7 +512,7 @@ function PreRoundPreview() {
             marginTop: '4px',
             paddingLeft: '4px',
           }}>
-            Bird icons will appear on tiles during play
+            If enabled during play, bird icons are added to the next new spectrogram to appear.
           </div>
         )}
       </div>

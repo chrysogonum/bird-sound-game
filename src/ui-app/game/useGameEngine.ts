@@ -1314,25 +1314,18 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     const timeBeforeHitZone = hitZoneTime - inputTime;
     const positionRatio = Math.max(0, Math.min(1, timeBeforeHitZone / totalWindow));
 
-    // Determine timing multiplier based on which quarter of screen
-    // Top 25% (positionRatio >= 0.75): 100%
-    // 25-50% (positionRatio >= 0.50): 75%
-    // 50-75% (positionRatio >= 0.25): 50%
-    // Bottom 25% (positionRatio < 0.25): 25%
-    let timingMultiplier: number;
+    // Determine timing accuracy based on which quarter of screen
+    // Top 25% (positionRatio >= 0.75): perfect
+    // 25-50% (positionRatio >= 0.50): perfect
+    // 50-75% (positionRatio >= 0.25): partial
+    // Bottom 25% (positionRatio < 0.25): partial
     let timingAccuracy: 'perfect' | 'partial' | 'miss';
 
-    if (positionRatio >= 0.75) {
-      timingMultiplier = 1.0;
-      timingAccuracy = 'perfect';
-    } else if (positionRatio >= 0.50) {
-      timingMultiplier = 0.75;
+    if (positionRatio >= 0.50) {
       timingAccuracy = 'perfect';
     } else if (positionRatio >= 0.25) {
-      timingMultiplier = 0.50;
       timingAccuracy = 'partial';
     } else {
-      timingMultiplier = 0.25;
       timingAccuracy = 'partial';
     }
 
