@@ -5,6 +5,7 @@ import PixiGame from './PixiGame';
 import { useGameEngine } from './useGameEngine';
 import type { Channel } from '@engine/audio/types';
 import type { LevelConfig, GameMode } from '@engine/game/types';
+import { trackTrainingModeToggle } from '../utils/analytics';
 
 // Bird icon component - shows icon with code label below
 function BirdIcon({ code, size = 32, color }: { code: string; size?: number; color?: string }) {
@@ -480,7 +481,11 @@ function GameplayScreen() {
       {/* Training mode toggle button */}
       <button
         className={`training-toggle ${trainingMode ? 'active' : ''}`}
-        onClick={() => setTrainingMode(!trainingMode)}
+        onClick={() => {
+          const newMode = !trainingMode;
+          setTrainingMode(newMode);
+          trackTrainingModeToggle(newMode);
+        }}
         aria-label={trainingMode ? 'Disable training mode' : 'Enable training mode'}
         title={trainingMode ? 'Training Mode ON - Icons visible' : 'Training Mode OFF'}
       >
