@@ -456,6 +456,17 @@ function createTile(
     codeLabel.anchor.set(0.5);
     codeLabel.position.set(tileWidth / 2 - 20, -tileHeight / 2 + 44);
     codeLabel.alpha = 0.8;
+
+    // Add black background behind text for better readability
+    const labelBg = new PIXI.Graphics();
+    labelBg.beginFill(0x000000, 0.7);
+    const padding = 3;
+    const bgWidth = codeLabel.width + padding * 2;
+    const bgHeight = codeLabel.height + padding * 2;
+    labelBg.drawRoundedRect(-bgWidth / 2, -bgHeight / 2, bgWidth, bgHeight, 2);
+    labelBg.endFill();
+    labelBg.position.set(codeLabel.position.x, codeLabel.position.y);
+    container.addChild(labelBg);
     container.addChild(codeLabel);
 
     // Load bird icon asynchronously
