@@ -178,6 +178,48 @@ function Help() {
             Icon design by Peter Repetti, Claude and ChatGPT
           </p>
         </Section>
+
+        {/* Version History */}
+        <Section title="Version History">
+          <VersionEntry version="3.0" date="January 14, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li>Added White-crowned Sparrow to Sparrows pack (now 8 species)</li>
+              <li>Bird Reference: Collapsible packs with expand/collapse controls</li>
+              <li>Bird Reference: Source badges (Xeno-canto, Cornell, contributor names)</li>
+              <li>Pack cards now feature representative bird icons</li>
+              <li>Simplified pack names for cleaner mobile display</li>
+              <li>Improved main menu spacing and layout</li>
+              <li>Audio clips now preload on preview screen for smoother gameplay</li>
+              <li>Fixed duplicate clips in database</li>
+            </ul>
+          </VersionEntry>
+
+          <VersionEntry version="2.0" date="January 12, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li>Rebranded to ChipNotes! with Owl Professor mascot</li>
+              <li>Training Mode: Toggle eye icon to show bird labels on tiles</li>
+              <li>Warbler Academy pack: 33 wood-warbler species for experts</li>
+              <li>Complete icon set: Hand-illustrated icons for all 91+ species</li>
+              <li>Added Eastern Towhee to Expanded Backyard pack</li>
+              <li>Birds now persist between rounds by default</li>
+              <li>Fixed scoring to allow full 100 points as documented</li>
+              <li>iOS audio improvements and playback fixes</li>
+            </ul>
+          </VersionEntry>
+
+          <VersionEntry version="1.0" date="January 11, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li>Initial release with 6 bird packs</li>
+              <li>Pre-round preview screen to hear and see birds before playing</li>
+              <li>Custom pack builder for targeted practice</li>
+              <li>Continuous play mode (untimed, relaxed practice)</li>
+              <li>Enhanced round summary with per-species breakdown</li>
+              <li>Progressive difficulty: 6 levels per pack</li>
+              <li>Real spectrograms for visual learning</li>
+              <li>PWA support for offline play and mobile installation</li>
+            </ul>
+          </VersionEntry>
+        </Section>
       </div>
     </div>
   );
@@ -283,6 +325,24 @@ function Tip({ children }: { children: React.ReactNode }) {
     }}>
       <span style={{ color: 'var(--color-accent)' }}>•</span>
       <span>{children}</span>
+    </div>
+  );
+}
+
+function VersionEntry({ version, date, children }: { version: string; date: string; children: React.ReactNode }) {
+  return (
+    <div style={{
+      marginBottom: '16px',
+      padding: '12px',
+      background: 'var(--color-surface)',
+      borderRadius: '8px',
+      borderLeft: '3px solid var(--color-accent)',
+    }}>
+      <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '8px' }}>
+        <span style={{ fontWeight: 700, fontSize: '16px', color: 'var(--color-accent)' }}>v{version}</span>
+        <span style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>{date}</span>
+      </div>
+      {children}
     </div>
   );
 }

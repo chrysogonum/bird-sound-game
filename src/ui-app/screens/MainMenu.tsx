@@ -81,8 +81,8 @@ function MainMenu() {
 
         {/* How it works - visual gameplay preview */}
         <div style={{
-          marginTop: '24px',
-          padding: '16px 20px',
+          marginTop: '16px',
+          padding: '12px 16px',
           background: 'var(--color-surface)',
           borderRadius: '16px',
           maxWidth: '340px',
@@ -91,7 +91,7 @@ function MainMenu() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '20px',
+            gap: '16px',
           }}>
             {/* Step 1: Spectrogram representing sound */}
             <div style={{ textAlign: 'center' }}>
@@ -130,8 +130,8 @@ function MainMenu() {
                   <div
                     key={code}
                     style={{
-                      width: '40px',
-                      height: '40px',
+                      width: '36px',
+                      height: '36px',
                       borderRadius: '8px',
                       overflow: 'hidden',
                       border: i === 0 ? '2px solid var(--color-accent)' : '2px solid transparent',
