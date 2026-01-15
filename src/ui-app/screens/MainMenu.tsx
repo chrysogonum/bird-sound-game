@@ -1,10 +1,112 @@
 import { useNavigate } from 'react-router-dom';
+import { useState, useRef, useEffect } from 'react';
 
 function MainMenu() {
   const navigate = useNavigate();
+  const [pullDistance, setPullDistance] = useState(0);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const touchStartY = useRef(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const PULL_THRESHOLD = 80; // Distance to trigger refresh
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    let startY = 0;
+    let currentY = 0;
+    let isPulling = false;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      // Only allow pull-to-refresh when scrolled to top
+      if (container.scrollTop === 0) {
+        startY = e.touches[0].clientY;
+        isPulling = true;
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (!isPulling) return;
+
+      currentY = e.touches[0].clientY;
+      const distance = currentY - startY;
+
+      // Only pull down (positive distance) and apply resistance
+      if (distance > 0) {
+        // Prevent default scrolling when pulling
+        e.preventDefault();
+        // Apply rubber band effect (diminishing returns)
+        const dampenedDistance = Math.pow(distance, 0.85);
+        setPullDistance(Math.min(dampenedDistance, PULL_THRESHOLD * 1.5));
+      }
+    };
+
+    const handleTouchEnd = () => {
+      if (pullDistance > PULL_THRESHOLD) {
+        // Trigger refresh
+        setIsRefreshing(true);
+        setPullDistance(0);
+        // Delay reload slightly to show spinner
+        setTimeout(() => {
+          window.location.reload();
+        }, 400);
+      } else {
+        // Snap back
+        setPullDistance(0);
+      }
+      isPulling = false;
+    };
+
+    container.addEventListener('touchstart', handleTouchStart, { passive: true });
+    container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      container.removeEventListener('touchstart', handleTouchStart);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [pullDistance]);
 
   return (
-    <div className="screen screen-center" style={{ position: 'relative', overflow: 'hidden' }}>
+    <div ref={containerRef} className="screen screen-center" style={{ position: 'relative', overflow: 'auto' }}>
+      {/* Pull-to-refresh indicator */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: `${pullDistance}px`,
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        paddingBottom: '8px',
+        opacity: Math.min(pullDistance / PULL_THRESHOLD, 1),
+        transition: pullDistance === 0 ? 'all 0.3s ease' : 'none',
+        pointerEvents: 'none',
+        zIndex: 10,
+      }}>
+        {isRefreshing ? (
+          <div style={{
+            width: '24px',
+            height: '24px',
+            border: '3px solid var(--color-surface)',
+            borderTop: '3px solid var(--color-accent)',
+            borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite',
+          }} />
+        ) : (
+          <div style={{
+            fontSize: '13px',
+            color: 'var(--color-text-muted)',
+            fontWeight: 600,
+          }}>
+            {pullDistance > PULL_THRESHOLD ? '↓ Release to refresh' : '↓ Pull to refresh'}
+          </div>
+        )}
+      </div>
+
       {/* Main content */}
       <div style={{
         display: 'flex',
@@ -12,6 +114,8 @@ function MainMenu() {
         alignItems: 'center',
         gap: '8px',
         zIndex: 1,
+        transform: `translateY(${pullDistance}px)`,
+        transition: pullDistance === 0 ? 'transform 0.3s ease' : 'none',
       }}>
         {/* Owl Professor hero image */}
         <img
