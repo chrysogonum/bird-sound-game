@@ -186,7 +186,7 @@ function LevelSelect() {
   }, [packId, navigate]);
 
   const handleLevelSelect = (level: LevelConfig) => {
-    trackLevelSelect(packId, level.level_id, level.title);
+    trackLevelSelect(packId, level.level_id, level.title || `Level ${level.level_id}`);
     navigate(`/preview?pack=${packId}&level=${level.level_id}`);
   };
 
