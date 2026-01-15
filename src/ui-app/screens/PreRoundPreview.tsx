@@ -512,7 +512,7 @@ function PreRoundPreview() {
             marginTop: '4px',
             paddingLeft: '4px',
           }}>
-            If enabled during play, bird icons are added to the next new spectrogram to appear.
+            Bird icons will appear on tiles during play. If enabled during play, bird icons are added to the next new spectrogram to appear.
           </div>
         )}
       </div>
