@@ -417,7 +417,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -489,7 +489,7 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/BADO_cd219511.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
