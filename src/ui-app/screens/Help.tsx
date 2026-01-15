@@ -38,7 +38,7 @@ function Help() {
         {/* The Packs */}
         <Section title="The Packs">
           <PackInfo
-            name="5 Common Eastern US Backyard Birds"
+            name="Common Eastern US Backyard Birds"
             description="Perfect for beginners. Five distinctive birds you'll hear in your own backyard: Cardinal, Carolina Wren, Titmouse, Blue Jay, and Crow."
           />
           <PackInfo
@@ -166,16 +166,16 @@ function Help() {
         {/* Credits */}
         <Section title="Sound Credits">
           <p style={{ fontSize: '14px' }}>
-            All recordings from <a href="https://xeno-canto.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>xeno-canto.org</a>,
-            a community library of bird sounds from around the world.
+            Recordings sourced from <a href="https://xeno-canto.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>Xeno-canto</a>, <a href="https://www.birds.cornell.edu/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>Cornell Lab of Ornithology</a>, and user contributed recordings. All sounds have been curated for quality and educational value.
           </p>
         </Section>
 
         {/* About */}
         <Section title="About">
           <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
-            Made with 🎧 by Peter Repetti<br />
-            AI pair programming by Claude
+            Made with 🎧 and ❤️ by Peter Repetti<br />
+            AI pair programming by Claude<br />
+            Icon design by Peter Repetti, Claude and ChatGPT
           </p>
         </Section>
       </div>

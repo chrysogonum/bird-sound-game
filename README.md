@@ -33,7 +33,7 @@ Build streaks for bonus points. Miss too many and the round ends.
 
 | Pack | Species | Description |
 |------|---------|-------------|
-| **5 Common Eastern US Backyard Birds** | 5 | Start here — bold, distinctive voices |
+| **Common Eastern US Backyard Birds** | 5 | Start here — bold, distinctive voices |
 | **Expanded Eastern US Birds** | 39 | Eastern US species, 9 random per round |
 | **Sparrows** | 8 | Subtle songs of eight sparrow species |
 | **Woodpeckers** | 7 | Drums, calls, and rattles |

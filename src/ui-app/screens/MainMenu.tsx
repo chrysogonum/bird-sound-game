@@ -10,7 +10,7 @@ function MainMenu() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '12px',
+        gap: '8px',
         zIndex: 1,
       }}>
         {/* Owl Professor hero image */}
@@ -22,7 +22,7 @@ function MainMenu() {
             height: '180px',
             borderRadius: '50%',
             boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
-            marginBottom: '8px',
+            marginBottom: '4px',
           }}
         />
 
@@ -46,7 +46,7 @@ function MainMenu() {
           maxWidth: '280px',
           textAlign: 'center',
           lineHeight: 1.5,
-          marginTop: '4px',
+          marginTop: '0px',
         }}>
           Your gamified study guide to bird sounds
         </p>
@@ -55,7 +55,7 @@ function MainMenu() {
         <button
           onClick={() => navigate('/pack-select')}
           style={{
-            marginTop: '24px',
+            marginTop: '16px',
             padding: '18px 64px',
             fontSize: '20px',
             fontWeight: 700,
@@ -157,7 +157,7 @@ function MainMenu() {
       {/* Bottom nav icons */}
       <div style={{
         position: 'absolute',
-        bottom: 'calc(28px + var(--safe-area-bottom, 0px))',
+        bottom: 'calc(40px + var(--safe-area-bottom, 0px))',
         left: 0,
         right: 0,
         display: 'flex',
@@ -193,6 +193,20 @@ function MainMenu() {
           <StatsIcon />
           <span style={{ fontSize: '12px', opacity: 0.7 }}>Stats</span>
         </button>
+      </div>
+
+      {/* Version and credits */}
+      <div style={{
+        position: 'absolute',
+        bottom: 'calc(4px + var(--safe-area-bottom, 0px))',
+        left: 0,
+        right: 0,
+        textAlign: 'center',
+        fontSize: '11px',
+        color: 'var(--color-text-muted)',
+        opacity: 0.6,
+      }}>
+        v3.0 | Made with 🎧 and ❤️
       </div>
     </div>
   );

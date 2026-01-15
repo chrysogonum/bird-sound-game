@@ -16,12 +16,17 @@ interface ClipData {
   file_path: string;
   canonical?: boolean;
   rejected?: boolean;
+  vocalization_type?: string;
+  source?: string;
+  spectrogram_path?: string;
 }
 
 interface BirdClip {
   id: string;
   path: string;
   isCanonical: boolean;
+  vocalizationType?: string;
+  source?: string;
 }
 
 interface BirdInfo {
@@ -35,7 +40,7 @@ interface BirdInfo {
 const PACKS: Pack[] = [
   {
     id: 'starter_birds',
-    name: '5 Common Eastern US Backyard Birds',
+    name: 'Common Eastern US Backyard Birds',
     speciesCount: 5,
     isUnlocked: true,
     description: 'Start here! Five distinctive birds with bold, recognizable voices.',
@@ -114,6 +119,8 @@ function PackSelect() {
   const [clips, setClips] = useState<ClipData[]>([]);
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
+  const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
+  const [showAllPacks, setShowAllPacks] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Load clips data
@@ -128,7 +135,11 @@ function PackSelect() {
   const getBirdsForPack = (packId: string): BirdInfo[] => {
     const speciesCodes = PACK_SPECIES[packId] || [];
     return speciesCodes.map((code) => {
-      const speciesClips = clips.filter((c) => c.species_code === code && !c.rejected);
+      const speciesClips = clips.filter((c) =>
+        c.species_code === code &&
+        !c.rejected &&
+        (!c.spectrogram_path || !c.spectrogram_path.includes('spectrograms-rejected'))
+      );
       const canonicalClip = speciesClips.find((c) => c.canonical);
       const clip = canonicalClip || speciesClips[0];
 
@@ -145,6 +156,8 @@ function PackSelect() {
           id: c.clip_id,
           path: `${import.meta.env.BASE_URL}data/clips/${c.file_path.split('/').pop()}`,
           isCanonical: !!c.canonical,
+          vocalizationType: c.vocalization_type,
+          source: c.source,
         }));
 
       return {
@@ -391,10 +404,13 @@ function PackSelect() {
             <span style={{ color: 'var(--color-accent)' }}>→</span> Got a nemesis bird? Queue it up and drill all its variations.
           </div>
           <div style={{ marginBottom: '8px' }}>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> Constantly confuse Kinglets and Creepers? Put them head-to-head!
+            <span style={{ color: 'var(--color-accent)' }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
           </div>
           <div style={{ marginBottom: '8px' }}>
             <span style={{ color: 'var(--color-accent)' }}>→</span> Warbler Wizard Wannabe? Training starts here!
+          </div>
+          <div style={{ marginBottom: '8px' }}>
+            <span style={{ color: 'var(--color-accent)' }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
           </div>
           <div>
             <span style={{ color: 'var(--color-accent)' }}>→</span> Mix species from any pack — your rules, your practice.
@@ -421,15 +437,88 @@ function PackSelect() {
 
       {/* Bird Reference Section */}
       <div style={{ marginTop: '16px' }}>
-        <h3 style={{ fontSize: '16px', marginBottom: '16px', color: 'var(--color-text-muted)' }}>
-          Bird Reference
-        </h3>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
+            Bird Reference
+          </h3>
+          <button
+            onClick={() => {
+              if (showAllPacks) {
+                setExpandedPacks(new Set());
+                setShowAllPacks(false);
+              } else {
+                const allPackIds = PACKS.filter(p => p.isUnlocked).map(p => p.id);
+                setExpandedPacks(new Set(allPackIds));
+                setShowAllPacks(true);
+              }
+            }}
+            style={{
+              fontSize: '12px',
+              padding: '6px 12px',
+              background: showAllPacks ? 'var(--color-accent)' : 'var(--color-surface)',
+              color: showAllPacks ? '#000' : 'var(--color-text)',
+              border: 'none',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              fontWeight: 600,
+            }}
+          >
+            {showAllPacks ? 'Collapse All' : 'Expand All'}
+          </button>
+        </div>
 
-        {PACKS.filter(p => p.isUnlocked).map((pack) => (
-          <div key={pack.id} style={{ marginBottom: '24px' }}>
-            <h4 style={{ fontSize: '14px', marginBottom: '12px', color: 'var(--color-accent)' }}>
-              {pack.name}
-            </h4>
+        <p style={{
+          fontSize: '13px',
+          color: 'var(--color-text-muted)',
+          lineHeight: 1.6,
+          marginBottom: '20px',
+          paddingLeft: '12px',
+          borderLeft: '3px solid var(--color-accent)',
+        }}>
+          Preview signature sounds for each bird before you play. Click pack names to expand and see all birds, or click individual birds to explore their full library of recordings.
+        </p>
+
+        {PACKS.filter(p => p.isUnlocked).map((pack) => {
+          const isExpanded = showAllPacks || expandedPacks.has(pack.id);
+          return (
+          <div key={pack.id} style={{ marginBottom: '16px' }}>
+            <div
+              onClick={() => {
+                const newExpanded = new Set(expandedPacks);
+                if (newExpanded.has(pack.id)) {
+                  newExpanded.delete(pack.id);
+                } else {
+                  newExpanded.add(pack.id);
+                }
+                setExpandedPacks(newExpanded);
+              }}
+              style={{
+                fontSize: '14px',
+                marginBottom: isExpanded ? '12px' : '0',
+                color: 'var(--color-accent)',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '8px 12px',
+                background: 'var(--color-surface)',
+                borderRadius: '8px',
+                transition: 'background 0.15s',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 1)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'var(--color-surface)'}
+            >
+              <span style={{ fontSize: '14px' }}>
+                {isExpanded ? '▼' : '▶'}
+              </span>
+              <span style={{ fontWeight: 600 }}>
+                {pack.name}
+              </span>
+              <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
+                {PACK_SPECIES[pack.id]?.length || 0} species
+              </span>
+            </div>
+            {isExpanded && (
             <div
               style={{
                 display: 'grid',
@@ -555,14 +644,36 @@ function PackSelect() {
                               >
                                 {playingClip === clip.id ? <StopIcon size={8} /> : <PlayIcon size={8} />}
                               </button>
-                              <span style={{ fontSize: '11px', color: 'var(--color-text)' }}>
-                                Clip {index + 1}
-                                {clip.isCanonical && (
-                                  <span style={{ marginLeft: '6px', fontSize: '9px', color: 'var(--color-accent)' }}>
-                                    ★ signature
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
+                                  <span style={{ fontSize: '11px', color: 'var(--color-text)' }}>
+                                    Clip {index + 1}
                                   </span>
-                                )}
-                              </span>
+                                  {clip.isCanonical && (
+                                    <span style={{
+                                      fontSize: '9px',
+                                      color: '#000',
+                                      background: 'var(--color-accent)',
+                                      padding: '2px 6px',
+                                      borderRadius: '4px',
+                                      fontWeight: 600,
+                                    }}>
+                                      ★ SIGNATURE
+                                    </span>
+                                  )}
+                                  {clip.source && (
+                                    <span style={{
+                                      fontSize: '9px',
+                                      color: 'var(--color-text-muted)',
+                                      background: 'rgba(255,255,255,0.1)',
+                                      padding: '2px 6px',
+                                      borderRadius: '4px',
+                                    }}>
+                                      {clip.source === 'xenocanto' ? 'Xeno-canto' : clip.source === 'cornell' ? 'Cornell' : 'Peter Repetti'}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
                             </div>
                           ))}
                         </div>
@@ -572,8 +683,10 @@ function PackSelect() {
                 );
               })}
             </div>
+            )}
           </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

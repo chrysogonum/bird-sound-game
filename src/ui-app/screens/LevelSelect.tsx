@@ -4,10 +4,11 @@ import type { LevelConfig } from '@engine/game/types';
 
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
-  starter_birds: '5 Common Backyard Birds',
-  expanded_backyard: 'Expanded Local Birds',
+  starter_birds: 'Common Eastern US Backyard Birds',
+  expanded_backyard: 'Expanded Eastern US Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
+  western_birds: 'Western Backyard Birds',
   custom: 'Custom Pack',
 };
 
