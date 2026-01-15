@@ -512,7 +512,7 @@ function PreRoundPreview() {
             marginTop: '4px',
             paddingLeft: '4px',
           }}>
-            Bird icons will appear on tiles during play. If enabled during play, bird icons are added to the next new spectrogram to appear.
+            Bird icons appear on spectrograms. Toggle on mid-round? Icons show up on the next new bird.
           </div>
         )}
       </div>
