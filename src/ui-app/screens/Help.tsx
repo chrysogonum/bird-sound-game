@@ -181,6 +181,16 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
+          <VersionEntry version="3.1" date="January 15, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Fixed blank spectrograms:</strong> Resolved async texture loading race condition</li>
+              <li>Enhanced loading indicator with real-time progress bar and clip counter</li>
+              <li>Improved Training Mode tooltip clarity</li>
+              <li>Brightened version footer and icons for better visibility</li>
+              <li>Clarified headphone/unmute instructions on pack selection</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.0" date="January 14, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Western Backyard Birds pack: 14 new species</strong> (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, and more)</li>
