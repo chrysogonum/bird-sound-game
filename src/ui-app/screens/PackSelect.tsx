@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { trackPackSelect } from '../utils/analytics';
 
 interface Pack {
   id: string;
@@ -172,6 +173,7 @@ function PackSelect() {
 
   const handlePackSelect = (pack: Pack) => {
     if (pack.isUnlocked) {
+      trackPackSelect(pack.id, pack.name);
       navigate(`/level-select?pack=${pack.id}`);
     }
   };
