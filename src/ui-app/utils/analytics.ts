@@ -76,3 +76,14 @@ export function trackSpectrogramToggle(mode: string) {
     mode,
   });
 }
+
+/**
+ * Track when a level is selected
+ */
+export function trackLevelSelect(packId: string, levelId: number, levelTitle: string) {
+  trackEvent('level_select', {
+    pack_id: packId,
+    level_id: levelId,
+    level_title: levelTitle,
+  });
+}

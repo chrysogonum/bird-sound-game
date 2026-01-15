@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
+import { trackLevelSelect } from '../utils/analytics';
 
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
@@ -185,6 +186,7 @@ function LevelSelect() {
   }, [packId, navigate]);
 
   const handleLevelSelect = (level: LevelConfig) => {
+    trackLevelSelect(packId, level.level_id, level.title);
     navigate(`/preview?pack=${packId}&level=${level.level_id}`);
   };
 
