@@ -206,7 +206,7 @@ function MainMenu() {
         color: 'var(--color-text-muted)',
         opacity: 0.6,
       }}>
-        v3.0 | Made with 🎧 and ❤️
+        v3.0 | Made with 🎧 🐦 🎵 and ❤️
       </div>
     </div>
   );
