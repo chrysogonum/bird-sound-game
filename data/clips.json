@@ -6752,7 +6752,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1062474",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RHWO_1062474.png",
     "quality_score": 4
@@ -6838,7 +6838,7 @@
     "source_id": "RHWO_845687",
     "file_path": "data/clips/RHWO_845687.wav",
     "spectrogram_path": "data/spectrograms/RHWO_845687.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
