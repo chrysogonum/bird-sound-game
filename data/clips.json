@@ -120,7 +120,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1034479",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMGO_1034479.png",
     "quality_score": 4
@@ -218,7 +218,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013900",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRE_1013900.png",
     "quality_score": 4
@@ -246,7 +246,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014856",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRE_1014856.png",
     "quality_score": 4
@@ -274,7 +274,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1010651",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_1010651.png",
     "quality_score": 4
@@ -288,7 +288,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1046358",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_1046358.png",
     "quality_score": 4
@@ -549,7 +549,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013805",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1013805.png",
     "quality_score": 4
@@ -619,7 +619,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014375",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1014375.png",
     "quality_score": 4
@@ -691,7 +691,7 @@
     "source_id": "BEKI_451359",
     "file_path": "data/clips/BEKI_451359.wav",
     "spectrogram_path": "data/spectrograms/BEKI_451359.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -717,7 +717,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1034325",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BEKI_1034325.png",
     "quality_score": 4
@@ -969,7 +969,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013883",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLBW_1013883.png",
     "quality_score": 4
@@ -997,7 +997,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014459",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLBW_1014459.png",
     "quality_score": 4
@@ -1011,7 +1011,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1010650",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLJA_1010650.png",
     "quality_score": 4
@@ -1039,7 +1039,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC861979",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLJA_861979.png",
     "quality_score": 4
@@ -1067,7 +1067,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014468",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLPW_1014468.png",
     "quality_score": 4
@@ -1081,7 +1081,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014475",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLPW_1014475.png",
     "quality_score": 4
@@ -1263,7 +1263,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1011716",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BRTH_1011716.png",
     "quality_score": 4
@@ -1333,7 +1333,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC803817",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BRTH_803817.png",
     "quality_score": 4
@@ -1389,7 +1389,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013120",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTBW_1013120.png",
     "quality_score": 4
@@ -1431,7 +1431,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC903870",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTBW_903870.png",
     "quality_score": 4
@@ -1445,7 +1445,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013766",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1013766.png",
     "quality_score": 4
@@ -1473,7 +1473,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014367",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1014367.png",
     "quality_score": 4
@@ -1543,7 +1543,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC101664",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BWWA_101664.png",
     "quality_score": 4
@@ -1571,7 +1571,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC598819",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BWWA_598819.png",
     "quality_score": 4
@@ -1629,7 +1629,7 @@
     "source_id": "CACH_933606",
     "file_path": "data/clips/CACH_933606.wav",
     "spectrogram_path": "data/spectrograms/CACH_933606.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -1655,7 +1655,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC877922",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CACH_877922.png",
     "quality_score": 4
@@ -1739,7 +1739,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014128",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CAWA_1014128.png",
     "quality_score": 4
@@ -1767,7 +1767,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014302",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CAWA_1014302.png",
     "quality_score": 4
@@ -1797,7 +1797,7 @@
     "source_id": "CARW_1010648",
     "file_path": "data/clips/CARW_1010648.wav",
     "spectrogram_path": "data/spectrograms/CARW_1010648.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -1811,7 +1811,7 @@
     "source_id": "CARW_941065",
     "file_path": "data/clips/CARW_941065.wav",
     "spectrogram_path": "data/spectrograms/CARW_941065.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1881,7 +1881,7 @@
     "xeno_canto_id": "1014827",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CEWA_1014827.png",
     "common_name": "Cedar Waxwing",
@@ -1966,7 +1966,7 @@
     "xeno_canto_id": "1014832",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CEWA_1014832.png",
     "common_name": "Cedar Waxwing",
@@ -2049,7 +2049,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1012541",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1012541.png",
     "quality_score": 4
@@ -2147,7 +2147,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1024787",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1024787.png",
     "quality_score": 4
@@ -2175,7 +2175,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013293",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CMWA_1013293.png",
     "quality_score": 4
@@ -2189,7 +2189,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013473",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CMWA_1013473.png",
     "quality_score": 4
@@ -2219,7 +2219,7 @@
     "xeno_canto_id": "1012859",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/COGR_1012859.png",
     "common_name": "Common Grackle",
@@ -2338,7 +2338,7 @@
     "xeno_canto_id": "1014943",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/COGR_1014943.png",
     "common_name": "Common Grackle",
@@ -2376,7 +2376,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -2418,7 +2418,7 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/COHA_859371.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -2565,7 +2565,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013902",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/COYE_1013902.png",
     "quality_score": 4
@@ -2593,7 +2593,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1021804",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/COYE_1021804.png",
     "quality_score": 4
@@ -2607,7 +2607,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014420",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CSWA_1014420.png",
     "quality_score": 4
@@ -2621,7 +2621,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1015053",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CSWA_1015053.png",
     "quality_score": 4
@@ -2831,7 +2831,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC608740",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/EABL_608740.png",
     "quality_score": 4
@@ -2915,7 +2915,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC890154",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/EABL_890154.png",
     "quality_score": 4
@@ -2962,7 +2962,7 @@
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source": "user_recording",
     "spectrogram_path": "data/spectrograms/EATO_20ee509c.png",
@@ -3608,7 +3608,7 @@
     "xeno_canto_id": null,
     "vocalization_type": "song",
     "quality_rating": "A",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "source": "user_recording",
     "spectrogram_path": "data/spectrograms/EATO_9ef2c5bc.png",
@@ -3880,7 +3880,7 @@
     "xeno_canto_id": "264970",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/FICR_264970.png",
     "common_name": "Fish Crow",
@@ -3999,7 +3999,7 @@
     "xeno_canto_id": "822351",
     "vocalization_type": "call",
     "quality_rating": "A",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/FICR_822351.png",
     "common_name": "Fish Crow",
@@ -4034,7 +4034,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014919",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/FISP_1014919.png",
     "quality_score": 4
@@ -4090,7 +4090,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1015150",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/FISP_1015150.png",
     "quality_score": 4
@@ -4192,7 +4192,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -4219,7 +4219,7 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/GCKI_1013481.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -4324,7 +4324,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1002792",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1002792.png",
     "quality_score": 4
@@ -4394,7 +4394,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013399",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1013399.png",
     "quality_score": 4
@@ -4464,7 +4464,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC650432",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GWWA_650432.png",
     "quality_score": 4
@@ -4478,7 +4478,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC658548",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GWWA_658548.png",
     "quality_score": 4
@@ -4534,7 +4534,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1028817",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HAWO_1028817.png",
     "quality_score": 4
@@ -4548,7 +4548,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1039174",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HAWO_1039174.png",
     "quality_score": 4
@@ -4646,7 +4646,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1036596",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HETH_1036596.png",
     "quality_score": 4
@@ -4660,7 +4660,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1037508",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HETH_1037508.png",
     "quality_score": 4
@@ -4898,7 +4898,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC900144",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HOFI_900144.png",
     "quality_score": 4
@@ -4926,7 +4926,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1002085",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/KEWA_1002085.png",
     "quality_score": 4
@@ -4954,7 +4954,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC808671",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/KEWA_808671.png",
     "quality_score": 4
@@ -5010,7 +5010,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014972",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LISP_1014972.png",
     "quality_score": 4
@@ -5122,7 +5122,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014983",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LISP_1014983.png",
     "quality_score": 4
@@ -5292,7 +5292,7 @@
     "source_id": "MODO_638304",
     "file_path": "data/clips/MODO_638304.wav",
     "spectrogram_path": "data/spectrograms/MODO_638304.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -5318,7 +5318,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC583574",
-    "canonical": false,
+    "canonical": true,
     "rejected": true,
     "spectrogram_path": "data/spectrograms/MODO_583574.png",
     "quality_score": 4
@@ -5376,7 +5376,7 @@
     "source_id": "MODO_940517",
     "file_path": "data/clips/MODO_940517.wav",
     "spectrogram_path": "data/spectrograms/MODO_940517.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -5388,7 +5388,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014001",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MOWA_1014001.png",
     "quality_score": 4
@@ -5416,7 +5416,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014327",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MOWA_1014327.png",
     "quality_score": 4
@@ -5486,7 +5486,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1010609",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOCA_1010609.png",
     "quality_score": 4
@@ -5530,7 +5530,7 @@
     "source_id": "NOCA_598016",
     "file_path": "data/clips/NOCA_598016.wav",
     "spectrogram_path": "data/spectrograms/NOCA_598016.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5612,7 +5612,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1033749",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_1033749.png",
     "quality_score": 4
@@ -5699,7 +5699,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -5726,7 +5726,7 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/NOMO_862380.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -5888,7 +5888,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013461",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOWA_1013461.png",
     "quality_score": 4
@@ -5902,7 +5902,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013462",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOWA_1013462.png",
     "quality_score": 4
@@ -5972,7 +5972,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014291",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OVEN_1014291.png",
     "quality_score": 4
@@ -5986,7 +5986,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014294",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OVEN_1014294.png",
     "quality_score": 4
@@ -6014,7 +6014,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1015024",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PAWA_1015024.png",
     "quality_score": 4
@@ -6028,7 +6028,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1015031",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PAWA_1015031.png",
     "quality_score": 4
@@ -6072,7 +6072,7 @@
     "source_id": "PIWA_1002534",
     "file_path": "data/clips/PIWA_1002534.wav",
     "spectrogram_path": "data/spectrograms/PIWA_1002534.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -6128,7 +6128,7 @@
     "source_id": "PIWA_901095",
     "file_path": "data/clips/PIWA_901095.wav",
     "spectrogram_path": "data/spectrograms/PIWA_901095.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6240,7 +6240,7 @@
     "source_id": "PIWO_582550",
     "file_path": "data/clips/PIWO_582550.wav",
     "spectrogram_path": "data/spectrograms/PIWO_582550.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -6254,7 +6254,7 @@
     "source_id": "PIWO_797066",
     "file_path": "data/clips/PIWO_797066.wav",
     "spectrogram_path": "data/spectrograms/PIWO_797066.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6406,7 +6406,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC371157",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PROW_371157.png",
     "quality_score": 4
@@ -6420,7 +6420,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC389965",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PROW_389965.png",
     "quality_score": 4
@@ -6462,7 +6462,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1012058",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RBWO_1012058.png",
     "quality_score": 4
@@ -6546,7 +6546,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC713254",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RBWO_713254.png",
     "quality_score": 4
@@ -6605,7 +6605,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -6632,7 +6632,7 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/RCKI_1014752.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -6838,7 +6838,7 @@
     "source_id": "RHWO_845687",
     "file_path": "data/clips/RHWO_845687.wav",
     "spectrogram_path": "data/spectrograms/RHWO_845687.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -6878,7 +6878,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC959566",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RHWO_959566.png",
     "quality_score": 4
@@ -7035,7 +7035,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -7077,7 +7077,7 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/RTHA_914680.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -7185,7 +7185,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -7302,7 +7302,7 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/RTHU_193646.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -7332,7 +7332,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014027",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1014027.png",
     "quality_score": 4
@@ -7458,7 +7458,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1060896",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1060896.png",
     "quality_score": 4
@@ -7645,7 +7645,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -7732,7 +7732,7 @@
     "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/SSHA_923859.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -7762,7 +7762,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1012741",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWSP_1012741.png",
     "quality_score": 4
@@ -7846,7 +7846,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1012914",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWSP_1012914.png",
     "quality_score": 4
@@ -7902,7 +7902,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1071256",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWWA_1071256.png",
     "quality_score": 4
@@ -7930,7 +7930,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC938875",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWWA_938875.png",
     "quality_score": 4
@@ -7944,7 +7944,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013989",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/TEWA_1013989.png",
     "quality_score": 4
@@ -7958,7 +7958,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1013990",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/TEWA_1013990.png",
     "quality_score": 4
@@ -8002,7 +8002,7 @@
     "source_id": "TUTI_1035994",
     "file_path": "data/clips/TUTI_1035994.wav",
     "spectrogram_path": "data/spectrograms/TUTI_1035994.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -8044,7 +8044,7 @@
     "source_id": "TUTI_884288",
     "file_path": "data/clips/TUTI_884288.wav",
     "spectrogram_path": "data/spectrograms/TUTI_884288.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -8100,7 +8100,7 @@
     "source_id": "WBNU_925191",
     "file_path": "data/clips/WBNU_925191.wav",
     "spectrogram_path": "data/spectrograms/WBNU_925191.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -8154,7 +8154,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC925187",
-    "canonical": false,
+    "canonical": true,
     "rejected": true,
     "spectrogram_path": "data/spectrograms/WBNU_925187.png",
     "quality_score": 4
@@ -8213,7 +8213,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -8225,7 +8225,7 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/WEWA_828191.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -8360,7 +8360,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014396",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WIWA_1014396.png",
     "quality_score": 4
@@ -8374,7 +8374,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014397",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WIWA_1014397.png",
     "quality_score": 4
@@ -8402,7 +8402,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1015145",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WTSP_1015145.png",
     "quality_score": 4
@@ -8500,7 +8500,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC726915",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WTSP_726915.png",
     "quality_score": 4
@@ -8542,7 +8542,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1011116",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YBSA_1011116.png",
     "quality_score": 4
@@ -8626,7 +8626,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC663258",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YBSA_663258.png",
     "quality_score": 4
@@ -8700,7 +8700,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -8802,7 +8802,7 @@
     "vocalization_type": "song",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/YRWA_1000573.png",
-    "canonical": false,
+    "canonical": true,
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
@@ -8832,7 +8832,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC404733",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YTWA_404733.png",
     "quality_score": 4
@@ -8874,7 +8874,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC649989",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YTWA_649989.png",
     "quality_score": 4
@@ -8890,7 +8890,7 @@
     "source_id": "cornell_002",
     "file_path": "data/clips/MODO_cornell_002_1.wav",
     "spectrogram_path": "data/spectrograms/MODO_cornell_002_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -8904,7 +8904,7 @@
     "source_id": "cornell_002",
     "file_path": "data/clips/MODO_cornell_002_2.wav",
     "spectrogram_path": "data/spectrograms/MODO_cornell_002_2.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -9072,7 +9072,7 @@
     "source_id": "cornell_006",
     "file_path": "data/clips/NOFL_cornell_006_2.wav",
     "spectrogram_path": "data/spectrograms/NOFL_cornell_006_2.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -9128,7 +9128,7 @@
     "source_id": "cornell_008",
     "file_path": "data/clips/STJA_cornell_008_1.wav",
     "spectrogram_path": "data/spectrograms/STJA_cornell_008_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": true
   },
   {
@@ -9198,7 +9198,7 @@
     "source_id": "cornell_009",
     "file_path": "data/clips/STJA_cornell_009_3.wav",
     "spectrogram_path": "data/spectrograms/STJA_cornell_009_3.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "incoming_prompt": "Listen for the harsh, raspy \"shook-shook-shook\" calls"
   },
@@ -9256,7 +9256,7 @@
     "source_id": "cornell_011",
     "file_path": "data/clips/BCCH_cornell_011_1.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -9326,7 +9326,7 @@
     "source_id": "cornell_012",
     "file_path": "data/clips/BCCH_cornell_012_3.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_3.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "incoming_prompt": "Listen for the classic \"chick-a-dee-dee-dee\""
   },
@@ -9467,7 +9467,7 @@
     "source_id": "cornell_016",
     "file_path": "data/clips/WCSP_cornell_016_1.wav",
     "spectrogram_path": "data/spectrograms/WCSP_cornell_016_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "incoming_prompt": "Listen for clear whistled notes starting high"
   },
@@ -9482,7 +9482,7 @@
     "source_id": "cornell_016",
     "file_path": "data/clips/WCSP_cornell_016_2.wav",
     "spectrogram_path": "data/spectrograms/WCSP_cornell_016_2.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": true
   },
   {
@@ -9594,7 +9594,7 @@
     "source_id": "cornell_019",
     "file_path": "data/clips/RWBL_cornell_019_1.wav",
     "spectrogram_path": "data/spectrograms/RWBL_cornell_019_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -9608,7 +9608,7 @@
     "source_id": "cornell_019",
     "file_path": "data/clips/RWBL_cornell_019_2.wav",
     "spectrogram_path": "data/spectrograms/RWBL_cornell_019_2.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": true
   },
   {
@@ -9678,7 +9678,7 @@
     "source_id": "cornell_021",
     "file_path": "data/clips/CAFI_cornell_021_1.wav",
     "spectrogram_path": "data/spectrograms/CAFI_cornell_021_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "incoming_prompt": "Listen for rich, warbling finch song with buzzy notes"
   },
@@ -9707,7 +9707,7 @@
     "source_id": "cornell_021",
     "file_path": "data/clips/CAFI_cornell_021_3.wav",
     "spectrogram_path": "data/spectrograms/CAFI_cornell_021_3.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": true
   },
   {
@@ -9763,7 +9763,7 @@
     "source_id": "cornell_023",
     "file_path": "data/clips/HOFI_cornell_023_1.wav",
     "spectrogram_path": "data/spectrograms/HOFI_cornell_023_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -9861,7 +9861,7 @@
     "source_id": "cornell_025",
     "file_path": "data/clips/PISI_cornell_025_2.wav",
     "spectrogram_path": "data/spectrograms/PISI_cornell_025_2.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -9875,7 +9875,7 @@
     "source_id": "cornell_025",
     "file_path": "data/clips/PISI_cornell_025_3.wav",
     "spectrogram_path": "data/spectrograms/PISI_cornell_025_3.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "incoming_prompt": "Listen for rising, buzzy \"zreeee\" calls"
   },
@@ -9890,7 +9890,7 @@
     "source_id": "cornell_026",
     "file_path": "data/clips/AMGO_cornell_026_1.wav",
     "spectrogram_path": "data/spectrograms/AMGO_cornell_026_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -9932,7 +9932,7 @@
     "source_id": "cornell_027",
     "file_path": "data/clips/EVGR_cornell_027_1.wav",
     "spectrogram_path": "data/spectrograms/EVGR_cornell_027_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "incoming_prompt": "Listen for sharp, ringing \"peer\" or \"clee-ip\" calls"
   },
@@ -9947,7 +9947,7 @@
     "source_id": "cornell_027",
     "file_path": "data/clips/EVGR_cornell_027_2.wav",
     "spectrogram_path": "data/spectrograms/EVGR_cornell_027_2.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
