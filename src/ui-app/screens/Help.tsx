@@ -183,6 +183,7 @@ function Help() {
         <Section title="Version History">
           <VersionEntry version="3.0" date="January 14, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Western Backyard Birds pack: 14 new species</strong> (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, and more)</li>
               <li>Added White-crowned Sparrow to Sparrows pack (now 8 species)</li>
               <li>Bird Reference: Collapsible packs with expand/collapse controls</li>
               <li>Bird Reference: Source badges (Xeno-canto, Cornell, contributor names)</li>
