@@ -36,7 +36,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC316302",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMCR_316302.png",
     "quality_score": 4
