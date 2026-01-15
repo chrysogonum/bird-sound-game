@@ -126,6 +126,7 @@ function PreRoundPreview() {
   const [playingCode, setPlayingCode] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [preloadStatus, setPreloadStatus] = useState<'idle' | 'loading' | 'ready'>('idle');
+  const [preloadProgress, setPreloadProgress] = useState({ loaded: 0, total: 0 });
   const [trainingMode, setTrainingMode] = useState(() => {
     try {
       return localStorage.getItem('soundfield_training_mode') === 'true';
@@ -283,11 +284,15 @@ function PreRoundPreview() {
 
     if (clipsToPreload.length === 0) {
       setPreloadStatus('ready');
+      setPreloadProgress({ loaded: 0, total: 0 });
       return;
     }
 
     setPreloadStatus('loading');
+    setPreloadProgress({ loaded: 0, total: clipsToPreload.length });
     console.log(`Preloading ${clipsToPreload.length} clips for ${speciesCodes.length} species...`);
+
+    let loadedCount = 0;
 
     // Fetch all clips to warm browser cache
     const preloadPromises = clipsToPreload.map(async (clip) => {
@@ -300,6 +305,9 @@ function PreRoundPreview() {
         }
       } catch (err) {
         console.warn('Failed to preload:', clip.file_path, err);
+      } finally {
+        loadedCount++;
+        setPreloadProgress({ loaded: loadedCount, total: clipsToPreload.length });
       }
     });
 
@@ -443,12 +451,31 @@ function PreRoundPreview() {
         {/* Preload status indicator */}
         {preloadStatus === 'loading' && (
           <div style={{
-            marginTop: '6px',
-            fontSize: '11px',
-            color: 'var(--color-text-muted)',
+            marginTop: '8px',
             textAlign: 'center',
           }}>
-            Loading sounds...
+            <div style={{
+              fontSize: '11px',
+              color: 'var(--color-text-muted)',
+              marginBottom: '6px',
+            }}>
+              Loading sounds {preloadProgress.loaded}/{preloadProgress.total}
+            </div>
+            {/* Progress bar */}
+            <div style={{
+              width: '100%',
+              height: '4px',
+              background: 'var(--color-surface)',
+              borderRadius: '2px',
+              overflow: 'hidden',
+            }}>
+              <div style={{
+                width: `${(preloadProgress.loaded / preloadProgress.total) * 100}%`,
+                height: '100%',
+                background: 'var(--color-accent)',
+                transition: 'width 0.2s ease',
+              }} />
+            </div>
           </div>
         )}
         {preloadStatus === 'ready' && (
@@ -457,8 +484,12 @@ function PreRoundPreview() {
             fontSize: '11px',
             color: 'var(--color-success)',
             textAlign: 'center',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '4px',
           }}>
-            Sounds ready
+            <span>✓</span> Sounds ready
           </div>
         )}
 
