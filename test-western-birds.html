@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Western Birds Data</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #fff; }
+        pre { background: #2a2a2a; padding: 15px; border-radius: 8px; overflow-x: auto; }
+        .species { margin-bottom: 15px; padding: 10px; background: #333; border-radius: 4px; }
+        .canonical { color: #ffd700; }
+        .error { color: #ff4444; }
+    </style>
+</head>
+<body>
+    <h1>Western Birds Pack - Data Test</h1>
+    <div id="output"></div>
+
+    <script>
+        const western = ['STJA', 'WESJ', 'BCCH', 'WCSP', 'CAFI', 'PISI', 'EVGR', 'MODO', 'DOWO', 'NOFL', 'WBNU', 'HOFI', 'AMGO', 'RWBL'];
+
+        fetch('/bird-sound-game/data/clips.json')
+            .then(r => r.json())
+            .then(clips => {
+                const output = document.getElementById('output');
+
+                output.innerHTML = `<p>Total clips loaded: ${clips.length}</p>`;
+
+                western.forEach(code => {
+                    const speciesClips = clips.filter(c => c.species_code === code && !c.rejected);
+                    const canonical = speciesClips.find(c => c.canonical);
+
+                    const div = document.createElement('div');
+                    div.className = 'species';
+
+                    if (speciesClips.length === 0) {
+                        div.innerHTML = `<div class="error">${code}: NO CLIPS AVAILABLE!</div>`;
+                    } else {
+                        div.innerHTML = `
+                            <strong>${code}</strong>: ${speciesClips.length} clips available
+                            <br>${canonical ? `<span class="canonical">✓ Canonical: ${canonical.file_path}</span>` : '<span class="error">✗ No canonical</span>'}
+                            <br>First clip: ${speciesClips[0].file_path}
+                        `;
+                    }
+
+                    output.appendChild(div);
+                });
+            })
+            .catch(err => {
+                document.getElementById('output').innerHTML = `<div class="error">ERROR: ${err.message}</div>`;
+            });
+    </script>
+</body>
+</html>

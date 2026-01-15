@@ -7,8 +7,10 @@
     "CHSP",
     "FISP",
     "WTSP",
-    "SAVS",
-    "SWSP"
+    "SASP",
+    "SWSP",
+    "LISP",
+    "WCSP"
   ],
   "vocalization_weights": {
     "song": 0.2,
