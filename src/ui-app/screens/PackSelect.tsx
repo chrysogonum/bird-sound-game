@@ -251,6 +251,17 @@ function PackSelect() {
             spring_warblers: 'linear-gradient(135deg, #7a6b2d 0%, #5a4a1a 100%)',    // Golden olive
             western_birds: 'linear-gradient(135deg, #5a4a7a 0%, #3a2a5a 100%)',      // Mountain purple
           };
+
+          // Pack representative bird icons
+          const packIcons: Record<string, string> = {
+            starter_birds: 'NOCA',
+            expanded_backyard: 'AMGO',
+            sparrows: 'WTSP',
+            woodpeckers: 'PIWO',
+            spring_warblers: 'PROW',
+            western_birds: 'STJA',
+          };
+
           return (
           <button
             key={pack.id}
@@ -281,18 +292,21 @@ function PackSelect() {
               e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
             }}
           >
-            {/* Decorative bird silhouette */}
-            <div
+            {/* Decorative bird icon */}
+            <img
+              src={`${import.meta.env.BASE_URL}data/icons/${packIcons[pack.id]}.png`}
+              alt=""
               style={{
                 position: 'absolute',
                 right: '-10px',
                 bottom: '-10px',
-                opacity: 0.15,
+                width: '80px',
+                height: '80px',
+                opacity: 0.5,
                 transform: 'rotate(-15deg)',
+                objectFit: 'cover',
               }}
-            >
-              <BirdSilhouette size={80} />
-            </div>
+            />
 
             {/* Content */}
             <div style={{ position: 'relative', zIndex: 1 }}>
