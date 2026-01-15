@@ -204,7 +204,7 @@ function MainMenu() {
         textAlign: 'center',
         fontSize: '11px',
         color: 'var(--color-text-muted)',
-        opacity: 0.6,
+        opacity: 0.85,
       }}>
         v3.0 | Made with 🎧 🐦 🎵 and ❤️
       </div>
