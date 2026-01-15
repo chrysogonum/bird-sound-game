@@ -52,8 +52,39 @@ interface TileState {
   spectrogramPath: string | null;
 }
 
-// Cache for loaded spectrogram textures
-const textureCache = new Map<string, PIXI.Texture>();
+// Cache for loaded spectrogram textures (stores Promises to avoid duplicate loading)
+const textureCache = new Map<string, Promise<PIXI.Texture | null>>();
+
+/**
+ * Load a texture asynchronously with caching and error handling
+ */
+async function loadTextureAsync(path: string): Promise<PIXI.Texture | null> {
+  const fullPath = `${import.meta.env.BASE_URL}${path}`;
+
+  // Check cache - returns existing Promise if already loading/loaded
+  const cached = textureCache.get(path);
+  if (cached) {
+    return cached;
+  }
+
+  // Create and cache the loading Promise
+  const loadPromise = (async () => {
+    try {
+      const texture = await PIXI.Assets.load(fullPath);
+      if (!texture || !texture.valid) {
+        console.warn(`Invalid texture loaded: ${path}`);
+        return null;
+      }
+      return texture as PIXI.Texture;
+    } catch (error) {
+      console.warn(`Failed to load spectrogram texture: ${path}`, error);
+      return null;
+    }
+  })();
+
+  textureCache.set(path, loadPromise);
+  return loadPromise;
+}
 
 function PixiGame({
   width,
@@ -358,25 +389,26 @@ function createTile(
   const showSpectrogram = spectrogramMode !== 'none' && spectrogramPath;
 
   if (showSpectrogram) {
-    // Check cache first
-    let texture = textureCache.get(spectrogramPath);
-    if (!texture) {
-      // Load texture (async but we'll add it when ready)
-      texture = PIXI.Texture.from(`${import.meta.env.BASE_URL}${spectrogramPath}`);
-      textureCache.set(spectrogramPath, texture);
-    }
+    // Load texture asynchronously and add sprite when ready
+    loadTextureAsync(spectrogramPath).then((texture) => {
+      if (texture && container.parent) {
+        // Only add if container is still in the scene
+        const sprite = new PIXI.Sprite(texture);
+        sprite.anchor.set(0.5);
+        sprite.position.set(0, 0);
+        // Scale to fit within tile with some padding
+        const maxWidth = tileWidth - 16;
+        const maxHeight = tileHeight - 16;
+        sprite.width = maxWidth;
+        sprite.height = maxHeight;
+        sprite.name = 'spectrogram'; // Name it so we can find it later for fading
+        // Add behind bird icon if in training mode (at index 1, after background)
+        container.addChildAt(sprite, 1);
+      }
+    });
+  }
 
-    const sprite = new PIXI.Sprite(texture);
-    sprite.anchor.set(0.5);
-    sprite.position.set(0, 0);
-    // Scale to fit within tile with some padding
-    const maxWidth = tileWidth - 16;
-    const maxHeight = tileHeight - 16;
-    sprite.width = maxWidth;
-    sprite.height = maxHeight;
-    sprite.name = 'spectrogram'; // Name it so we can find it later for fading
-    container.addChild(sprite);
-  } else {
+  if (!showSpectrogram) {
     // No spectrogram: show placeholder lines
     const lines = new PIXI.Graphics();
     for (let i = 0; i < 6; i++) {
@@ -406,23 +438,7 @@ function createTile(
 
   // Training mode: show bird icon and code
   if (trainingMode) {
-    // Load bird icon
-    const iconPath = `${import.meta.env.BASE_URL}data/icons/${event.species_code}.png`;
-    let iconTexture = textureCache.get(iconPath);
-    if (!iconTexture) {
-      iconTexture = PIXI.Texture.from(iconPath);
-      textureCache.set(iconPath, iconTexture);
-    }
-
-    const iconSprite = new PIXI.Sprite(iconTexture);
-    iconSprite.anchor.set(0.5);
-    iconSprite.width = 32;
-    iconSprite.height = 32;
-    iconSprite.position.set(tileWidth / 2 - 20, -tileHeight / 2 + 20);
-    iconSprite.alpha = 0.9;
-    container.addChild(iconSprite);
-
-    // Species code label
+    // Species code label (added immediately)
     const codeStyle = new PIXI.TextStyle({
       fontFamily: 'Inter, sans-serif',
       fontSize: 10,
@@ -434,6 +450,20 @@ function createTile(
     codeLabel.position.set(tileWidth / 2 - 20, -tileHeight / 2 + 44);
     codeLabel.alpha = 0.8;
     container.addChild(codeLabel);
+
+    // Load bird icon asynchronously
+    const iconPath = `data/icons/${event.species_code}.png`;
+    loadTextureAsync(iconPath).then((iconTexture) => {
+      if (iconTexture && container.parent) {
+        const iconSprite = new PIXI.Sprite(iconTexture);
+        iconSprite.anchor.set(0.5);
+        iconSprite.width = 32;
+        iconSprite.height = 32;
+        iconSprite.position.set(tileWidth / 2 - 20, -tileHeight / 2 + 20);
+        iconSprite.alpha = 0.9;
+        container.addChild(iconSprite);
+      }
+    });
   }
 
   return {
