@@ -5318,7 +5318,7 @@
     "source_id": "WBNU_925191",
     "file_path": "data/clips/WBNU_925191.wav",
     "spectrogram_path": "data/spectrograms/WBNU_925191.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5364,20 +5364,6 @@
     "rejected": false
   },
   {
-    "clip_id": "WBNU_942746",
-    "species_code": "WBNU",
-    "common_name": "White-breasted Nuthatch",
-    "file_path": "data/clips/WBNU_942746.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC942746",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WBNU_942746.png",
-    "quality_score": 4
-  },
-  {
     "clip_id": "WBNU_a6bb5e5b",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
@@ -5407,36 +5393,6 @@
     "spectrogram_path": "data/spectrograms/WBNU_cornell_015_1.png"
   },
   {
-    "file_path": "data/clips/WBNU_cornell_015_2.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_015",
-    "quality": "A",
-    "clip_id": "WBNU_cornell_015_2",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WBNU_cornell_015_2.png"
-  },
-  {
-    "file_path": "data/clips/WBNU_cornell_015_3.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_015",
-    "quality": "A",
-    "clip_id": "WBNU_cornell_015_3",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WBNU_cornell_015_3.png"
-  },
-  {
     "file_path": "data/clips/WBNU_cornell_016_1.wav",
     "species_name": "White-breasted Nuthatch",
     "species_code": "WBNU",
@@ -5450,36 +5406,6 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WBNU_cornell_016_1.png"
-  },
-  {
-    "file_path": "data/clips/WBNU_cornell_016_2.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_016",
-    "quality": "A",
-    "clip_id": "WBNU_cornell_016_2",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WBNU_cornell_016_2.png"
-  },
-  {
-    "file_path": "data/clips/WBNU_cornell_016_3.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_016",
-    "quality": "A",
-    "clip_id": "WBNU_cornell_016_3",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WBNU_cornell_016_3.png"
   },
   {
     "clip_id": "WCSP_013f9b0e",
