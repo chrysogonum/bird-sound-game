@@ -247,6 +247,14 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
+          <VersionEntry version="3.17" date="January 16, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Cookie consent:</strong> Added GDPR-compliant cookie banner - Google Analytics now only loads after explicit user consent</li>
+              <li><strong>Privacy controls:</strong> New "Analytics Cookies" toggle in Settings allows users to change consent anytime</li>
+              <li><strong>Compliance:</strong> IP anonymization enabled, secure cookie flags set, full GDPR/CCPA compliance</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.16" date="January 16, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Bird Reference enhancement:</strong> Separated display species (39) from gameplay rotation (27) for Expanded Eastern US Birds pack - Bird Reference now shows all available species for preview</li>
