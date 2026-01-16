@@ -36,21 +36,14 @@ function CustomPackBuilder() {
 
   // Load all species from clips.json
   useEffect(() => {
-    console.log('CustomPackBuilder: Starting to load clips.json...');
-    console.log('BASE_URL:', import.meta.env.BASE_URL);
-    const url = `${import.meta.env.BASE_URL}data/clips.json`;
-    console.log('Fetching from:', url);
-
-    fetch(url)
+    fetch(`${import.meta.env.BASE_URL}data/clips.json`)
       .then((res) => {
-        console.log('Fetch response status:', res.status, res.statusText);
         if (!res.ok) {
           throw new Error(`HTTP ${res.status}: ${res.statusText}`);
         }
         return res.json();
       })
       .then((clips: ClipData[]) => {
-        console.log('Loaded clips:', clips.length);
         // Extract unique species
         const speciesMap = new Map<string, SpeciesInfo>();
         for (const clip of clips) {
@@ -80,14 +73,11 @@ function CustomPackBuilder() {
         const sorted = Array.from(speciesMap.values()).sort((a, b) =>
           (a.name || a.code).localeCompare(b.name || b.code)
         );
-        console.log('Extracted species:', sorted.length);
-        console.log('First 5 species:', sorted.slice(0, 5).map(s => s.code));
         setAllSpecies(sorted);
         setLoading(false);
       })
       .catch((err) => {
         console.error('Failed to load clips:', err);
-        alert(`Error loading clips: ${err.message}`);
         setLoading(false);
       });
 
