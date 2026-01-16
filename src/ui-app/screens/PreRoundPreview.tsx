@@ -572,7 +572,7 @@ function PreRoundPreview() {
         <div style={{
           fontSize: '14px',
           color: 'var(--color-text-muted)',
-          marginBottom: '20px',
+          marginBottom: '12px',
           textAlign: 'center',
           maxWidth: '280px',
         }}>
@@ -588,6 +588,36 @@ function PreRoundPreview() {
             </>
           )}
         </div>
+
+        {/* Shuffle button - above grid so it's always visible */}
+        {level.species_pool && level.species_pool.length > (level.species_count || 0) && (
+          <button
+            onClick={handleShuffle}
+            style={{
+              marginBottom: '16px',
+              padding: '8px 16px',
+              background: 'transparent',
+              border: '1px solid var(--color-accent)',
+              borderRadius: '8px',
+              color: 'var(--color-accent)',
+              fontSize: '13px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(245, 166, 35, 0.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+            }}
+          >
+            <ShuffleIcon />
+            Shuffle Birds
+          </button>
+        )}
 
         {/* Species grid */}
         <div style={{
@@ -639,29 +669,6 @@ function PreRoundPreview() {
             </button>
           ))}
         </div>
-
-        {/* Shuffle button */}
-        {level.species_pool && level.species_pool.length > (level.species_count || 0) && (
-          <button
-            onClick={handleShuffle}
-            style={{
-              marginTop: '24px',
-              padding: '10px 20px',
-              background: 'transparent',
-              border: '1px solid var(--color-text-muted)',
-              borderRadius: '8px',
-              color: 'var(--color-text-muted)',
-              fontSize: '14px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-            }}
-          >
-            <ShuffleIcon />
-            Shuffle Birds
-          </button>
-        )}
       </div>
 
 
