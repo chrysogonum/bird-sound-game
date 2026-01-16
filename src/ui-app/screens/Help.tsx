@@ -13,6 +13,19 @@ function Help() {
       </div>
 
       <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+        {/* Why Learn Bird Song */}
+        <Section title="Why Learn Bird Song?">
+          <p>
+            Birds are <em>heard</em> way more often than they're <em>seen</em>. Once you know the songs, you'll know what to look for - and suddenly your backyard becomes way more interesting.
+          </p>
+          <p>
+            <strong>Why the left/right thing?</strong> It feels like a hearing test because that's birding! In the field, you're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" This game mimics that chaos. Plus, training your ears to separate simultaneous sounds - like a pianist controlling both hands - dramatically sharpens your birding skills.
+          </p>
+          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
+            <strong>Need real-time ID?</strong> Get Cornell's free <a href="https://merlin.allaboutbirds.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>Merlin app</a> - it's magic for "what bird is that singing <em>right now</em>?"
+          </p>
+        </Section>
+
         {/* The Basics */}
         <Section title="The Basics">
           <p>
