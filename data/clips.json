@@ -5270,7 +5270,7 @@
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
     "file_path": "data/clips/TUTI_60068.wav",
-    "vocalization_type": "song",
+    "vocalization_type": "call",
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC60068",
