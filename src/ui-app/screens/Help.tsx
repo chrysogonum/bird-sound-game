@@ -15,11 +15,11 @@ function Help() {
       <div style={{ maxWidth: '600px', margin: '0 auto' }}>
         {/* Why Learn Bird Song */}
         <Section title="Why Learn Bird Song?">
-          <p>
+          <p style={{ marginBottom: '12px' }}>
             Birds are <em>heard</em> way more often than they're <em>seen</em>. Once you know the songs, you'll know what to look for - and suddenly your backyard becomes way more interesting.
           </p>
-          <p>
-            <strong>Why the left/right thing?</strong> It feels like a hearing test because that's birding! In the field, you're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" This game mimics that chaos. Plus, training your ears to separate simultaneous sounds - like a pianist controlling both hands - dramatically sharpens your birding skills.
+          <p style={{ marginBottom: '12px' }}>
+            <strong>Why the left/right thing?</strong> It feels like a hearing test because that's birding! In the field, you're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" This game mimics that chaos. Plus, training your ears to separate simultaneous sounds - like a pianist controlling both hands independently - dramatically sharpens your birding skills.
           </p>
           <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
             <strong>Need real-time ID?</strong> Get Cornell's free <a href="https://merlin.allaboutbirds.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>Merlin app</a> - it's magic for "what bird is that singing <em>right now</em>?"
@@ -28,15 +28,15 @@ function Help() {
 
         {/* The Basics */}
         <Section title="The Basics">
-          <p>
+          <p style={{ marginBottom: '12px' }}>
             <strong>Listen. Identify. Tap.</strong>
           </p>
-          <p>
+          <p style={{ marginBottom: '12px' }}>
             Bird sounds play through your left or right ear. Identify which bird is singing
             and tap its circle on the correct side before the tile passes the scoring zone.
           </p>
           <p>
-            Each round is 30 seconds. Use headphones for the best experience!
+            Each round is 30 seconds. Use headphones for the best experience - unless you want everyone to know you're a bird nerd!
           </p>
         </Section>
 
@@ -91,7 +91,6 @@ function Help() {
 
         {/* Tips */}
         <Section title="Tips">
-          <Tip>Use headphones - unless you want everyone to know you're a bird nerd! Left/right matters for scoring, and phone speakers vary in stereo quality.</Tip>
           <Tip>Start with the Starter Pack, even if you're eager for more.</Tip>
           <Tip>Use Bird Reference on the Pack Select screen to preview sounds.</Tip>
           <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
@@ -189,6 +188,13 @@ function Help() {
             Made with 🎧 and ❤️ by Peter Repetti<br />
             AI pair programming by Claude<br />
             Icon design by Peter Repetti, Claude and ChatGPT
+          </p>
+          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginTop: '12px' }}>
+            <strong>The Tech:</strong> Built by Claude Code with TypeScript, React, and PixiJS for buttery-smooth scrolling spectrograms.
+            The Web Audio API handles sample-accurate playback with real-time stereo panning - your browser
+            decodes and buffers audio into memory for zero-latency triggering. Vite bundles it all into
+            a PWA (Progressive Web App) that caches sounds as you play them - so load up those birds before your
+            flight to New Zealand takes off ✈️
           </p>
         </Section>
 
