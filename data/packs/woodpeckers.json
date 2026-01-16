@@ -7,8 +7,9 @@
     "DOWO",
     "HAWO",
     "PIWO",
-    "YSFL",
-    "NOFL"
+    "NOFL",
+    "RHWO",
+    "YBSA"
   ],
   "vocalization_weights": {
     "song": 0.3,
