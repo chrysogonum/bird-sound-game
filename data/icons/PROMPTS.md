@@ -255,3 +255,84 @@ PISI: Stylized icon of a Pine Siskin, simple flat design, circular frame, heavil
 EVGR: Stylized icon of an Evening Grosbeak, simple flat design, circular frame, chunky yellow and black bird with massive pale bill and white wing patches, white background, game asset style, clean vector look, centered composition, no text
 RWBL: Stylized icon of a Red-winged Blackbird, simple flat design, circular frame, black bird with bright red and yellow shoulder patches, white background, game asset style, clean vector look, centered composition, no text
 ```
+
+---
+
+## Expanded Eastern US Birds Pack (V4)
+
+### Flycatchers & Pewees
+| Code | Name | Prompt |
+|------|------|--------|
+| GCFL | Great Crested Flycatcher | Stylized icon of a Great Crested Flycatcher, simple flat design, circular frame, large flycatcher with yellow belly gray throat and rufous wings and tail, white background, game asset style, clean vector look, centered composition, no text |
+| EAPH | Eastern Phoebe | Stylized icon of an Eastern Phoebe, simple flat design, circular frame, small gray-brown flycatcher with dark head and pale belly, white background, game asset style, clean vector look, centered composition, no text |
+| EWPE | Eastern Wood-Pewee | Stylized icon of an Eastern Wood-Pewee, simple flat design, circular frame, olive-brown flycatcher with pale wing bars, white background, game asset style, clean vector look, centered composition, no text |
+| ACFL | Acadian Flycatcher | Stylized icon of an Acadian Flycatcher, simple flat design, circular frame, olive-green flycatcher with white eye ring and wing bars, white background, game asset style, clean vector look, centered composition, no text |
+
+### Vireos
+| Code | Name | Prompt |
+|------|------|--------|
+| WEVI | White-eyed Vireo | Stylized icon of a White-eyed Vireo, simple flat design, circular frame, olive-green bird with white eye and yellow spectacles, white background, game asset style, clean vector look, centered composition, no text |
+| REVI | Red-eyed Vireo | Stylized icon of a Red-eyed Vireo, simple flat design, circular frame, gray cap white eyebrow stripe olive back and red eye, white background, game asset style, clean vector look, centered composition, no text |
+
+### Wrens & Gnatcatchers
+| Code | Name | Prompt |
+|------|------|--------|
+| NHWR | Northern House Wren | Stylized icon of a Northern House Wren, simple flat design, circular frame, small brown wren with finely barred tail and wings, white background, game asset style, clean vector look, centered composition, no text |
+| BGGN | Blue-gray Gnatcatcher | Stylized icon of a Blue-gray Gnatcatcher, simple flat design, circular frame, tiny blue-gray bird with white eye ring and long black-and-white tail, white background, game asset style, clean vector look, centered composition, no text |
+
+### Thrushes
+| Code | Name | Prompt |
+|------|------|--------|
+| SWTH | Swainson's Thrush | Stylized icon of a Swainson's Thrush, simple flat design, circular frame, brown thrush with buffy eye ring and spotted breast, white background, game asset style, clean vector look, centered composition, no text |
+| VEER | Veery | Stylized icon of a Veery, simple flat design, circular frame, tawny-brown thrush with faint breast spots and reddish-brown back, white background, game asset style, clean vector look, centered composition, no text |
+
+### Tanagers
+| Code | Name | Prompt |
+|------|------|--------|
+| SUTA | Summer Tanager | Stylized icon of a Summer Tanager, simple flat design, circular frame, all rose-red bird with pale bill, white background, game asset style, clean vector look, centered composition, no text |
+| SCTA | Scarlet Tanager | Stylized icon of a Scarlet Tanager, simple flat design, circular frame, brilliant red bird with jet-black wings and tail, white background, game asset style, clean vector look, centered composition, no text |
+
+### Finches & Grosbeaks
+| Code | Name | Prompt |
+|------|------|--------|
+| PUFI | Purple Finch | Stylized icon of a Purple Finch, simple flat design, circular frame, raspberry-red finch with streaked brown back and notched tail, white background, game asset style, clean vector look, centered composition, no text |
+| RBGR | Rose-breasted Grosbeak | Stylized icon of a Rose-breasted Grosbeak, simple flat design, circular frame, black and white bird with rose-red triangular breast patch and chunky pale bill, white background, game asset style, clean vector look, centered composition, no text |
+
+### Juncos & Sparrows
+| Code | Name | Prompt |
+|------|------|--------|
+| DEJU | Dark-eyed Junco | Stylized icon of a Dark-eyed Junco, simple flat design, circular frame, slate-gray above white belly with white outer tail feathers and pink bill, white background, game asset style, clean vector look, centered composition, no text |
+
+### Blackbirds & Cowbirds
+| Code | Name | Prompt |
+|------|------|--------|
+| BHCO | Brown-headed Cowbird | Stylized icon of a Brown-headed Cowbird, simple flat design, circular frame, glossy black body with brown head and conical bill, white background, game asset style, clean vector look, centered composition, no text |
+
+### Starlings & Swifts
+| Code | Name | Prompt |
+|------|------|--------|
+| EUST | European Starling | Stylized icon of a European Starling, simple flat design, circular frame, iridescent black bird with yellow bill and white spots, white background, game asset style, clean vector look, centered composition, no text |
+| CHSW | Chimney Swift | Stylized icon of a Chimney Swift, simple flat design, circular frame, cigar-shaped dark gray-brown bird with swept-back curved wings, white background, game asset style, clean vector look, centered composition, no text |
+
+### Quick Copy - Expanded Eastern US Birds (18 species)
+
+```
+GCFL: Stylized icon of a Great Crested Flycatcher, simple flat design, circular frame, large flycatcher with yellow belly gray throat and rufous wings and tail, white background, game asset style, clean vector look, centered composition, no text
+EAPH: Stylized icon of an Eastern Phoebe, simple flat design, circular frame, small gray-brown flycatcher with dark head and pale belly, white background, game asset style, clean vector look, centered composition, no text
+EWPE: Stylized icon of an Eastern Wood-Pewee, simple flat design, circular frame, olive-brown flycatcher with pale wing bars, white background, game asset style, clean vector look, centered composition, no text
+ACFL: Stylized icon of an Acadian Flycatcher, simple flat design, circular frame, olive-green flycatcher with white eye ring and wing bars, white background, game asset style, clean vector look, centered composition, no text
+WEVI: Stylized icon of a White-eyed Vireo, simple flat design, circular frame, olive-green bird with white eye and yellow spectacles, white background, game asset style, clean vector look, centered composition, no text
+REVI: Stylized icon of a Red-eyed Vireo, simple flat design, circular frame, gray cap white eyebrow stripe olive back and red eye, white background, game asset style, clean vector look, centered composition, no text
+NHWR: Stylized icon of a Northern House Wren, simple flat design, circular frame, small brown wren with finely barred tail and wings, white background, game asset style, clean vector look, centered composition, no text
+BGGN: Stylized icon of a Blue-gray Gnatcatcher, simple flat design, circular frame, tiny blue-gray bird with white eye ring and long black-and-white tail, white background, game asset style, clean vector look, centered composition, no text
+SWTH: Stylized icon of a Swainson's Thrush, simple flat design, circular frame, brown thrush with buffy eye ring and spotted breast, white background, game asset style, clean vector look, centered composition, no text
+VEER: Stylized icon of a Veery, simple flat design, circular frame, tawny-brown thrush with faint breast spots and reddish-brown back, white background, game asset style, clean vector look, centered composition, no text
+SUTA: Stylized icon of a Summer Tanager, simple flat design, circular frame, all rose-red bird with pale bill, white background, game asset style, clean vector look, centered composition, no text
+SCTA: Stylized icon of a Scarlet Tanager, simple flat design, circular frame, brilliant red bird with jet-black wings and tail, white background, game asset style, clean vector look, centered composition, no text
+PUFI: Stylized icon of a Purple Finch, simple flat design, circular frame, raspberry-red finch with streaked brown back and notched tail, white background, game asset style, clean vector look, centered composition, no text
+RBGR: Stylized icon of a Rose-breasted Grosbeak, simple flat design, circular frame, black and white bird with rose-red triangular breast patch and chunky pale bill, white background, game asset style, clean vector look, centered composition, no text
+DEJU: Stylized icon of a Dark-eyed Junco, simple flat design, circular frame, slate-gray above white belly with white outer tail feathers and pink bill, white background, game asset style, clean vector look, centered composition, no text
+BHCO: Stylized icon of a Brown-headed Cowbird, simple flat design, circular frame, glossy black body with brown head and conical bill, white background, game asset style, clean vector look, centered composition, no text
+EUST: Stylized icon of a European Starling, simple flat design, circular frame, iridescent black bird with yellow bill and white spots, white background, game asset style, clean vector look, centered composition, no text
+CHSW: Stylized icon of a Chimney Swift, simple flat design, circular frame, cigar-shaped dark gray-brown bird with swept-back curved wings, white background, game asset style, clean vector look, centered composition, no text
+```

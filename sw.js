@@ -1,12 +1,12 @@
 /**
- * Service Worker for SoundField: Birds
+ * Service Worker for ChipNotes!
  * Provides offline support and caching for the PWA
  */
 
 // Derive base URL from service worker's location (e.g., /bird-sound-game/)
 const BASE_URL = self.location.pathname.replace(/sw\.js$/, '');
 
-const CACHE_NAME = 'soundfield-birds-v10';
+const CACHE_NAME = 'chipnotes-v11';
 const STATIC_ASSETS = [
   BASE_URL,
   `${BASE_URL}index.html`,

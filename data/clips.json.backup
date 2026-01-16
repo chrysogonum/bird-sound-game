@@ -11,8 +11,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMCR_316302.png",
-    "quality_score": 4,
-    "recordist": "Sue Riffe"
+    "quality_score": 4
   },
   {
     "clip_id": "AMCR_3c0922f2",
@@ -26,8 +25,7 @@
     "file_path": "data/clips/AMCR_667361.wav",
     "spectrogram_path": "data/spectrograms/AMCR_667361.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Nick Komar"
+    "rejected": false
   },
   {
     "clip_id": "AMGO_1034479",
@@ -41,8 +39,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMGO_1034479.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "AMGO_638294",
@@ -56,8 +53,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMGO_638294.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "AMGO_720038",
@@ -71,8 +67,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMGO_720038.png",
-    "quality_score": 4,
-    "recordist": "William Whitehead"
+    "quality_score": 4
   },
   {
     "file_path": "data/clips/AMGO_cornell_029_1.wav",
@@ -145,8 +140,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRE_1014425.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRE_1014856",
@@ -160,8 +154,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRE_1014856.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRE_1014857",
@@ -175,8 +168,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRE_1014857.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRO_1010651",
@@ -190,8 +182,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_1010651.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRO_1046358",
@@ -205,8 +196,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_1046358.png",
-    "quality_score": 4,
-    "recordist": "AUDEVARD Aur\u00e9lien"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRO_1047670",
@@ -220,8 +210,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_1047670.png",
-    "quality_score": 4,
-    "recordist": "Greg Irving"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRO_4c9beb65",
@@ -235,8 +224,7 @@
     "file_path": "data/clips/AMRO_825254.wav",
     "spectrogram_path": "data/spectrograms/AMRO_825254.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Richard E. Webster"
+    "rejected": false
   },
   {
     "clip_id": "AMRO_860362",
@@ -250,8 +238,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_860362.png",
-    "quality_score": 4,
-    "recordist": "Sue Riffe"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRO_999597",
@@ -265,8 +252,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_999597.png",
-    "quality_score": 4,
-    "recordist": "David Tattersley"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRO_999642",
@@ -280,8 +266,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_999642.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "AMRO_999643",
@@ -295,8 +280,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_999643.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "BADO_00warning",
@@ -326,8 +310,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Bob Planqu\u00e9"
+    "rejected": false
   },
   {
     "clip_id": "BADO_cd219511",
@@ -342,8 +325,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Peter Boesman"
+    "rejected": false
   },
   {
     "clip_id": "BADO_ecde4ff0",
@@ -358,8 +340,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Bob Planqu\u00e9"
+    "rejected": false
   },
   {
     "clip_id": "BADO_f5f22f40",
@@ -388,8 +369,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1013805.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BAWW_1013903",
@@ -403,8 +383,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1013903.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BAWW_1013906",
@@ -418,8 +397,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1013906.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BAWW_1013908",
@@ -433,8 +411,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1013908.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BAWW_1013909",
@@ -448,8 +425,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1013909.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BAWW_1036380",
@@ -463,8 +439,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1036380.png",
-    "quality_score": 4,
-    "recordist": "Bobby Wilcox"
+    "quality_score": 4
   },
   {
     "clip_id": "BBWA_1014733",
@@ -478,8 +453,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BBWA_1014733.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BBWA_1014776",
@@ -493,8 +467,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BBWA_1014776.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BBWA_1036530",
@@ -508,8 +481,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BBWA_1036530.png",
-    "quality_score": 4,
-    "recordist": "Bobby Wilcox"
+    "quality_score": 4
   },
   {
     "file_path": "data/clips/BCCH_cornell_011_1.wav",
@@ -572,6 +544,20 @@
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_3.png"
   },
   {
+    "clip_id": "BEKI_0708306a",
+    "species_code": "BEKI",
+    "common_name": "Belted Kingfisher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "BEKI_451359",
+    "file_path": "data/clips/BEKI_451359.wav",
+    "spectrogram_path": "data/spectrograms/BEKI_451359.png",
+    "canonical": false,
+    "rejected": false
+  },
+  {
     "clip_id": "BEKI_1034325",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
@@ -583,8 +569,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BEKI_1034325.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "BEKI_448752",
@@ -598,8 +583,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BEKI_448752.png",
-    "quality_score": 4,
-    "recordist": "Paul Marvin"
+    "quality_score": 4
   },
   {
     "clip_id": "BEKI_590595",
@@ -613,8 +597,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BEKI_590595.png",
-    "quality_score": 4,
-    "recordist": "Russ Wigh"
+    "quality_score": 4
   },
   {
     "clip_id": "BEKI_612651",
@@ -628,8 +611,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BEKI_612651.png",
-    "quality_score": 4,
-    "recordist": "Peter Ward and Ken Hall"
+    "quality_score": 4
   },
   {
     "clip_id": "BEKI_628808",
@@ -643,8 +625,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BEKI_628808.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "BHNU_4ba93e5f",
@@ -658,8 +639,7 @@
     "file_path": "data/clips/BHNU_651187.wav",
     "spectrogram_path": "data/spectrograms/BHNU_651187.png",
     "canonical": true,
-    "rejected": false,
-    "recordist": "Paul Driver"
+    "rejected": false
   },
   {
     "clip_id": "BHNU_570311",
@@ -673,8 +653,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BHNU_570311.png",
-    "quality_score": 4,
-    "recordist": "Russ Wigh"
+    "quality_score": 4
   },
   {
     "clip_id": "BHNU_714465",
@@ -688,8 +667,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BHNU_714465.png",
-    "quality_score": 4,
-    "recordist": "Bruce Lagerquist"
+    "quality_score": 4
   },
   {
     "clip_id": "BHNU_714466",
@@ -703,8 +681,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BHNU_714466.png",
-    "quality_score": 4,
-    "recordist": "Bruce Lagerquist"
+    "quality_score": 4
   },
   {
     "clip_id": "BHNU_726413",
@@ -718,8 +695,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BHNU_726413.png",
-    "quality_score": 4,
-    "recordist": "PT xiao"
+    "quality_score": 4
   },
   {
     "clip_id": "BLBW_1013883",
@@ -733,8 +709,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLBW_1013883.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BLBW_1014269",
@@ -748,8 +723,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLBW_1014269.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BLBW_1014459",
@@ -763,8 +737,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLBW_1014459.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BLJA_1010650",
@@ -778,8 +751,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLJA_1010650.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "BLJA_1046664",
@@ -793,8 +765,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLJA_1046664.png",
-    "quality_score": 4,
-    "recordist": "ckp274"
+    "quality_score": 4
   },
   {
     "clip_id": "BLJA_861979",
@@ -808,8 +779,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLJA_861979.png",
-    "quality_score": 4,
-    "recordist": "Dany Sloan"
+    "quality_score": 4
   },
   {
     "clip_id": "BLJA_933595",
@@ -823,8 +793,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLJA_933595.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "BLPW_1014468",
@@ -838,8 +807,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLPW_1014468.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BLPW_1014475",
@@ -853,8 +821,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLPW_1014475.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BLPW_690983",
@@ -868,8 +835,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BLPW_690983.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "BRCR_18aa2efe",
@@ -883,8 +849,7 @@
     "file_path": "data/clips/BRCR_709621.wav",
     "spectrogram_path": "data/spectrograms/BRCR_709621.png",
     "canonical": true,
-    "rejected": false,
-    "recordist": "Ron Overholtz"
+    "rejected": false
   },
   {
     "clip_id": "BRCR_3d7dd47e",
@@ -898,8 +863,7 @@
     "file_path": "data/clips/BRCR_933558.wav",
     "spectrogram_path": "data/spectrograms/BRCR_933558.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Thomas Magarian"
+    "rejected": false
   },
   {
     "clip_id": "BRCR_501be7c3",
@@ -913,8 +877,7 @@
     "file_path": "data/clips/BRCR_938850.wav",
     "spectrogram_path": "data/spectrograms/BRCR_938850.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Richard E. Webster"
+    "rejected": false
   },
   {
     "clip_id": "BRCR_618c000b",
@@ -928,8 +891,7 @@
     "file_path": "data/clips/BRCR_744286.wav",
     "spectrogram_path": "data/spectrograms/BRCR_744286.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Paul Marvin"
+    "rejected": false
   },
   {
     "clip_id": "BRCR_6a12e246",
@@ -943,8 +905,7 @@
     "file_path": "data/clips/BRCR_933554.wav",
     "spectrogram_path": "data/spectrograms/BRCR_933554.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Thomas Magarian"
+    "rejected": false
   },
   {
     "clip_id": "BRTH_1011716",
@@ -958,8 +919,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BRTH_1011716.png",
-    "quality_score": 4,
-    "recordist": "Peder Svingen"
+    "quality_score": 4
   },
   {
     "clip_id": "BRTH_1a0c5161",
@@ -973,8 +933,7 @@
     "file_path": "data/clips/BRTH_996863.wav",
     "spectrogram_path": "data/spectrograms/BRTH_996863.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Molly Jacobson"
+    "rejected": false
   },
   {
     "clip_id": "BRTH_803817",
@@ -988,8 +947,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BRTH_803817.png",
-    "quality_score": 4,
-    "recordist": "Bobby Wilcox"
+    "quality_score": 4
   },
   {
     "clip_id": "BRTH_839369",
@@ -1003,8 +961,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BRTH_839369.png",
-    "quality_score": 4,
-    "recordist": "Manuel Oudard"
+    "quality_score": 4
   },
   {
     "clip_id": "BRTH_939190",
@@ -1018,8 +975,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BRTH_939190.png",
-    "quality_score": 4,
-    "recordist": "Brian Cox"
+    "quality_score": 4
   },
   {
     "clip_id": "BRTH_982365",
@@ -1033,8 +989,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BRTH_982365.png",
-    "quality_score": 4,
-    "recordist": "Daniel Parker"
+    "quality_score": 4
   },
   {
     "clip_id": "BTBW_1013120",
@@ -1048,8 +1003,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTBW_1013120.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BTBW_1013121",
@@ -1063,8 +1017,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTBW_1013121.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BTBW_1038360",
@@ -1078,8 +1031,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTBW_1038360.png",
-    "quality_score": 4,
-    "recordist": "Bobby Wilcox"
+    "quality_score": 4
   },
   {
     "clip_id": "BTBW_903870",
@@ -1093,8 +1045,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTBW_903870.png",
-    "quality_score": 4,
-    "recordist": "Molly Jacobson"
+    "quality_score": 4
   },
   {
     "clip_id": "BTNW_1013766",
@@ -1108,8 +1059,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1013766.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BTNW_1013767",
@@ -1123,8 +1073,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1013767.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BTNW_1014367",
@@ -1138,8 +1087,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1014367.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BTNW_1014727",
@@ -1153,8 +1101,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1014727.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BTNW_1014729",
@@ -1168,8 +1115,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1014729.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BTNW_1014732",
@@ -1183,8 +1129,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1014732.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "BTNW_1038308",
@@ -1198,8 +1143,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BTNW_1038308.png",
-    "quality_score": 4,
-    "recordist": "Bobby Wilcox"
+    "quality_score": 4
   },
   {
     "clip_id": "BWWA_101664",
@@ -1213,8 +1157,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BWWA_101664.png",
-    "quality_score": 4,
-    "recordist": "Daniel Lane"
+    "quality_score": 4
   },
   {
     "clip_id": "BWWA_101899",
@@ -1228,8 +1171,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BWWA_101899.png",
-    "quality_score": 4,
-    "recordist": "Daniel Lane"
+    "quality_score": 4
   },
   {
     "clip_id": "BWWA_598819",
@@ -1243,8 +1185,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BWWA_598819.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "BWWA_839511",
@@ -1258,8 +1199,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BWWA_839511.png",
-    "quality_score": 4,
-    "recordist": "Manuel Oudard"
+    "quality_score": 4
   },
   {
     "clip_id": "CACH_7681b5f5",
@@ -1273,8 +1213,7 @@
     "file_path": "data/clips/CACH_933606.wav",
     "spectrogram_path": "data/spectrograms/CACH_933606.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Thomas Magarian"
+    "rejected": false
   },
   {
     "clip_id": "CACH_877921",
@@ -1288,8 +1227,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CACH_877921.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "CACH_877922",
@@ -1303,8 +1241,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CACH_877922.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "CACH_877923",
@@ -1318,8 +1255,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CACH_877923.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "CACH_884282",
@@ -1333,8 +1269,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CACH_884282.png",
-    "quality_score": 4,
-    "recordist": "steve"
+    "quality_score": 4
   },
   {
     "clip_id": "CAFI_4920cec0",
@@ -1404,8 +1339,7 @@
     "file_path": "data/clips/CARW_1010648.wav",
     "spectrogram_path": "data/spectrograms/CARW_1010648.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Rory Nefdt"
+    "rejected": false
   },
   {
     "clip_id": "CARW_5da6d2cd",
@@ -1419,8 +1353,7 @@
     "file_path": "data/clips/CARW_941065.wav",
     "spectrogram_path": "data/spectrograms/CARW_941065.png",
     "canonical": true,
-    "rejected": false,
-    "recordist": "Sue Riffe"
+    "rejected": false
   },
   {
     "clip_id": "CARW_b6c038de",
@@ -1434,8 +1367,7 @@
     "file_path": "data/clips/CARW_995314.wav",
     "spectrogram_path": "data/spectrograms/CARW_995314.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "James Robe"
+    "rejected": false
   },
   {
     "clip_id": "CARW_ff0b838f",
@@ -1449,8 +1381,7 @@
     "file_path": "data/clips/CARW_951784.wav",
     "spectrogram_path": "data/spectrograms/CARW_951784.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Thomas Magarian"
+    "rejected": false
   },
   {
     "clip_id": "CAWA_1014128",
@@ -1464,8 +1395,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CAWA_1014128.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CAWA_1014299",
@@ -1479,8 +1409,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CAWA_1014299.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CAWA_1014302",
@@ -1494,8 +1423,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CAWA_1014302.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CAWA_1015017",
@@ -1509,8 +1437,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CAWA_1015017.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CEWA_1014827",
@@ -1527,8 +1454,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "CEWA_1014827",
-    "duration_ms": 3000,
-    "recordist": "Stanislas Wroza"
+    "duration_ms": 3000
   },
   {
     "clip_id": "CEWA_1014829",
@@ -1545,8 +1471,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "CEWA_1014829",
-    "duration_ms": 3000,
-    "recordist": "Stanislas Wroza"
+    "duration_ms": 3000
   },
   {
     "clip_id": "CEWA_1014832",
@@ -1563,8 +1488,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "CEWA_1014832",
-    "duration_ms": 3000,
-    "recordist": "Stanislas Wroza"
+    "duration_ms": 3000
   },
   {
     "clip_id": "CEWA_1014833",
@@ -1581,8 +1505,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "CEWA_1014833",
-    "duration_ms": 3000,
-    "recordist": "Stanislas Wroza"
+    "duration_ms": 3000
   },
   {
     "clip_id": "CHSP_1012541",
@@ -1596,8 +1519,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1012541.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CHSP_1013215",
@@ -1611,8 +1533,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1013215.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CHSP_1013719",
@@ -1626,8 +1547,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1013719.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CHSP_1013721",
@@ -1641,8 +1561,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1013721.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CHSP_1014201",
@@ -1656,8 +1575,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1014201.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CHSP_1024787",
@@ -1671,8 +1589,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1024787.png",
-    "quality_score": 4,
-    "recordist": "Jim Berry"
+    "quality_score": 4
   },
   {
     "clip_id": "CHSP_1038385",
@@ -1686,8 +1603,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CHSP_1038385.png",
-    "quality_score": 4,
-    "recordist": "Bobby Wilcox"
+    "quality_score": 4
   },
   {
     "clip_id": "CMWA_1013293",
@@ -1701,8 +1617,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CMWA_1013293.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CMWA_1013473",
@@ -1716,8 +1631,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CMWA_1013473.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "COGR_1012859",
@@ -1734,8 +1648,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "COGR_1012859",
-    "duration_ms": 2413,
-    "recordist": "Stanislas Wroza"
+    "duration_ms": 2413
   },
   {
     "clip_id": "COGR_1014939",
@@ -1752,8 +1665,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "COGR_1014939",
-    "duration_ms": 3000,
-    "recordist": "Stanislas Wroza"
+    "duration_ms": 3000
   },
   {
     "clip_id": "COGR_1014942",
@@ -1770,8 +1682,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "COGR_1014942",
-    "duration_ms": 3000,
-    "recordist": "Stanislas Wroza"
+    "duration_ms": 3000
   },
   {
     "clip_id": "COGR_1014943",
@@ -1788,8 +1699,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "COGR_1014943",
-    "duration_ms": 3000,
-    "recordist": "Stanislas Wroza"
+    "duration_ms": 3000
   },
   {
     "clip_id": "COHA_08680df8",
@@ -1804,8 +1714,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Scott Crabtree"
+    "rejected": false
   },
   {
     "clip_id": "COHA_3931d335",
@@ -1820,8 +1729,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Don Profota"
+    "rejected": false
   },
   {
     "clip_id": "COHA_4eea5a0a",
@@ -1836,8 +1744,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Dany Sloan"
+    "rejected": false
   },
   {
     "clip_id": "COHA_50a77581",
@@ -1852,8 +1759,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Whitney Neufeld-Kaiser"
+    "rejected": false
   },
   {
     "clip_id": "COHA_baab413e",
@@ -1868,8 +1774,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Ed Pandolfino"
+    "rejected": false
   },
   {
     "clip_id": "COHA_d63c0e98",
@@ -1884,8 +1789,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Scott Crabtree"
+    "rejected": false
   },
   {
     "clip_id": "CONW_1013973",
@@ -1899,8 +1803,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CONW_1013973.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CONW_252951",
@@ -1914,8 +1817,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CONW_252951.png",
-    "quality_score": 4,
-    "recordist": "Nancy Hetrick"
+    "quality_score": 4
   },
   {
     "clip_id": "CONW_475279",
@@ -1929,8 +1831,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CONW_475279.png",
-    "quality_score": 4,
-    "recordist": "Scott Gravette"
+    "quality_score": 4
   },
   {
     "clip_id": "COYE_1013902",
@@ -1944,8 +1845,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/COYE_1013902.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "COYE_1014863",
@@ -1959,8 +1859,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/COYE_1014863.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "COYE_1021804",
@@ -1974,8 +1873,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/COYE_1021804.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CSWA_1014420",
@@ -1989,8 +1887,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CSWA_1014420.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CSWA_1015053",
@@ -2004,8 +1901,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CSWA_1015053.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "CSWA_1015055",
@@ -2019,8 +1915,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/CSWA_1015055.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "DOWO_1036590",
@@ -2034,8 +1929,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/DOWO_1036590.png",
-    "quality_score": 4,
-    "recordist": "Bill Pyle"
+    "quality_score": 4
   },
   {
     "clip_id": "DOWO_5ab33ab7",
@@ -2049,8 +1943,7 @@
     "file_path": "data/clips/DOWO_982935.wav",
     "spectrogram_path": "data/spectrograms/DOWO_982935.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Peter Mundale"
+    "rejected": false
   },
   {
     "file_path": "data/clips/DOWO_cornell_003_1.wav",
@@ -2109,8 +2002,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/EABL_608740.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "EABL_674bf0de",
@@ -2124,8 +2016,7 @@
     "file_path": "data/clips/EABL_890150.wav",
     "spectrogram_path": "data/spectrograms/EABL_890150.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Thomas Magarian"
+    "rejected": false
   },
   {
     "clip_id": "EABL_712412",
@@ -2139,8 +2030,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/EABL_712412.png",
-    "quality_score": 4,
-    "recordist": "Patrick J. Blake"
+    "quality_score": 4
   },
   {
     "clip_id": "EABL_844282",
@@ -2154,8 +2044,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/EABL_844282.png",
-    "quality_score": 4,
-    "recordist": "Michael Hurben"
+    "quality_score": 4
   },
   {
     "clip_id": "EABL_890146",
@@ -2169,8 +2058,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/EABL_890146.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "EABL_890154",
@@ -2184,8 +2072,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/EABL_890154.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "EATO_48d22dfb",
@@ -2330,8 +2217,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "FICR_264970",
-    "duration_ms": 3000,
-    "recordist": "Ted Floyd"
+    "duration_ms": 3000
   },
   {
     "clip_id": "FICR_459772",
@@ -2348,8 +2234,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "FICR_459772",
-    "duration_ms": 3000,
-    "recordist": "Valerie Wininger"
+    "duration_ms": 3000
   },
   {
     "clip_id": "FICR_815114",
@@ -2366,8 +2251,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "FICR_815114",
-    "duration_ms": 3000,
-    "recordist": "Richard E. Webster"
+    "duration_ms": 3000
   },
   {
     "clip_id": "FICR_822351",
@@ -2384,8 +2268,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "FICR_822351",
-    "duration_ms": 3000,
-    "recordist": "Gregory Askew"
+    "duration_ms": 3000
   },
   {
     "clip_id": "FICR_902120",
@@ -2402,8 +2285,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "source_id": "FICR_902120",
-    "duration_ms": 3000,
-    "recordist": "Daniel Parker"
+    "duration_ms": 3000
   },
   {
     "clip_id": "FISP_1014919",
@@ -2417,8 +2299,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/FISP_1014919.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "FISP_1015150",
@@ -2432,8 +2313,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/FISP_1015150.png",
-    "quality_score": 4,
-    "recordist": "David A. Brinkman"
+    "quality_score": 4
   },
   {
     "clip_id": "FISP_3d11311b",
@@ -2447,8 +2327,7 @@
     "file_path": "data/clips/FISP_924416.wav",
     "spectrogram_path": "data/spectrograms/FISP_924416.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Oscar Gordo"
+    "rejected": false
   },
   {
     "clip_id": "FISP_825414",
@@ -2462,8 +2341,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/FISP_825414.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "FISP_837818",
@@ -2477,8 +2355,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/FISP_837818.png",
-    "quality_score": 4,
-    "recordist": "Manuel Oudard"
+    "quality_score": 4
   },
   {
     "clip_id": "GCKI_2d02722d",
@@ -2493,8 +2370,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "GCKI_73c237eb",
@@ -2509,8 +2385,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "GCKI_affa6a63",
@@ -2525,8 +2400,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Greg Irving"
+    "rejected": false
   },
   {
     "clip_id": "GCKI_cceb4903",
@@ -2541,8 +2415,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Greg Irving"
+    "rejected": false
   },
   {
     "clip_id": "GRCA_1002792",
@@ -2556,8 +2429,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1002792.png",
-    "quality_score": 4,
-    "recordist": "Sue Riffe"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_1010845",
@@ -2571,8 +2443,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1010845.png",
-    "quality_score": 4,
-    "recordist": "Bill Pyle"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_1012942",
@@ -2586,8 +2457,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1012942.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_1012947",
@@ -2601,8 +2471,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1012947.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_1012948",
@@ -2616,8 +2485,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1012948.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_1013399",
@@ -2631,8 +2499,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1013399.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_1013400",
@@ -2646,8 +2513,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1013400.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_1013402",
@@ -2661,8 +2527,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1013402.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_1016556",
@@ -2676,8 +2541,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_1016556.png",
-    "quality_score": 4,
-    "recordist": "Ned Bohman"
+    "quality_score": 4
   },
   {
     "clip_id": "GRCA_998812",
@@ -2691,8 +2555,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GRCA_998812.png",
-    "quality_score": 4,
-    "recordist": "Haoning Gong"
+    "quality_score": 4
   },
   {
     "clip_id": "GWWA_650432",
@@ -2706,8 +2569,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GWWA_650432.png",
-    "quality_score": 4,
-    "recordist": "William Whitehead"
+    "quality_score": 4
   },
   {
     "clip_id": "GWWA_658548",
@@ -2721,8 +2583,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GWWA_658548.png",
-    "quality_score": 4,
-    "recordist": "Paul Driver"
+    "quality_score": 4
   },
   {
     "clip_id": "GWWA_839513",
@@ -2736,8 +2597,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/GWWA_839513.png",
-    "quality_score": 4,
-    "recordist": "Manuel Oudard"
+    "quality_score": 4
   },
   {
     "clip_id": "HAWO_1028817",
@@ -2751,8 +2611,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HAWO_1028817.png",
-    "quality_score": 4,
-    "recordist": "Greg Irving"
+    "quality_score": 4
   },
   {
     "clip_id": "HAWO_1039174",
@@ -2766,8 +2625,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HAWO_1039174.png",
-    "quality_score": 4,
-    "recordist": "Greg Irving"
+    "quality_score": 4
   },
   {
     "clip_id": "HAWO_1763dfab",
@@ -2781,8 +2639,7 @@
     "file_path": "data/clips/HAWO_994605.wav",
     "spectrogram_path": "data/spectrograms/HAWO_994605.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Scott Crabtree"
+    "rejected": false
   },
   {
     "clip_id": "HAWO_94eca2ba",
@@ -2796,8 +2653,7 @@
     "file_path": "data/clips/HAWO_951714.wav",
     "spectrogram_path": "data/spectrograms/HAWO_951714.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Scott Crabtree"
+    "rejected": false
   },
   {
     "clip_id": "HAWO_988849",
@@ -2811,8 +2667,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HAWO_988849.png",
-    "quality_score": 4,
-    "recordist": "Jim Berry"
+    "quality_score": 4
   },
   {
     "clip_id": "HETH_1036596",
@@ -2826,8 +2681,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HETH_1036596.png",
-    "quality_score": 4,
-    "recordist": "Bill Pyle"
+    "quality_score": 4
   },
   {
     "clip_id": "HETH_1037508",
@@ -2841,8 +2695,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HETH_1037508.png",
-    "quality_score": 4,
-    "recordist": "Bobby Wilcox"
+    "quality_score": 4
   },
   {
     "clip_id": "HETH_1048898",
@@ -2856,8 +2709,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HETH_1048898.png",
-    "quality_score": 4,
-    "recordist": "AUDEVARD Aur\u00e9lien"
+    "quality_score": 4
   },
   {
     "clip_id": "HETH_957962",
@@ -2871,8 +2723,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HETH_957962.png",
-    "quality_score": 4,
-    "recordist": "Leander Khil"
+    "quality_score": 4
   },
   {
     "clip_id": "HETH_963177",
@@ -2886,8 +2737,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HETH_963177.png",
-    "quality_score": 4,
-    "recordist": "Bill Pyle"
+    "quality_score": 4
   },
   {
     "clip_id": "HOFI_1208c330",
@@ -2901,8 +2751,7 @@
     "file_path": "data/clips/HOFI_898674.wav",
     "spectrogram_path": "data/spectrograms/HOFI_898674.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Ed Pandolfino"
+    "rejected": false
   },
   {
     "clip_id": "HOFI_3ec4941d",
@@ -2916,8 +2765,7 @@
     "file_path": "data/clips/HOFI_899902.wav",
     "spectrogram_path": "data/spectrograms/HOFI_899902.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Paul Marvin"
+    "rejected": false
   },
   {
     "clip_id": "HOFI_900144",
@@ -2931,8 +2779,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HOFI_900144.png",
-    "quality_score": 4,
-    "recordist": "Thomas G. Graves"
+    "quality_score": 4
   },
   {
     "clip_id": "HOFI_9a08b2f4",
@@ -2989,8 +2836,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/KEWA_1002085.png",
-    "quality_score": 4,
-    "recordist": "Sue Riffe"
+    "quality_score": 4
   },
   {
     "clip_id": "KEWA_795271",
@@ -3004,8 +2850,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/KEWA_795271.png",
-    "quality_score": 4,
-    "recordist": "Scott Gravette"
+    "quality_score": 4
   },
   {
     "clip_id": "KEWA_808671",
@@ -3019,8 +2864,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/KEWA_808671.png",
-    "quality_score": 4,
-    "recordist": "Tom Ford-Hutchinson"
+    "quality_score": 4
   },
   {
     "clip_id": "KEWA_827876",
@@ -3034,8 +2878,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/KEWA_827876.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "KEWA_860980",
@@ -3049,8 +2892,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/KEWA_860980.png",
-    "quality_score": 4,
-    "recordist": "Dany Sloan"
+    "quality_score": 4
   },
   {
     "clip_id": "LISP_1014972",
@@ -3064,8 +2906,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LISP_1014972.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "LISP_1014974",
@@ -3079,8 +2920,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LISP_1014974.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "LISP_1014977",
@@ -3094,8 +2934,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LISP_1014977.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "LISP_1014979",
@@ -3109,8 +2948,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LISP_1014979.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "LISP_1014983",
@@ -3124,8 +2962,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LISP_1014983.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "LOWA_691609",
@@ -3139,8 +2976,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LOWA_691609.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "LOWA_805820",
@@ -3154,8 +2990,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LOWA_805820.png",
-    "quality_score": 4,
-    "recordist": "David A. Brinkman"
+    "quality_score": 4
   },
   {
     "clip_id": "LOWA_828213",
@@ -3169,8 +3004,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LOWA_828213.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "LOWA_828223",
@@ -3184,8 +3018,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/LOWA_828223.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "MAWA_1013890",
@@ -3199,8 +3032,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MAWA_1013890.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "MAWA_1013891",
@@ -3214,8 +3046,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MAWA_1013891.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "MAWA_1014112",
@@ -3229,8 +3060,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MAWA_1014112.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "MAWA_1014780",
@@ -3244,8 +3074,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MAWA_1014780.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "MODO_383dd292",
@@ -3259,8 +3088,7 @@
     "file_path": "data/clips/MODO_638304.wav",
     "spectrogram_path": "data/spectrograms/MODO_638304.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Christopher McPherson"
+    "rejected": false
   },
   {
     "clip_id": "MODO_80851a8a",
@@ -3274,8 +3102,7 @@
     "file_path": "data/clips/MODO_940517.wav",
     "spectrogram_path": "data/spectrograms/MODO_940517.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Richard E. Webster"
+    "rejected": false
   },
   {
     "file_path": "data/clips/MODO_cornell_002_2.wav",
@@ -3319,8 +3146,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MOWA_1014001.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "MOWA_1014326",
@@ -3334,8 +3160,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MOWA_1014326.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "MOWA_1014327",
@@ -3349,8 +3174,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MOWA_1014327.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NAWA_1013952",
@@ -3364,8 +3188,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NAWA_1013952.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NAWA_1013954",
@@ -3379,8 +3202,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NAWA_1013954.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NAWA_1013956",
@@ -3394,8 +3216,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NAWA_1013956.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NAWA_1013979",
@@ -3409,8 +3230,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NAWA_1013979.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NOCA_1010609",
@@ -3424,8 +3244,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOCA_1010609.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "NOCA_1010649",
@@ -3439,8 +3258,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOCA_1010649.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "NOCA_1070756",
@@ -3454,8 +3272,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOCA_1070756.png",
-    "quality_score": 4,
-    "recordist": "Michael S. Taylor"
+    "quality_score": 4
   },
   {
     "clip_id": "NOCA_2e985230",
@@ -3469,8 +3286,7 @@
     "file_path": "data/clips/NOCA_598016.wav",
     "spectrogram_path": "data/spectrograms/NOCA_598016.png",
     "canonical": true,
-    "rejected": false,
-    "recordist": "Simon Elliott"
+    "rejected": false
   },
   {
     "clip_id": "NOCA_809789",
@@ -3484,8 +3300,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOCA_809789.png",
-    "quality_score": 4,
-    "recordist": "Scott Crabtree"
+    "quality_score": 4
   },
   {
     "clip_id": "NOFL_1007124",
@@ -3499,8 +3314,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_1007124.png",
-    "quality_score": 4,
-    "recordist": "Ed Pandolfino"
+    "quality_score": 4
   },
   {
     "clip_id": "NOFL_1033749",
@@ -3514,8 +3328,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_1033749.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "NOFL_2f98f0b5",
@@ -3529,8 +3342,7 @@
     "file_path": "data/clips/NOFL_786153.wav",
     "spectrogram_path": "data/spectrograms/NOFL_786153.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Paul Driver"
+    "rejected": false
   },
   {
     "clip_id": "NOFL_768323",
@@ -3544,8 +3356,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_768323.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "NOFL_776026",
@@ -3559,8 +3370,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_776026.png",
-    "quality_score": 4,
-    "recordist": "Scott Olmstead"
+    "quality_score": 4
   },
   {
     "clip_id": "NOFL_786154",
@@ -3574,8 +3384,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_786154.png",
-    "quality_score": 4,
-    "recordist": "Paul Driver"
+    "quality_score": 4
   },
   {
     "file_path": "data/clips/NOFL_cornell_005_1.wav",
@@ -3650,8 +3459,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Scott Crabtree"
+    "rejected": false
   },
   {
     "clip_id": "NOMO_332dd3fc",
@@ -3666,8 +3474,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Scott Olmstead"
+    "rejected": false
   },
   {
     "clip_id": "NOMO_53ddfb3a",
@@ -3682,8 +3489,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Percy Ulsamer"
+    "rejected": false
   },
   {
     "clip_id": "NOMO_6678cec2",
@@ -3698,8 +3504,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Shelby M Palmer"
+    "rejected": false
   },
   {
     "clip_id": "NOMO_693eb512",
@@ -3714,8 +3519,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "David A. Brinkman"
+    "rejected": false
   },
   {
     "clip_id": "NOMO_a7083102",
@@ -3730,8 +3534,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "David A. Brinkman"
+    "rejected": false
   },
   {
     "clip_id": "NOMO_c00f455a",
@@ -3746,8 +3549,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "David Tattersley"
+    "rejected": false
   },
   {
     "clip_id": "NOMO_fb6acda8",
@@ -3762,8 +3564,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Scott Gravette"
+    "rejected": false
   },
   {
     "clip_id": "NOPA_1013754",
@@ -3777,8 +3578,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOPA_1013754.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NOPA_1013870",
@@ -3792,8 +3592,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOPA_1013870.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NOPA_1013947",
@@ -3807,8 +3606,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOPA_1013947.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NOWA_1013461",
@@ -3822,8 +3620,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOWA_1013461.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NOWA_1013462",
@@ -3837,8 +3634,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOWA_1013462.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "NOWA_1013464",
@@ -3852,8 +3648,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOWA_1013464.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "OCWA_1046368",
@@ -3867,8 +3662,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OCWA_1046368.png",
-    "quality_score": 4,
-    "recordist": "AUDEVARD Aur\u00e9lien"
+    "quality_score": 4
   },
   {
     "clip_id": "OCWA_800862",
@@ -3882,8 +3676,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OCWA_800862.png",
-    "quality_score": 4,
-    "recordist": "Ed Pandolfino"
+    "quality_score": 4
   },
   {
     "clip_id": "OCWA_808323",
@@ -3897,8 +3690,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OCWA_808323.png",
-    "quality_score": 4,
-    "recordist": "Andy Birch"
+    "quality_score": 4
   },
   {
     "clip_id": "OVEN_1014291",
@@ -3912,8 +3704,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OVEN_1014291.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "OVEN_1014294",
@@ -3927,8 +3718,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OVEN_1014294.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "OVEN_1014599",
@@ -3942,8 +3732,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OVEN_1014599.png",
-    "quality_score": 4,
-    "recordist": "David A. Brinkman"
+    "quality_score": 4
   },
   {
     "clip_id": "PAWA_1015024",
@@ -3957,8 +3746,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PAWA_1015024.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "PAWA_1015031",
@@ -3972,8 +3760,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PAWA_1015031.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "PAWA_1015036",
@@ -3987,8 +3774,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PAWA_1015036.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "PAWA_1015038",
@@ -4002,8 +3788,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PAWA_1015038.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "PISI_04ac4ea7",
@@ -4060,8 +3845,7 @@
     "file_path": "data/clips/PIWA_1002534.wav",
     "spectrogram_path": "data/spectrograms/PIWA_1002534.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Jan Huus"
+    "rejected": false
   },
   {
     "clip_id": "PIWA_3a23c391",
@@ -4075,8 +3859,7 @@
     "file_path": "data/clips/PIWA_476138.wav",
     "spectrogram_path": "data/spectrograms/PIWA_476138.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "John Middleton"
+    "rejected": false
   },
   {
     "clip_id": "PIWA_68800484",
@@ -4090,8 +3873,7 @@
     "file_path": "data/clips/PIWA_901095.wav",
     "spectrogram_path": "data/spectrograms/PIWA_901095.png",
     "canonical": true,
-    "rejected": false,
-    "recordist": "David Tattersley"
+    "rejected": false
   },
   {
     "clip_id": "PIWA_895213",
@@ -4105,8 +3887,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PIWA_895213.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "PIWA_895216",
@@ -4120,8 +3901,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PIWA_895216.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "PIWA_8e40f1c0",
@@ -4135,8 +3915,7 @@
     "file_path": "data/clips/PIWA_895228.wav",
     "spectrogram_path": "data/spectrograms/PIWA_895228.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Thomas Magarian"
+    "rejected": false
   },
   {
     "clip_id": "PIWO_06196c34",
@@ -4150,8 +3929,7 @@
     "file_path": "data/clips/PIWO_582550.wav",
     "spectrogram_path": "data/spectrograms/PIWO_582550.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Brian Hendrix"
+    "rejected": false
   },
   {
     "clip_id": "PIWO_2cec6a83",
@@ -4165,8 +3943,7 @@
     "file_path": "data/clips/PIWO_797066.wav",
     "spectrogram_path": "data/spectrograms/PIWO_797066.png",
     "canonical": true,
-    "rejected": false,
-    "recordist": "Jim Berry"
+    "rejected": false
   },
   {
     "clip_id": "PIWO_3e23d808",
@@ -4180,8 +3957,7 @@
     "file_path": "data/clips/PIWO_599834.wav",
     "spectrogram_path": "data/spectrograms/PIWO_599834.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Christopher McPherson"
+    "rejected": false
   },
   {
     "clip_id": "PIWO_570955",
@@ -4195,8 +3971,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PIWO_570955.png",
-    "quality_score": 4,
-    "recordist": "Brian Hendrix"
+    "quality_score": 4
   },
   {
     "clip_id": "PIWO_586579",
@@ -4210,8 +3985,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PIWO_586579.png",
-    "quality_score": 4,
-    "recordist": "Bruce Lagerquist"
+    "quality_score": 4
   },
   {
     "clip_id": "PIWO_649554",
@@ -4225,8 +3999,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PIWO_649554.png",
-    "quality_score": 4,
-    "recordist": "Russ Wigh"
+    "quality_score": 4
   },
   {
     "clip_id": "PIWO_828370",
@@ -4240,8 +4013,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PIWO_828370.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "PRAW_691780",
@@ -4255,8 +4027,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PRAW_691780.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "PRAW_691782",
@@ -4270,8 +4041,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PRAW_691782.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "PRAW_691783",
@@ -4285,8 +4055,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PRAW_691783.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "PRAW_805473",
@@ -4300,8 +4069,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PRAW_805473.png",
-    "quality_score": 4,
-    "recordist": "Alex Lin-Moore"
+    "quality_score": 4
   },
   {
     "clip_id": "PROW_371157",
@@ -4315,8 +4083,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PROW_371157.png",
-    "quality_score": 4,
-    "recordist": "Scott Gravette"
+    "quality_score": 4
   },
   {
     "clip_id": "PROW_389965",
@@ -4330,8 +4097,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PROW_389965.png",
-    "quality_score": 4,
-    "recordist": "Antonio Xeira"
+    "quality_score": 4
   },
   {
     "clip_id": "PROW_413204",
@@ -4345,8 +4111,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PROW_413204.png",
-    "quality_score": 4,
-    "recordist": "Patrick Blake"
+    "quality_score": 4
   },
   {
     "clip_id": "PROW_565260",
@@ -4360,8 +4125,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/PROW_565260.png",
-    "quality_score": 4,
-    "recordist": "Will Sweet"
+    "quality_score": 4
   },
   {
     "clip_id": "RBWO_1012058",
@@ -4375,8 +4139,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RBWO_1012058.png",
-    "quality_score": 4,
-    "recordist": "Rory Nefdt"
+    "quality_score": 4
   },
   {
     "clip_id": "RBWO_20fca12d",
@@ -4390,8 +4153,7 @@
     "file_path": "data/clips/RBWO_713255.wav",
     "spectrogram_path": "data/spectrograms/RBWO_713255.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Bruce Lagerquist"
+    "rejected": false
   },
   {
     "clip_id": "RBWO_5677360d",
@@ -4405,8 +4167,7 @@
     "file_path": "data/clips/RBWO_687174.wav",
     "spectrogram_path": "data/spectrograms/RBWO_687174.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "David A. Brinkman"
+    "rejected": false
   },
   {
     "clip_id": "RBWO_58d4a65a",
@@ -4420,8 +4181,7 @@
     "file_path": "data/clips/RBWO_692437.wav",
     "spectrogram_path": "data/spectrograms/RBWO_692437.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Bill Grantham"
+    "rejected": false
   },
   {
     "clip_id": "RBWO_691788",
@@ -4435,8 +4195,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RBWO_691788.png",
-    "quality_score": 4,
-    "recordist": "Christopher McPherson"
+    "quality_score": 4
   },
   {
     "clip_id": "RBWO_713254",
@@ -4450,8 +4209,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RBWO_713254.png",
-    "quality_score": 4,
-    "recordist": "Bruce Lagerquist"
+    "quality_score": 4
   },
   {
     "clip_id": "RBWO_780787",
@@ -4465,8 +4223,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RBWO_780787.png",
-    "quality_score": 4,
-    "recordist": "Paul Driver"
+    "quality_score": 4
   },
   {
     "clip_id": "RBWO_962378",
@@ -4480,8 +4237,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RBWO_962378.png",
-    "quality_score": 4,
-    "recordist": "A Richardson"
+    "quality_score": 4
   },
   {
     "clip_id": "RCKI_0d3e08fd",
@@ -4496,8 +4252,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "RCKI_142be45c",
@@ -4512,8 +4267,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "RCKI_19cb58e0",
@@ -4528,8 +4282,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "RCKI_85a3f15c",
@@ -4544,8 +4297,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "RCKI_dfa6ffa8",
@@ -4560,8 +4312,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "RHWO_1062474",
@@ -4575,8 +4326,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RHWO_1062474.png",
-    "quality_score": 4,
-    "recordist": "David Darrell-Lambert"
+    "quality_score": 4
   },
   {
     "clip_id": "RHWO_16d7a6e5",
@@ -4590,8 +4340,7 @@
     "file_path": "data/clips/RHWO_733937.wav",
     "spectrogram_path": "data/spectrograms/RHWO_733937.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "John A. Middleton Jr."
+    "rejected": false
   },
   {
     "clip_id": "RHWO_1a4f3c2a",
@@ -4605,8 +4354,7 @@
     "file_path": "data/clips/RHWO_818871.wav",
     "spectrogram_path": "data/spectrograms/RHWO_818871.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Bobby Wilcox"
+    "rejected": false
   },
   {
     "clip_id": "RHWO_656d2596",
@@ -4620,8 +4368,7 @@
     "file_path": "data/clips/RHWO_774908.wav",
     "spectrogram_path": "data/spectrograms/RHWO_774908.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "David A. Brinkman"
+    "rejected": false
   },
   {
     "clip_id": "RHWO_6b9cec21",
@@ -4635,8 +4382,7 @@
     "file_path": "data/clips/RHWO_845687.wav",
     "spectrogram_path": "data/spectrograms/RHWO_845687.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Thomas Magarian"
+    "rejected": false
   },
   {
     "clip_id": "RHWO_812951b9",
@@ -4650,8 +4396,7 @@
     "file_path": "data/clips/RHWO_940918.wav",
     "spectrogram_path": "data/spectrograms/RHWO_940918.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Whitney Neufeld-Kaiser"
+    "rejected": false
   },
   {
     "clip_id": "RHWO_959566",
@@ -4665,8 +4410,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RHWO_959566.png",
-    "quality_score": 4,
-    "recordist": "Peter Mundale"
+    "quality_score": 4
   },
   {
     "clip_id": "RSHA_0333cd04",
@@ -4680,8 +4424,7 @@
     "file_path": "data/clips/RSHA_892537.wav",
     "spectrogram_path": "data/spectrograms/RSHA_892537.png",
     "canonical": true,
-    "rejected": false,
-    "recordist": "Megan Johnson"
+    "rejected": false
   },
   {
     "clip_id": "RSHA_06ef0bd5",
@@ -4695,8 +4438,7 @@
     "file_path": "data/clips/RSHA_980329.wav",
     "spectrogram_path": "data/spectrograms/RSHA_980329.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Matthew L. Brady"
+    "rejected": false
   },
   {
     "clip_id": "RSHA_2a7ed889",
@@ -4710,8 +4452,7 @@
     "file_path": "data/clips/RSHA_729076.wav",
     "spectrogram_path": "data/spectrograms/RSHA_729076.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "William Whitehead"
+    "rejected": false
   },
   {
     "clip_id": "RSHA_544879d0",
@@ -4725,8 +4466,7 @@
     "file_path": "data/clips/RSHA_878472.wav",
     "spectrogram_path": "data/spectrograms/RSHA_878472.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Daniel Parker"
+    "rejected": false
   },
   {
     "clip_id": "RSHA_5eff1ce0",
@@ -4740,8 +4480,7 @@
     "file_path": "data/clips/RSHA_952544.wav",
     "spectrogram_path": "data/spectrograms/RSHA_952544.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Rick Wheat"
+    "rejected": false
   },
   {
     "clip_id": "RSHA_6df49691",
@@ -4755,8 +4494,7 @@
     "file_path": "data/clips/RSHA_712976.wav",
     "spectrogram_path": "data/spectrograms/RSHA_712976.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Bruce Lagerquist"
+    "rejected": false
   },
   {
     "clip_id": "RSHA_809281",
@@ -4770,8 +4508,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RSHA_809281.png",
-    "quality_score": 4,
-    "recordist": "David A. Brinkman"
+    "quality_score": 4
   },
   {
     "clip_id": "RSHA_923439",
@@ -4785,8 +4522,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RSHA_923439.png",
-    "quality_score": 4,
-    "recordist": "Paul Marvin"
+    "quality_score": 4
   },
   {
     "clip_id": "RSHA_933584",
@@ -4800,8 +4536,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/RSHA_933584.png",
-    "quality_score": 4,
-    "recordist": "Valerie Heemstra"
+    "quality_score": 4
   },
   {
     "clip_id": "RTHA_2f94ec31",
@@ -4816,8 +4551,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Richard E. Webster"
+    "rejected": false
   },
   {
     "clip_id": "RTHA_3e89adf7",
@@ -4832,8 +4566,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Rory Nefdt"
+    "rejected": false
   },
   {
     "clip_id": "RTHA_787325b0",
@@ -4848,8 +4581,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Bobby Wilcox"
+    "rejected": false
   },
   {
     "clip_id": "RTHA_f0d0f50f",
@@ -4864,8 +4596,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Richard E. Webster"
+    "rejected": false
   },
   {
     "clip_id": "RTHU_1c5a6903",
@@ -4880,8 +4611,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "RTHU_34901212",
@@ -4896,8 +4626,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "RTHU_4691c7f2",
@@ -4912,8 +4641,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Christopher McPherson"
+    "rejected": false
   },
   {
     "clip_id": "RTHU_56c36003",
@@ -4928,8 +4656,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Russ Wigh"
+    "rejected": false
   },
   {
     "clip_id": "RTHU_d0ea1458",
@@ -4944,8 +4671,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Craig Brookes"
+    "rejected": false
   },
   {
     "clip_id": "RWBL_82600e1b",
@@ -5001,8 +4727,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1014027.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SASP_1014028",
@@ -5016,8 +4741,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1014028.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SASP_1014989",
@@ -5031,8 +4755,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1014989.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SASP_1014991",
@@ -5046,8 +4769,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1014991.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SASP_1021629",
@@ -5061,8 +4783,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1021629.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SASP_1040463",
@@ -5076,8 +4797,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1040463.png",
-    "quality_score": 4,
-    "recordist": "Greg Irving"
+    "quality_score": 4
   },
   {
     "clip_id": "SASP_1060896",
@@ -5091,8 +4811,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1060896.png",
-    "quality_score": 4,
-    "recordist": "Benjamin Drillat"
+    "quality_score": 4
   },
   {
     "clip_id": "SOSP_1021071",
@@ -5106,8 +4825,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SOSP_1021071.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SOSP_1021073",
@@ -5121,8 +4839,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SOSP_1021073.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SOSP_1021074",
@@ -5136,8 +4853,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SOSP_1021074.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SOSP_1021075",
@@ -5151,8 +4867,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SOSP_1021075.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SOSP_1021076",
@@ -5166,8 +4881,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SOSP_1021076.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SOSP_1021087",
@@ -5181,8 +4895,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SOSP_1021087.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SOSP_1027844",
@@ -5196,8 +4909,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SOSP_1027844.png",
-    "quality_score": 4,
-    "recordist": "Jim Berry"
+    "quality_score": 4
   },
   {
     "clip_id": "SOSP_1056054",
@@ -5211,8 +4923,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SOSP_1056054.png",
-    "quality_score": 4,
-    "recordist": "Denis Dujardin"
+    "quality_score": 4
   },
   {
     "clip_id": "SSHA_1c34a4b3",
@@ -5227,8 +4938,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Paul Marvin"
+    "rejected": false
   },
   {
     "clip_id": "SSHA_6c0e4d82",
@@ -5243,8 +4953,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Richard E. Webster"
+    "rejected": false
   },
   {
     "clip_id": "SSHA_9379dcd4",
@@ -5259,8 +4968,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Ray Cooke"
+    "rejected": false
   },
   {
     "clip_id": "SSHA_dd7579d6",
@@ -5275,8 +4983,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "STJA_00f4ca7a",
@@ -5360,8 +5067,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWSP_1012741.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SWSP_1012743",
@@ -5375,8 +5081,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWSP_1012743.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SWSP_1012748",
@@ -5390,8 +5095,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWSP_1012748.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SWSP_1012914",
@@ -5405,8 +5109,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWSP_1012914.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SWSP_1013530",
@@ -5420,8 +5123,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWSP_1013530.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "SWWA_1071256",
@@ -5435,8 +5137,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWWA_1071256.png",
-    "quality_score": 4,
-    "recordist": "Noah Khanti Steinberg"
+    "quality_score": 4
   },
   {
     "clip_id": "SWWA_720952",
@@ -5450,8 +5151,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWWA_720952.png",
-    "quality_score": 4,
-    "recordist": "John A. Middleton Jr."
+    "quality_score": 4
   },
   {
     "clip_id": "SWWA_938875",
@@ -5465,8 +5165,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SWWA_938875.png",
-    "quality_score": 4,
-    "recordist": "Sue Riffe"
+    "quality_score": 4
   },
   {
     "clip_id": "TEWA_1013989",
@@ -5480,8 +5179,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/TEWA_1013989.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "TEWA_1013990",
@@ -5495,8 +5193,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/TEWA_1013990.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "TEWA_1014318",
@@ -5510,8 +5207,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/TEWA_1014318.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "TEWA_1014433",
@@ -5525,8 +5221,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/TEWA_1014433.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "TUTI_01715002",
@@ -5540,8 +5235,7 @@
     "file_path": "data/clips/TUTI_1035994.wav",
     "spectrogram_path": "data/spectrograms/TUTI_1035994.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Rory Nefdt"
+    "rejected": false
   },
   {
     "clip_id": "TUTI_60068",
@@ -5555,8 +5249,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/TUTI_60068.png",
-    "quality_score": 4,
-    "recordist": "Mike Nelson"
+    "quality_score": 4
   },
   {
     "clip_id": "TUTI_73876786",
@@ -5570,8 +5263,7 @@
     "file_path": "data/clips/TUTI_884288.wav",
     "spectrogram_path": "data/spectrograms/TUTI_884288.png",
     "canonical": true,
-    "rejected": false,
-    "recordist": "steve"
+    "rejected": false
   },
   {
     "clip_id": "WBNU_1582a318",
@@ -5585,8 +5277,7 @@
     "file_path": "data/clips/WBNU_762303.wav",
     "spectrogram_path": "data/spectrograms/WBNU_762303.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Bruce Lagerquist"
+    "rejected": false
   },
   {
     "clip_id": "WBNU_728659",
@@ -5600,8 +5291,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WBNU_728659.png",
-    "quality_score": 4,
-    "recordist": "Scott Olmstead"
+    "quality_score": 4
   },
   {
     "clip_id": "WBNU_810120",
@@ -5615,8 +5305,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WBNU_810120.png",
-    "quality_score": 4,
-    "recordist": "Paul Marvin"
+    "quality_score": 4
   },
   {
     "clip_id": "WBNU_925cb1df",
@@ -5802,8 +5491,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Thomas Magarian"
+    "rejected": false
   },
   {
     "clip_id": "WEWA_3f09b292",
@@ -5818,8 +5506,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Richard E. Webster"
+    "rejected": false
   },
   {
     "clip_id": "WEWA_8cfd72c8",
@@ -5834,8 +5521,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Brian Henderson"
+    "rejected": false
   },
   {
     "clip_id": "WEWA_e5b38f3c",
@@ -5850,8 +5536,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Jorge de Leon Cardozo &amp; Susan Hochgraf"
+    "rejected": false
   },
   {
     "clip_id": "WIWA_1014396",
@@ -5865,8 +5550,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WIWA_1014396.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "WIWA_1014397",
@@ -5880,8 +5564,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WIWA_1014397.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "WIWA_1014403",
@@ -5895,8 +5578,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WIWA_1014403.png",
-    "quality_score": 4,
-    "recordist": "Stanislas Wroza"
+    "quality_score": 4
   },
   {
     "clip_id": "WTSP_1015145",
@@ -5910,8 +5592,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WTSP_1015145.png",
-    "quality_score": 4,
-    "recordist": "David A. Brinkman"
+    "quality_score": 4
   },
   {
     "clip_id": "WTSP_15a1bcd5",
@@ -5925,8 +5606,7 @@
     "file_path": "data/clips/WTSP_915935.wav",
     "spectrogram_path": "data/spectrograms/WTSP_915935.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Meena Haribal"
+    "rejected": false
   },
   {
     "clip_id": "WTSP_3768dd58",
@@ -5940,8 +5620,7 @@
     "file_path": "data/clips/WTSP_821692.wav",
     "spectrogram_path": "data/spectrograms/WTSP_821692.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Valerie Heemstra"
+    "rejected": false
   },
   {
     "clip_id": "WTSP_5f6f48c2",
@@ -5955,8 +5634,7 @@
     "file_path": "data/clips/WTSP_714082.wav",
     "spectrogram_path": "data/spectrograms/WTSP_714082.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Bruce Lagerquist"
+    "rejected": false
   },
   {
     "clip_id": "WTSP_726915",
@@ -5970,8 +5648,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WTSP_726915.png",
-    "quality_score": 4,
-    "recordist": "David A. Brinkman"
+    "quality_score": 4
   },
   {
     "clip_id": "WTSP_793715",
@@ -5985,8 +5662,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WTSP_793715.png",
-    "quality_score": 4,
-    "recordist": "Jim Berry"
+    "quality_score": 4
   },
   {
     "clip_id": "YBSA_1011116",
@@ -6000,8 +5676,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YBSA_1011116.png",
-    "quality_score": 4,
-    "recordist": "David A. Brinkman"
+    "quality_score": 4
   },
   {
     "clip_id": "YBSA_1038387",
@@ -6015,8 +5690,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YBSA_1038387.png",
-    "quality_score": 4,
-    "recordist": "Bobby Wilcox"
+    "quality_score": 4
   },
   {
     "clip_id": "YBSA_155329ce",
@@ -6030,8 +5704,7 @@
     "file_path": "data/clips/YBSA_899093.wav",
     "spectrogram_path": "data/spectrograms/YBSA_899093.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Valerie Heemstra"
+    "rejected": false
   },
   {
     "clip_id": "YBSA_43c793f2",
@@ -6045,8 +5718,7 @@
     "file_path": "data/clips/YBSA_803622.wav",
     "spectrogram_path": "data/spectrograms/YBSA_803622.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Magnus Hellstr\u00f6m"
+    "rejected": false
   },
   {
     "clip_id": "YBSA_48c4dee8",
@@ -6060,8 +5732,7 @@
     "file_path": "data/clips/YBSA_629141.wav",
     "spectrogram_path": "data/spectrograms/YBSA_629141.png",
     "canonical": false,
-    "rejected": false,
-    "recordist": "Sue Riffe"
+    "rejected": false
   },
   {
     "clip_id": "YBSA_663258",
@@ -6075,8 +5746,7 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YBSA_663258.png",
-    "quality_score": 4,
-    "recordist": "Richard E. Webster"
+    "quality_score": 4
   },
   {
     "clip_id": "YBSA_870691",
@@ -6090,8 +5760,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YBSA_870691.png",
-    "quality_score": 4,
-    "recordist": "steve"
+    "quality_score": 4
   },
   {
     "clip_id": "YBSA_871633",
@@ -6105,8 +5774,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YBSA_871633.png",
-    "quality_score": 4,
-    "recordist": "Thomas Magarian"
+    "quality_score": 4
   },
   {
     "clip_id": "YBSA_892544",
@@ -6120,8 +5788,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YBSA_892544.png",
-    "quality_score": 4,
-    "recordist": "Megan Johnson"
+    "quality_score": 4
   },
   {
     "clip_id": "YRWA_1f2fa838",
@@ -6136,8 +5803,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "YRWA_3a4a8c62",
@@ -6152,8 +5818,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "YRWA_f7f95260",
@@ -6168,8 +5833,7 @@
     "quality_score": 3,
     "source": "xenocanto",
     "duration_ms": 3000,
-    "rejected": false,
-    "recordist": "Gwen Baluss"
+    "rejected": false
   },
   {
     "clip_id": "YRWA_f826a661",
@@ -6184,8 +5848,7 @@
     "source": "xenocanto",
     "duration_ms": 3000,
     "canonical": false,
-    "rejected": false,
-    "recordist": "Stanislas Wroza"
+    "rejected": false
   },
   {
     "clip_id": "YTWA_404733",
@@ -6199,8 +5862,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YTWA_404733.png",
-    "quality_score": 4,
-    "recordist": "Jacob R. Saucier"
+    "quality_score": 4
   },
   {
     "clip_id": "YTWA_460438",
@@ -6214,8 +5876,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YTWA_460438.png",
-    "quality_score": 4,
-    "recordist": "Paul Marvin"
+    "quality_score": 4
   },
   {
     "clip_id": "YTWA_556587",
@@ -6229,8 +5890,7 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YTWA_556587.png",
-    "quality_score": 4,
-    "recordist": "Caio Brito"
+    "quality_score": 4
   },
   {
     "clip_id": "YTWA_649989",
@@ -6244,7 +5904,6 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YTWA_649989.png",
-    "quality_score": 4,
-    "recordist": "Matt Wistrand"
+    "quality_score": 4
   }
 ]
