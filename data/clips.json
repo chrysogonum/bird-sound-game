@@ -544,20 +544,6 @@
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_3.png"
   },
   {
-    "clip_id": "BEKI_0708306a",
-    "species_code": "BEKI",
-    "common_name": "Belted Kingfisher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "BEKI_451359",
-    "file_path": "data/clips/BEKI_451359.wav",
-    "spectrogram_path": "data/spectrograms/BEKI_451359.png",
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "BEKI_1034325",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
