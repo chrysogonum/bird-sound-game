@@ -95,7 +95,7 @@ function Help() {
           <Tip>Use Bird Reference on the Pack Select screen to preview all sounds included in the game.</Tip>
           <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
-          <Tip>Check the round summary to see which birds need practice.</Tip>
+          <Tip>Check the round summary and confusion matrix to see which birds need practice.</Tip>
           <Tip>Adjust tile speed in Settings if things move too fast (or too slow). Once you're an expert, try playing muted using only spectrograms!</Tip>
         </Section>
 
