@@ -194,7 +194,7 @@ function Help() {
             The Web Audio API handles sample-accurate playback with real-time stereo panning - your browser
             decodes and buffers audio into memory for zero-latency triggering. Vite bundles it all into
             a PWA (Progressive Web App) that caches sounds as you play them - so load up those birds before your
-            flight to New Zealand takes off ✈️
+            flight to New Zealand takes off ✈️.
           </p>
         </Section>
 
