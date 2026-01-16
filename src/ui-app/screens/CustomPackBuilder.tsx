@@ -36,34 +36,58 @@ function CustomPackBuilder() {
 
   // Load all species from clips.json
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/clips.json`)
-      .then((res) => res.json())
+    console.log('CustomPackBuilder: Starting to load clips.json...');
+    console.log('BASE_URL:', import.meta.env.BASE_URL);
+    const url = `${import.meta.env.BASE_URL}data/clips.json`;
+    console.log('Fetching from:', url);
+
+    fetch(url)
+      .then((res) => {
+        console.log('Fetch response status:', res.status, res.statusText);
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+        }
+        return res.json();
+      })
       .then((clips: ClipData[]) => {
+        console.log('Loaded clips:', clips.length);
         // Extract unique species
         const speciesMap = new Map<string, SpeciesInfo>();
         for (const clip of clips) {
           if (clip.rejected) continue;
           if (!speciesMap.has(clip.species_code)) {
             const canonicalClip = clips.find(
-              c => c.species_code === clip.species_code && c.canonical && !c.rejected
+              c => c.species_code === clip.species_code && c.canonical && !c.rejected && c.common_name
             );
-            const clipToUse = canonicalClip || clip;
+            const clipToUse = canonicalClip || clips.find(
+              c => c.species_code === clip.species_code && c.common_name && !c.rejected
+            ) || clip;
+
+            // Skip if no common_name found
+            if (!clipToUse.common_name) {
+              console.warn(`Skipping ${clip.species_code} - missing common_name`);
+              continue;
+            }
+
             speciesMap.set(clip.species_code, {
               code: clip.species_code,
-              name: clip.common_name,
+              name: clipToUse.common_name,
               clipPath: `${import.meta.env.BASE_URL}data/clips/${clipToUse.file_path.split('/').pop()}`,
             });
           }
         }
         // Sort alphabetically by name
         const sorted = Array.from(speciesMap.values()).sort((a, b) =>
-          a.name.localeCompare(b.name)
+          (a.name || a.code).localeCompare(b.name || b.code)
         );
+        console.log('Extracted species:', sorted.length);
+        console.log('First 5 species:', sorted.slice(0, 5).map(s => s.code));
         setAllSpecies(sorted);
         setLoading(false);
       })
       .catch((err) => {
         console.error('Failed to load clips:', err);
+        alert(`Error loading clips: ${err.message}`);
         setLoading(false);
       });
 
