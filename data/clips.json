@@ -3353,7 +3353,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1033749",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_1033749.png",
     "quality_score": 4
@@ -3440,7 +3440,7 @@
     "source_id": "cornell_006",
     "quality": "A",
     "clip_id": "NOFL_cornell_006_2",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_cornell_006_2.png"
   },
