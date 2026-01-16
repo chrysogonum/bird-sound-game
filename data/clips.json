@@ -5346,7 +5346,7 @@
     "file_path": "data/clips/DOWO_cornell_004_1.wav",
     "species_name": "Downy Woodpecker",
     "species_code": "DOWO",
-    "vocalization_type": "call",
+    "vocalization_type": "drum",
     "duration_ms": 2000,
     "loudness_lufs": -16.1,
     "source": "cornell",
