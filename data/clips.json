@@ -5950,21 +5950,6 @@
     "spectrogram_path": "data/spectrograms/DOWO_cornell_003_1.png"
   },
   {
-    "file_path": "data/clips/DOWO_cornell_004_2.wav",
-    "species_name": "Downy Woodpecker",
-    "species_code": "DOWO",
-    "vocalization_type": "drum",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.1,
-    "source": "cornell",
-    "source_id": "cornell_004",
-    "quality": "A",
-    "clip_id": "DOWO_cornell_004_2",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/DOWO_cornell_004_2.png"
-  },
-  {
     "file_path": "data/clips/NOFL_cornell_005_1.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
