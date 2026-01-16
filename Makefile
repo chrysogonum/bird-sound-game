@@ -6,7 +6,7 @@
 .PHONY: phase-o phase-p phase-q phase-r phase-s phase-t
 .PHONY: smoke-a smoke-b smoke-c smoke-d smoke-e smoke-f smoke-g smoke-h smoke-i smoke-j smoke-k smoke-l smoke-m smoke-n
 .PHONY: smoke-o smoke-p smoke-q smoke-r smoke-s smoke-t
-.PHONY: validate-schemas validate-clips validate-packs
+.PHONY: validate-schemas validate-clips validate-packs validate-data
 
 # ============================================================================
 # Configuration
@@ -74,6 +74,7 @@ help:
 	@echo "  make validate-schemas   Validate all JSON schemas"
 	@echo "  make validate-clips     Validate clips.json"
 	@echo "  make validate-packs     Validate pack definitions"
+	@echo "  make validate-data      Validate data integrity (files, canonicals, etc.)"
 
 # ============================================================================
 # Setup & Common
@@ -457,6 +458,10 @@ validate-packs:
 		echo "Validating $$pack"; \
 		$(PYTHON) $(SCRIPTS_DIR)/validate_schema.py --schema schemas/pack.schema.json --data $$pack; \
 	done
+
+validate-data:
+	@echo "=== Running comprehensive data validation ==="
+	$(PYTHON) $(SCRIPTS_DIR)/validate_data.py
 
 # ============================================================================
 # Aggregate Targets
