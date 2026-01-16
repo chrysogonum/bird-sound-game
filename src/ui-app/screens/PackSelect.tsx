@@ -92,6 +92,7 @@ function PackSelect() {
 
   const [clips, setClips] = useState<ClipData[]>([]);
   const [packSpecies, setPackSpecies] = useState<Record<string, string[]>>({});
+  const [packDisplaySpecies, setPackDisplaySpecies] = useState<Record<string, string[]>>({});
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
@@ -121,18 +122,22 @@ function PackSelect() {
       )
     ).then((packs) => {
       const speciesMap: Record<string, string[]> = {};
+      const displaySpeciesMap: Record<string, string[]> = {};
       packs.forEach((pack, i) => {
         if (pack && pack.species) {
           speciesMap[packIds[i]] = pack.species;
+          // Use display_species for Bird Reference, fallback to species if not available
+          displaySpeciesMap[packIds[i]] = pack.display_species || pack.species;
         }
       });
       setPackSpecies(speciesMap);
+      setPackDisplaySpecies(displaySpeciesMap);
     });
   }, []);
 
-  // Get bird info for a pack
+  // Get bird info for a pack (use display_species for Bird Reference)
   const getBirdsForPack = (packId: string): BirdInfo[] => {
-    const speciesCodes = packSpecies[packId] || [];
+    const speciesCodes = packDisplaySpecies[packId] || [];
     return speciesCodes.map((code) => {
       const speciesClips = clips.filter((c) =>
         c.species_code === code &&
@@ -531,7 +536,7 @@ function PackSelect() {
                 {pack.name}
               </span>
               <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
-                {packSpecies[pack.id]?.length || 0} species
+                {packDisplaySpecies[pack.id]?.length || 0} species
               </span>
             </div>
             {isExpanded && (
