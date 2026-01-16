@@ -56,20 +56,6 @@
     "quality_score": 4
   },
   {
-    "clip_id": "AMGO_690945",
-    "species_code": "AMGO",
-    "common_name": "American Goldfinch",
-    "file_path": "data/clips/AMGO_690945.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC690945",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMGO_690945.png",
-    "quality_score": 4
-  },
-  {
     "clip_id": "AMGO_720038",
     "species_code": "AMGO",
     "common_name": "American Goldfinch",
