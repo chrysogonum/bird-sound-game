@@ -277,7 +277,7 @@ RWBL: Stylized icon of a Red-winged Blackbird, simple flat design, circular fram
 ### Wrens & Gnatcatchers
 | Code | Name | Prompt |
 |------|------|--------|
-| HOWR | House Wren | Stylized icon of a House Wren, simple flat design, circular frame, small brown wren with finely barred tail and wings, white background, game asset style, clean vector look, centered composition, no text |
+| NHWR | Northern House Wren | Stylized icon of a Northern House Wren, simple flat design, circular frame, small brown wren with finely barred tail and wings, white background, game asset style, clean vector look, centered composition, no text |
 | BGGN | Blue-gray Gnatcatcher | Stylized icon of a Blue-gray Gnatcatcher, simple flat design, circular frame, tiny blue-gray bird with white eye ring and long black-and-white tail, white background, game asset style, clean vector look, centered composition, no text |
 
 ### Thrushes
@@ -323,7 +323,7 @@ EWPE: Stylized icon of an Eastern Wood-Pewee, simple flat design, circular frame
 ACFL: Stylized icon of an Acadian Flycatcher, simple flat design, circular frame, olive-green flycatcher with white eye ring and wing bars, white background, game asset style, clean vector look, centered composition, no text
 WEVI: Stylized icon of a White-eyed Vireo, simple flat design, circular frame, olive-green bird with white eye and yellow spectacles, white background, game asset style, clean vector look, centered composition, no text
 REVI: Stylized icon of a Red-eyed Vireo, simple flat design, circular frame, gray cap white eyebrow stripe olive back and red eye, white background, game asset style, clean vector look, centered composition, no text
-HOWR: Stylized icon of a House Wren, simple flat design, circular frame, small brown wren with finely barred tail and wings, white background, game asset style, clean vector look, centered composition, no text
+NHWR: Stylized icon of a Northern House Wren, simple flat design, circular frame, small brown wren with finely barred tail and wings, white background, game asset style, clean vector look, centered composition, no text
 BGGN: Stylized icon of a Blue-gray Gnatcatcher, simple flat design, circular frame, tiny blue-gray bird with white eye ring and long black-and-white tail, white background, game asset style, clean vector look, centered composition, no text
 SWTH: Stylized icon of a Swainson's Thrush, simple flat design, circular frame, brown thrush with buffy eye ring and spotted breast, white background, game asset style, clean vector look, centered composition, no text
 VEER: Stylized icon of a Veery, simple flat design, circular frame, tawny-brown thrush with faint breast spots and reddish-brown back, white background, game asset style, clean vector look, centered composition, no text
