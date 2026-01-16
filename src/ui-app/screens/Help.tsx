@@ -201,10 +201,8 @@ function Help() {
         <Section title="Version History">
           <VersionEntry version="3.16" date="January 16, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Data integrity fixes:</strong> Removed 6 "ghost species" that had no audio clips (YSFL, BGGN, SAVS, BHCO, EAME, HOSP), fixed CAWR typo in 3 packs, Bird Reference now accurately shows only species with audio</li>
-              <li><strong>Woodpecker pack improvements:</strong> Added Red-headed Woodpecker (RHWO) and Yellow-bellied Sapsucker (YBSA), replaced legacy YSFL code with NOFL (Northern Flicker) - now 7 complete species</li>
               <li><strong>Bird Reference enhancement:</strong> Separated display species (39) from gameplay rotation (27) for Expanded Eastern US Birds pack - Bird Reference now shows all available species for preview</li>
-              <li><strong>Audio quality:</strong> Rejected low-quality PIWO clip, streamlined pack selection tips for better readability</li>
+              <li><strong>UI improvements:</strong> Streamlined pack selection tips, improved Help page tips with confusion matrix mention</li>
             </ul>
           </VersionEntry>
 
