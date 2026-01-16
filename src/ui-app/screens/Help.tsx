@@ -251,7 +251,7 @@ function Help() {
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Cookie consent:</strong> I know I'm a stranger, but please accept my cookies! It really helps me document how many players I have and which birds everyone loves. (GDPR-compliant banner now appears on first visit)</li>
               <li><strong>Privacy controls:</strong> Changed your mind? New "Analytics Cookies" toggle in Settings lets you opt in/out anytime</li>
-              <li><strong>Your data is safe:</strong> IP anonymization enabled, secure cookie flags set, full GDPR/CCPA compliance - I promise I'm just counting bird nerds, not stalking them</li>
+              <li><strong>Your data is safe:</strong> IP anonymization enabled, secure cookie flags set, full GDPR/CCPA compliance - I promise I'm just adding bird nerds to my LIST, not stalking them</li>
             </ul>
           </VersionEntry>
 
