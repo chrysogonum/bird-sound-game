@@ -6349,7 +6349,7 @@
     "quality_score": 5,
     "source": "cornell",
     "source_id": "cornell_011",
-    "file_path": "data/clips/BCCH_cornell_011_1.wav",
+    "file_path": "data/clips/BCCH_a5955f97.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_1.png",
     "canonical": true,
     "rejected": false
@@ -6363,7 +6363,7 @@
     "quality_score": 5,
     "source": "cornell",
     "source_id": "cornell_011",
-    "file_path": "data/clips/BCCH_cornell_011_2.wav",
+    "file_path": "data/clips/BCCH_82c1f5dd.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_2.png",
     "canonical": false,
     "rejected": true
@@ -6377,7 +6377,7 @@
     "quality_score": 5,
     "source": "cornell",
     "source_id": "cornell_011",
-    "file_path": "data/clips/BCCH_cornell_011_3.wav",
+    "file_path": "data/clips/BCCH_d7a5c27a.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_3.png",
     "canonical": false,
     "rejected": true
@@ -6391,7 +6391,7 @@
     "quality_score": 5,
     "source": "cornell",
     "source_id": "cornell_012",
-    "file_path": "data/clips/BCCH_cornell_012_1.wav",
+    "file_path": "data/clips/BCCH_8918cf4e.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_1.png",
     "canonical": false,
     "rejected": false
@@ -6405,7 +6405,7 @@
     "quality_score": 5,
     "source": "cornell",
     "source_id": "cornell_012",
-    "file_path": "data/clips/BCCH_cornell_012_2.wav",
+    "file_path": "data/clips/BCCH_e57ea985.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_2.png",
     "canonical": false,
     "rejected": false
@@ -6419,7 +6419,7 @@
     "quality_score": 5,
     "source": "cornell",
     "source_id": "cornell_012",
-    "file_path": "data/clips/BCCH_cornell_012_3.wav",
+    "file_path": "data/clips/BCCH_66ee9055.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_3.png",
     "canonical": false,
     "rejected": false,
