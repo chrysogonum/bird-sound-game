@@ -4150,7 +4150,7 @@
     "file_path": "data/clips/PIWO_582550.wav",
     "spectrogram_path": "data/spectrograms/PIWO_582550.png",
     "canonical": false,
-    "rejected": false,
+    "rejected": true,
     "recordist": "Brian Hendrix"
   },
   {
