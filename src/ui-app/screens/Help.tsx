@@ -197,6 +197,54 @@ function Help() {
           </p>
         </Section>
 
+        {/* Feedback & Contact */}
+        <Section title="Feedback & Bug Reports">
+          <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
+            We'd love to hear from you! Found a bug? Have a feature suggestion? Want to share your experience?
+          </p>
+          <div style={{
+            background: 'var(--color-surface)',
+            padding: '16px',
+            borderRadius: '12px',
+            marginBottom: '12px'
+          }}>
+            <div style={{ fontSize: '14px', fontWeight: 600, marginBottom: '8px', color: 'var(--color-accent)' }}>
+              📧 Email
+            </div>
+            <a
+              href="mailto:chipnotesfeedback@gmail.com"
+              style={{
+                color: 'var(--color-text)',
+                textDecoration: 'none',
+                fontSize: '14px',
+              }}
+            >
+              chipnotesfeedback@gmail.com
+            </a>
+          </div>
+          <div style={{
+            background: 'var(--color-surface)',
+            padding: '16px',
+            borderRadius: '12px'
+          }}>
+            <div style={{ fontSize: '14px', fontWeight: 600, marginBottom: '8px', color: 'var(--color-accent)' }}>
+              🐛 GitHub Issues
+            </div>
+            <a
+              href="https://github.com/chrysogonum/bird-sound-game/issues"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: 'var(--color-text)',
+                textDecoration: 'none',
+                fontSize: '14px',
+              }}
+            >
+              github.com/chrysogonum/bird-sound-game/issues
+            </a>
+          </div>
+        </Section>
+
         {/* Version History */}
         <Section title="Version History">
           <VersionEntry version="3.16" date="January 16, 2026">
