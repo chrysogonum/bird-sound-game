@@ -527,36 +527,6 @@
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_1.png"
   },
   {
-    "file_path": "data/clips/BCCH_cornell_011_2.wav",
-    "species_name": "Black-capped Chickadee",
-    "species_code": "BCCH",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_011",
-    "quality": "A",
-    "clip_id": "BCCH_cornell_011_2",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BCCH_cornell_011_2.png"
-  },
-  {
-    "file_path": "data/clips/BCCH_cornell_011_3.wav",
-    "species_name": "Black-capped Chickadee",
-    "species_code": "BCCH",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_011",
-    "quality": "A",
-    "clip_id": "BCCH_cornell_011_3",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BCCH_cornell_011_3.png"
-  },
-  {
     "file_path": "data/clips/BCCH_cornell_012_1.wav",
     "species_name": "Black-capped Chickadee",
     "species_code": "BCCH",
@@ -3252,48 +3222,6 @@
     "rejected": false
   },
   {
-    "clip_id": "MODO_580701",
-    "species_code": "MODO",
-    "common_name": "Mourning Dove",
-    "file_path": "data/clips/MODO_580701.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC580701",
-    "canonical": false,
-    "rejected": true,
-    "spectrogram_path": "data/spectrograms/MODO_580701.png",
-    "quality_score": 4
-  },
-  {
-    "clip_id": "MODO_583574",
-    "species_code": "MODO",
-    "common_name": "Mourning Dove",
-    "file_path": "data/clips/MODO_583574.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC583574",
-    "canonical": true,
-    "rejected": true,
-    "spectrogram_path": "data/spectrograms/MODO_583574.png",
-    "quality_score": 4
-  },
-  {
-    "clip_id": "MODO_613539",
-    "species_code": "MODO",
-    "common_name": "Mourning Dove",
-    "file_path": "data/clips/MODO_613539.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC613539",
-    "canonical": false,
-    "rejected": true,
-    "spectrogram_path": "data/spectrograms/MODO_613539.png",
-    "quality_score": 4
-  },
-  {
     "clip_id": "MODO_80851a8a",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
@@ -5759,20 +5687,6 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WBNU_810120.png",
-    "quality_score": 4
-  },
-  {
-    "clip_id": "WBNU_925187",
-    "species_code": "WBNU",
-    "common_name": "White-breasted Nuthatch",
-    "file_path": "data/clips/WBNU_925187.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC925187",
-    "canonical": true,
-    "rejected": true,
-    "spectrogram_path": "data/spectrograms/WBNU_925187.png",
     "quality_score": 4
   },
   {
