@@ -3822,14 +3822,14 @@
     "clip_id": "PISI_04ac4ea7",
     "species_code": "PISI",
     "common_name": "Pine Siskin",
-    "vocalization_type": "song",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "quality_score": 5,
     "source": "cornell",
     "source_id": "cornell_025",
     "file_path": "data/clips/PISI_cornell_025_2.wav",
     "spectrogram_path": "data/spectrograms/PISI_cornell_025_2.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -3843,7 +3843,7 @@
     "source_id": "cornell_025",
     "file_path": "data/clips/PISI_cornell_025_3.wav",
     "spectrogram_path": "data/spectrograms/PISI_cornell_025_3.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "incoming_prompt": "Listen for rising, buzzy \"zreeee\" calls"
   },
@@ -3862,25 +3862,10 @@
     "rejected": false
   },
   {
-    "file_path": "data/clips/PISI_cornell_028_1.wav",
-    "species_name": "Pine Siskin",
-    "species_code": "PISI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_028",
-    "quality": "A",
-    "clip_id": "PISI_cornell_028_1",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/PISI_cornell_028_1.png"
-  },
-  {
     "file_path": "data/clips/PISI_cornell_028_2.wav",
     "species_name": "Pine Siskin",
     "species_code": "PISI",
-    "vocalization_type": "song",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
