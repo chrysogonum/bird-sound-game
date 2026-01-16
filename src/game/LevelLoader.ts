@@ -1,5 +1,5 @@
 /**
- * LevelLoader - Parse and apply Level configs for SoundField: Birds
+ * LevelLoader - Parse and apply Level configs for ChipNotes!
  *
  * Loads level configurations from levels.json and provides methods
  * to access and validate level data.

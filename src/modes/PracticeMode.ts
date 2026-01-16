@@ -1,5 +1,5 @@
 /**
- * PracticeMode - Single species focused practice for SoundField: Birds
+ * PracticeMode - Single species focused practice for ChipNotes!
  *
  * Features:
  * - Focus on a single species

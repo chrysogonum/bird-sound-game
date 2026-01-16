@@ -1,5 +1,5 @@
 /**
- * UI system types for SoundField: Birds
+ * UI system types for ChipNotes!
  */
 
 import type { RoundStats, SpectrogramMode } from '../game/types.js';

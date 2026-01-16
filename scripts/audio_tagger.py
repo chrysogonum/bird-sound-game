@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Audio Tagger for SoundField: Birds
+Audio Tagger for ChipNotes!
 
 Generates metadata JSON for processed audio clips.
 

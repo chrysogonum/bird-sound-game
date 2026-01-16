@@ -1,5 +1,5 @@
 /**
- * PackLoader - Load and validate Pack definitions for SoundField: Birds
+ * PackLoader - Load and validate Pack definitions for ChipNotes!
  *
  * Features:
  * - Load pack JSON files

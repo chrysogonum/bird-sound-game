@@ -1,5 +1,5 @@
 /**
- * ChallengeMode - Timed high-score mode for SoundField: Birds
+ * ChallengeMode - Timed high-score mode for ChipNotes!
  *
  * Features:
  * - Fixed 60-second timed rounds

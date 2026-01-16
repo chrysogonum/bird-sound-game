@@ -1,7 +1,7 @@
 {
-  "name": "SoundField: Birds",
-  "short_name": "SoundField",
-  "description": "Audio training game for bird sound identification",
+  "name": "ChipNotes!",
+  "short_name": "ChipNotes",
+  "description": "Your gamified study guide to bird sounds",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

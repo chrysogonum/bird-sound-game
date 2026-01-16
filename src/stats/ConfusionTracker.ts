@@ -1,5 +1,5 @@
 /**
- * ConfusionTracker - Persistent confusion pattern tracking for SoundField: Birds
+ * ConfusionTracker - Persistent confusion pattern tracking for ChipNotes!
  *
  * Tracks:
  * - Species confusion pairs across games

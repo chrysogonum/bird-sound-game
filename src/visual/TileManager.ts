@@ -1,5 +1,5 @@
 /**
- * TileManager - Manages spectrogram tiles for SoundField: Birds
+ * TileManager - Manages spectrogram tiles for ChipNotes!
  *
  * Handles:
  * - Tile creation and lifecycle management

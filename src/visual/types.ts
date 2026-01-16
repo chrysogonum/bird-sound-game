@@ -1,5 +1,5 @@
 /**
- * Visual system types for SoundField: Birds
+ * Visual system types for ChipNotes!
  *
  * Types for scrolling spectrogram display, tile management, and hit zone indicators.
  */

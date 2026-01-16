@@ -1,5 +1,5 @@
 /**
- * ConfusionMatrix - Species confusion visualization for SoundField: Birds
+ * ConfusionMatrix - Species confusion visualization for ChipNotes!
  *
  * Displays:
  * - Grid of species pairs

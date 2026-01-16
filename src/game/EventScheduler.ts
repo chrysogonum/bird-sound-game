@@ -1,5 +1,5 @@
 /**
- * EventScheduler - Generate Events based on Level params for SoundField: Birds
+ * EventScheduler - Generate Events based on Level params for ChipNotes!
  *
  * Generates game events with proper timing, spacing, and overlap based on
  * level configuration parameters. Supports pack modifiers via DifficultyCalculator.

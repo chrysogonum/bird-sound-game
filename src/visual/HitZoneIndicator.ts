@@ -1,5 +1,5 @@
 /**
- * HitZoneIndicator - Visual feedback for hit timing in SoundField: Birds
+ * HitZoneIndicator - Visual feedback for hit timing in ChipNotes!
  *
  * Displays:
  * - Hit zone bar across both lanes

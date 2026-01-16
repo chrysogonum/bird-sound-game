@@ -1,5 +1,5 @@
 /**
- * LaneRenderer - Scrolling spectrogram display for SoundField: Birds
+ * LaneRenderer - Scrolling spectrogram display for ChipNotes!
  *
  * Renders:
  * - Two lanes (left/right) for stereo audio visualization

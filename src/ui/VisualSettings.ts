@@ -1,5 +1,5 @@
 /**
- * VisualSettings - UI component for visual settings in SoundField: Birds
+ * VisualSettings - UI component for visual settings in ChipNotes!
  *
  * Provides:
  * - Spectrogram visibility mode selection

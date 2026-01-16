@@ -1,5 +1,5 @@
 /**
- * ChannelInput - Left/right tap detection for SoundField: Birds
+ * ChannelInput - Left/right tap detection for ChipNotes!
  *
  * Detects which side of the screen the player taps to select a channel.
  * Left side = left channel, right side = right channel.

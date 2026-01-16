@@ -1,5 +1,5 @@
 /**
- * PackSelector - UI for Pack selection for SoundField: Birds
+ * PackSelector - UI for Pack selection for ChipNotes!
  *
  * Features:
  * - Display available packs

@@ -677,6 +677,18 @@ function PackSelect() {
                                       ★ SIGNATURE
                                     </span>
                                   )}
+                                  {clip.vocalizationType && (
+                                    <span style={{
+                                      fontSize: '9px',
+                                      color: 'var(--color-text-muted)',
+                                      background: 'rgba(255,255,255,0.1)',
+                                      padding: '2px 6px',
+                                      borderRadius: '4px',
+                                      textTransform: 'capitalize',
+                                    }}>
+                                      {clip.vocalizationType}
+                                    </span>
+                                  )}
                                   {clip.source && (
                                     <span style={{
                                       fontSize: '9px',

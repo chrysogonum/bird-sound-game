@@ -1,5 +1,5 @@
 /**
- * AudioEngine - Core playback scheduler for SoundField: Birds
+ * AudioEngine - Core playback scheduler for ChipNotes!
  *
  * Provides sample-accurate, stereo-panned, overlapping playback using the Web Audio API.
  *
