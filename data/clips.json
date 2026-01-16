@@ -3862,36 +3862,6 @@
     "rejected": false
   },
   {
-    "file_path": "data/clips/PISI_cornell_028_2.wav",
-    "species_name": "Pine Siskin",
-    "species_code": "PISI",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_028",
-    "quality": "A",
-    "clip_id": "PISI_cornell_028_2",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/PISI_cornell_028_2.png"
-  },
-  {
-    "file_path": "data/clips/PISI_cornell_028_3.wav",
-    "species_name": "Pine Siskin",
-    "species_code": "PISI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_028",
-    "quality": "A",
-    "clip_id": "PISI_cornell_028_3",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/PISI_cornell_028_3.png"
-  },
-  {
     "clip_id": "PIWA_004a4f83",
     "species_code": "PIWA",
     "common_name": "Pine Warbler",
