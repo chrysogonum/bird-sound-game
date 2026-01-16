@@ -92,7 +92,7 @@ function Help() {
         {/* Tips */}
         <Section title="Tips">
           <Tip>Start with the 5 common birds, even if you're eager for more.</Tip>
-          <Tip>Use Bird Reference on the Pack Select screen to preview sounds.</Tip>
+          <Tip>Use Bird Reference on the Pack Select screen to preview all sounds included in the game.</Tip>
           <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
           <Tip>Check the round summary to see which birds need practice.</Tip>
