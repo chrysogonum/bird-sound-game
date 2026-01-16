@@ -234,6 +234,7 @@ function PackSelect() {
         <ul style={{ margin: 0, paddingLeft: '20px' }}>
           <li>Each pack has 6 levels - from signature sounds to full repertoires. Start at level 1 and repeat when ready for a challenge.</li>
           <li>Pro tip: Enable "training" mode (👁) to kick-start your learning. See <Link to="/help" style={{ color: 'var(--color-accent)' }}>How to Play</Link> for full instructions</li>
+          <li>Timer anxiety? Turn on Continuous Play in Settings for chill, timer-less practice sessions 🧘</li>
           <li style={{ fontWeight: 600 }}>Phone ringer 🔊 ON (unmute) and 🎧 for best experience!</li>
         </ul>
       </div>
