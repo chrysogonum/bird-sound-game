@@ -428,20 +428,6 @@
     "quality_score": 4
   },
   {
-    "clip_id": "BAWW_1014375",
-    "species_code": "BAWW",
-    "common_name": "Black-and-white Warbler",
-    "file_path": "data/clips/BAWW_1014375.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC1014375",
-    "canonical": true,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/BAWW_1014375.png",
-    "quality_score": 4
-  },
-  {
     "clip_id": "BAWW_1036380",
     "species_code": "BAWW",
     "common_name": "Black-and-white Warbler",
@@ -450,7 +436,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1036380",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BAWW_1036380.png",
     "quality_score": 4
