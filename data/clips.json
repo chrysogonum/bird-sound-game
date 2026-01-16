@@ -522,7 +522,7 @@
     "source_id": "cornell_011",
     "quality": "A",
     "clip_id": "BCCH_cornell_011_1",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_1.png"
   },
