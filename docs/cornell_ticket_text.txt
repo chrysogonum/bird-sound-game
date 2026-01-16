@@ -11,8 +11,8 @@ Project Details:
 - Purpose: Educational, non-commercial bird sound identification training
 - License: Open source (MIT)
 - Audience: Birdwatchers, students, naturalists, and educators
-- Current Status: Live with 87 species from Xeno-Canto
-- Users: Hundreds have improved their birding skills
+- Current Status: Launched January 8, 2026 (8 days ago) with 87 species from Xeno-Canto
+- Development: 129 commits, full game engine, production-ready PWA
 
 Request:
 I am requesting access to high-quality audio recordings for 18 Eastern US bird species to expand the educational content. I would greatly appreciate:
@@ -40,12 +40,15 @@ All Macaulay Library media will be properly credited with:
 - Direct links to ML specimen pages
 - Comprehensive credits page listing all contributors
 
-Educational Impact:
-ChipNotes! directly supports Cornell Lab's mission by:
+Educational Potential:
+ChipNotes! aims to support Cornell Lab's mission by:
 - Helping birders develop skills for eBird contributions
 - Providing free, accessible birding education
 - Using expert-curated recordings from ML archive
 - Supporting citizen science and conservation
+
+Why request Cornell media at launch?
+I'm prioritizing content quality and proper attribution from day one, rather than building a user base first. Cornell's curated recordings would establish credibility and scientific accuracy for this new educational tool from its inception.
 
 Technical Specifications:
 - Audio processing: Mono WAV, 44.1kHz, -16 LUFS normalization

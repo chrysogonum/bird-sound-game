@@ -34,19 +34,27 @@ ChipNotes! is a free, web-based application that teaches people to identify bird
 - **Offline capable:** Progressive Web App (PWA) for field use
 
 ### Current Status:
-- **Live and operational** since early 2025
+- **Launched January 8, 2026** (8 days ago)
+- **Rapid development:** 129 commits implementing full game engine, UI, and content system
 - **87 species** currently available (primarily from Xeno-Canto)
 - **Multiple curated packs:** Common Eastern US, Spring Warblers, Sparrows, Woodpeckers, Western Birds
-- **Hundreds of users** have improved their birding skills
+- **Production-ready:** Deployed as PWA with offline support
 - **All content properly attributed** with source links and recordist credits
 
-### Educational Impact:
-ChipNotes! fills a gap in accessible bird sound training tools by:
+### Educational Potential:
+ChipNotes! aims to fill a gap in accessible bird sound training tools by:
 - Making high-quality audio identification training free and accessible
 - Providing structured progression from beginner to expert
 - Offering immediate feedback and spaced repetition
 - Supporting both desktop and mobile learning
 - Complementing field guides with interactive practice
+
+### Why Request Cornell Media at Launch?
+Rather than building user base first, I'm prioritizing content quality and proper attribution from day one. Cornell's curated recordings would:
+- Establish credibility for a new educational tool
+- Ensure consistent quality across all species
+- Support Cornell Lab's educational mission from the project's inception
+- Demonstrate commitment to scientific accuracy over rapid growth
 
 ---
 
@@ -171,23 +179,24 @@ All recordings will be processed to meet ChipNotes! requirements:
 ChipNotes! directly supports Cornell Lab's mission:
 
 ### Shared Goals:
-- **Citizen Science:** Helps birders develop identification skills for eBird contributions
+- **Citizen Science:** Help birders develop identification skills for eBird contributions
 - **Conservation:** Better birders = better data = better conservation outcomes
 - **Accessibility:** Free tool removes financial barriers to birding education
-- **Scientific Accuracy:** Uses expert-curated recordings from ML archive
+- **Scientific Accuracy:** Expert-curated recordings from ML archive
 
-### User Benefits:
+### Intended Audience:
 - **Students:** Structured learning for ornithology courses
 - **Educators:** Free teaching tool for environmental education
 - **Birders:** Skill development for field identification
-- **Researchers:** Trained ears improve field study quality
+- **Researchers:** Ear training for field study quality
 
-### Testimonials (anecdotal):
-Users report:
-- Improved confidence in aural identification
-- Better eBird checklist accuracy
-- Enhanced enjoyment of birding
-- Preparation for spring migration
+### Development Approach:
+This project demonstrates serious commitment through:
+- **Systematic methodology:** Quality score formula for recording selection
+- **Professional codebase:** 129 commits with comprehensive test coverage (522 tests)
+- **Proper attribution infrastructure:** Automated credit tracking from day one
+- **Open source:** Full transparency and community benefit
+- **Long-term vision:** Multi-year roadmap for North American coverage
 
 ---
 
