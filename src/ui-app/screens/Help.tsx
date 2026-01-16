@@ -200,6 +200,23 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
+          <VersionEntry version="3.15" date="January 16, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Xeno-canto attribution:</strong> All Xeno-canto recordings now display recordist names for legal compliance (355 recordings attributed to 87+ contributors)</li>
+              <li><strong>Help page enhancements:</strong> Added "Why Learn Bird Song?" section explaining the educational value of left/right audio training, tech details about PWA offline caching</li>
+              <li><strong>Audio curation:</strong> Extensive clip review and quality improvements - refined canonical clips, updated vocalization types (call/song/drum), removed low-quality recordings</li>
+              <li><strong>UI improvements:</strong> Moved shuffle button above bird grid for better visibility, added "Coming Soon" banner to Stats screen to clarify demo data</li>
+              <li><strong>New bird icons:</strong> Added icons for upcoming Macaulay species (ACFL, EAPH, EWPE, WEVI)</li>
+            </ul>
+          </VersionEntry>
+
+          <VersionEntry version="3.14" date="January 15, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Analytics:</strong> Added Google Analytics 4 tracking for usage insights (page views, pack/level selections, Training Mode adoption)</li>
+              <li><strong>Data fixes:</strong> Restored BCCH, MODO, and WBNU clips lost during Cornell CD processing</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.13" date="January 15, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Western Backyard Birds pack:</strong> 14 new species including Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, and more. Fixed to use 9 random birds per round.</li>
