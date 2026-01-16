@@ -5308,20 +5308,6 @@
     "rejected": false
   },
   {
-    "clip_id": "WBNU_54e3d7b4",
-    "species_code": "WBNU",
-    "common_name": "White-breasted Nuthatch",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "WBNU_925191",
-    "file_path": "data/clips/WBNU_925191.wav",
-    "spectrogram_path": "data/spectrograms/WBNU_925191.png",
-    "canonical": true,
-    "rejected": false
-  },
-  {
     "clip_id": "WBNU_728659",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
@@ -5388,7 +5374,7 @@
     "source_id": "cornell_015",
     "quality": "A",
     "clip_id": "WBNU_cornell_015_1",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WBNU_cornell_015_1.png"
   },
