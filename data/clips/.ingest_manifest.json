@@ -1,6 +1,6 @@
 [
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/MODO_cornell_002_1.wav",
+    "file_path": "data/clips/MODO_cornell_002_1.wav",
     "species_name": "Mourning Dove",
     "species_code": "MODO",
     "vocalization_type": "song",
@@ -11,7 +11,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/MODO_cornell_002_2.wav",
+    "file_path": "data/clips/MODO_cornell_002_2.wav",
     "species_name": "Mourning Dove",
     "species_code": "MODO",
     "vocalization_type": "song",
@@ -22,7 +22,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/MODO_cornell_002_3.wav",
+    "file_path": "data/clips/MODO_cornell_002_3.wav",
     "species_name": "Mourning Dove",
     "species_code": "MODO",
     "vocalization_type": "song",
@@ -33,7 +33,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/DOWO_cornell_003_1.wav",
+    "file_path": "data/clips/DOWO_cornell_003_1.wav",
     "species_name": "Downy Woodpecker",
     "species_code": "DOWO",
     "vocalization_type": "call",
@@ -44,7 +44,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/DOWO_cornell_003_2.wav",
+    "file_path": "data/clips/DOWO_cornell_003_2.wav",
     "species_name": "Downy Woodpecker",
     "species_code": "DOWO",
     "vocalization_type": "call",
@@ -55,7 +55,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/DOWO_cornell_003_3.wav",
+    "file_path": "data/clips/DOWO_cornell_003_3.wav",
     "species_name": "Downy Woodpecker",
     "species_code": "DOWO",
     "vocalization_type": "call",
@@ -66,7 +66,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/DOWO_cornell_004_1.wav",
+    "file_path": "data/clips/DOWO_cornell_004_1.wav",
     "species_name": "Downy Woodpecker",
     "species_code": "DOWO",
     "vocalization_type": "call",
@@ -77,7 +77,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/DOWO_cornell_004_2.wav",
+    "file_path": "data/clips/DOWO_cornell_004_2.wav",
     "species_name": "Downy Woodpecker",
     "species_code": "DOWO",
     "vocalization_type": "call",
@@ -88,7 +88,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/DOWO_cornell_004_3.wav",
+    "file_path": "data/clips/DOWO_cornell_004_3.wav",
     "species_name": "Downy Woodpecker",
     "species_code": "DOWO",
     "vocalization_type": "call",
@@ -99,7 +99,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/NOFL_cornell_005_1.wav",
+    "file_path": "data/clips/NOFL_cornell_005_1.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
     "vocalization_type": "call",
@@ -110,7 +110,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/NOFL_cornell_005_2.wav",
+    "file_path": "data/clips/NOFL_cornell_005_2.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
     "vocalization_type": "call",
@@ -121,7 +121,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/NOFL_cornell_005_3.wav",
+    "file_path": "data/clips/NOFL_cornell_005_3.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
     "vocalization_type": "call",
@@ -132,7 +132,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/NOFL_cornell_006_1.wav",
+    "file_path": "data/clips/NOFL_cornell_006_1.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
     "vocalization_type": "call",
@@ -143,7 +143,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/NOFL_cornell_006_2.wav",
+    "file_path": "data/clips/NOFL_cornell_006_2.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
     "vocalization_type": "call",
@@ -154,7 +154,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/NOFL_cornell_007_1.wav",
+    "file_path": "data/clips/NOFL_cornell_007_1.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
     "vocalization_type": "call",
@@ -165,7 +165,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/NOFL_cornell_007_2.wav",
+    "file_path": "data/clips/NOFL_cornell_007_2.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
     "vocalization_type": "call",
@@ -176,7 +176,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/NOFL_cornell_007_3.wav",
+    "file_path": "data/clips/NOFL_cornell_007_3.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
     "vocalization_type": "call",
@@ -187,106 +187,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/STJA_cornell_008_1.wav",
-    "species_name": "Steller's Jay",
-    "species_code": "STJA",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_008",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/STJA_cornell_008_2.wav",
-    "species_name": "Steller's Jay",
-    "species_code": "STJA",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_008",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/STJA_cornell_008_3.wav",
-    "species_name": "Steller's Jay",
-    "species_code": "STJA",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_008",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/STJA_cornell_009_1.wav",
-    "species_name": "Steller's Jay",
-    "species_code": "STJA",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_009",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/STJA_cornell_009_2.wav",
-    "species_name": "Steller's Jay",
-    "species_code": "STJA",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_009",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/STJA_cornell_009_3.wav",
-    "species_name": "Steller's Jay",
-    "species_code": "STJA",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_009",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WESJ_cornell_010_1.wav",
-    "species_name": "Western Scrub-Jay",
-    "species_code": "WESJ",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_010",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WESJ_cornell_010_2.wav",
-    "species_name": "Western Scrub-Jay",
-    "species_code": "WESJ",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_010",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WESJ_cornell_010_3.wav",
-    "species_name": "Western Scrub-Jay",
-    "species_code": "WESJ",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_010",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/BCCH_cornell_011_1.wav",
+    "file_path": "data/clips/BCCH_cornell_011_1.wav",
     "species_name": "Black-capped Chickadee",
     "species_code": "BCCH",
     "vocalization_type": "song",
@@ -297,7 +198,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/BCCH_cornell_011_2.wav",
+    "file_path": "data/clips/BCCH_cornell_011_2.wav",
     "species_name": "Black-capped Chickadee",
     "species_code": "BCCH",
     "vocalization_type": "song",
@@ -308,7 +209,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/BCCH_cornell_011_3.wav",
+    "file_path": "data/clips/BCCH_cornell_011_3.wav",
     "species_name": "Black-capped Chickadee",
     "species_code": "BCCH",
     "vocalization_type": "song",
@@ -319,7 +220,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/BCCH_cornell_012_1.wav",
+    "file_path": "data/clips/BCCH_cornell_012_1.wav",
     "species_name": "Black-capped Chickadee",
     "species_code": "BCCH",
     "vocalization_type": "call",
@@ -330,7 +231,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/BCCH_cornell_012_2.wav",
+    "file_path": "data/clips/BCCH_cornell_012_2.wav",
     "species_name": "Black-capped Chickadee",
     "species_code": "BCCH",
     "vocalization_type": "call",
@@ -341,7 +242,7 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/BCCH_cornell_012_3.wav",
+    "file_path": "data/clips/BCCH_cornell_012_3.wav",
     "species_name": "Black-capped Chickadee",
     "species_code": "BCCH",
     "vocalization_type": "call",
@@ -352,76 +253,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_013_1.wav",
+    "file_path": "data/clips/WBNU_cornell_015_1.wav",
     "species_name": "White-breasted Nuthatch",
     "species_code": "WBNU",
     "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_013",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_013_2.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_013",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_013_3.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -17.0,
-    "source": "cornell",
-    "source_id": "cornell_013",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_014_1.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_014",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_014_2.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_014",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_014_3.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_014",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_015_1.wav",
-    "species_name": "White-breasted Nuthatch",
-    "species_code": "WBNU",
-    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -429,10 +264,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_015_2.wav",
+    "file_path": "data/clips/WBNU_cornell_015_2.wav",
     "species_name": "White-breasted Nuthatch",
     "species_code": "WBNU",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -440,10 +275,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WBNU_cornell_015_3.wav",
+    "file_path": "data/clips/WBNU_cornell_015_3.wav",
     "species_name": "White-breasted Nuthatch",
     "species_code": "WBNU",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -451,10 +286,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_016_1.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "song",
+    "file_path": "data/clips/WBNU_cornell_016_1.wav",
+    "species_name": "White-breasted Nuthatch",
+    "species_code": "WBNU",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -462,10 +297,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_016_2.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "song",
+    "file_path": "data/clips/WBNU_cornell_016_2.wav",
+    "species_name": "White-breasted Nuthatch",
+    "species_code": "WBNU",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -473,10 +308,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_016_3.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "song",
+    "file_path": "data/clips/WBNU_cornell_016_3.wav",
+    "species_name": "White-breasted Nuthatch",
+    "species_code": "WBNU",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -484,241 +319,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_017_1.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_017",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_017_2.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_017",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_017_3.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_017",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_018_1.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_018",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_018_2.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.1,
-    "source": "cornell",
-    "source_id": "cornell_018",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/WCSP_cornell_018_3.wav",
-    "species_name": "White-crowned Sparrow",
-    "species_code": "WCSP",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_018",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/RWBL_cornell_019_1.wav",
+    "file_path": "data/clips/RWBL_cornell_024_1.wav",
     "species_name": "Red-winged Blackbird",
     "species_code": "RWBL",
     "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_019",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/RWBL_cornell_019_2.wav",
-    "species_name": "Red-winged Blackbird",
-    "species_code": "RWBL",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_019",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/RWBL_cornell_019_3.wav",
-    "species_name": "Red-winged Blackbird",
-    "species_code": "RWBL",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_019",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/RWBL_cornell_020_1.wav",
-    "species_name": "Red-winged Blackbird",
-    "species_code": "RWBL",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_020",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/RWBL_cornell_020_2.wav",
-    "species_name": "Red-winged Blackbird",
-    "species_code": "RWBL",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_020",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/RWBL_cornell_020_3.wav",
-    "species_name": "Red-winged Blackbird",
-    "species_code": "RWBL",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_020",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/CAFI_cornell_021_1.wav",
-    "species_name": "Cassin's Finch",
-    "species_code": "CAFI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_021",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/CAFI_cornell_021_2.wav",
-    "species_name": "Cassin's Finch",
-    "species_code": "CAFI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_021",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/CAFI_cornell_021_3.wav",
-    "species_name": "Cassin's Finch",
-    "species_code": "CAFI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_021",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/CAFI_cornell_022_1.wav",
-    "species_name": "Cassin's Finch",
-    "species_code": "CAFI",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_022",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/CAFI_cornell_022_2.wav",
-    "species_name": "Cassin's Finch",
-    "species_code": "CAFI",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_022",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/CAFI_cornell_022_3.wav",
-    "species_name": "Cassin's Finch",
-    "species_code": "CAFI",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_022",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/HOFI_cornell_023_1.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_023",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/HOFI_cornell_023_2.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_023",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/HOFI_cornell_023_3.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_023",
-    "quality": "A"
-  },
-  {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/HOFI_cornell_024_1.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -726,10 +330,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/HOFI_cornell_024_2.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "call",
+    "file_path": "data/clips/RWBL_cornell_024_2.wav",
+    "species_name": "Red-winged Blackbird",
+    "species_code": "RWBL",
+    "vocalization_type": "song",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -737,10 +341,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/HOFI_cornell_024_3.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "call",
+    "file_path": "data/clips/RWBL_cornell_024_3.wav",
+    "species_name": "Red-winged Blackbird",
+    "species_code": "RWBL",
+    "vocalization_type": "song",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -748,10 +352,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/PISI_cornell_025_1.wav",
-    "species_name": "Pine Siskin",
-    "species_code": "PISI",
-    "vocalization_type": "song",
+    "file_path": "data/clips/RWBL_cornell_025_1.wav",
+    "species_name": "Red-winged Blackbird",
+    "species_code": "RWBL",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -759,10 +363,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/PISI_cornell_025_2.wav",
-    "species_name": "Pine Siskin",
-    "species_code": "PISI",
-    "vocalization_type": "song",
+    "file_path": "data/clips/RWBL_cornell_025_2.wav",
+    "species_name": "Red-winged Blackbird",
+    "species_code": "RWBL",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -770,10 +374,10 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/PISI_cornell_025_3.wav",
-    "species_name": "Pine Siskin",
-    "species_code": "PISI",
-    "vocalization_type": "song",
+    "file_path": "data/clips/RWBL_cornell_025_3.wav",
+    "species_name": "Red-winged Blackbird",
+    "species_code": "RWBL",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -781,9 +385,9 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/AMGO_cornell_026_1.wav",
-    "species_name": "American Goldfinch",
-    "species_code": "AMGO",
+    "file_path": "data/clips/HOFI_cornell_026_1.wav",
+    "species_name": "House Finch",
+    "species_code": "HOFI",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
@@ -792,9 +396,9 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/AMGO_cornell_026_2.wav",
-    "species_name": "American Goldfinch",
-    "species_code": "AMGO",
+    "file_path": "data/clips/HOFI_cornell_026_2.wav",
+    "species_name": "House Finch",
+    "species_code": "HOFI",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
@@ -803,9 +407,9 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/AMGO_cornell_026_3.wav",
-    "species_name": "American Goldfinch",
-    "species_code": "AMGO",
+    "file_path": "data/clips/HOFI_cornell_026_3.wav",
+    "species_name": "House Finch",
+    "species_code": "HOFI",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
@@ -814,9 +418,9 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/EVGR_cornell_027_1.wav",
-    "species_name": "Evening Grosbeak",
-    "species_code": "EVGR",
+    "file_path": "data/clips/HOFI_cornell_027_1.wav",
+    "species_name": "House Finch",
+    "species_code": "HOFI",
     "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
@@ -825,9 +429,9 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/EVGR_cornell_027_2.wav",
-    "species_name": "Evening Grosbeak",
-    "species_code": "EVGR",
+    "file_path": "data/clips/HOFI_cornell_027_2.wav",
+    "species_name": "House Finch",
+    "species_code": "HOFI",
     "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
@@ -836,14 +440,80 @@
     "quality": "A"
   },
   {
-    "file_path": "/Users/peterrepetti/bird_sound_game/data/clips/EVGR_cornell_027_3.wav",
-    "species_name": "Evening Grosbeak",
-    "species_code": "EVGR",
+    "file_path": "data/clips/HOFI_cornell_027_3.wav",
+    "species_name": "House Finch",
+    "species_code": "HOFI",
     "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
     "source_id": "cornell_027",
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/PISI_cornell_028_1.wav",
+    "species_name": "Pine Siskin",
+    "species_code": "PISI",
+    "vocalization_type": "song",
+    "duration_ms": 2000,
+    "loudness_lufs": -16.0,
+    "source": "cornell",
+    "source_id": "cornell_028",
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/PISI_cornell_028_2.wav",
+    "species_name": "Pine Siskin",
+    "species_code": "PISI",
+    "vocalization_type": "song",
+    "duration_ms": 2000,
+    "loudness_lufs": -16.0,
+    "source": "cornell",
+    "source_id": "cornell_028",
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/PISI_cornell_028_3.wav",
+    "species_name": "Pine Siskin",
+    "species_code": "PISI",
+    "vocalization_type": "song",
+    "duration_ms": 2000,
+    "loudness_lufs": -16.0,
+    "source": "cornell",
+    "source_id": "cornell_028",
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/AMGO_cornell_029_1.wav",
+    "species_name": "American Goldfinch",
+    "species_code": "AMGO",
+    "vocalization_type": "song",
+    "duration_ms": 2000,
+    "loudness_lufs": -16.0,
+    "source": "cornell",
+    "source_id": "cornell_029",
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/AMGO_cornell_029_2.wav",
+    "species_name": "American Goldfinch",
+    "species_code": "AMGO",
+    "vocalization_type": "song",
+    "duration_ms": 2000,
+    "loudness_lufs": -16.0,
+    "source": "cornell",
+    "source_id": "cornell_029",
+    "quality": "A"
+  },
+  {
+    "file_path": "data/clips/AMGO_cornell_029_3.wav",
+    "species_name": "American Goldfinch",
+    "species_code": "AMGO",
+    "vocalization_type": "song",
+    "duration_ms": 2000,
+    "loudness_lufs": -16.0,
+    "source": "cornell",
+    "source_id": "cornell_029",
     "quality": "A"
   }
 ]

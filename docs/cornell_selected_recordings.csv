@@ -1,0 +1,181 @@
+Species_Code,Common_Name,ML_Catalog_Number,Rating,Num_Raters,Vocalization_Type,Month,Year,Recordist,Selection_Reason
+GCFL,Great Crested Flycatcher,347203291,5.00,3,unknown,6,2021,LynnErla Beegle,Best overall (unknown)
+GCFL,Great Crested Flycatcher,56846051,5.00,2,call,5,2017,Martin Wall,Only call
+GCFL,Great Crested Flycatcher,331708541,4.50,2,song,4,2021,Kent Fiala,Only song
+GCFL,Great Crested Flycatcher,621939751,3.00,1,dawn song,6,2024,Alex Trifunovic,Only dawn song
+GCFL,Great Crested Flycatcher,340209621,3.00,1,vocalization,5,2021,Martin Wall,Only vocalization
+GCFL,Great Crested Flycatcher,618054779,5.00,2,unknown,4,2024,Morgan Reisinger,High quality unknown
+GCFL,Great Crested Flycatcher,609272677,5.00,2,unknown,9,2023,Katherine Thorington,High quality unknown
+GCFL,Great Crested Flycatcher,340827581,5.00,2,unknown,5,2021,stephen pattee,High quality unknown
+GCFL,Great Crested Flycatcher,334688101,5.00,2,unknown,5,2021,stephen pattee,High quality unknown
+GCFL,Great Crested Flycatcher,331925121,5.00,2,unknown,4,2021,Jeremy Wrenn,High quality unknown
+EAPH,Eastern Phoebe,145316711,4.25,4,unknown,3,2019,Guy McGrane,Best overall (unknown)
+EAPH,Eastern Phoebe,127082111,4.25,4,song,12,2018,LynnErla Beegle,High quality song
+EAPH,Eastern Phoebe,538791051,4.67,3,chip note,2,2023,Guy McGrane,Only chip note
+EAPH,Eastern Phoebe,166287431,4.00,3,call,6,2019,Paula Caycedo,Only call
+EAPH,Eastern Phoebe,94418791,3.67,3,flight call/song,4,2018,Seth Buddy,Only flight call/song
+EAPH,Eastern Phoebe,179739731,4.00,4,unknown,9,2019,LynnErla Beegle,High quality unknown
+EAPH,Eastern Phoebe,627398738,5.00,2,unknown,12,2024,sheryl mcnair,High quality unknown
+EAPH,Eastern Phoebe,624146790,5.00,2,unknown,9,2024,Mark Montazer,High quality unknown
+EAPH,Eastern Phoebe,380623271,5.00,2,unknown,10,2021,Laura Mae,High quality unknown
+EAPH,Eastern Phoebe,610326681,5.00,2,song,10,2023,Greg Hudson,High quality song
+EWPE,Eastern Wood-Pewee,174712141,4.67,3,call,6,2019,Trevor Sleight,Best overall (call)
+EWPE,Eastern Wood-Pewee,622228366,5.00,2,unknown,8,2024,Randy Yuen,High quality unknown
+EWPE,Eastern Wood-Pewee,63294891,4.33,3,song,7,2017,Christine Stoughton Root,Only song
+EWPE,Eastern Wood-Pewee,26777,3.00,5,dawn song,6,1979,Margery R. Plymire,Only dawn song
+EWPE,Eastern Wood-Pewee,621907005,5.00,2,unknown,7,2024,Robert Russo,High quality unknown
+EWPE,Eastern Wood-Pewee,265372891,5.00,2,unknown,9,2020,Kent Fiala,High quality unknown
+EWPE,Eastern Wood-Pewee,230869461,5.00,2,unknown,5,2020,Steven Howell,High quality unknown
+EWPE,Eastern Wood-Pewee,622238449,4.50,2,unknown,7,2024,Joe Poston,High quality unknown
+EWPE,Eastern Wood-Pewee,618927330,4.50,2,unknown,5,2024,Alex Fuller,High quality unknown
+EWPE,Eastern Wood-Pewee,605727371,4.50,2,unknown,8,2023,stephen pattee,High quality unknown
+ACFL,Acadian Flycatcher,242760321,4.67,3,unknown,6,2020,Chip Davis,Best overall (unknown)
+ACFL,Acadian Flycatcher,583128881,5.00,2,song,6,2023,Seth Buddy,High quality song
+ACFL,Acadian Flycatcher,344023401,4.50,2,call,5,2021,Kent Fiala,Only call
+ACFL,Acadian Flycatcher,236062301,3.00,1,dawn song,5,2020,Guy McGrane,Only dawn song
+ACFL,Acadian Flycatcher,99256771,5.00,2,song,5,2018,Marilyn Westphal,High quality song
+ACFL,Acadian Flycatcher,250096811,4.50,2,unknown,7,2020,Seth Buddy,High quality unknown
+ACFL,Acadian Flycatcher,247644011,4.50,2,unknown,7,2007,Arch  McCallum,High quality unknown
+ACFL,Acadian Flycatcher,243724151,4.50,2,unknown,5,2014,Rob Bierregaard,High quality unknown
+ACFL,Acadian Flycatcher,496311911,4.50,2,song,9,2022,Sam Zhang,High quality song
+ACFL,Acadian Flycatcher,340946831,4.50,2,song,5,2021,Kent Fiala,High quality song
+WEVI,White-eyed Vireo,323221791,4.00,4,song,4,2021,Kent Fiala,Best overall (song)
+WEVI,White-eyed Vireo,562213521,5.00,2,unknown,4,2023,Jacob Clark,High quality unknown
+WEVI,White-eyed Vireo,643960189,4.00,1,call,6,2025,Joshua Emm,Only call
+WEVI,White-eyed Vireo,562213541,5.00,2,unknown,4,2023,Jacob Clark,High quality unknown
+WEVI,White-eyed Vireo,556896261,5.00,2,song,4,2023,Kent Fiala,High quality song
+WEVI,White-eyed Vireo,156221491,5.00,2,song,5,2019,Kate Johnson,High quality song
+WEVI,White-eyed Vireo (White-eyed),11683,3.40,5,song,4,1963,Robert C. Stein,High quality song
+WEVI,White-eyed Vireo,92756601,4.00,3,song,4,2018,Martina Nordstrand,High quality song
+WEVI,White-eyed Vireo,639340828,4.50,2,unknown,7,2025,Ralph Erickson,High quality unknown
+WEVI,White-eyed Vireo,631915192,4.50,2,unknown,3,2025,Caleb Bronsink,High quality unknown
+BGGN,Blue-gray Gnatcatcher (Eastern),617066587,5.00,2,call,4,2024,Greg Hudson,Best overall (call)
+BGGN,Blue-gray Gnatcatcher,620302935,5.00,2,unknown,5,2024,Eric Cormier,High quality unknown
+BGGN,Blue-gray Gnatcatcher,101674201,4.00,3,song,5,2018,Christine Stoughton Root,Only song
+BGGN,Blue-gray Gnatcatcher,58734961,4.00,3,vocalization,4,2017,Martin Wall,Only vocalization
+BGGN,Blue-gray Gnatcatcher,283257311,5.00,2,unknown,11,2020,Steven Howell,High quality unknown
+BGGN,Blue-gray Gnatcatcher,554005251,4.00,3,call,3,2023,Michelle Martin,High quality call
+BGGN,Blue-gray Gnatcatcher,247417991,4.00,3,call,7,2020,Art Webster,High quality call
+BGGN,Blue-gray Gnatcatcher,225904391,3.50,4,unknown,4,2020,Guy McGrane,High quality unknown
+BGGN,Blue-gray Gnatcatcher,452637521,4.50,2,call,5,2022,LynnErla Beegle,High quality call
+BGGN,Blue-gray Gnatcatcher,632990034,4.50,2,unknown,3,2025,Ralph Erickson,High quality unknown
+NHWR,Northern House Wren,620146961,5.00,2,song,6,2024,Seth Buddy,Best overall (song)
+NHWR,Northern House Wren,570520531,5.00,2,unknown,5,2023,Claudia Nielson,High quality unknown
+NHWR,Northern House Wren,72207791,5.00,2,call,10,2017,Christine Stoughton Root,High quality call
+NHWR,Northern House Wren,155787291,4.33,3,song,5,2019,Arch  McCallum,High quality song
+NHWR,Northern House Wren,121669501,4.33,3,call,11,2018,Martin Wall,High quality call
+NHWR,Northern House Wren (Northern),625807969,4.50,2,song,11,2024,Greg Hudson,High quality song
+NHWR,Northern House Wren,155787281,4.50,2,song,5,2019,Arch  McCallum,High quality song
+NHWR,Northern House Wren,624431810,4.50,2,unknown,10,2024,Mark Montazer,High quality unknown
+NHWR,Northern House Wren,616721719,4.50,2,unknown,3,2024,Mark DiGiovanni,High quality unknown
+NHWR,Northern House Wren,635189484,5.00,1,song,5,2025,John Frazier,High quality song
+REVI,Red-eyed Vireo,562451051,4.67,3,song,4,2023,Kent Fiala,Best overall (song)
+REVI,Red-eyed Vireo,562215151,5.00,2,unknown,4,2023,Jacob Clark,High quality unknown
+REVI,Red-eyed Vireo,111141981,4.50,2,call,8,2018,Steve Semanchuk,Only call
+REVI,Red-eyed Vireo,261271911,5.00,2,unknown,9,2020,Guy McGrane,High quality unknown
+REVI,Red-eyed Vireo,231922661,5.00,2,unknown,5,2012,Rob Bierregaard,High quality unknown
+REVI,Red-eyed Vireo,230867821,5.00,2,unknown,5,2020,Silas Powell,High quality unknown
+REVI,Red-eyed Vireo,248406801,5.00,2,song,7,2020,Seth Buddy,High quality song
+REVI,Red-eyed Vireo,239325721,5.00,2,song,5,2020,Seth Buddy,High quality song
+REVI,Red-eyed Vireo,164288681,5.00,2,song,6,2019,Martin Wall,High quality song
+REVI,Red-eyed Vireo,230476891,4.33,3,unknown,5,2020,stephen pattee,High quality unknown
+SWTH,Swainson's Thrush,636434559,4.50,2,song,5,2025,Seth Buddy,Best overall (song)
+SWTH,Swainson's Thrush,618661039,4.50,2,unknown,5,2024,Thomas Sanders,High quality unknown
+SWTH,Swainson's Thrush,339498781,4.00,1,call,5,2021,Matt Wangerin,Only call
+SWTH,Swainson's Thrush,609128932,3.00,1,flight call/song,9,2023,Daniel Irons,Only flight call/song
+SWTH,Swainson's Thrush,233100101,4.50,2,song,5,2020,Seth Buddy,High quality song
+SWTH,Swainson's Thrush,636434558,5.00,1,song,5,2025,Seth Buddy,High quality song
+SWTH,Swainson's Thrush,634522991,5.00,1,unknown,4,2025,Heather Buttonow,High quality unknown
+SWTH,Swainson's Thrush,458220261,5.00,1,unknown,6,2022,sheryl mcnair,High quality unknown
+SWTH,Swainson's Thrush,624640308,4.00,2,unknown,10,2024,Trenton Voytko,High quality unknown
+SWTH,Swainson's Thrush,443550501,3.33,3,unknown,5,2022,Kent Fiala,High quality unknown
+PUFI,Purple Finch,631910258,4.50,2,song,3,2025,Curtis  Downey,Best overall (song)
+PUFI,Purple Finch (Eastern),553416021,4.00,1,call,4,2023,Jay Wherley,Only call
+PUFI,Purple Finch,151578701,2.67,3,flight call/song,4,2019,Judi Sawyer,Only flight call/song
+PUFI,Purple Finch,633877652,3.00,2,unknown,4,2023,Nate Kienzle,High quality unknown
+PUFI,Purple Finch,21785371,3.67,3,song,12,2015,Martin Wall,High quality song
+PUFI,Purple Finch,590364111,3.00,2,unknown,2,2023,Andrew Rapp,High quality unknown
+PUFI,Purple Finch,645172330,3.00,1,unknown,11,2025,John M Campbell,High quality unknown
+PUFI,Purple Finch,631746425,3.00,1,unknown,3,2025,Jack Ryan,High quality unknown
+PUFI,Purple Finch,615119449,3.00,1,unknown,2,2024,Anonymous,High quality unknown
+PUFI,Purple Finch,547164621,3.00,1,unknown,3,2023,kenneth lipshy,High quality unknown
+RBGR,Rose-breasted Grosbeak,633472456,5.00,2,unknown,9,2024,david pennebaker,Best overall (unknown)
+RBGR,Rose-breasted Grosbeak,59426781,4.33,3,song,5,2017,Christine Stoughton Root,High quality song
+RBGR,Rose-breasted Grosbeak,157956151,4.50,2,call,4,2019,Martin Wall,Only call
+RBGR,Rose-breasted Grosbeak,352405141,5.00,2,unknown,7,2021,sheryl mcnair,High quality unknown
+RBGR,Rose-breasted Grosbeak,624323075,4.50,2,unknown,9,2024,Heather Buttonow,High quality unknown
+RBGR,Rose-breasted Grosbeak,240593801,4.50,2,unknown,6,2020,Marilyn Westphal,High quality unknown
+RBGR,Rose-breasted Grosbeak,231564011,3.67,3,song,5,2020,Seth Buddy,High quality song
+RBGR,Rose-breasted Grosbeak,484349201,5.00,1,unknown,9,2022,Dana Miller,High quality unknown
+RBGR,Rose-breasted Grosbeak,633472425,4.00,2,unknown,9,2024,david pennebaker,High quality unknown
+RBGR,Rose-breasted Grosbeak,624360419,4.00,2,unknown,9,2024,Trenton Voytko,High quality unknown
+SCTA,Scarlet Tanager,235730161,5.00,2,song,5,2020,Seth Buddy,Best overall (song)
+SCTA,Scarlet Tanager,620298484,5.00,2,unknown,6,2024,Thomas Sanders,High quality unknown
+SCTA,Scarlet Tanager,606379901,4.50,2,call,6,2023,John Koon,Only call
+SCTA,Scarlet Tanager,484647481,3.00,2,chip note,9,2022,sheryl mcnair,Only chip note
+SCTA,Scarlet Tanager,608983565,5.00,2,unknown,7,2023,Lucas Bobay,High quality unknown
+SCTA,Scarlet Tanager,99258191,4.00,3,song,5,2018,Marilyn Westphal,High quality song
+SCTA,Scarlet Tanager,231906831,3.50,4,unknown,5,2020,Jin Bai,High quality unknown
+SCTA,Scarlet Tanager,634098419,4.50,2,song,4,2025,Seth Buddy,High quality song
+SCTA,Scarlet Tanager,620302101,4.50,2,song,6,2024,Seth Buddy,High quality song
+SCTA,Scarlet Tanager,590514341,4.50,2,song,6,2023,Kent Fiala,High quality song
+SUTA,Summer Tanager,559082471,5.00,3,song,4,2023,Kent Fiala,Best overall (song)
+SUTA,Summer Tanager,165813061,4.25,4,call,5,2019,Martina Nordstrand,High quality call
+SUTA,Summer Tanager,222090671,4.67,3,unknown,4,2020,Amy Padgett,High quality unknown
+SUTA,Summer Tanager,621937867,3.00,1,dawn song,5,2024,Alex Trifunovic,Only dawn song
+SUTA,Summer Tanager,152577141,4.25,4,song,4,2019,Amy Padgett,High quality song
+SUTA,Summer Tanager,365190911,5.00,2,call,4,2021,Daniel Irons,High quality call
+SUTA,Summer Tanager,565684011,5.00,2,song,5,2023,Kent Fiala,High quality song
+SUTA,Summer Tanager,447535881,5.00,2,song,5,2022,Greg Hudson,High quality song
+SUTA,Summer Tanager,333464771,5.00,2,song,5,2021,Greg Hudson,High quality song
+SUTA,Summer Tanager,244737211,5.00,2,unknown,6,2020,Paul Beerman,High quality unknown
+VEER,Veery,249333751,4.75,4,song,7,2009,Arch  McCallum,Best overall (song)
+VEER,Veery,242350921,4.67,3,unknown,6,2016,Arch  McCallum,High quality unknown
+VEER,Veery,590509221,5.00,2,call,6,2023,Kent Fiala,Only call
+VEER,Veery,284298901,4.00,2,flight call/song,7,2020,Martina Nordstrand,Only flight call/song
+VEER,Veery,60429121,4.20,5,song,5,2017,Al Hooks,High quality song
+VEER,Veery,58350331,4.67,3,unknown,5,2017,Guy McGrane,High quality unknown
+VEER,Veery,611588160,5.00,2,unknown,7,2023,Andrew Rapp,High quality unknown
+VEER,Veery,339875261,5.00,2,unknown,5,2021,scott davis,High quality unknown
+VEER,Veery,352857311,5.00,2,song,7,2021,Greg Hudson,High quality song
+VEER,Veery,242369391,4.00,3,unknown,6,2016,Arch  McCallum,High quality unknown
+DEJU,Dark-eyed Junco (Slate-colored),79472,5.00,10,song,7,1996,Wil Hershberger,Best overall (song)
+DEJU,Dark-eyed Junco (Slate-colored),222862711,3.83,6,unknown,4,2020,Maxwell Ramey,High quality unknown
+DEJU,Dark-eyed Junco (Slate-colored),105471,4.00,4,call,6,1994,Geoffrey A. Keller,Only call
+DEJU,Dark-eyed Junco,188867011,4.00,2,flight call/song,11,2019,Martin Wall,Only flight call/song
+DEJU,Dark-eyed Junco,193246081,3.00,2,chip note,12,2019,sheryl mcnair,Only chip note
+DEJU,Dark-eyed Junco,59067121,4.67,3,song,5,2017,Marilyn Westphal,High quality song
+DEJU,Dark-eyed Junco (Slate-colored),105481,4.00,4,song,6,1994,Geoffrey A. Keller,High quality song
+DEJU,Dark-eyed Junco (Slate-colored),105480,4.00,4,song,6,1994,Geoffrey A. Keller,High quality song
+DEJU,Dark-eyed Junco (Slate-colored),641728986,5.00,2,unknown,6,2025,Bryan Sharp,High quality unknown
+DEJU,Dark-eyed Junco,620372852,5.00,2,unknown,6,2024,Arch  McCallum,High quality unknown
+BHCO,Brown-headed Cowbird,26292651,3.83,12,song,3,2016,Martin Wall,Best overall (song)
+BHCO,Brown-headed Cowbird,439291001,4.67,3,unknown,4,2022,Aaron Edmonds,High quality unknown
+BHCO,Brown-headed Cowbird,104347531,3.50,6,call,6,2018,LynnErla Beegle,High quality call
+BHCO,Brown-headed Cowbird,462822991,4.33,3,unknown,6,2022,kenneth lipshy,High quality unknown
+BHCO,Brown-headed Cowbird,590317961,3.75,4,call,6,2023,Rob Bierregaard,High quality call
+BHCO,Brown-headed Cowbird,244956981,3.75,4,call,6,2020,Seth Buddy,High quality call
+BHCO,Brown-headed Cowbird,295187281,3.75,4,unknown,1,2021,steve b,High quality unknown
+BHCO,Brown-headed Cowbird,221631371,3.75,4,unknown,4,2020,Aaron Edmonds,High quality unknown
+BHCO,Brown-headed Cowbird,218163061,3.75,4,unknown,3,2020,Martin Wall,High quality unknown
+BHCO,Brown-headed Cowbird,229436871,3.75,4,song,5,2020,Miles Buddy,High quality song
+CHSW,Chimney Swift,69710231,4.00,7,call,9,2017,Martin Wall,Best overall (call)
+CHSW,Chimney Swift,107907631,4.17,6,unknown,7,2018,Eddie Owens,High quality unknown
+CHSW,Chimney Swift,235269391,4.40,5,flight call/song,5,2020,Seth Buddy,High quality flight call/song
+CHSW,Chimney Swift,101564111,3.29,7,song,5,2018,Steve Semanchuk,Only song
+CHSW,Chimney Swift,598583591,4.40,5,unknown,7,2023,Caleb Bronsink,High quality unknown
+CHSW,Chimney Swift,96396631,3.71,7,call,4,2018,LynnErla Beegle,High quality call
+CHSW,Chimney Swift,69710271,3.71,7,call,9,2017,Martin Wall,High quality call
+CHSW,Chimney Swift,335251331,4.20,5,flight call/song,5,2021,LynnErla Beegle,High quality flight call/song
+CHSW,Chimney Swift,235269401,4.20,5,flight call/song,5,2020,Seth Buddy,High quality flight call/song
+CHSW,Chimney Swift,221962131,3.57,7,flight call/song,4,2020,Martin Wall,High quality flight call/song
+EUST,European Starling,451305061,4.40,5,unknown,5,2022,Trenton Voytko,Best overall (unknown)
+EUST,European Starling,232799671,4.20,5,call,5,2020,Martin Wall,High quality call
+EUST,European Starling,71204211,3.00,6,song,10,2017,LynnErla Beegle,Only song
+EUST,European Starling,63681961,2.67,6,flight call/song,7,2017,Martin Wall,Only flight call/song
+EUST,European Starling,613957387,4.00,5,unknown,1,2024,Denise Chadurjian,High quality unknown
+EUST,European Starling,557324211,3.80,5,call,4,2023,Martin Wall,High quality call
+EUST,European Starling,207732081,3.80,5,call,12,2019,Martin Wall,High quality call
+EUST,European Starling,630298499,3.60,5,unknown,2,2025,Katie Boyette,High quality unknown
+EUST,European Starling,341823071,3.60,5,call,5,2021,Martin Wall,High quality call
+EUST,European Starling,71205991,3.17,6,call,10,2017,LynnErla Beegle,High quality call

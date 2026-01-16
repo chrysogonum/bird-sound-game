@@ -7,10 +7,8 @@ MEDIA USAGE DESCRIPTION:
 I'm developing ChipNotes! (https://chrysogonum.github.io/bird-sound-game/), a free, open-source web application for bird sound identification training. Launched January 8, 2026, the app uses game mechanics to teach aural ID skills with immediate feedback.
 
 PROJECT STATUS:
-- Production-ready PWA with 87 species (currently Xeno-Canto source)
+- Production-ready web app with 87 species (currently Xeno-Canto source)
 - Open source (MIT license), non-commercial, educational purpose
-- 129 commits, comprehensive test coverage (522 tests)
-- Full attribution infrastructure from day one
 
 REQUEST:
 1. BULK DOWNLOAD: 180 recordings for 18 Eastern US species (10 per species)
@@ -19,10 +17,11 @@ REQUEST:
    - Vocalization diversity: songs, calls, dawn songs, flight calls
 
 2. API ACCESS: Programmatic download for future educational projects
+   - Is an API key available? 
    - Upcoming warbler audit (30+ species)
    - Non-commercial educational use only
 
-SPECIES (18): GCFL, EAPH, EWPE, ACFL, WEVI, REVI, NHWR, BGGN, SWTH, VEER, SUTA, SCTA, PUFI, RBGR, DEJU, BHCO, EUST, CHSW
+SPECIES IN THIS REQUEST (18): GCFL, EAPH, EWPE, ACFL, WEVI, REVI, NHWR, BGGN, SWTH, VEER, SUTA, SCTA, PUFI, RBGR, DEJU, BHCO, EUST, CHSW
 
 ATTRIBUTION:
 All ML media will display:
@@ -39,7 +38,7 @@ TECHNICAL:
 - Traceability: ML catalog numbers stored in metadata
 
 Contact: peter.repetti@gmail.com
-GitHub: https://github.com/chrysogonum/bird_sound_game
+GitHub: https://github.com/chrysogonum/bird-sound-game
 
 ATTACHMENTS:
 - cornell_selected_recordings.csv (180 ML catalog numbers)
