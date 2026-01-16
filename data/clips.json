@@ -3460,21 +3460,6 @@
     "spectrogram_path": "data/spectrograms/NOFL_cornell_007_1.png"
   },
   {
-    "file_path": "data/clips/NOFL_cornell_007_2.wav",
-    "species_name": "Northern Flicker",
-    "species_code": "NOFL",
-    "vocalization_type": "drum",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_007",
-    "quality": "A",
-    "clip_id": "NOFL_cornell_007_2",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/NOFL_cornell_007_2.png"
-  },
-  {
     "file_path": "data/clips/NOFL_cornell_007_3.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
