@@ -100,15 +100,59 @@ python3 scripts/spectrogram_gen.py --input data/clips --output data/spectrograms
 - Verify spectrograms were created for all new clips
 - Check a few spectrograms visually to ensure they look correct
 
-### 4. Create/Verify Species Icons
-**CRITICAL CHECKPOINT** - This is where we had issues tonight!
+### 4. Generate & Verify Species Icons
+**CRITICAL CHECKPOINT** - Icon workflow integration
 
-For EACH species code:
-- Check if icon exists: `ls data/icons/{CODE}.png`
-- If missing, user needs to create it (or we create placeholder)
-- Icons should be bird illustrations, ~512x512px, transparent background
+This step connects to `data/icons/PROMPTS.md` which maintains design prompts for all species.
 
-List ALL icons that need to be created BEFORE proceeding.
+**4a. Generate Design Prompts**
+
+For EACH new species, add to `data/icons/PROMPTS.md`:
+- Use base template:
+  ```
+  Stylized icon of a {COMMON NAME}, simple flat design, circular frame,
+  {KEY VISUAL FEATURES}, white background, game asset style,
+  clean vector look, centered composition, no text
+  ```
+- Add to appropriate section (Backyard Birds, Warblers, etc.)
+- Commit prompt updates to PROMPTS.md
+
+**4b. Create Icons (Manual)**
+
+User generates icons using prompts:
+- **Tool:** ChatGPT/DALL-E 3 (recommended), Midjourney, or Leonardo.ai
+- **Size:** 512x512px minimum
+- **Format:** PNG with transparent or white background
+- **Naming:** `data/icons/{CODE}.png`
+
+**4c. Placeholder Icons (Optional)**
+
+If icons aren't ready yet, create simple placeholder:
+```bash
+# Create a solid color placeholder (requires ImageMagick)
+for code in {CODE1} {CODE2}; do
+  convert -size 512x512 xc:#4A90E2 -fill white -pointsize 72 \
+    -gravity center -annotate +0+0 "$code" \
+    data/icons/${code}.png
+done
+```
+
+Or proceed with missing icons - the game will show species code as fallback.
+
+**4d. Verify Icons**
+```bash
+# List all icons for new species
+for code in {CODE1} {CODE2} {CODE3}; do
+  ls data/icons/$code.png 2>/dev/null && echo "✓ $code" || echo "✗ MISSING: $code"
+done
+```
+
+**Decision Point:**
+- **Icons ready?** → Proceed to Step 5
+- **Using placeholders?** → Document which icons need replacement
+- **Skipping icons?** → Game will work but show code instead of illustration
+
+List ALL icons that need creation/replacement BEFORE proceeding.
 
 ### 5. Update or Create Pack Definition
 
