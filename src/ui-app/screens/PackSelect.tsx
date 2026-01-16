@@ -87,41 +87,11 @@ const PACKS: Pack[] = [
   },
 ];
 
-// Species in each pack
-const PACK_SPECIES: Record<string, string[]> = {
-  starter_birds: ['NOCA', 'CAWR', 'TUTI', 'BLJA', 'AMCR'],
-  expanded_backyard: [
-    'NOCA', 'CAWR', 'BLJA', 'AMCR', 'TUTI',
-    'BEKI', 'RSHA', 'AMGO', 'CACH', 'PIWA',
-    'WTSP', 'HOFI', 'EABL', 'AMRO', 'HETH',
-    'BHNU', 'BRCR', 'WBNU', 'YBSA', 'RBWO',
-    'DOWO', 'HAWO', 'NOFL', 'PIWO', 'BRTH',
-    'GRCA', 'MODO', 'NOMO', 'GCKI', 'RCKI',
-    'COHA', 'SSHA', 'RTHA', 'RTHU', 'BADO',
-    'COGR', 'FICR', 'CEWA', 'EATO',
-  ],
-  sparrows: [
-    'WTSP', 'SOSP', 'CHSP', 'SWSP', 'SASP', 'FISP', 'LISP', 'WCSP',
-  ],
-  woodpeckers: [
-    'DOWO', 'HAWO', 'RBWO', 'PIWO', 'YBSA', 'NOFL', 'RHWO',
-  ],
-  spring_warblers: [
-    'AMRE', 'BAWW', 'BBWA', 'BLBW', 'BLPW', 'BTBW', 'BTNW', 'BWWA',
-    'CAWA', 'CMWA', 'CONW', 'COYE', 'CSWA', 'GWWA', 'KEWA', 'LOWA',
-    'MAWA', 'MOWA', 'NAWA', 'NOPA', 'NOWA', 'OCWA', 'OVEN', 'PAWA',
-    'PIWA', 'PRAW', 'PROW', 'SWWA', 'TEWA', 'WEWA', 'WIWA', 'YRWA', 'YTWA',
-  ],
-  western_birds: [
-    'STJA', 'WESJ', 'BCCH', 'WCSP', 'CAFI', 'PISI', 'EVGR',
-    'MODO', 'DOWO', 'NOFL', 'WBNU', 'HOFI', 'AMGO', 'RWBL',
-  ],
-};
-
 function PackSelect() {
   const navigate = useNavigate();
 
   const [clips, setClips] = useState<ClipData[]>([]);
+  const [packSpecies, setPackSpecies] = useState<Record<string, string[]>>({});
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
@@ -136,9 +106,33 @@ function PackSelect() {
       .catch((err) => console.error('Failed to load clips:', err));
   }, []);
 
+  // Load pack species from JSON files (single source of truth)
+  useEffect(() => {
+    const packIds = ['starter_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds'];
+
+    Promise.all(
+      packIds.map((id) =>
+        fetch(`${import.meta.env.BASE_URL}data/packs/${id}.json`)
+          .then((res) => res.json())
+          .catch((err) => {
+            console.error(`Failed to load pack ${id}:`, err);
+            return null;
+          })
+      )
+    ).then((packs) => {
+      const speciesMap: Record<string, string[]> = {};
+      packs.forEach((pack, i) => {
+        if (pack && pack.species) {
+          speciesMap[packIds[i]] = pack.species;
+        }
+      });
+      setPackSpecies(speciesMap);
+    });
+  }, []);
+
   // Get bird info for a pack
   const getBirdsForPack = (packId: string): BirdInfo[] => {
-    const speciesCodes = PACK_SPECIES[packId] || [];
+    const speciesCodes = packSpecies[packId] || [];
     return speciesCodes.map((code) => {
       const speciesClips = clips.filter((c) =>
         c.species_code === code &&
@@ -537,7 +531,7 @@ function PackSelect() {
                 {pack.name}
               </span>
               <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
-                {PACK_SPECIES[pack.id]?.length || 0} species
+                {packSpecies[pack.id]?.length || 0} species
               </span>
             </div>
             {isExpanded && (
