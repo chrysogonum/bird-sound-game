@@ -246,6 +246,7 @@ def process_cornell_file(input_path: str, output_dir: str, file_info: dict) -> l
                 'loudness_lufs': round(final_loudness, 1),
                 'source': 'cornell',
                 'source_id': f"cornell_{source_num}",
+                'recordist': None,  # TODO: Add if Cornell provides recordist metadata
                 'quality': 'A'  # Cornell recordings are high quality
             })
 
