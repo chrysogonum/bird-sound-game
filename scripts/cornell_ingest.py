@@ -256,16 +256,38 @@ def process_cornell_file(input_path: str, output_dir: str, file_info: dict) -> l
         return []
 
 
-def ingest_cornell_audio(input_dir: str, output_dir: str) -> list:
-    """Process all Cornell audio files."""
+def ingest_cornell_audio(input_dir: str, output_dir: str, existing_clips_json: str = None) -> list:
+    """
+    Process all Cornell audio files.
+
+    Args:
+        input_dir: Directory containing Cornell MP3 files
+        output_dir: Directory for processed WAV clips
+        existing_clips_json: Path to clips.json for deduplication check
+    """
     input_path = Path(input_dir)
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
+
+    # Load existing source_ids for deduplication
+    existing_source_ids = set()
+    if existing_clips_json and os.path.exists(existing_clips_json):
+        with open(existing_clips_json, 'r') as f:
+            existing_clips = json.load(f)
+            existing_source_ids = {
+                c.get('source_id')
+                for c in existing_clips
+                if c.get('source_id')
+            }
+        if existing_source_ids:
+            print(f"Loaded {len(existing_source_ids)} existing source files for deduplication check")
+            print()
 
     # Get all MP3 files
     mp3_files = sorted(input_path.glob('*.mp3'))
 
     processed_files = []
+    skipped_duplicates = []
 
     for mp3_file in mp3_files:
         filename = mp3_file.name
@@ -282,6 +304,23 @@ def ingest_cornell_audio(input_dir: str, output_dir: str) -> list:
             print(f"Skipping: {filename} (could not parse)")
             continue
 
+        # Check for duplicate source file
+        # Extract source number from filename (e.g., "11" from "11 Black-capped Chickadee.mp3")
+        source_num = Path(filename).stem.split()[0].zfill(3)
+        source_id = f"cornell_{source_num}"
+
+        if source_id in existing_source_ids:
+            print(f"Skipping: {filename}")
+            print(f"  Reason: Already processed (source_id: {source_id})")
+            print(f"  Species: {file_info['species_name']} ({file_info['species_code']})")
+            skipped_duplicates.append({
+                'filename': filename,
+                'source_id': source_id,
+                'species_code': file_info['species_code'],
+                'species_name': file_info['species_name']
+            })
+            continue
+
         print(f"Processing: {filename}")
         print(f"  Species: {file_info['species_name']} ({file_info['species_code']})")
         print(f"  Type: {file_info['vocalization_type']} (from '{file_info['original_text']}')")
@@ -295,6 +334,14 @@ def ingest_cornell_audio(input_dir: str, output_dir: str) -> list:
 
         processed_files.extend(clips)
 
+    # Report skipped duplicates
+    if skipped_duplicates:
+        print()
+        print(f"=== Deduplication Summary ===")
+        print(f"Skipped {len(skipped_duplicates)} already-processed files:")
+        for item in skipped_duplicates:
+            print(f"  {item['species_code']}: {item['filename']}")
+
     return processed_files
 
 
@@ -305,6 +352,7 @@ def main():
     parser.add_argument('--input', required=True, help='Cornell audio directory')
     parser.add_argument('--output', required=True, help='Output directory for processed clips')
     parser.add_argument('--manifest', help='Output manifest JSON file')
+    parser.add_argument('--clips-json', help='Path to clips.json for source file deduplication check')
 
     args = parser.parse_args()
 
@@ -318,7 +366,7 @@ def main():
     print(f"Clip duration: {MIN_DURATION}-{MAX_DURATION}s")
     print()
 
-    processed = ingest_cornell_audio(args.input, args.output)
+    processed = ingest_cornell_audio(args.input, args.output, args.clips_json)
 
     print()
     print(f"=== Summary ===")
