@@ -3133,21 +3133,6 @@
     "rejected": false
   },
   {
-    "file_path": "data/clips/MODO_cornell_002_1.wav",
-    "species_name": "Mourning Dove",
-    "species_code": "MODO",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_002",
-    "quality": "A",
-    "clip_id": "MODO_cornell_002_1",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/MODO_cornell_002_1.png"
-  },
-  {
     "file_path": "data/clips/MODO_cornell_002_2.wav",
     "species_name": "Mourning Dove",
     "species_code": "MODO",
@@ -3158,7 +3143,7 @@
     "source_id": "cornell_002",
     "quality": "A",
     "clip_id": "MODO_cornell_002_2",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MODO_cornell_002_2.png"
   },
