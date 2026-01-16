@@ -2768,20 +2768,6 @@
     "quality_score": 4
   },
   {
-    "clip_id": "HOFI_0927b0c9",
-    "species_code": "HOFI",
-    "common_name": "House Finch",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "HOFI_790022",
-    "file_path": "data/clips/HOFI_790022.wav",
-    "spectrogram_path": "data/spectrograms/HOFI_790022.png",
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "HOFI_1208c330",
     "species_code": "HOFI",
     "common_name": "House Finch",
@@ -2808,20 +2794,6 @@
     "spectrogram_path": "data/spectrograms/HOFI_899902.png",
     "canonical": false,
     "rejected": false
-  },
-  {
-    "clip_id": "HOFI_900139",
-    "species_code": "HOFI",
-    "common_name": "House Finch",
-    "file_path": "data/clips/HOFI_900139.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC900139",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOFI_900139.png",
-    "quality_score": 4
   },
   {
     "clip_id": "HOFI_900144",
@@ -2852,21 +2824,6 @@
     "rejected": false
   },
   {
-    "file_path": "data/clips/HOFI_cornell_026_1.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_026",
-    "quality": "A",
-    "clip_id": "HOFI_cornell_026_1",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOFI_cornell_026_1.png"
-  },
-  {
     "file_path": "data/clips/HOFI_cornell_026_2.wav",
     "species_name": "House Finch",
     "species_code": "HOFI",
@@ -2880,66 +2837,6 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HOFI_cornell_026_2.png"
-  },
-  {
-    "file_path": "data/clips/HOFI_cornell_026_3.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_026",
-    "quality": "A",
-    "clip_id": "HOFI_cornell_026_3",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOFI_cornell_026_3.png"
-  },
-  {
-    "file_path": "data/clips/HOFI_cornell_027_1.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_027",
-    "quality": "A",
-    "clip_id": "HOFI_cornell_027_1",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOFI_cornell_027_1.png"
-  },
-  {
-    "file_path": "data/clips/HOFI_cornell_027_2.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_027",
-    "quality": "A",
-    "clip_id": "HOFI_cornell_027_2",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOFI_cornell_027_2.png"
-  },
-  {
-    "file_path": "data/clips/HOFI_cornell_027_3.wav",
-    "species_name": "House Finch",
-    "species_code": "HOFI",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_027",
-    "quality": "A",
-    "clip_id": "HOFI_cornell_027_3",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOFI_cornell_027_3.png"
   },
   {
     "clip_id": "HOFI_dee346af",
