@@ -447,10 +447,14 @@ validate-schemas:
 	done
 	@echo "All schemas valid"
 
-validate-clips:
+normalize-clips:
+	@echo "=== Normalizing clips.json ==="
+	$(PYTHON) $(SCRIPTS_DIR)/normalize_clips.py $(DATA_DIR)/clips.json
+
+validate-clips: normalize-clips
 	@echo "=== Validating clips.json ==="
 	$(PYTHON) $(SCRIPTS_DIR)/validate_schema.py --schema schemas/clip.schema.json --data $(DATA_DIR)/clips.json
-	$(PYTHON) -c "import json; d=json.load(open('$(DATA_DIR)/clips.json')); [assert 500<=c['duration_ms']<=3000 for c in d]; print('All clip durations valid')"
+	@$(PYTHON) -c "import json; d=json.load(open('$(DATA_DIR)/clips.json')); valid=all(500<=c['duration_ms']<=3000 for c in d); assert valid, 'Invalid durations found'; print('All clip durations valid')"
 
 validate-packs:
 	@echo "=== Validating pack definitions ==="
