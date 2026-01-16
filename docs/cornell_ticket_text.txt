@@ -1,0 +1,70 @@
+SUBJECT: Educational Media Request - ChipNotes! Bird Sound Training App
+
+AFFILIATION: Independent developer / Open-source educational project
+
+MEDIA USAGE DESCRIPTION:
+
+I am developing ChipNotes!, a free, open-source web application that teaches people to identify bird species by sound. The app uses game-like mechanics to help users develop aural identification skills through interactive training with immediate feedback.
+
+Project Details:
+- Name: ChipNotes! (https://chrysogonum.github.io/bird-sound-game/)
+- Purpose: Educational, non-commercial bird sound identification training
+- License: Open source (MIT)
+- Audience: Birdwatchers, students, naturalists, and educators
+- Current Status: Live with 87 species from Xeno-Canto
+- Users: Hundreds have improved their birding skills
+
+Request:
+I am requesting access to high-quality audio recordings for 18 Eastern US bird species to expand the educational content. I would greatly appreciate:
+
+1. BULK DOWNLOAD: 180 carefully selected recordings (10 per species)
+   - Complete list of ML catalog numbers attached as CSV
+   - Selected using quality score formula: rating × √(num_ratings + 1)
+   - Average rating: 4.32/5.00
+   - Vocalization diversity: Songs, calls, dawn songs, flight calls
+   - Seasonal coverage across multiple years
+
+2. API ACCESS (for future projects): Programmatic download capability for educational developers
+   - Would facilitate upcoming warbler audit (30+ species)
+   - Enables systematic quality control and metadata management
+   - Maintains Cornell attribution requirements programmatically
+   - Non-commercial, educational use only
+
+Species List (18 total):
+Great Crested Flycatcher (GCFL), Eastern Phoebe (EAPH), Eastern Wood-Pewee (EWPE), Acadian Flycatcher (ACFL), White-eyed Vireo (WEVI), Red-eyed Vireo (REVI), Northern House Wren (NHWR), Blue-gray Gnatcatcher (BGGN), Swainson's Thrush (SWTH), Veery (VEER), Summer Tanager (SUTA), Scarlet Tanager (SCTA), Purple Finch (PUFI), Rose-breasted Grosbeak (RBGR), Dark-eyed Junco (DEJU), Brown-headed Cowbird (BHCO), European Starling (EUST), Chimney Swift (CHSW)
+
+Attribution:
+All Macaulay Library media will be properly credited with:
+- ML catalog numbers displayed with each clip
+- Full recordist names and dates
+- Direct links to ML specimen pages
+- Comprehensive credits page listing all contributors
+
+Educational Impact:
+ChipNotes! directly supports Cornell Lab's mission by:
+- Helping birders develop skills for eBird contributions
+- Providing free, accessible birding education
+- Using expert-curated recordings from ML archive
+- Supporting citizen science and conservation
+
+Technical Specifications:
+- Audio processing: Mono WAV, 44.1kHz, -16 LUFS normalization
+- Duration: Trimmed to 0.5-3.0 seconds for training purposes
+- No pitch/speed changes (only trimming/normalization)
+- ML catalog numbers stored for full traceability
+
+Commitment:
+- Educational, non-commercial use only
+- Proper attribution following Cornell guidelines
+- Reasonable rate limits if API access granted
+- Open source code benefits educational community
+
+Thank you for considering this educational media request. I'm happy to provide additional information, discuss licensing terms, or adjust the request scope as needed.
+
+Contact: peter.repetti@gmail.com
+GitHub: https://github.com/chrysogonum/bird_sound_game
+
+ATTACHMENTS:
+- cornell_selected_recordings.csv (180 ML catalog numbers)
+- cornell_selection_summary.txt (Selection methodology)
+- cornell_access_request.md (Full detailed request)
