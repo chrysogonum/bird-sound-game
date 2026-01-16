@@ -9,6 +9,7 @@ const STORAGE_KEYS = {
   SPECTROGRAM_MODE: 'soundfield_spectrogram_mode',
   HIGH_CONTRAST: 'soundfield_high_contrast',
   CONTINUOUS_PLAY: 'soundfield_continuous_play',
+  COOKIE_CONSENT: 'chipnotes_cookie_consent',
 };
 
 function Settings() {
@@ -29,6 +30,10 @@ function Settings() {
   const [continuousPlay, setContinuousPlay] = useState(() => {
     return localStorage.getItem(STORAGE_KEYS.CONTINUOUS_PLAY) === 'true';
   });
+  const [analyticsConsent, setAnalyticsConsent] = useState(() => {
+    const consent = localStorage.getItem(STORAGE_KEYS.COOKIE_CONSENT);
+    return consent === 'accepted';
+  });
 
   // Save to localStorage when changed
   useEffect(() => {
@@ -46,6 +51,18 @@ function Settings() {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.CONTINUOUS_PLAY, continuousPlay.toString());
   }, [continuousPlay]);
+
+  const handleAnalyticsToggle = (enabled: boolean) => {
+    setAnalyticsConsent(enabled);
+    localStorage.setItem(STORAGE_KEYS.COOKIE_CONSENT, enabled ? 'accepted' : 'declined');
+
+    // Show alert to reload for changes to take effect
+    if (enabled) {
+      alert('Analytics enabled. Please refresh the page for changes to take effect.');
+    } else {
+      alert('Analytics disabled. Please refresh the page for changes to take effect.');
+    }
+  };
 
   return (
     <div className="screen">
@@ -128,6 +145,25 @@ function Settings() {
               style={{ width: '60px' }}
             >
               {continuousPlay ? 'ON' : 'OFF'}
+            </button>
+          </div>
+        </div>
+
+        {/* Privacy & Analytics */}
+        <div className="card">
+          <div className="flex-row justify-between items-center">
+            <div>
+              <h3 style={{ marginBottom: '4px' }}>Analytics Cookies</h3>
+              <div className="text-muted" style={{ fontSize: '14px' }}>
+                Help improve ChipNotes with usage data
+              </div>
+            </div>
+            <button
+              className={analyticsConsent ? 'btn-primary' : 'btn-secondary'}
+              onClick={() => handleAnalyticsToggle(!analyticsConsent)}
+              style={{ width: '60px' }}
+            >
+              {analyticsConsent ? 'ON' : 'OFF'}
             </button>
           </div>
         </div>
