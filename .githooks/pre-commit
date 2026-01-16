@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# Pre-commit hook to validate clips.json before allowing commits
+#
+# To install: git config core.hooksPath .githooks
+#
+
+# Colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+# Check if data/clips.json is being committed
+if git diff --cached --name-only | grep -q "data/clips.json"; then
+    echo "${GREEN}→ Validating clips.json before commit...${NC}"
+
+    # Run validation
+    if make validate-clips > /dev/null 2>&1; then
+        echo "${GREEN}✓ clips.json validation passed${NC}"
+    else
+        echo "${RED}✗ clips.json validation FAILED${NC}"
+        echo "${RED}Run 'make validate-clips' to see errors${NC}"
+        echo "${RED}Commit aborted.${NC}"
+        exit 1
+    fi
+fi
+
+exit 0

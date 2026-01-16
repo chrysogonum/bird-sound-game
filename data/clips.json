@@ -88,7 +88,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMGO_cornell_029_1.png",
-    "common_name": "American Goldfinch"
+    "common_name": "American Goldfinch",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/AMGO_cornell_029_2.wav",
@@ -104,7 +105,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMGO_cornell_029_2.png",
-    "common_name": "American Goldfinch"
+    "common_name": "American Goldfinch",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/AMGO_cornell_029_3.wav",
@@ -120,7 +122,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMGO_cornell_029_3.png",
-    "common_name": "American Goldfinch"
+    "common_name": "American Goldfinch",
+    "quality_score": 5
   },
   {
     "clip_id": "AMGO_fc271e13",
@@ -307,7 +310,7 @@
     "common_name": "Barred Owl",
     "source_id": "BADO_00warning",
     "file_path": "data/clips/BADO_00warning.wav",
-    "vocalization_type": "alarm call",
+    "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/BADO_00warning.png",
     "quality_score": 3,
@@ -528,7 +531,8 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_1.png",
-    "common_name": "Black-capped Chickadee"
+    "common_name": "Black-capped Chickadee",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/BCCH_cornell_012_1.wav",
@@ -544,7 +548,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_1.png",
-    "common_name": "Black-capped Chickadee"
+    "common_name": "Black-capped Chickadee",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/BCCH_cornell_012_2.wav",
@@ -560,7 +565,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_2.png",
-    "common_name": "Black-capped Chickadee"
+    "common_name": "Black-capped Chickadee",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/BCCH_cornell_012_3.wav",
@@ -576,7 +582,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_3.png",
-    "common_name": "Black-capped Chickadee"
+    "common_name": "Black-capped Chickadee",
+    "quality_score": 5
   },
   {
     "clip_id": "BEKI_1034325",
@@ -1382,7 +1389,8 @@
     "source_id": "cornell_021",
     "file_path": "data/clips/CAFI_9696235e.wav",
     "spectrogram_path": "data/spectrograms/CAFI_9696235e.png",
-    "canonical": true
+    "canonical": true,
+    "rejected": false
   },
   {
     "clip_id": "CAFI_9965ab80",
@@ -2048,7 +2056,7 @@
     "clip_id": "DOWO_5ab33ab7",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
-    "vocalization_type": "drum",
+    "vocalization_type": "call",
     "duration_ms": 3000,
     "quality_score": 4,
     "source": "xenocanto",
@@ -2073,7 +2081,8 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/DOWO_cornell_003_1.png",
-    "common_name": "Downy Woodpecker"
+    "common_name": "Downy Woodpecker",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/DOWO_cornell_003_2.wav",
@@ -2089,13 +2098,14 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/DOWO_cornell_003_2.png",
-    "common_name": "Downy Woodpecker"
+    "common_name": "Downy Woodpecker",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/DOWO_cornell_004_1.wav",
     "species_name": "Downy Woodpecker",
     "species_code": "DOWO",
-    "vocalization_type": "drum",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.1,
     "source": "cornell",
@@ -2105,7 +2115,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/DOWO_cornell_004_1.png",
-    "common_name": "Downy Woodpecker"
+    "common_name": "Downy Woodpecker",
+    "quality_score": 5
   },
   {
     "clip_id": "EABL_608740",
@@ -2972,7 +2983,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HOFI_cornell_026_2.png",
-    "common_name": "House Finch"
+    "common_name": "House Finch",
+    "quality_score": 5
   },
   {
     "clip_id": "HOFI_dee346af",
@@ -3302,7 +3314,8 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MODO_cornell_002_2.png",
-    "common_name": "Mourning Dove"
+    "common_name": "Mourning Dove",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/MODO_cornell_002_3.wav",
@@ -3318,7 +3331,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/MODO_cornell_002_3.png",
-    "common_name": "Mourning Dove"
+    "common_name": "Mourning Dove",
+    "quality_score": 5
   },
   {
     "clip_id": "MOWA_1014001",
@@ -3604,7 +3618,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_cornell_005_1.png",
-    "common_name": "Northern Flicker"
+    "common_name": "Northern Flicker",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/NOFL_cornell_006_2.wav",
@@ -3620,13 +3635,14 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_cornell_006_2.png",
-    "common_name": "Northern Flicker"
+    "common_name": "Northern Flicker",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/NOFL_cornell_007_1.wav",
     "species_name": "Northern Flicker",
     "species_code": "NOFL",
-    "vocalization_type": "drum",
+    "vocalization_type": "call",
     "duration_ms": 2000,
     "loudness_lufs": -16.0,
     "source": "cornell",
@@ -3636,7 +3652,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_cornell_007_1.png",
-    "common_name": "Northern Flicker"
+    "common_name": "Northern Flicker",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/NOFL_cornell_007_3.wav",
@@ -3652,7 +3669,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/NOFL_cornell_007_3.png",
-    "common_name": "Northern Flicker"
+    "common_name": "Northern Flicker",
+    "quality_score": 5
   },
   {
     "clip_id": "NOMO_126b6162",
@@ -5349,7 +5367,8 @@
     "source_id": "cornell_008",
     "file_path": "data/clips/STJA_e4cea032.wav",
     "spectrogram_path": "data/spectrograms/STJA_e4cea032.png",
-    "canonical": true
+    "canonical": true,
+    "rejected": false
   },
   {
     "clip_id": "STJA_eb24484f",
@@ -5677,7 +5696,8 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WBNU_cornell_015_1.png",
-    "common_name": "White-breasted Nuthatch"
+    "common_name": "White-breasted Nuthatch",
+    "quality_score": 5
   },
   {
     "file_path": "data/clips/WBNU_cornell_016_1.wav",
@@ -5693,7 +5713,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WBNU_cornell_016_1.png",
-    "common_name": "White-breasted Nuthatch"
+    "common_name": "White-breasted Nuthatch",
+    "quality_score": 5
   },
   {
     "clip_id": "WCSP_013f9b0e",
@@ -5735,7 +5756,8 @@
     "source_id": "cornell_016",
     "file_path": "data/clips/WCSP_411a953b.wav",
     "spectrogram_path": "data/spectrograms/WCSP_411a953b.png",
-    "canonical": true
+    "canonical": true,
+    "rejected": false
   },
   {
     "clip_id": "WCSP_4d31f3a9",

@@ -239,7 +239,7 @@ def process_cornell_file(input_path: str, output_dir: str, file_info: dict) -> l
 
             processed_files.append({
                 'file_path': str(output_file),
-                'species_name': file_info['species_name'],
+                'common_name': file_info['species_name'],  # Use common_name for schema compliance
                 'species_code': file_info['species_code'],
                 'vocalization_type': file_info['vocalization_type'],
                 'duration_ms': duration_ms,
@@ -318,7 +318,7 @@ def ingest_cornell_audio(input_dir: str, output_dir: str, existing_clips_json: s
                 'filename': filename,
                 'source_id': source_id,
                 'species_code': file_info['species_code'],
-                'species_name': file_info['species_name']
+                'common_name': file_info['species_name']
             })
             continue
 
@@ -378,7 +378,7 @@ def main():
     for clip in processed:
         code = clip['species_code']
         if code not in species_counts:
-            species_counts[code] = {'name': clip['species_name'], 'count': 0}
+            species_counts[code] = {'name': clip['common_name'], 'count': 0}
         species_counts[code]['count'] += 1
 
     print(f"\nClips by species:")

@@ -87,8 +87,16 @@
       "xeno_canto_id": {
         "type": ["string", "null"],
         "description": "Legacy field, use source_id instead"
+      },
+      "loudness_lufs": {
+        "type": "number",
+        "description": "Measured loudness in LUFS"
+      },
+      "quality": {
+        "type": ["string", "null"],
+        "description": "Legacy quality field (A-E), use quality_score instead"
       }
     },
-    "additionalProperties": false
+    "additionalProperties": true
   }
 }
