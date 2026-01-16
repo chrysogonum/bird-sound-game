@@ -1,0 +1,144 @@
+================================================================================
+CORNELL RECORDINGS - USAGE GUIDE
+================================================================================
+
+WHAT WAS DONE:
+--------------
+Processed 18 Cornell Macaulay Library CSV files containing 4,553 total 
+recordings to select the best 10 recordings per species based on:
+- Community ratings and number of raters
+- Vocalization type diversity
+- Seasonal and temporal coverage
+
+RESULTS:
+--------
+✓ 180 recordings selected (10 per species)
+✓ 18 species covered (all targets met)
+✓ Average rating: 4.32/5.00
+✓ 76 unique recordists
+✓ Temporal range: 1963-2025
+
+OUTPUT FILES:
+-------------
+1. cornell_selected_recordings.csv (16 KB)
+   - Ready-to-use CSV with all selected recordings
+   - ML catalog numbers for downloading audio
+   - Ratings, vocalization types, dates, recordists
+
+2. cornell_selection_summary.txt (7.6 KB)
+   - Complete analysis and statistics
+   - Quality metrics and diversity analysis
+   - Species-by-species breakdown
+
+3. cornell_usage_guide.txt (this file)
+   - How to use the results
+
+USING THE RESULTS:
+------------------
+
+Option 1: Download Individual Recordings
+   Each ML catalog number can be downloaded from Cornell's Macaulay Library:
+   
+   https://macaulaylibrary.org/asset/[ML_CATALOG_NUMBER]
+   
+   Example: ML347203291 → https://macaulaylibrary.org/asset/347203291
+   
+   Note: You may need a Cornell account for bulk downloads.
+
+Option 2: Bulk Download via Python
+   Use the cornell_ingest.py script in this repository:
+   
+   python scripts/cornell_ingest.py \
+       --input ~/Downloads/cornell_selected_recordings.csv \
+       --output data/clips/
+
+Option 3: Import to Audio Ingest Pipeline
+   The CSV format matches the expected input for audio_ingest.py:
+   
+   - Species_Code: Maps to 4-letter codes (GCFL, EAPH, etc.)
+   - ML_Catalog_Number: Unique identifier
+   - Vocalization_Type: Behavior classification
+   - Rating/Num_Raters: Quality metrics
+
+SPECIES CODES MAPPING:
+----------------------
+GCFL = Great Crested Flycatcher (grcfly)
+EAPH = Eastern Phoebe (easpho)
+EWPE = Eastern Wood-Pewee (eawpew)
+ACFL = Acadian Flycatcher (acafly)
+WEVI = White-eyed Vireo (whevir)
+REVI = Red-eyed Vireo (reevir1)
+NHWR = Northern House Wren (houwre)
+BGGN = Blue-gray Gnatcatcher (buggna)
+SWTH = Swainson's Thrush (swathr)
+VEER = Veery (veery)
+SUTA = Summer Tanager (sumtan)
+SCTA = Scarlet Tanager (scatan)
+PUFI = Purple Finch (purfin)
+RBGR = Rose-breasted Grosbeak (robgro)
+DEJU = Dark-eyed Junco (daejun)
+BHCO = Brown-headed Cowbird (bnhcow)
+EUST = European Starling (eursta)
+CHSW = Chimney Swift (chiswi)
+
+QUALITY CONSIDERATIONS:
+-----------------------
+Top Quality Species (Score >15):
+- CHSW (Chimney Swift): 24.19
+- EUST (European Starling): 19.21
+- BHCO (Brown-headed Cowbird): 18.64
+- DEJU (Dark-eyed Junco): 16.57
+
+May Need Review:
+- PUFI (Purple Finch): Lower avg rating (3.28)
+- SWTH (Swainson's Thrush): Fewer raters (1.6)
+
+Note: All selections meet quality thresholds, but manual verification
+of the "may need review" species is recommended.
+
+VOCALIZATION DIVERSITY:
+-----------------------
+All species include:
+✓ Song examples
+✓ Call examples
+✓ Multiple vocalization types (3-5 per species)
+
+Best diversity (5 types):
+- DEJU (Dark-eyed Junco)
+- EAPH (Eastern Phoebe)  
+- GCFL (Great Crested Flycatcher)
+
+REGENERATING SELECTIONS:
+------------------------
+To adjust selection criteria or regenerate with different parameters:
+
+1. Edit the script:
+   /Users/peterrepetti/bird_sound_game/scripts/select_cornell_recordings.py
+
+2. Modify these key parameters:
+   - Quality threshold (line ~48)
+   - Target recordings per species (line ~102)
+   - Vocalization type priorities (line ~55-75)
+
+3. Re-run:
+   python scripts/select_cornell_recordings.py
+
+NEXT ACTIONS:
+-------------
+1. Review the cornell_selected_recordings.csv file
+2. Verify ML catalog numbers are accessible
+3. Download recordings using preferred method
+4. Import to audio processing pipeline
+5. Validate audio quality (duration, format, noise level)
+6. Generate spectrograms if needed
+7. Update clips.json with new recordings
+
+CONTACT & SUPPORT:
+------------------
+For Cornell Macaulay Library access or API questions:
+https://www.macaulaylibrary.org/
+
+For script issues or modifications:
+See /Users/peterrepetti/bird_sound_game/scripts/select_cornell_recordings.py
+
+================================================================================
