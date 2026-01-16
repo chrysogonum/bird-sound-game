@@ -4744,35 +4744,6 @@
     "rejected": false
   },
   {
-    "file_path": "data/clips/RWBL_cornell_024_1.wav",
-    "species_name": "Red-winged Blackbird",
-    "species_code": "RWBL",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "loudness_lufs": -16.0,
-    "source": "cornell",
-    "source_id": "cornell_024",
-    "quality": "A",
-    "clip_id": "RWBL_cornell_024_1",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/RWBL_cornell_024_1.png"
-  },
-  {
-    "clip_id": "RWBL_ef49381d",
-    "species_code": "RWBL",
-    "common_name": "Red-winged Blackbird",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_020",
-    "file_path": "data/clips/RWBL_cornell_020_2.wav",
-    "spectrogram_path": "data/spectrograms/RWBL_cornell_020_2.png",
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "SASP_1014027",
     "species_code": "SASP",
     "common_name": "Savannah Sparrow",
