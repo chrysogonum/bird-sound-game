@@ -510,6 +510,7 @@ def ingest_from_xeno_canto(species_list: list, output_dir: str, max_per_species:
                     'species_code': species_code,
                     'source': 'xenocanto',
                     'source_id': f"XC{rec_id}",
+                    'recordist': rec.get('rec'),
                     'vocalization_type': rec.get('type', 'song').split(',')[0].strip().lower(),
                     'duration_ms': result['duration_ms'],
                     'loudness_lufs': result['loudness_lufs'],

@@ -169,6 +169,7 @@ def tag_clips(input_dir: str, output_file: str) -> list:
         # Get source info
         source = manifest_info.get('source', 'xenocanto')
         source_id = manifest_info.get('source_id', filename.replace('.wav', ''))
+        recordist = manifest_info.get('recordist')
 
         # Generate unique clip ID
         clip_id = f"{species_code}_{uuid.uuid4().hex[:8]}"
@@ -186,7 +187,8 @@ def tag_clips(input_dir: str, output_file: str) -> list:
             'source': source,
             'source_id': source_id,
             'file_path': file_path,
-            'spectrogram_path': None
+            'spectrogram_path': None,
+            'recordist': recordist
         }
 
         clips.append(clip)

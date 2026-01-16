@@ -15,11 +15,13 @@ interface ClipData {
   species_code: string;
   common_name: string;
   file_path: string;
+  source_id?: string;
   canonical?: boolean;
   rejected?: boolean;
   vocalization_type?: string;
   source?: string;
   spectrogram_path?: string;
+  recordist?: string;
 }
 
 interface BirdClip {
@@ -28,6 +30,8 @@ interface BirdClip {
   isCanonical: boolean;
   vocalizationType?: string;
   source?: string;
+  sourceId?: string;
+  recordist?: string;
 }
 
 interface BirdInfo {
@@ -159,6 +163,8 @@ function PackSelect() {
           isCanonical: !!c.canonical,
           vocalizationType: c.vocalization_type,
           source: c.source,
+          sourceId: c.source_id,
+          recordist: c.recordist,
         }));
 
       return {
@@ -663,7 +669,7 @@ function PackSelect() {
                               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', flex: 1 }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap' }}>
                                   <span style={{ fontSize: '11px', color: 'var(--color-text)' }}>
-                                    Clip {index + 1}
+                                    {clip.sourceId || `Clip ${index + 1}`}
                                   </span>
                                   {clip.isCanonical && (
                                     <span style={{
@@ -698,6 +704,7 @@ function PackSelect() {
                                       borderRadius: '4px',
                                     }}>
                                       {clip.source === 'xenocanto' ? 'Xeno-canto' : clip.source === 'cornell' ? 'Cornell' : 'Peter Repetti'}
+                                      {clip.recordist && ` - ${clip.recordist}`}
                                     </span>
                                   )}
                                 </div>

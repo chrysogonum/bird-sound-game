@@ -64,6 +64,10 @@
         "type": ["string", "null"],
         "description": "Path to the spectrogram image"
       },
+      "recordist": {
+        "type": ["string", "null"],
+        "description": "Name of the person who recorded the audio (required for Xeno-canto attribution)"
+      },
       "canonical": {
         "type": "boolean",
         "description": "Whether this is a canonical/signature clip for the species"
