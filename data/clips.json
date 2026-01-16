@@ -129,20 +129,6 @@
     "rejected": false
   },
   {
-    "clip_id": "AMRE_1013900",
-    "species_code": "AMRE",
-    "common_name": "American Redstart",
-    "file_path": "data/clips/AMRE_1013900.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC1013900",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/AMRE_1013900.png",
-    "quality_score": 4
-  },
-  {
     "clip_id": "AMRE_1014425",
     "species_code": "AMRE",
     "common_name": "American Redstart",
