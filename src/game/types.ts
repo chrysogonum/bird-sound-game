@@ -1,5 +1,5 @@
 /**
- * Game system types for SoundField: Birds
+ * Game system types for ChipNotes!
  */
 
 import type { Channel, ClipMetadata } from '../audio/types.js';

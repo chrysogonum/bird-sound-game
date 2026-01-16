@@ -1,5 +1,5 @@
 /**
- * ConfusionDrillLauncher - Launches targeted practice drills for SoundField: Birds
+ * ConfusionDrillLauncher - Launches targeted practice drills for ChipNotes!
  *
  * Provides:
  * - Post-round confusion analysis with drill suggestions

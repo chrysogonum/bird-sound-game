@@ -1,5 +1,5 @@
 /**
- * Pack system types for SoundField: Birds
+ * Pack system types for ChipNotes!
  */
 
 /** Vocalization weights for a pack */

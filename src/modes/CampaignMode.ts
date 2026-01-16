@@ -1,5 +1,5 @@
 /**
- * CampaignMode - Linear progression through Levels for SoundField: Birds
+ * CampaignMode - Linear progression through Levels for ChipNotes!
  *
  * Features:
  * - Start at Level 1, unlock subsequent levels by completing previous

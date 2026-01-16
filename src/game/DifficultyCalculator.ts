@@ -1,5 +1,5 @@
 /**
- * DifficultyCalculator - Combines Level and Pack modifiers for SoundField: Birds
+ * DifficultyCalculator - Combines Level and Pack modifiers for ChipNotes!
  *
  * Features:
  * - Apply pack tempo modifier to event timing

@@ -1,5 +1,5 @@
 /**
- * CalibrationFlow - Headphone and L/R calibration for SoundField: Birds
+ * CalibrationFlow - Headphone and L/R calibration for ChipNotes!
  *
  * Provides:
  * - Headphone check prompt

@@ -1,5 +1,5 @@
 /**
- * RandomMode - Continuous random Events from Pack for SoundField: Birds
+ * RandomMode - Continuous random Events from Pack for ChipNotes!
  *
  * Features:
  * - Continuous events until player quits or fails threshold

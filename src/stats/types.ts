@@ -1,5 +1,5 @@
 /**
- * Stats system types for SoundField: Birds
+ * Stats system types for ChipNotes!
  */
 
 import type { PackStats, ConfusionPair } from '../storage/types.js';

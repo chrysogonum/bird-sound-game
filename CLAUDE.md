@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-SoundField: Birds is a rhythm-game–style audio training application that teaches players to identify bird sounds. Players identify species, spatial position (left/right channel), and timing accuracy within a performance-based format.
+ChipNotes! is a rhythm-game–style audio training application that teaches players to identify bird sounds. Players identify species, spatial position (left/right channel), and timing accuracy within a performance-based format.
 
 **Core principle:** Audio-first, visual-augmented. Audio is always primary; spectrograms are optional scaffolding.
 

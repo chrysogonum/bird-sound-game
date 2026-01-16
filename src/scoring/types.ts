@@ -1,5 +1,5 @@
 /**
- * Scoring system types for SoundField: Birds
+ * Scoring system types for ChipNotes!
  */
 
 import type { Channel } from '../audio/types.js';

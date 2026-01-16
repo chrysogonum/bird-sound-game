@@ -1,5 +1,5 @@
 /**
- * RoundManager - Round lifecycle management for SoundField: Birds
+ * RoundManager - Round lifecycle management for ChipNotes!
  *
  * Manages the lifecycle of a game round: start, update, end.
  * Coordinates event playback, scoring, and timing.

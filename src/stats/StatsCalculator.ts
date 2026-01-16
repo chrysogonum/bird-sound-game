@@ -1,5 +1,5 @@
 /**
- * StatsCalculator - Compute mastery metrics for SoundField: Birds
+ * StatsCalculator - Compute mastery metrics for ChipNotes!
  *
  * Features:
  * - Calculate mastery levels

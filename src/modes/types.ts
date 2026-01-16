@@ -1,5 +1,5 @@
 /**
- * Mode system types for SoundField: Birds
+ * Mode system types for ChipNotes!
  */
 
 import type { LevelConfig, RoundStats, GameMode, SpeciesSelection } from '../game/types.js';

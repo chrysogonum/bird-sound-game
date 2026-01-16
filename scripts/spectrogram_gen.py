@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Spectrogram Generator for SoundField: Birds
+Spectrogram Generator for ChipNotes!
 
 Generates PNG spectrograms for all audio clips and updates clips.json
 with spectrogram paths.

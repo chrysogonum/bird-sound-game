@@ -1,5 +1,5 @@
 /**
- * Audio system types for SoundField: Birds
+ * Audio system types for ChipNotes!
  */
 
 /** Audio channel assignment */

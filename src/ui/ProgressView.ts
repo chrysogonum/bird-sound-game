@@ -1,5 +1,5 @@
 /**
- * ProgressView - Display unlocks and stats for SoundField: Birds
+ * ProgressView - Display unlocks and stats for ChipNotes!
  *
  * Features:
  * - Display unlocked levels and packs

@@ -1,5 +1,5 @@
 /**
- * Input system types for SoundField: Birds
+ * Input system types for ChipNotes!
  */
 
 import type { Channel } from '../audio/types.js';

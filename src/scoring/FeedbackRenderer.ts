@@ -1,5 +1,5 @@
 /**
- * FeedbackRenderer - Immediate visual/audio feedback for SoundField: Birds
+ * FeedbackRenderer - Immediate visual/audio feedback for ChipNotes!
  *
  * Provides immediate feedback to players after each input:
  * - Visual flash on correct (green glow)

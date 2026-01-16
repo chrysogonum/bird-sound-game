@@ -1,5 +1,5 @@
 /**
- * HUD - Heads-Up Display for SoundField: Birds
+ * HUD - Heads-Up Display for ChipNotes!
  *
  * Displays real-time game information:
  * - Current score

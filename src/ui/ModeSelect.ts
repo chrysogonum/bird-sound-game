@@ -1,5 +1,5 @@
 /**
- * ModeSelect - Mode selection menu for SoundField: Birds
+ * ModeSelect - Mode selection menu for ChipNotes!
  *
  * Displays available game modes and allows selection.
  */

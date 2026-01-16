@@ -1,5 +1,5 @@
 /**
- * ScoreEngine - Score calculation per Event for SoundField: Birds
+ * ScoreEngine - Score calculation per Event for ChipNotes!
  *
  * Calculates scores based on three independent dimensions:
  * - Species identification (+50 points)

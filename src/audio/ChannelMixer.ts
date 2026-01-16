@@ -1,5 +1,5 @@
 /**
- * ChannelMixer - Stereo panning implementation for SoundField: Birds
+ * ChannelMixer - Stereo panning implementation for ChipNotes!
  *
  * Provides channel-based stereo panning for mono audio clips.
  * Audio is panned hard left (-1) or hard right (+1) based on channel assignment.

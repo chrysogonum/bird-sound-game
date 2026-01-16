@@ -1,5 +1,5 @@
 /**
- * Storage system types for SoundField: Birds
+ * Storage system types for ChipNotes!
  */
 
 /** Confusion pair tracking */

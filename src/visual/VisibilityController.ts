@@ -1,5 +1,5 @@
 /**
- * VisibilityController - Manages spectrogram visibility modes for SoundField: Birds
+ * VisibilityController - Manages spectrogram visibility modes for ChipNotes!
  *
  * Controls:
  * - Spectrogram visibility modes (full, fading, none)

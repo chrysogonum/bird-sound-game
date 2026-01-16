@@ -1,5 +1,5 @@
 /**
- * RoundSummary - End-of-round statistics display for SoundField: Birds
+ * RoundSummary - End-of-round statistics display for ChipNotes!
  *
  * Displays:
  * - Overall accuracy percentage

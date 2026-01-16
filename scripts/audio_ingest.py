@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Audio Ingestion Pipeline for SoundField: Birds
+Audio Ingestion Pipeline for ChipNotes!
 
 Downloads bird audio from Xeno-canto, preprocesses to:
 - Mono audio
@@ -566,7 +566,7 @@ def test_api_connection() -> bool:
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Audio ingestion pipeline for SoundField: Birds')
+    parser = argparse.ArgumentParser(description='Audio ingestion pipeline for ChipNotes!')
     parser.add_argument('--output', help='Output directory for processed audio')
     parser.add_argument('--species', nargs='+', help='Species names to fetch')
     parser.add_argument('--max-per-species', type=int, default=1, help='Max recordings per species')

@@ -1,5 +1,5 @@
 /**
- * RadialWheel - Species selection UI component for SoundField: Birds
+ * RadialWheel - Species selection UI component for ChipNotes!
  *
  * Displays 8-12 species icons in a radial arrangement.
  * Players tap species icons to make selections.
