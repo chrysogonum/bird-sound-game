@@ -188,7 +188,7 @@ function Settings() {
             </button>
           </div>
           <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
-            I know I'm a stranger, but please accept my cookies! Analytics help me understand how many players I have, which birds everyone loves, and what features are most useful. I promise I'm just adding bird nerds to my LIFE LIST, not stalking them. Your IP is anonymized, no personal data collected, full GDPR/CCPA compliance.
+            I know I'm a stranger, but please accept my cookies! Analytics help me understand how many players I have, which birds everyone loves, and what features are most useful. I promise I'm just adding bird nerds to my LIFE LIST, not stalking you. Your IP is anonymized, no personal data collected, full GDPR/CCPA compliance.
           </div>
         </div>
 

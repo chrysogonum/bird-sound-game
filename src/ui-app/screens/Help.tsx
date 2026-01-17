@@ -448,14 +448,14 @@ function Help() {
             </ul>
           </VersionEntry>
 
-          <VersionEntry version="3.4" date="January 17, 2026">
+          <VersionEntry version="3.19" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Help page UX:</strong> Collapsible sections with floating Expand All button - less scrolling, more scanning</li>
               <li><strong>All Birds reference:</strong> Fixed missing bird icons in Bird Reference pack</li>
               <li><strong>Navigation improvements:</strong> Added Back button at bottom of Help page, Help link in Settings for easy cross-navigation</li>
               <li><strong>Support link:</strong> Ko-fi donation link added to Settings - buy me a coffee if ChipNotes helps you ID more birds</li>
               <li><strong>Tech description restored:</strong> Brought back the detailed tech paragraph about TypeScript, React, PixiJS, and PWA offline caching</li>
-              <li><strong>Privacy language:</strong> Updated Settings privacy text to be more neutral and less "we"-focused</li>
+              <li><strong>Privacy language:</strong> Updated Settings privacy text to be more neutral and less "we"-focused, "not stalking you" instead of "them"</li>
             </ul>
           </VersionEntry>
 
@@ -463,7 +463,7 @@ function Help() {
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Cookie consent:</strong> I know I'm a stranger, but please accept my cookies! It really helps me document how many players I have and which birds everyone loves. (GDPR-compliant banner now appears on first visit)</li>
               <li><strong>Privacy controls:</strong> Changed your mind? New "Analytics Cookies" toggle in Settings lets you opt in/out anytime</li>
-              <li><strong>Your data is safe:</strong> IP anonymization enabled, secure cookie flags set, full GDPR/CCPA compliance - I promise I'm just adding bird nerds to my LIFE LIST, not stalking them</li>
+              <li><strong>Your data is safe:</strong> IP anonymization enabled, secure cookie flags set, full GDPR/CCPA compliance - I promise I'm just adding bird nerds to my LIFE LIST, not stalking you</li>
             </ul>
           </VersionEntry>
 

@@ -18,12 +18,12 @@ function Privacy() {
             <strong>Last Updated:</strong> January 17, 2026
           </p>
           <p style={{ marginBottom: '12px' }}>
-            ChipNotes ("we", "us", or "the app") is committed to protecting your privacy. This policy explains what data we collect, how we use it, and your rights.
+            ChipNotes is committed to protecting your privacy. This policy explains what data is collected, how it is used, and your rights.
           </p>
         </div>
 
         <div className="card">
-          <h3 style={{ marginBottom: '12px' }}>What Data We Collect</h3>
+          <h3 style={{ marginBottom: '12px' }}>Data Collection</h3>
           <div className="text-muted" style={{ fontSize: '14px', lineHeight: 1.6 }}>
             <p style={{ marginBottom: '8px' }}>
               <strong>Local Data (Always Stored on Your Device):</strong>
@@ -43,18 +43,18 @@ function Privacy() {
               <li>App performance metrics</li>
             </ul>
             <p style={{ fontSize: '13px', color: 'var(--color-accent)' }}>
-              <strong>We do NOT collect:</strong> Names, email addresses, phone numbers, precise location, or any personally identifiable information. Your game data stays on your device.
+              <strong>Not collected:</strong> Names, email addresses, phone numbers, precise location, or any personally identifiable information. Your game data stays on your device.
             </p>
           </div>
         </div>
 
         <div className="card">
-          <h3 style={{ marginBottom: '12px' }}>How We Use Your Data</h3>
+          <h3 style={{ marginBottom: '12px' }}>How Your Data Is Used</h3>
           <div className="text-muted" style={{ fontSize: '14px', lineHeight: 1.6 }}>
             <ul style={{ marginLeft: '20px' }}>
-              <li>Local data: To save your preferences and track your progress</li>
-              <li>Analytics data: To understand how many players use ChipNotes, which features are popular, and how to improve the app</li>
-              <li>We never sell, rent, or share your data with third parties (except Google Analytics if you consent)</li>
+              <li>Local data: Saves your preferences and tracks your progress</li>
+              <li>Analytics data: Used to understand how many players use ChipNotes, which features are popular, and how to improve the app</li>
+              <li>Your data is never sold, rented, or shared with third parties (except Google Analytics if you consent)</li>
             </ul>
           </div>
         </div>
@@ -146,7 +146,7 @@ function Privacy() {
             <ul style={{ marginLeft: '20px' }}>
               <li><strong>GDPR</strong> (European Union) - Right to access, deletion, and data portability</li>
               <li><strong>CCPA</strong> (California) - Right to know and delete personal information</li>
-              <li>Since we don't collect personal information, compliance is straightforward</li>
+              <li>Since no personal information is collected, compliance is straightforward</li>
             </ul>
           </div>
         </div>
@@ -155,7 +155,7 @@ function Privacy() {
           <h3 style={{ marginBottom: '12px' }}>Changes to This Policy</h3>
           <div className="text-muted" style={{ fontSize: '14px', lineHeight: 1.6 }}>
             <p>
-              We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last Updated" date. Continued use of the app after changes constitutes acceptance of the updated policy.
+              This Privacy Policy may be updated from time to time. Changes will be posted on this page with an updated "Last Updated" date. Continued use of the app after changes constitutes acceptance of the updated policy.
             </p>
           </div>
         </div>
