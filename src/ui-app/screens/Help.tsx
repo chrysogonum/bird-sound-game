@@ -432,18 +432,9 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
-          <VersionEntry version="3.3" date="January 17, 2026">
+          <VersionEntry version="3.22" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Quit button:</strong> Added X button during gameplay to quit rounds early with confirmation</li>
-              <li><strong>Support section:</strong> Added Ko-fi donation link and encouragement to support Cornell Macaulay Library and Xeno-Canto</li>
-            </ul>
-          </VersionEntry>
-
-          <VersionEntry version="3.2" date="January 17, 2026">
-            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Mobile navigation fix:</strong> Bottom menu icons now properly visible on both Safari and Chrome mobile browsers</li>
-              <li><strong>Fullscreen tip:</strong> Added browser guidance for best mobile experience</li>
-              <li><strong>PWA improvements:</strong> Enhanced Apple mobile web app support</li>
+              <li><strong>Version chronology fix:</strong> Moved v3.02 and v3.03 to correct position in version history (after v3.13, before v2.0) - no more time-traveling versions!</li>
             </ul>
           </VersionEntry>
 
@@ -526,6 +517,21 @@ function Help() {
               <li><strong>Bird Reference enhancements:</strong> Collapsible packs with expand/collapse controls, source badges (Xeno-canto, Cornell, contributors), pack cards with representative bird icons</li>
               <li><strong>Fixed blank spectrograms</strong> (async texture loading), added pull-to-refresh on main menu, audio preloading on preview screen</li>
               <li>Added White-crowned Sparrow to Sparrows pack (now 8 species)</li>
+            </ul>
+          </VersionEntry>
+
+          <VersionEntry version="3.03" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Quit button:</strong> Added X button during gameplay to quit rounds early with confirmation</li>
+              <li><strong>Support section:</strong> Added Ko-fi donation link and encouragement to support Cornell Macaulay Library and Xeno-Canto</li>
+            </ul>
+          </VersionEntry>
+
+          <VersionEntry version="3.02" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Mobile navigation fix:</strong> Bottom menu icons now properly visible on both Safari and Chrome mobile browsers</li>
+              <li><strong>Fullscreen tip:</strong> Added browser guidance for best mobile experience</li>
+              <li><strong>PWA improvements:</strong> Enhanced Apple mobile web app support</li>
             </ul>
           </VersionEntry>
 
