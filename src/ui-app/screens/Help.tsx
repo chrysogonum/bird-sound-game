@@ -447,17 +447,10 @@ function Help() {
             </ul>
           </VersionEntry>
 
-          <VersionEntry version="3.19" date="January 17, 2026">
-            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Credits update:</strong> Added Cornell Macaulay Library, user contributions, and Bird Reference attribution</li>
-              <li><strong>Project timeline:</strong> Documented creation timeline (Jan 8-11, 2026) and Claude Code collaboration</li>
-              <li><strong>Voice consistency:</strong> Changed "we" to "I" in Feedback section</li>
-            </ul>
-          </VersionEntry>
-
           <VersionEntry version="3.21" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>All Birds pack race condition fix:</strong> Fixed state management bug where pack JSON loading overwrote the All Birds pack, causing it to disappear - now merges state correctly to preserve all packs</li>
+              <li><strong>Clickable version number:</strong> Main menu version now links to Version History - auto-expands and scrolls to changelog</li>
             </ul>
           </VersionEntry>
 
@@ -477,6 +470,9 @@ function Help() {
               <li><strong>Support link:</strong> Ko-fi donation link added to Settings - buy me a coffee if ChipNotes helps you ID more birds</li>
               <li><strong>Tech description restored:</strong> Brought back the detailed tech paragraph about TypeScript, React, PixiJS, and PWA offline caching</li>
               <li><strong>Privacy language:</strong> Updated Settings privacy text to be more neutral and less "we"-focused, "not stalking you" instead of "them"</li>
+              <li><strong>Credits update:</strong> Added Cornell Macaulay Library, user contributions, and Bird Reference attribution</li>
+              <li><strong>Project timeline:</strong> Documented creation timeline (Jan 8-11, 2026) and Claude Code collaboration</li>
+              <li><strong>Voice consistency:</strong> Changed "we" to "I" in Feedback section</li>
             </ul>
           </VersionEntry>
 
