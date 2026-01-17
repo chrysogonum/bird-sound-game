@@ -12,20 +12,24 @@ function loadGoogleAnalytics() {
     return;
   }
 
-  // Initialize dataLayer (required before gtag.js loads)
+  // Initialize dataLayer and gtag wrapper (standard Google Analytics pattern)
   window.dataLayer = window.dataLayer || [];
+  // Must use 'arguments' keyword (not rest params) for gtag.js compatibility
+  window.gtag = function() {
+    window.dataLayer?.push(arguments);
+  };
 
-  // Queue configuration commands (will be processed when gtag.js loads)
-  window.dataLayer.push(['js', new Date()]);
-  window.dataLayer.push(['config', 'G-MJXQZYWWZ0', {
+  // Queue configuration (gtag.js will process when it loads)
+  window.gtag('js', new Date());
+  window.gtag('config', 'G-MJXQZYWWZ0', {
     anonymize_ip: true, // Anonymize IPs for GDPR compliance
     cookie_flags: 'SameSite=Lax;Secure', // Better privacy - no cross-site tracking
     cookie_expires: 63072000, // 2 years max (730 days in seconds)
     allow_ad_personalization_signals: false, // Disable ad tracking
     allow_google_signals: false, // Disable cross-device tracking
-  }]);
+  });
 
-  // Load gtag.js script (will create window.gtag function)
+  // Load gtag.js script asynchronously
   const script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MJXQZYWWZ0';
