@@ -1,10 +1,74 @@
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 
 function Help() {
   const navigate = useNavigate();
 
+  // Track which sections are expanded (some start open by default)
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(
+    new Set(['Why Learn Bird Song?', 'The Basics', 'Scoring'])
+  );
+
+  // Track if user has scrolled
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+
+  const allSections = [
+    'Why Learn Bird Song?',
+    'The Basics',
+    'Scoring',
+    'The Packs',
+    'The Levels',
+    'Tips',
+    'Training Mode',
+    'The 4-Letter Codes',
+    'The Spectrograms',
+    'About & Credits',
+    'Support This Project',
+    'Feedback & Bug Reports',
+    'Version History'
+  ];
+
+  const toggleSection = (title: string) => {
+    const newExpanded = new Set(expandedSections);
+    if (newExpanded.has(title)) {
+      newExpanded.delete(title);
+    } else {
+      newExpanded.add(title);
+    }
+    setExpandedSections(newExpanded);
+  };
+
+  const toggleAll = () => {
+    if (expandedSections.size === allSections.length) {
+      // All expanded, collapse all
+      setExpandedSections(new Set());
+    } else {
+      // Some or none expanded, expand all
+      setExpandedSections(new Set(allSections));
+    }
+  };
+
+  const allExpanded = expandedSections.size === allSections.length;
+
+  // Show button once user scrolls
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!hasScrolled && containerRef.current && containerRef.current.scrollTop > 0) {
+        setHasScrolled(true);
+      }
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, [hasScrolled]);
+
   return (
-    <div className="screen" style={{ paddingBottom: '32px' }}>
+    <div ref={containerRef} className="screen" style={{ paddingBottom: '32px', position: 'relative' }}>
       <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
         <button className="btn-icon" onClick={() => navigate(-1)} aria-label="Back">
           <BackIcon />
@@ -14,7 +78,11 @@ function Help() {
 
       <div style={{ maxWidth: '600px', margin: '0 auto' }}>
         {/* Why Learn Bird Song */}
-        <Section title="Why Learn Bird Song?">
+        <Section
+          title="Why Learn Bird Song?"
+          isExpanded={expandedSections.has('Why Learn Bird Song?')}
+          onToggle={() => toggleSection('Why Learn Bird Song?')}
+        >
           <p style={{ marginBottom: '12px' }}>
             Birds are <em>heard</em> way more often than they're <em>seen</em>. Once you know the songs, you'll know what to look for - and suddenly your backyard becomes way more interesting.
           </p>
@@ -27,7 +95,11 @@ function Help() {
         </Section>
 
         {/* The Basics */}
-        <Section title="The Basics">
+        <Section
+          title="The Basics"
+          isExpanded={expandedSections.has('The Basics')}
+          onToggle={() => toggleSection('The Basics')}
+        >
           <p style={{ marginBottom: '12px' }}>
             <strong>Listen. Identify. Tap.</strong>
           </p>
@@ -44,7 +116,11 @@ function Help() {
         </Section>
 
         {/* Scoring */}
-        <Section title="Scoring">
+        <Section
+          title="Scoring"
+          isExpanded={expandedSections.has('Scoring')}
+          onToggle={() => toggleSection('Scoring')}
+        >
           <ScoreRow label="Perfect" points={100} description="Right bird + right ear + great timing" color="var(--color-success)" />
           <ScoreRow label="Good" points={75} description="Right bird + right ear" color="var(--color-success)" />
           <ScoreRow label="Partial" points={25} description="Right bird, wrong ear" color="var(--color-accent)" />
@@ -52,7 +128,11 @@ function Help() {
         </Section>
 
         {/* The Packs */}
-        <Section title="The Packs">
+        <Section
+          title="The Packs"
+          isExpanded={expandedSections.has('The Packs')}
+          onToggle={() => toggleSection('The Packs')}
+        >
           <PackInfo
             name="Common Eastern US Backyard Birds"
             description="Perfect for beginners. Five distinctive birds you'll hear in your own backyard: Cardinal, Carolina Wren, Titmouse, Blue Jay, and Crow."
@@ -80,7 +160,11 @@ function Help() {
         </Section>
 
         {/* The Levels */}
-        <Section title="The Levels">
+        <Section
+          title="The Levels"
+          isExpanded={expandedSections.has('The Levels')}
+          onToggle={() => toggleSection('The Levels')}
+        >
           <p style={{ marginBottom: '12px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
             Each pack has 6 levels that build your skills:
           </p>
@@ -93,7 +177,11 @@ function Help() {
         </Section>
 
         {/* Tips */}
-        <Section title="Tips">
+        <Section
+          title="Tips"
+          isExpanded={expandedSections.has('Tips')}
+          onToggle={() => toggleSection('Tips')}
+        >
           <Tip>Start with the 5 common birds, even if you're eager for more.</Tip>
           <Tip>Use Bird Reference on the Pack Select screen to preview all sounds included in the game.</Tip>
           <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
@@ -103,7 +191,11 @@ function Help() {
         </Section>
 
         {/* Training Mode */}
-        <Section title="Training Mode">
+        <Section
+          title="Training Mode"
+          isExpanded={expandedSections.has('Training Mode')}
+          onToggle={() => toggleSection('Training Mode')}
+        >
           <p>
             Toggle the <strong>eye icon</strong> (next to the back button) during gameplay to enable Training Mode.
           </p>
@@ -142,7 +234,11 @@ function Help() {
         </Section>
 
         {/* Bird Codes */}
-        <Section title="The 4-Letter Codes">
+        <Section
+          title="The 4-Letter Codes"
+          isExpanded={expandedSections.has('The 4-Letter Codes')}
+          onToggle={() => toggleSection('The 4-Letter Codes')}
+        >
           <p>
             Birders use standardized 4-letter codes (called "Alpha codes") as shorthand for species names.
             They're easy to learn:
@@ -167,7 +263,11 @@ function Help() {
         </Section>
 
         {/* Spectrograms */}
-        <Section title="The Spectrograms">
+        <Section
+          title="The Spectrograms"
+          isExpanded={expandedSections.has('The Spectrograms')}
+          onToggle={() => toggleSection('The Spectrograms')}
+        >
           <p>
             The colorful images on tiles are spectrograms - visual pictures of sound.
             Time flows left to right, pitch goes bottom to top, and brightness shows volume.
@@ -178,7 +278,11 @@ function Help() {
         </Section>
 
         {/* About & Credits */}
-        <Section title="About & Credits">
+        <Section
+          title="About & Credits"
+          isExpanded={expandedSections.has('About & Credits')}
+          onToggle={() => toggleSection('About & Credits')}
+        >
           <div style={{ textAlign: 'center', marginBottom: '16px' }}>
             <div style={{ fontSize: '32px', marginBottom: '8px' }}>🎧 🐦 🎵 ❤️</div>
             <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text)', marginBottom: '4px' }}>
@@ -203,11 +307,11 @@ function Help() {
             </p>
 
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Development:</strong> Built with React, PixiJS, and caffeine. Powered by the Web Audio API for pristine bird song playback. Idea = January 8, 2026. First version deployed January 11, 2026. Thanks, Claude Code.
+              <strong style={{ color: 'var(--color-accent)' }}>The Tech:</strong> Built by Claude Code with TypeScript, React, and PixiJS for buttery-smooth scrolling spectrograms. The Web Audio API handles sample-accurate playback with real-time stereo panning - your browser decodes and buffers audio into memory for zero-latency triggering. Vite bundles it all into a PWA (Progressive Web App) that caches sounds as you play them - so load up those birds before your flight to New Zealand takes off ✈️.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Special thanks:</strong> To the global birding community for sharing these amazing recordings.
+              <strong style={{ color: 'var(--color-accent)' }}>Special thanks:</strong> To the global birding community for sharing these recordings.
             </p>
 
             <p style={{ marginTop: '16px', fontSize: '13px', fontStyle: 'italic' }}>
@@ -217,7 +321,11 @@ function Help() {
         </Section>
 
         {/* Support This Project */}
-        <Section title="Support This Project">
+        <Section
+          title="Support This Project"
+          isExpanded={expandedSections.has('Support This Project')}
+          onToggle={() => toggleSection('Support This Project')}
+        >
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
             ChipNotes is free, ad-free, and built as a passion project. If it's helped you level up your birding skills, consider{' '}
             <a href="https://ko-fi.com/chipnotes" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
@@ -250,7 +358,11 @@ function Help() {
         </Section>
 
         {/* Feedback & Contact */}
-        <Section title="Feedback & Bug Reports">
+        <Section
+          title="Feedback & Bug Reports"
+          isExpanded={expandedSections.has('Feedback & Bug Reports')}
+          onToggle={() => toggleSection('Feedback & Bug Reports')}
+        >
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
             I'd love to hear from you! Found a bug? Have a feature suggestion? Want to share your experience?
           </p>
@@ -298,7 +410,11 @@ function Help() {
         </Section>
 
         {/* Version History */}
-        <Section title="Version History">
+        <Section
+          title="Version History"
+          isExpanded={expandedSections.has('Version History')}
+          onToggle={() => toggleSection('Version History')}
+        >
           <VersionEntry version="3.3" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Quit button:</strong> Added X button during gameplay to quit rounds early with confirmation</li>
@@ -329,6 +445,17 @@ function Help() {
               <li><strong>Help page:</strong> Reorganized sections, added creator attribution</li>
               <li><strong>Privacy page:</strong> Full privacy policy accessible from Settings</li>
               <li><strong>Analytics fix:</strong> Fixed gtag initialization pattern - tracking now works correctly</li>
+            </ul>
+          </VersionEntry>
+
+          <VersionEntry version="3.4" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Help page UX:</strong> Collapsible sections with floating Expand All button - less scrolling, more scanning</li>
+              <li><strong>All Birds reference:</strong> Fixed missing bird icons in Bird Reference pack</li>
+              <li><strong>Navigation improvements:</strong> Added Back button at bottom of Help page, Help link in Settings for easy cross-navigation</li>
+              <li><strong>Support link:</strong> Ko-fi donation link added to Settings - buy me a coffee if ChipNotes helps you ID more birds</li>
+              <li><strong>Tech description restored:</strong> Brought back the detailed tech paragraph about TypeScript, React, PixiJS, and PWA offline caching</li>
+              <li><strong>Privacy language:</strong> Updated Settings privacy text to be more neutral and less "we"-focused</li>
             </ul>
           </VersionEntry>
 
@@ -401,27 +528,117 @@ function Help() {
             </ul>
           </VersionEntry>
         </Section>
+
+        {/* Bottom navigation */}
+        <div style={{
+          marginTop: '32px',
+          paddingTop: '24px',
+          borderTop: '1px solid var(--color-surface)',
+          display: 'flex',
+          justifyContent: 'center'
+        }}>
+          <button
+            className="btn-secondary"
+            onClick={() => navigate(-1)}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              padding: '12px 24px',
+            }}
+          >
+            <BackIcon />
+            Back
+          </button>
+        </div>
       </div>
+
+      {/* Floating Expand/Collapse All button - visible after scroll */}
+      {hasScrolled && (
+        <button
+          onClick={toggleAll}
+          style={{
+            position: 'fixed',
+            bottom: 'calc(24px + var(--safe-area-bottom, 0px))',
+            right: '24px',
+            padding: '6px 10px',
+            fontSize: '11px',
+            fontWeight: 600,
+            background: 'rgba(255, 152, 0, 0.15)',
+            color: 'var(--color-accent)',
+            border: '1px solid rgba(255, 152, 0, 0.3)',
+            borderRadius: '12px',
+            cursor: 'pointer',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+            transition: 'all 0.2s',
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'scale(1.05)';
+            e.currentTarget.style.background = 'rgba(255, 152, 0, 0.25)';
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+            e.currentTarget.style.background = 'rgba(255, 152, 0, 0.15)';
+            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+          }}
+        >
+          <span style={{ fontSize: '12px' }}>
+            {allExpanded ? '▲' : '▼'}
+          </span>
+          {allExpanded ? 'Collapse All' : 'Expand All'}
+        </button>
+      )}
     </div>
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({ title, children, isExpanded, onToggle }: {
+  title: string;
+  children: React.ReactNode;
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
   return (
-    <div style={{ marginBottom: '28px' }}>
-      <h3 style={{
-        fontSize: '16px',
-        fontWeight: 600,
-        marginBottom: '12px',
-        color: 'var(--color-accent)',
-        borderBottom: '1px solid var(--color-surface)',
-        paddingBottom: '8px',
-      }}>
+    <div style={{ marginBottom: '16px' }}>
+      <h3
+        onClick={onToggle}
+        style={{
+          fontSize: '16px',
+          fontWeight: 600,
+          marginBottom: isExpanded ? '12px' : '0',
+          color: 'var(--color-accent)',
+          borderBottom: '1px solid var(--color-surface)',
+          paddingBottom: '8px',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          transition: 'color 0.2s',
+          userSelect: 'none',
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.color = '#FFA726'}
+        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
+      >
+        <span style={{
+          fontSize: '14px',
+          width: '14px',
+          textAlign: 'center',
+          flexShrink: 0
+        }}>
+          {isExpanded ? '▼' : '▶'}
+        </span>
         {title}
       </h3>
-      <div style={{ fontSize: '15px', lineHeight: 1.6, color: 'var(--color-text)' }}>
-        {children}
-      </div>
+      {isExpanded && (
+        <div style={{ fontSize: '15px', lineHeight: 1.6, color: 'var(--color-text)' }}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }

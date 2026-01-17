@@ -196,7 +196,7 @@ function Settings() {
         <div className="card">
           <h3 style={{ marginBottom: '8px' }}>Privacy Policy</h3>
           <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
-            Learn about how we protect your data, what we collect, and your rights.{' '}
+            Learn about how your privacy is protected, what data is collected, and your rights.{' '}
             <button
               onClick={() => navigate('/privacy')}
               style={{
@@ -214,6 +214,28 @@ function Settings() {
           </div>
         </div>
 
+        {/* Help */}
+        <div className="card">
+          <h3 style={{ marginBottom: '8px' }}>How to Play</h3>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+            New to ChipNotes? Learn about gameplay, scoring, packs, and tips.{' '}
+            <button
+              onClick={() => navigate('/help')}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-accent)',
+                fontSize: '13px',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                padding: 0,
+              }}
+            >
+              View Help Guide →
+            </button>
+          </div>
+        </div>
+
         {/* Feedback & Bug Reports */}
         <div className="card">
           <h3 style={{ marginBottom: '8px' }}>Feedback & Bug Reports</h3>
@@ -225,6 +247,18 @@ function Settings() {
           </div>
           <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
             <span style={{ color: 'var(--color-text)' }}>Have a bird sound on your phone that you think should be in the game?</span> Send it to me! I'll add it and give you credit in the app.
+          </div>
+        </div>
+
+        {/* Support */}
+        <div className="card">
+          <h3 style={{ marginBottom: '8px' }}>Support This Project</h3>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+            ChipNotes is free and ad-free. If it's helped you ID more birds,{' '}
+            <a href="https://ko-fi.com/chipnotes" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              buy me a coffee
+            </a>
+            {' '}to support development. Every donation helps add new species and features! ☕
           </div>
         </div>
 
