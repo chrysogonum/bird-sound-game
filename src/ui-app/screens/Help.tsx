@@ -259,6 +259,16 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
+          <VersionEntry version="3.18" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>UI polish:</strong> Streamlined pack selection, tightened layout, less visual clutter</li>
+              <li><strong>Custom Pack Builder:</strong> Sticky "Start" button stays visible with iOS keyboard, auto-focus for rapid bird entry, added preview tip</li>
+              <li><strong>Help page:</strong> Reorganized sections, added creator attribution</li>
+              <li><strong>Privacy page:</strong> Full privacy policy accessible from Settings</li>
+              <li><strong>Analytics fix:</strong> Fixed gtag initialization pattern - tracking now works correctly</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.17" date="January 16, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Cookie consent:</strong> I know I'm a stranger, but please accept my cookies! It really helps me document how many players I have and which birds everyone loves. (GDPR-compliant banner now appears on first visit)</li>
