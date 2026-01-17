@@ -216,6 +216,39 @@ function Help() {
           </div>
         </Section>
 
+        {/* Support This Project */}
+        <Section title="Support This Project">
+          <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
+            ChipNotes is free, ad-free, and built as a passion project. If it's helped you level up your birding skills, consider{' '}
+            <a href="https://ko-fi.com/chipnotes" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              supporting development
+            </a>
+            {' '}- your donations help me add new species packs, build new features, keep my coffee fund stocked - and allow me to go birding. Now, you go build something cool - it might be easier than you think! ;)
+          </p>
+
+          <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '8px', fontWeight: 600 }}>
+            Please also consider supporting the organizations that make this possible:
+          </p>
+          <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
+            <li>
+              <a href="https://www.birds.cornell.edu/home/support/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                Cornell Macaulay Library
+              </a>
+              {' '}- Incredible bird sound archive
+            </li>
+            <li>
+              <a href="https://xeno-canto.org/about/donate" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                Xeno-Canto
+              </a>
+              {' '}- Community-driven bird recording database
+            </li>
+          </ul>
+
+          <p style={{ marginTop: '16px', fontSize: '14px', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
+            Thank you for learning with me! 🐦
+          </p>
+        </Section>
+
         {/* Feedback & Contact */}
         <Section title="Feedback & Bug Reports">
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
@@ -266,6 +299,13 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
+          <VersionEntry version="3.3" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Quit button:</strong> Added X button during gameplay to quit rounds early with confirmation</li>
+              <li><strong>Support section:</strong> Added Ko-fi donation link and encouragement to support Cornell Macaulay Library and Xeno-Canto</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.2" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Mobile navigation fix:</strong> Bottom menu icons now properly visible on both Safari and Chrome mobile browsers</li>
