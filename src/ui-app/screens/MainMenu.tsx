@@ -307,7 +307,7 @@ function MainMenu() {
         color: 'var(--color-text-muted)',
         opacity: 0.6,
       }}>
-        v3.2
+        v3.3
       </div>
     </div>
   );
