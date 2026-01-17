@@ -438,6 +438,13 @@ function Help() {
             </ul>
           </VersionEntry>
 
+          <VersionEntry version="3.20" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Service worker cache fix:</strong> Fixed "Twilight Zone" bug where All Birds pack appeared on first load but disappeared after refresh - hashed JS bundles no longer cached, ensuring fresh code always loads</li>
+              <li><strong>PWA stability:</strong> Installed PWAs now properly update to show latest changes without requiring reinstall</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.18" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>UI polish:</strong> Streamlined pack selection, tightened layout, less visual clutter</li>
