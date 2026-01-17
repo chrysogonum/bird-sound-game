@@ -148,7 +148,7 @@ function PackSelect() {
         }
       });
       setPackSpecies(speciesMap);
-      setPackDisplaySpecies(displaySpeciesMap);
+      setPackDisplaySpecies((prev) => ({ ...prev, ...displaySpeciesMap }));
     });
   }, []);
 

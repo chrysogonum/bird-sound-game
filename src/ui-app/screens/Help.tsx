@@ -438,6 +438,12 @@ function Help() {
             </ul>
           </VersionEntry>
 
+          <VersionEntry version="3.21" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>All Birds pack race condition fix:</strong> Fixed state management bug where pack JSON loading overwrote the All Birds pack, causing it to disappear - now merges state correctly to preserve all packs</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.20" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Service worker cache fix:</strong> Fixed "Twilight Zone" bug where All Birds pack appeared on first load but disappeared after refresh - hashed JS bundles no longer cached, ensuring fresh code always loads</li>
