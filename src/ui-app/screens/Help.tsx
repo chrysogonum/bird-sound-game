@@ -263,6 +263,14 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
+          <VersionEntry version="3.19" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Credits update:</strong> Added Cornell Macaulay Library, user contributions, and Bird Reference attribution</li>
+              <li><strong>Project timeline:</strong> Documented creation timeline (Jan 8-11, 2026) and Claude Code collaboration</li>
+              <li><strong>Voice consistency:</strong> Changed "we" to "I" in Feedback section</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.18" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>UI polish:</strong> Streamlined pack selection, tightened layout, less visual clutter</li>
