@@ -5,7 +5,7 @@ import PixiGame from './PixiGame';
 import { useGameEngine } from './useGameEngine';
 import type { Channel } from '@engine/audio/types';
 import type { LevelConfig, GameMode } from '@engine/game/types';
-import { trackTrainingModeToggle } from '../utils/analytics';
+import { trackTrainingModeToggle, trackGameStart, trackRoundComplete } from '../utils/analytics';
 
 // Bird icon component - shows icon with code label below
 function BirdIcon({ code, size = 32, color }: { code: string; size?: number; color?: string }) {
@@ -299,6 +299,12 @@ function GameplayScreen() {
       lastLevelKeyRef.current = key;
       console.log('Initializing for', key);
       gameActions.initialize();
+      // Track game start
+      trackGameStart(
+        levelConfig.pack_id,
+        levelConfig.level_id,
+        levelConfig.species_pool?.length ?? 0
+      );
     }
   }, [mode, campaignLevels.length, levelConfig.pack_id, levelConfig.level_id, levelConfig.species_pool, gameActions]);
 
@@ -451,13 +457,26 @@ function GameplayScreen() {
           const results = JSON.parse(savedResults);
           results.usedTrainingMode = usedTrainingModeRef.current;
           localStorage.setItem('soundfield_round_results', JSON.stringify(results));
+
+          // Track round completion
+          const accuracy = results.correctCount && results.totalEvents
+            ? (results.correctCount / results.totalEvents) * 100
+            : 0;
+          const duration = results.duration ?? 0;
+          trackRoundComplete(
+            levelConfig.pack_id,
+            levelConfig.level_id,
+            gameState.score,
+            accuracy,
+            duration
+          );
         }
       } catch (e) {
         console.error('Failed to update results with training mode flag:', e);
       }
       navigate('/summary', { replace: true });
     }
-  }, [gameState.roundState, navigate]);
+  }, [gameState.roundState, gameState.score, levelConfig.pack_id, levelConfig.level_id, navigate]);
 
   return (
     <div className="gameplay-screen">
