@@ -174,27 +174,39 @@ function Help() {
           </p>
         </Section>
 
-        {/* Credits */}
-        <Section title="Sound Credits">
-          <p style={{ fontSize: '14px' }}>
-            Recordings sourced from <a href="https://xeno-canto.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>Xeno-canto</a>, <a href="https://www.birds.cornell.edu/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>Cornell Lab of Ornithology</a>, and user contributed recordings. All sounds have been curated for quality and educational value.
-          </p>
-        </Section>
+        {/* About & Credits */}
+        <Section title="About & Credits">
+          <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+            <div style={{ fontSize: '32px', marginBottom: '8px' }}>🎧 🐦 🎵 ❤️</div>
+            <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text)', marginBottom: '4px' }}>
+              Created by Peter Repetti
+            </div>
+            <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
+              Made with love by bird nerds, for bird nerds
+            </div>
+          </div>
 
-        {/* About */}
-        <Section title="About">
-          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
-            Made with 🎧 and ❤️ by Peter Repetti<br />
-            AI pair programming by Claude<br />
-            Icon design by Peter Repetti, Claude and ChatGPT
-          </p>
-          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginTop: '12px' }}>
-            <strong>The Tech:</strong> Built by Claude Code with TypeScript, React, and PixiJS for buttery-smooth scrolling spectrograms.
-            The Web Audio API handles sample-accurate playback with real-time stereo panning - your browser
-            decodes and buffers audio into memory for zero-latency triggering. Vite bundles it all into
-            a PWA (Progressive Web App) that caches sounds as you play them - so load up those birds before your
-            flight to New Zealand takes off ✈️.
-          </p>
+          <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
+            <p style={{ marginBottom: '12px' }}>
+              <strong style={{ color: 'var(--color-accent)' }}>Bird sounds:</strong> Sourced from the amazing{' '}
+              <a href="https://xeno-canto.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                Xeno-Canto
+              </a>{' '}
+              community - the world's largest collection of bird sound recordings.
+            </p>
+
+            <p style={{ marginBottom: '12px' }}>
+              <strong style={{ color: 'var(--color-accent)' }}>Development:</strong> Built with React, PixiJS, and caffeine. Powered by the Web Audio API for pristine bird song playback.
+            </p>
+
+            <p style={{ marginBottom: '12px' }}>
+              <strong style={{ color: 'var(--color-accent)' }}>Special thanks:</strong> To every birder who contributed recordings to Xeno-Canto, and to the open-source community that makes projects like this possible.
+            </p>
+
+            <p style={{ marginTop: '16px', fontSize: '13px', fontStyle: 'italic' }}>
+              Good birding! 🐦
+            </p>
+          </div>
         </Section>
 
         {/* Feedback & Contact */}
