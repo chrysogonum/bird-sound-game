@@ -45,45 +45,45 @@ interface BirdInfo {
 const PACKS: Pack[] = [
   {
     id: 'starter_birds',
-    name: 'Common Eastern US Backyard Birds',
+    name: 'Eastern Backyard Birds',
     speciesCount: 5,
     isUnlocked: true,
-    description: 'Start here! Five distinctive birds with bold, recognizable voices.',
+    description: 'Start here! Distinctive, bold, recognizable voices.',
   },
   {
     id: 'expanded_backyard',
-    name: 'Expanded Eastern US Birds',
+    name: 'Expanded Eastern Birds',
     speciesCount: 39,
     isUnlocked: true,
-    description: 'Ready for more? 9 random birds per round from 39 eastern US species.',
+    description: 'Ready for more? 9 random per round.',
   },
   {
     id: 'sparrows',
     name: 'Sparrows',
     speciesCount: 8,
     isUnlocked: true,
-    description: 'Master the subtle songs of eight sparrow species.',
+    description: 'Master their subtle songs.',
   },
   {
     id: 'woodpeckers',
     name: 'Woodpeckers',
     speciesCount: 7,
     isUnlocked: true,
-    description: 'Learn the drums, calls, and rattles of seven woodpecker species.',
+    description: 'Drums, calls, and rattles.',
   },
   {
     id: 'western_birds',
     name: 'Western Backyard Birds',
     speciesCount: 14,
     isUnlocked: true,
-    description: 'Common backyard birds of western North America, from the Pacific coast to the Rockies.',
+    description: 'Pacific coast to the Rockies.',
   },
   {
     id: 'spring_warblers',
     name: 'Warbler Academy',
     speciesCount: 33,
     isUnlocked: true,
-    description: '33 wood-warblers — 9 random per round. Use Custom Pack for focused warbler brain training!',
+    description: '9 random per round. Custom Pack mode recommended!',
   },
 ];
 
@@ -91,12 +91,13 @@ function PackSelect() {
   const navigate = useNavigate();
 
   const [clips, setClips] = useState<ClipData[]>([]);
-  const [packSpecies, setPackSpecies] = useState<Record<string, string[]>>({});
+  const [_packSpecies, setPackSpecies] = useState<Record<string, string[]>>({});
   const [packDisplaySpecies, setPackDisplaySpecies] = useState<Record<string, string[]>>({});
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
   const [showAllPacks, setShowAllPacks] = useState(false);
+  const [showMoreExamples, setShowMoreExamples] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Load clips data
@@ -276,7 +277,7 @@ function PackSelect() {
               position: 'relative',
               overflow: 'hidden',
               textAlign: 'left',
-              padding: '20px 16px',
+              padding: '12px 12px 14px 12px',
               borderRadius: '16px',
               border: 'none',
               background: packColors[pack.id] || packColors.starter_birds,
@@ -308,11 +309,38 @@ function PackSelect() {
                 bottom: '-10px',
                 width: '80px',
                 height: '80px',
-                opacity: 0.5,
+                opacity: 0.3,
                 transform: 'rotate(-15deg)',
                 objectFit: 'cover',
               }}
             />
+
+            {/* Play button - top right */}
+            {pack.isUnlocked && (
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '10px',
+                  right: '10px',
+                  zIndex: 2,
+                }}
+              >
+                <span
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    fontSize: '11px',
+                    color: '#a8d5a2',
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px',
+                  }}
+                >
+                  Play <ArrowIcon />
+                </span>
+              </div>
+            )}
 
             {/* Content */}
             <div style={{ position: 'relative', zIndex: 1 }}>
@@ -323,6 +351,7 @@ function PackSelect() {
                   color: '#f5f0e6',
                   lineHeight: 1.3,
                   marginBottom: '6px',
+                  paddingRight: '50px',
                 }}
               >
                 {pack.name}
@@ -337,13 +366,7 @@ function PackSelect() {
               >
                 {pack.description}
               </div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                }}
-              >
+              <div>
                 <span
                   style={{
                     fontSize: '12px',
@@ -353,22 +376,6 @@ function PackSelect() {
                 >
                   {pack.speciesCount} species
                 </span>
-                {pack.isUnlocked && (
-                  <span
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      fontSize: '11px',
-                      color: '#a8d5a2',
-                      fontWeight: 600,
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.5px',
-                    }}
-                  >
-                    Play <ArrowIcon />
-                  </span>
-                )}
               </div>
             </div>
           </button>
@@ -378,20 +385,33 @@ function PackSelect() {
 
       {/* Create Custom Pack Section */}
       <div
+        onClick={() => navigate('/custom-pack')}
         style={{
           marginBottom: '32px',
           background: 'var(--color-surface)',
           border: '2px solid var(--color-accent)',
           borderRadius: '16px',
           padding: '20px',
+          cursor: 'pointer',
+          transition: 'all 0.2s',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.background = 'rgba(45, 90, 39, 0.15)';
+          e.currentTarget.style.transform = 'translateY(-2px)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.background = 'var(--color-surface)';
+          e.currentTarget.style.transform = 'translateY(0)';
         }}
       >
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          marginBottom: '16px',
-        }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            marginBottom: '16px',
+          }}
+        >
           <div style={{
             width: '40px',
             height: '40px',
@@ -418,41 +438,78 @@ function PackSelect() {
           fontSize: '13px',
           color: 'var(--color-text-muted)',
           lineHeight: 1.6,
-          marginBottom: '16px',
         }}>
           <div style={{ marginBottom: '8px' }}>
             <span style={{ color: 'var(--color-accent)' }}>→</span> Got a nemesis bird? Queue it up and drill all its variations.
           </div>
-          <div style={{ marginBottom: '8px' }}>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
+          <div style={{ marginBottom: showMoreExamples ? '8px' : '12px' }}>
+            <span style={{ color: 'var(--color-accent)' }}>→</span> A friend's eBird checklist has you jealous? Queue up their birds, and it will be like you were there.
           </div>
-          <div style={{ marginBottom: '8px' }}>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> Warbler Wizard Wannabe? Training starts here!
-          </div>
-          <div style={{ marginBottom: '8px' }}>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
-          </div>
-          <div>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> Mix species from any pack — your rules, your practice.
-          </div>
-        </div>
 
-        <button
-          onClick={() => navigate('/custom-pack')}
-          style={{
-            width: '100%',
-            padding: '12px',
-            background: 'var(--color-accent)',
-            border: 'none',
-            borderRadius: '8px',
-            color: '#000',
-            fontSize: '14px',
-            fontWeight: 600,
-            cursor: 'pointer',
-          }}
-        >
-          Build Your Pack
-        </button>
+          {showMoreExamples && (
+            <>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> Warbler Wizard Wannabe? Training starts here!
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
+              </div>
+              <div style={{ marginBottom: '12px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> Mix species from any pack — your rules, your practice.
+              </div>
+            </>
+          )}
+
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowMoreExamples(!showMoreExamples);
+            }}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'var(--color-accent)',
+              fontSize: '13px',
+              cursor: 'pointer',
+              padding: '4px 0',
+              textDecoration: 'underline',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+            }}
+          >
+            {showMoreExamples ? '← Show less' : 'More examples →'}
+          </button>
+        </div>
+      </div>
+
+      {/* Scroll hint */}
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '8px',
+        marginTop: '24px',
+        marginBottom: '16px',
+        opacity: 0.5,
+      }}>
+        <div style={{
+          fontSize: '12px',
+          color: 'var(--color-text-muted)',
+          textAlign: 'center',
+        }}>
+          Browse all birds below
+        </div>
+        <div style={{
+          animation: 'bounce 2s ease-in-out infinite',
+        }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" strokeWidth="2">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </div>
       </div>
 
       {/* Bird Reference Section */}

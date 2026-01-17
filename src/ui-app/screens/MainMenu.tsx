@@ -5,7 +5,6 @@ function MainMenu() {
   const navigate = useNavigate();
   const [pullDistance, setPullDistance] = useState(0);
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const touchStartY = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const PULL_THRESHOLD = 80; // Distance to trigger refresh
@@ -274,34 +273,28 @@ function MainMenu() {
           className="btn-icon"
           onClick={() => navigate('/help')}
           aria-label="How to Play"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
         >
           <HelpIcon />
-          <span style={{ fontSize: '12px', opacity: 0.7 }}>Help</span>
         </button>
 
         <button
           className="btn-icon"
           onClick={() => navigate('/settings')}
           aria-label="Settings"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
         >
           <SettingsIcon />
-          <span style={{ fontSize: '12px', opacity: 0.7 }}>Settings</span>
         </button>
 
         <button
           className="btn-icon"
           onClick={() => navigate('/progress')}
           aria-label="Progress"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
         >
           <StatsIcon />
-          <span style={{ fontSize: '12px', opacity: 0.7 }}>Stats</span>
         </button>
       </div>
 
-      {/* Version and credits */}
+      {/* Version */}
       <div style={{
         position: 'absolute',
         bottom: 'calc(4px + var(--safe-area-bottom, 0px))',
@@ -310,9 +303,9 @@ function MainMenu() {
         textAlign: 'center',
         fontSize: '11px',
         color: 'var(--color-text-muted)',
-        opacity: 0.85,
+        opacity: 0.6,
       }}>
-        v3.17 | Made with 🎧 🐦 🎵 and ❤️
+        v3.17
       </div>
     </div>
   );
