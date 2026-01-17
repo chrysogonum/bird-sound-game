@@ -212,7 +212,7 @@
     "rejected": false,
     "spectrogram_path": "data/spectrograms/AMRO_1046358.png",
     "quality_score": 4,
-    "recordist": "AUDEVARD Aurélien"
+    "recordist": "AUDEVARD Aur\u00e9lien"
   },
   {
     "clip_id": "AMRO_1047670",
@@ -333,7 +333,7 @@
     "duration_ms": 3000,
     "canonical": false,
     "rejected": false,
-    "recordist": "Bob Planqué"
+    "recordist": "Bob Planqu\u00e9"
   },
   {
     "clip_id": "BADO_cd219511",
@@ -365,7 +365,7 @@
     "duration_ms": 3000,
     "canonical": false,
     "rejected": false,
-    "recordist": "Bob Planqué"
+    "recordist": "Bob Planqu\u00e9"
   },
   {
     "clip_id": "BADO_f5f22f40",
@@ -2223,7 +2223,8 @@
     "common_name": "Eastern Towhee",
     "quality_score": 3,
     "source_id": "EATO_48d22dfb",
-    "duration_ms": 2099
+    "duration_ms": 2099,
+    "recordist": "Peter Repetti"
   },
   {
     "clip_id": "EATO_4d4985c3",
@@ -2240,7 +2241,8 @@
     "common_name": "Eastern Towhee",
     "quality_score": 3,
     "source_id": "EATO_4d4985c3",
-    "duration_ms": 1024
+    "duration_ms": 1024,
+    "recordist": "Peter Repetti"
   },
   {
     "clip_id": "EATO_82f5327d",
@@ -2257,7 +2259,8 @@
     "common_name": "Eastern Towhee",
     "quality_score": 3,
     "source_id": "EATO_82f5327d",
-    "duration_ms": 1649
+    "duration_ms": 1649,
+    "recordist": "Peter Repetti"
   },
   {
     "clip_id": "EATO_9ef2c5bc",
@@ -2274,7 +2277,8 @@
     "common_name": "Eastern Towhee",
     "quality_score": 3,
     "source_id": "EATO_9ef2c5bc",
-    "duration_ms": 1824
+    "duration_ms": 1824,
+    "recordist": "Peter Repetti"
   },
   {
     "clip_id": "EATO_c21808f0",
@@ -2291,7 +2295,8 @@
     "common_name": "Eastern Towhee",
     "quality_score": 3,
     "source_id": "EATO_c21808f0",
-    "duration_ms": 1074
+    "duration_ms": 1074,
+    "recordist": "Peter Repetti"
   },
   {
     "clip_id": "EVGR_11aae146",
@@ -2878,7 +2883,7 @@
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HETH_1048898.png",
     "quality_score": 4,
-    "recordist": "AUDEVARD Aurélien"
+    "recordist": "AUDEVARD Aur\u00e9lien"
   },
   {
     "clip_id": "HETH_957962",
@@ -3903,7 +3908,7 @@
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OCWA_1046368.png",
     "quality_score": 4,
-    "recordist": "AUDEVARD Aurélien"
+    "recordist": "AUDEVARD Aur\u00e9lien"
   },
   {
     "clip_id": "OCWA_800862",
@@ -6087,7 +6092,7 @@
     "spectrogram_path": "data/spectrograms/YBSA_803622.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "Magnus Hellström"
+    "recordist": "Magnus Hellstr\u00f6m"
   },
   {
     "clip_id": "YBSA_48c4dee8",

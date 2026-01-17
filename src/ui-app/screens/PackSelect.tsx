@@ -104,7 +104,23 @@ function PackSelect() {
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/clips.json`)
       .then((res) => res.json())
-      .then((data: ClipData[]) => setClips(data))
+      .then((data: ClipData[]) => {
+        setClips(data);
+
+        // Create "All Birds" pack with all unique species from clips
+        const allSpeciesCodes = Array.from(
+          new Set(
+            data
+              .filter((c) => !c.rejected && (!c.spectrogram_path || !c.spectrogram_path.includes('spectrograms-rejected')))
+              .map((c) => c.species_code)
+          )
+        ).sort();
+
+        setPackDisplaySpecies((prev) => ({
+          ...prev,
+          'all_birds': allSpeciesCodes,
+        }));
+      })
       .catch((err) => console.error('Failed to load clips:', err));
   }, []);
 
@@ -554,6 +570,208 @@ function PackSelect() {
         }}>
           Preview signature sounds for each bird before you play. Click pack names to expand and see all birds, or click individual birds to explore their full library of recordings.
         </p>
+
+        {/* All Birds pack - dynamically populated */}
+        {packDisplaySpecies['all_birds'] && (() => {
+          const packId = 'all_birds';
+          const isExpanded = showAllPacks || expandedPacks.has(packId);
+          return (
+            <div key={packId} style={{ marginBottom: '16px' }}>
+              <div
+                onClick={() => {
+                  const newExpanded = new Set(expandedPacks);
+                  if (newExpanded.has(packId)) {
+                    newExpanded.delete(packId);
+                  } else {
+                    newExpanded.add(packId);
+                  }
+                  setExpandedPacks(newExpanded);
+                }}
+                style={{
+                  fontSize: '14px',
+                  marginBottom: isExpanded ? '12px' : '0',
+                  color: 'var(--color-accent)',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '8px 12px',
+                  background: 'var(--color-surface)',
+                  borderRadius: '8px',
+                  transition: 'background 0.15s',
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 1)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'var(--color-surface)'}
+              >
+                <span style={{ fontSize: '14px' }}>
+                  {isExpanded ? '▼' : '▶'}
+                </span>
+                <span style={{ fontWeight: 600 }}>
+                  All Birds
+                </span>
+                <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
+                  {packDisplaySpecies[packId]?.length || 0} species
+                </span>
+              </div>
+              {isExpanded && (
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                  gap: '8px',
+                }}
+              >
+                {getBirdsForPack(packId).map((bird) => {
+                  const isBirdExpanded = expandedBird === bird.code;
+                  return (
+                    <div
+                      key={bird.code}
+                      style={{
+                        background: 'var(--color-surface)',
+                        borderRadius: '8px',
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {/* Bird card content - same as other packs */}
+                      <div
+                        onClick={() => setExpandedBird(isBirdExpanded ? null : bird.code)}
+                        style={{
+                          padding: '12px',
+                          cursor: 'pointer',
+                          transition: 'background 0.15s',
+                        }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 1)'}
+                        onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                          <span style={{ fontSize: '12px' }}>
+                            {isBirdExpanded ? '▼' : '▶'}
+                          </span>
+                          <div style={{ flex: 1 }}>
+                            <div style={{ fontWeight: 600, fontSize: '13px', marginBottom: '2px' }}>
+                              {bird.name}
+                            </div>
+                            <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
+                              {bird.code}
+                            </div>
+                          </div>
+                          {bird.canonicalClipPath && (
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                playSound(bird.canonicalClipPath!, bird.code);
+                              }}
+                              style={{
+                                width: '32px',
+                                height: '32px',
+                                borderRadius: '50%',
+                                border: 'none',
+                                background: playingClip === bird.code ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)',
+                                color: playingClip === bird.code ? '#000' : 'var(--color-text)',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                fontSize: '14px',
+                              }}
+                            >
+                              {playingClip === bird.code ? '⏸' : '▶'}
+                            </button>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Expanded clip library */}
+                      {isBirdExpanded && bird.allClips.length > 0 && (
+                        <div style={{
+                          padding: '0 12px 12px 12px',
+                          borderTop: '1px solid rgba(255,255,255,0.1)',
+                        }}>
+                          <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '8px', marginBottom: '8px', fontWeight: 600 }}>
+                            All Recordings ({bird.allClips.length})
+                          </div>
+                          {bird.allClips.map((clip, idx) => (
+                            <div
+                              key={clip.id}
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                marginBottom: '6px',
+                                padding: '6px',
+                                background: 'rgba(0,0,0,0.2)',
+                                borderRadius: '6px',
+                              }}
+                            >
+                              <button
+                                onClick={() => playSound(clip.path, `${bird.code}_${idx}`)}
+                                style={{
+                                  width: '24px',
+                                  height: '24px',
+                                  borderRadius: '50%',
+                                  border: 'none',
+                                  background: playingClip === `${bird.code}_${idx}` ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)',
+                                  color: playingClip === `${bird.code}_${idx}` ? '#000' : 'var(--color-text)',
+                                  cursor: 'pointer',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  fontSize: '10px',
+                                  flexShrink: 0,
+                                }}
+                              >
+                                {playingClip === `${bird.code}_${idx}` ? '⏸' : '▶'}
+                              </button>
+                              <div style={{ flex: 1, fontSize: '11px' }}>
+                                <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap' }}>
+                                  {clip.isCanonical && (
+                                    <span style={{
+                                      fontSize: '9px',
+                                      background: 'var(--color-accent)',
+                                      color: '#000',
+                                      padding: '2px 6px',
+                                      borderRadius: '4px',
+                                      fontWeight: 600,
+                                    }}>
+                                      SIGNATURE
+                                    </span>
+                                  )}
+                                  <span style={{
+                                    fontSize: '9px',
+                                    color: 'var(--color-text-muted)',
+                                    background: clip.vocalizationType === 'song' ? 'rgba(76, 175, 80, 0.2)' : 'rgba(245, 166, 35, 0.2)',
+                                    padding: '2px 6px',
+                                    borderRadius: '4px',
+                                    textTransform: 'uppercase',
+                                  }}>
+                                    {clip.vocalizationType}
+                                  </span>
+                                  {(clip.source || clip.recordist) && (
+                                    <span style={{
+                                      fontSize: '9px',
+                                      color: 'var(--color-text-muted)',
+                                      background: 'rgba(255,255,255,0.1)',
+                                      padding: '2px 6px',
+                                      borderRadius: '4px',
+                                    }}>
+                                      {clip.source === 'xenocanto' ? 'Xeno-canto' : clip.source === 'cornell' ? 'Cornell' : 'Peter Repetti'}
+                                      {clip.recordist && ` - ${clip.recordist}`}
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              )}
+            </div>
+          );
+        })()}
 
         {PACKS.filter(p => p.isUnlocked).map((pack) => {
           const isExpanded = showAllPacks || expandedPacks.has(pack.id);
