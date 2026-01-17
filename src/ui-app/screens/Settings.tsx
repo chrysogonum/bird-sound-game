@@ -64,6 +64,30 @@ function Settings() {
     }
   };
 
+  const handleResetAllProgress = () => {
+    const confirmed = confirm(
+      'This will delete ALL your progress, settings, and custom packs. This cannot be undone. Are you sure?'
+    );
+
+    if (!confirmed) return;
+
+    // Clear all localStorage
+    localStorage.clear();
+
+    // Clear service worker caches
+    if ('caches' in window) {
+      caches.keys().then((cacheNames) => {
+        cacheNames.forEach((cacheName) => {
+          caches.delete(cacheName);
+        });
+      });
+    }
+
+    // Reload to main menu
+    alert('All data has been deleted. The app will now reload.');
+    window.location.href = window.location.origin + import.meta.env.BASE_URL;
+  };
+
   return (
     <div className="screen">
       <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
@@ -151,12 +175,9 @@ function Settings() {
 
         {/* Privacy & Analytics */}
         <div className="card">
-          <div className="flex-row justify-between items-center">
+          <div className="flex-row justify-between items-center" style={{ marginBottom: '8px' }}>
             <div>
-              <h3 style={{ marginBottom: '4px' }}>Analytics Cookies</h3>
-              <div className="text-muted" style={{ fontSize: '14px' }}>
-                Help improve ChipNotes with usage data
-              </div>
+              <h3 style={{ marginBottom: '0' }}>Analytics</h3>
             </div>
             <button
               className={analyticsConsent ? 'btn-primary' : 'btn-secondary'}
@@ -166,12 +187,52 @@ function Settings() {
               {analyticsConsent ? 'ON' : 'OFF'}
             </button>
           </div>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+            I know I'm a stranger, but please accept my cookies! Analytics help me understand how many players I have, which birds everyone loves, and what features are most useful. I promise I'm just adding bird nerds to my LIFE LIST, not stalking them. Your IP is anonymized, no personal data collected, full GDPR/CCPA compliance.
+          </div>
+        </div>
+
+        {/* Privacy Policy */}
+        <div className="card">
+          <h3 style={{ marginBottom: '8px' }}>Privacy Policy</h3>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+            Learn about how we protect your data, what we collect, and your rights.{' '}
+            <button
+              onClick={() => navigate('/privacy')}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-accent)',
+                fontSize: '13px',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                padding: 0,
+              }}
+            >
+              View Privacy Policy →
+            </button>
+          </div>
+        </div>
+
+        {/* Feedback & Bug Reports */}
+        <div className="card">
+          <h3 style={{ marginBottom: '8px' }}>Feedback & Bug Reports</h3>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '12px' }}>
+            Found a bug? Have a feature idea? Email me at{' '}
+            <a href="mailto:chipnotes.feedback@gmail.com" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              chipnotes.feedback@gmail.com
+            </a>
+          </div>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+            <span style={{ color: 'var(--color-text)' }}>Have a bird sound on your phone that you think should be in the game?</span> Send it to me! I'll add it and give you credit in the app.
+          </div>
         </div>
 
         {/* Reset */}
         <div className="card">
           <button
             className="btn-secondary"
+            onClick={handleResetAllProgress}
             style={{ width: '100%', color: 'var(--color-error)' }}
           >
             Reset All Progress

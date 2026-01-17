@@ -9,6 +9,7 @@ import RoundSummary from './screens/RoundSummary';
 import Settings from './screens/Settings';
 import Progress from './screens/Progress';
 import Help from './screens/Help';
+import Privacy from './screens/Privacy';
 import CookieConsent from './components/CookieConsent';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/progress" element={<Progress />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/privacy" element={<Privacy />} />
       </Routes>
       <CookieConsent />
     </>
