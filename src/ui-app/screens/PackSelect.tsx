@@ -634,51 +634,56 @@ function PackSelect() {
                     >
                       {/* Bird card content - same as other packs */}
                       <div
-                        onClick={() => setExpandedBird(isBirdExpanded ? null : bird.code)}
                         style={{
-                          padding: '12px',
-                          cursor: 'pointer',
-                          transition: 'background 0.15s',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          padding: '8px 12px',
+                          cursor: bird.clipCount > 1 ? 'pointer' : 'default',
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 1)'}
-                        onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+                        onClick={() => {
+                          if (bird.clipCount > 1) {
+                            setExpandedBird(isBirdExpanded ? null : bird.code);
+                          }
+                        }}
                       >
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                          <span style={{ fontSize: '12px' }}>
+                        <BirdIcon code={bird.code} size={36} />
+                        <div style={{ minWidth: 0, flex: 1 }}>
+                          <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-accent)' }}>
+                            {bird.code}
+                          </div>
+                          <div style={{ fontSize: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                            {bird.name}
+                          </div>
+                        </div>
+                        {bird.canonicalClipPath && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              playSound(bird.canonicalClipPath!, bird.code);
+                            }}
+                            style={{
+                              width: '32px',
+                              height: '32px',
+                              borderRadius: '50%',
+                              border: 'none',
+                              background: playingClip === bird.code ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)',
+                              color: playingClip === bird.code ? '#000' : 'var(--color-text)',
+                              cursor: 'pointer',
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              fontSize: '14px',
+                            }}
+                          >
+                            {playingClip === bird.code ? '⏸' : '▶'}
+                          </button>
+                        )}
+                        {bird.clipCount > 1 && (
+                          <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
                             {isBirdExpanded ? '▼' : '▶'}
                           </span>
-                          <div style={{ flex: 1 }}>
-                            <div style={{ fontWeight: 600, fontSize: '13px', marginBottom: '2px' }}>
-                              {bird.name}
-                            </div>
-                            <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
-                              {bird.code}
-                            </div>
-                          </div>
-                          {bird.canonicalClipPath && (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                playSound(bird.canonicalClipPath!, bird.code);
-                              }}
-                              style={{
-                                width: '32px',
-                                height: '32px',
-                                borderRadius: '50%',
-                                border: 'none',
-                                background: playingClip === bird.code ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)',
-                                color: playingClip === bird.code ? '#000' : 'var(--color-text)',
-                                cursor: 'pointer',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                fontSize: '14px',
-                              }}
-                            >
-                              {playingClip === bird.code ? '⏸' : '▶'}
-                            </button>
-                          )}
-                        </div>
+                        )}
                       </div>
 
                       {/* Expanded clip library */}
