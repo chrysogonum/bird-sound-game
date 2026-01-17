@@ -297,18 +297,29 @@ function MainMenu() {
       </div>
 
       {/* Version */}
-      <div style={{
-        position: 'absolute',
-        bottom: 'calc(4px + var(--safe-area-bottom, 0px))',
-        left: 0,
-        right: 0,
-        textAlign: 'center',
-        fontSize: '11px',
-        color: 'var(--color-text-muted)',
-        opacity: 0.6,
-      }}>
+      <button
+        onClick={() => navigate('/help', { state: { openVersionHistory: true } })}
+        style={{
+          position: 'absolute',
+          bottom: 'calc(4px + var(--safe-area-bottom, 0px))',
+          left: 0,
+          right: 0,
+          textAlign: 'center',
+          fontSize: '11px',
+          color: 'var(--color-text-muted)',
+          opacity: 0.6,
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          padding: '4px',
+          transition: 'opacity 0.2s',
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
+        aria-label="View version history"
+      >
         v3.21
-      </div>
+      </button>
     </div>
   );
 }

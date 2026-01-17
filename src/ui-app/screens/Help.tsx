@@ -1,17 +1,24 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 
 function Help() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Track which sections are expanded (some start open by default)
+  // If navigated from version number, auto-open Version History
+  const initialSections = ['Why Learn Bird Song?', 'The Basics', 'Scoring'];
+  if (location.state?.openVersionHistory) {
+    initialSections.push('Version History');
+  }
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
-    new Set(['Why Learn Bird Song?', 'The Basics', 'Scoring'])
+    new Set(initialSections)
   );
 
   // Track if user has scrolled
   const [hasScrolled, setHasScrolled] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const versionHistoryRef = useRef<HTMLDivElement>(null);
 
 
   const allSections = [
@@ -66,6 +73,15 @@ function Help() {
       return () => container.removeEventListener('scroll', handleScroll);
     }
   }, [hasScrolled]);
+
+  // Auto-scroll to Version History if navigated from version number
+  useEffect(() => {
+    if (location.state?.openVersionHistory && versionHistoryRef.current) {
+      setTimeout(() => {
+        versionHistoryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); // Small delay to ensure section is rendered expanded
+    }
+  }, [location.state]);
 
   return (
     <div ref={containerRef} className="screen" style={{ paddingBottom: '32px', position: 'relative' }}>
@@ -410,10 +426,11 @@ function Help() {
         </Section>
 
         {/* Version History */}
-        <Section
-          title="Version History"
-          isExpanded={expandedSections.has('Version History')}
-          onToggle={() => toggleSection('Version History')}
+        <div ref={versionHistoryRef}>
+          <Section
+            title="Version History"
+            isExpanded={expandedSections.has('Version History')}
+            onToggle={() => toggleSection('Version History')}
         >
           <VersionEntry version="3.3" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
@@ -451,6 +468,18 @@ function Help() {
             </ul>
           </VersionEntry>
 
+          <VersionEntry version="3.19" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Version numbering fix:</strong> Renamed v3.4 to v3.19 to maintain sequential ordering - fixes Apple-style confusion where 3.4 appeared after 3.18</li>
+              <li><strong>Help page UX:</strong> Collapsible sections with floating Expand All button - less scrolling, more scanning</li>
+              <li><strong>All Birds reference:</strong> Fixed missing bird icons in Bird Reference pack</li>
+              <li><strong>Navigation improvements:</strong> Added Back button at bottom of Help page, Help link in Settings for easy cross-navigation</li>
+              <li><strong>Support link:</strong> Ko-fi donation link added to Settings - buy me a coffee if ChipNotes helps you ID more birds</li>
+              <li><strong>Tech description restored:</strong> Brought back the detailed tech paragraph about TypeScript, React, PixiJS, and PWA offline caching</li>
+              <li><strong>Privacy language:</strong> Updated Settings privacy text to be more neutral and less "we"-focused, "not stalking you" instead of "them"</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.18" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>UI polish:</strong> Streamlined pack selection, tightened layout, less visual clutter</li>
@@ -458,17 +487,6 @@ function Help() {
               <li><strong>Help page:</strong> Reorganized sections, added creator attribution</li>
               <li><strong>Privacy page:</strong> Full privacy policy accessible from Settings</li>
               <li><strong>Analytics fix:</strong> Fixed gtag initialization pattern - tracking now works correctly</li>
-            </ul>
-          </VersionEntry>
-
-          <VersionEntry version="3.19" date="January 17, 2026">
-            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Help page UX:</strong> Collapsible sections with floating Expand All button - less scrolling, more scanning</li>
-              <li><strong>All Birds reference:</strong> Fixed missing bird icons in Bird Reference pack</li>
-              <li><strong>Navigation improvements:</strong> Added Back button at bottom of Help page, Help link in Settings for easy cross-navigation</li>
-              <li><strong>Support link:</strong> Ko-fi donation link added to Settings - buy me a coffee if ChipNotes helps you ID more birds</li>
-              <li><strong>Tech description restored:</strong> Brought back the detailed tech paragraph about TypeScript, React, PixiJS, and PWA offline caching</li>
-              <li><strong>Privacy language:</strong> Updated Settings privacy text to be more neutral and less "we"-focused, "not stalking you" instead of "them"</li>
             </ul>
           </VersionEntry>
 
@@ -541,6 +559,7 @@ function Help() {
             </ul>
           </VersionEntry>
         </Section>
+        </div>
 
         {/* Bottom navigation */}
         <div style={{
