@@ -157,6 +157,7 @@ function GameplayScreen() {
   const [selectedChannel, setSelectedChannel] = useState<Channel | null>(null);
   const [selectedSpecies, setSelectedSpecies] = useState<string | null>(null);
   const [campaignLevels, setCampaignLevels] = useState<LevelConfig[]>([]);
+  const [showQuitConfirm, setShowQuitConfirm] = useState(false);
 
   // Training mode state (shows bird icons on tiles)
   const [trainingMode, setTrainingMode] = useState(() => {
@@ -417,6 +418,20 @@ function GameplayScreen() {
     navigate('/');
   }, [navigate, gameActions]);
 
+  // Handle quit confirmation
+  const handleQuitClick = useCallback(() => {
+    setShowQuitConfirm(true);
+  }, []);
+
+  const handleQuitConfirm = useCallback(() => {
+    gameActions.reset();
+    navigate(-1); // Go back to previous screen (pack select or level select)
+  }, [navigate, gameActions]);
+
+  const handleQuitCancel = useCallback(() => {
+    setShowQuitConfirm(false);
+  }, []);
+
   // Handle start round
   const handleStart = useCallback(() => {
     console.log('handleStart clicked, isAudioReady:', gameState.isAudioReady, 'species.length:', gameState.species.length);
@@ -496,6 +511,20 @@ function GameplayScreen() {
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
+
+      {/* Quit button - only show during playing state */}
+      {gameState.roundState === 'playing' && (
+        <button
+          className="quit-button"
+          onClick={handleQuitClick}
+          aria-label="Quit round"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      )}
 
       {/* Training mode toggle button */}
       <button
@@ -640,6 +669,34 @@ function GameplayScreen() {
         </div>
       </div>
 
+      {/* Quit confirmation modal */}
+      {showQuitConfirm && (
+        <div className="quit-modal-overlay">
+          <div className="quit-modal">
+            <h3 style={{ margin: 0, marginBottom: '16px', fontSize: '20px' }}>Quit Round?</h3>
+            <p style={{ margin: 0, marginBottom: '24px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
+              Your progress will not be saved.
+            </p>
+            <div style={{ display: 'flex', gap: '12px' }}>
+              <button
+                className="btn-secondary"
+                onClick={handleQuitCancel}
+                style={{ flex: 1, padding: '12px' }}
+              >
+                Cancel
+              </button>
+              <button
+                className="btn-primary"
+                onClick={handleQuitConfirm}
+                style={{ flex: 1, padding: '12px', background: 'var(--color-error)' }}
+              >
+                Quit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         .gameplay-screen {
           display: flex;
@@ -669,6 +726,68 @@ function GameplayScreen() {
 
         .back-button:hover {
           background: rgba(0, 0, 0, 0.5);
+        }
+
+        .quit-button {
+          position: absolute;
+          top: calc(12px + var(--safe-area-top, 0px));
+          right: 8px;
+          width: 40px;
+          height: 40px;
+          background: rgba(229, 115, 115, 0.3);
+          border: none;
+          border-radius: 50%;
+          color: var(--color-error);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 100;
+          transition: background 0.2s;
+        }
+
+        .quit-button:hover {
+          background: rgba(229, 115, 115, 0.5);
+        }
+
+        .quit-modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+          animation: fadeIn 0.2s ease-out;
+        }
+
+        .quit-modal {
+          background: var(--color-surface);
+          border-radius: 16px;
+          padding: 24px;
+          max-width: 320px;
+          width: 90%;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+          animation: slideUp 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+          from {
+            transform: translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
         }
 
         .training-toggle {
