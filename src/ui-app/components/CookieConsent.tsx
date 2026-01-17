@@ -12,26 +12,26 @@ function loadGoogleAnalytics() {
     return;
   }
 
-  // Load gtag.js script
+  // Initialize dataLayer (required before gtag.js loads)
+  window.dataLayer = window.dataLayer || [];
+
+  // Queue configuration commands (will be processed when gtag.js loads)
+  window.dataLayer.push(['js', new Date()]);
+  window.dataLayer.push(['config', 'G-MJXQZYWWZ0', {
+    anonymize_ip: true, // Anonymize IPs for GDPR compliance
+    cookie_flags: 'SameSite=Lax;Secure', // Better privacy - no cross-site tracking
+    cookie_expires: 63072000, // 2 years max (730 days in seconds)
+    allow_ad_personalization_signals: false, // Disable ad tracking
+    allow_google_signals: false, // Disable cross-device tracking
+  }]);
+
+  // Load gtag.js script (will create window.gtag function)
   const script = document.createElement('script');
   script.async = true;
   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-MJXQZYWWZ0';
   document.head.appendChild(script);
 
-  // Initialize gtag
-  window.dataLayer = window.dataLayer || [];
-  function gtag(...args: any[]) {
-    window.dataLayer?.push(args);
-  }
-  window.gtag = gtag;
-
-  gtag('js', new Date());
-  gtag('config', 'G-MJXQZYWWZ0', {
-    anonymize_ip: true, // Anonymize IPs for GDPR compliance
-    cookie_flags: 'SameSite=None;Secure'
-  });
-
-  console.log('Google Analytics loaded with user consent');
+  console.log('Google Analytics loading with user consent');
 }
 
 function CookieConsent() {
@@ -55,11 +55,19 @@ function CookieConsent() {
     localStorage.setItem(CONSENT_KEY, 'accepted');
     setShowBanner(false);
     loadGoogleAnalytics();
+    // Reload to update Settings toggle and activate analytics
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   const handleDecline = () => {
     localStorage.setItem(CONSENT_KEY, 'declined');
     setShowBanner(false);
+    // Reload to update Settings toggle
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
 
   if (!showBanner) return null;
@@ -95,7 +103,10 @@ function CookieConsent() {
           <p style={{ margin: '8px 0 0 0', color: 'var(--color-text-muted)' }}>
             We use Google Analytics to understand how people use ChipNotes and improve the app.
             This helps us know which features are useful and which birds people practice most.
-            We anonymize your IP address and don't collect personal information.
+            We anonymize your IP address and don't collect personal information.{' '}
+            <a href="/bird-sound-game/privacy" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              Learn more
+            </a>
           </p>
         </div>
 
