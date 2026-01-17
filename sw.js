@@ -6,7 +6,7 @@
 // Derive base URL from service worker's location (e.g., /bird-sound-game/)
 const BASE_URL = self.location.pathname.replace(/sw\.js$/, '');
 
-const CACHE_NAME = 'chipnotes-v16';
+const CACHE_NAME = 'chipnotes-v17';
 const STATIC_ASSETS = [
   BASE_URL,
   `${BASE_URL}index.html`,
@@ -79,8 +79,11 @@ self.addEventListener('fetch', (event) => {
   event.respondWith(
     fetch(request)
       .then((response) => {
-        // Cache successful responses
-        if (response.ok) {
+        // Only cache responses that are NOT hashed bundles (JS/CSS with content hashes)
+        // Hashed bundles change filename on every build, so caching them causes stale code
+        const isHashedBundle = /\/(assets|js|css)\/[^/]+-[a-zA-Z0-9]{8,}\.(js|css)$/.test(url.pathname);
+
+        if (response.ok && !isHashedBundle) {
           const responseClone = response.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(request, responseClone);
