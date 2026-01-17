@@ -35,8 +35,11 @@ function Help() {
             Bird sounds play through your left or right ear. Identify which bird is singing
             and tap its circle on the correct side before the tile passes the scoring zone.
           </p>
-          <p>
+          <p style={{ marginBottom: '12px' }}>
             Each round is 30 seconds. Use headphones for the best experience - unless you want everyone to know you're a bird nerd!
+          </p>
+          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
+            <strong>Mobile tip:</strong> For fullscreen play on iOS, use Safari. On Android Chrome, tap ⋮ → "Add to Home screen" and launch from the icon.
           </p>
         </Section>
 
@@ -263,6 +266,14 @@ function Help() {
 
         {/* Version History */}
         <Section title="Version History">
+          <VersionEntry version="3.2" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Mobile navigation fix:</strong> Bottom menu icons now properly visible on both Safari and Chrome mobile browsers</li>
+              <li><strong>Fullscreen tip:</strong> Added browser guidance for best mobile experience</li>
+              <li><strong>PWA improvements:</strong> Enhanced Apple mobile web app support</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.19" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Credits update:</strong> Added Cornell Macaulay Library, user contributions, and Bird Reference attribution</li>

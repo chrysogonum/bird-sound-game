@@ -117,6 +117,7 @@ function MainMenu() {
         zIndex: 1,
         transform: `translateY(${pullDistance}px)`,
         transition: pullDistance === 0 ? 'transform 0.3s ease' : 'none',
+        paddingBottom: '120px',
       }}>
         {/* Owl Professor hero image */}
         <img
@@ -262,12 +263,13 @@ function MainMenu() {
       {/* Bottom nav icons */}
       <div style={{
         position: 'absolute',
-        bottom: 'calc(40px + var(--safe-area-bottom, 0px))',
+        bottom: '70px',
         left: 0,
         right: 0,
         display: 'flex',
         justifyContent: 'center',
         gap: '40px',
+        zIndex: 1000,
       }}>
         <button
           className="btn-icon"
@@ -305,7 +307,7 @@ function MainMenu() {
         color: 'var(--color-text-muted)',
         opacity: 0.6,
       }}>
-        v3.19
+        v3.2
       </div>
     </div>
   );
