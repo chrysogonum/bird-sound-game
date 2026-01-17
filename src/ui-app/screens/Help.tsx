@@ -188,19 +188,23 @@ function Help() {
 
           <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Bird sounds:</strong> Sourced from the amazing{' '}
+              <strong style={{ color: 'var(--color-accent)' }}>Bird sounds:</strong> Sourced from{' '}
               <a href="https://xeno-canto.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Xeno-Canto
-              </a>{' '}
-              community - the world's largest collection of bird sound recordings.
+              </a>
+              , the{' '}
+              <a href="https://www.macaulaylibrary.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                Cornell Macaulay Library
+              </a>
+              {' '}and from user contributions. All sound clips have attribution in the Bird Reference.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Development:</strong> Built with React, PixiJS, and caffeine. Powered by the Web Audio API for pristine bird song playback.
+              <strong style={{ color: 'var(--color-accent)' }}>Development:</strong> Built with React, PixiJS, and caffeine. Powered by the Web Audio API for pristine bird song playback. Idea = January 8, 2026. First version deployed January 11, 2026. Thanks, Claude Code.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Special thanks:</strong> To every birder who contributed recordings to Xeno-Canto, and to the open-source community that makes projects like this possible.
+              <strong style={{ color: 'var(--color-accent)' }}>Special thanks:</strong> To the global birding community for sharing these amazing recordings.
             </p>
 
             <p style={{ marginTop: '16px', fontSize: '13px', fontStyle: 'italic' }}>
@@ -212,7 +216,7 @@ function Help() {
         {/* Feedback & Contact */}
         <Section title="Feedback & Bug Reports">
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
-            We'd love to hear from you! Found a bug? Have a feature suggestion? Want to share your experience?
+            I'd love to hear from you! Found a bug? Have a feature suggestion? Want to share your experience?
           </p>
           <div style={{
             background: 'var(--color-surface)',
