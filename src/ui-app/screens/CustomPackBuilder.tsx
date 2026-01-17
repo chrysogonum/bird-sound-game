@@ -33,6 +33,7 @@ function CustomPackBuilder() {
   const [playingCode, setPlayingCode] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
 
   // Load all species from clips.json
   useEffect(() => {
@@ -98,12 +99,25 @@ function CustomPackBuilder() {
   // Toggle species selection
   const toggleSpecies = useCallback((code: string) => {
     setSelectedCodes((prev) => {
-      if (prev.includes(code)) {
+      const isCurrentlySelected = prev.includes(code);
+      const isAtMax = prev.length >= MAX_SPECIES;
+
+      if (isCurrentlySelected) {
+        // Removing a bird - just remove it
         return prev.filter((c) => c !== code);
       }
-      if (prev.length >= MAX_SPECIES) {
+
+      if (isAtMax) {
+        // Can't add - at max
         return prev;
       }
+
+      // Adding a new bird - clear search and refocus input for next entry
+      setSearchQuery('');
+      setTimeout(() => {
+        searchInputRef.current?.focus();
+      }, 0);
+
       return [...prev, code];
     });
   }, []);
@@ -149,6 +163,15 @@ function CustomPackBuilder() {
   // Clear selection
   const handleClear = () => {
     setSelectedCodes([]);
+  };
+
+  // Clear search and refocus
+  const handleClearSearch = () => {
+    setSearchQuery('');
+    // Focus the input after clearing
+    setTimeout(() => {
+      searchInputRef.current?.focus();
+    }, 0);
   };
 
   // Filter species by search
@@ -197,6 +220,7 @@ function CustomPackBuilder() {
       {/* Search */}
       <div style={{ flexShrink: 0, marginBottom: '12px', position: 'relative' }}>
         <input
+          ref={searchInputRef}
           type="text"
           placeholder="Search birds..."
           value={searchQuery}
@@ -214,7 +238,7 @@ function CustomPackBuilder() {
         />
         {searchQuery && (
           <button
-            onClick={() => setSearchQuery('')}
+            onClick={handleClearSearch}
             style={{
               position: 'absolute',
               right: '8px',
@@ -239,6 +263,60 @@ function CustomPackBuilder() {
           </button>
         )}
       </div>
+
+      {/* Instruction hint */}
+      <div style={{
+        flexShrink: 0,
+        marginBottom: '12px',
+        padding: '8px 12px',
+        background: 'rgba(45, 90, 39, 0.1)',
+        borderRadius: '8px',
+        fontSize: '13px',
+        color: 'var(--color-text-muted)',
+        lineHeight: 1.4,
+      }}>
+        <span style={{ color: 'var(--color-accent)' }}>💡 Tip:</span> Click the <strong style={{ color: 'var(--color-text)' }}>▶ play button</strong> to preview a bird's signature sound. Click the <strong style={{ color: 'var(--color-text)' }}>bird card</strong> to add it to your pack.
+      </div>
+
+      {/* Start button - Sticky below search */}
+      {selectedCodes.length > 0 && (
+        <div style={{
+          flexShrink: 0,
+          marginBottom: '12px',
+          position: 'sticky',
+          top: '0',
+          zIndex: 100,
+          paddingTop: '4px',
+          paddingBottom: '4px',
+          background: 'var(--color-background)',
+        }}>
+          <button
+            onClick={handleSaveAndPlay}
+            style={{
+              width: '100%',
+              padding: '14px 20px',
+              fontSize: '16px',
+              fontWeight: 700,
+              background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '12px',
+              cursor: 'pointer',
+              boxShadow: '0 4px 16px rgba(45, 90, 39, 0.5)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              transition: 'all 0.2s',
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            Start with {selectedCodes.length} bird{selectedCodes.length > 1 ? 's' : ''}
+          </button>
+        </div>
+      )}
 
       {/* Selected count */}
       <div style={{
@@ -356,31 +434,6 @@ function CustomPackBuilder() {
         </div>
       </div>
 
-      {/* Play button */}
-      <div style={{ flexShrink: 0, paddingBottom: 'var(--safe-area-bottom, 0px)' }}>
-        <button
-          onClick={handleSaveAndPlay}
-          disabled={selectedCodes.length === 0}
-          style={{
-            width: '100%',
-            padding: '16px',
-            fontSize: '18px',
-            fontWeight: 700,
-            background: selectedCodes.length > 0
-              ? 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)'
-              : 'var(--color-surface)',
-            color: selectedCodes.length > 0 ? 'white' : 'var(--color-text-muted)',
-            border: 'none',
-            borderRadius: '12px',
-            cursor: selectedCodes.length > 0 ? 'pointer' : 'not-allowed',
-            boxShadow: selectedCodes.length > 0 ? '0 4px 12px rgba(45, 90, 39, 0.3)' : 'none',
-          }}
-        >
-          {selectedCodes.length > 0
-            ? `Choose Level (${selectedCodes.length} Bird${selectedCodes.length > 1 ? 's' : ''})`
-            : 'Select birds to play'}
-        </button>
-      </div>
     </div>
   );
 }
