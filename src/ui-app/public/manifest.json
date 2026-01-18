@@ -1,8 +1,8 @@
 {
   "name": "ChipNotes!",
   "short_name": "ChipNotes",
-  "description": "Your gamified study guide to bird sounds",
-  "start_url": "/bird-sound-game/",
+  "description": "Train your ear. Know the birds.",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#1A1A2E",

@@ -432,6 +432,13 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.26" date="January 18, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>PWA Home Screen Fix:</strong> Fixed 404 error when adding ChipNotes to iPhone home screen - start_url now correctly points to root path</li>
+              <li><strong>Manifest Update:</strong> Updated PWA description to match new tagline "Train your ear. Know the birds."</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.25" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Home Screen Refresh:</strong> New tagline "Train your ear. Know the birds." emphasizes the educational journey and real-world birding payoff</li>
