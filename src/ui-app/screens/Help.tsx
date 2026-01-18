@@ -7,9 +7,13 @@ function Help() {
 
   // Track which sections are expanded (some start open by default)
   // If navigated from version number, auto-open Version History
+  // If navigated with #training-mode hash, auto-open Training Mode
   const initialSections = ['Why Learn Bird Song?', 'The Basics', 'Scoring'];
   if (location.state?.openVersionHistory) {
     initialSections.push('Version History');
+  }
+  if (location.hash === '#training-mode') {
+    initialSections.push('Training Mode');
   }
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set(initialSections)
@@ -83,10 +87,26 @@ function Help() {
     }
   }, [location.state]);
 
+  // Auto-scroll to training-mode section if hash is present
+  useEffect(() => {
+    if (location.hash === '#training-mode') {
+      setTimeout(() => {
+        const element = document.getElementById('training-mode');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100); // Small delay to ensure section is rendered expanded
+    }
+  }, [location.hash, expandedSections]);
+
   return (
     <div ref={containerRef} className="screen" style={{ paddingBottom: '32px', position: 'relative' }}>
       <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
-        <button className="btn-icon" onClick={() => navigate(-1)} aria-label="Back">
+        <button
+          className="btn-icon"
+          onClick={() => location.state?.fromPackSelect ? navigate('/pack-select') : navigate(-1)}
+          aria-label="Back"
+        >
           <BackIcon />
         </button>
         <h2 style={{ margin: 0 }}>How to Play</h2>
@@ -214,6 +234,7 @@ function Help() {
 
         {/* Training Mode */}
         <Section
+          id="training-mode"
           title="Training Mode"
           isExpanded={expandedSections.has('Training Mode')}
           onToggle={() => toggleSection('Training Mode')}
@@ -442,6 +463,14 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.32" date="January 18, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Pack Select UX:</strong> Simplified intro bullets with direct links to Help (Training Mode section) and Settings - reduced text, added helpful navigation</li>
+              <li><strong>Back Button Enhancement:</strong> Made back buttons more prominent on Help and Settings pages (orange color, "Back" text instead of just icon) for better PWA navigation visibility</li>
+              <li><strong>Settings Copy:</strong> Updated Support section with friendlier wording</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.31" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Bird Reference Link:</strong> Made "Bird Reference" in Tips section clickable - now all references to Pack Select have proper back navigation in PWA mode!</li>
@@ -650,12 +679,15 @@ function Help() {
         }}>
           <button
             className="btn-secondary"
-            onClick={() => navigate(-1)}
+            onClick={() => location.state?.fromPackSelect ? navigate('/pack-select') : navigate(-1)}
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '8px',
               padding: '12px 24px',
+              background: 'var(--color-accent)',
+              color: 'white',
+              border: 'none',
             }}
           >
             <BackIcon />
@@ -708,14 +740,15 @@ function Help() {
   );
 }
 
-function Section({ title, children, isExpanded, onToggle }: {
+function Section({ id, title, children, isExpanded, onToggle }: {
+  id?: string;
   title: string;
   children: React.ReactNode;
   isExpanded: boolean;
   onToggle: () => void;
 }) {
   return (
-    <div style={{ marginBottom: '16px' }}>
+    <div id={id} style={{ marginBottom: '16px', scrollMarginTop: '20px' }}>
       <h3
         onClick={onToggle}
         style={{
