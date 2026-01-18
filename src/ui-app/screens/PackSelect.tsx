@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, Link, useSearchParams } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams, useLocation } from 'react-router-dom';
 import { trackPackSelect } from '../utils/analytics';
 
 interface Pack {
@@ -89,6 +89,7 @@ const PACKS: Pack[] = [
 
 function PackSelect() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [searchParams] = useSearchParams();
 
   const [clips, setClips] = useState<ClipData[]>([]);
@@ -548,6 +549,33 @@ function PackSelect() {
 
       {/* Bird Reference Section */}
       <div id="bird-reference" style={{ marginTop: '16px', scrollMarginTop: '20px' }}>
+        {/* Back to Level Select button (PWA-friendly navigation) */}
+        {location.state?.fromLevelSelect && location.state?.packId && (
+          <div style={{ marginBottom: '16px' }}>
+            <button
+              onClick={() => navigate(`/level-select?pack=${location.state.packId}`)}
+              style={{
+                background: 'var(--color-accent)',
+                color: 'var(--color-background)',
+                border: 'none',
+                borderRadius: '8px',
+                padding: '10px 16px',
+                fontSize: '14px',
+                fontWeight: 600,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+              }}
+              aria-label="Back to Level Select"
+            >
+              <span style={{ fontSize: '18px' }}>←</span>
+              Back to Level Select
+            </button>
+          </div>
+        )}
+
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
           <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
             Bird Reference

@@ -208,6 +208,7 @@ function LevelSelect() {
                 <span style={{ color: 'var(--color-surface)' }}>•</span>
                 <Link
                   to={`/pack-select?expand=${packId}#bird-reference`}
+                  state={{ fromLevelSelect: true, packId }}
                   style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '12px' }}
                 >
                   Bird Reference

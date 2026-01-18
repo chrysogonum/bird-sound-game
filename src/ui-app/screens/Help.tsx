@@ -438,6 +438,7 @@ function Help() {
         >
           <VersionEntry version="3.29" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>PWA Navigation Enhancement:</strong> Added "Back to Level Select" button on Bird Reference screen when navigated from Level Select - no more getting stuck in PWA mode!</li>
               <li><strong>Rejection tracking system:</strong> Clips rejected during review are now logged to prevent re-downloading - no more duplicate review efforts!</li>
               <li><strong>Yellow-rumped Warbler (YRWA) quality improvements:</strong> Curated down to 2 high-quality clips (from 14 candidates) - improved from Q3 to Q4 with better song/call diversity</li>
               <li><strong>Cedar Waxwing (CEWA) audit:</strong> Reviewed and optimized clip selection for better quality and vocalization diversity</li>
