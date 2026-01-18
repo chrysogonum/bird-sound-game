@@ -549,7 +549,7 @@ function PackSelect() {
 
       {/* Bird Reference Section */}
       <div id="bird-reference" style={{ marginTop: '16px', scrollMarginTop: '20px' }}>
-        {/* Back to Level Select button (PWA-friendly navigation) */}
+        {/* Back navigation button (PWA-friendly) */}
         {location.state?.fromLevelSelect && location.state?.packId && (
           <div style={{ marginBottom: '16px' }}>
             <button
@@ -572,6 +572,31 @@ function PackSelect() {
             >
               <span style={{ fontSize: '18px' }}>←</span>
               Back to Level Select
+            </button>
+          </div>
+        )}
+        {location.state?.fromHelp && (
+          <div style={{ marginBottom: '16px' }}>
+            <button
+              onClick={() => navigate('/help')}
+              style={{
+                background: 'var(--color-accent)',
+                color: 'var(--color-background)',
+                border: 'none',
+                borderRadius: '8px',
+                padding: '10px 16px',
+                fontSize: '14px',
+                fontWeight: 600,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+              }}
+              aria-label="Back to Help"
+            >
+              <span style={{ fontSize: '18px' }}>←</span>
+              Back to Help
             </button>
           </div>
         )}
