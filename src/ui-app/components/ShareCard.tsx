@@ -404,7 +404,7 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
               <button class="close-btn" onclick="window.close(); setTimeout(function() { window.history.back(); }, 100);">✕</button>
               <img src="${dataUrl}" alt="ChipNotes Score">
               <div class="instructions">
-                <p><span class="highlight">Press and hold to share or save</span></p>
+                <p>👆 <span class="highlight">Press and hold the image above to share or save</span></p>
               </div>
             </body>
             </html>
