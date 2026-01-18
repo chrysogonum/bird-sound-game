@@ -319,7 +319,11 @@ function Help() {
               <a href="https://www.macaulaylibrary.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Cornell Macaulay Library
               </a>
-              {' '}and from user contributions. All sound clips have attribution in the Bird Reference.
+              {' '}and from user contributions. All sound clips have attribution with XC catalog numbers and recordist names in the Bird Reference (expand any species on the{' '}
+              <Link to="/pack-select" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                Pack Select
+              </Link>
+              {' '}screen).
             </p>
 
             <p style={{ marginBottom: '12px' }}>
