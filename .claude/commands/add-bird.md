@@ -4,9 +4,12 @@ Add one or more bird species to ChipNotes with all required assets, metadata, an
 
 ## BEFORE YOU START - Gather Information
 
-Ask the user to specify species in ANY of these formats:
+Ask the user to specify:
+
+### 1. Species Information
+Species can be provided in ANY format:
 - **4-letter codes only** (e.g., "STJA, WESJ") → Claude will look up common names
-- **Common names only** (e.g., "Steller's Jay, Western Scrub-Jay") → Claude will derive 4-letter codes
+- **Common names only** (e.g., "Steller's Jay, Western Scrub-Jay") → Claude will derive codes
 - **Mixed format** (e.g., "STJA, Western Scrub-Jay") → Claude will normalize
 
 **Species Code Derivation Rules:**
@@ -16,12 +19,78 @@ If user provides common names, derive 4-letter codes using this pattern:
 - For single-word names: Take first 4 letters: "Cardinal" → "CARD"
 - **Verify codes don't conflict** with existing species in data/clips.json
 
-Also ask:
-1. **Pack name** to add them to (e.g., "western_birds", "sparrows")
-2. **Audio acquisition method**:
-   - **Already have audio files** → Where are they located?
-   - **Download from Xeno-canto** → Ready to download automatically
-   - **Cornell Macaulay** → Manual selection required (waiting for API access)
+### 2. Pack Assignment
+Which pack should these species go into?
+- Existing pack (e.g., "western_birds", "sparrows")
+- New pack (will need to create pack JSON)
+
+### 3. Audio Source - NEW SOURCE CHECK
+
+**CRITICAL QUESTION: Is this a new audio source?**
+
+Check current allowed sources in schema:
+```bash
+grep -A5 '"source"' schemas/clip.schema.json
+# Current sources: "macaulay", "xenocanto", "cornell", "demo", "user_recording"
+```
+
+**Option A: Existing Source** (no setup needed)
+- ✅ Xeno-canto (`xenocanto`)
+- ✅ Cornell Macaulay Library (`cornell` or `macaulay`)
+- ✅ User recording (`user_recording`)
+
+**Option B: New Source** (requires setup FIRST)
+
+If adding recordings from a source NOT in the list above (e.g., iNaturalist, NZ Birds Online, eBird):
+
+**Ask user:**
+1. **Source name** (display name, e.g., "iNaturalist", "NZ Birds Online")
+2. **Source identifier** (for schema/code, e.g., "inaturalist", "nz_birds", "ebird")
+3. **Metadata availability:**
+   - Does this source provide recordist names? (yes/no)
+   - Does this source provide vocalization type tags? (yes/no)
+   - Does this source provide quality ratings? (yes/no)
+4. **Volume:**
+   - Will you be downloading multiple recordings from this source regularly? (yes/no)
+   - If yes: Consider building a download script (like audio_ingest.py for Xeno-canto)
+   - If no: Manual import workflow is fine
+
+**Setup Steps for New Source:**
+```bash
+# 1. Update schema to allow new source
+# Edit schemas/clip.schema.json
+# Add new source to "source" enum on line ~52
+
+# Before:
+"enum": ["macaulay", "xenocanto", "cornell", "demo", "user_recording"]
+
+# After (example for iNaturalist):
+"enum": ["macaulay", "xenocanto", "cornell", "demo", "user_recording", "inaturalist"]
+
+# 2. Validate schema still works
+make validate-schemas
+# Should pass with no errors
+
+# 3. Commit schema change
+git add schemas/clip.schema.json
+git commit -m "Add [SOURCE_NAME] to allowed audio sources"
+git push
+
+# 4. Document attribution requirements
+# Create docs/sources/[source_name].md with:
+# - Legal/license requirements
+# - Attribution format
+# - Download instructions (if applicable)
+```
+
+**After setup, proceed with normal workflow...**
+
+### 4. Audio Acquisition Method
+Once source is confirmed/added:
+- **Already have audio files** → Where are they located?
+- **Download from Xeno-canto** → Use audio_ingest.py
+- **Download from Cornell** → Manual selection (waiting for API access)
+- **Download from new source** → Manual or custom script
 
 ## Audio Requirements Checklist
 
