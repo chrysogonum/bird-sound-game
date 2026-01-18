@@ -320,7 +320,7 @@ function Help() {
                 Cornell Macaulay Library
               </a>
               {' '}and from user contributions. All sound clips have attribution with XC catalog numbers and recordist names in the Bird Reference (expand any species on the{' '}
-              <Link to="/pack-select" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              <Link to="/pack-select#bird-reference" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Pack Select
               </Link>
               {' '}screen).

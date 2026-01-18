@@ -233,6 +233,18 @@ function PackSelect() {
     };
   }, []);
 
+  // Scroll to hash anchor on mount
+  useEffect(() => {
+    if (window.location.hash) {
+      setTimeout(() => {
+        const element = document.querySelector(window.location.hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="screen" style={{ paddingBottom: '24px' }}>
       <div className="flex-row items-center gap-md" style={{ marginBottom: '16px' }}>
@@ -529,7 +541,7 @@ function PackSelect() {
       </div>
 
       {/* Bird Reference Section */}
-      <div style={{ marginTop: '16px' }}>
+      <div id="bird-reference" style={{ marginTop: '16px', scrollMarginTop: '20px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
           <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
             Bird Reference
