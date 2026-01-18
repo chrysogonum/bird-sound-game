@@ -392,14 +392,14 @@ function Help() {
               📧 Email
             </div>
             <a
-              href="mailto:chipnotesfeedback@gmail.com"
+              href="mailto:feedback@chipnotes.app"
               style={{
                 color: 'var(--color-text)',
                 textDecoration: 'none',
                 fontSize: '14px',
               }}
             >
-              chipnotesfeedback@gmail.com
+              feedback@chipnotes.app
             </a>
           </div>
           <div style={{
@@ -432,6 +432,14 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.23" date="January 17, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Share Score Card:</strong> New shareable score card feature - download or share your round results with fun bird icons, stats, and confusion matrix highlights</li>
+              <li><strong>Custom Domain:</strong> ChipNotes now available at <a href="https://chipnotes.app" style={{ color: 'var(--color-accent)' }}>chipnotes.app</a> - easier to remember and share!</li>
+              <li><strong>Training Mode indicator:</strong> Share cards now show when Training Mode was used during the round</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.22" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Version chronology fix:</strong> Moved v3.02 and v3.03 to correct position in version history (after v3.13, before v2.0) - no more time-traveling versions!</li>
