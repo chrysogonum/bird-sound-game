@@ -210,7 +210,7 @@ function LevelSelect() {
                   to={`/pack-select?expand=${packId}#bird-reference`}
                   style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '12px' }}
                 >
-                  🔊 Preview sounds
+                  Bird Reference
                 </Link>
               </>
             )}

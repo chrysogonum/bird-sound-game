@@ -239,7 +239,6 @@ function PackSelect() {
     const expandParam = searchParams.get('expand');
     if (expandParam) {
       setExpandedPacks(new Set([expandParam]));
-      setShowAllPacks(true);
     }
 
     if (window.location.hash) {
