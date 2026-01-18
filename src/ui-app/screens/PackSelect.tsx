@@ -759,7 +759,7 @@ function PackSelect() {
                                       padding: '2px 6px',
                                       borderRadius: '4px',
                                     }}>
-                                      {clip.source === 'xenocanto' ? 'Xeno-canto' : clip.source === 'cornell' ? 'Cornell' : 'user'}
+                                      {clip.source === 'xenocanto' && clip.sourceId ? clip.sourceId : clip.source === 'cornell' ? 'Cornell' : clip.source === 'user_recording' ? 'User' : clip.source}
                                       {clip.recordist && ` - ${clip.recordist}`}
                                     </span>
                                   )}
@@ -981,7 +981,7 @@ function PackSelect() {
                                       padding: '2px 6px',
                                       borderRadius: '4px',
                                     }}>
-                                      {clip.source === 'xenocanto' ? 'Xeno-canto' : clip.source === 'cornell' ? 'Cornell' : 'user'}
+                                      {clip.source === 'xenocanto' && clip.sourceId ? clip.sourceId : clip.source === 'cornell' ? 'Cornell' : clip.source === 'user_recording' ? 'User' : clip.source}
                                       {clip.recordist && ` - ${clip.recordist}`}
                                     </span>
                                   )}
