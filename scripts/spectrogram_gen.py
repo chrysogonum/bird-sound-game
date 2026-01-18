@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 """
-Spectrogram Generator for ChipNotes!
+Spectrogram Generator for SoundField: Birds
 
 Generates PNG spectrograms for all audio clips and updates clips.json
 with spectrogram paths.
+
+⚠️  CRITICAL SPECTROGRAM SETTINGS (DO NOT MODIFY):
+    - Output: 400x200px (2:1 aspect ratio)
+    - Frequency: 500-10000 Hz (bird vocalization range)
+    - Colormap: magma (purple-red-yellow)
+    - These settings MUST remain consistent across all clips!
+    - Display with: height: auto, object-fit: contain (NO cropping!)
 
 Usage:
     python spectrogram_gen.py --input <clips_dir> --output <spectrograms_dir>
@@ -33,14 +40,16 @@ except ImportError as e:
 
 
 # Spectrogram parameters optimized for bird vocalizations
+# ⚠️  LOCKED SETTINGS - DO NOT MODIFY - Required for visual consistency across platform
+# Output: 400x200px (figsize 4x2 @ 100 DPI) - Display with height: auto, object-fit: contain
 SPECTROGRAM_CONFIG = {
     'n_fft': 1024,           # FFT window size
     'hop_length': 256,       # Hop between windows
-    'freq_min': 500,         # Min frequency Hz (filter out low noise)
-    'freq_max': 10000,       # Max frequency Hz (bird range)
-    'figsize': (4, 2),       # Output figure size (width, height inches)
-    'dpi': 100,              # Output DPI
-    'cmap': 'magma',         # Colormap
+    'freq_min': 500,         # Min frequency Hz (filter out low noise) - DO NOT CHANGE
+    'freq_max': 10000,       # Max frequency Hz (bird range) - DO NOT CHANGE
+    'figsize': (4, 2),       # Output figure size (width, height inches) = 400x200px @ 100 DPI
+    'dpi': 100,              # Output DPI - produces 400x200px images
+    'cmap': 'magma',         # Colormap (purple-red-yellow) - DO NOT CHANGE
 }
 
 

@@ -487,13 +487,18 @@ def generate_html() -> str:
         }
 
         /* Spectrogram */
+        /* CRITICAL: Spectrograms are 400x200px (2:1 ratio) from spectrogram_gen.py
+         * MUST use height: auto and object-fit: contain to show FULL image without cropping
+         * DO NOT use height: 100px or object-fit: cover - this crops the frequency range!
+         */
         .spectrogram {
             width: 100%;
-            height: 100px;
-            object-fit: cover;
+            height: auto;               /* Preserves 2:1 aspect ratio */
+            object-fit: contain;        /* Shows full image, no cropping */
             border-radius: 4px;
             margin-bottom: 10px;
             background: #222;
+            display: block;
         }
 
         /* Clip metadata */

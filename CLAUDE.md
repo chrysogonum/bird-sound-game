@@ -112,3 +112,27 @@ Phases A-N cover: Audio Ingestion → Playback Engine → Input/Scoring → Leve
 ### Scoring System
 - Species correct: +50, Channel correct: +25, Timing perfect: +25 (partial: +10)
 - Maximum per event: +100 points
+
+### Spectrogram Requirements ⚠️ CRITICAL
+
+**LOCKED SETTINGS - DO NOT MODIFY:**
+
+All spectrograms MUST be generated with these exact settings from `scripts/spectrogram_gen.py`:
+- **Output dimensions:** 400x200px (2:1 aspect ratio)
+- **Frequency range:** 500-10000 Hz (bird vocalization range)
+- **Colormap:** magma (purple-red-yellow gradient)
+- **FFT settings:** n_fft=1024, hop_length=256
+- **Normalization:** 5th-95th percentile vmin/vmax
+
+**Display Requirements:**
+
+When displaying spectrograms in ANY UI (review tools, game UI, etc.):
+- **MUST use:** `height: auto` and `object-fit: contain`
+- **NEVER use:** `height: 100px` or `object-fit: cover` (this crops the image!)
+- **Why:** Spectrograms must show the full frequency range without cropping to preserve visual learning consistency
+
+**Regenerating spectrograms:**
+```bash
+# ALWAYS use the official script - never inline matplotlib code
+python3 scripts/spectrogram_gen.py --input data/clips --output data/spectrograms
+```
