@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 type SpectrogramMode = 'full' | 'fading' | 'none';
 
@@ -14,6 +14,7 @@ const STORAGE_KEYS = {
 
 function Settings() {
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Load from localStorage on mount
   const [spectrogramMode, setSpectrogramMode] = useState<SpectrogramMode>(() => {
@@ -91,8 +92,22 @@ function Settings() {
   return (
     <div className="screen">
       <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
-        <button className="btn-icon" onClick={() => navigate(-1)} aria-label="Back">
+        <button
+          className="btn-secondary"
+          onClick={() => location.state?.fromPackSelect ? navigate('/pack-select') : navigate(-1)}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '8px 16px',
+            background: 'var(--color-accent)',
+            color: 'white',
+            border: 'none',
+            fontWeight: 600,
+          }}
+        >
           <BackIcon />
+          Back
         </button>
         <h2 style={{ margin: 0 }}>Settings</h2>
       </div>
@@ -254,11 +269,11 @@ function Settings() {
         <div className="card">
           <h3 style={{ marginBottom: '8px' }}>Support This Project</h3>
           <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
-            ChipNotes is free and ad-free. If it's helped you ID more birds,{' '}
+            ChipNotes is free and ad-free. If it's helped you ID more birds, buy me{' '}
             <a href="https://ko-fi.com/chipnotes" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-              buy me a coffee
+              a ☕ or new 🔭
             </a>
-            {' '}to support development. Every donation helps add new species and features! ☕
+            ! Every donation helps add new species and features.
           </div>
         </div>
 

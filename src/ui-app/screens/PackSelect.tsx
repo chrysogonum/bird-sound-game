@@ -266,12 +266,23 @@ function PackSelect() {
         color: 'var(--color-text-muted)',
         marginBottom: '20px',
         lineHeight: 1.6,
+        background: 'rgba(70, 70, 90, 0.5)',
+        padding: '16px',
+        borderRadius: '12px',
       }}>
         <ul style={{ margin: 0, paddingLeft: '20px' }}>
-          <li>Each pack has 6 levels - from signature sounds to full repertoires. Start at level 1 and repeat when ready for a challenge.</li>
-          <li>Pro tip: Enable "training" mode (👁) to kick-start your learning. See <Link to="/help" style={{ color: 'var(--color-accent)' }}>How to Play</Link> for full instructions</li>
-          <li>Timer anxiety? Turn on Continuous Play in Settings for chill, timer-less practice sessions 🧘</li>
-          <li style={{ fontWeight: 600 }}>Phone ringer 🔊 ON (unmute) and 🎧 for best experience!</li>
+          <li style={{ fontWeight: 600 }}>Use 🎧 (or not), but do UNmute 🔊📱</li>
+          <li>6 levels per pack. Start with Level 1 🦗</li>
+          <li>Try training mode (👁){' '}
+            <Link to="/help#training-mode" state={{ fromPackSelect: true }} style={{ color: 'var(--color-accent)' }}>
+              Guide →
+            </Link>
+          </li>
+          <li>Timer anxiety? Continuous Play{' '}
+            <Link to="/settings" state={{ fromPackSelect: true }} style={{ color: 'var(--color-accent)' }}>
+              🧘 ⚙️
+            </Link>
+          </li>
         </ul>
       </div>
 
