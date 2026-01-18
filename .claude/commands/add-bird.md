@@ -2,6 +2,24 @@
 
 Add one or more bird species to ChipNotes with all required assets, metadata, and pack integration.
 
+## Two Main Use Cases
+
+### Use Case 1: Adding New Species
+Adding species that don't exist in the game yet.
+- Example: "Add Steller's Jay and Western Scrub-Jay"
+- Workflow: Download diverse clips (5-10 per species, mixed vocalization types)
+- Icon creation required
+- Pack assignment required
+
+### Use Case 2: Auditing Existing Species
+Downloading additional clips for species already in the game to improve quality or fill vocalization type gaps.
+- Example: "Get 10 high-quality call sounds from White-throated Sparrow to audit that bird"
+- Workflow: Download specific vocalization type, compare with existing clips, replace poor quality
+- Icon already exists
+- Already in packs
+
+**This guide covers both workflows.**
+
 ## BEFORE YOU START - Gather Information
 
 Ask the user to specify:
@@ -152,16 +170,36 @@ For each species, query Xeno-canto API to:
 **We want:** ~5-6 songs, ~3 calls, ~2 drums = **10 total clips** with full type coverage
 
 **Download Audio:**
+
+**For New Species (Mixed Vocalization Types):**
 ```bash
-# Download clips for specific species (using common names)
+# Download diverse clips (songs, calls, drums, etc.)
 python3 scripts/audio_ingest.py \
   --output data/clips \
   --species "Steller's Jay" "Western Scrub-Jay" \
   --max-per-species 10
 ```
 
+**For Auditing Existing Species (Specific Vocalization Type):**
+```bash
+# Download ONLY call vocalizations for White-throated Sparrow
+python3 scripts/audio_ingest.py \
+  --output data/clips \
+  --species "White-throated Sparrow" \
+  --max-per-species 10 \
+  --vocalization-type call
+
+# Or download ONLY songs
+python3 scripts/audio_ingest.py \
+  --output data/clips \
+  --species "Northern Cardinal" \
+  --max-per-species 8 \
+  --vocalization-type song
+```
+
 **What happens:**
 - Downloads top-quality recordings from Xeno-canto
+- Filters by vocalization type if `--vocalization-type` is specified
 - Preprocesses to mono, 0.5-3s duration, -16 LUFS normalization
 - Names files: `{CODE}_xenocanto_{recording_id}.wav`
 - Creates `.ingest_manifest.json` with metadata (vocalization type, quality, recordist)
