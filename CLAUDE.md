@@ -8,6 +8,12 @@ ChipNotes! is a rhythm-game–style audio training application that teaches play
 
 **Core principle:** Audio-first, visual-augmented. Audio is always primary; spectrograms are optional scaffolding.
 
+## Project Status
+
+**Current Version:** v3.27 (January 2026)
+**Status:** Production - Shipped and live at [chipnotes.app](https://chipnotes.app)
+**Phase:** All 20 phases (A-T) complete. Post-launch iteration and refinement.
+
 ## Build and Development Commands
 
 ```bash
@@ -15,7 +21,7 @@ ChipNotes! is a rhythm-game–style audio training application that teaches play
 make install          # Install npm + Python dependencies
 
 # Development
-make dev              # Start development server
+make dev              # Start development server (http://localhost:3000)
 make build            # Production build (runs lint + test first)
 make test             # Run all tests (Vitest)
 make lint             # Run ESLint
@@ -25,6 +31,49 @@ make validate-schemas # Validate all JSON schemas
 make validate-clips   # Validate clips.json
 make validate-packs   # Validate pack definitions
 ```
+
+## Deployment
+
+**IMPORTANT:** ChipNotes uses GitHub Pages with the `gh-pages` package. The `dist/` folder is gitignored, so changes must be deployed via the npm deploy script, NOT by committing dist files.
+
+### Production Deployment Workflow
+
+```bash
+# From src/ui-app directory:
+cd src/ui-app
+npm run deploy        # Builds and deploys to gh-pages branch
+```
+
+**What happens:**
+1. `predeploy` hook runs `npm run build` (TypeScript compile + Vite build)
+2. Vite outputs to `../../dist/` (gitignored)
+3. `gh-pages -d ../../dist` pushes dist/ to `gh-pages` branch
+4. GitHub Pages serves from `gh-pages` branch to chipnotes.app (via CNAME)
+5. Deployment takes ~1-2 minutes to propagate
+
+### Mobile Testing (Local Network)
+
+```bash
+cd src/ui-app
+npm run dev -- --host  # Exposes dev server on local network
+# Access from mobile: http://192.168.x.x:3000
+```
+
+### Version Numbering
+
+- Update version in `src/ui-app/screens/MainMenu.tsx` (footer)
+- Add version history entry in `src/ui-app/screens/Help.tsx`
+- Follow semantic versioning: v3.27 → v3.28 (for minor changes/fixes)
+- Commit source changes to `main` branch, then deploy separately
+
+### Deployment Checklist
+
+1. Make code changes and test locally
+2. Update version number in MainMenu.tsx
+3. Add version history entry in Help.tsx
+4. Commit changes to `main` branch: `git add . && git commit && git push`
+5. Deploy to production: `cd src/ui-app && npm run deploy`
+6. Wait 1-2 minutes, verify at chipnotes.app
 
 ## Phase-Based Development (Ralph Loops)
 
