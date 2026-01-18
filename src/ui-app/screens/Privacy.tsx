@@ -168,8 +168,8 @@ function Privacy() {
             </p>
             <p>
               Email:{' '}
-              <a href="mailto:chipnotes.feedback@gmail.com" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-                chipnotes.feedback@gmail.com
+              <a href="mailto:feedback@chipnotes.app" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                feedback@chipnotes.app
               </a>
             </p>
           </div>

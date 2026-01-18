@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ShareCard, { ShareCardHandle } from '../components/ShareCard';
 
 interface SpeciesResult {
   code: string;
@@ -45,10 +46,14 @@ interface ConfusionSummaryItem {
 
 function RoundSummary() {
   const navigate = useNavigate();
+  const shareCardRef = useRef<ShareCardHandle>(null);
   const [results, setResults] = useState<RoundResults | null>(null);
   const [speciesBreakdown, setSpeciesBreakdown] = useState<SpeciesResult[]>([]);
   const [confusionSummary, setConfusionSummary] = useState<ConfusionSummaryItem[]>([]);
   const [showLevelPicker, setShowLevelPicker] = useState(false);
+  const [isSharing, setIsSharing] = useState(false);
+  const [shareReady, setShareReady] = useState(false);
+  const [shareMessage, setShareMessage] = useState<string | null>(null);
 
   useEffect(() => {
     // Load results from localStorage
@@ -152,6 +157,42 @@ function RoundSummary() {
     navigate('/');
   };
 
+  // Check when share card is ready
+  useEffect(() => {
+    const checkReady = setInterval(() => {
+      if (shareCardRef.current?.isReady()) {
+        setShareReady(true);
+        clearInterval(checkReady);
+      }
+    }, 100);
+
+    return () => clearInterval(checkReady);
+  }, [results]);
+
+  const handleShare = async () => {
+    if (!shareCardRef.current) return;
+
+    setIsSharing(true);
+    setShareMessage(null);
+
+    try {
+      const result = await shareCardRef.current.share();
+
+      // Check if this is iOS (the share function will return 'ios-instructions' if showing save instructions)
+      if (result === 'ios-instructions') {
+        setShareMessage('Follow instructions in new tab to save & share! 📸');
+        // Clear message after 5 seconds
+        setTimeout(() => setShareMessage(null), 5000);
+      }
+    } catch (err) {
+      console.error('Share failed:', err);
+      setShareMessage('Share failed. Please try again.');
+      setTimeout(() => setShareMessage(null), 3000);
+    } finally {
+      setIsSharing(false);
+    }
+  };
+
   return (
     <div className="screen" style={{ paddingTop: '32px', paddingBottom: 'calc(24px + var(--safe-area-bottom, 0px))' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '8px' }}>ROUND COMPLETE</h1>
@@ -159,6 +200,73 @@ function RoundSummary() {
         <p className="text-muted" style={{ textAlign: 'center', marginBottom: '16px' }}>
           Level {currentLevel}: {results?.levelTitle || 'Campaign'}
         </p>
+      )}
+
+      {/* Share Score Button */}
+      <div style={{ width: '100%', maxWidth: '320px', margin: '0 auto 16px' }}>
+        <button
+          className="btn-primary"
+          onClick={handleShare}
+          disabled={isSharing || !results || !shareReady}
+          style={{
+            width: '100%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+          }}
+        >
+          <ShareIcon />
+          {isSharing ? 'Generating...' : !shareReady ? 'Preparing...' : 'Share Your Score'}
+        </button>
+        <p style={{
+          fontSize: '13px',
+          color: 'var(--color-text-muted)',
+          textAlign: 'center',
+          marginTop: '8px',
+          marginBottom: '0',
+          fontStyle: 'italic',
+        }}>
+          Let them Wordle, you already know how to spell.
+        </p>
+        {shareMessage && (
+          <p style={{
+            fontSize: '14px',
+            color: 'var(--color-accent)',
+            textAlign: 'center',
+            marginTop: '8px',
+            marginBottom: '0',
+            fontWeight: 600,
+            animation: 'fadeIn 0.3s ease',
+          }}>
+            {shareMessage}
+          </p>
+        )}
+      </div>
+
+      {/* Hidden ShareCard - always rendered for canvas generation */}
+      {results && (
+        <ShareCard
+          ref={shareCardRef}
+          score={results.score}
+          accuracy={overallAccuracy}
+          eventsScored={results.eventsScored}
+          totalEvents={results.totalEvents}
+          maxStreak={results.maxStreak}
+          species={results.species}
+          packId={results.packId}
+          levelId={results.levelId}
+          levelTitle={results.levelTitle}
+          usedTrainingMode={results.usedTrainingMode}
+          topConfusion={
+            confusionSummary.length > 0 && confusionSummary[0].guessedSpecies
+              ? {
+                  from: confusionSummary[0].expectedSpecies,
+                  to: confusionSummary[0].guessedSpecies,
+                }
+              : null
+          }
+        />
       )}
 
       {/* Stats Card */}
@@ -356,6 +464,18 @@ function ChevronRightIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ marginLeft: '4px' }}>
       <path d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}
+
+function ShareIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="18" cy="5" r="3" />
+      <circle cx="6" cy="12" r="3" />
+      <circle cx="18" cy="19" r="3" />
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
     </svg>
   );
 }

@@ -241,8 +241,8 @@ function Settings() {
           <h3 style={{ marginBottom: '8px' }}>Feedback & Bug Reports</h3>
           <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '12px' }}>
             Found a bug? Have a feature idea? Email me at{' '}
-            <a href="mailto:chipnotes.feedback@gmail.com" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-              chipnotes.feedback@gmail.com
+            <a href="mailto:feedback@chipnotes.app" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              feedback@chipnotes.app
             </a>
           </div>
           <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
