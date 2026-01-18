@@ -432,6 +432,14 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.25" date="January 18, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Home Screen Refresh:</strong> New tagline "Train your ear. Know the birds." emphasizes the educational journey and real-world birding payoff</li>
+              <li><strong>Enhanced Visual Flow:</strong> Added 3-step "Hear → Match → Train" diagram with brain icon to clearly show the learning process</li>
+              <li><strong>Cleaner Layout:</strong> Redesigned home screen with tighter spacing and more intuitive visual hierarchy</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.24" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Share Card Polish:</strong> Refined share card design with circular bird icons and owl mascot, cleaner font hierarchy (removed monospace, reduced bold usage), and improved spacing for better visual balance</li>

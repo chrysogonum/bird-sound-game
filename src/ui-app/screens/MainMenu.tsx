@@ -148,13 +148,14 @@ function MainMenu() {
 
         <p style={{
           color: 'var(--color-text-muted)',
-          fontSize: '15px',
+          fontSize: '16px',
           maxWidth: '280px',
           textAlign: 'center',
-          lineHeight: 1.5,
-          marginTop: '0px',
+          lineHeight: 1.4,
+          marginTop: '4px',
+          fontWeight: 600,
         }}>
-          Your gamified study guide to bird sounds
+          Train your ear. Know the birds.
         </p>
 
         {/* Main Play Button */}
@@ -187,23 +188,23 @@ function MainMenu() {
 
         {/* How it works - visual gameplay preview */}
         <div style={{
-          marginTop: '16px',
-          padding: '12px 16px',
+          marginTop: '20px',
+          padding: '16px',
           background: 'var(--color-surface)',
           borderRadius: '16px',
-          maxWidth: '340px',
+          maxWidth: '360px',
         }}>
           <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '16px',
+            gap: '12px',
           }}>
             {/* Step 1: Spectrogram representing sound */}
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center', flex: '0 0 auto' }}>
               <div style={{
-                width: '88px',
-                height: '56px',
+                width: '72px',
+                height: '52px',
                 background: 'linear-gradient(180deg, #1a1a2e 0%, #0d1520 100%)',
                 borderRadius: '10px',
                 padding: '6px',
@@ -215,33 +216,33 @@ function MainMenu() {
               }}>
                 <SpectrogramMini />
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
-                Hear a sound
+              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+                Hear
               </div>
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', fontSize: '28px', marginTop: '-20px' }}>
+            <div style={{ color: 'var(--color-accent)', fontSize: '24px', marginTop: '-16px' }}>
               →
             </div>
 
             {/* Step 2: Bird options */}
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center', flex: '0 0 auto' }}>
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '6px',
+                gap: '4px',
               }}>
                 {['NOCA', 'BLJA', 'TUTI', 'CAWR'].map((code, i) => (
                   <div
                     key={code}
                     style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '8px',
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '6px',
                       overflow: 'hidden',
                       border: i === 0 ? '2px solid var(--color-accent)' : '2px solid transparent',
-                      boxShadow: i === 0 ? '0 0 10px rgba(255, 152, 0, 0.4)' : 'none',
+                      boxShadow: i === 0 ? '0 0 8px rgba(255, 152, 0, 0.4)' : 'none',
                     }}
                   >
                     <img
@@ -252,8 +253,32 @@ function MainMenu() {
                   </div>
                 ))}
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
-                Match the bird!
+              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+                Match
+              </div>
+            </div>
+
+            {/* Arrow */}
+            <div style={{ color: 'var(--color-accent)', fontSize: '24px', marginTop: '-16px' }}>
+              →
+            </div>
+
+            {/* Step 3: Learning outcome */}
+            <div style={{ textAlign: 'center', flex: '0 0 auto' }}>
+              <div style={{
+                width: '72px',
+                height: '52px',
+                background: '#2a2a3e',
+                borderRadius: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.4)',
+              }}>
+                <div style={{ fontSize: '32px' }}>🧠</div>
+              </div>
+              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+                Train
               </div>
             </div>
           </div>
@@ -319,7 +344,7 @@ function MainMenu() {
         onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
         aria-label="View version history"
       >
-        v3.24
+        v3.25
       </button>
     </div>
   );
