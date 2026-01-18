@@ -313,6 +313,7 @@ function MainMenu() {
           cursor: 'pointer',
           padding: '4px',
           transition: 'opacity 0.2s',
+          zIndex: 1001,
         }}
         onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
         onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
