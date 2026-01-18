@@ -111,13 +111,19 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
     ctx.fillStyle = bgGradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Draw owl icon as transparent watermark if available
+    // Draw owl icon as circular watermark if available
     if (owlIconRef.current) {
       ctx.save();
       ctx.globalAlpha = 1.0; // Full opacity watermark
       const owlSize = 280;
       const owlX = width - owlSize - 20; // Upper right corner with 20px margin
       const owlY = 20; // 20px from top
+
+      // Create circular clipping path
+      ctx.beginPath();
+      ctx.arc(owlX + owlSize / 2, owlY + owlSize / 2, owlSize / 2, 0, Math.PI * 2);
+      ctx.clip();
+
       ctx.drawImage(owlIconRef.current, owlX, owlY, owlSize, owlSize);
       ctx.restore();
     }
@@ -137,17 +143,22 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
     ctx.fillText(`${accuracy}%`, leftMargin, 200);
 
     // Score below
-    ctx.font = 'bold 36px -apple-system, system-ui, sans-serif';
+    ctx.font = '32px -apple-system, system-ui, sans-serif';
     ctx.fillStyle = '#334e68';
     ctx.fillText(`${score} points`, leftMargin, 245);
 
     // Birds identified
-    ctx.font = '24px -apple-system, system-ui, sans-serif';
+    ctx.font = '22px -apple-system, system-ui, sans-serif';
     ctx.fillStyle = '#486581';
     ctx.fillText(`${eventsScored}/${totalEvents} birds identified`, leftMargin, 280);
 
     // Reset text alignment to center for the rest
     ctx.textAlign = 'center';
+
+    // Best Streak (moved above bird icons)
+    ctx.font = '26px -apple-system, system-ui, sans-serif';
+    ctx.fillStyle = '#334e68';
+    ctx.fillText(`🔥 Best Streak: ${maxStreak}`, width / 2, 320);
 
     // Bird icons in horizontal row - MASSIVE icons!
     const maxBirds = 4; // Limit to 4 for single row
@@ -157,7 +168,7 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
 
     const totalWidth = iconsToShow.length * iconSize + (iconsToShow.length - 1) * gridSpacing;
     const gridStartX = (width - totalWidth) / 2;
-    let currentY = 320;
+    let currentY = 365;
 
     iconsToShow.forEach((s, i) => {
       const x = gridStartX + i * (iconSize + gridSpacing);
@@ -166,49 +177,70 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
       // Use pre-loaded bird icon
       const img = loadedIconsRef.current.get(s.code);
       if (img) {
-        // Draw light gray border
+        ctx.save();
+
+        // Create circular clipping path for bird icon
+        ctx.beginPath();
+        ctx.arc(x + iconSize / 2, y + iconSize / 2, iconSize / 2, 0, Math.PI * 2);
+        ctx.clip();
+
+        // Calculate proper scaling to fit image in circle without distortion
+        const imgAspect = img.width / img.height;
+        let drawWidth = iconSize;
+        let drawHeight = iconSize;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        if (imgAspect > 1) {
+          // Wider than tall - fit height, center horizontally
+          drawWidth = iconSize * imgAspect;
+          offsetX = -(drawWidth - iconSize) / 2;
+        } else if (imgAspect < 1) {
+          // Taller than wide - fit width, center vertically
+          drawHeight = iconSize / imgAspect;
+          offsetY = -(drawHeight - iconSize) / 2;
+        }
+
+        // Draw icon (clipped to circle, properly scaled)
+        ctx.drawImage(img, x + offsetX, y + offsetY, drawWidth, drawHeight);
+
+        ctx.restore();
+
+        // Draw circular border
         ctx.strokeStyle = '#d3d6da';
-        ctx.lineWidth = 2;
-        ctx.strokeRect(x, y, iconSize, iconSize);
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.arc(x + iconSize / 2, y + iconSize / 2, iconSize / 2, 0, Math.PI * 2);
+        ctx.stroke();
 
-        // Draw icon
-        ctx.drawImage(img, x, y, iconSize, iconSize);
-
-        // Draw species code below (BIGGER font for 160px icons)
-        ctx.font = 'bold 26px monospace';
+        // Draw species code below
+        ctx.font = '22px -apple-system, system-ui, sans-serif';
         ctx.fillStyle = '#102a43';
         ctx.fillText(s.code, x + iconSize / 2, y + iconSize + 38);
       }
     });
 
-    // Stats section (below bird icons - single row now)
-    const statsY = currentY + iconSize + 80;
-
-    // Additional stats (centered)
-
-    // Streak
-    ctx.font = 'bold 28px -apple-system, system-ui, sans-serif';
-    ctx.fillStyle = '#334e68';
-    ctx.fillText(`🔥 Best Streak: ${maxStreak}`, width / 2, statsY);
+    // Stats section (below bird icons, centered in remaining space)
+    const statsY = currentY + iconSize + 100;
 
     // Pack and Level
     if (packId && levelId) {
       const packName = getPackDisplayName(packId);
-      ctx.font = '24px -apple-system, system-ui, sans-serif';
+      ctx.font = '22px -apple-system, system-ui, sans-serif';
       ctx.fillStyle = '#486581';
-      ctx.fillText(`${packName} • Level ${levelId}`, width / 2, statsY + 40);
+      ctx.fillText(`${packName} • Level ${levelId}`, width / 2, statsY);
     }
 
-    // Bird list (all species codes)
+    // Bird list (all species codes) - closer spacing
     const allBirdCodes = species.map(s => s.code).join(' • ');
-    ctx.font = '18px monospace';
+    ctx.font = '18px -apple-system, system-ui, sans-serif';
     ctx.fillStyle = '#627d98';
 
     // Word wrap if too long
     const maxWidth = 700;
     const words = allBirdCodes.split(' ');
     let line = '';
-    let yPos = statsY + 80;
+    let yPos = statsY + 32;
 
     for (let i = 0; i < words.length; i++) {
       const testLine = line + words[i] + ' ';
@@ -226,22 +258,22 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
     // Training mode indicator (if used)
     if (usedTrainingMode) {
       const trainingY = yPos + 35;
-      ctx.font = 'bold 20px -apple-system, system-ui, sans-serif';
+      ctx.font = '20px -apple-system, system-ui, sans-serif';
       ctx.fillStyle = '#c9b458'; // Yellow/warning color
       ctx.fillText('🎓 Training Mode Used', width / 2, trainingY);
 
-      ctx.font = '17px -apple-system, system-ui, sans-serif';
+      ctx.font = '16px -apple-system, system-ui, sans-serif';
       ctx.fillStyle = '#627d98';
       ctx.fillText('Ready to take off the training wheels?', width / 2, trainingY + 28);
     }
 
     // Footer
-    ctx.font = 'bold 28px -apple-system, system-ui, sans-serif';
+    ctx.font = 'bold 26px -apple-system, system-ui, sans-serif';
     ctx.fillStyle = '#102a43';
     ctx.textAlign = 'center';
     ctx.fillText('chipnotes.app', width / 2, height - 60);
 
-    ctx.font = '22px -apple-system, system-ui, sans-serif';
+    ctx.font = '20px -apple-system, system-ui, sans-serif';
     ctx.fillStyle = '#486581';
     ctx.fillText('#chipnotes #birdnerd', width / 2, height - 30);
 

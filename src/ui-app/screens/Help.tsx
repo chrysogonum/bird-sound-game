@@ -432,6 +432,14 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.24" date="January 18, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Share Card Polish:</strong> Refined share card design with circular bird icons and owl mascot, cleaner font hierarchy (removed monospace, reduced bold usage), and improved spacing for better visual balance</li>
+              <li><strong>Icon Improvements:</strong> Bird icons and owl now display as perfect circles with proper aspect ratio scaling - no more white backgrounds or distortion</li>
+              <li><strong>Layout Refinement:</strong> Moved Best Streak above bird icons, tightened spacing between pack/level and bird codes, centered text better in available space</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.23" date="January 17, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Share Score Card:</strong> New shareable score card feature - download or share your round results with fun bird icons, stats, and confusion matrix highlights</li>
