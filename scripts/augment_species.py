@@ -31,6 +31,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 CLIPS_JSON = PROJECT_ROOT / 'data' / 'clips.json'
 CLIPS_DIR = PROJECT_ROOT / 'data' / 'clips'
 SPEC_DIR = PROJECT_ROOT / 'data' / 'spectrograms'
+REJECTED_XC_IDS_PATH = PROJECT_ROOT / 'data' / 'rejected_xc_ids.json'
 
 # Xeno-canto API
 XC_API_BASE = 'https://xeno-canto.org/api/3/recordings'
@@ -45,14 +46,25 @@ SPECIES_SCIENTIFIC_NAMES = {
 
 def load_existing_xc_ids(species_code: str) -> List[str]:
     """Load all existing Xeno-canto IDs for a species (active + rejected)."""
+    xc_ids = []
+
+    # Load from active clips
     with open(CLIPS_JSON) as f:
         clips = json.load(f)
-
-    return [
+    xc_ids.extend([
         c.get('xeno_canto_id')
         for c in clips
         if c.get('species_code') == species_code and c.get('xeno_canto_id')
-    ]
+    ])
+
+    # Load from rejection log
+    if REJECTED_XC_IDS_PATH.exists():
+        with open(REJECTED_XC_IDS_PATH, 'r') as f:
+            rejection_log = json.load(f)
+        if species_code in rejection_log:
+            xc_ids.extend(rejection_log[species_code])
+
+    return list(set(xc_ids))  # Dedupe and return
 
 
 def search_xeno_canto(species_code: str, quality: str = 'A', limit: int = 50, country: str = 'US') -> List[Dict]:

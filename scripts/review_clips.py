@@ -36,6 +36,7 @@ from typing import Dict, List, Optional
 PORT = 8888
 PROJECT_ROOT = Path(__file__).parent.parent
 CLIPS_JSON_PATH = PROJECT_ROOT / "data" / "clips.json"
+REJECTED_XC_IDS_PATH = PROJECT_ROOT / "data" / "rejected_xc_ids.json"
 
 # Granular vocalization types (Cornell taxonomy)
 VOCALIZATION_TYPES = [
@@ -273,7 +274,37 @@ def save_changes(changes: Dict) -> Dict:
                 )
             species_canonicals[species] = clip['clip_id']
 
-    # 6. Delete rejected files from disk
+    # 6. Log rejected XC IDs for future filtering
+    rejected_clips_to_log = {}
+    for clip in clips:
+        if clip.get('rejected') and clip.get('xeno_canto_id'):
+            species = clip['species_code']
+            xc_id = clip['xeno_canto_id']
+            if species not in rejected_clips_to_log:
+                rejected_clips_to_log[species] = []
+            rejected_clips_to_log[species].append(xc_id)
+
+    if rejected_clips_to_log:
+        # Load existing rejection log
+        if REJECTED_XC_IDS_PATH.exists():
+            with open(REJECTED_XC_IDS_PATH, 'r') as f:
+                rejection_log = json.load(f)
+        else:
+            rejection_log = {}
+
+        # Merge new rejections
+        for species, xc_ids in rejected_clips_to_log.items():
+            if species not in rejection_log:
+                rejection_log[species] = []
+            rejection_log[species].extend(xc_ids)
+            rejection_log[species] = sorted(list(set(rejection_log[species])))  # Dedupe
+
+        # Save updated log
+        with open(REJECTED_XC_IDS_PATH, 'w') as f:
+            json.dump(rejection_log, f, indent=2, sort_keys=True)
+        print(f"📝 Logged {sum(len(v) for v in rejected_clips_to_log.values())} rejected XC IDs")
+
+    # 7. Delete rejected files from disk
     deleted_count = 0
     for file_info in stats['files_deleted']:
         for file_path in [file_info['audio'], file_info['spectrogram']]:
@@ -284,7 +315,7 @@ def save_changes(changes: Dict) -> Dict:
                     deleted_count += 1
                     print(f"🗑️  Deleted: {file_path}")
 
-    # 7. Remove rejected clips from clips array
+    # 8. Remove rejected clips from clips array
     clips = [c for c in clips if not c.get('rejected', False)]
 
     # 8. Save updated clips.json
