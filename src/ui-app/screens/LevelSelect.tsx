@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
 import { trackLevelSelect } from '../utils/analytics';
 
@@ -199,10 +199,21 @@ function LevelSelect() {
         <button className="btn-icon" onClick={() => navigate(packId === 'custom' ? '/custom-pack' : '/pack-select')} aria-label="Back">
           <BackIcon />
         </button>
-        <div>
+        <div style={{ flex: 1 }}>
           <h2 style={{ margin: 0, fontSize: '20px' }}>{packName}</h2>
-          <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
-            Select a level
+          <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <span>Select a level</span>
+            {packId !== 'custom' && (
+              <>
+                <span style={{ color: 'var(--color-surface)' }}>•</span>
+                <Link
+                  to={`/pack-select?expand=${packId}#bird-reference`}
+                  style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '12px' }}
+                >
+                  🔊 Preview sounds
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

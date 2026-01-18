@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { trackPackSelect } from '../utils/analytics';
 
 interface Pack {
@@ -89,6 +89,7 @@ const PACKS: Pack[] = [
 
 function PackSelect() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const [clips, setClips] = useState<ClipData[]>([]);
   const [_packSpecies, setPackSpecies] = useState<Record<string, string[]>>({});
@@ -233,8 +234,14 @@ function PackSelect() {
     };
   }, []);
 
-  // Scroll to hash anchor on mount
+  // Auto-expand pack from query parameter and scroll to hash anchor
   useEffect(() => {
+    const expandParam = searchParams.get('expand');
+    if (expandParam) {
+      setExpandedPacks(new Set([expandParam]));
+      setShowAllPacks(true);
+    }
+
     if (window.location.hash) {
       setTimeout(() => {
         const element = document.querySelector(window.location.hash);
@@ -243,7 +250,7 @@ function PackSelect() {
         }
       }, 100);
     }
-  }, []);
+  }, [searchParams]);
 
   return (
     <div className="screen" style={{ paddingBottom: '24px' }}>
