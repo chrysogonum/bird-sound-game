@@ -101,8 +101,19 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
     // Set canvas size (Square for versatility - 800x800)
     const width = 800;
     const height = 800;
-    canvas.width = width;
-    canvas.height = height;
+    const dpr = window.devicePixelRatio || 1;
+
+    // Scale canvas for high-DPI displays
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    // Scale context to match DPI
+    ctx.scale(dpr, dpr);
+
+    // Set text rendering properties
+    ctx.textBaseline = 'alphabetic';
 
     // Better background with more contrast
     const bgGradient = ctx.createLinearGradient(0, 0, 0, height);
@@ -138,9 +149,14 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
     ctx.textAlign = 'left';
     const leftMargin = 60;
 
-    ctx.font = 'bold 110px -apple-system, system-ui, sans-serif';
+    // Draw dartboard emoji (smaller)
+    ctx.font = '80px -apple-system, system-ui, sans-serif';
     ctx.fillStyle = accuracy >= 80 ? '#6aaa64' : accuracy >= 60 ? '#c9b458' : '#787c7e';
-    ctx.fillText(`${accuracy}%`, leftMargin, 200);
+    ctx.fillText('🎯', leftMargin, 200);
+
+    // Draw percentage (large)
+    ctx.font = 'bold 110px -apple-system, system-ui, sans-serif';
+    ctx.fillText(`${accuracy}%`, leftMargin + 95, 200);
 
     // Score below
     ctx.font = '32px -apple-system, system-ui, sans-serif';
@@ -156,8 +172,8 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
     ctx.textAlign = 'center';
 
     // Best Streak (moved above bird icons)
-    ctx.font = '26px -apple-system, system-ui, sans-serif';
-    ctx.fillStyle = '#334e68';
+    ctx.font = 'bold 26px -apple-system, system-ui, sans-serif';
+    ctx.fillStyle = '#d97706';
     ctx.fillText(`🔥 Best Streak: ${maxStreak}`, width / 2, 320);
 
     // Bird icons in horizontal row - MASSIVE icons!
@@ -258,13 +274,9 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
     // Training mode indicator (if used)
     if (usedTrainingMode) {
       const trainingY = yPos + 35;
-      ctx.font = '20px -apple-system, system-ui, sans-serif';
-      ctx.fillStyle = '#c9b458'; // Yellow/warning color
-      ctx.fillText('🎓 Training Mode Used', width / 2, trainingY);
-
-      ctx.font = '16px -apple-system, system-ui, sans-serif';
-      ctx.fillStyle = '#627d98';
-      ctx.fillText('Ready to take off the training wheels?', width / 2, trainingY + 28);
+      ctx.font = '18px -apple-system, system-ui, sans-serif';
+      ctx.fillStyle = '#d97706'; // Orange-amber for visibility
+      ctx.fillText('🎓 Still training. Ready to migrate soon.', width / 2, trainingY);
     }
 
     // Footer
@@ -358,7 +370,7 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
                   opacity: 0.9;
                 }
                 .highlight {
-                  color: #FFD54F;
+                  color: #d97706;
                   font-weight: 600;
                 }
                 .close-btn {
