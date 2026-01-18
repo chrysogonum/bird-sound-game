@@ -114,7 +114,7 @@ const ShareCard = forwardRef<ShareCardHandle, ShareCardProps>(({
     // Draw owl icon as transparent watermark if available
     if (owlIconRef.current) {
       ctx.save();
-      ctx.globalAlpha = 0.25; // Even more visible watermark
+      ctx.globalAlpha = 1.0; // Full opacity watermark
       const owlSize = 280;
       const owlX = width - owlSize - 20; // Upper right corner with 20px margin
       const owlY = 20; // 20px from top
