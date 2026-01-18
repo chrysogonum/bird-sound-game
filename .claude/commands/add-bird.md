@@ -197,6 +197,38 @@ python3 scripts/audio_ingest.py \
   --vocalization-type song
 ```
 
+**Alternative: `augment_species.py` (Optimized for Existing Species)**
+
+For species already in the game, use this script which automatically filters out previously reviewed clips:
+
+```bash
+# Augment Yellow-rumped Warbler with 10 new Quality A clips
+# Automatically excludes clips already in clips.json AND rejected_xc_ids.json
+python3 scripts/augment_species.py YRWA --max 10 --quality A
+
+# Or Cedar Waxwing
+python3 scripts/augment_species.py CEWA --max 8 --quality A
+```
+
+**Key differences from audio_ingest.py:**
+- ✅ Automatically filters out existing clips from clips.json
+- ✅ Automatically filters out rejected clips from data/rejected_xc_ids.json (no re-downloads!)
+- ✅ Generates spectrograms immediately
+- ✅ Adds directly to clips.json (ready for review)
+- ✅ Requires species scientific name in SPECIES_SCIENTIFIC_NAMES dict
+
+**Before using augment_species.py:**
+1. Check if species is in the mapping (scripts/augment_species.py line 39):
+   ```python
+   SPECIES_SCIENTIFIC_NAMES = {
+       'CEWA': ('Bombycilla', 'cedrorum'),
+       'YRWA': ('Setophaga', 'coronata'),
+       # Add more as needed
+   }
+   ```
+2. If missing, add the scientific name mapping first
+3. Run the script - it handles everything through to clips.json entry
+
 **What happens:**
 - Downloads top-quality recordings from Xeno-canto
 - Filters by vocalization type if `--vocalization-type` is specified
@@ -381,10 +413,19 @@ Result: 5 clips total with better quality + new drum type
 Click "💾 Save Changes" in the review tool
 - Creates backup: data/clips.json.backup
 - Validates canonical uniqueness (1 per species)
+- Logs rejected Xeno-canto IDs to data/rejected_xc_ids.json (prevents re-downloads)
 - Deletes rejected files permanently (audio + spectrogram)
 - Updates clips.json
 - Auto-commits to git with summary
 ```
+
+**🔒 Rejection Tracking (Automatic)**
+
+The review tool automatically logs rejected clips to prevent re-downloading:
+- File: `data/rejected_xc_ids.json` - Tracks all rejected XC IDs by species
+- When you reject a clip: XC ID logged BEFORE deletion
+- Future downloads: `augment_species.py` filters out logged rejections
+- No duplicate review efforts - rejected clips never re-appear
 
 **Verify Clip Counts:**
 ```bash
