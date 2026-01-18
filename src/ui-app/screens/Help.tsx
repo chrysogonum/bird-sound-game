@@ -436,6 +436,15 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.28" date="January 18, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Bird Reference Navigation:</strong> Added contextual "Bird Reference" link from Level Select screen that jumps directly to the selected pack's bird list - easily review sounds before starting a level</li>
+              <li><strong>Improved Xeno-canto Attribution:</strong> Now displays XC catalog numbers (e.g., "XC1015145 - David A. Brinkman") for proper credit and licensing compliance</li>
+              <li><strong>Deep Linking:</strong> Navigate directly to Bird Reference section from Help page with smooth scrolling</li>
+              <li><strong>Pack Auto-Expansion:</strong> When navigating from Level Select, the relevant pack automatically expands in Bird Reference</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.27" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Share Card UX:</strong> Improved share instructions with upward arrow emoji and clearer text "Press and hold the image above" to prevent confusion</li>
