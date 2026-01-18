@@ -436,6 +436,14 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.29" date="January 18, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Rejection tracking system:</strong> Clips rejected during review are now logged to prevent re-downloading - no more duplicate review efforts!</li>
+              <li><strong>Yellow-rumped Warbler (YRWA) quality improvements:</strong> Curated down to 2 high-quality clips (from 14 candidates) - improved from Q3 to Q4 with better song/call diversity</li>
+              <li><strong>Cedar Waxwing (CEWA) audit:</strong> Reviewed and optimized clip selection for better quality and vocalization diversity</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.28" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Bird Reference Navigation:</strong> Added contextual "Bird Reference" link from Level Select screen that jumps directly to the selected pack's bird list - easily review sounds before starting a level</li>
