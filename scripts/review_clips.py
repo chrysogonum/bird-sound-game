@@ -214,6 +214,7 @@ def save_changes(changes: Dict) -> Dict:
         'rejections': 0,
         'quality_changes': 0,
         'vocalization_changes': 0,
+        'recordist_changes': 0,
         'files_deleted': []
     }
 
@@ -255,6 +256,11 @@ def save_changes(changes: Dict) -> Dict:
         if 'vocalization_type' in updates and updates['vocalization_type'] != clip.get('vocalization_type'):
             stats['vocalization_changes'] += 1
             clip['vocalization_type'] = updates['vocalization_type']
+
+        # Track recordist changes
+        if 'recordist' in updates and updates['recordist'] != clip.get('recordist'):
+            stats['recordist_changes'] += 1
+            clip['recordist'] = updates['recordist']
 
     # 5. Validate canonical uniqueness (exactly 1 per species)
     species_canonicals = {}
@@ -318,6 +324,8 @@ def generate_commit_message(stats: Dict) -> str:
         changes.append(f"{stats['quality_changes']} quality changes")
     if stats['vocalization_changes'] > 0:
         changes.append(f"{stats['vocalization_changes']} vocalization type changes")
+    if stats['recordist_changes'] > 0:
+        changes.append(f"{stats['recordist_changes']} recordist updates")
 
     if changes:
         parts.append(", ".join(changes))
@@ -763,6 +771,14 @@ def generate_html() -> str:
                         <select onchange="updateMetadata('${clipId}', 'quality_score', parseInt(this.value))">
                             ${qualityOptions}
                         </select>
+                    </div>
+                    <div class="metadata-row">
+                        <span class="metadata-label">🎙️ Recordist:</span>
+                        <input type="text"
+                               value="${current.recordist || ''}"
+                               placeholder="(none)"
+                               onchange="updateMetadata('${clipId}', 'recordist', this.value)"
+                               style="flex: 1; padding: 4px; background: #2a2a2a; color: #e0e0e0; border: 1px solid #444; border-radius: 4px;">
                     </div>
                 </div>
 
