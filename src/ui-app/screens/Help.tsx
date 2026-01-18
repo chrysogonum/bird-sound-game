@@ -199,7 +199,13 @@ function Help() {
           onToggle={() => toggleSection('Tips')}
         >
           <Tip>Start with the 5 common birds, even if you're eager for more.</Tip>
-          <Tip>Use Bird Reference on the Pack Select screen to preview all sounds included in the game.</Tip>
+          <Tip>
+            Use{' '}
+            <Link to="/pack-select#bird-reference" state={{ fromHelp: true }} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              Bird Reference
+            </Link>
+            {' '}to preview all sounds included in the game.
+          </Tip>
           <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
           <Tip>Check the round summary and confusion matrix to see which birds need practice.</Tip>
@@ -436,6 +442,12 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.31" date="January 18, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Bird Reference Link:</strong> Made "Bird Reference" in Tips section clickable - now all references to Pack Select have proper back navigation in PWA mode!</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.30" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>PWA Navigation Fix:</strong> Added "Back to Help" button on Bird Reference screen when navigated from Help page's About & Credits section - complete PWA navigation coverage!</li>
