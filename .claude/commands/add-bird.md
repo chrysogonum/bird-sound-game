@@ -4,14 +4,24 @@ Add one or more bird species to ChipNotes with all required assets, metadata, an
 
 ## BEFORE YOU START - Gather Information
 
-Ask the user for:
-1. **Species codes** (e.g., STJA, WESJ) - 4-letter alpha codes
-2. **Common names** (e.g., Steller's Jay, Western Scrub-Jay)
-3. **Pack name** to add them to (e.g., "western_birds", "sparrows")
-4. **Audio source location** - where are the .wav files?
-   - Are they already in data/clips/?
-   - Are they in a separate directory that needs copying?
-   - What naming convention do they use?
+Ask the user to specify species in ANY of these formats:
+- **4-letter codes only** (e.g., "STJA, WESJ") → Claude will look up common names
+- **Common names only** (e.g., "Steller's Jay, Western Scrub-Jay") → Claude will derive 4-letter codes
+- **Mixed format** (e.g., "STJA, Western Scrub-Jay") → Claude will normalize
+
+**Species Code Derivation Rules:**
+If user provides common names, derive 4-letter codes using this pattern:
+- Split by spaces/hyphens: "Steller's Jay" → "Steller" + "Jay"
+- Take first 2 letters of each part: "ST" + "JA" = "STJA"
+- For single-word names: Take first 4 letters: "Cardinal" → "CARD"
+- **Verify codes don't conflict** with existing species in data/clips.json
+
+Also ask:
+1. **Pack name** to add them to (e.g., "western_birds", "sparrows")
+2. **Audio acquisition method**:
+   - **Already have audio files** → Where are they located?
+   - **Download from Xeno-canto** → Ready to download automatically
+   - **Cornell Macaulay** → Manual selection required (waiting for API access)
 
 ## Audio Requirements Checklist
 
@@ -24,83 +34,270 @@ CRITICAL: All audio files MUST meet these specs (see CLAUDE.md):
 
 If audio files don't meet specs, STOP and ask user to preprocess them first.
 
+## Audio Acquisition Plans
+
+### Plan A: Audio Already Available
+If user has existing .wav files:
+- Copy to `data/clips/` with naming: `{CODE}_{source}_{id}.wav`
+- Verify audio meets specs (mono, 0.5-3s, -16 LUFS)
+- Proceed directly to Step 2 (metadata tagging)
+
+### Plan B: Download from Xeno-canto (Recommended)
+
+**Step 1: Verify API Key Setup**
+```bash
+# Test API connection FIRST
+python3 scripts/audio_ingest.py --test-api
+```
+
+**If API key not found**, Claude should:
+1. Check environment variable:
+   ```bash
+   echo $XENO_CANTO_API_KEY
+   ```
+2. If empty, load from zsh config:
+   ```bash
+   source ~/.zshrc && echo $XENO_CANTO_API_KEY
+   ```
+3. If still not working, instruct user to manually add to ~/.zshrc:
+   ```bash
+   echo "export XENO_CANTO_API_KEY='user-api-key-here'" >> ~/.zshrc
+   source ~/.zshrc
+   ```
+
+**Step 2: Download with Vocalization Type Diversity**
+
+**Goal:** Get 5-10 high-quality clips per species with **maximum variation** in vocalization types (song, call, drum, alarm, flight call, etc.)
+
+**Strategy:**
+For each species, query Xeno-canto API to:
+1. Fetch ALL available clips with quality rating A or B
+2. Group by vocalization type tags (song, call, drum, alarm, etc.)
+3. **Proportionally sample** from each type to get diverse representation
+
+**Example:** If Xeno-canto has:
+- 10 clips tagged "song" (quality A)
+- 5 clips tagged "call" (quality A-B)
+- 3 clips tagged "drum" (quality A)
+
+**We want:** ~5-6 songs, ~3 calls, ~2 drums = **10 total clips** with full type coverage
+
+**Download Audio:**
+```bash
+# Download clips for specific species (using common names)
+python3 scripts/audio_ingest.py \
+  --output data/clips \
+  --species "Steller's Jay" "Western Scrub-Jay" \
+  --max-per-species 10
+```
+
+**What happens:**
+- Downloads top-quality recordings from Xeno-canto
+- Preprocesses to mono, 0.5-3s duration, -16 LUFS normalization
+- Names files: `{CODE}_xenocanto_{recording_id}.wav`
+- Creates `.ingest_manifest.json` with metadata (vocalization type, quality, recordist)
+- Ready for Step 2 (metadata tagging)
+
+**Quality Criteria:**
+- ✅ Only quality ratings **A** (excellent) or **B** (good)
+- ✅ Prefer **A-rated** recordings, fall back to B if needed
+- ❌ Reject C/D/E quality recordings
+
+**Type Coverage:**
+- Prioritize **song** and **call** (most common types)
+- Include **drum**, **alarm**, **flight call** if available
+- Sample proportionally to ensure representation of all types
+- Aim for 5-10 total clips with maximum type diversity
+
+### Plan C: Cornell Macaulay Library (Manual)
+Cornell API access pending. For now:
+- User must manually select and download recordings
+- Copy to `data/clips/` with naming: `{CODE}_cornell_{id}.wav`
+- Verify audio specs before proceeding
+- See `docs/cornell_usage_guide.txt` for manual workflow
+
 ## Step-by-Step Workflow
 
-### 1. Verify/Copy Audio Files
-- Check if files are in `data/clips/`
-- Naming convention: `{CODE}_{source}_{id}.wav` (e.g., `STJA_cornell_123456.wav`)
-- If copying from elsewhere, use `cp` to move to data/clips/
-- Count files for each species to verify completeness
+### Step 1: Acquire Audio Files
+Follow Plan A, B, or C above to get audio files into `data/clips/`
 
-### 2. Update clips.json Metadata
-Run the audio tagging script:
+**Verify files exist:**
 ```bash
-# This updates data/clips.json with metadata for all clips
-python3 scripts/audio_tagger.py
-```
-- Verify clips.json was updated (check file modification time)
-- Spot check that new species codes appear in clips.json
-
-### 2.5. Mark Canonical Clips (CRITICAL!)
-**NEW SPECIES NEED CANONICAL CLIPS FOR LEVEL 1 TO WORK!**
-
-Run this script to ensure all species have canonical clips marked:
-```bash
-python3 << 'EOF'
-import json
-import os
-
-# Load clips
-with open('data/clips.json', 'r') as f:
-    clips = json.load(f)
-
-# Group by species
-from collections import defaultdict
-by_species = defaultdict(list)
-for clip in clips:
-    species = clip.get('species_code')
-    if species:
-        by_species[species].append(clip)
-
-# For each species without a canonical clip, mark the first valid one
-changes = []
-for species, species_clips in by_species.items():
-    canonical = [c for c in species_clips if c.get('canonical') and not c.get('rejected')]
-    if not canonical:
-        # Find first valid clip with existing file
-        for clip in species_clips:
-            file_path = f"src/ui-app/public/{clip.get('file_path', '')}"
-            if os.path.exists(file_path) and not clip.get('rejected'):
-                clip['canonical'] = True
-                changes.append(f"{species}: Set {clip['clip_id']} as canonical")
-                break
-
-if changes:
-    with open('data/clips.json', 'w') as f:
-        json.dump(clips, f, indent=2)
-    print(f"✓ Set canonical clips for {len(changes)} species:")
-    for change in changes:
-        print(f"  {change}")
-else:
-    print("✓ All species already have canonical clips")
-EOF
+ls data/clips/{CODE}_*.wav
+# Should show 5-10 files per species
 ```
 
-**Verify:**
-- Check that output shows canonical clips were set for new species
-- If you see "All species already have canonical clips", that's good!
-
-### 3. Generate Spectrograms
+### Step 2: Tag Metadata
+Run the audio tagging script to create clips.json entries:
 ```bash
+python3 scripts/audio_tagger.py --input data/clips --output data/clips.json
+```
+
+**What this does:**
+- Reads `.ingest_manifest.json` (if it exists) to get metadata from Xeno-canto:
+  - Vocalization type (song, call, drum, alarm, etc.)
+  - Quality rating (A=5, B=4, etc.)
+  - Recordist name
+  - Source info
+- Falls back to filename parsing if no manifest
+- Creates/updates clips.json with new entries
+- **Preserves original vocalization types** from source (you'll verify during review)
+
+**Verify clips.json was updated:**
+```bash
+# Check that new species appear
+grep -c "\"species_code\": \"STJA\"" data/clips.json
+# Should show number of STJA clips
+```
+
+### Step 3: Generate Spectrograms
+Generate spectrograms BEFORE review so they're visible in the review tool:
+
+```bash
+python3 scripts/spectrogram_gen.py
+# OR via Make:
 make spectrogram-gen
-# OR directly:
-python3 scripts/spectrogram_gen.py --input data/clips --output data/spectrograms --clips-json data/clips.json
 ```
-- This creates PNG spectrograms in `data/spectrograms/`
-- Verify spectrograms were created for all new clips
-- Check a few spectrograms visually to ensure they look correct
 
-### 4. Generate & Verify Species Icons
+**What this does:**
+- Reads clips.json to find all audio files
+- Generates PNG spectrograms in `data/spectrograms/`
+- Updates clips.json with spectrogram_path for each clip
+- Uses frequency range 500-10000Hz optimized for bird vocalizations
+
+**Verify spectrograms were created:**
+```bash
+ls data/spectrograms/{CODE}_*.png | wc -l
+# Should match number of audio clips for that species
+```
+
+### Step 4: Review & Curate with Spectrograms
+
+**BEFORE REVIEWING: Determine Context**
+
+Check if species already exist in clips.json:
+```bash
+# Check if species already exist
+for code in STJA WESJ BCCH; do
+  grep -q "\"species_code\": \"$code\"" data/clips.json && \
+    echo "✓ $code: EXISTING species (adding more clips)" || \
+    echo "✗ $code: NEW species (first-time addition)"
+done
+```
+
+#### Scenario A: NEW Species (First-Time Addition)
+
+If adding species for the first time:
+
+```bash
+# Review ONLY the new species
+python3 scripts/review_clips.py --filter STJA,WESJ,BCCH
+# Opens browser to http://localhost:8888
+```
+
+**What to Look For:**
+
+1. **Vocalization Type Diversity** - Verify you have good coverage:
+   - ✅ Mix of song, call, drum, flight call, etc.
+   - ✅ At least 2-3 different vocalization types per species
+   - ❌ All clips are the same type → Download more variety
+
+2. **Audio Quality** - Check spectrograms and listen:
+   - ✅ Clear vocalization, minimal background noise
+   - ✅ Appropriate duration (0.5-3s, already preprocessed)
+   - ❌ Heavy background noise, overlapping species → Reject
+
+3. **Set Canonical Clip** - Select the BEST clip for each species:
+   - ⭐ Click "Set Canonical" on highest quality **song**
+   - Canonical is used for Level 1 (introduction round)
+   - Prefer Cornell > Xeno-canto if quality is equal
+
+4. **Reject Poor Clips** - Delete any problematic clips:
+   - ✗ Click "Reject" to mark for deletion
+   - Common reasons: wrong species, poor quality, duplicate
+
+**Success:** 5-10 clips per species with good type coverage and 1 canonical.
+
+#### Scenario B: Additional Clips for Existing Species
+
+If adding more clips to species already in the game:
+
+```bash
+# Review existing + new clips side-by-side
+python3 scripts/review_clips.py --filter NOCA,BLJA,TUTI
+# Shows ALL clips for these species (both existing and newly downloaded)
+```
+
+**What to Check:**
+
+1. **Compare New vs Existing Quality**
+   - Are new clips better quality than old ones?
+   - Should we replace old clips with new ones?
+   - Reject lower quality clips (old or new)
+
+2. **Vocalization Type Coverage**
+   - Do new clips fill gaps? (e.g., we had 5 songs, now adding 3 calls)
+   - Do we now have redundant types? (e.g., 8 songs, 0 calls → reject excess songs)
+
+3. **Re-evaluate Canonical Selection**
+   - Is the current canonical still the best?
+   - If new clip is higher quality, re-assign canonical
+   - Only ONE canonical per species allowed
+
+4. **Maintain Target Count**
+   - Goal: 5-10 total clips per species
+   - If we now have 15 clips, reject the 5 worst ones
+   - Prioritize keeping diverse types over quantity
+
+**Example Decision Tree:**
+```
+Northern Cardinal currently has:
+- 5 existing clips: 3 songs (quality 4,3,3), 2 calls (quality 4,3)
+- 3 new downloads: 2 songs (quality 5,4), 1 drum (quality 4)
+
+Actions:
+✓ KEEP: New song (Q5) → Set as NEW canonical
+✓ KEEP: New song (Q4)
+✓ KEEP: New drum (Q4) → Fills type gap
+✓ KEEP: Existing call (Q4)
+✓ KEEP: Existing song (Q4)
+✗ REJECT: Old song (Q3) → Replaced by better new song
+✗ REJECT: Old song (Q3) → Redundant, low quality
+✗ REJECT: Old call (Q3) → Keep only best call
+
+Result: 5 clips total with better quality + new drum type
+```
+
+#### Save Changes (Both Scenarios)
+
+```
+Click "💾 Save Changes" in the review tool
+- Creates backup: data/clips.json.backup
+- Validates canonical uniqueness (1 per species)
+- Deletes rejected files permanently (audio + spectrogram)
+- Updates clips.json
+- Auto-commits to git with summary
+```
+
+**Verify Clip Counts:**
+```bash
+# Check final clip count per species
+for code in STJA WESJ BCCH; do
+  count=$(grep -c "\"species_code\": \"$code\"" data/clips.json)
+  echo "$code: $count clips"
+done
+# Should show 5-10 clips per species
+```
+
+**Success Criteria:**
+- [ ] Each species has 5-10 total clips (after rejections)
+- [ ] Mix of vocalization types (not all one type)
+- [ ] Exactly 1 canonical clip per species
+- [ ] All clips quality 3+ (rejected anything below)
+- [ ] For existing species: No quality regression (new clips ≥ old quality)
+- [ ] clips.json saved and committed via review tool
+
+### Step 5: Generate & Verify Species Icons
 **CRITICAL CHECKPOINT** - Icon workflow integration
 
 This step connects to `data/icons/PROMPTS.md` which maintains design prompts for all species.
@@ -154,7 +351,7 @@ done
 
 List ALL icons that need creation/replacement BEFORE proceeding.
 
-### 5. Update or Create Pack Definition
+### Step 6: Update or Create Pack Definition
 
 Navigate to `data/packs/{pack_name}.json`
 
@@ -168,13 +365,13 @@ If updating EXISTING pack:
 - Maintain alphabetical order (optional but nice)
 - Update species count in pack metadata if present
 
-### 6. Validate Everything
+### Step 7: Validate Everything
 ```bash
 make validate-schemas  # Validates clips.json and pack JSONs
 ```
 If validation fails, STOP and fix errors before proceeding.
 
-### 7. Test Locally
+### Step 8: Test Locally
 ```bash
 make dev
 ```
@@ -184,7 +381,7 @@ make dev
 - Play a few audio clips to verify they work
 - Check spectrograms display correctly
 
-### 8. Git Workflow - DON'T SKIP ANYTHING
+### Step 9: Git Workflow - DON'T SKIP ANYTHING
 
 **Check what's untracked** (this catches missing icons!):
 ```bash
@@ -221,7 +418,7 @@ Look for:
 
 **Verify icon count matches species count!**
 
-### 9. Commit with Descriptive Message
+### Step 10: Commit with Descriptive Message
 
 Format:
 ```
@@ -243,9 +440,13 @@ Content:
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
-### 10. Deploy
+### Step 11: Deploy
 ```bash
-git push && npm run deploy
+# Push source changes to main branch
+git push
+
+# Deploy to GitHub Pages
+cd src/ui-app && npm run deploy
 ```
 
 If deployment fails with ENOSPC (disk full):
@@ -296,5 +497,5 @@ When complete, report:
 ✓ Schema validation passed
 ✓ Deployed successfully
 
-Live at: https://{username}.github.io/bird-sound-game/
+Live at: https://chipnotes.app
 ```
