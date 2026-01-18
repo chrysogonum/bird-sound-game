@@ -320,7 +320,7 @@ function Help() {
                 Cornell Macaulay Library
               </a>
               {' '}and from user contributions. All sound clips have attribution with XC catalog numbers and recordist names in the Bird Reference (expand any species on the{' '}
-              <Link to="/pack-select#bird-reference" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              <Link to="/pack-select#bird-reference" state={{ fromHelp: true }} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Pack Select
               </Link>
               {' '}screen).
@@ -436,6 +436,12 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.30" date="January 18, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>PWA Navigation Fix:</strong> Added "Back to Help" button on Bird Reference screen when navigated from Help page's About & Credits section - complete PWA navigation coverage!</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.29" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>PWA Navigation Enhancement:</strong> Added "Back to Level Select" button on Bird Reference screen when navigated from Level Select - no more getting stuck in PWA mode!</li>
