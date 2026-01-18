@@ -6336,23 +6336,5 @@
     "source_id": "XC731214",
     "duration_ms": 3000,
     "recordist": "Ron Overholtz"
-  },
-  {
-    "clip_id": "YRWA_701682",
-    "species_code": "YRWA",
-    "species_name": "Myrtle Warbler",
-    "file_path": "data/clips/YRWA_701682.wav",
-    "xeno_canto_id": "701682",
-    "vocalization_type": "song",
-    "quality_rating": "A",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/YRWA_701682.png",
-    "common_name": "Myrtle Warbler",
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC701682",
-    "duration_ms": 3000,
-    "recordist": "William Whitehead"
   }
 ]
