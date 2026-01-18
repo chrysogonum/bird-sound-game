@@ -38,6 +38,7 @@ XC_API_BASE = 'https://xeno-canto.org/api/3/recordings'
 # Species code to scientific name mapping (for Xeno-canto API v3)
 SPECIES_SCIENTIFIC_NAMES = {
     'CEWA': ('Bombycilla', 'cedrorum'),
+    'YRWA': ('Setophaga', 'coronata'),
     # Add more as needed
 }
 
