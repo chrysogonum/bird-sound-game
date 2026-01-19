@@ -24,7 +24,12 @@ SOFTWARE.
 
 Audio Content Attribution:
 
-Bird sound recordings are sourced from Xeno-Canto (https://xeno-canto.org),
-a community library of bird sounds. Individual recordings retain their
-original Creative Commons licenses as specified by their contributors.
-See data/clips.json for specific recording attributions.
+Bird sound recordings are sourced from:
+
+- Xeno-Canto (https://xeno-canto.org) - a community library of bird sounds
+- Cornell Lab of Ornithology / Macaulay Library (https://www.macaulaylibrary.org)
+- User contributed recordings
+
+Individual recordings retain their original Creative Commons licenses as
+specified by their contributors. See data/clips.json for specific recording
+attributions.
