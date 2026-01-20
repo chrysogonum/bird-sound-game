@@ -295,7 +295,7 @@ function PackSelect() {
           <li>6 levels per pack. Start with Level 1 🦗</li>
           <li>Try training mode (👁){' '}
             <Link to="/help#training-mode" state={{ fromPackSelect: true }} style={{ color: 'var(--color-accent)' }}>
-              Guide →
+              Help →
             </Link>
           </li>
           <li>Timer anxiety? Continuous Play{' '}
@@ -777,11 +777,11 @@ function PackSelect() {
                     <div style={{
                       position: 'absolute',
                       top: '15px',
-                      left: '50%',
+                      left: '70%',
                       transform: 'translateX(-50%)',
-                      background: 'rgba(245, 166, 35, 0.75)',
+                      background: 'rgba(245, 166, 35, 1.0)',
                       color: '#000',
-                      padding: '6px 16px',
+                      padding: '6px 20px',
                       borderRadius: '16px',
                       fontSize: '13px',
                       fontWeight: 600,
@@ -789,6 +789,7 @@ function PackSelect() {
                       animation: 'floatPop 1.4s ease-out forwards',
                       zIndex: 1000,
                       pointerEvents: 'none',
+                      whiteSpace: 'nowrap',
                     }}>
                       🤓 nerd alert!
                     </div>

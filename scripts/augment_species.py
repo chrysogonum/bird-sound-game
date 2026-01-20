@@ -40,6 +40,7 @@ XC_API_BASE = 'https://xeno-canto.org/api/3/recordings'
 SPECIES_SCIENTIFIC_NAMES = {
     'CEWA': ('Bombycilla', 'cedrorum'),
     'YRWA': ('Setophaga', 'coronata'),
+    'OCWA': ('Leiothlypis', 'celata'),
     # Add more as needed
 }
 
