@@ -39,19 +39,6 @@
     "recordist": "Paul Driver"
   },
   {
-    "clip_id": "ACFL_80217163",
-    "species_code": "ACFL",
-    "common_name": "Acadian Flycatcher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC816040",
-    "file_path": "data/clips/ACFL_816040.wav",
-    "spectrogram_path": "data/spectrograms/ACFL_816040.png",
-    "recordist": "Richard E. Webster"
-  },
-  {
     "clip_id": "ACFL_7edbc7c7",
     "species_code": "ACFL",
     "common_name": "Acadian Flycatcher",
@@ -62,7 +49,8 @@
     "source_id": "XC839505",
     "file_path": "data/clips/ACFL_839505.wav",
     "spectrogram_path": "data/spectrograms/ACFL_839505.png",
-    "recordist": "Manuel Oudard"
+    "recordist": "Manuel Oudard",
+    "canonical": true
   },
   {
     "clip_id": "AGOL_229ae506",
