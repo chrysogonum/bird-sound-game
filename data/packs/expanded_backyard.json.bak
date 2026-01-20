@@ -4,7 +4,7 @@
   "description": "27 species commonly found in backyards across eastern North America. Includes woodpeckers, songbirds, and raptors.",
   "species": [
     "NOCA",
-    "CARW",
+    "CAWR",
     "BLJA",
     "AMCR",
     "TUTI",
@@ -33,7 +33,7 @@
   ],
   "display_species": [
     "NOCA",
-    "CARW",
+    "CAWR",
     "BLJA",
     "AMCR",
     "TUTI",
@@ -66,7 +66,7 @@
     "SSHA",
     "RTHA",
     "RTHU",
-    "BAOW",
+    "BADO",
     "COGR",
     "FICR",
     "CEWA",
