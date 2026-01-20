@@ -75,6 +75,9 @@ help:
 	@echo "  make validate-clips     Validate clips.json"
 	@echo "  make validate-packs     Validate pack definitions"
 	@echo "  make validate-data      Validate data integrity (files, canonicals, etc.)"
+	@echo ""
+	@echo "Species Data:"
+	@echo "  make generate-species-data   Regenerate species.json + taxonomic_order.json from IBP-AOS-list25.csv"
 
 # ============================================================================
 # Setup & Common
@@ -466,6 +469,22 @@ validate-packs:
 validate-data:
 	@echo "=== Running comprehensive data validation ==="
 	$(PYTHON) $(SCRIPTS_DIR)/validate_data.py
+
+# ============================================================================
+# Species Data Generation
+# ============================================================================
+
+# IMPORTANT: docs/IBP-AOS-list25.csv is the SINGLE SOURCE OF TRUTH for:
+#   - 4-letter bird codes
+#   - Common names
+#   - Scientific names
+#   - Taxonomic ordering (AOS/eBird 2025 taxonomy)
+# Run this target whenever the CSV is updated to regenerate JSON files.
+
+generate-species-data:
+	@echo "=== Generating species.json and taxonomic_order.json from IBP-AOS-list25.csv ==="
+	$(PYTHON) $(SCRIPTS_DIR)/generate_species_data.py
+	@echo "Species data generation complete"
 
 # ============================================================================
 # Aggregate Targets
