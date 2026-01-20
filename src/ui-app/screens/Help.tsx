@@ -23,6 +23,7 @@ function Help() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const versionHistoryRef = useRef<HTMLDivElement>(null);
+  const hasScrolledToHashRef = useRef(false);
 
 
   const allSections = [
@@ -87,9 +88,10 @@ function Help() {
     }
   }, [location.state]);
 
-  // Auto-scroll to training-mode section if hash is present
+  // Auto-scroll to training-mode section if hash is present (only once on mount)
   useEffect(() => {
-    if (location.hash === '#training-mode') {
+    if (location.hash === '#training-mode' && !hasScrolledToHashRef.current) {
+      hasScrolledToHashRef.current = true;
       setTimeout(() => {
         const element = document.getElementById('training-mode');
         if (element) {
@@ -97,7 +99,7 @@ function Help() {
         }
       }, 100); // Small delay to ensure section is rendered expanded
     }
-  }, [location.hash, expandedSections]);
+  }, [location.hash]);
 
   return (
     <div ref={containerRef} className="screen" style={{ paddingBottom: '32px', position: 'relative' }}>
@@ -170,8 +172,8 @@ function Help() {
           onToggle={() => toggleSection('The Packs')}
         >
           <PackInfo
-            name="Common Eastern US Backyard Birds"
-            description="Perfect for beginners. Six distinctive birds you'll hear in your own backyard: Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, and Robin."
+            name="Eastern Backyard Birds"
+            description="Perfect for beginners. Six distinctive birds you'll hear in your own backyard: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
           />
           <PackInfo
             name="Expanded Eastern US Birds"
@@ -301,6 +303,9 @@ function Help() {
             <div style={{ marginTop: '8px' }}><strong>Three-word names:</strong> 1 + 1 + 2 letters</div>
             <div style={{ color: 'var(--color-text-muted)', marginLeft: '12px' }}>
               Red-bellied Woodpecker → R + B + WO → RBWO
+            </div>
+            <div style={{ marginTop: '12px', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
+              There are exceptions. Because, ornithology.
             </div>
           </div>
         </Section>
@@ -463,6 +468,17 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.33" date="January 19, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Taxonomic Sort:</strong> Bird Reference now supports eBird/Clements 2025 taxonomic order - toggle between alphabetical and phylogenetic sorting with a fun easter egg for the science nerds</li>
+              <li><strong>Species Fixes:</strong> Corrected Carolina Wren code from CAWR to CARW, and Barred Owl from BADO to BAOW - now matches eBird standard across all packs and data files</li>
+              <li><strong>American Robin:</strong> Added AMRO to starter pack (now 6 birds) - merged PR #4 with Cornell/Macaulay Library attribution</li>
+              <li><strong>Pack Naming:</strong> Simplified "Common Eastern US Backyard Birds" to just "Eastern Backyard Birds" everywhere</li>
+              <li><strong>Help Page Polish:</strong> Alphabetized bird list in pack descriptions, added "There are exceptions. Because, ornithology." note to 4-letter codes section</li>
+              <li><strong>Help Navigation Fix:</strong> Fixed unwanted auto-scroll when expanding sections after navigating from Pack Select with hash links</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.32" date="January 18, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Pack Select UX:</strong> Simplified intro bullets with direct links to Help (Training Mode section) and Settings - reduced text, added helpful navigation</li>

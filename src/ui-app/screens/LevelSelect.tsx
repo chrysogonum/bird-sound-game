@@ -5,7 +5,7 @@ import { trackLevelSelect } from '../utils/analytics';
 
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
-  starter_birds: 'Common Eastern US Backyard Birds',
+  starter_birds: 'Eastern Backyard Birds',
   expanded_backyard: 'Expanded Eastern US Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',

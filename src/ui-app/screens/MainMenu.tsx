@@ -344,7 +344,7 @@ function MainMenu() {
         onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
         aria-label="View version history"
       >
-        v3.32
+        v3.33
       </button>
     </div>
   );
