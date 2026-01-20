@@ -46,7 +46,7 @@ const PACKS: Pack[] = [
   {
     id: 'starter_birds',
     name: 'Eastern Backyard Birds',
-    speciesCount: 5,
+    speciesCount: 6,
     isUnlocked: true,
     description: 'Start here! Distinctive, bold, recognizable voices.',
   },

@@ -171,7 +171,7 @@ function Help() {
         >
           <PackInfo
             name="Common Eastern US Backyard Birds"
-            description="Perfect for beginners. Five distinctive birds you'll hear in your own backyard: Cardinal, Carolina Wren, Titmouse, Blue Jay, and Crow."
+            description="Perfect for beginners. Six distinctive birds you'll hear in your own backyard: Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, and Robin."
           />
           <PackInfo
             name="Expanded Eastern US Birds"
@@ -218,7 +218,7 @@ function Help() {
           isExpanded={expandedSections.has('Tips')}
           onToggle={() => toggleSection('Tips')}
         >
-          <Tip>Start with the 5 common birds, even if you're eager for more.</Tip>
+          <Tip>Start with the 6 common birds, even if you're eager for more.</Tip>
           <Tip>
             Use{' '}
             <Link to="/pack-select#bird-reference" state={{ fromHelp: true }} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
