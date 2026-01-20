@@ -305,7 +305,7 @@ function Help() {
               Red-bellied Woodpecker → R + B + WO → RBWO
             </div>
             <div style={{ marginTop: '12px', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
-              There are exceptions. Because, ornithology.
+              There <a href="https://www.birdpop.org/pages/birdSpeciesCodes.php" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>are exceptions</a>. Because, ornithology.
             </div>
           </div>
         </Section>
