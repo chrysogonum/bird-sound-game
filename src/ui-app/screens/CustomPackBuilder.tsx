@@ -18,7 +18,7 @@ interface SpeciesInfo {
   scientificName?: string;
 }
 
-const MAX_SPECIES = 9;
+const MAX_SPECIES = 30;
 const CUSTOM_PACK_KEY = 'soundfield_custom_pack';  // Legacy single pack
 
 /**
@@ -38,13 +38,16 @@ interface SavedPack {
   species: string[];
   created: string;
   lastPlayed?: string;
+  lastModified?: string;  // Track when pack was last edited
   version: number;  // For future migrations
 }
 
-// Colors for selected species
+// Colors for selected species (30 distinct colors)
 const SPECIES_COLORS = [
-  '#E57373', '#4FC3F7', '#81C784', '#FFD54F',
-  '#BA68C8', '#FF8A65', '#4DB6AC', '#A1887F', '#90A4AE',
+  '#E57373', '#4FC3F7', '#81C784', '#FFD54F', '#BA68C8', '#FF8A65', '#4DB6AC', '#A1887F', '#90A4AE',
+  '#F06292', '#64B5F6', '#AED581', '#FFB74D', '#9575CD', '#FF7043', '#4DD0E1', '#DCE775', '#C5A880',
+  '#EF5350', '#42A5F5', '#66BB6A', '#FFA726', '#AB47BC', '#FF6F00', '#26C6DA', '#D4E157', '#8D6E63',
+  '#EC407A', '#29B6F6', '#9CCC65',
 ];
 
 function CustomPackBuilder() {
@@ -71,6 +74,8 @@ function CustomPackBuilder() {
   const [savedPacksExpanded, setSavedPacksExpanded] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [packToDelete, setPackToDelete] = useState<string | null>(null);
+  const [loadedPackId, setLoadedPackId] = useState<string | null>(null);  // Track currently loaded pack
+  const [loadedPackName, setLoadedPackName] = useState<string>('');  // Track loaded pack name
 
   // Load all species from clips.json, taxonomic order, and scientific names
   useEffect(() => {
@@ -267,6 +272,8 @@ function CustomPackBuilder() {
   // Clear selection
   const handleClear = () => {
     setSelectedCodes([]);
+    setLoadedPackId(null);  // Clear loaded pack state
+    setLoadedPackName('');
   };
 
   // Clear search and refocus
@@ -296,11 +303,63 @@ function CustomPackBuilder() {
       alert('Please select at least one bird before saving.');
       return;
     }
+
+    // If editing an existing pack, offer to update it or save as new
+    if (loadedPackId) {
+      const choice = confirm(
+        `You're editing "${loadedPackName}".\n\n` +
+        `Click OK to update "${loadedPackName}"\n` +
+        `Click Cancel to save as a new pack`
+      );
+
+      if (choice) {
+        // Update existing pack
+        updateExistingPack();
+      } else {
+        // Save as new pack
+        if (savedPacks.length >= MAX_SAVED_PACKS) {
+          alert(`You can only save up to ${MAX_SAVED_PACKS} packs. Please delete one first.`);
+          return;
+        }
+        setLoadedPackId(null);  // Clear loaded pack so we save as new
+        setLoadedPackName('');
+        setShowSaveDialog(true);
+      }
+      return;
+    }
+
+    // New pack flow
     if (savedPacks.length >= MAX_SAVED_PACKS) {
       alert(`You can only save up to ${MAX_SAVED_PACKS} packs. Please delete one first.`);
       return;
     }
     setShowSaveDialog(true);
+  };
+
+  // Update an existing pack
+  const updateExistingPack = () => {
+    if (!loadedPackId) return;
+
+    const updatedPacks = savedPacks.map(p => {
+      if (p.id === loadedPackId) {
+        return {
+          ...p,
+          species: [...selectedCodes],
+          lastModified: new Date().toISOString(),
+        };
+      }
+      return p;
+    });
+
+    setSavedPacks(updatedPacks);
+    try {
+      localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updatedPacks));
+      alert(`✅ "${loadedPackName}" updated successfully!`);
+      trackCustomPackSave(loadedPackName, selectedCodes.length);
+    } catch (e) {
+      console.error('Failed to update pack:', e);
+      alert('Failed to update pack. Storage may be full.');
+    }
   };
 
   const confirmSavePack = () => {
@@ -330,6 +389,9 @@ function CustomPackBuilder() {
 
     setShowSaveDialog(false);
     setPackNameInput('');
+    // After saving as new, track this as the loaded pack so subsequent edits can update it
+    setLoadedPackId(newPack.id);
+    setLoadedPackName(newPack.name);
   };
 
   // Load a saved pack with validation
@@ -359,6 +421,8 @@ function CustomPackBuilder() {
 
     setSelectedCodes(validSpecies);
     setSearchQuery('');
+    setLoadedPackId(pack.id);  // Track which pack is loaded
+    setLoadedPackName(pack.name);  // Track pack name
     trackCustomPackLoad(pack.name, validSpecies.length);
   };
 
@@ -438,7 +502,13 @@ function CustomPackBuilder() {
           <div>
             <h2 style={{ margin: 0, fontSize: '18px' }}>Custom Pack Builder</h2>
             <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
-              Select up to {MAX_SPECIES} birds
+              {loadedPackId ? (
+                <span>
+                  Editing: <strong style={{ color: 'var(--color-accent)' }}>{loadedPackName}</strong>
+                </span>
+              ) : (
+                `Select up to ${MAX_SPECIES} birds`
+              )}
             </div>
           </div>
         </div>
@@ -667,7 +737,7 @@ function CustomPackBuilder() {
                 fontWeight: 600,
               }}
             >
-              💾 Save Pack
+              {loadedPackId ? '💾 Update / Save As New' : '💾 Save Pack'}
             </button>
             <button
               onClick={handleClear}
@@ -806,6 +876,13 @@ function CustomPackBuilder() {
                     fontStyle: taxonomicSort && species.scientificName ? 'italic' : 'normal',
                   }}>
                     {taxonomicSort && species.scientificName ? species.scientificName : species.name}
+                  </div>
+                  <div style={{
+                    fontSize: '10px',
+                    color: 'var(--color-text-muted)',
+                    marginTop: '2px',
+                  }}>
+                    {species.code}
                   </div>
                 </div>
               </div>
