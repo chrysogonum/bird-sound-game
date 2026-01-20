@@ -4547,7 +4547,7 @@
     "common_name": "Ruby-crowned Kinglet",
     "source_id": "RCKI_1014752",
     "file_path": "data/clips/RCKI_1014752.wav",
-    "vocalization_type": "song",
+    "vocalization_type": "call",
     "quality_rating": "A",
     "spectrogram_path": "data/spectrograms/RCKI_1014752.png",
     "canonical": false,
