@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Species",
+  "description": "Schema for bird species metadata from 2025 AOS taxonomy",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "species_code",
+      "common_name",
+      "scientific_name",
+      "genus",
+      "species",
+      "taxonomic_order"
+    ],
+    "properties": {
+      "species_code": {
+        "type": "string",
+        "pattern": "^[A-Z]{4}$",
+        "description": "4-letter species code used in the game"
+      },
+      "common_name": {
+        "type": "string",
+        "description": "English common name from 2025 AOS"
+      },
+      "scientific_name": {
+        "type": "string",
+        "description": "Scientific name (binomial nomenclature) from 2025 AOS"
+      },
+      "genus": {
+        "type": "string",
+        "description": "Genus name (first part of scientific name)"
+      },
+      "species": {
+        "type": "string",
+        "description": "Species epithet (second part of scientific name)"
+      },
+      "taxonomic_order": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Taxonomic position from 2025 AOS (66th Supplement)"
+      },
+      "aos_code": {
+        "type": ["string", "null"],
+        "pattern": "^[A-Z]{4}$",
+        "description": "Official AOS 4-letter code if different from game code"
+      }
+    },
+    "additionalProperties": false
+  }
+}
