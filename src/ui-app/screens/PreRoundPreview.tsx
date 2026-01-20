@@ -146,6 +146,7 @@ function PreRoundPreview() {
   });
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
+  const [commonNames, setCommonNames] = useState<Record<string, string>>({});
   const [fullCustomPack, setFullCustomPack] = useState<string[]>([]);  // All species in custom pack (up to 30)
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -204,19 +205,22 @@ function PreRoundPreview() {
     }
   }, [taxonomicSort, taxonomicOrder]); // Depend on taxonomicSort and taxonomicOrder, but not selectedSpecies to avoid infinite loop
 
-  // Load taxonomic order data and scientific names
+  // Load taxonomic order data and species metadata
   useEffect(() => {
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
-    ]).then(([taxonomicData, speciesData]: [Record<string, number>, Array<{species_code: string; scientific_name: string}>]) => {
+    ]).then(([taxonomicData, speciesData]: [Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>]) => {
       setTaxonomicOrder(taxonomicData);
-      // Build scientific names lookup
+      // Build species metadata lookup
       const sciNames: Record<string, string> = {};
-      speciesData.forEach((sp: {species_code: string; scientific_name: string}) => {
+      const comNames: Record<string, string> = {};
+      speciesData.forEach((sp: {species_code: string; common_name: string; scientific_name: string}) => {
         sciNames[sp.species_code] = sp.scientific_name;
+        comNames[sp.species_code] = sp.common_name;
       });
       setScientificNames(sciNames);
+      setCommonNames(comNames);
     }).catch((err) => console.error('Failed to load taxonomy data:', err));
   }, []);
 
@@ -234,13 +238,13 @@ function PreRoundPreview() {
 
       return {
         code,
-        name: clip?.common_name || code,
+        name: commonNames[code] || code,
         scientificName: scientificNames[code],
         color: SPECIES_COLORS[index % SPECIES_COLORS.length],
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     });
-  }, [scientificNames]);
+  }, [commonNames, scientificNames]);
 
   // Select random subset from custom pack (for packs with >9 birds)
   const selectRandomFromCustomPack = useCallback((allSpecies: string[], clipsData: ClipData[]) => {
@@ -275,7 +279,7 @@ function PreRoundPreview() {
 
       return {
         code,
-        name: clip?.common_name || code,
+        name: commonNames[code] || code,
         scientificName: scientificNames[code],
         color: SPECIES_COLORS[index % SPECIES_COLORS.length],
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
@@ -283,7 +287,7 @@ function PreRoundPreview() {
     });
 
     setSelectedSpecies(speciesInfo);
-  }, [scientificNames]);
+  }, [commonNames, scientificNames]);
 
   // Load level and clips
   useEffect(() => {
