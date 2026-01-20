@@ -18,6 +18,7 @@ This updates:
 - Spectrogram file names
 - Icon file names
 - Pack definitions
+- levels.json (CRITICAL - often missed!)
 """
 
 import json
@@ -33,6 +34,7 @@ CLIPS_DIR = PROJECT_ROOT / "data" / "clips"
 SPECTROGRAMS_DIR = PROJECT_ROOT / "data" / "spectrograms"
 ICONS_DIR = PROJECT_ROOT / "data" / "icons"
 PACKS_DIR = PROJECT_ROOT / "data" / "packs"
+LEVELS_JSON = PROJECT_ROOT / "data" / "levels.json"
 
 # Code migrations
 CODE_MIGRATIONS = {
@@ -173,6 +175,49 @@ def migrate_packs():
     print(f"   ✓ Updated {changes_made} codes across {len(pack_files)} packs")
 
 
+def migrate_levels():
+    """Update levels.json with new codes"""
+    print(f"\n📋 Migrating levels.json...")
+
+    if not LEVELS_JSON.exists():
+        print(f"   ⚠ File not found: {LEVELS_JSON}")
+        return
+
+    with open(LEVELS_JSON, 'r', encoding='utf-8') as f:
+        levels_data = json.load(f)
+
+    changes_made = 0
+    for level in levels_data:
+        species_pool = level.get('species_pool', [])
+        updated_pool = []
+        level_changed = False
+
+        for code in species_pool:
+            if code in CODE_MIGRATIONS:
+                new_code = CODE_MIGRATIONS[code]
+                print(f"   Level {level.get('level_id')}: {code} → {new_code}")
+                updated_pool.append(new_code)
+                level_changed = True
+                changes_made += 1
+            else:
+                updated_pool.append(code)
+
+        if level_changed:
+            level['species_pool'] = updated_pool
+
+    if changes_made > 0:
+        # Backup original
+        backup_path = LEVELS_JSON.with_suffix('.json.backup')
+        shutil.copy(LEVELS_JSON, backup_path)
+        print(f"   ✓ Backed up to {backup_path.name}")
+
+        # Write updated levels.json
+        with open(LEVELS_JSON, 'w', encoding='utf-8') as f:
+            json.dump(levels_data, f, indent=2, ensure_ascii=False)
+
+    print(f"   ✓ Updated {changes_made} codes in levels.json")
+
+
 def main():
     print("=" * 70)
     print("ChipNotes Species Code Migration")
@@ -192,6 +237,7 @@ def main():
     migrate_files(SPECTROGRAMS_DIR, ".png", "spectrogram")
     migrate_files(ICONS_DIR, ".png", "icon")
     migrate_packs()
+    migrate_levels()
 
     print("\n" + "=" * 70)
     print("✅ MIGRATION COMPLETE")

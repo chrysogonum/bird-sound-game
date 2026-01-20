@@ -139,6 +139,18 @@ python3 scripts/generate_species_data.py
 - Updating common names
 - Taxonomy updates (new AOS checklist)
 
+**When adding or migrating species codes, you MUST update ALL of these locations:**
+1. `data/clips.json` - Clip metadata
+2. `data/clips/*.wav` - Audio file names
+3. `data/spectrograms/*.png` - Spectrogram file names
+4. `data/icons/*.png` - Icon file names
+5. `data/packs/*.json` - Pack species lists
+6. **`data/levels.json`** - Level species pools (⚠️ CRITICAL - often missed!)
+7. `data/species.json` + `data/taxonomic_order.json` - Regenerate from CSV
+
+Use the migration script: `scripts/migrate_species_codes.py`
+Verify with audit: `make audit-species-data`
+
 This ensures consistency across:
 - Game UI (PreRoundPreview, GameplayScreen, etc.)
 - Audio ingestion tools
