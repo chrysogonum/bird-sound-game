@@ -18,7 +18,7 @@ function Privacy() {
             <strong>Last Updated:</strong> January 17, 2026
           </p>
           <p style={{ marginBottom: '12px' }}>
-            ChipNotes is committed to protecting your privacy. This policy explains what data is collected, how it is used, and your rights.
+            ChipNotes! is committed to protecting your privacy. This policy explains what data is collected, how it is used, and your rights.
           </p>
         </div>
 

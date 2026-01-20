@@ -497,7 +497,15 @@ function PreRoundPreview() {
   const packName = PACK_NAMES[packId] || packId;
 
   return (
-    <div className="screen" style={{ display: 'flex', flexDirection: 'column', padding: '12px 16px', gap: '10px' }}>
+    <div className="screen" style={{
+      display: 'flex',
+      flexDirection: 'column',
+      paddingTop: 'calc(12px + var(--safe-area-top))',
+      paddingBottom: 'calc(12px + var(--safe-area-bottom))',
+      paddingLeft: '16px',
+      paddingRight: '16px',
+      gap: '10px'
+    }}>
       {/* Compact Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <button

@@ -268,12 +268,32 @@ function Settings() {
         {/* Support */}
         <div className="card">
           <h3 style={{ marginBottom: '8px' }}>Support This Project</h3>
-          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
-            ChipNotes is free and ad-free. If it's helped you ID more birds, buy me{' '}
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '12px' }}>
+            ChipNotes is free, open source, and built as a passion project. If it's helped you level-up your birding skills, consider{' '}
             <a href="https://ko-fi.com/chipnotes" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-              a ☕ or new 🔭
+              supporting development
             </a>
-            ! Every donation helps add new species and features.
+            {' '}- your donations help me add new species, add features, and do more birding. Now, you go build something cool - it might be easier than you think! ;)
+          </div>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '12px' }}>
+            Please also consider supporting the organizations that make this possible, and tell them ChipNotes! sent you:
+          </div>
+          <ul style={{ fontSize: '13px', lineHeight: '1.5', color: 'var(--color-text-muted)', marginBottom: '12px' }}>
+            <li style={{ marginBottom: '8px' }}>
+              <a href="https://www.birds.cornell.edu/home/support/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                https://www.birds.cornell.edu/home/support/
+              </a>
+              {' '}- Incredible bird sound archive
+            </li>
+            <li>
+              <a href="https://xeno-canto.org/about/donate" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                https://xeno-canto.org/about/donate
+              </a>
+              {' '}- Community-driven bird recording database
+            </li>
+          </ul>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
+            Thank you for learning with me! 🐦
           </div>
         </div>
 
