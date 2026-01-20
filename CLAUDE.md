@@ -10,7 +10,7 @@ ChipNotes! is a rhythm-game–style audio training application that teaches play
 
 ## Project Status
 
-**Current Version:** v3.27 (January 2026)
+**Current Version:** v3.41 (January 2026)
 **Status:** Production - Shipped and live at [chipnotes.app](https://chipnotes.app)
 **Phase:** All 20 phases (A-T) complete. Post-launch iteration and refinement.
 
@@ -103,6 +103,49 @@ Phases A-N cover: Audio Ingestion → Playback Engine → Input/Scoring → Leve
 - **Pack**: Curated species subset with frequency weights, vocalization ratios, difficulty modifiers
 - **Level**: Difficulty configuration (event density, overlap probability, scoring window, spectrogram mode)
 - **Event**: Runtime vocalization instance with timing, channel, and scoring window
+
+### Species Metadata Architecture ⚠️ SINGLE SOURCE OF TRUTH
+
+**Critical:** All species metadata (common names, scientific names, taxonomic order) is loaded **dynamically at runtime** from `data/species.json`.
+
+**Do NOT hardcode species metadata in:**
+- ❌ TypeScript files (e.g., `scientificNames.ts`)
+- ❌ React components
+- ❌ Any other location
+
+**The only source of truth:** `data/species.json`
+
+**Pattern for UI components:**
+```typescript
+// ✅ CORRECT: Load dynamically from species.json
+const [commonNames, setCommonNames] = useState<Record<string, string>>({});
+const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
+
+useEffect(() => {
+  fetch(`${import.meta.env.BASE_URL}data/species.json`)
+    .then(res => res.json())
+    .then((data: Array<{species_code: string; common_name: string; scientific_name: string}>) => {
+      const comNames: Record<string, string> = {};
+      const sciNames: Record<string, string> = {};
+      data.forEach(sp => {
+        comNames[sp.species_code] = sp.common_name;
+        sciNames[sp.species_code] = sp.scientific_name;
+      });
+      setCommonNames(comNames);
+      setScientificNames(sciNames);
+    });
+}, []);
+
+// Use: commonNames[code], scientificNames[code]
+```
+
+**Why this matters:**
+- Taxonomy updates (e.g., AOS changes) only require updating `data/species.json`
+- Prevents data duplication and synchronization bugs
+- Common names and scientific names always stay in sync
+- No hardcoded data to regenerate or manually update
+
+**Note on clips.json:** The `common_name` field in `clips.json` is **deprecated** and may be removed in the future. The UI should NEVER read common names from `clips.json` - always use `species.json`.
 
 ### Audio Requirements
 - All clips must be mono, 0.5-3.0 seconds, normalized to -16 LUFS
@@ -262,3 +305,4 @@ When displaying spectrograms in ANY UI (review tools, game UI, etc.):
 # ALWAYS use the official script - never inline matplotlib code
 python3 scripts/spectrogram_gen.py --input data/clips --output data/spectrograms
 ```
+- never deploy to gh-pages (chipnotes.app) without first testing locally and getting approval to push/deploy
