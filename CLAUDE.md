@@ -113,6 +113,87 @@ Phases A-N cover: Audio Ingestion → Playback Engine → Input/Scoring → Leve
 - Species correct: +50, Channel correct: +25, Timing perfect: +25 (partial: +10)
 - Maximum per event: +100 points
 
+### Adding New Bird Audio Clips ⚠️ CRITICAL WORKFLOW
+
+**Complete workflow to add new clips to the game:**
+
+1. **Download clips from Xeno-Canto** (downloads to temporary candidates folder):
+   ```bash
+   python3 scripts/audio_ingest.py \
+     --output data/candidates_XXXX \
+     --species "Common Name" \
+     --max-per-species 5 \
+     --vocalization-type call  # or song
+   ```
+   This creates preprocessed WAV files (mono, 0.5-3s, -16 LUFS) with manifest.json
+
+2. **Copy WAV files to main clips folder**:
+   ```bash
+   cp data/candidates_XXXX/*.wav data/clips/
+   ```
+
+3. **Add clip metadata to clips.json** (merge candidate manifest into clips.json):
+   ```python
+   python3 -c "
+   import json
+
+   # Load clips.json
+   with open('data/clips.json') as f:
+       clips = json.load(f)
+
+   # Load candidate manifest
+   with open('data/candidates_XXXX/manifest.json') as f:
+       candidates = json.load(f)
+
+   # Add each candidate to clips.json
+   for candidate in candidates:
+       clip_entry = {
+           'clip_id': candidate['source_id'].replace('XC', 'XXXX_'),
+           'species_code': 'XXXX',  # 4-letter code
+           'common_name': candidate['species_name'],
+           'file_path': f\"data/clips/{candidate['file_path'].split('/')[-1]}\",
+           'vocalization_type': candidate['vocalization_type'],
+           'duration_ms': candidate['duration_ms'],
+           'loudness_lufs': candidate['loudness_lufs'],
+           'source': 'xenocanto',
+           'source_id': candidate['source_id'],
+           'quality_score': 5,  # A=5, B=4, C=3, D=2, E=1
+           'recordist': candidate.get('recordist', '')
+       }
+       clips.append(clip_entry)
+
+   # Save updated clips.json
+   with open('data/clips.json', 'w') as f:
+       json.dump(clips, f, indent=2)
+
+   print(f'Added {len(candidates)} clips')
+   "
+   ```
+
+4. **Generate spectrograms**:
+   ```bash
+   python3 scripts/spectrogram_gen.py --input data/clips --output data/spectrograms
+   ```
+   This generates PNG spectrograms AND updates clips.json with spectrogram_path
+
+5. **Review clips in the browser** (optional but recommended):
+   ```bash
+   python3 scripts/review_clips.py --filter XXXX
+   ```
+   Open http://localhost:8888 to listen, view spectrograms, and mark clips as canonical/rejected
+
+6. **Commit changes**:
+   ```bash
+   git add data/clips.json data/clips/XXXX_*.wav data/spectrograms/XXXX_*.png
+   git commit -m "Add N XXXX clips for [species name]"
+   ```
+
+**IMPORTANT GOTCHAS:**
+- Species code in filenames MUST match `species_code` in clips.json
+- Always run spectrogram_gen.py AFTER adding to clips.json (it updates paths)
+- If species code is wrong (e.g., RUBY instead of RCKI), rename files AND update manifest before step 2
+- Spectrograms won't show until clips.json has correct spectrogram_path entries
+
 ### Species Data - Single Source of Truth ⚠️ CRITICAL
 
 **docs/IBP-AOS-list25.csv is the SINGLE SOURCE OF TRUTH for all bird species information:**
