@@ -133,6 +133,46 @@ make generate-species-data
 make audit-species-data
 ```
 
+## Lessons Learned
+
+### Critical Locations for Species Code Updates
+
+When migrating species codes, **all 7 locations** must be updated:
+
+1. ✅ `data/clips.json` - Clip metadata (species_code, common_name)
+2. ✅ `data/clips/*.wav` - Audio file names
+3. ✅ `data/spectrograms/*.png` - Spectrogram file names
+4. ✅ `data/icons/*.png` - Icon file names
+5. ✅ `data/packs/*.json` - Pack species lists
+6. ⚠️ **`data/levels.json`** - Level species pools (OFTEN MISSED!)
+7. ✅ `data/species.json` + `data/taxonomic_order.json` - Regenerate from CSV
+
+**Why levels.json matters:**
+- Defines the `species_pool` for each level
+- Used by PreRoundPreview to select which birds to show
+- If codes don't match clips.json, species won't load (shows code instead of name)
+- Hard-linked to `src/ui-app/public/data/levels.json` (same file)
+
+**Migration workflow:**
+```bash
+# 1. Update CSV
+vim docs/IBP-AOS-list25.csv
+
+# 2. Regenerate species data
+make generate-species-data
+
+# 3. Run migration script
+python3 scripts/migrate_species_codes.py
+
+# 4. CRITICAL: Manually update levels.json if script doesn't cover it
+sed -i.bak 's/"OLDCODE"/"NEWCODE"/g' data/levels.json
+
+# 5. Audit for consistency
+make audit-species-data
+
+# 6. Test on dev server before deploying
+```
+
 ## Future Taxonomy Updates
 
 When the AOS releases new checklists (typically annually):
@@ -141,8 +181,9 @@ When the AOS releases new checklists (typically annually):
 2. Run `make generate-species-data` to regenerate JSON files
 3. Run `make audit-species-data` to identify discrepancies
 4. Use/modify `scripts/migrate_species_codes.py` for code changes
-5. Test game thoroughly
-6. Commit with detailed migration notes
+5. **Don't forget `data/levels.json`!** (see Lessons Learned above)
+6. Test game thoroughly on dev server
+7. Commit with detailed migration notes
 
 ## References
 
