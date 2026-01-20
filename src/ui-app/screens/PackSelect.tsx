@@ -103,6 +103,7 @@ function PackSelect() {
   const [showNerdAlert, setShowNerdAlert] = useState(false);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
+  const [commonNames, setCommonNames] = useState<Record<string, string>>({});
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Load clips data
@@ -139,18 +140,21 @@ function PackSelect() {
       .catch((err) => console.error('Failed to load taxonomic order:', err));
   }, []);
 
-  // Load scientific names from species.json
+  // Load species metadata from species.json (single source of truth)
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/species.json`)
       .then((res) => res.json())
-      .then((data: Array<{species_code: string; scientific_name: string}>) => {
+      .then((data: Array<{species_code: string; common_name: string; scientific_name: string}>) => {
         const sciNames: Record<string, string> = {};
+        const comNames: Record<string, string> = {};
         data.forEach((sp) => {
           sciNames[sp.species_code] = sp.scientific_name;
+          comNames[sp.species_code] = sp.common_name;
         });
         setScientificNames(sciNames);
+        setCommonNames(comNames);
       })
-      .catch((err) => console.error('Failed to load scientific names:', err));
+      .catch((err) => console.error('Failed to load species metadata:', err));
   }, []);
 
   // Load pack species from JSON files (single source of truth)
@@ -211,7 +215,7 @@ function PackSelect() {
 
       return {
         code,
-        name: clip?.common_name || code,
+        name: commonNames[code] || code,
         canonicalClipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
         clipCount: speciesClips.length,
         allClips,

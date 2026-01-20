@@ -84,11 +84,13 @@ function CustomPackBuilder() {
       fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
     ])
-      .then(([clips, taxonomicData, speciesData]: [ClipData[], Record<string, number>, Array<{species_code: string; scientific_name: string}>]) => {
-        // Build scientific names lookup
+      .then(([clips, taxonomicData, speciesData]: [ClipData[], Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>]) => {
+        // Build species metadata lookup
         const sciNames: Record<string, string> = {};
+        const comNames: Record<string, string> = {};
         for (const sp of speciesData) {
           sciNames[sp.species_code] = sp.scientific_name;
+          comNames[sp.species_code] = sp.common_name;
         }
 
         // Extract unique species
@@ -97,21 +99,22 @@ function CustomPackBuilder() {
           if (clip.rejected) continue;
           if (!speciesMap.has(clip.species_code)) {
             const canonicalClip = clips.find(
-              c => c.species_code === clip.species_code && c.canonical && !c.rejected && c.common_name
+              c => c.species_code === clip.species_code && c.canonical && !c.rejected
             );
             const clipToUse = canonicalClip || clips.find(
-              c => c.species_code === clip.species_code && c.common_name && !c.rejected
+              c => c.species_code === clip.species_code && !c.rejected
             ) || clip;
 
-            // Skip if no common_name found
-            if (!clipToUse.common_name) {
-              console.warn(`Skipping ${clip.species_code} - missing common_name`);
+            // Get common name from species.json (single source of truth)
+            const commonName = comNames[clip.species_code];
+            if (!commonName) {
+              console.warn(`Skipping ${clip.species_code} - not found in species.json`);
               continue;
             }
 
             speciesMap.set(clip.species_code, {
               code: clip.species_code,
-              name: clipToUse.common_name,
+              name: commonName,
               clipPath: `${import.meta.env.BASE_URL}data/clips/${clipToUse.file_path.split('/').pop()}`,
               scientificName: sciNames[clip.species_code],
             });
