@@ -527,6 +527,36 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          {/* TL;DR Summary */}
+          <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.39)</h4>
+            <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
+              <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
+              <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
+                <li><strong>Taxonomic Sorting</strong> – Find and play birds based on how they're related to each other</li>
+                <li><strong>Redesigned Ready-to-Play Screen</strong> – Easy access to Training Mode, taxonomic sorting, pack reference library (📚), and gameplay tips</li>
+                <li><strong>Custom Pack Builder</strong> – Improved search, taxonomic filtering, and ability to save up to 10 named custom packs</li>
+                <li><strong>Shareable Score Summary</strong> – Think you're as good as Merlin? Prove it and share your results!</li>
+              </ul>
+            </div>
+          </div>
+
+          <VersionEntry version="3.39" date="January 20, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Custom Pack Builder: Separated Controls:</strong> Redesigned bird cards with distinct touch areas - play button (▶) on left for audio preview, bird icon on right for add/remove. No more overlapping actions!</li>
+              <li><strong>Custom Pack Builder: Saved Packs:</strong> Save up to 10 named custom packs (e.g., "My Backyard", "Lake Erie Migrants") with persistent localStorage storage. Saved packs appear in a collapsible section with load/delete buttons for easy management across sessions.</li>
+              <li><strong>Custom Pack Builder: Pack Validation & Versioning:</strong> Saved packs now auto-validate species codes on load - if birds are removed from the game due to taxonomy updates, you'll see a friendly warning and the pack auto-cleans invalid entries. Includes version field for future migrations and backward compatibility with legacy packs.</li>
+              <li><strong>Custom Pack Builder: Mobile Touch Fix:</strong> Fixed delete button not working on mobile devices - replaced native browser confirm() dialog (which was being blocked on touch) with custom modal dialog that works reliably across all devices and screen sizes.</li>
+              <li><strong>Custom Pack Builder: Taxonomic Sorting:</strong> Added taxonomic sort toggle (📊 Taxonomic 🐦🤓) to group birds by evolutionary relationships - perfect for adding related species like all woodpeckers, corvids, or comparing warbler genera. Displays scientific names in italic when active.</li>
+              <li><strong>Custom Pack Builder: Smart Search:</strong> Search behavior now adapts - single match (e.g., "cardinal") auto-clears for next search; multiple matches (e.g., "warbler") keeps filter active so you can select multiple birds from the same group</li>
+              <li><strong>Help Page Navigation:</strong> Repositioned floating buttons for better UX - small "← Back" button on bottom left, "Expand/Collapse All" and "↑ Top" grouped on bottom right. All buttons now consistently styled and only appear after scrolling.</li>
+              <li><strong>Pack Suggestions:</strong> Added note in Packs section: "There are 11,000 birds out there, so more are coming soon" with feedback email link</li>
+              <li><strong>Branding Consistency:</strong> Standardized "ChipNotes!" (with !) for logos/titles/first mentions, "ChipNotes" (no !) for prose and mid-sentence references</li>
+              <li><strong>Support Section Harmonized:</strong> Updated Help and Settings "Support This Project" sections with consistent messaging emphasizing open source nature and attribution to Cornell/Xeno-Canto</li>
+              <li><strong>PWA Safe Area Fix:</strong> Fixed content bleeding into iOS status bar on PreRoundPreview screen when installed as home screen app</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.38" date="January 20, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Taxonomy Migration:</strong> Updated all bird species codes to 2025 AOS/IBP taxonomy - migrated 5 codes (AMGO→AGOL, CEWA→CEDW, SASP→SAVS, WESJ→CASJ, EWPE→EAWP) and fixed species names to match current ornithological standards</li>
