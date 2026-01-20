@@ -6308,24 +6308,6 @@
     "recordist": "Ron Overholtz"
   },
   {
-    "clip_id": "OCWA_1036585",
-    "species_code": "OCWA",
-    "species_name": "Orange-crowned Warbler",
-    "file_path": "data/clips/OCWA_1036585.wav",
-    "xeno_canto_id": "1036585",
-    "vocalization_type": "song",
-    "quality_rating": "A",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/OCWA_1036585.png",
-    "common_name": "Orange-crowned Warbler",
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1036585",
-    "duration_ms": 3000,
-    "recordist": "Bill Pyle"
-  },
-  {
     "clip_id": "OCWA_985696",
     "species_code": "OCWA",
     "species_name": "Orange-crowned Warbler",
