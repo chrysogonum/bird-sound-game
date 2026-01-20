@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link, useSearchParams, useLocation } from 'react-router-dom';
 import { trackPackSelect } from '../utils/analytics';
+import { SCIENTIFIC_NAMES } from '../data/scientificNames';
 
 interface Pack {
   id: string;
@@ -292,7 +293,7 @@ function PackSelect() {
       }}>
         <ul style={{ margin: 0, paddingLeft: '20px' }}>
           <li style={{ fontWeight: 600 }}>Use 🎧 (or not), but do UNmute 🔊📱</li>
-          <li>6 levels per pack. Start with Level 1 🦗</li>
+          <li>6 levels/pack—start @ #1, 🦗 sparrow</li>
           <li>Try training mode (👁){' '}
             <Link to="/help#training-mode" state={{ fromPackSelect: true }} style={{ color: 'var(--color-accent)' }}>
               Help →
@@ -861,6 +862,18 @@ function PackSelect() {
                           <div style={{ fontSize: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                             {bird.name}
                           </div>
+                          {taxonomicSort && SCIENTIFIC_NAMES[bird.code] && (
+                            <div style={{
+                              fontSize: '11px',
+                              fontStyle: 'italic',
+                              color: 'var(--color-text-muted)',
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis',
+                            }}>
+                              {SCIENTIFIC_NAMES[bird.code]}
+                            </div>
+                          )}
                         </div>
                         {bird.canonicalClipPath && (
                           <button
