@@ -78,6 +78,7 @@ help:
 	@echo ""
 	@echo "Species Data:"
 	@echo "  make generate-species-data   Regenerate species.json + taxonomic_order.json from IBP-AOS-list25.csv"
+	@echo "  make audit-species-data      Audit all species data for consistency with IBP-AOS-list25.csv"
 
 # ============================================================================
 # Setup & Common
@@ -485,6 +486,10 @@ generate-species-data:
 	@echo "=== Generating species.json and taxonomic_order.json from IBP-AOS-list25.csv ==="
 	$(PYTHON) $(SCRIPTS_DIR)/generate_species_data.py
 	@echo "Species data generation complete"
+
+audit-species-data:
+	@echo "=== Auditing species data consistency ==="
+	$(PYTHON) $(SCRIPTS_DIR)/audit_species_data.py
 
 # ============================================================================
 # Aggregate Targets
