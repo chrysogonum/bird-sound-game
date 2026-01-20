@@ -34,6 +34,7 @@ function CustomPackBuilder() {
   const [loading, setLoading] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const [hoveredCode, setHoveredCode] = useState<string | null>(null);
 
   // Load all species from clips.json
   useEffect(() => {
@@ -275,7 +276,7 @@ function CustomPackBuilder() {
         color: 'var(--color-text-muted)',
         lineHeight: 1.4,
       }}>
-        <span style={{ color: 'var(--color-accent)' }}>💡 Tip:</span> Click the <strong style={{ color: 'var(--color-text)' }}>▶ play button</strong> to preview a bird's signature sound. Click the <strong style={{ color: 'var(--color-text)' }}>bird card</strong> to add it to your pack.
+        <span style={{ color: 'var(--color-accent)' }}>💡 Tip:</span> Click a <strong style={{ color: 'var(--color-text)' }}>bird icon</strong> to add it to your pack. Hover over an icon and click the <strong style={{ color: 'var(--color-text)' }}>▶ play button</strong> to preview its signature sound.
       </div>
 
       {/* Start button - Sticky below search */}
@@ -369,61 +370,85 @@ function CustomPackBuilder() {
               <button
                 key={species.code}
                 onClick={() => toggleSpecies(species.code)}
+                onMouseEnter={() => setHoveredCode(species.code)}
+                onMouseLeave={() => setHoveredCode(null)}
                 disabled={!isSelected && selectedCodes.length >= MAX_SPECIES}
                 style={{
                   display: 'flex',
+                  flexDirection: 'column',
                   alignItems: 'center',
-                  gap: '8px',
-                  padding: '10px',
+                  gap: '6px',
+                  padding: '12px 8px',
                   background: isSelected ? `${color}22` : 'var(--color-surface)',
                   border: isSelected ? `2px solid ${color}` : '1px solid transparent',
-                  borderRadius: '8px',
+                  borderRadius: '12px',
                   cursor: isSelected || selectedCodes.length < MAX_SPECIES ? 'pointer' : 'not-allowed',
                   opacity: isSelected || selectedCodes.length < MAX_SPECIES ? 1 : 0.5,
-                  textAlign: 'left',
+                  textAlign: 'center',
                   transition: 'all 0.15s',
+                  position: 'relative',
                 }}
               >
-                {/* Selection indicator / play button */}
-                <div
-                  onClick={(e) => playPreview(species, e)}
-                  style={{
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '50%',
-                    background: isSelected ? color : 'var(--color-background)',
-                    border: isSelected ? 'none' : '1px solid var(--color-text-muted)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    cursor: 'pointer',
-                  }}
-                >
-                  {playingCode === species.code ? (
-                    <StopIcon color={isSelected ? '#1A1A2E' : 'var(--color-text)'} />
-                  ) : isSelected ? (
-                    <CheckIcon />
-                  ) : (
-                    <PlayIcon />
+                {/* Bird Icon */}
+                <div style={{ position: 'relative' }}>
+                  <BirdIcon code={species.code} size={48} />
+
+                  {/* Play button overlay */}
+                  {(hoveredCode === species.code || playingCode === species.code) && (
+                    <div
+                      onClick={(e) => playPreview(species, e)}
+                      style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        background: 'rgba(0, 0, 0, 0.7)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        transition: 'all 0.15s',
+                      }}
+                    >
+                      {playingCode === species.code ? (
+                        <StopIcon color="#FFFFFF" />
+                      ) : (
+                        <PlayIconWhite />
+                      )}
+                    </div>
+                  )}
+
+                  {/* Selection checkmark */}
+                  {isSelected && (
+                    <div style={{
+                      position: 'absolute',
+                      top: '-4px',
+                      right: '-4px',
+                      width: '20px',
+                      height: '20px',
+                      borderRadius: '50%',
+                      background: color,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                      <CheckIcon />
+                    </div>
                   )}
                 </div>
 
                 {/* Species info */}
-                <div style={{ minWidth: 0, flex: 1 }}>
-                  <div style={{
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    color: isSelected ? color : 'var(--color-accent)',
-                  }}>
-                    {species.code}
-                  </div>
+                <div style={{ width: '100%' }}>
                   <div style={{
                     fontSize: '12px',
                     color: 'var(--color-text)',
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
+                    fontWeight: 500,
                   }}>
                     {species.name}
                   </div>
@@ -438,6 +463,45 @@ function CustomPackBuilder() {
   );
 }
 
+function BirdIcon({ code, size = 48 }: { code: string; size?: number }) {
+  const [hasIcon, setHasIcon] = useState(true);
+  const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
+
+  if (!hasIcon) {
+    // Fallback to simple circle with code
+    return (
+      <div style={{
+        width: size,
+        height: size,
+        borderRadius: '50%',
+        background: 'var(--color-text-muted)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontSize: '11px',
+        fontWeight: 700,
+        color: '#FFFFFF',
+      }}>
+        {code}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={iconPath}
+      alt={code}
+      width={size}
+      height={size}
+      style={{
+        borderRadius: '50%',
+        objectFit: 'cover',
+      }}
+      onError={() => setHasIcon(false)}
+    />
+  );
+}
+
 function BackIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -446,9 +510,9 @@ function BackIcon() {
   );
 }
 
-function PlayIcon() {
+function PlayIconWhite() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="var(--color-text-muted)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFFFFF">
       <path d="M8 5v14l11-7z" />
     </svg>
   );
@@ -456,7 +520,7 @@ function PlayIcon() {
 
 function StopIcon({ color = 'currentColor' }: { color?: string }) {
   return (
-    <svg width="10" height="10" viewBox="0 0 24 24" fill={color}>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill={color}>
       <rect x="6" y="6" width="12" height="12" />
     </svg>
   );
@@ -464,7 +528,7 @@ function StopIcon({ color = 'currentColor' }: { color?: string }) {
 
 function CheckIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1A1A2E" strokeWidth="3">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1A1A2E" strokeWidth="3">
       <path d="M20 6L9 17l-5-5" />
     </svg>
   );
