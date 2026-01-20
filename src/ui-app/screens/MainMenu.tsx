@@ -233,7 +233,7 @@ function MainMenu() {
                 gridTemplateColumns: 'repeat(2, 1fr)',
                 gap: '4px',
               }}>
-                {['NOCA', 'BLJA', 'TUTI', 'CAWR'].map((code, i) => (
+                {['NOCA', 'BLJA', 'TUTI', 'CARW'].map((code, i) => (
                   <div
                     key={code}
                     style={{
