@@ -65,32 +65,6 @@
     "recordist": "Paul Driver"
   },
   {
-    "clip_id": "ACFL_3e766847",
-    "species_code": "ACFL",
-    "common_name": "Acadian Flycatcher",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC772373",
-    "file_path": "data/clips/ACFL_772373.wav",
-    "spectrogram_path": "data/spectrograms/ACFL_772373.png",
-    "recordist": "Paul Driver"
-  },
-  {
-    "clip_id": "ACFL_ce82b519",
-    "species_code": "ACFL",
-    "common_name": "Acadian Flycatcher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC807573",
-    "file_path": "data/clips/ACFL_807573.wav",
-    "spectrogram_path": "data/spectrograms/ACFL_807573.png",
-    "recordist": "David A. Brinkman"
-  },
-  {
     "clip_id": "ACFL_80217163",
     "species_code": "ACFL",
     "common_name": "Acadian Flycatcher",
@@ -115,19 +89,6 @@
     "file_path": "data/clips/ACFL_839505.wav",
     "spectrogram_path": "data/spectrograms/ACFL_839505.png",
     "recordist": "Manuel Oudard"
-  },
-  {
-    "clip_id": "ACFL_aa8d9567",
-    "species_code": "ACFL",
-    "common_name": "Acadian Flycatcher",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC924430",
-    "file_path": "data/clips/ACFL_924430.wav",
-    "spectrogram_path": "data/spectrograms/ACFL_924430.png",
-    "recordist": "Oscar Gordo"
   },
   {
     "clip_id": "AGOL_229ae506",
