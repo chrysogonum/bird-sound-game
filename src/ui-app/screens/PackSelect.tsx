@@ -258,7 +258,7 @@ function PackSelect() {
 
   // Auto-expand pack from query parameter and scroll to hash anchor
   useEffect(() => {
-    const expandParam = searchParams.get('expand');
+    const expandParam = searchParams.get('expand') || searchParams.get('expandPack');
     if (expandParam) {
       setExpandedPacks(new Set([expandParam]));
     }
@@ -1038,6 +1038,44 @@ function PackSelect() {
                 {packDisplaySpecies[pack.id]?.length || 0} species
               </span>
             </div>
+
+            {/* Ready to Play button - shown when navigating from preview and this pack is expanded */}
+            {isExpanded && location.state?.fromPreview && location.state?.pack === pack.id && (
+              <div style={{ marginBottom: '12px', display: 'flex', justifyContent: 'flex-end' }}>
+                <button
+                  onClick={() => {
+                    const { pack, level } = location.state as { pack: string; level: number };
+                    navigate(`/preview?pack=${pack}&level=${level}`);
+                  }}
+                  style={{
+                    padding: '10px 16px',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '10px',
+                    cursor: 'pointer',
+                    boxShadow: '0 4px 12px rgba(45, 90, 39, 0.4)',
+                    transition: 'all 0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                    e.currentTarget.style.boxShadow = '0 6px 16px rgba(45, 90, 39, 0.5)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(45, 90, 39, 0.4)';
+                  }}
+                >
+                  Ready to Play?
+                </button>
+              </div>
+            )}
+
             {isExpanded && (
             <div
               style={{
