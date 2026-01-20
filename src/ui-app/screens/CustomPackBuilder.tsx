@@ -14,10 +14,31 @@ interface SpeciesInfo {
   code: string;
   name: string;
   clipPath: string | null;
+  scientificName?: string;
 }
 
 const MAX_SPECIES = 9;
-const CUSTOM_PACK_KEY = 'soundfield_custom_pack';
+const CUSTOM_PACK_KEY = 'soundfield_custom_pack';  // Legacy single pack
+
+/**
+ * Saved Packs System with Validation & Versioning
+ *
+ * PERSISTENCE: Packs persist across app updates via localStorage
+ * VALIDATION: Species codes validated on load; invalid codes auto-removed
+ * VERSIONING: Each pack has version field for future migrations
+ * BACKWARD COMPATIBILITY: Legacy packs without version field auto-upgraded to v1
+ */
+const SAVED_PACKS_KEY = 'soundfield_saved_packs';
+const MAX_SAVED_PACKS = 10;
+
+interface SavedPack {
+  id: string;
+  name: string;
+  species: string[];
+  created: string;
+  lastPlayed?: string;
+  version: number;  // For future migrations
+}
 
 // Colors for selected species
 const SPECIES_COLORS = [
@@ -34,18 +55,36 @@ function CustomPackBuilder() {
   const [loading, setLoading] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
-  const [hoveredCode, setHoveredCode] = useState<string | null>(null);
+  const hasValidatedPacks = useRef(false);  // Track if we've already validated packs
+  const [taxonomicSort, setTaxonomicSort] = useState(() => {
+    try {
+      return localStorage.getItem('soundfield_taxonomic_sort') === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
+  const [savedPacks, setSavedPacks] = useState<SavedPack[]>([]);
+  const [showSaveDialog, setShowSaveDialog] = useState(false);
+  const [packNameInput, setPackNameInput] = useState('');
+  const [savedPacksExpanded, setSavedPacksExpanded] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [packToDelete, setPackToDelete] = useState<string | null>(null);
 
-  // Load all species from clips.json
+  // Load all species from clips.json, taxonomic order, and scientific names
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/clips.json`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}data/clips.json`).then(r => r.json()),
+      fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
+      fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
+    ])
+      .then(([clips, taxonomicData, speciesData]: [ClipData[], Record<string, number>, Array<{species_code: string; scientific_name: string}>]) => {
+        // Build scientific names lookup
+        const sciNames: Record<string, string> = {};
+        for (const sp of speciesData) {
+          sciNames[sp.species_code] = sp.scientific_name;
         }
-        return res.json();
-      })
-      .then((clips: ClipData[]) => {
+
         // Extract unique species
         const speciesMap = new Map<string, SpeciesInfo>();
         for (const clip of clips) {
@@ -68,22 +107,24 @@ function CustomPackBuilder() {
               code: clip.species_code,
               name: clipToUse.common_name,
               clipPath: `${import.meta.env.BASE_URL}data/clips/${clipToUse.file_path.split('/').pop()}`,
+              scientificName: sciNames[clip.species_code],
             });
           }
         }
-        // Sort alphabetically by name
+        // Sort alphabetically by name initially
         const sorted = Array.from(speciesMap.values()).sort((a, b) =>
           (a.name || a.code).localeCompare(b.name || b.code)
         );
         setAllSpecies(sorted);
+        setTaxonomicOrder(taxonomicData);
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Failed to load clips:', err);
+        console.error('Failed to load data:', err);
         setLoading(false);
       });
 
-    // Load saved custom pack
+    // Load saved custom pack (legacy single pack)
     try {
       const saved = localStorage.getItem(CUSTOM_PACK_KEY);
       if (saved) {
@@ -95,10 +136,62 @@ function CustomPackBuilder() {
     } catch (e) {
       console.error('Failed to load saved pack:', e);
     }
+
+    // Load saved packs library
+    try {
+      const saved = localStorage.getItem(SAVED_PACKS_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          setSavedPacks(parsed);
+        }
+      }
+    } catch (e) {
+      console.error('Failed to load saved packs:', e);
+    }
   }, []);
 
+  // Validate saved packs after species data loads (runs only once)
+  useEffect(() => {
+    if (allSpecies.length === 0 || savedPacks.length === 0 || hasValidatedPacks.current) return;
+
+    hasValidatedPacks.current = true;  // Mark as validated
+
+    const validCodes = new Set(allSpecies.map(s => s.code));
+    let anyPacksModified = false;
+
+    const validatedPacks = savedPacks.map(pack => {
+      // Add version field to legacy packs (backward compatibility)
+      if (!pack.version) {
+        pack.version = 1;
+        anyPacksModified = true;
+      }
+
+      // Validate species codes
+      const validSpecies = pack.species.filter(code => validCodes.has(code));
+
+      if (validSpecies.length !== pack.species.length) {
+        anyPacksModified = true;
+        return { ...pack, species: validSpecies };
+      }
+
+      return pack;
+    });
+
+    // Update localStorage if any packs were modified
+    if (anyPacksModified) {
+      setSavedPacks(validatedPacks);
+      try {
+        localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(validatedPacks));
+        console.log('Auto-cleaned saved packs: removed invalid species codes');
+      } catch (e) {
+        console.error('Failed to auto-clean saved packs:', e);
+      }
+    }
+  }, [allSpecies, savedPacks]);
+
   // Toggle species selection
-  const toggleSpecies = useCallback((code: string) => {
+  const toggleSpecies = useCallback((code: string, filteredCount: number) => {
     setSelectedCodes((prev) => {
       const isCurrentlySelected = prev.includes(code);
       const isAtMax = prev.length >= MAX_SPECIES;
@@ -113,8 +206,14 @@ function CustomPackBuilder() {
         return prev;
       }
 
-      // Adding a new bird - clear search and refocus input for next entry
-      setSearchQuery('');
+      // Adding a new bird
+      // Only clear search if there was exactly one match (single-select scenario)
+      // Keep search active if multiple matches (allows selecting multiple from filtered list)
+      if (filteredCount === 1) {
+        setSearchQuery('');
+      }
+
+      // Always refocus input for next entry
       setTimeout(() => {
         searchInputRef.current?.focus();
       }, 0);
@@ -175,14 +274,132 @@ function CustomPackBuilder() {
     }, 0);
   };
 
-  // Filter species by search
-  const filteredSpecies = searchQuery
-    ? allSpecies.filter(
-        (s) =>
-          s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          s.code.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : allSpecies;
+  // Toggle taxonomic sort
+  const handleTaxonomicSortToggle = () => {
+    const newValue = !taxonomicSort;
+    setTaxonomicSort(newValue);
+    try {
+      localStorage.setItem('soundfield_taxonomic_sort', String(newValue));
+    } catch (e) {
+      console.error('Failed to save taxonomic sort:', e);
+    }
+  };
+
+  // Save current pack with a name
+  const handleSavePack = () => {
+    if (selectedCodes.length === 0) {
+      alert('Please select at least one bird before saving.');
+      return;
+    }
+    if (savedPacks.length >= MAX_SAVED_PACKS) {
+      alert(`You can only save up to ${MAX_SAVED_PACKS} packs. Please delete one first.`);
+      return;
+    }
+    setShowSaveDialog(true);
+  };
+
+  const confirmSavePack = () => {
+    const trimmedName = packNameInput.trim();
+    if (!trimmedName) {
+      alert('Please enter a name for your pack.');
+      return;
+    }
+
+    const newPack: SavedPack = {
+      id: Date.now().toString(),
+      name: trimmedName,
+      species: [...selectedCodes],
+      created: new Date().toISOString(),
+      version: 1,
+    };
+
+    const updated = [...savedPacks, newPack];
+    setSavedPacks(updated);
+    try {
+      localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updated));
+    } catch (e) {
+      console.error('Failed to save pack:', e);
+      alert('Failed to save pack. Storage may be full.');
+    }
+
+    setShowSaveDialog(false);
+    setPackNameInput('');
+  };
+
+  // Load a saved pack with validation
+  const handleLoadPack = (pack: SavedPack) => {
+    // Validate species codes against available species
+    const validCodes = new Set(allSpecies.map(s => s.code));
+    const validSpecies = pack.species.filter(code => validCodes.has(code));
+    const removedCount = pack.species.length - validSpecies.length;
+
+    // If species were removed, show warning and update the pack
+    if (removedCount > 0) {
+      alert(
+        `⚠️ ${removedCount} bird${removedCount > 1 ? 's' : ''} in "${pack.name}" ${removedCount > 1 ? 'are' : 'is'} no longer available and ${removedCount > 1 ? 'were' : 'was'} removed.\n\n` +
+        `This can happen when bird names are updated to match the latest taxonomy.`
+      );
+
+      // Update the pack in localStorage
+      const updatedPack = { ...pack, species: validSpecies };
+      const updatedPacks = savedPacks.map(p => p.id === pack.id ? updatedPack : p);
+      setSavedPacks(updatedPacks);
+      try {
+        localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updatedPacks));
+      } catch (e) {
+        console.error('Failed to update pack:', e);
+      }
+    }
+
+    setSelectedCodes(validSpecies);
+    setSearchQuery('');
+  };
+
+  // Delete a saved pack - show confirmation dialog
+  const handleDeletePack = (packId: string) => {
+    setPackToDelete(packId);
+    setShowDeleteDialog(true);
+  };
+
+  // Confirm deletion
+  const confirmDeletePack = () => {
+    if (!packToDelete) return;
+
+    const updated = savedPacks.filter(p => p.id !== packToDelete);
+    setSavedPacks(updated);
+    try {
+      localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updated));
+    } catch (e) {
+      console.error('Failed to update saved packs:', e);
+    }
+
+    setShowDeleteDialog(false);
+    setPackToDelete(null);
+  };
+
+  // Filter and sort species
+  const filteredSpecies = (() => {
+    // First filter by search
+    const filtered = searchQuery
+      ? allSpecies.filter(
+          (s) =>
+            s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            s.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (s.scientificName && s.scientificName.toLowerCase().includes(searchQuery.toLowerCase()))
+        )
+      : allSpecies;
+
+    // Then sort based on taxonomic toggle
+    if (taxonomicSort && Object.keys(taxonomicOrder).length > 0) {
+      return [...filtered].sort((a, b) => {
+        const orderA = taxonomicOrder[a.code] || 9999;
+        const orderB = taxonomicOrder[b.code] || 9999;
+        return orderA - orderB;
+      });
+    }
+
+    return filtered;
+  })();
 
   // Cleanup
   useEffect(() => {
@@ -218,106 +435,199 @@ function CustomPackBuilder() {
         </div>
       </div>
 
-      {/* Search */}
-      <div style={{ flexShrink: 0, marginBottom: '12px', position: 'relative' }}>
-        <input
-          ref={searchInputRef}
-          type="text"
-          placeholder="Search birds..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          style={{
-            width: '100%',
-            padding: '10px 12px',
-            paddingRight: searchQuery ? '36px' : '12px',
-            background: 'var(--color-surface)',
-            border: '1px solid var(--color-text-muted)',
-            borderRadius: '8px',
-            color: 'var(--color-text)',
-            fontSize: '14px',
-          }}
-        />
-        {searchQuery && (
+      {/* Saved Packs Library - Collapsible */}
+      {savedPacks.length > 0 && (
+        <div style={{
+          flexShrink: 0,
+          marginBottom: '8px',
+          padding: '8px 12px',
+          background: 'var(--color-surface)',
+          borderRadius: '8px',
+        }}>
           <button
-            onClick={handleClearSearch}
+            onClick={() => setSavedPacksExpanded(!savedPacksExpanded)}
             style={{
-              position: 'absolute',
-              right: '8px',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              background: 'var(--color-text-muted)',
-              border: 'none',
-              borderRadius: '50%',
-              width: '20px',
-              height: '20px',
+              width: '100%',
               display: 'flex',
+              justifyContent: 'space-between',
               alignItems: 'center',
-              justifyContent: 'center',
+              background: 'none',
+              border: 'none',
+              color: 'var(--color-text)',
               cursor: 'pointer',
               padding: 0,
             }}
-            aria-label="Clear search"
           >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-background)" strokeWidth="3">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
+            <span style={{ fontSize: '13px', fontWeight: 600 }}>
+              📁 My Saved Packs ({savedPacks.length}/{MAX_SAVED_PACKS})
+            </span>
+            <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
+              {savedPacksExpanded ? '▲' : '▼'}
+            </span>
           </button>
-        )}
-      </div>
-
-      {/* Instruction hint */}
-      <div style={{
-        flexShrink: 0,
-        marginBottom: '12px',
-        padding: '8px 12px',
-        background: 'rgba(45, 90, 39, 0.1)',
-        borderRadius: '8px',
-        fontSize: '13px',
-        color: 'var(--color-text-muted)',
-        lineHeight: 1.4,
-      }}>
-        <span style={{ color: 'var(--color-accent)' }}>💡 Tip:</span> Click a <strong style={{ color: 'var(--color-text)' }}>bird icon</strong> to add it to your pack. Hover over an icon and click the <strong style={{ color: 'var(--color-text)' }}>▶ play button</strong> to preview its signature sound.
-      </div>
-
-      {/* Start button - Sticky below search */}
-      {selectedCodes.length > 0 && (
-        <div style={{
-          flexShrink: 0,
-          marginBottom: '12px',
-          position: 'sticky',
-          top: '0',
-          zIndex: 100,
-          paddingTop: '4px',
-          paddingBottom: '4px',
-          background: 'var(--color-background)',
-        }}>
-          <button
-            onClick={handleSaveAndPlay}
-            style={{
-              width: '100%',
-              padding: '14px 20px',
-              fontSize: '16px',
-              fontWeight: 700,
-              background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '12px',
-              cursor: 'pointer',
-              boxShadow: '0 4px 16px rgba(45, 90, 39, 0.5)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-              transition: 'all 0.2s',
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-            Start with {selectedCodes.length} bird{selectedCodes.length > 1 ? 's' : ''}
-          </button>
+          {savedPacksExpanded && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '8px' }}>
+              {savedPacks.map((pack) => (
+                <div
+                  key={pack.id}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    padding: '6px 8px',
+                    background: 'rgba(100, 181, 246, 0.05)',
+                    borderRadius: '6px',
+                    border: '1px solid rgba(100, 181, 246, 0.2)',
+                    position: 'relative',
+                  }}
+                >
+                  <button
+                    onClick={() => {
+                      handleLoadPack(pack);
+                      setSavedPacksExpanded(false);
+                    }}
+                    style={{
+                      flex: 1,
+                      textAlign: 'left',
+                      background: 'none',
+                      border: 'none',
+                      color: 'var(--color-text)',
+                      fontSize: '12px',
+                      cursor: 'pointer',
+                      padding: 0,
+                    }}
+                  >
+                    <div style={{ fontWeight: 600 }}>{pack.name}</div>
+                    <div style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>
+                      {pack.species.length} bird{pack.species.length > 1 ? 's' : ''}
+                    </div>
+                  </button>
+                  <button
+                    onPointerDown={(e) => {
+                      e.stopPropagation();
+                      console.log('Delete button pressed!', pack.id);
+                      // Use setTimeout to ensure UI updates before confirm dialog
+                      setTimeout(() => {
+                        handleDeletePack(pack.id);
+                      }, 0);
+                    }}
+                    style={{
+                      background: 'rgba(229, 115, 115, 0.1)',
+                      border: '1px solid rgba(229, 115, 115, 0.3)',
+                      borderRadius: '4px',
+                      padding: '8px 12px',
+                      fontSize: '11px',
+                      color: 'var(--color-error)',
+                      cursor: 'pointer',
+                      pointerEvents: 'auto',
+                      position: 'relative',
+                      zIndex: 100,
+                      WebkitTapHighlightColor: 'rgba(229, 115, 115, 0.3)',
+                      touchAction: 'manipulation',
+                      WebkitUserSelect: 'none',
+                      userSelect: 'none',
+                      minWidth: '60px',
+                      minHeight: '32px',
+                    }}
+                    aria-label={`Delete ${pack.name}`}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       )}
+
+      {/* Search and Sort Controls */}
+      <div style={{ flexShrink: 0, marginBottom: '12px', display: 'flex', gap: '8px' }}>
+        {/* Search box */}
+        <div style={{ flex: 1, position: 'relative' }}>
+          <input
+            ref={searchInputRef}
+            type="text"
+            placeholder="Search birds..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px 12px',
+              paddingRight: searchQuery ? '36px' : '12px',
+              background: 'var(--color-surface)',
+              border: '1px solid var(--color-text-muted)',
+              borderRadius: '8px',
+              color: 'var(--color-text)',
+              fontSize: '14px',
+            }}
+          />
+          {searchQuery && (
+            <button
+              onClick={handleClearSearch}
+              style={{
+                position: 'absolute',
+                right: '8px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'var(--color-text-muted)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '20px',
+                height: '20px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                padding: 0,
+              }}
+              aria-label="Clear search"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-background)" strokeWidth="3">
+                <path d="M18 6L6 18M6 6l12 12" />
+              </svg>
+            </button>
+          )}
+        </div>
+
+        {/* Taxonomic sort toggle */}
+        <button
+          onClick={handleTaxonomicSortToggle}
+          style={{
+            padding: '10px 14px',
+            background: taxonomicSort ? 'rgba(100, 181, 246, 0.15)' : 'var(--color-surface)',
+            border: taxonomicSort ? '1px solid #64B5F6' : '1px solid var(--color-text-muted)',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            fontSize: '13px',
+            fontWeight: 600,
+            whiteSpace: 'nowrap',
+          }}
+          aria-label="Toggle taxonomic sort"
+        >
+          <span>{taxonomicSort ? '📊' : '🔤'}</span>
+          <span>{taxonomicSort ? 'Taxonomic 🐦🤓' : 'Sort'}</span>
+        </button>
+      </div>
+
+      {/* Instruction hint - More compact */}
+      <div style={{
+        flexShrink: 0,
+        marginBottom: '8px',
+        padding: '6px 10px',
+        background: 'rgba(45, 90, 39, 0.1)',
+        borderRadius: '8px',
+        fontSize: '12px',
+        color: 'var(--color-text-muted)',
+        lineHeight: 1.3,
+      }}>
+        <span style={{ color: 'var(--color-accent)' }}>💡</span> Tap <strong style={{ color: 'var(--color-text)' }}>▶</strong> to preview, <strong style={{ color: 'var(--color-text)' }}>bird icon</strong> to add/remove.
+        {taxonomicSort && (
+          <> <span style={{ color: 'var(--color-accent)' }}>🐦🤓</span> Taxonomic mode groups related species together.</>
+        )}
+      </div>
 
       {/* Selected count */}
       <div style={{
@@ -334,19 +644,36 @@ function CustomPackBuilder() {
           <span style={{ fontWeight: 700, color: 'var(--color-accent)' }}>{selectedCodes.length}</span>/{MAX_SPECIES} selected
         </span>
         {selectedCodes.length > 0 && (
-          <button
-            onClick={handleClear}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--color-text-muted)',
-              fontSize: '12px',
-              cursor: 'pointer',
-              textDecoration: 'underline',
-            }}
-          >
-            Clear all
-          </button>
+          <div style={{ display: 'flex', gap: '8px' }}>
+            <button
+              onClick={handleSavePack}
+              style={{
+                background: 'rgba(45, 90, 39, 0.2)',
+                border: '1px solid var(--color-primary)',
+                borderRadius: '6px',
+                padding: '4px 10px',
+                color: 'white',
+                fontSize: '12px',
+                cursor: 'pointer',
+                fontWeight: 600,
+              }}
+            >
+              💾 Save Pack
+            </button>
+            <button
+              onClick={handleClear}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-text-muted)',
+                fontSize: '12px',
+                cursor: 'pointer',
+                textDecoration: 'underline',
+              }}
+            >
+              Clear all
+            </button>
+          </div>
         )}
       </div>
 
@@ -355,6 +682,7 @@ function CustomPackBuilder() {
         flex: 1,
         overflowY: 'auto',
         marginBottom: '12px',
+        paddingBottom: selectedCodes.length > 0 ? '80px' : '0', // Space for sticky button
       }}>
         <div style={{
           display: 'grid',
@@ -367,81 +695,101 @@ function CustomPackBuilder() {
             const color = isSelected ? SPECIES_COLORS[selectionIndex % SPECIES_COLORS.length] : undefined;
 
             return (
-              <button
+              <div
                 key={species.code}
-                onClick={() => toggleSpecies(species.code)}
-                onMouseEnter={() => setHoveredCode(species.code)}
-                onMouseLeave={() => setHoveredCode(null)}
-                disabled={!isSelected && selectedCodes.length >= MAX_SPECIES}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  alignItems: 'center',
                   gap: '6px',
-                  padding: '12px 8px',
+                  padding: '8px',
                   background: isSelected ? `${color}22` : 'var(--color-surface)',
                   border: isSelected ? `2px solid ${color}` : '1px solid transparent',
                   borderRadius: '12px',
-                  cursor: isSelected || selectedCodes.length < MAX_SPECIES ? 'pointer' : 'not-allowed',
                   opacity: isSelected || selectedCodes.length < MAX_SPECIES ? 1 : 0.5,
-                  textAlign: 'center',
                   transition: 'all 0.15s',
-                  position: 'relative',
                 }}
               >
-                {/* Bird Icon */}
-                <div style={{ position: 'relative' }}>
-                  <BirdIcon code={species.code} size={48} />
-
-                  {/* Play button overlay */}
-                  {(hoveredCode === species.code || playingCode === species.code) && (
-                    <div
-                      onClick={(e) => playPreview(species, e)}
-                      style={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: '32px',
-                        height: '32px',
-                        borderRadius: '50%',
-                        background: 'rgba(0, 0, 0, 0.7)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        cursor: 'pointer',
-                        transition: 'all 0.15s',
-                      }}
-                    >
-                      {playingCode === species.code ? (
-                        <StopIcon color="#FFFFFF" />
-                      ) : (
-                        <PlayIconWhite />
-                      )}
-                    </div>
-                  )}
-
-                  {/* Selection checkmark */}
-                  {isSelected && (
-                    <div style={{
-                      position: 'absolute',
-                      top: '-4px',
-                      right: '-4px',
-                      width: '20px',
-                      height: '20px',
+                {/* Top row: Play button (left) and Bird icon (right) */}
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '8px',
+                }}>
+                  {/* Play button - left side */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      playPreview(species, e);
+                    }}
+                    style={{
+                      flex: '0 0 44px',
+                      width: '44px',
+                      height: '44px',
                       borderRadius: '50%',
-                      background: color,
+                      background: playingCode === species.code
+                        ? 'rgba(255, 152, 0, 0.3)'
+                        : 'rgba(255, 152, 0, 0.1)',
+                      border: `2px solid ${playingCode === species.code ? 'var(--color-accent)' : 'rgba(255, 152, 0, 0.3)'}`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                    }}>
-                      <CheckIcon />
-                    </div>
-                  )}
+                      cursor: 'pointer',
+                      transition: 'all 0.15s',
+                      padding: 0,
+                    }}
+                    aria-label={`Preview ${species.name}`}
+                  >
+                    {playingCode === species.code ? (
+                      <StopIcon color="var(--color-accent)" />
+                    ) : (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    )}
+                  </button>
+
+                  {/* Bird icon - right side */}
+                  <button
+                    onClick={() => toggleSpecies(species.code, filteredSpecies.length)}
+                    disabled={!isSelected && selectedCodes.length >= MAX_SPECIES}
+                    style={{
+                      flex: '1',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: 'transparent',
+                      border: 'none',
+                      cursor: isSelected || selectedCodes.length < MAX_SPECIES ? 'pointer' : 'not-allowed',
+                      padding: '4px',
+                      position: 'relative',
+                    }}
+                    aria-label={isSelected ? `Remove ${species.name}` : `Add ${species.name}`}
+                  >
+                    <BirdIcon code={species.code} size={48} />
+
+                    {/* Selection checkmark */}
+                    {isSelected && (
+                      <div style={{
+                        position: 'absolute',
+                        top: '0',
+                        right: '0',
+                        width: '20px',
+                        height: '20px',
+                        borderRadius: '50%',
+                        background: color,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
+                        <CheckIcon />
+                      </div>
+                    )}
+                  </button>
                 </div>
 
                 {/* Species info */}
-                <div style={{ width: '100%' }}>
+                <div style={{ width: '100%', textAlign: 'center' }}>
                   <div style={{
                     fontSize: '12px',
                     color: 'var(--color-text)',
@@ -449,15 +797,211 @@ function CustomPackBuilder() {
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
                     fontWeight: 500,
+                    fontStyle: taxonomicSort && species.scientificName ? 'italic' : 'normal',
                   }}>
-                    {species.name}
+                    {taxonomicSort && species.scientificName ? species.scientificName : species.name}
                   </div>
                 </div>
-              </button>
+              </div>
             );
           })}
         </div>
       </div>
+
+      {/* Sticky Start Button */}
+      {selectedCodes.length > 0 && (
+        <button
+          onClick={handleSaveAndPlay}
+          style={{
+            position: 'fixed',
+            bottom: 'calc(24px + var(--safe-area-bottom, 0px))',
+            left: '24px',
+            right: '24px',
+            padding: '14px 20px',
+            fontSize: '16px',
+            fontWeight: 700,
+            background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '12px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 16px rgba(45, 90, 39, 0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            zIndex: 1000,
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          Start with {selectedCodes.length} bird{selectedCodes.length > 1 ? 's' : ''}
+        </button>
+      )}
+
+      {/* Save Pack Dialog */}
+      {showSaveDialog && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.7)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 2000,
+          padding: '20px',
+        }}
+        onClick={() => setShowSaveDialog(false)}
+        >
+          <div
+            style={{
+              background: 'var(--color-background)',
+              borderRadius: '12px',
+              padding: '24px',
+              maxWidth: '400px',
+              width: '100%',
+              border: '2px solid var(--color-primary)',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 style={{ margin: '0 0 16px 0', fontSize: '18px' }}>Save Custom Pack</h3>
+            <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginBottom: '16px' }}>
+              Give your pack a name so you can load it later:
+            </p>
+            <input
+              type="text"
+              value={packNameInput}
+              onChange={(e) => setPackNameInput(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && confirmSavePack()}
+              placeholder="e.g., My Backyard, Lake Erie Migrants..."
+              autoFocus
+              style={{
+                width: '100%',
+                padding: '10px 12px',
+                background: 'var(--color-surface)',
+                border: '1px solid var(--color-text-muted)',
+                borderRadius: '8px',
+                color: 'var(--color-text)',
+                fontSize: '14px',
+                marginBottom: '16px',
+              }}
+            />
+            <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+              <button
+                onClick={() => {
+                  setShowSaveDialog(false);
+                  setPackNameInput('');
+                }}
+                style={{
+                  padding: '10px 20px',
+                  background: 'var(--color-surface)',
+                  border: '1px solid var(--color-text-muted)',
+                  borderRadius: '8px',
+                  color: 'var(--color-text)',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmSavePack}
+                style={{
+                  padding: '10px 20px',
+                  background: 'var(--color-primary)',
+                  border: 'none',
+                  borderRadius: '8px',
+                  color: 'white',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                }}
+              >
+                💾 Save Pack
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Delete Pack Confirmation Dialog */}
+      {showDeleteDialog && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.7)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 2000,
+          padding: '20px',
+        }}
+        onClick={() => {
+          setShowDeleteDialog(false);
+          setPackToDelete(null);
+        }}
+        >
+          <div
+            style={{
+              background: 'var(--color-background)',
+              borderRadius: '12px',
+              padding: '24px',
+              maxWidth: '400px',
+              width: '100%',
+              border: '2px solid var(--color-error)',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', color: 'var(--color-error)' }}>
+              Delete Saved Pack?
+            </h3>
+            <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginBottom: '16px' }}>
+              This will permanently delete "{savedPacks.find(p => p.id === packToDelete)?.name}". This action cannot be undone.
+            </p>
+            <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+              <button
+                onClick={() => {
+                  setShowDeleteDialog(false);
+                  setPackToDelete(null);
+                }}
+                style={{
+                  padding: '10px 20px',
+                  background: 'var(--color-surface)',
+                  border: '1px solid var(--color-text-muted)',
+                  borderRadius: '8px',
+                  color: 'var(--color-text)',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={confirmDeletePack}
+                style={{
+                  padding: '10px 20px',
+                  background: 'var(--color-error)',
+                  border: 'none',
+                  borderRadius: '8px',
+                  color: 'white',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                }}
+              >
+                Delete Pack
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
@@ -506,14 +1050,6 @@ function BackIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M15 18l-6-6 6-6" />
-    </svg>
-  );
-}
-
-function PlayIconWhite() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFFFFF">
-      <path d="M8 5v14l11-7z" />
     </svg>
   );
 }

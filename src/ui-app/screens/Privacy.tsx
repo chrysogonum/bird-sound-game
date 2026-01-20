@@ -15,7 +15,7 @@ function Privacy() {
       <div className="flex-col gap-lg" style={{ maxWidth: '800px' }}>
         <div className="text-muted" style={{ fontSize: '14px', lineHeight: 1.6 }}>
           <p style={{ marginBottom: '12px' }}>
-            <strong>Last Updated:</strong> January 17, 2026
+            <strong>Last Updated:</strong> January 20, 2026
           </p>
           <p style={{ marginBottom: '12px' }}>
             ChipNotes! is committed to protecting your privacy. This policy explains what data is collected, how it is used, and your rights.
@@ -30,7 +30,7 @@ function Privacy() {
             </p>
             <ul style={{ marginLeft: '20px', marginBottom: '12px' }}>
               <li>Game settings (scroll speed, spectrogram mode, high contrast, continuous play)</li>
-              <li>Custom pack selections (bird species you choose)</li>
+              <li>Custom pack selections (bird species you choose) and saved custom packs (pack names you create, up to 10 packs)</li>
               <li>Round results and scores (not linked to your identity)</li>
               <li>Cookie consent preference</li>
             </ul>
@@ -87,7 +87,7 @@ function Privacy() {
             <p style={{ marginBottom: '8px' }}>You have the right to:</p>
             <ul style={{ marginLeft: '20px', marginBottom: '12px' }}>
               <li><strong>Access your data:</strong> All local data is stored in your browser's localStorage (visible in browser dev tools)</li>
-              <li><strong>Delete your data:</strong> Use the "Reset All Progress" button in Settings to delete all local data and cache</li>
+              <li><strong>Delete your data:</strong> Delete individual saved custom packs using the Delete button in Custom Pack Builder, or use the "Reset All Progress" button in Settings to delete all local data and cache</li>
               <li><strong>Withdraw consent:</strong> Toggle "Analytics" in Settings to disable Google Analytics at any time</li>
               <li><strong>Data portability:</strong> Local data can be exported via browser dev tools (localStorage)</li>
             </ul>
