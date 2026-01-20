@@ -26,7 +26,7 @@ const SPECIES_COLORS = [
 
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
-  starter_birds: '5 Common Eastern US Backyard Birds',
+  starter_birds: 'Eastern Backyard Birds',
   expanded_backyard: 'Expanded Eastern US Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
