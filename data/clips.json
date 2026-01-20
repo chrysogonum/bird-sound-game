@@ -5837,5 +5837,62 @@
     "file_path": "data/clips/YTWA_649989.wav",
     "spectrogram_path": "data/spectrograms/YTWA_649989.png",
     "recordist": null
+  },
+  {
+    "clip_id": "EAWP_839983",
+    "species_code": "EAWP",
+    "common_name": "Eastern Wood-Pewee",
+    "file_path": "data/clips/EAWP_839983.wav",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC839983",
+    "quality_score": 5,
+    "recordist": "Manuel Oudard",
+    "spectrogram_path": "data/spectrograms/EAWP_839983.png",
+    "canonical": true
+  },
+  {
+    "clip_id": "EAWP_1014933",
+    "species_code": "EAWP",
+    "common_name": "Eastern Wood-Pewee",
+    "file_path": "data/clips/EAWP_1014933.wav",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -15.999999999999995,
+    "source": "xenocanto",
+    "source_id": "XC1014933",
+    "quality_score": 5,
+    "recordist": "Stanislas Wroza",
+    "spectrogram_path": "data/spectrograms/EAWP_1014933.png"
+  },
+  {
+    "clip_id": "EAWP_1038498",
+    "species_code": "EAWP",
+    "common_name": "Eastern Wood-Pewee",
+    "file_path": "data/clips/EAWP_1038498.wav",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1038498",
+    "quality_score": 4,
+    "recordist": "Greg Irving",
+    "spectrogram_path": "data/spectrograms/EAWP_1038498.png"
+  },
+  {
+    "clip_id": "EAWP_1038492",
+    "species_code": "EAWP",
+    "common_name": "Eastern Wood-Pewee",
+    "file_path": "data/clips/EAWP_1038492.wav",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1038492",
+    "quality_score": 4,
+    "recordist": "Greg Irving",
+    "spectrogram_path": "data/spectrograms/EAWP_1038492.png"
   }
 ]
