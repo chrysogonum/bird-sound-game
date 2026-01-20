@@ -516,6 +516,14 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.38" date="January 20, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Taxonomy Migration:</strong> Updated all bird species codes to 2025 AOS/IBP taxonomy - migrated 5 codes (AMGO→AGOL, CEWA→CEDW, SASP→SAVS, WESJ→CASJ, EWPE→EAWP) and fixed species names to match current ornithological standards</li>
+              <li><strong>Data Audit System:</strong> Added comprehensive species data validation tools to ensure 100% consistency between game data and the authoritative IBP-AOS-list25.csv taxonomy reference</li>
+              <li><strong>Bug Fix:</strong> Fixed taxonomic sort toggle re-shuffling birds on preview screen - now correctly re-orders existing birds without selecting new random ones</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.37" date="January 19, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Help Documentation:</strong> Added dedicated "Taxonomic Sorting" section to Help page - explains phylogenetic ordering, scientific name display, and how the feature works during gameplay</li>
