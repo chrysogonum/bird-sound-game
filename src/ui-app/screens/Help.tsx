@@ -102,18 +102,22 @@ function Help() {
     }
   }, [location.hash]);
 
+  const scrollToTop = () => {
+    containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div ref={containerRef} className="screen" style={{ paddingBottom: '32px', position: 'relative' }}>
-      <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
-        <button
-          className="btn-icon"
-          onClick={() => location.state?.fromPackSelect ? navigate('/pack-select') : navigate(-1)}
-          aria-label="Back"
-        >
-          <BackIcon />
-        </button>
-        <h2 style={{ margin: 0 }}>How to Play</h2>
-      </div>
+        <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
+          <button
+            className="btn-icon"
+            onClick={() => location.state?.fromPackSelect ? navigate('/pack-select') : navigate(-1)}
+            aria-label="Back"
+          >
+            <BackIcon />
+          </button>
+          <h2 style={{ margin: 0 }}>How to Play</h2>
+        </div>
 
       <div style={{ maxWidth: '600px', margin: '0 auto' }}>
         {/* Why Learn Bird Song */}
@@ -521,6 +525,12 @@ function Help() {
               <li><strong>Taxonomy Migration:</strong> Updated all bird species codes to 2025 AOS/IBP taxonomy - migrated 5 codes (AMGO→AGOL, CEWA→CEDW, SASP→SAVS, WESJ→CASJ, EWPE→EAWP) and fixed species names to match current ornithological standards</li>
               <li><strong>Data Audit System:</strong> Added comprehensive species data validation tools to ensure 100% consistency between game data and the authoritative IBP-AOS-list25.csv taxonomy reference</li>
               <li><strong>Bug Fix:</strong> Fixed taxonomic sort toggle re-shuffling birds on preview screen - now correctly re-orders existing birds without selecting new random ones</li>
+              <li><strong>Preview Screen Redesign:</strong> Completely overhauled "Ready to Play" page for better space efficiency - compact header, side-by-side toggles, larger bird grid visibility, and new tip box explaining grid positions</li>
+              <li><strong>Training Mode Visual Update:</strong> Training mode toggle now highlights in green (instead of orange) for better visual distinction from other controls</li>
+              <li><strong>Sort Button Clarity:</strong> Alphabetical sort now displays as "Sort" by default, switching to "Taxonomic 🐦🤓" when phylogenetic ordering is active</li>
+              <li><strong>Bird Reference Quick Access:</strong> Added 📚 book icon button on preview screen that jumps directly to the pack's Bird Reference section with auto-expansion - includes "Ready to Play?" button for easy return</li>
+              <li><strong>Help Page Navigation:</strong> Added paired navigation buttons in bottom-right corner: green "↑ Top" for scroll-to-top and orange "Expand/Collapse All" for section management</li>
+              <li><strong>Preview Instructions:</strong> Updated preview text to "Tap to preview signature song. Press and hold to get a closer look!" for clearer user guidance</li>
             </ul>
           </VersionEntry>
 
@@ -803,45 +813,85 @@ function Help() {
         </div>
       </div>
 
-      {/* Floating Expand/Collapse All button - visible after scroll */}
+      {/* Floating buttons - visible after scroll */}
       {hasScrolled && (
-        <button
-          onClick={toggleAll}
-          style={{
-            position: 'fixed',
-            bottom: 'calc(24px + var(--safe-area-bottom, 0px))',
-            right: '24px',
-            padding: '6px 10px',
-            fontSize: '11px',
-            fontWeight: 600,
-            background: 'rgba(255, 152, 0, 0.15)',
-            color: 'var(--color-accent)',
-            border: '1px solid rgba(255, 152, 0, 0.3)',
-            borderRadius: '12px',
-            cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-            transition: 'all 0.2s',
-            zIndex: 1000,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.05)';
-            e.currentTarget.style.background = 'rgba(255, 152, 0, 0.25)';
-            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.background = 'rgba(255, 152, 0, 0.15)';
-            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
-          }}
-        >
-          <span style={{ fontSize: '12px' }}>
-            {allExpanded ? '▲' : '▼'}
-          </span>
-          {allExpanded ? 'Collapse All' : 'Expand All'}
-        </button>
+        <div style={{
+          position: 'fixed',
+          bottom: 'calc(24px + var(--safe-area-bottom, 0px))',
+          right: '24px',
+          display: 'flex',
+          gap: '8px',
+          zIndex: 1000,
+        }}>
+          {/* Scroll to top button */}
+          <button
+            onClick={scrollToTop}
+            style={{
+              padding: '6px 10px',
+              fontSize: '11px',
+              fontWeight: 600,
+              background: 'rgba(76, 175, 80, 0.15)',
+              color: 'var(--color-success)',
+              border: '1px solid rgba(76, 175, 80, 0.3)',
+              borderRadius: '12px',
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+              transition: 'all 0.2s',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.background = 'rgba(76, 175, 80, 0.25)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.background = 'rgba(76, 175, 80, 0.15)';
+              e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+            }}
+            aria-label="Scroll to top"
+          >
+            <span style={{ fontSize: '12px' }}>↑</span>
+            Top
+          </button>
+
+          {/* Expand/Collapse All button */}
+          <button
+            onClick={toggleAll}
+            style={{
+              padding: '6px 10px',
+              fontSize: '11px',
+              fontWeight: 600,
+              background: 'rgba(255, 152, 0, 0.15)',
+              color: 'var(--color-accent)',
+              border: '1px solid rgba(255, 152, 0, 0.3)',
+              borderRadius: '12px',
+              cursor: 'pointer',
+              boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+              transition: 'all 0.2s',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.background = 'rgba(255, 152, 0, 0.25)';
+              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.background = 'rgba(255, 152, 0, 0.15)';
+              e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+            }}
+          >
+            <span style={{ fontSize: '12px' }}>
+              {allExpanded ? '▲' : '▼'}
+            </span>
+            {allExpanded ? 'Collapse All' : 'Expand All'}
+          </button>
+        </div>
       )}
     </div>
   );

@@ -497,265 +497,180 @@ function PreRoundPreview() {
   const packName = PACK_NAMES[packId] || packId;
 
   return (
-    <div className="screen" style={{ display: 'flex', flexDirection: 'column' }}>
-      {/* Header */}
-      <div style={{ marginBottom: '12px' }}>
-        <div className="flex-row items-center" style={{ marginBottom: '8px' }}>
-          <button
-            className="btn-icon"
-            onClick={() => navigate(`/level-select?pack=${packId}`)}
-            aria-label="Back"
-          >
-            <BackIcon />
-          </button>
-          <div style={{ flex: 1, marginLeft: '8px' }}>
-            <h2 style={{ margin: 0, fontSize: '16px' }}>{packName}</h2>
-            <div style={{ fontSize: '13px', color: 'var(--color-accent)' }}>
-              Level {level.level_id}: {level.title}
-            </div>
+    <div className="screen" style={{ display: 'flex', flexDirection: 'column', padding: '12px 16px', gap: '10px' }}>
+      {/* Compact Header */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <button
+          className="btn-icon"
+          onClick={() => navigate(`/level-select?pack=${packId}`)}
+          aria-label="Back"
+          style={{ flexShrink: 0 }}
+        >
+          <BackIcon />
+        </button>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h2 style={{ margin: 0, fontSize: '14px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {packName}
+          </h2>
+          <div style={{ fontSize: '12px', color: 'var(--color-accent)', lineHeight: 1.1 }}>
+            Level {level.level_id}: {level.title}
           </div>
         </div>
-
-        {/* Ready button - prominent at top */}
+        {/* Bird Reference link */}
         <button
-          onClick={handleReady}
+          onClick={() => navigate(`/pack-select?scrollTo=${packId}&expandPack=${packId}#bird-reference`, {
+            state: { fromPreview: true, pack: packId, level: levelId }
+          })}
           style={{
-            width: '100%',
-            padding: '14px',
-            fontSize: '16px',
-            fontWeight: 700,
-            background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '12px',
+            padding: '6px 10px',
+            background: 'transparent',
+            border: '1px solid rgba(100, 181, 246, 0.3)',
+            borderRadius: '6px',
+            color: '#64B5F6',
+            fontSize: '15px',
             cursor: 'pointer',
-            boxShadow: '0 4px 12px rgba(45, 90, 39, 0.3)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
+            gap: '4px',
+            flexShrink: 0,
+            whiteSpace: 'nowrap',
           }}
         >
-          Ready to Play <PlayArrowIcon />
+          📚
         </button>
-        {/* Preload status indicator */}
-        {preloadStatus === 'loading' && (
-          <div style={{
-            marginTop: '8px',
-            textAlign: 'center',
-          }}>
-            <div style={{
+        {/* Shuffle button - compact top right */}
+        {level.species_pool && level.species_pool.length > (level.species_count || 0) && (
+          <button
+            onClick={handleShuffle}
+            style={{
+              padding: '6px 10px',
+              background: 'transparent',
+              border: '1px solid var(--color-accent)',
+              borderRadius: '6px',
+              color: 'var(--color-accent)',
               fontSize: '11px',
-              color: 'var(--color-text-muted)',
-              marginBottom: '6px',
-            }}>
-              Loading sounds {preloadProgress.loaded}/{preloadProgress.total}
-            </div>
-            {/* Progress bar */}
-            <div style={{
-              width: '100%',
-              height: '4px',
-              background: 'var(--color-surface)',
-              borderRadius: '2px',
-              overflow: 'hidden',
-            }}>
-              <div style={{
-                width: `${(preloadProgress.loaded / preloadProgress.total) * 100}%`,
-                height: '100%',
-                background: 'var(--color-accent)',
-                transition: 'width 0.2s ease',
-              }} />
-            </div>
-          </div>
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+              flexShrink: 0,
+            }}
+          >
+            <ShuffleIcon />
+          </button>
         )}
-        {preloadStatus === 'ready' && (
-          <div style={{
-            marginTop: '6px',
-            fontSize: '11px',
-            color: 'var(--color-success)',
-            textAlign: 'center',
+      </div>
+
+      {/* Compact Toggles Row */}
+      <div style={{ display: 'flex', gap: '6px', fontSize: '12px' }}>
+        <button
+          onClick={handleTrainingModeToggle}
+          style={{
+            flex: 1,
+            padding: '6px 8px',
+            background: trainingMode ? 'rgba(76, 175, 80, 0.15)' : 'var(--color-surface)',
+            border: trainingMode ? '1px solid var(--color-success)' : '1px solid transparent',
+            borderRadius: '6px',
+            cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             gap: '4px',
-          }}>
-            <span>✓</span> Sounds ready
-          </div>
-        )}
-
-        {/* Training Mode toggle */}
-        <button
-          onClick={handleTrainingModeToggle}
-          style={{
-            width: '100%',
-            marginTop: '8px',
-            padding: '10px 14px',
-            background: trainingMode ? 'rgba(245, 166, 35, 0.15)' : 'var(--color-surface)',
-            border: trainingMode ? '1px solid var(--color-accent)' : '1px solid transparent',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            transition: 'all 0.15s',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <EyeIcon filled={trainingMode} />
-            <span style={{ fontSize: '14px', color: 'var(--color-text)' }}>
-              Training Mode
-            </span>
-          </div>
-          <div style={{
-            width: '40px',
-            height: '22px',
-            borderRadius: '11px',
-            background: trainingMode ? 'var(--color-accent)' : 'var(--color-text-muted)',
-            position: 'relative',
-            transition: 'background 0.15s',
-          }}>
-            <div style={{
-              width: '18px',
-              height: '18px',
-              borderRadius: '50%',
-              background: 'white',
-              position: 'absolute',
-              top: '2px',
-              left: trainingMode ? '20px' : '2px',
-              transition: 'left 0.15s',
-            }} />
-          </div>
+          <EyeIcon filled={trainingMode} color={trainingMode ? 'var(--color-success)' : undefined} />
+          <span style={{ fontSize: '11px' }}>Training</span>
         </button>
-        {trainingMode && (
-          <div style={{
-            fontSize: '11px',
-            color: 'var(--color-text-muted)',
-            marginTop: '4px',
-            paddingLeft: '4px',
-          }}>
-            Bird icons appear on spectrograms. Toggle on mid-round? Icons show up on the next new bird.
-          </div>
-        )}
-
-        {/* Taxonomic Sort toggle */}
         <button
           onClick={handleTaxonomicSortToggle}
           style={{
-            width: '100%',
-            marginTop: '8px',
-            padding: '10px 14px',
+            flex: 1,
+            padding: '6px 8px',
             background: taxonomicSort ? 'rgba(100, 181, 246, 0.15)' : 'var(--color-surface)',
             border: taxonomicSort ? '1px solid #64B5F6' : '1px solid transparent',
-            borderRadius: '8px',
+            borderRadius: '6px',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            transition: 'all 0.15s',
+            justifyContent: 'center',
+            gap: '4px',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{ fontSize: '16px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
-            <span style={{ fontSize: '14px', color: 'var(--color-text)' }}>
-              {taxonomicSort ? 'Taxonomic Order 🐦🤓' : 'Alphabetical (A-Z)'}
-            </span>
-          </div>
-          <div style={{
-            width: '40px',
-            height: '22px',
-            borderRadius: '11px',
-            background: taxonomicSort ? '#64B5F6' : 'var(--color-text-muted)',
-            position: 'relative',
-            transition: 'background 0.15s',
-          }}>
-            <div style={{
-              width: '18px',
-              height: '18px',
-              borderRadius: '50%',
-              background: 'white',
-              position: 'absolute',
-              top: '2px',
-              left: taxonomicSort ? '20px' : '2px',
-              transition: 'left 0.15s',
-            }} />
-          </div>
+          <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+          <span style={{ fontSize: '11px' }}>{taxonomicSort ? 'Taxonomic 🐦🤓' : 'Sort'}</span>
         </button>
-        {taxonomicSort && (
-          <div style={{
-            fontSize: '11px',
-            color: 'var(--color-text-muted)',
-            marginTop: '4px',
-            paddingLeft: '4px',
-          }}>
-            Birds sorted by phylogenetic order (eBird 2025) instead of alpha codes.
-          </div>
-        )}
       </div>
 
-      {/* Preview section */}
+      {/* Preload status indicator */}
+      {preloadStatus === 'loading' && (
+        <div style={{
+          background: 'var(--color-surface)',
+          borderRadius: '6px',
+          padding: '6px 10px',
+        }}>
+          <div style={{
+            fontSize: '10px',
+            color: 'var(--color-text-muted)',
+            marginBottom: '4px',
+          }}>
+            Loading sounds {preloadProgress.loaded}/{preloadProgress.total}
+          </div>
+          <div style={{
+            width: '100%',
+            height: '3px',
+            background: 'rgba(0,0,0,0.2)',
+            borderRadius: '2px',
+            overflow: 'hidden',
+          }}>
+            <div style={{
+              width: `${(preloadProgress.loaded / preloadProgress.total) * 100}%`,
+              height: '100%',
+              background: 'var(--color-accent)',
+              transition: 'width 0.2s ease',
+            }} />
+          </div>
+        </div>
+      )}
+
+      {/* Tip Box - Study the Grid */}
+      <div style={{
+        background: 'rgba(100, 181, 246, 0.1)',
+        border: '1px solid rgba(100, 181, 246, 0.3)',
+        borderRadius: '8px',
+        padding: '10px 12px',
+      }}>
+        <div style={{
+          fontSize: '12px',
+          color: 'var(--color-text)',
+          lineHeight: 1.4,
+          textAlign: 'center',
+        }}>
+          <strong>💡 Study the grid:</strong> Each bird will appear in the same position during play. Take a moment to memorize where each species lives on screen—and any unfamiliar code names. Use 🔀 to mix it up. Engage 👁️ for speed-learning.
+        </div>
+      </div>
+
+      {/* Species grid - MAIN FOCUS */}
       <div style={{
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '16px 0',
+        minHeight: 0,
       }}>
         <div style={{
-          fontSize: '14px',
+          fontSize: '11px',
           color: 'var(--color-text-muted)',
-          marginBottom: '12px',
+          marginBottom: '8px',
           textAlign: 'center',
-          maxWidth: '280px',
         }}>
-          {level.level_id === 1 ? (
-            'Tap to preview each bird\'s signature sound'
-          ) : (
-            <>
-              Tap to preview signature sounds.
-              <br />
-              <span style={{ fontSize: '12px', opacity: 0.8 }}>
-                You'll hear variations during play!
-              </span>
-            </>
-          )}
+          Tap to preview signature song. Press and hold to get a closer look!
         </div>
 
-        {/* Shuffle button - above grid so it's always visible */}
-        {level.species_pool && level.species_pool.length > (level.species_count || 0) && (
-          <button
-            onClick={handleShuffle}
-            style={{
-              marginBottom: '16px',
-              padding: '8px 16px',
-              background: 'transparent',
-              border: '1px solid var(--color-accent)',
-              borderRadius: '8px',
-              color: 'var(--color-accent)',
-              fontSize: '13px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              transition: 'all 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(245, 166, 35, 0.1)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent';
-            }}
-          >
-            <ShuffleIcon />
-            Shuffle Birds
-          </button>
-        )}
-
-        {/* Species grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '16px',
+          gap: '10px',
           maxWidth: '320px',
           width: '100%',
         }}>
@@ -768,11 +683,11 @@ function PreRoundPreview() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '12px 8px',
+                gap: '6px',
+                padding: '10px 6px',
                 background: playingCode === species.code ? `${species.color}33` : 'var(--color-surface)',
                 border: `2px solid ${species.color}`,
-                borderRadius: '12px',
+                borderRadius: '10px',
                 cursor: species.clipPath ? 'pointer' : 'not-allowed',
                 opacity: species.clipPath ? 1 : 0.5,
                 transition: 'transform 0.15s, background 0.15s',
@@ -781,15 +696,15 @@ function PreRoundPreview() {
             >
               {/* Bird icon/code */}
               <div style={{ position: 'relative', WebkitTapHighlightColor: 'transparent' }}>
-                <BirdIcon code={species.code} size={56} color={species.color} />
+                <BirdIcon code={species.code} size={52} color={species.color} />
               </div>
               {/* Name */}
               <div style={{
-                fontSize: '11px',
+                fontSize: '10px',
                 color: 'var(--color-text)',
                 textAlign: 'center',
                 lineHeight: 1.2,
-                maxWidth: '80px',
+                maxWidth: '75px',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 display: '-webkit-box',
@@ -803,6 +718,37 @@ function PreRoundPreview() {
           ))}
         </div>
       </div>
+
+      {/* Ready button - bottom */}
+      <button
+        onClick={handleReady}
+        style={{
+          width: '100%',
+          padding: '12px',
+          fontSize: '15px',
+          fontWeight: 700,
+          background: preloadStatus === 'ready'
+            ? 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)'
+            : 'linear-gradient(135deg, #555 0%, #444 100%)',
+          color: 'white',
+          border: 'none',
+          borderRadius: '10px',
+          cursor: 'pointer',
+          boxShadow: '0 3px 10px rgba(45, 90, 39, 0.3)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '6px',
+        }}
+      >
+        {preloadStatus === 'ready' ? (
+          <>Ready to Play <PlayArrowIcon /></>
+        ) : preloadStatus === 'loading' ? (
+          <>Loading...</>
+        ) : (
+          <>Ready to Play <PlayArrowIcon /></>
+        )}
+      </button>
 
 
       {/* Pulse animation and tap highlight fix */}
@@ -847,11 +793,12 @@ function PlayArrowIcon() {
   );
 }
 
-function EyeIcon({ filled }: { filled: boolean }) {
+function EyeIcon({ filled, color }: { filled: boolean; color?: string }) {
+  const iconColor = color || (filled ? 'var(--color-accent)' : 'var(--color-text-muted)');
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={filled ? 'var(--color-accent)' : 'var(--color-text-muted)'} strokeWidth="2">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={iconColor} strokeWidth="2">
       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-      <circle cx="12" cy="12" r="3" fill={filled ? 'var(--color-accent)' : 'none'} />
+      <circle cx="12" cy="12" r="3" fill={filled ? iconColor : 'none'} />
     </svg>
   );
 }
