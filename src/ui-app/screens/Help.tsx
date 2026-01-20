@@ -468,7 +468,7 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
-          <VersionEntry version="3.34" date="January 20, 2026">
+          <VersionEntry version="3.34" date="January 19, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>OCWA Clips:</strong> Added 7 new Orange-crowned Warbler clips from Xeno-Canto (6 songs, 1 call) - all quality A recordings for expanded species coverage</li>
               <li><strong>Audio Quality:</strong> Trimmed OCWA_985696 to remove interfering bird vocalization at beginning - now shows clean warbler song only</li>
