@@ -468,6 +468,13 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.36" date="January 19, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Taxonomic Sort Toggle:</strong> Added taxonomic/alphabetical sort toggle to pre-round preview screen - when enabled, shows birds in phylogenetic order with scientific names (italicized) instead of common names 🐦🤓</li>
+              <li><strong>Button Sort Persistence:</strong> Species buttons during gameplay now respect taxonomic sort preference, making it easier for taxonomically-inclined players to build muscle memory</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.35" date="January 19, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>2025 AOS Taxonomy:</strong> Updated all 86 species to official 2025 American Ornithological Society (66th Supplement) taxonomic positions - fixes phylogenetic ordering across all families, especially warblers (Swainson's Warbler now correctly appears before Setophaga radiation)</li>

@@ -14,6 +14,7 @@ interface ClipData {
 interface SelectedSpecies {
   code: string;
   name: string;
+  scientificName?: string;
   color: string;
   clipPath: string | null;
 }
@@ -135,6 +136,15 @@ function PreRoundPreview() {
       return false;
     }
   });
+  const [taxonomicSort, setTaxonomicSort] = useState(() => {
+    try {
+      return localStorage.getItem('soundfield_taxonomic_sort') === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
+  const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Toggle training mode
@@ -148,9 +158,45 @@ function PreRoundPreview() {
     }
   };
 
+  // Toggle taxonomic sort
+  const handleTaxonomicSortToggle = () => {
+    const newValue = !taxonomicSort;
+    setTaxonomicSort(newValue);
+    try {
+      localStorage.setItem('soundfield_taxonomic_sort', String(newValue));
+    } catch (e) {
+      console.error('Failed to save taxonomic sort:', e);
+    }
+  };
+
+  // Load taxonomic order data and scientific names
+  useEffect(() => {
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
+      fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
+    ]).then(([taxonomicData, speciesData]: [Record<string, number>, Array<{species_code: string; scientific_name: string}>]) => {
+      setTaxonomicOrder(taxonomicData);
+      // Build scientific names lookup
+      const sciNames: Record<string, string> = {};
+      speciesData.forEach((sp: {species_code: string; scientific_name: string}) => {
+        sciNames[sp.species_code] = sp.scientific_name;
+      });
+      setScientificNames(sciNames);
+    }).catch((err) => console.error('Failed to load taxonomy data:', err));
+  }, []);
+
   // Build species info from a list of codes (no shuffling)
   const buildSpeciesInfo = useCallback((codes: string[], clipsData: ClipData[]): SelectedSpecies[] => {
-    return codes.sort().map((code, index) => {
+    // Sort based on mode: taxonomic or alphabetical
+    const sortedCodes = taxonomicSort && Object.keys(taxonomicOrder).length > 0
+      ? [...codes].sort((a, b) => {
+          const orderA = taxonomicOrder[a] || 9999;
+          const orderB = taxonomicOrder[b] || 9999;
+          return orderA - orderB;
+        })
+      : [...codes].sort();
+
+    return sortedCodes.map((code, index) => {
       const canonicalClip = clipsData.find(
         c => c.species_code === code && c.canonical && !c.rejected
       );
@@ -160,23 +206,33 @@ function PreRoundPreview() {
       return {
         code,
         name: clip?.common_name || code,
+        scientificName: scientificNames[code],
         color: SPECIES_COLORS[index % SPECIES_COLORS.length],
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     });
-  }, []);
+  }, [taxonomicSort, taxonomicOrder, scientificNames]);
 
   // Select random species from the pool
   const selectRandomSpecies = useCallback((levelConfig: LevelConfig, clipsData: ClipData[]) => {
     const pool = levelConfig.species_pool || [];
     const count = levelConfig.species_count || pool.length;
 
-    // Shuffle and take count, then sort alphabetically for display
+    // Shuffle and take count
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    const selected = shuffled.slice(0, count).sort();
+    const selected = shuffled.slice(0, count);
+
+    // Sort based on mode: taxonomic or alphabetical
+    const sortedSelected = taxonomicSort && Object.keys(taxonomicOrder).length > 0
+      ? selected.sort((a, b) => {
+          const orderA = taxonomicOrder[a] || 9999;
+          const orderB = taxonomicOrder[b] || 9999;
+          return orderA - orderB;
+        })
+      : selected.sort();
 
     // Build species info with canonical clips
-    const speciesInfo: SelectedSpecies[] = selected.map((code, index) => {
+    const speciesInfo: SelectedSpecies[] = sortedSelected.map((code, index) => {
       const canonicalClip = clipsData.find(
         c => c.species_code === code && c.canonical && !c.rejected
       );
@@ -186,13 +242,14 @@ function PreRoundPreview() {
       return {
         code,
         name: clip?.common_name || code,
+        scientificName: scientificNames[code],
         color: SPECIES_COLORS[index % SPECIES_COLORS.length],
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     });
 
     setSelectedSpecies(speciesInfo);
-  }, []);
+  }, [taxonomicSort, taxonomicOrder, scientificNames]);
 
   // Load level and clips
   useEffect(() => {
@@ -559,6 +616,60 @@ function PreRoundPreview() {
             Bird icons appear on spectrograms. Toggle on mid-round? Icons show up on the next new bird.
           </div>
         )}
+
+        {/* Taxonomic Sort toggle */}
+        <button
+          onClick={handleTaxonomicSortToggle}
+          style={{
+            width: '100%',
+            marginTop: '8px',
+            padding: '10px 14px',
+            background: taxonomicSort ? 'rgba(100, 181, 246, 0.15)' : 'var(--color-surface)',
+            border: taxonomicSort ? '1px solid #64B5F6' : '1px solid transparent',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            transition: 'all 0.15s',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '16px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+            <span style={{ fontSize: '14px', color: 'var(--color-text)' }}>
+              {taxonomicSort ? 'Taxonomic Order 🐦🤓' : 'Alphabetical (A-Z)'}
+            </span>
+          </div>
+          <div style={{
+            width: '40px',
+            height: '22px',
+            borderRadius: '11px',
+            background: taxonomicSort ? '#64B5F6' : 'var(--color-text-muted)',
+            position: 'relative',
+            transition: 'background 0.15s',
+          }}>
+            <div style={{
+              width: '18px',
+              height: '18px',
+              borderRadius: '50%',
+              background: 'white',
+              position: 'absolute',
+              top: '2px',
+              left: taxonomicSort ? '20px' : '2px',
+              transition: 'left 0.15s',
+            }} />
+          </div>
+        </button>
+        {taxonomicSort && (
+          <div style={{
+            fontSize: '11px',
+            color: 'var(--color-text-muted)',
+            marginTop: '4px',
+            paddingLeft: '4px',
+          }}>
+            Birds sorted by phylogenetic order (eBird 2025) instead of alpha codes.
+          </div>
+        )}
       </div>
 
       {/* Preview section */}
@@ -664,8 +775,9 @@ function PreRoundPreview() {
                 display: '-webkit-box',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
+                fontStyle: taxonomicSort && species.scientificName ? 'italic' : 'normal',
               }}>
-                {species.name}
+                {taxonomicSort && species.scientificName ? species.scientificName : species.name}
               </div>
             </button>
           ))}
