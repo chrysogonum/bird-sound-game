@@ -146,6 +146,7 @@ function PreRoundPreview() {
   });
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
+  const [fullCustomPack, setFullCustomPack] = useState<string[]>([]);  // All species in custom pack (up to 30)
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Toggle training mode
@@ -241,6 +242,17 @@ function PreRoundPreview() {
     });
   }, [scientificNames]);
 
+  // Select random subset from custom pack (for packs with >9 birds)
+  const selectRandomFromCustomPack = useCallback((allSpecies: string[], clipsData: ClipData[]) => {
+    const targetCount = Math.min(9, allSpecies.length);
+
+    // Shuffle and take 9
+    const shuffled = [...allSpecies].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, targetCount);
+
+    setSelectedSpecies(buildSpeciesInfo(selected, clipsData));
+  }, [buildSpeciesInfo]);
+
   // Select random species from the pool
   const selectRandomSpecies = useCallback((levelConfig: LevelConfig, clipsData: ClipData[]) => {
     const pool = levelConfig.species_pool || [];
@@ -287,6 +299,13 @@ function PreRoundPreview() {
         if (customSpeciesJson) {
           try {
             const customSpecies = JSON.parse(customSpeciesJson) as string[];
+            setFullCustomPack(customSpecies);
+
+            // If pack has >9 birds, randomly select 9 for gameplay
+            const selectedForPlay = customSpecies.length > 9
+              ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+              : customSpecies;
+
             // Create synthetic level config for custom pack
             const customLevel: LevelConfig = {
               level_id: levelId,
@@ -294,8 +313,8 @@ function PreRoundPreview() {
               mode: 'campaign',
               title: LEVEL_TITLES[levelId] || `Level ${levelId}`,
               round_duration_sec: 30,
-              species_count: customSpecies.length,
-              species_pool: customSpecies,
+              species_count: selectedForPlay.length,
+              species_pool: selectedForPlay,
               clip_selection: getLevelClipSelection(levelId),
               channel_mode: getLevelChannelMode(levelId),
               event_density: 'low',
@@ -304,8 +323,7 @@ function PreRoundPreview() {
               spectrogram_mode: 'full',
             };
             setLevel(customLevel);
-            // For custom pack, use all selected species (no random subset)
-            setSelectedSpecies(buildSpeciesInfo(customSpecies, clipsData));
+            setSelectedSpecies(buildSpeciesInfo(selectedForPlay, clipsData));
           } catch (e) {
             console.error('Failed to parse custom pack:', e);
           }
@@ -409,6 +427,21 @@ function PreRoundPreview() {
       // Reset preload status - new birds need new clips
       setPreloadStatus('idle');
       selectRandomSpecies(level, clips);
+    }
+  };
+
+  // Re-roll custom pack (select new random 9 from larger pack)
+  const handleReroll = () => {
+    if (fullCustomPack.length > 0 && clips.length > 0) {
+      // Stop any playing audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+        setPlayingCode(null);
+      }
+      // Reset preload status - new birds need new clips
+      setPreloadStatus('idle');
+      selectRandomFromCustomPack(fullCustomPack, clips);
     }
   };
 
@@ -548,10 +581,10 @@ function PreRoundPreview() {
         >
           📚
         </button>
-        {/* Shuffle button - compact top right */}
-        {level.species_pool && level.species_pool.length > (level.species_count || 0) && (
+        {/* Shuffle/Re-roll button - compact top right */}
+        {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
           <button
-            onClick={handleShuffle}
+            onClick={fullCustomPack.length > 9 ? handleReroll : handleShuffle}
             style={{
               padding: '6px 10px',
               background: 'transparent',
@@ -565,6 +598,7 @@ function PreRoundPreview() {
               gap: '4px',
               flexShrink: 0,
             }}
+            title={fullCustomPack.length > 9 ? `Re-roll (${fullCustomPack.length} total birds)` : 'Shuffle birds'}
           >
             <ShuffleIcon />
           </button>
@@ -578,8 +612,8 @@ function PreRoundPreview() {
           style={{
             flex: 1,
             padding: '6px 8px',
-            background: trainingMode ? 'rgba(76, 175, 80, 0.15)' : 'var(--color-surface)',
-            border: trainingMode ? '1px solid var(--color-success)' : '1px solid transparent',
+            background: trainingMode ? 'rgba(76, 175, 80, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+            border: trainingMode ? '2px solid var(--color-success)' : '1px solid rgba(255, 255, 255, 0.15)',
             borderRadius: '6px',
             cursor: 'pointer',
             display: 'flex',
@@ -596,8 +630,8 @@ function PreRoundPreview() {
           style={{
             flex: 1,
             padding: '6px 8px',
-            background: taxonomicSort ? 'rgba(100, 181, 246, 0.15)' : 'var(--color-surface)',
-            border: taxonomicSort ? '1px solid #64B5F6' : '1px solid transparent',
+            background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+            border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
             borderRadius: '6px',
             cursor: 'pointer',
             display: 'flex',
@@ -668,6 +702,17 @@ function PreRoundPreview() {
         justifyContent: 'center',
         minHeight: 0,
       }}>
+        {fullCustomPack.length > 9 && (
+          <div style={{
+            fontSize: '12px',
+            color: 'var(--color-accent)',
+            marginBottom: '6px',
+            textAlign: 'center',
+            fontWeight: 600,
+          }}>
+            Playing 9 of {fullCustomPack.length} birds
+          </div>
+        )}
         <div style={{
           fontSize: '11px',
           color: 'var(--color-text-muted)',

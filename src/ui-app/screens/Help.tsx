@@ -529,7 +529,7 @@ function Help() {
         >
           {/* TL;DR Summary */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.39)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.40)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
@@ -540,6 +540,16 @@ function Help() {
               </ul>
             </div>
           </div>
+
+          <VersionEntry version="3.40" date="January 20, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Custom Pack Editing:</strong> Load, edit, and update existing saved packs! When you load a pack and modify it, you can choose to update the original pack or save as a new one. Visual indicator shows "Editing: [Pack Name]" at the top of the builder.</li>
+              <li><strong>Custom Pack Expansion:</strong> Increased max pack size from 9 to 30 birds! For packs with 10+ birds, the game randomly selects 9 for each round with a re-roll button to shuffle the selection. Perfect for creating comprehensive regional packs like "All Midwest Warblers" or "Backyard Regulars."</li>
+              <li><strong>Custom Pack UX:</strong> Made entire bird card clickable (not just the icon) for easier selection, added 4-letter species codes below bird names in taxonomic sort mode, and improved button labels to show "Update / Save As New" when editing.</li>
+              <li><strong>Spectrogram Fix:</strong> Fixed missing spectrograms for species updated in 2025 AOS taxonomy (American Goldfinch, Cedar Waxwing, California Scrub-Jay, Savannah Sparrow) - all 415 clips now have working visual tiles.</li>
+              <li><strong>Preview Screen UX:</strong> Made Training Mode and Taxonomic Sort toggle boxes more visible with subtle background and borders in inactive state.</li>
+            </ul>
+          </VersionEntry>
 
           <VersionEntry version="3.39" date="January 20, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
