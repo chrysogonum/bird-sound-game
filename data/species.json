@@ -1,0 +1,776 @@
+[
+  {
+    "species_code": "MODO",
+    "common_name": "Mourning Dove",
+    "scientific_name": "Zenaida macroura",
+    "genus": "Zenaida",
+    "species": "macroura",
+    "taxonomic_order": 203,
+    "aos_code": null
+  },
+  {
+    "species_code": "RTHU",
+    "common_name": "Ruby-throated Hummingbird",
+    "scientific_name": "Archilochus colubris",
+    "genus": "Archilochus",
+    "species": "colubris",
+    "taxonomic_order": 368,
+    "aos_code": null
+  },
+  {
+    "species_code": "SSHA",
+    "common_name": "Sharp-shinned Hawk",
+    "scientific_name": "Accipiter striatus",
+    "genus": "Accipiter",
+    "species": "striatus",
+    "taxonomic_order": 867,
+    "aos_code": null
+  },
+  {
+    "species_code": "COHA",
+    "common_name": "Cooper's Hawk",
+    "scientific_name": "Astur cooperii",
+    "genus": "Astur",
+    "species": "cooperii",
+    "taxonomic_order": 871,
+    "aos_code": null
+  },
+  {
+    "species_code": "RSHA",
+    "common_name": "Red-shouldered Hawk",
+    "scientific_name": "Buteo lineatus",
+    "genus": "Buteo",
+    "species": "lineatus",
+    "taxonomic_order": 904,
+    "aos_code": null
+  },
+  {
+    "species_code": "RTHA",
+    "common_name": "Red-tailed Hawk",
+    "scientific_name": "Buteo jamaicensis",
+    "genus": "Buteo",
+    "species": "jamaicensis",
+    "taxonomic_order": 912,
+    "aos_code": null
+  },
+  {
+    "species_code": "BAOW",
+    "common_name": "Barred Owl",
+    "scientific_name": "Strix varia",
+    "genus": "Strix",
+    "species": "varia",
+    "taxonomic_order": 953,
+    "aos_code": null
+  },
+  {
+    "species_code": "BEKI",
+    "common_name": "Belted Kingfisher",
+    "scientific_name": "Megaceryle alcyon",
+    "genus": "Megaceryle",
+    "species": "alcyon",
+    "taxonomic_order": 1004,
+    "aos_code": null
+  },
+  {
+    "species_code": "RHWO",
+    "common_name": "Red-headed Woodpecker",
+    "scientific_name": "Melanerpes erythrocephalus",
+    "genus": "Melanerpes",
+    "species": "erythrocephalus",
+    "taxonomic_order": 1035,
+    "aos_code": null
+  },
+  {
+    "species_code": "RBWO",
+    "common_name": "Red-bellied Woodpecker",
+    "scientific_name": "Melanerpes carolinus",
+    "genus": "Melanerpes",
+    "species": "carolinus",
+    "taxonomic_order": 1048,
+    "aos_code": null
+  },
+  {
+    "species_code": "YBSA",
+    "common_name": "Yellow-bellied Sapsucker",
+    "scientific_name": "Sphyrapicus varius",
+    "genus": "Sphyrapicus",
+    "species": "varius",
+    "taxonomic_order": 1051,
+    "aos_code": null
+  },
+  {
+    "species_code": "DOWO",
+    "common_name": "Downy Woodpecker",
+    "scientific_name": "Dryobates pubescens",
+    "genus": "Dryobates",
+    "species": "pubescens",
+    "taxonomic_order": 1060,
+    "aos_code": null
+  },
+  {
+    "species_code": "HAWO",
+    "common_name": "Hairy Woodpecker",
+    "scientific_name": "Dryobates villosus",
+    "genus": "Dryobates",
+    "species": "villosus",
+    "taxonomic_order": 1064,
+    "aos_code": null
+  },
+  {
+    "species_code": "NOFL",
+    "common_name": "Northern Flicker",
+    "scientific_name": "Colaptes auratus",
+    "genus": "Colaptes",
+    "species": "auratus",
+    "taxonomic_order": 1076,
+    "aos_code": null
+  },
+  {
+    "species_code": "PIWO",
+    "common_name": "Pileated Woodpecker",
+    "scientific_name": "Dryocopus pileatus",
+    "genus": "Dryocopus",
+    "species": "pileatus",
+    "taxonomic_order": 1086,
+    "aos_code": null
+  },
+  {
+    "species_code": "STJA",
+    "common_name": "Steller's Jay",
+    "scientific_name": "Cyanocitta stelleri",
+    "genus": "Cyanocitta",
+    "species": "stelleri",
+    "taxonomic_order": 1507,
+    "aos_code": null
+  },
+  {
+    "species_code": "BLJA",
+    "common_name": "Blue Jay",
+    "scientific_name": "Cyanocitta cristata",
+    "genus": "Cyanocitta",
+    "species": "cristata",
+    "taxonomic_order": 1508,
+    "aos_code": null
+  },
+  {
+    "species_code": "WESJ",
+    "common_name": "California Scrub-Jay",
+    "scientific_name": "Aphelocoma californica",
+    "genus": "Aphelocoma",
+    "species": "californica",
+    "taxonomic_order": 1511,
+    "aos_code": "CASJ"
+  },
+  {
+    "species_code": "AMCR",
+    "common_name": "American Crow",
+    "scientific_name": "Corvus brachyrhynchos",
+    "genus": "Corvus",
+    "species": "brachyrhynchos",
+    "taxonomic_order": 1521,
+    "aos_code": null
+  },
+  {
+    "species_code": "FICR",
+    "common_name": "Fish Crow",
+    "scientific_name": "Corvus ossifragus",
+    "genus": "Corvus",
+    "species": "ossifragus",
+    "taxonomic_order": 1530,
+    "aos_code": null
+  },
+  {
+    "species_code": "CACH",
+    "common_name": "Carolina Chickadee",
+    "scientific_name": "Poecile carolinensis",
+    "genus": "Poecile",
+    "species": "carolinensis",
+    "taxonomic_order": 1536,
+    "aos_code": null
+  },
+  {
+    "species_code": "BCCH",
+    "common_name": "Black-capped Chickadee",
+    "scientific_name": "Poecile atricapillus",
+    "genus": "Poecile",
+    "species": "atricapillus",
+    "taxonomic_order": 1537,
+    "aos_code": null
+  },
+  {
+    "species_code": "TUTI",
+    "common_name": "Tufted Titmouse",
+    "scientific_name": "Baeolophus bicolor",
+    "genus": "Baeolophus",
+    "species": "bicolor",
+    "taxonomic_order": 1548,
+    "aos_code": null
+  },
+  {
+    "species_code": "RCKI",
+    "common_name": "Ruby-crowned Kinglet",
+    "scientific_name": "Corthylio calendula",
+    "genus": "Corthylio",
+    "species": "calendula",
+    "taxonomic_order": 1607,
+    "aos_code": null
+  },
+  {
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "scientific_name": "Regulus satrapa",
+    "genus": "Regulus",
+    "species": "satrapa",
+    "taxonomic_order": 1608,
+    "aos_code": null
+  },
+  {
+    "species_code": "WBNU",
+    "common_name": "White-breasted Nuthatch",
+    "scientific_name": "Sitta carolinensis",
+    "genus": "Sitta",
+    "species": "carolinensis",
+    "taxonomic_order": 1622,
+    "aos_code": null
+  },
+  {
+    "species_code": "BHNU",
+    "common_name": "Brown-headed Nuthatch",
+    "scientific_name": "Sitta pusilla",
+    "genus": "Sitta",
+    "species": "pusilla",
+    "taxonomic_order": 1624,
+    "aos_code": null
+  },
+  {
+    "species_code": "BRCR",
+    "common_name": "Brown Creeper",
+    "scientific_name": "Certhia americana",
+    "genus": "Certhia",
+    "species": "americana",
+    "taxonomic_order": 1626,
+    "aos_code": null
+  },
+  {
+    "species_code": "CARW",
+    "common_name": "Carolina Wren",
+    "scientific_name": "Thryothorus ludovicianus",
+    "genus": "Thryothorus",
+    "species": "ludovicianus",
+    "taxonomic_order": 1678,
+    "aos_code": null
+  },
+  {
+    "species_code": "GRCA",
+    "common_name": "Gray Catbird",
+    "scientific_name": "Dumetella carolinensis",
+    "genus": "Dumetella",
+    "species": "carolinensis",
+    "taxonomic_order": 1702,
+    "aos_code": null
+  },
+  {
+    "species_code": "BRTH",
+    "common_name": "Brown Thrasher",
+    "scientific_name": "Toxostoma rufum",
+    "genus": "Toxostoma",
+    "species": "rufum",
+    "taxonomic_order": 1712,
+    "aos_code": null
+  },
+  {
+    "species_code": "NOMO",
+    "common_name": "Northern Mockingbird",
+    "scientific_name": "Mimus polyglottos",
+    "genus": "Mimus",
+    "species": "polyglottos",
+    "taxonomic_order": 1724,
+    "aos_code": null
+  },
+  {
+    "species_code": "EABL",
+    "common_name": "Eastern Bluebird",
+    "scientific_name": "Sialia sialis",
+    "genus": "Sialia",
+    "species": "sialis",
+    "taxonomic_order": 1728,
+    "aos_code": null
+  },
+  {
+    "species_code": "HETH",
+    "common_name": "Hermit Thrush",
+    "scientific_name": "Catharus guttatus",
+    "genus": "Catharus",
+    "species": "guttatus",
+    "taxonomic_order": 1757,
+    "aos_code": null
+  },
+  {
+    "species_code": "AMRO",
+    "common_name": "American Robin",
+    "scientific_name": "Turdus migratorius",
+    "genus": "Turdus",
+    "species": "migratorius",
+    "taxonomic_order": 1779,
+    "aos_code": null
+  },
+  {
+    "species_code": "EVGR",
+    "common_name": "Evening Grosbeak",
+    "scientific_name": "Coccothraustes vespertinus",
+    "genus": "Coccothraustes",
+    "species": "vespertinus",
+    "taxonomic_order": 1863,
+    "aos_code": null
+  },
+  {
+    "species_code": "HOFI",
+    "common_name": "House Finch",
+    "scientific_name": "Haemorhous mexicanus",
+    "genus": "Haemorhous",
+    "species": "mexicanus",
+    "taxonomic_order": 1912,
+    "aos_code": null
+  },
+  {
+    "species_code": "CAFI",
+    "common_name": "Cassin's Finch",
+    "scientific_name": "Haemorhous cassinii",
+    "genus": "Haemorhous",
+    "species": "cassinii",
+    "taxonomic_order": 1914,
+    "aos_code": null
+  },
+  {
+    "species_code": "PISI",
+    "common_name": "Pine Siskin",
+    "scientific_name": "Spinus pinus",
+    "genus": "Spinus",
+    "species": "pinus",
+    "taxonomic_order": 1925,
+    "aos_code": null
+  },
+  {
+    "species_code": "AMGO",
+    "common_name": "American Goldfinch",
+    "scientific_name": "Spinus tristis",
+    "genus": "Spinus",
+    "species": "tristis",
+    "taxonomic_order": 1933,
+    "aos_code": "AGOL"
+  },
+  {
+    "species_code": "CHSP",
+    "common_name": "Chipping Sparrow",
+    "scientific_name": "Spizella passerina",
+    "genus": "Spizella",
+    "species": "passerina",
+    "taxonomic_order": 1974,
+    "aos_code": null
+  },
+  {
+    "species_code": "FISP",
+    "common_name": "Field Sparrow",
+    "scientific_name": "Spizella pusilla",
+    "genus": "Spizella",
+    "species": "pusilla",
+    "taxonomic_order": 1977,
+    "aos_code": null
+  },
+  {
+    "species_code": "WCSP",
+    "common_name": "White-crowned Sparrow",
+    "scientific_name": "Zonotrichia leucophrys",
+    "genus": "Zonotrichia",
+    "species": "leucophrys",
+    "taxonomic_order": 2000,
+    "aos_code": null
+  },
+  {
+    "species_code": "WTSP",
+    "common_name": "White-throated Sparrow",
+    "scientific_name": "Zonotrichia albicollis",
+    "genus": "Zonotrichia",
+    "species": "albicollis",
+    "taxonomic_order": 2008,
+    "aos_code": null
+  },
+  {
+    "species_code": "SASP",
+    "common_name": "Savannah Sparrow",
+    "scientific_name": "Passerculus sandwichensis",
+    "genus": "Passerculus",
+    "species": "sandwichensis",
+    "taxonomic_order": 2025,
+    "aos_code": "SAVS"
+  },
+  {
+    "species_code": "SOSP",
+    "common_name": "Song Sparrow",
+    "scientific_name": "Melospiza melodia",
+    "genus": "Melospiza",
+    "species": "melodia",
+    "taxonomic_order": 2030,
+    "aos_code": null
+  },
+  {
+    "species_code": "LISP",
+    "common_name": "Lincoln's Sparrow",
+    "scientific_name": "Melospiza lincolnii",
+    "genus": "Melospiza",
+    "species": "lincolnii",
+    "taxonomic_order": 2031,
+    "aos_code": null
+  },
+  {
+    "species_code": "SWSP",
+    "common_name": "Swamp Sparrow",
+    "scientific_name": "Melospiza georgiana",
+    "genus": "Melospiza",
+    "species": "georgiana",
+    "taxonomic_order": 2032,
+    "aos_code": null
+  },
+  {
+    "species_code": "EATO",
+    "common_name": "Eastern Towhee",
+    "scientific_name": "Pipilo erythrophthalmus",
+    "genus": "Pipilo",
+    "species": "erythrophthalmus",
+    "taxonomic_order": 2050,
+    "aos_code": null
+  },
+  {
+    "species_code": "RWBL",
+    "common_name": "Red-winged Blackbird",
+    "scientific_name": "Agelaius phoeniceus",
+    "genus": "Agelaius",
+    "species": "phoeniceus",
+    "taxonomic_order": 2116,
+    "aos_code": null
+  },
+  {
+    "species_code": "COGR",
+    "common_name": "Common Grackle",
+    "scientific_name": "Quiscalus quiscula",
+    "genus": "Quiscalus",
+    "species": "quiscula",
+    "taxonomic_order": 2129,
+    "aos_code": null
+  },
+  {
+    "species_code": "OVEN",
+    "common_name": "Ovenbird",
+    "scientific_name": "Seiurus aurocapilla",
+    "genus": "Seiurus",
+    "species": "aurocapilla",
+    "taxonomic_order": 2138,
+    "aos_code": null
+  },
+  {
+    "species_code": "WEWA",
+    "common_name": "Worm-eating Warbler",
+    "scientific_name": "Helmitheros vermivorum",
+    "genus": "Helmitheros",
+    "species": "vermivorum",
+    "taxonomic_order": 2139,
+    "aos_code": null
+  },
+  {
+    "species_code": "LOWA",
+    "common_name": "Louisiana Waterthrush",
+    "scientific_name": "Parkesia motacilla",
+    "genus": "Parkesia",
+    "species": "motacilla",
+    "taxonomic_order": 2140,
+    "aos_code": null
+  },
+  {
+    "species_code": "NOWA",
+    "common_name": "Northern Waterthrush",
+    "scientific_name": "Parkesia noveboracensis",
+    "genus": "Parkesia",
+    "species": "noveboracensis",
+    "taxonomic_order": 2141,
+    "aos_code": null
+  },
+  {
+    "species_code": "GWWA",
+    "common_name": "Golden-winged Warbler",
+    "scientific_name": "Vermivora chrysoptera",
+    "genus": "Vermivora",
+    "species": "chrysoptera",
+    "taxonomic_order": 2143,
+    "aos_code": null
+  },
+  {
+    "species_code": "BWWA",
+    "common_name": "Blue-winged Warbler",
+    "scientific_name": "Vermivora cyanoptera",
+    "genus": "Vermivora",
+    "species": "cyanoptera",
+    "taxonomic_order": 2144,
+    "aos_code": null
+  },
+  {
+    "species_code": "BAWW",
+    "common_name": "Black-and-white Warbler",
+    "scientific_name": "Mniotilta varia",
+    "genus": "Mniotilta",
+    "species": "varia",
+    "taxonomic_order": 2148,
+    "aos_code": null
+  },
+  {
+    "species_code": "PROW",
+    "common_name": "Prothonotary Warbler",
+    "scientific_name": "Protonotaria citrea",
+    "genus": "Protonotaria",
+    "species": "citrea",
+    "taxonomic_order": 2149,
+    "aos_code": null
+  },
+  {
+    "species_code": "SWWA",
+    "common_name": "Swainson's Warbler",
+    "scientific_name": "Limnothlypis swainsonii",
+    "genus": "Limnothlypis",
+    "species": "swainsonii",
+    "taxonomic_order": 2150,
+    "aos_code": null
+  },
+  {
+    "species_code": "TEWA",
+    "common_name": "Tennessee Warbler",
+    "scientific_name": "Leiothlypis peregrina",
+    "genus": "Leiothlypis",
+    "species": "peregrina",
+    "taxonomic_order": 2153,
+    "aos_code": null
+  },
+  {
+    "species_code": "OCWA",
+    "common_name": "Orange-crowned Warbler",
+    "scientific_name": "Leiothlypis celata",
+    "genus": "Leiothlypis",
+    "species": "celata",
+    "taxonomic_order": 2154,
+    "aos_code": null
+  },
+  {
+    "species_code": "NAWA",
+    "common_name": "Nashville Warbler",
+    "scientific_name": "Leiothlypis ruficapilla",
+    "genus": "Leiothlypis",
+    "species": "ruficapilla",
+    "taxonomic_order": 2157,
+    "aos_code": null
+  },
+  {
+    "species_code": "CONW",
+    "common_name": "Connecticut Warbler",
+    "scientific_name": "Oporornis agilis",
+    "genus": "Oporornis",
+    "species": "agilis",
+    "taxonomic_order": 2160,
+    "aos_code": null
+  },
+  {
+    "species_code": "MOWA",
+    "common_name": "Mourning Warbler",
+    "scientific_name": "Geothlypis philadelphia",
+    "genus": "Geothlypis",
+    "species": "philadelphia",
+    "taxonomic_order": 2163,
+    "aos_code": null
+  },
+  {
+    "species_code": "KEWA",
+    "common_name": "Kentucky Warbler",
+    "scientific_name": "Geothlypis formosa",
+    "genus": "Geothlypis",
+    "species": "formosa",
+    "taxonomic_order": 2164,
+    "aos_code": null
+  },
+  {
+    "species_code": "COYE",
+    "common_name": "Common Yellowthroat",
+    "scientific_name": "Geothlypis trichas",
+    "genus": "Geothlypis",
+    "species": "trichas",
+    "taxonomic_order": 2170,
+    "aos_code": null
+  },
+  {
+    "species_code": "AMRE",
+    "common_name": "American Redstart",
+    "scientific_name": "Setophaga ruticilla",
+    "genus": "Setophaga",
+    "species": "ruticilla",
+    "taxonomic_order": 2177,
+    "aos_code": null
+  },
+  {
+    "species_code": "CMWA",
+    "common_name": "Cape May Warbler",
+    "scientific_name": "Setophaga tigrina",
+    "genus": "Setophaga",
+    "species": "tigrina",
+    "taxonomic_order": 2179,
+    "aos_code": null
+  },
+  {
+    "species_code": "CEWA",
+    "common_name": "Cerulean Warbler",
+    "scientific_name": "Setophaga cerulea",
+    "genus": "Setophaga",
+    "species": "cerulea",
+    "taxonomic_order": 2180,
+    "aos_code": "CERW"
+  },
+  {
+    "species_code": "NOPA",
+    "common_name": "Northern Parula",
+    "scientific_name": "Setophaga americana",
+    "genus": "Setophaga",
+    "species": "americana",
+    "taxonomic_order": 2181,
+    "aos_code": null
+  },
+  {
+    "species_code": "MAWA",
+    "common_name": "Magnolia Warbler",
+    "scientific_name": "Setophaga magnolia",
+    "genus": "Setophaga",
+    "species": "magnolia",
+    "taxonomic_order": 2184,
+    "aos_code": null
+  },
+  {
+    "species_code": "BBWA",
+    "common_name": "Bay-breasted Warbler",
+    "scientific_name": "Setophaga castanea",
+    "genus": "Setophaga",
+    "species": "castanea",
+    "taxonomic_order": 2185,
+    "aos_code": null
+  },
+  {
+    "species_code": "BLBW",
+    "common_name": "Blackburnian Warbler",
+    "scientific_name": "Setophaga fusca",
+    "genus": "Setophaga",
+    "species": "fusca",
+    "taxonomic_order": 2186,
+    "aos_code": null
+  },
+  {
+    "species_code": "CSWA",
+    "common_name": "Chestnut-sided Warbler",
+    "scientific_name": "Setophaga pensylvanica",
+    "genus": "Setophaga",
+    "species": "pensylvanica",
+    "taxonomic_order": 2189,
+    "aos_code": null
+  },
+  {
+    "species_code": "BLPW",
+    "common_name": "Blackpoll Warbler",
+    "scientific_name": "Setophaga striata",
+    "genus": "Setophaga",
+    "species": "striata",
+    "taxonomic_order": 2190,
+    "aos_code": null
+  },
+  {
+    "species_code": "BTBW",
+    "common_name": "Black-throated Blue Warbler",
+    "scientific_name": "Setophaga caerulescens",
+    "genus": "Setophaga",
+    "species": "caerulescens",
+    "taxonomic_order": 2191,
+    "aos_code": null
+  },
+  {
+    "species_code": "PAWA",
+    "common_name": "Palm Warbler",
+    "scientific_name": "Setophaga palmarum",
+    "genus": "Setophaga",
+    "species": "palmarum",
+    "taxonomic_order": 2192,
+    "aos_code": null
+  },
+  {
+    "species_code": "PIWA",
+    "common_name": "Pine Warbler",
+    "scientific_name": "Setophaga pinus",
+    "genus": "Setophaga",
+    "species": "pinus",
+    "taxonomic_order": 2196,
+    "aos_code": null
+  },
+  {
+    "species_code": "YRWA",
+    "common_name": "Yellow-rumped Warbler",
+    "scientific_name": "Setophaga coronata",
+    "genus": "Setophaga",
+    "species": "coronata",
+    "taxonomic_order": 2197,
+    "aos_code": null
+  },
+  {
+    "species_code": "YTWA",
+    "common_name": "Yellow-throated Warbler",
+    "scientific_name": "Setophaga dominica",
+    "genus": "Setophaga",
+    "species": "dominica",
+    "taxonomic_order": 2200,
+    "aos_code": null
+  },
+  {
+    "species_code": "PRAW",
+    "common_name": "Prairie Warbler",
+    "scientific_name": "Setophaga discolor",
+    "genus": "Setophaga",
+    "species": "discolor",
+    "taxonomic_order": 2203,
+    "aos_code": null
+  },
+  {
+    "species_code": "BTNW",
+    "common_name": "Black-throated Green Warbler",
+    "scientific_name": "Setophaga virens",
+    "genus": "Setophaga",
+    "species": "virens",
+    "taxonomic_order": 2213,
+    "aos_code": null
+  },
+  {
+    "species_code": "CAWA",
+    "common_name": "Canada Warbler",
+    "scientific_name": "Cardellina canadensis",
+    "genus": "Cardellina",
+    "species": "canadensis",
+    "taxonomic_order": 2224,
+    "aos_code": null
+  },
+  {
+    "species_code": "WIWA",
+    "common_name": "Wilson's Warbler",
+    "scientific_name": "Cardellina pusilla",
+    "genus": "Cardellina",
+    "species": "pusilla",
+    "taxonomic_order": 2225,
+    "aos_code": null
+  },
+  {
+    "species_code": "NOCA",
+    "common_name": "Northern Cardinal",
+    "scientific_name": "Cardinalis cardinalis",
+    "genus": "Cardinalis",
+    "species": "cardinalis",
+    "taxonomic_order": 2251,
+    "aos_code": null
+  }
+]
