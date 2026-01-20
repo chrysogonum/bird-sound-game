@@ -13,19 +13,6 @@
     "recordist": "Alex Jones"
   },
   {
-    "clip_id": "ACFL_36b3e2c8",
-    "species_code": "ACFL",
-    "common_name": "Acadian Flycatcher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1036513",
-    "file_path": "data/clips/ACFL_1036513.wav",
-    "spectrogram_path": "data/spectrograms/ACFL_1036513.png",
-    "recordist": "Bobby Wilcox"
-  },
-  {
     "clip_id": "ACFL_6f66c465",
     "species_code": "ACFL",
     "common_name": "Acadian Flycatcher",
@@ -37,19 +24,6 @@
     "file_path": "data/clips/ACFL_1071605.wav",
     "spectrogram_path": "data/spectrograms/ACFL_1071605.png",
     "recordist": "Noah Khanti Steinberg"
-  },
-  {
-    "clip_id": "ACFL_e156bdd2",
-    "species_code": "ACFL",
-    "common_name": "Acadian Flycatcher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC728279",
-    "file_path": "data/clips/ACFL_728279.wav",
-    "spectrogram_path": "data/spectrograms/ACFL_728279.png",
-    "recordist": "David A. Brinkman"
   },
   {
     "clip_id": "ACFL_4f93a708",
