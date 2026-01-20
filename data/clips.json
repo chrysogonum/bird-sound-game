@@ -5024,7 +5024,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC1014027",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SASP_1014027.png",
     "quality_score": 4,
@@ -5104,21 +5104,6 @@
     "spectrogram_path": "data/spectrograms/SASP_1040463.png",
     "quality_score": 4,
     "recordist": "Greg Irving"
-  },
-  {
-    "clip_id": "SASP_1060896",
-    "species_code": "SASP",
-    "common_name": "Savannah Sparrow",
-    "file_path": "data/clips/SASP_1060896.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "source": "xenocanto",
-    "source_id": "XC1060896",
-    "canonical": true,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SASP_1060896.png",
-    "quality_score": 4,
-    "recordist": "Benjamin Drillat"
   },
   {
     "clip_id": "SOSP_1021071",
