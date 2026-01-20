@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link, useSearchParams, useLocation } from 'react-router-dom';
 import { trackPackSelect } from '../utils/analytics';
-import { SCIENTIFIC_NAMES } from '../data/scientificNames';
 
 interface Pack {
   id: string;
@@ -103,6 +102,7 @@ function PackSelect() {
   const [taxonomicSort, setTaxonomicSort] = useState(false);
   const [showNerdAlert, setShowNerdAlert] = useState(false);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
+  const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Load clips data
@@ -137,6 +137,20 @@ function PackSelect() {
         setTaxonomicOrder(data);
       })
       .catch((err) => console.error('Failed to load taxonomic order:', err));
+  }, []);
+
+  // Load scientific names from species.json
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/species.json`)
+      .then((res) => res.json())
+      .then((data: Array<{species_code: string; scientific_name: string}>) => {
+        const sciNames: Record<string, string> = {};
+        data.forEach((sp) => {
+          sciNames[sp.species_code] = sp.scientific_name;
+        });
+        setScientificNames(sciNames);
+      })
+      .catch((err) => console.error('Failed to load scientific names:', err));
   }, []);
 
   // Load pack species from JSON files (single source of truth)
@@ -862,7 +876,7 @@ function PackSelect() {
                           <div style={{ fontSize: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                             {bird.name}
                           </div>
-                          {taxonomicSort && SCIENTIFIC_NAMES[bird.code] && (
+                          {taxonomicSort && scientificNames[bird.code] && (
                             <div style={{
                               fontSize: '11px',
                               fontStyle: 'italic',
@@ -871,7 +885,7 @@ function PackSelect() {
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
                             }}>
-                              {SCIENTIFIC_NAMES[bird.code]}
+                              {scientificNames[bird.code]}
                             </div>
                           )}
                         </div>

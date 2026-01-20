@@ -19,7 +19,7 @@ Size: 128x128 or 256x256 pixels
 
 ---
 
-## Species List (34 total)
+## Species List (35 total)
 
 ### Backyard Birds
 | Code | Name | Prompt |
@@ -33,6 +33,7 @@ Size: 128x128 or 256x256 pixels
 | AMRO | American Robin | Stylized icon of an American Robin, simple flat design, circular frame, gray-brown with orange breast, white background, game asset style, clean vector look, centered composition, no text |
 | EABL | Eastern Bluebird | Stylized icon of an Eastern Bluebird, simple flat design, circular frame, bright blue with rusty breast, white background, game asset style, clean vector look, centered composition, no text |
 | HOFI | House Finch | Stylized icon of a House Finch, simple flat design, circular frame, brown streaked bird with red head, white background, game asset style, clean vector look, centered composition, no text |
+| DEJU | Dark-eyed Junco | Stylized icon of a Dark-eyed Junco, simple flat design, circular frame, dark gray hood and back with white belly and pink bill, white background, game asset style, clean vector look, centered composition, no text |
 | MODO | Mourning Dove | Stylized icon of a Mourning Dove, simple flat design, circular frame, soft gray-brown dove, white background, game asset style, clean vector look, centered composition, no text |
 
 ### Nuthatches & Creepers
@@ -78,7 +79,7 @@ Size: 128x128 or 256x256 pixels
 ---
 
 ## Quick Copy List
-For batch generation, here are all 34 prompts:
+For batch generation, here are all 35 prompts:
 
 ```
 AMCR: Stylized icon of an American Crow, simple flat design, circular frame, all black bird, white background, game asset style, clean vector look, centered composition, no text
@@ -92,6 +93,7 @@ BRTH: Stylized icon of a Brown Thrasher, simple flat design, circular frame, ruf
 CACH: Stylized icon of a Carolina Chickadee, simple flat design, circular frame, small gray bird with black cap and bib, white background, game asset style, clean vector look, centered composition, no text
 CAWR: Stylized icon of a Carolina Wren, simple flat design, circular frame, warm brown bird with white eyebrow, white background, game asset style, clean vector look, centered composition, no text
 CHSP: Stylized icon of a Chipping Sparrow, simple flat design, circular frame, rusty cap gray breast clean sparrow, white background, game asset style, clean vector look, centered composition, no text
+DEJU: Stylized icon of a Dark-eyed Junco, simple flat design, circular frame, dark gray hood and back with white belly and pink bill, white background, game asset style, clean vector look, centered composition, no text
 DOWO: Stylized icon of a Downy Woodpecker, simple flat design, circular frame, small black and white woodpecker, white background, game asset style, clean vector look, centered composition, no text
 EABL: Stylized icon of an Eastern Bluebird, simple flat design, circular frame, bright blue with rusty breast, white background, game asset style, clean vector look, centered composition, no text
 FISP: Stylized icon of a Field Sparrow, simple flat design, circular frame, pink bill plain face rusty cap sparrow, white background, game asset style, clean vector look, centered composition, no text

@@ -33,7 +33,17 @@
       },
       "minItems": 1,
       "uniqueItems": true,
-      "description": "Array of 4-letter species codes"
+      "description": "Array of 4-letter species codes for gameplay rotation"
+    },
+    "display_species": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]{4}$"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "Optional array of species codes for bird reference display (can be larger than gameplay species)"
     },
     "vocalization_weights": {
       "type": "object",
