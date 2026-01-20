@@ -113,6 +113,39 @@ Phases A-N cover: Audio Ingestion → Playback Engine → Input/Scoring → Leve
 - Species correct: +50, Channel correct: +25, Timing perfect: +25 (partial: +10)
 - Maximum per event: +100 points
 
+### Species Data - Single Source of Truth ⚠️ CRITICAL
+
+**docs/IBP-AOS-list25.csv is the SINGLE SOURCE OF TRUTH for all bird species information:**
+
+- 4-letter bird codes (SPEC column)
+- Common names (COMMONNAME column)
+- Scientific names (SCINAME column)
+- Taxonomic ordering (row order = AOS/eBird 2025 taxonomy)
+
+**Generated Files:**
+- `data/species.json` - Full species list with all metadata
+- `data/taxonomic_order.json` - Species code to taxonomic order mapping
+
+**Regenerating from CSV:**
+```bash
+make generate-species-data
+# OR directly:
+python3 scripts/generate_species_data.py
+```
+
+**IMPORTANT:** Never manually edit `species.json` or `taxonomic_order.json`. Always regenerate from the CSV when:
+- Adding new species
+- Updating scientific names
+- Updating common names
+- Taxonomy updates (new AOS checklist)
+
+This ensures consistency across:
+- Game UI (PreRoundPreview, GameplayScreen, etc.)
+- Audio ingestion tools
+- Clip review tools (`data/review-clips.html`)
+- File naming conventions
+- All taxonomic sorting features
+
 ### Spectrogram Requirements ⚠️ CRITICAL
 
 **LOCKED SETTINGS - DO NOT MODIFY:**
