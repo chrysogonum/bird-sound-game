@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
+import { trackTaxonomicSortToggle } from '../utils/analytics';
 
 interface ClipData {
   clip_id: string;
@@ -164,6 +165,7 @@ function PreRoundPreview() {
     setTaxonomicSort(newValue);
     try {
       localStorage.setItem('soundfield_taxonomic_sort', String(newValue));
+      trackTaxonomicSortToggle(newValue, 'preview_screen');
     } catch (e) {
       console.error('Failed to save taxonomic sort:', e);
     }
