@@ -1,8 +1,138 @@
 [
   {
-    "clip_id": "AGOL_1aba4c0e",
+    "clip_id": "ACFL_80e1bd9f",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1025810",
+    "file_path": "data/clips/ACFL_1025810.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_1025810.png",
+    "recordist": "Alex Jones"
+  },
+  {
+    "clip_id": "ACFL_36b3e2c8",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1036513",
+    "file_path": "data/clips/ACFL_1036513.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_1036513.png",
+    "recordist": "Bobby Wilcox"
+  },
+  {
+    "clip_id": "ACFL_6f66c465",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1071605",
+    "file_path": "data/clips/ACFL_1071605.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_1071605.png",
+    "recordist": "Noah Khanti Steinberg"
+  },
+  {
+    "clip_id": "ACFL_e156bdd2",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC728279",
+    "file_path": "data/clips/ACFL_728279.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_728279.png",
+    "recordist": "David A. Brinkman"
+  },
+  {
+    "clip_id": "ACFL_4f93a708",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC772372",
+    "file_path": "data/clips/ACFL_772372.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_772372.png",
+    "recordist": "Paul Driver"
+  },
+  {
+    "clip_id": "ACFL_3e766847",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC772373",
+    "file_path": "data/clips/ACFL_772373.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_772373.png",
+    "recordist": "Paul Driver"
+  },
+  {
+    "clip_id": "ACFL_ce82b519",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC807573",
+    "file_path": "data/clips/ACFL_807573.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_807573.png",
+    "recordist": "David A. Brinkman"
+  },
+  {
+    "clip_id": "ACFL_80217163",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC816040",
+    "file_path": "data/clips/ACFL_816040.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_816040.png",
+    "recordist": "Richard E. Webster"
+  },
+  {
+    "clip_id": "ACFL_7edbc7c7",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC839505",
+    "file_path": "data/clips/ACFL_839505.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_839505.png",
+    "recordist": "Manuel Oudard"
+  },
+  {
+    "clip_id": "ACFL_aa8d9567",
+    "species_code": "ACFL",
+    "common_name": "Acadian Flycatcher",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC924430",
+    "file_path": "data/clips/ACFL_924430.wav",
+    "spectrogram_path": "data/spectrograms/ACFL_924430.png",
+    "recordist": "Oscar Gordo"
+  },
+  {
+    "clip_id": "AGOL_229ae506",
     "species_code": "AGOL",
-    "common_name": "American Goldfinch",
+    "common_name": "Unknown (AGOL)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -13,9 +143,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AGOL_d3185792",
+    "clip_id": "AGOL_d5c9914a",
     "species_code": "AGOL",
-    "common_name": "American Goldfinch",
+    "common_name": "Unknown (AGOL)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -26,9 +156,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AGOL_033703b2",
+    "clip_id": "AGOL_7c103e06",
     "species_code": "AGOL",
-    "common_name": "American Goldfinch",
+    "common_name": "Unknown (AGOL)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -39,9 +169,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AGOL_29d503f9",
+    "clip_id": "AGOL_98188b4c",
     "species_code": "AGOL",
-    "common_name": "American Goldfinch",
+    "common_name": "Unknown (AGOL)",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
@@ -52,9 +182,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AGOL_bc28d3fb",
+    "clip_id": "AGOL_b6b723b8",
     "species_code": "AGOL",
-    "common_name": "American Goldfinch",
+    "common_name": "Unknown (AGOL)",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
@@ -65,9 +195,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AGOL_214f8e93",
+    "clip_id": "AGOL_69697c3e",
     "species_code": "AGOL",
-    "common_name": "American Goldfinch",
+    "common_name": "Unknown (AGOL)",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
@@ -78,9 +208,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AGOL_a411e135",
+    "clip_id": "AGOL_6cdfcf0b",
     "species_code": "AGOL",
-    "common_name": "American Goldfinch",
+    "common_name": "Unknown (AGOL)",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
@@ -91,7 +221,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMCR_1efa5bbb",
+    "clip_id": "AMCR_e2208b21",
     "species_code": "AMCR",
     "common_name": "American Crow",
     "vocalization_type": "song",
@@ -104,7 +234,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMCR_f5266849",
+    "clip_id": "AMCR_7f3a91b1",
     "species_code": "AMCR",
     "common_name": "American Crow",
     "vocalization_type": "song",
@@ -117,9 +247,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRE_0d100c41",
+    "clip_id": "AMRE_293665b4",
     "species_code": "AMRE",
-    "common_name": "American Redstart",
+    "common_name": "Unknown (AMRE)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -130,9 +260,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRE_42088e1a",
+    "clip_id": "AMRE_a6608de8",
     "species_code": "AMRE",
-    "common_name": "American Redstart",
+    "common_name": "Unknown (AMRE)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -143,9 +273,9 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRE_b8803d56",
+    "clip_id": "AMRE_72ac84db",
     "species_code": "AMRE",
-    "common_name": "American Redstart",
+    "common_name": "Unknown (AMRE)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -156,7 +286,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRO_ba8b7d36",
+    "clip_id": "AMRO_08ee3b44",
     "species_code": "AMRO",
     "common_name": "American Robin",
     "vocalization_type": "song",
@@ -169,7 +299,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRO_8fb07eb1",
+    "clip_id": "AMRO_c89258ea",
     "species_code": "AMRO",
     "common_name": "American Robin",
     "vocalization_type": "song",
@@ -182,7 +312,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRO_4f500a93",
+    "clip_id": "AMRO_92f67853",
     "species_code": "AMRO",
     "common_name": "American Robin",
     "vocalization_type": "song",
@@ -195,7 +325,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRO_aed997d3",
+    "clip_id": "AMRO_64807a09",
     "species_code": "AMRO",
     "common_name": "American Robin",
     "vocalization_type": "song",
@@ -208,7 +338,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRO_80134ec9",
+    "clip_id": "AMRO_9e7017ce",
     "species_code": "AMRO",
     "common_name": "American Robin",
     "vocalization_type": "song",
@@ -221,7 +351,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRO_ff6e15ca",
+    "clip_id": "AMRO_4304eb59",
     "species_code": "AMRO",
     "common_name": "American Robin",
     "vocalization_type": "song",
@@ -234,7 +364,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRO_b70af901",
+    "clip_id": "AMRO_103541a1",
     "species_code": "AMRO",
     "common_name": "American Robin",
     "vocalization_type": "song",
@@ -247,7 +377,7 @@
     "recordist": null
   },
   {
-    "clip_id": "AMRO_13d79532",
+    "clip_id": "AMRO_a35b473b",
     "species_code": "AMRO",
     "common_name": "American Robin",
     "vocalization_type": "song",
@@ -260,9 +390,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAOW_3be9e8f2",
+    "clip_id": "BAOW_cfd22794",
     "species_code": "BAOW",
-    "common_name": "Barred Owl",
+    "common_name": "Unknown (BAOW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -273,9 +403,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAOW_d6119065",
+    "clip_id": "BAOW_c7d30b9d",
     "species_code": "BAOW",
-    "common_name": "Barred Owl",
+    "common_name": "Unknown (BAOW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -286,9 +416,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAOW_e2f670fa",
+    "clip_id": "BAOW_f8f5a920",
     "species_code": "BAOW",
-    "common_name": "Barred Owl",
+    "common_name": "Unknown (BAOW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -299,9 +429,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAOW_7ceeaa7a",
+    "clip_id": "BAOW_67b3fcd5",
     "species_code": "BAOW",
-    "common_name": "Barred Owl",
+    "common_name": "Unknown (BAOW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -312,9 +442,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAOW_def1188d",
+    "clip_id": "BAOW_244b4d82",
     "species_code": "BAOW",
-    "common_name": "Barred Owl",
+    "common_name": "Unknown (BAOW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -325,9 +455,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAWW_6b85b890",
+    "clip_id": "BAWW_a7c36fd6",
     "species_code": "BAWW",
-    "common_name": "Black-and-white Warbler",
+    "common_name": "Unknown (BAWW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -338,9 +468,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAWW_546fa2ce",
+    "clip_id": "BAWW_e4eba590",
     "species_code": "BAWW",
-    "common_name": "Black-and-white Warbler",
+    "common_name": "Unknown (BAWW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -351,9 +481,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAWW_1cd2c46b",
+    "clip_id": "BAWW_99e485c0",
     "species_code": "BAWW",
-    "common_name": "Black-and-white Warbler",
+    "common_name": "Unknown (BAWW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -364,9 +494,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAWW_8fa9f303",
+    "clip_id": "BAWW_6f2596e4",
     "species_code": "BAWW",
-    "common_name": "Black-and-white Warbler",
+    "common_name": "Unknown (BAWW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -377,9 +507,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAWW_f4f4832f",
+    "clip_id": "BAWW_af033aa2",
     "species_code": "BAWW",
-    "common_name": "Black-and-white Warbler",
+    "common_name": "Unknown (BAWW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -390,9 +520,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BAWW_922a16ad",
+    "clip_id": "BAWW_0cc17af2",
     "species_code": "BAWW",
-    "common_name": "Black-and-white Warbler",
+    "common_name": "Unknown (BAWW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -403,9 +533,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BBWA_37c61296",
+    "clip_id": "BBWA_083bef52",
     "species_code": "BBWA",
-    "common_name": "Bay-breasted Warbler",
+    "common_name": "Unknown (BBWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -416,9 +546,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BBWA_574334b8",
+    "clip_id": "BBWA_de619c70",
     "species_code": "BBWA",
-    "common_name": "Bay-breasted Warbler",
+    "common_name": "Unknown (BBWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -429,9 +559,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BBWA_b728dcc6",
+    "clip_id": "BBWA_a0600ac2",
     "species_code": "BBWA",
-    "common_name": "Bay-breasted Warbler",
+    "common_name": "Unknown (BBWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -442,59 +572,59 @@
     "recordist": null
   },
   {
-    "clip_id": "BCCH_c242b050",
+    "clip_id": "BCCH_1f1620c6",
     "species_code": "BCCH",
     "common_name": "Black-capped Chickadee",
     "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_011",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "BCCH_cornell_011_1",
     "file_path": "data/clips/BCCH_cornell_011_1.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_1.png",
     "recordist": null
   },
   {
-    "clip_id": "BCCH_4629919a",
+    "clip_id": "BCCH_102b026b",
     "species_code": "BCCH",
     "common_name": "Black-capped Chickadee",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_012",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "BCCH_cornell_012_1",
     "file_path": "data/clips/BCCH_cornell_012_1.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_1.png",
     "recordist": null
   },
   {
-    "clip_id": "BCCH_96c35f7b",
+    "clip_id": "BCCH_a3abd640",
     "species_code": "BCCH",
     "common_name": "Black-capped Chickadee",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_012",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "BCCH_cornell_012_2",
     "file_path": "data/clips/BCCH_cornell_012_2.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_2.png",
     "recordist": null
   },
   {
-    "clip_id": "BCCH_ebae58ba",
+    "clip_id": "BCCH_f366d009",
     "species_code": "BCCH",
     "common_name": "Black-capped Chickadee",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_012",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "BCCH_cornell_012_3",
     "file_path": "data/clips/BCCH_cornell_012_3.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_012_3.png",
     "recordist": null
   },
   {
-    "clip_id": "BEKI_41618e4f",
+    "clip_id": "BEKI_5b6528ee",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
     "vocalization_type": "song",
@@ -507,7 +637,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BEKI_75fc30fb",
+    "clip_id": "BEKI_1535fa3d",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
     "vocalization_type": "song",
@@ -520,7 +650,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BEKI_facf2039",
+    "clip_id": "BEKI_23c104b2",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
     "vocalization_type": "song",
@@ -533,7 +663,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BEKI_4c0457b4",
+    "clip_id": "BEKI_b3c68c02",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
     "vocalization_type": "song",
@@ -546,7 +676,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BEKI_165dca60",
+    "clip_id": "BEKI_dd2ca081",
     "species_code": "BEKI",
     "common_name": "Belted Kingfisher",
     "vocalization_type": "song",
@@ -559,7 +689,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BHNU_095c4866",
+    "clip_id": "BHNU_721381ab",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
     "vocalization_type": "song",
@@ -572,7 +702,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BHNU_6c83fa20",
+    "clip_id": "BHNU_bbd3bfd3",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
     "vocalization_type": "song",
@@ -585,7 +715,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BHNU_4e265cb3",
+    "clip_id": "BHNU_202a044a",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
     "vocalization_type": "song",
@@ -598,7 +728,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BHNU_862bce0d",
+    "clip_id": "BHNU_02357f0d",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
     "vocalization_type": "song",
@@ -611,7 +741,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BHNU_3e1f9edf",
+    "clip_id": "BHNU_49b9eea1",
     "species_code": "BHNU",
     "common_name": "Brown-headed Nuthatch",
     "vocalization_type": "song",
@@ -624,9 +754,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BLBW_23d75d1d",
+    "clip_id": "BLBW_029daa8c",
     "species_code": "BLBW",
-    "common_name": "Blackburnian Warbler",
+    "common_name": "Unknown (BLBW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -637,9 +767,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BLBW_eb0e4e6c",
+    "clip_id": "BLBW_f39873c4",
     "species_code": "BLBW",
-    "common_name": "Blackburnian Warbler",
+    "common_name": "Unknown (BLBW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -650,9 +780,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BLBW_d01976b2",
+    "clip_id": "BLBW_2cbb8123",
     "species_code": "BLBW",
-    "common_name": "Blackburnian Warbler",
+    "common_name": "Unknown (BLBW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -663,7 +793,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BLJA_ca8ca690",
+    "clip_id": "BLJA_6a15d880",
     "species_code": "BLJA",
     "common_name": "Blue Jay",
     "vocalization_type": "song",
@@ -676,7 +806,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BLJA_4d34d2a5",
+    "clip_id": "BLJA_72dae65d",
     "species_code": "BLJA",
     "common_name": "Blue Jay",
     "vocalization_type": "song",
@@ -689,7 +819,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BLJA_8cd292a3",
+    "clip_id": "BLJA_331a00b4",
     "species_code": "BLJA",
     "common_name": "Blue Jay",
     "vocalization_type": "song",
@@ -702,7 +832,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BLJA_3c373d50",
+    "clip_id": "BLJA_1c24aa6d",
     "species_code": "BLJA",
     "common_name": "Blue Jay",
     "vocalization_type": "song",
@@ -715,9 +845,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BLPW_325cbc61",
+    "clip_id": "BLPW_0978805e",
     "species_code": "BLPW",
-    "common_name": "Blackpoll Warbler",
+    "common_name": "Unknown (BLPW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -728,9 +858,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BLPW_c116e28a",
+    "clip_id": "BLPW_0a4ac12a",
     "species_code": "BLPW",
-    "common_name": "Blackpoll Warbler",
+    "common_name": "Unknown (BLPW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -741,9 +871,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BLPW_d981d6a5",
+    "clip_id": "BLPW_11c99723",
     "species_code": "BLPW",
-    "common_name": "Blackpoll Warbler",
+    "common_name": "Unknown (BLPW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -754,7 +884,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRCR_5cb06558",
+    "clip_id": "BRCR_25967ceb",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
     "vocalization_type": "song",
@@ -767,7 +897,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRCR_3aff5ca9",
+    "clip_id": "BRCR_c1e4f872",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
     "vocalization_type": "song",
@@ -780,7 +910,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRCR_f9b3d9f4",
+    "clip_id": "BRCR_27b5c28d",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
     "vocalization_type": "song",
@@ -793,7 +923,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRCR_a76dad22",
+    "clip_id": "BRCR_9093a40d",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
     "vocalization_type": "song",
@@ -806,7 +936,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRCR_e08e31d9",
+    "clip_id": "BRCR_ed9fa117",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
     "vocalization_type": "song",
@@ -819,7 +949,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRTH_172893dc",
+    "clip_id": "BRTH_bcdf3683",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
     "vocalization_type": "song",
@@ -832,7 +962,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRTH_6bfc1808",
+    "clip_id": "BRTH_016b47bf",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
     "vocalization_type": "song",
@@ -845,7 +975,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRTH_3008d86c",
+    "clip_id": "BRTH_562fd25c",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
     "vocalization_type": "song",
@@ -858,7 +988,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRTH_805fcc4b",
+    "clip_id": "BRTH_d7df3c93",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
     "vocalization_type": "song",
@@ -871,7 +1001,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRTH_95271e63",
+    "clip_id": "BRTH_2d5fb165",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
     "vocalization_type": "song",
@@ -884,7 +1014,7 @@
     "recordist": null
   },
   {
-    "clip_id": "BRTH_e5e26cbe",
+    "clip_id": "BRTH_d0086c7d",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
     "vocalization_type": "song",
@@ -897,9 +1027,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTBW_85299b6a",
+    "clip_id": "BTBW_eb82fbe3",
     "species_code": "BTBW",
-    "common_name": "Black-throated Blue Warbler",
+    "common_name": "Unknown (BTBW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -910,9 +1040,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTBW_df9cf6d4",
+    "clip_id": "BTBW_7df143ec",
     "species_code": "BTBW",
-    "common_name": "Black-throated Blue Warbler",
+    "common_name": "Unknown (BTBW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -923,9 +1053,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTBW_b74d5b3c",
+    "clip_id": "BTBW_25c8a4ff",
     "species_code": "BTBW",
-    "common_name": "Black-throated Blue Warbler",
+    "common_name": "Unknown (BTBW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -936,9 +1066,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTBW_963b3090",
+    "clip_id": "BTBW_077265ad",
     "species_code": "BTBW",
-    "common_name": "Black-throated Blue Warbler",
+    "common_name": "Unknown (BTBW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -949,9 +1079,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTNW_fb5725b9",
+    "clip_id": "BTNW_c78bb12f",
     "species_code": "BTNW",
-    "common_name": "Black-throated Green Warbler",
+    "common_name": "Unknown (BTNW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -962,9 +1092,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTNW_5ccce204",
+    "clip_id": "BTNW_e16b6db7",
     "species_code": "BTNW",
-    "common_name": "Black-throated Green Warbler",
+    "common_name": "Unknown (BTNW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -975,9 +1105,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTNW_6976a017",
+    "clip_id": "BTNW_92a267e9",
     "species_code": "BTNW",
-    "common_name": "Black-throated Green Warbler",
+    "common_name": "Unknown (BTNW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -988,9 +1118,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTNW_bbbbc4c2",
+    "clip_id": "BTNW_c5173907",
     "species_code": "BTNW",
-    "common_name": "Black-throated Green Warbler",
+    "common_name": "Unknown (BTNW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1001,9 +1131,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTNW_038c92da",
+    "clip_id": "BTNW_fd5cd4e2",
     "species_code": "BTNW",
-    "common_name": "Black-throated Green Warbler",
+    "common_name": "Unknown (BTNW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1014,9 +1144,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTNW_9274d819",
+    "clip_id": "BTNW_3b6fb38a",
     "species_code": "BTNW",
-    "common_name": "Black-throated Green Warbler",
+    "common_name": "Unknown (BTNW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1027,9 +1157,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BTNW_4d8b6cbd",
+    "clip_id": "BTNW_1ea0eaa4",
     "species_code": "BTNW",
-    "common_name": "Black-throated Green Warbler",
+    "common_name": "Unknown (BTNW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1040,9 +1170,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BWWA_235c7d7a",
+    "clip_id": "BWWA_283fdc39",
     "species_code": "BWWA",
-    "common_name": "Blue-winged Warbler",
+    "common_name": "Unknown (BWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1053,9 +1183,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BWWA_2fbd87d3",
+    "clip_id": "BWWA_f9390a8b",
     "species_code": "BWWA",
-    "common_name": "Blue-winged Warbler",
+    "common_name": "Unknown (BWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1066,9 +1196,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BWWA_3a4a59c5",
+    "clip_id": "BWWA_57adeb56",
     "species_code": "BWWA",
-    "common_name": "Blue-winged Warbler",
+    "common_name": "Unknown (BWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1079,9 +1209,9 @@
     "recordist": null
   },
   {
-    "clip_id": "BWWA_f0b293eb",
+    "clip_id": "BWWA_c6ccfb7c",
     "species_code": "BWWA",
-    "common_name": "Blue-winged Warbler",
+    "common_name": "Unknown (BWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1092,7 +1222,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CACH_397add31",
+    "clip_id": "CACH_4e018400",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
     "vocalization_type": "song",
@@ -1105,7 +1235,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CACH_5c8da428",
+    "clip_id": "CACH_75c7a5ee",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
     "vocalization_type": "song",
@@ -1118,7 +1248,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CACH_aca214b6",
+    "clip_id": "CACH_ae85ad6f",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
     "vocalization_type": "song",
@@ -1131,7 +1261,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CACH_d03ccb4b",
+    "clip_id": "CACH_31be7f6f",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
     "vocalization_type": "song",
@@ -1144,7 +1274,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CACH_0e4ee255",
+    "clip_id": "CACH_190fbd6f",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
     "vocalization_type": "song",
@@ -1157,7 +1287,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CAFI_b66a78c9",
+    "clip_id": "CAFI_0df81e13",
     "species_code": "CAFI",
     "common_name": "Cassin's Finch",
     "vocalization_type": "song",
@@ -1170,7 +1300,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CAFI_1f3db4cd",
+    "clip_id": "CAFI_db8049cb",
     "species_code": "CAFI",
     "common_name": "Cassin's Finch",
     "vocalization_type": "song",
@@ -1183,7 +1313,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CAFI_9bfed3a7",
+    "clip_id": "CAFI_e98e2a89",
     "species_code": "CAFI",
     "common_name": "Cassin's Finch",
     "vocalization_type": "song",
@@ -1196,7 +1326,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CAFI_a8884362",
+    "clip_id": "CAFI_9e5461e9",
     "species_code": "CAFI",
     "common_name": "Cassin's Finch",
     "vocalization_type": "song",
@@ -1209,7 +1339,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CARW_8bec68a0",
+    "clip_id": "CARW_b1f87e9c",
     "species_code": "CARW",
     "common_name": "Carolina Wren",
     "vocalization_type": "song",
@@ -1222,7 +1352,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CARW_2fb517c6",
+    "clip_id": "CARW_4ed44038",
     "species_code": "CARW",
     "common_name": "Carolina Wren",
     "vocalization_type": "song",
@@ -1235,7 +1365,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CARW_676ab9ce",
+    "clip_id": "CARW_0350b42d",
     "species_code": "CARW",
     "common_name": "Carolina Wren",
     "vocalization_type": "song",
@@ -1248,7 +1378,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CARW_06838853",
+    "clip_id": "CARW_4b015350",
     "species_code": "CARW",
     "common_name": "Carolina Wren",
     "vocalization_type": "song",
@@ -1261,9 +1391,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CASJ_8921243d",
+    "clip_id": "CASJ_2ab9f9a4",
     "species_code": "CASJ",
-    "common_name": "California Scrub-Jay",
+    "common_name": "Unknown (CASJ)",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
@@ -1274,9 +1404,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CASJ_d006be6c",
+    "clip_id": "CASJ_1427a261",
     "species_code": "CASJ",
-    "common_name": "California Scrub-Jay",
+    "common_name": "Unknown (CASJ)",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
@@ -1287,9 +1417,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CASJ_3ec4acfb",
+    "clip_id": "CASJ_c7802d92",
     "species_code": "CASJ",
-    "common_name": "California Scrub-Jay",
+    "common_name": "Unknown (CASJ)",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
@@ -1300,9 +1430,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CAWA_ceba520c",
+    "clip_id": "CAWA_34da3dad",
     "species_code": "CAWA",
-    "common_name": "Canada Warbler",
+    "common_name": "Unknown (CAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1313,9 +1443,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CAWA_7b4c7a9a",
+    "clip_id": "CAWA_972ff61b",
     "species_code": "CAWA",
-    "common_name": "Canada Warbler",
+    "common_name": "Unknown (CAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1326,9 +1456,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CAWA_45c035d0",
+    "clip_id": "CAWA_67f96d07",
     "species_code": "CAWA",
-    "common_name": "Canada Warbler",
+    "common_name": "Unknown (CAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1339,9 +1469,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CAWA_b6a29d3a",
+    "clip_id": "CAWA_dd8c3b47",
     "species_code": "CAWA",
-    "common_name": "Canada Warbler",
+    "common_name": "Unknown (CAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1352,9 +1482,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CEDW_7a03fcbc",
+    "clip_id": "CEDW_695793ef",
     "species_code": "CEDW",
-    "common_name": "Cedar Waxwing",
+    "common_name": "Unknown (CEDW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1365,9 +1495,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CEDW_61ddd34f",
+    "clip_id": "CEDW_0ef52a4a",
     "species_code": "CEDW",
-    "common_name": "Cedar Waxwing",
+    "common_name": "Unknown (CEDW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1378,9 +1508,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CEDW_1b36abbc",
+    "clip_id": "CEDW_a2d3b380",
     "species_code": "CEDW",
-    "common_name": "Cedar Waxwing",
+    "common_name": "Unknown (CEDW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1391,9 +1521,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CEDW_14c852fd",
+    "clip_id": "CEDW_81623196",
     "species_code": "CEDW",
-    "common_name": "Cedar Waxwing",
+    "common_name": "Unknown (CEDW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1404,9 +1534,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CEDW_de878382",
+    "clip_id": "CEDW_ee0466e0",
     "species_code": "CEDW",
-    "common_name": "Cedar Waxwing",
+    "common_name": "Unknown (CEDW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1417,9 +1547,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CEDW_d015f0d0",
+    "clip_id": "CEDW_50c14952",
     "species_code": "CEDW",
-    "common_name": "Cedar Waxwing",
+    "common_name": "Unknown (CEDW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1430,7 +1560,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CHSP_bbd11430",
+    "clip_id": "CHSP_f54ee7a8",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
     "vocalization_type": "song",
@@ -1443,7 +1573,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CHSP_4ca31916",
+    "clip_id": "CHSP_654a16e3",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
     "vocalization_type": "song",
@@ -1456,7 +1586,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CHSP_63ef87d7",
+    "clip_id": "CHSP_a4a6f476",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
     "vocalization_type": "song",
@@ -1469,7 +1599,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CHSP_ddb8bda2",
+    "clip_id": "CHSP_b98bd2f5",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
     "vocalization_type": "song",
@@ -1482,7 +1612,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CHSP_f3c83fcb",
+    "clip_id": "CHSP_83b48b51",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
     "vocalization_type": "song",
@@ -1495,7 +1625,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CHSP_0a276fd9",
+    "clip_id": "CHSP_8f993213",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
     "vocalization_type": "song",
@@ -1508,7 +1638,7 @@
     "recordist": null
   },
   {
-    "clip_id": "CHSP_090f25c4",
+    "clip_id": "CHSP_8a8ebe32",
     "species_code": "CHSP",
     "common_name": "Chipping Sparrow",
     "vocalization_type": "song",
@@ -1521,9 +1651,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CMWA_f7a09393",
+    "clip_id": "CMWA_94c035e4",
     "species_code": "CMWA",
-    "common_name": "Cape May Warbler",
+    "common_name": "Unknown (CMWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1534,9 +1664,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CMWA_3ffbedf0",
+    "clip_id": "CMWA_b718f636",
     "species_code": "CMWA",
-    "common_name": "Cape May Warbler",
+    "common_name": "Unknown (CMWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1547,9 +1677,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COGR_6de3aa22",
+    "clip_id": "COGR_6003a2a1",
     "species_code": "COGR",
-    "common_name": "Common Grackle",
+    "common_name": "Unknown (COGR)",
     "vocalization_type": "song",
     "duration_ms": 2413,
     "quality_score": 4,
@@ -1560,9 +1690,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COGR_a55ca19d",
+    "clip_id": "COGR_198fb276",
     "species_code": "COGR",
-    "common_name": "Common Grackle",
+    "common_name": "Unknown (COGR)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1573,9 +1703,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COGR_5aab99db",
+    "clip_id": "COGR_0b8cc0b5",
     "species_code": "COGR",
-    "common_name": "Common Grackle",
+    "common_name": "Unknown (COGR)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1586,9 +1716,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COGR_29a53f3e",
+    "clip_id": "COGR_a36aa4ed",
     "species_code": "COGR",
-    "common_name": "Common Grackle",
+    "common_name": "Unknown (COGR)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1599,9 +1729,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COHA_5ec4c45b",
+    "clip_id": "COHA_03673d56",
     "species_code": "COHA",
-    "common_name": "Cooper's Hawk",
+    "common_name": "Unknown (COHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1612,9 +1742,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COHA_933c4b4e",
+    "clip_id": "COHA_dee92334",
     "species_code": "COHA",
-    "common_name": "Cooper's Hawk",
+    "common_name": "Unknown (COHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1625,9 +1755,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COHA_67a695bc",
+    "clip_id": "COHA_cd1a9641",
     "species_code": "COHA",
-    "common_name": "Cooper's Hawk",
+    "common_name": "Unknown (COHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1638,9 +1768,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COHA_310ab3c8",
+    "clip_id": "COHA_837063eb",
     "species_code": "COHA",
-    "common_name": "Cooper's Hawk",
+    "common_name": "Unknown (COHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1651,9 +1781,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COHA_e330d8df",
+    "clip_id": "COHA_f358c9f4",
     "species_code": "COHA",
-    "common_name": "Cooper's Hawk",
+    "common_name": "Unknown (COHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1664,9 +1794,9 @@
     "recordist": null
   },
   {
-    "clip_id": "COHA_b34f2ab7",
+    "clip_id": "COHA_b49e211a",
     "species_code": "COHA",
-    "common_name": "Cooper's Hawk",
+    "common_name": "Unknown (COHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1677,9 +1807,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CONW_ab87f3f2",
+    "clip_id": "CONW_cfecf0ac",
     "species_code": "CONW",
-    "common_name": "Connecticut Warbler",
+    "common_name": "Unknown (CONW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1690,9 +1820,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CONW_7d03cfef",
+    "clip_id": "CONW_732ed356",
     "species_code": "CONW",
-    "common_name": "Connecticut Warbler",
+    "common_name": "Unknown (CONW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1703,9 +1833,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CONW_5dba11ce",
+    "clip_id": "CONW_81501cb4",
     "species_code": "CONW",
-    "common_name": "Connecticut Warbler",
+    "common_name": "Unknown (CONW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1716,7 +1846,7 @@
     "recordist": null
   },
   {
-    "clip_id": "COYE_7d57e52e",
+    "clip_id": "COYE_b9cebfa9",
     "species_code": "COYE",
     "common_name": "Common Yellowthroat",
     "vocalization_type": "song",
@@ -1729,7 +1859,7 @@
     "recordist": null
   },
   {
-    "clip_id": "COYE_cc4704a4",
+    "clip_id": "COYE_e2baa6ab",
     "species_code": "COYE",
     "common_name": "Common Yellowthroat",
     "vocalization_type": "song",
@@ -1742,7 +1872,7 @@
     "recordist": null
   },
   {
-    "clip_id": "COYE_0d6778f9",
+    "clip_id": "COYE_15a1a094",
     "species_code": "COYE",
     "common_name": "Common Yellowthroat",
     "vocalization_type": "song",
@@ -1755,9 +1885,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CSWA_ebb949f2",
+    "clip_id": "CSWA_f215bb3a",
     "species_code": "CSWA",
-    "common_name": "Chestnut-sided Warbler",
+    "common_name": "Unknown (CSWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1768,9 +1898,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CSWA_e32659a3",
+    "clip_id": "CSWA_c9870703",
     "species_code": "CSWA",
-    "common_name": "Chestnut-sided Warbler",
+    "common_name": "Unknown (CSWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1781,9 +1911,9 @@
     "recordist": null
   },
   {
-    "clip_id": "CSWA_e657ecfa",
+    "clip_id": "CSWA_d8ad6714",
     "species_code": "CSWA",
-    "common_name": "Chestnut-sided Warbler",
+    "common_name": "Unknown (CSWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1794,9 +1924,9 @@
     "recordist": null
   },
   {
-    "clip_id": "DEJU_20891525",
+    "clip_id": "DEJU_f04ee91b",
     "species_code": "DEJU",
-    "common_name": "Dark-eyed Junco",
+    "common_name": "Unknown (DEJU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1807,10 +1937,10 @@
     "recordist": null
   },
   {
-    "clip_id": "DEJU_aa78c377",
+    "clip_id": "DEJU_c0035fe1",
     "species_code": "DEJU",
-    "common_name": "Dark-eyed Junco",
-    "vocalization_type": "call",
+    "common_name": "Unknown (DEJU)",
+    "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
     "source": "xenocanto",
@@ -1820,9 +1950,9 @@
     "recordist": null
   },
   {
-    "clip_id": "DEJU_37ba5e4b",
+    "clip_id": "DEJU_4b379c63",
     "species_code": "DEJU",
-    "common_name": "Dark-eyed Junco",
+    "common_name": "Unknown (DEJU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1833,9 +1963,9 @@
     "recordist": null
   },
   {
-    "clip_id": "DEJU_4aaec24e",
+    "clip_id": "DEJU_25cbf5f8",
     "species_code": "DEJU",
-    "common_name": "Dark-eyed Junco",
+    "common_name": "Unknown (DEJU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1843,13 +1973,12 @@
     "source_id": "DEJU_1046357",
     "file_path": "data/clips/DEJU_1046357.wav",
     "spectrogram_path": "data/spectrograms/DEJU_1046357.png",
-    "recordist": null,
-    "canonical": true
+    "recordist": null
   },
   {
-    "clip_id": "DEJU_1cff3978",
+    "clip_id": "DEJU_6d31e0df",
     "species_code": "DEJU",
-    "common_name": "Dark-eyed Junco",
+    "common_name": "Unknown (DEJU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -1860,7 +1989,7 @@
     "recordist": null
   },
   {
-    "clip_id": "DOWO_3fd18162",
+    "clip_id": "DOWO_862547b9",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
     "vocalization_type": "song",
@@ -1873,7 +2002,7 @@
     "recordist": null
   },
   {
-    "clip_id": "DOWO_462ea5df",
+    "clip_id": "DOWO_8dde860a",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
     "vocalization_type": "song",
@@ -1886,46 +2015,46 @@
     "recordist": null
   },
   {
-    "clip_id": "DOWO_da307d76",
+    "clip_id": "DOWO_f8ce0634",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_003",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "DOWO_cornell_003_1",
     "file_path": "data/clips/DOWO_cornell_003_1.wav",
     "spectrogram_path": "data/spectrograms/DOWO_cornell_003_1.png",
     "recordist": null
   },
   {
-    "clip_id": "DOWO_048309c8",
+    "clip_id": "DOWO_835d877b",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_003",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "DOWO_cornell_003_2",
     "file_path": "data/clips/DOWO_cornell_003_2.wav",
     "spectrogram_path": "data/spectrograms/DOWO_cornell_003_2.png",
     "recordist": null
   },
   {
-    "clip_id": "DOWO_2c502d88",
+    "clip_id": "DOWO_df297daf",
     "species_code": "DOWO",
     "common_name": "Downy Woodpecker",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_004",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "DOWO_cornell_004_1",
     "file_path": "data/clips/DOWO_cornell_004_1.wav",
     "spectrogram_path": "data/spectrograms/DOWO_cornell_004_1.png",
     "recordist": null
   },
   {
-    "clip_id": "EABL_780c24d6",
+    "clip_id": "EABL_c73b7746",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
     "vocalization_type": "song",
@@ -1938,7 +2067,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EABL_14f8bc7e",
+    "clip_id": "EABL_cb90d4cb",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
     "vocalization_type": "song",
@@ -1951,7 +2080,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EABL_15a98b3f",
+    "clip_id": "EABL_c8206305",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
     "vocalization_type": "song",
@@ -1964,7 +2093,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EABL_69773265",
+    "clip_id": "EABL_9a118efc",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
     "vocalization_type": "song",
@@ -1977,7 +2106,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EABL_733c1027",
+    "clip_id": "EABL_a2ac585c",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
     "vocalization_type": "song",
@@ -1990,7 +2119,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EABL_c73bebda",
+    "clip_id": "EABL_02c38a74",
     "species_code": "EABL",
     "common_name": "Eastern Bluebird",
     "vocalization_type": "song",
@@ -2003,7 +2132,137 @@
     "recordist": null
   },
   {
-    "clip_id": "EATO_b7bf50fd",
+    "clip_id": "EAPH_b14aeb08",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1012507",
+    "file_path": "data/clips/EAPH_1012507.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_1012507.png",
+    "recordist": "Stanislas Wroza"
+  },
+  {
+    "clip_id": "EAPH_880a91dc",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC682550",
+    "file_path": "data/clips/EAPH_682550.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_682550.png",
+    "recordist": "Barry Edmonston"
+  },
+  {
+    "clip_id": "EAPH_e3b9c1da",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC713589",
+    "file_path": "data/clips/EAPH_713589.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_713589.png",
+    "recordist": "David A. Brinkman"
+  },
+  {
+    "clip_id": "EAPH_c4d2ee3c",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC713591",
+    "file_path": "data/clips/EAPH_713591.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_713591.png",
+    "recordist": "David A. Brinkman"
+  },
+  {
+    "clip_id": "EAPH_17ebdbd3",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC801725",
+    "file_path": "data/clips/EAPH_801725.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_801725.png",
+    "recordist": "Peter Ward"
+  },
+  {
+    "clip_id": "EAPH_81c844f5",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC813069",
+    "file_path": "data/clips/EAPH_813069.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_813069.png",
+    "recordist": "Andrew Sonea"
+  },
+  {
+    "clip_id": "EAPH_311bc9f5",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC839500",
+    "file_path": "data/clips/EAPH_839500.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_839500.png",
+    "recordist": "Manuel Oudard"
+  },
+  {
+    "clip_id": "EAPH_238bb1ed",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC893395",
+    "file_path": "data/clips/EAPH_893395.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_893395.png",
+    "recordist": "Paul Driver"
+  },
+  {
+    "clip_id": "EAPH_99e22644",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC922957",
+    "file_path": "data/clips/EAPH_922957.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_922957.png",
+    "recordist": "Dany Sloan"
+  },
+  {
+    "clip_id": "EAPH_00f0937f",
+    "species_code": "EAPH",
+    "common_name": "Eastern Phoebe",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC961961",
+    "file_path": "data/clips/EAPH_961961.wav",
+    "spectrogram_path": "data/spectrograms/EAPH_961961.png",
+    "recordist": "A Richardson"
+  },
+  {
+    "clip_id": "EATO_465cdd29",
     "species_code": "EATO",
     "common_name": "Eastern Towhee",
     "vocalization_type": "song",
@@ -2016,7 +2275,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EATO_8da77831",
+    "clip_id": "EATO_672abf90",
     "species_code": "EATO",
     "common_name": "Eastern Towhee",
     "vocalization_type": "song",
@@ -2029,7 +2288,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EATO_de0e92f1",
+    "clip_id": "EATO_f04ab10d",
     "species_code": "EATO",
     "common_name": "Eastern Towhee",
     "vocalization_type": "song",
@@ -2042,7 +2301,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EATO_397280aa",
+    "clip_id": "EATO_b5314a82",
     "species_code": "EATO",
     "common_name": "Eastern Towhee",
     "vocalization_type": "song",
@@ -2055,7 +2314,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EATO_24926aeb",
+    "clip_id": "EATO_00840654",
     "species_code": "EATO",
     "common_name": "Eastern Towhee",
     "vocalization_type": "song",
@@ -2068,7 +2327,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EVGR_6a6ab63b",
+    "clip_id": "EVGR_75e1b942",
     "species_code": "EVGR",
     "common_name": "Evening Grosbeak",
     "vocalization_type": "song",
@@ -2081,7 +2340,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EVGR_f658eeaa",
+    "clip_id": "EVGR_68533f20",
     "species_code": "EVGR",
     "common_name": "Evening Grosbeak",
     "vocalization_type": "song",
@@ -2094,7 +2353,7 @@
     "recordist": null
   },
   {
-    "clip_id": "EVGR_3cc997bc",
+    "clip_id": "EVGR_8eb02265",
     "species_code": "EVGR",
     "common_name": "Evening Grosbeak",
     "vocalization_type": "song",
@@ -2107,9 +2366,9 @@
     "recordist": null
   },
   {
-    "clip_id": "FICR_d6ebc7a6",
+    "clip_id": "FICR_652fa7cb",
     "species_code": "FICR",
-    "common_name": "Fish Crow",
+    "common_name": "Unknown (FICR)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2120,9 +2379,9 @@
     "recordist": null
   },
   {
-    "clip_id": "FICR_ddff7fab",
+    "clip_id": "FICR_93124b17",
     "species_code": "FICR",
-    "common_name": "Fish Crow",
+    "common_name": "Unknown (FICR)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2133,9 +2392,9 @@
     "recordist": null
   },
   {
-    "clip_id": "FICR_badb3388",
+    "clip_id": "FICR_debb425c",
     "species_code": "FICR",
-    "common_name": "Fish Crow",
+    "common_name": "Unknown (FICR)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2146,9 +2405,9 @@
     "recordist": null
   },
   {
-    "clip_id": "FICR_b202c2bd",
+    "clip_id": "FICR_f5a7c587",
     "species_code": "FICR",
-    "common_name": "Fish Crow",
+    "common_name": "Unknown (FICR)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2159,9 +2418,9 @@
     "recordist": null
   },
   {
-    "clip_id": "FICR_92ab9498",
+    "clip_id": "FICR_69f02423",
     "species_code": "FICR",
-    "common_name": "Fish Crow",
+    "common_name": "Unknown (FICR)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2172,7 +2431,7 @@
     "recordist": null
   },
   {
-    "clip_id": "FISP_53f0dd2c",
+    "clip_id": "FISP_367bbeaf",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
     "vocalization_type": "song",
@@ -2185,7 +2444,7 @@
     "recordist": null
   },
   {
-    "clip_id": "FISP_81089c32",
+    "clip_id": "FISP_2cc46c8b",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
     "vocalization_type": "song",
@@ -2198,7 +2457,7 @@
     "recordist": null
   },
   {
-    "clip_id": "FISP_8db8c9b0",
+    "clip_id": "FISP_ef2d7a23",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
     "vocalization_type": "song",
@@ -2211,7 +2470,7 @@
     "recordist": null
   },
   {
-    "clip_id": "FISP_0fc008f1",
+    "clip_id": "FISP_0e9caa09",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
     "vocalization_type": "song",
@@ -2224,7 +2483,7 @@
     "recordist": null
   },
   {
-    "clip_id": "FISP_6c9398ea",
+    "clip_id": "FISP_7f35e1ea",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
     "vocalization_type": "song",
@@ -2237,9 +2496,139 @@
     "recordist": null
   },
   {
-    "clip_id": "GCKI_1111056a",
+    "clip_id": "GCFL_4997f1e3",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1012533",
+    "file_path": "data/clips/GCFL_1012533.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_1012533.png",
+    "recordist": "Stanislas Wroza"
+  },
+  {
+    "clip_id": "GCFL_3a292a4c",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1012534",
+    "file_path": "data/clips/GCFL_1012534.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_1012534.png",
+    "recordist": "Stanislas Wroza"
+  },
+  {
+    "clip_id": "GCFL_06322d7a",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1012536",
+    "file_path": "data/clips/GCFL_1012536.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_1012536.png",
+    "recordist": "Stanislas Wroza"
+  },
+  {
+    "clip_id": "GCFL_d720b692",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC1036375",
+    "file_path": "data/clips/GCFL_1036375.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_1036375.png",
+    "recordist": "Bobby Wilcox"
+  },
+  {
+    "clip_id": "GCFL_7f003c92",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC840737",
+    "file_path": "data/clips/GCFL_840737.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_840737.png",
+    "recordist": "Manuel Oudard"
+  },
+  {
+    "clip_id": "GCFL_7f263bd0",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC840738",
+    "file_path": "data/clips/GCFL_840738.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_840738.png",
+    "recordist": "Manuel Oudard"
+  },
+  {
+    "clip_id": "GCFL_5bc8f1a0",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC844235",
+    "file_path": "data/clips/GCFL_844235.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_844235.png",
+    "recordist": "Sue Riffe"
+  },
+  {
+    "clip_id": "GCFL_2252034e",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC916955",
+    "file_path": "data/clips/GCFL_916955.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_916955.png",
+    "recordist": "Denis Provencher"
+  },
+  {
+    "clip_id": "GCFL_762d7bf9",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC916957",
+    "file_path": "data/clips/GCFL_916957.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_916957.png",
+    "recordist": "Denis Provencher"
+  },
+  {
+    "clip_id": "GCFL_aa8a160c",
+    "species_code": "GCFL",
+    "common_name": "Great Crested Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC924423",
+    "file_path": "data/clips/GCFL_924423.wav",
+    "spectrogram_path": "data/spectrograms/GCFL_924423.png",
+    "recordist": "Oscar Gordo"
+  },
+  {
+    "clip_id": "GCKI_f6521ac6",
     "species_code": "GCKI",
-    "common_name": "Golden-crowned Kinglet",
+    "common_name": "Unknown (GCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2250,9 +2639,9 @@
     "recordist": null
   },
   {
-    "clip_id": "GCKI_48884bc4",
+    "clip_id": "GCKI_0ecb2059",
     "species_code": "GCKI",
-    "common_name": "Golden-crowned Kinglet",
+    "common_name": "Unknown (GCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2263,9 +2652,9 @@
     "recordist": null
   },
   {
-    "clip_id": "GCKI_49eafe65",
+    "clip_id": "GCKI_e5fd25b7",
     "species_code": "GCKI",
-    "common_name": "Golden-crowned Kinglet",
+    "common_name": "Unknown (GCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2276,9 +2665,9 @@
     "recordist": null
   },
   {
-    "clip_id": "GCKI_0b10032b",
+    "clip_id": "GCKI_68785d05",
     "species_code": "GCKI",
-    "common_name": "Golden-crowned Kinglet",
+    "common_name": "Unknown (GCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2289,7 +2678,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_3013e67f",
+    "clip_id": "GRCA_6da59577",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2302,7 +2691,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_baf9d0cd",
+    "clip_id": "GRCA_e48db981",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2315,7 +2704,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_43d68e8b",
+    "clip_id": "GRCA_e456664f",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2328,7 +2717,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_a816ede4",
+    "clip_id": "GRCA_ad19d291",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2341,7 +2730,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_bfce04d1",
+    "clip_id": "GRCA_9a7d5612",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2354,7 +2743,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_7d793e05",
+    "clip_id": "GRCA_c9975d52",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2367,7 +2756,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_690b26ea",
+    "clip_id": "GRCA_482f6608",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2380,7 +2769,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_7961892b",
+    "clip_id": "GRCA_2967c66d",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2393,7 +2782,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_bb8057af",
+    "clip_id": "GRCA_e6b58443",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2406,7 +2795,7 @@
     "recordist": null
   },
   {
-    "clip_id": "GRCA_4f170284",
+    "clip_id": "GRCA_73a726ba",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
     "vocalization_type": "song",
@@ -2419,9 +2808,9 @@
     "recordist": null
   },
   {
-    "clip_id": "GWWA_883c988a",
+    "clip_id": "GWWA_2e9f6c02",
     "species_code": "GWWA",
-    "common_name": "Golden-winged Warbler",
+    "common_name": "Unknown (GWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2432,9 +2821,9 @@
     "recordist": null
   },
   {
-    "clip_id": "GWWA_59cb3019",
+    "clip_id": "GWWA_1ab8f8ea",
     "species_code": "GWWA",
-    "common_name": "Golden-winged Warbler",
+    "common_name": "Unknown (GWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2445,9 +2834,9 @@
     "recordist": null
   },
   {
-    "clip_id": "GWWA_d51df85c",
+    "clip_id": "GWWA_547a9cd0",
     "species_code": "GWWA",
-    "common_name": "Golden-winged Warbler",
+    "common_name": "Unknown (GWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2458,7 +2847,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HAWO_6b8b7f5e",
+    "clip_id": "HAWO_b2eae8d8",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
     "vocalization_type": "song",
@@ -2471,7 +2860,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HAWO_23441b76",
+    "clip_id": "HAWO_d27f7d6a",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
     "vocalization_type": "song",
@@ -2484,7 +2873,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HAWO_6891d074",
+    "clip_id": "HAWO_34f862b0",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
     "vocalization_type": "song",
@@ -2497,7 +2886,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HAWO_46746ceb",
+    "clip_id": "HAWO_516e9380",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
     "vocalization_type": "song",
@@ -2510,7 +2899,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HAWO_2ff68ded",
+    "clip_id": "HAWO_413674d5",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
     "vocalization_type": "song",
@@ -2523,7 +2912,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HETH_e9819a80",
+    "clip_id": "HETH_235fed76",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
     "vocalization_type": "song",
@@ -2536,7 +2925,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HETH_0afefbbd",
+    "clip_id": "HETH_cad85051",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
     "vocalization_type": "song",
@@ -2549,7 +2938,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HETH_ae601d34",
+    "clip_id": "HETH_483d6521",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
     "vocalization_type": "song",
@@ -2562,7 +2951,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HETH_19704c20",
+    "clip_id": "HETH_f03cc2d7",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
     "vocalization_type": "song",
@@ -2575,7 +2964,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HETH_a86af239",
+    "clip_id": "HETH_52f9982a",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
     "vocalization_type": "song",
@@ -2588,7 +2977,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HOFI_4a78fa3c",
+    "clip_id": "HOFI_29833094",
     "species_code": "HOFI",
     "common_name": "House Finch",
     "vocalization_type": "song",
@@ -2601,7 +2990,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HOFI_3ab385ed",
+    "clip_id": "HOFI_957cb09a",
     "species_code": "HOFI",
     "common_name": "House Finch",
     "vocalization_type": "song",
@@ -2614,7 +3003,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HOFI_d95b0adf",
+    "clip_id": "HOFI_3aaae59a",
     "species_code": "HOFI",
     "common_name": "House Finch",
     "vocalization_type": "song",
@@ -2627,7 +3016,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HOFI_142ae029",
+    "clip_id": "HOFI_b4a42769",
     "species_code": "HOFI",
     "common_name": "House Finch",
     "vocalization_type": "song",
@@ -2640,7 +3029,7 @@
     "recordist": null
   },
   {
-    "clip_id": "HOFI_ad9c760b",
+    "clip_id": "HOFI_bde05004",
     "species_code": "HOFI",
     "common_name": "House Finch",
     "vocalization_type": "song",
@@ -2653,20 +3042,20 @@
     "recordist": null
   },
   {
-    "clip_id": "HOFI_7edec030",
+    "clip_id": "HOFI_52e76bfd",
     "species_code": "HOFI",
     "common_name": "House Finch",
     "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_026",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "HOFI_cornell_026_2",
     "file_path": "data/clips/HOFI_cornell_026_2.wav",
     "spectrogram_path": "data/spectrograms/HOFI_cornell_026_2.png",
     "recordist": null
   },
   {
-    "clip_id": "KEWA_0c67a38a",
+    "clip_id": "KEWA_83a4a079",
     "species_code": "KEWA",
     "common_name": "Kentucky Warbler",
     "vocalization_type": "song",
@@ -2679,7 +3068,7 @@
     "recordist": null
   },
   {
-    "clip_id": "KEWA_c1625ef2",
+    "clip_id": "KEWA_7cab2233",
     "species_code": "KEWA",
     "common_name": "Kentucky Warbler",
     "vocalization_type": "song",
@@ -2692,7 +3081,7 @@
     "recordist": null
   },
   {
-    "clip_id": "KEWA_778e8f86",
+    "clip_id": "KEWA_390ba526",
     "species_code": "KEWA",
     "common_name": "Kentucky Warbler",
     "vocalization_type": "song",
@@ -2705,7 +3094,7 @@
     "recordist": null
   },
   {
-    "clip_id": "KEWA_d79605a1",
+    "clip_id": "KEWA_144b6d0f",
     "species_code": "KEWA",
     "common_name": "Kentucky Warbler",
     "vocalization_type": "song",
@@ -2718,7 +3107,7 @@
     "recordist": null
   },
   {
-    "clip_id": "KEWA_d729797a",
+    "clip_id": "KEWA_a90b029a",
     "species_code": "KEWA",
     "common_name": "Kentucky Warbler",
     "vocalization_type": "song",
@@ -2731,9 +3120,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LISP_361930db",
+    "clip_id": "LISP_0cbf4974",
     "species_code": "LISP",
-    "common_name": "Lincoln's Sparrow",
+    "common_name": "Unknown (LISP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2744,9 +3133,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LISP_93ea4680",
+    "clip_id": "LISP_65e65128",
     "species_code": "LISP",
-    "common_name": "Lincoln's Sparrow",
+    "common_name": "Unknown (LISP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2757,9 +3146,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LISP_5844a102",
+    "clip_id": "LISP_7c7b24f1",
     "species_code": "LISP",
-    "common_name": "Lincoln's Sparrow",
+    "common_name": "Unknown (LISP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2770,9 +3159,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LISP_2fddc21d",
+    "clip_id": "LISP_db2bb15b",
     "species_code": "LISP",
-    "common_name": "Lincoln's Sparrow",
+    "common_name": "Unknown (LISP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2783,9 +3172,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LISP_a34d147e",
+    "clip_id": "LISP_aa5f346e",
     "species_code": "LISP",
-    "common_name": "Lincoln's Sparrow",
+    "common_name": "Unknown (LISP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2796,9 +3185,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LOWA_f998a1ec",
+    "clip_id": "LOWA_5d9e132d",
     "species_code": "LOWA",
-    "common_name": "Louisiana Waterthrush",
+    "common_name": "Unknown (LOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2809,9 +3198,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LOWA_6d7bbed3",
+    "clip_id": "LOWA_6438e5bf",
     "species_code": "LOWA",
-    "common_name": "Louisiana Waterthrush",
+    "common_name": "Unknown (LOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2822,9 +3211,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LOWA_b7fac7d1",
+    "clip_id": "LOWA_d91e6f4c",
     "species_code": "LOWA",
-    "common_name": "Louisiana Waterthrush",
+    "common_name": "Unknown (LOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2835,9 +3224,9 @@
     "recordist": null
   },
   {
-    "clip_id": "LOWA_210f34c0",
+    "clip_id": "LOWA_504b44e8",
     "species_code": "LOWA",
-    "common_name": "Louisiana Waterthrush",
+    "common_name": "Unknown (LOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2848,9 +3237,9 @@
     "recordist": null
   },
   {
-    "clip_id": "MAWA_724bddf1",
+    "clip_id": "MAWA_acaf8b28",
     "species_code": "MAWA",
-    "common_name": "Magnolia Warbler",
+    "common_name": "Unknown (MAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2861,9 +3250,9 @@
     "recordist": null
   },
   {
-    "clip_id": "MAWA_1f1b4fcd",
+    "clip_id": "MAWA_877f60c8",
     "species_code": "MAWA",
-    "common_name": "Magnolia Warbler",
+    "common_name": "Unknown (MAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2874,9 +3263,9 @@
     "recordist": null
   },
   {
-    "clip_id": "MAWA_cbd2faa4",
+    "clip_id": "MAWA_7833bd2b",
     "species_code": "MAWA",
-    "common_name": "Magnolia Warbler",
+    "common_name": "Unknown (MAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2887,9 +3276,9 @@
     "recordist": null
   },
   {
-    "clip_id": "MAWA_1e70fe84",
+    "clip_id": "MAWA_d096696a",
     "species_code": "MAWA",
-    "common_name": "Magnolia Warbler",
+    "common_name": "Unknown (MAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2900,7 +3289,7 @@
     "recordist": null
   },
   {
-    "clip_id": "MODO_1eff4d0c",
+    "clip_id": "MODO_40620503",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
     "vocalization_type": "song",
@@ -2913,7 +3302,7 @@
     "recordist": null
   },
   {
-    "clip_id": "MODO_49075e1c",
+    "clip_id": "MODO_65fa5c24",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
     "vocalization_type": "song",
@@ -2926,35 +3315,35 @@
     "recordist": null
   },
   {
-    "clip_id": "MODO_030c2709",
+    "clip_id": "MODO_0c29a4f8",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
     "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_002",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "MODO_cornell_002_2",
     "file_path": "data/clips/MODO_cornell_002_2.wav",
     "spectrogram_path": "data/spectrograms/MODO_cornell_002_2.png",
     "recordist": null
   },
   {
-    "clip_id": "MODO_faba979b",
+    "clip_id": "MODO_c738f39b",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
     "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_002",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "MODO_cornell_002_3",
     "file_path": "data/clips/MODO_cornell_002_3.wav",
     "spectrogram_path": "data/spectrograms/MODO_cornell_002_3.png",
     "recordist": null
   },
   {
-    "clip_id": "MOWA_39028570",
+    "clip_id": "MOWA_2782b283",
     "species_code": "MOWA",
-    "common_name": "Mourning Warbler",
+    "common_name": "Unknown (MOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2965,9 +3354,9 @@
     "recordist": null
   },
   {
-    "clip_id": "MOWA_958e4dbb",
+    "clip_id": "MOWA_0bee542e",
     "species_code": "MOWA",
-    "common_name": "Mourning Warbler",
+    "common_name": "Unknown (MOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2978,9 +3367,9 @@
     "recordist": null
   },
   {
-    "clip_id": "MOWA_18b9520c",
+    "clip_id": "MOWA_c3e5df00",
     "species_code": "MOWA",
-    "common_name": "Mourning Warbler",
+    "common_name": "Unknown (MOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -2991,9 +3380,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NAWA_04c4f6bb",
+    "clip_id": "NAWA_9105bcb3",
     "species_code": "NAWA",
-    "common_name": "Nashville Warbler",
+    "common_name": "Unknown (NAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3004,9 +3393,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NAWA_b41f21a0",
+    "clip_id": "NAWA_4207ecae",
     "species_code": "NAWA",
-    "common_name": "Nashville Warbler",
+    "common_name": "Unknown (NAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3017,9 +3406,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NAWA_312a036c",
+    "clip_id": "NAWA_0e87de6e",
     "species_code": "NAWA",
-    "common_name": "Nashville Warbler",
+    "common_name": "Unknown (NAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3030,9 +3419,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NAWA_933d47da",
+    "clip_id": "NAWA_1605fc06",
     "species_code": "NAWA",
-    "common_name": "Nashville Warbler",
+    "common_name": "Unknown (NAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3043,7 +3432,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOCA_33d1da73",
+    "clip_id": "NOCA_05c03abc",
     "species_code": "NOCA",
     "common_name": "Northern Cardinal",
     "vocalization_type": "song",
@@ -3056,7 +3445,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOCA_8ca9c961",
+    "clip_id": "NOCA_505c934d",
     "species_code": "NOCA",
     "common_name": "Northern Cardinal",
     "vocalization_type": "song",
@@ -3069,7 +3458,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOCA_9da48728",
+    "clip_id": "NOCA_beb5d6ce",
     "species_code": "NOCA",
     "common_name": "Northern Cardinal",
     "vocalization_type": "song",
@@ -3082,7 +3471,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOCA_262cf869",
+    "clip_id": "NOCA_d12a975a",
     "species_code": "NOCA",
     "common_name": "Northern Cardinal",
     "vocalization_type": "song",
@@ -3095,7 +3484,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOCA_d6129016",
+    "clip_id": "NOCA_903340f2",
     "species_code": "NOCA",
     "common_name": "Northern Cardinal",
     "vocalization_type": "song",
@@ -3108,7 +3497,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOFL_12097f6e",
+    "clip_id": "NOFL_3d25ea3e",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
     "vocalization_type": "song",
@@ -3121,7 +3510,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOFL_552ce1b4",
+    "clip_id": "NOFL_06b9c600",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
     "vocalization_type": "song",
@@ -3134,7 +3523,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOFL_a4193a86",
+    "clip_id": "NOFL_44b248d7",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
     "vocalization_type": "song",
@@ -3147,7 +3536,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOFL_d65c6cac",
+    "clip_id": "NOFL_69af15ec",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
     "vocalization_type": "song",
@@ -3160,7 +3549,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOFL_a640fea7",
+    "clip_id": "NOFL_6babde31",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
     "vocalization_type": "song",
@@ -3173,7 +3562,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOFL_66df9100",
+    "clip_id": "NOFL_d5b6a41f",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
     "vocalization_type": "song",
@@ -3186,61 +3575,61 @@
     "recordist": null
   },
   {
-    "clip_id": "NOFL_b4b6abbf",
+    "clip_id": "NOFL_3e2fdd09",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_005",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "NOFL_cornell_005_1",
     "file_path": "data/clips/NOFL_cornell_005_1.wav",
     "spectrogram_path": "data/spectrograms/NOFL_cornell_005_1.png",
     "recordist": null
   },
   {
-    "clip_id": "NOFL_be31ee39",
+    "clip_id": "NOFL_0e9d33a7",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_006",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "NOFL_cornell_006_2",
     "file_path": "data/clips/NOFL_cornell_006_2.wav",
     "spectrogram_path": "data/spectrograms/NOFL_cornell_006_2.png",
     "recordist": null
   },
   {
-    "clip_id": "NOFL_095d263c",
+    "clip_id": "NOFL_51c096f6",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_007",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "NOFL_cornell_007_1",
     "file_path": "data/clips/NOFL_cornell_007_1.wav",
     "spectrogram_path": "data/spectrograms/NOFL_cornell_007_1.png",
     "recordist": null
   },
   {
-    "clip_id": "NOFL_12c20386",
+    "clip_id": "NOFL_0c241ce7",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_007",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "NOFL_cornell_007_3",
     "file_path": "data/clips/NOFL_cornell_007_3.wav",
     "spectrogram_path": "data/spectrograms/NOFL_cornell_007_3.png",
     "recordist": null
   },
   {
-    "clip_id": "NOMO_cea340ca",
+    "clip_id": "NOMO_ba85aedd",
     "species_code": "NOMO",
-    "common_name": "Northern Mockingbird",
+    "common_name": "Unknown (NOMO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3251,9 +3640,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOMO_071a0313",
+    "clip_id": "NOMO_a76ee7f5",
     "species_code": "NOMO",
-    "common_name": "Northern Mockingbird",
+    "common_name": "Unknown (NOMO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3264,9 +3653,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOMO_8c7a9265",
+    "clip_id": "NOMO_30b222fa",
     "species_code": "NOMO",
-    "common_name": "Northern Mockingbird",
+    "common_name": "Unknown (NOMO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3277,9 +3666,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOMO_5980a714",
+    "clip_id": "NOMO_14a1aba4",
     "species_code": "NOMO",
-    "common_name": "Northern Mockingbird",
+    "common_name": "Unknown (NOMO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3290,9 +3679,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOMO_68d0c95f",
+    "clip_id": "NOMO_016a1bd8",
     "species_code": "NOMO",
-    "common_name": "Northern Mockingbird",
+    "common_name": "Unknown (NOMO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3303,9 +3692,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOMO_a219e5d1",
+    "clip_id": "NOMO_a15d732d",
     "species_code": "NOMO",
-    "common_name": "Northern Mockingbird",
+    "common_name": "Unknown (NOMO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3316,9 +3705,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOMO_b03d789b",
+    "clip_id": "NOMO_cdbcc34c",
     "species_code": "NOMO",
-    "common_name": "Northern Mockingbird",
+    "common_name": "Unknown (NOMO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3329,9 +3718,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOMO_066030a6",
+    "clip_id": "NOMO_ab61732e",
     "species_code": "NOMO",
-    "common_name": "Northern Mockingbird",
+    "common_name": "Unknown (NOMO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3342,7 +3731,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOPA_78f061e1",
+    "clip_id": "NOPA_150e126d",
     "species_code": "NOPA",
     "common_name": "Northern Parula",
     "vocalization_type": "song",
@@ -3355,7 +3744,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOPA_90acc25b",
+    "clip_id": "NOPA_2e7e9e62",
     "species_code": "NOPA",
     "common_name": "Northern Parula",
     "vocalization_type": "song",
@@ -3368,7 +3757,7 @@
     "recordist": null
   },
   {
-    "clip_id": "NOPA_3f844f5b",
+    "clip_id": "NOPA_ab89abf0",
     "species_code": "NOPA",
     "common_name": "Northern Parula",
     "vocalization_type": "song",
@@ -3381,9 +3770,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOWA_6a60acf7",
+    "clip_id": "NOWA_86c4ede9",
     "species_code": "NOWA",
-    "common_name": "Northern Waterthrush",
+    "common_name": "Unknown (NOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3394,9 +3783,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOWA_0b627b83",
+    "clip_id": "NOWA_b9e600e7",
     "species_code": "NOWA",
-    "common_name": "Northern Waterthrush",
+    "common_name": "Unknown (NOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3407,9 +3796,9 @@
     "recordist": null
   },
   {
-    "clip_id": "NOWA_274c7aa4",
+    "clip_id": "NOWA_9c81411f",
     "species_code": "NOWA",
-    "common_name": "Northern Waterthrush",
+    "common_name": "Unknown (NOWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3420,9 +3809,9 @@
     "recordist": null
   },
   {
-    "clip_id": "OCWA_114722d1",
+    "clip_id": "OCWA_4d6eefc8",
     "species_code": "OCWA",
-    "common_name": "Orange-crowned Warbler",
+    "common_name": "Unknown (OCWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3433,9 +3822,9 @@
     "recordist": null
   },
   {
-    "clip_id": "OCWA_2d7f6e34",
+    "clip_id": "OCWA_b2d69015",
     "species_code": "OCWA",
-    "common_name": "Orange-crowned Warbler",
+    "common_name": "Unknown (OCWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3446,9 +3835,9 @@
     "recordist": null
   },
   {
-    "clip_id": "OCWA_f49ca653",
+    "clip_id": "OCWA_3c1af398",
     "species_code": "OCWA",
-    "common_name": "Orange-crowned Warbler",
+    "common_name": "Unknown (OCWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3459,9 +3848,9 @@
     "recordist": null
   },
   {
-    "clip_id": "OCWA_265a629f",
+    "clip_id": "OCWA_b8e38e6b",
     "species_code": "OCWA",
-    "common_name": "Orange-crowned Warbler",
+    "common_name": "Unknown (OCWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3472,9 +3861,9 @@
     "recordist": null
   },
   {
-    "clip_id": "OCWA_3a3087a9",
+    "clip_id": "OCWA_22d5a582",
     "species_code": "OCWA",
-    "common_name": "Orange-crowned Warbler",
+    "common_name": "Unknown (OCWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3485,9 +3874,9 @@
     "recordist": null
   },
   {
-    "clip_id": "OCWA_cad38b2b",
+    "clip_id": "OCWA_70ea44fe",
     "species_code": "OCWA",
-    "common_name": "Orange-crowned Warbler",
+    "common_name": "Unknown (OCWA)",
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
@@ -3498,7 +3887,7 @@
     "recordist": null
   },
   {
-    "clip_id": "OVEN_23f6d161",
+    "clip_id": "OVEN_f1a85b43",
     "species_code": "OVEN",
     "common_name": "Ovenbird",
     "vocalization_type": "song",
@@ -3511,7 +3900,7 @@
     "recordist": null
   },
   {
-    "clip_id": "OVEN_0fab4101",
+    "clip_id": "OVEN_7a07ebde",
     "species_code": "OVEN",
     "common_name": "Ovenbird",
     "vocalization_type": "song",
@@ -3524,7 +3913,7 @@
     "recordist": null
   },
   {
-    "clip_id": "OVEN_8cef9489",
+    "clip_id": "OVEN_1d8ba32d",
     "species_code": "OVEN",
     "common_name": "Ovenbird",
     "vocalization_type": "song",
@@ -3537,9 +3926,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PAWA_fcf0ed9f",
+    "clip_id": "PAWA_9fb86375",
     "species_code": "PAWA",
-    "common_name": "Palm Warbler",
+    "common_name": "Unknown (PAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3550,9 +3939,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PAWA_3a7101f5",
+    "clip_id": "PAWA_bbcf15db",
     "species_code": "PAWA",
-    "common_name": "Palm Warbler",
+    "common_name": "Unknown (PAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3563,9 +3952,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PAWA_a88a1dc0",
+    "clip_id": "PAWA_e70ca0e9",
     "species_code": "PAWA",
-    "common_name": "Palm Warbler",
+    "common_name": "Unknown (PAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3576,9 +3965,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PAWA_e11459d9",
+    "clip_id": "PAWA_ad1a21a5",
     "species_code": "PAWA",
-    "common_name": "Palm Warbler",
+    "common_name": "Unknown (PAWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3589,7 +3978,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PISI_6f57574e",
+    "clip_id": "PISI_cd1cc4eb",
     "species_code": "PISI",
     "common_name": "Pine Siskin",
     "vocalization_type": "song",
@@ -3602,7 +3991,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PISI_c5ef5db3",
+    "clip_id": "PISI_60462f16",
     "species_code": "PISI",
     "common_name": "Pine Siskin",
     "vocalization_type": "song",
@@ -3615,7 +4004,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PISI_de762fcd",
+    "clip_id": "PISI_40e3b38a",
     "species_code": "PISI",
     "common_name": "Pine Siskin",
     "vocalization_type": "song",
@@ -3628,7 +4017,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWA_7c2d6084",
+    "clip_id": "PIWA_9c4ccd33",
     "species_code": "PIWA",
     "common_name": "Pine Warbler",
     "vocalization_type": "song",
@@ -3641,7 +4030,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWA_3d65a923",
+    "clip_id": "PIWA_6c76cdc7",
     "species_code": "PIWA",
     "common_name": "Pine Warbler",
     "vocalization_type": "song",
@@ -3654,7 +4043,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWA_f403376e",
+    "clip_id": "PIWA_61c0dbeb",
     "species_code": "PIWA",
     "common_name": "Pine Warbler",
     "vocalization_type": "song",
@@ -3667,7 +4056,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWA_5a1b19e2",
+    "clip_id": "PIWA_e4ff0bd0",
     "species_code": "PIWA",
     "common_name": "Pine Warbler",
     "vocalization_type": "song",
@@ -3680,7 +4069,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWA_22c1adcb",
+    "clip_id": "PIWA_4a2490ca",
     "species_code": "PIWA",
     "common_name": "Pine Warbler",
     "vocalization_type": "song",
@@ -3693,7 +4082,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWA_4ee1f465",
+    "clip_id": "PIWA_7ae35091",
     "species_code": "PIWA",
     "common_name": "Pine Warbler",
     "vocalization_type": "song",
@@ -3706,7 +4095,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWO_2f3f8032",
+    "clip_id": "PIWO_f9f6788e",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
     "vocalization_type": "song",
@@ -3719,7 +4108,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWO_a62070e8",
+    "clip_id": "PIWO_a1d3a400",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
     "vocalization_type": "song",
@@ -3732,7 +4121,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWO_18ec0a52",
+    "clip_id": "PIWO_c5cae1c9",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
     "vocalization_type": "song",
@@ -3745,7 +4134,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWO_66e21952",
+    "clip_id": "PIWO_a2be8f36",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
     "vocalization_type": "song",
@@ -3758,7 +4147,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWO_09469b15",
+    "clip_id": "PIWO_83eea4c4",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
     "vocalization_type": "song",
@@ -3771,7 +4160,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWO_56a12df3",
+    "clip_id": "PIWO_f51dc23a",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
     "vocalization_type": "song",
@@ -3784,7 +4173,7 @@
     "recordist": null
   },
   {
-    "clip_id": "PIWO_dff79d45",
+    "clip_id": "PIWO_b8aa06e0",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
     "vocalization_type": "song",
@@ -3797,9 +4186,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PRAW_4afb0e7d",
+    "clip_id": "PRAW_d0f51cf8",
     "species_code": "PRAW",
-    "common_name": "Prairie Warbler",
+    "common_name": "Unknown (PRAW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3810,9 +4199,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PRAW_9abdf38e",
+    "clip_id": "PRAW_561998a8",
     "species_code": "PRAW",
-    "common_name": "Prairie Warbler",
+    "common_name": "Unknown (PRAW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3823,9 +4212,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PRAW_fae78a68",
+    "clip_id": "PRAW_179d4366",
     "species_code": "PRAW",
-    "common_name": "Prairie Warbler",
+    "common_name": "Unknown (PRAW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3836,9 +4225,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PRAW_70f1e0ee",
+    "clip_id": "PRAW_14d6ea79",
     "species_code": "PRAW",
-    "common_name": "Prairie Warbler",
+    "common_name": "Unknown (PRAW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3849,9 +4238,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PROW_64573d74",
+    "clip_id": "PROW_1589ec62",
     "species_code": "PROW",
-    "common_name": "Prothonotary Warbler",
+    "common_name": "Unknown (PROW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3862,9 +4251,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PROW_dea401b2",
+    "clip_id": "PROW_4a556fc8",
     "species_code": "PROW",
-    "common_name": "Prothonotary Warbler",
+    "common_name": "Unknown (PROW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3875,9 +4264,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PROW_520c6673",
+    "clip_id": "PROW_71d2a7ab",
     "species_code": "PROW",
-    "common_name": "Prothonotary Warbler",
+    "common_name": "Unknown (PROW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3888,9 +4277,9 @@
     "recordist": null
   },
   {
-    "clip_id": "PROW_e9cd737e",
+    "clip_id": "PROW_f4aa6032",
     "species_code": "PROW",
-    "common_name": "Prothonotary Warbler",
+    "common_name": "Unknown (PROW)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -3901,7 +4290,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RBWO_d1cd50d2",
+    "clip_id": "RBWO_a9f561cb",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
     "vocalization_type": "song",
@@ -3914,7 +4303,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RBWO_9a80fd11",
+    "clip_id": "RBWO_454f0239",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
     "vocalization_type": "song",
@@ -3927,7 +4316,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RBWO_fd1d1d33",
+    "clip_id": "RBWO_54074c94",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
     "vocalization_type": "song",
@@ -3940,7 +4329,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RBWO_37f8c9e7",
+    "clip_id": "RBWO_7d26e3e7",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
     "vocalization_type": "song",
@@ -3953,7 +4342,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RBWO_314f9973",
+    "clip_id": "RBWO_51980e1a",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
     "vocalization_type": "song",
@@ -3966,7 +4355,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RBWO_3d015a57",
+    "clip_id": "RBWO_2c1970db",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
     "vocalization_type": "song",
@@ -3979,7 +4368,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RBWO_e6a6d983",
+    "clip_id": "RBWO_9a998efc",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
     "vocalization_type": "song",
@@ -3992,7 +4381,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RBWO_52c28bc6",
+    "clip_id": "RBWO_fb5186d8",
     "species_code": "RBWO",
     "common_name": "Red-bellied Woodpecker",
     "vocalization_type": "song",
@@ -4005,9 +4394,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RCKI_bb3e0a94",
+    "clip_id": "RCKI_817e283b",
     "species_code": "RCKI",
-    "common_name": "Ruby-crowned Kinglet",
+    "common_name": "Unknown (RCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4018,9 +4407,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RCKI_7e7a1806",
+    "clip_id": "RCKI_42047d08",
     "species_code": "RCKI",
-    "common_name": "Ruby-crowned Kinglet",
+    "common_name": "Unknown (RCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4031,9 +4420,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RCKI_e204a849",
+    "clip_id": "RCKI_306447aa",
     "species_code": "RCKI",
-    "common_name": "Ruby-crowned Kinglet",
+    "common_name": "Unknown (RCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4044,9 +4433,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RCKI_56cfe1f9",
+    "clip_id": "RCKI_e7b4acb8",
     "species_code": "RCKI",
-    "common_name": "Ruby-crowned Kinglet",
+    "common_name": "Unknown (RCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4057,9 +4446,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RCKI_bf9adca7",
+    "clip_id": "RCKI_8b06363e",
     "species_code": "RCKI",
-    "common_name": "Ruby-crowned Kinglet",
+    "common_name": "Unknown (RCKI)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4070,9 +4459,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RHWO_2ec5ba92",
+    "clip_id": "RHWO_633a5b0a",
     "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
+    "common_name": "Unknown (RHWO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4083,9 +4472,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RHWO_2ae4d812",
+    "clip_id": "RHWO_aa77ecf0",
     "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
+    "common_name": "Unknown (RHWO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4096,9 +4485,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RHWO_9e31f83a",
+    "clip_id": "RHWO_98417472",
     "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
+    "common_name": "Unknown (RHWO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4109,9 +4498,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RHWO_1ae803ff",
+    "clip_id": "RHWO_9dfdd541",
     "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
+    "common_name": "Unknown (RHWO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4122,9 +4511,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RHWO_97612d82",
+    "clip_id": "RHWO_912e791e",
     "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
+    "common_name": "Unknown (RHWO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4135,9 +4524,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RHWO_35533736",
+    "clip_id": "RHWO_452980f5",
     "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
+    "common_name": "Unknown (RHWO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4148,9 +4537,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RHWO_c7b61737",
+    "clip_id": "RHWO_9b0d8c73",
     "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
+    "common_name": "Unknown (RHWO)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4161,7 +4550,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_2cf25c0c",
+    "clip_id": "RSHA_a489ce32",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4174,7 +4563,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_328ca29c",
+    "clip_id": "RSHA_2271b819",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4187,7 +4576,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_e0e2a884",
+    "clip_id": "RSHA_1853d2ff",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4200,7 +4589,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_e037d310",
+    "clip_id": "RSHA_35fce471",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4213,7 +4602,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_225cb41d",
+    "clip_id": "RSHA_54539f88",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4226,7 +4615,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_648850d5",
+    "clip_id": "RSHA_a695a0ba",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4239,7 +4628,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_7d92227b",
+    "clip_id": "RSHA_c3500b23",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4252,7 +4641,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_f0667b08",
+    "clip_id": "RSHA_c89473f5",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4265,7 +4654,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RSHA_b0b64d39",
+    "clip_id": "RSHA_2f720f1e",
     "species_code": "RSHA",
     "common_name": "Red-shouldered Hawk",
     "vocalization_type": "song",
@@ -4278,9 +4667,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHA_57b99fb3",
+    "clip_id": "RTHA_004c65de",
     "species_code": "RTHA",
-    "common_name": "Red-tailed Hawk",
+    "common_name": "Unknown (RTHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4291,9 +4680,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHA_232fab0e",
+    "clip_id": "RTHA_2e4d05f1",
     "species_code": "RTHA",
-    "common_name": "Red-tailed Hawk",
+    "common_name": "Unknown (RTHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4304,9 +4693,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHA_4d885c7b",
+    "clip_id": "RTHA_d97012dc",
     "species_code": "RTHA",
-    "common_name": "Red-tailed Hawk",
+    "common_name": "Unknown (RTHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4317,9 +4706,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHA_5da2897b",
+    "clip_id": "RTHA_2791da41",
     "species_code": "RTHA",
-    "common_name": "Red-tailed Hawk",
+    "common_name": "Unknown (RTHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4330,9 +4719,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHU_e241cb65",
+    "clip_id": "RTHU_b79b25f5",
     "species_code": "RTHU",
-    "common_name": "Ruby-throated Hummingbird",
+    "common_name": "Unknown (RTHU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4343,9 +4732,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHU_c0d99e3f",
+    "clip_id": "RTHU_5543b668",
     "species_code": "RTHU",
-    "common_name": "Ruby-throated Hummingbird",
+    "common_name": "Unknown (RTHU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4356,9 +4745,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHU_edf8567e",
+    "clip_id": "RTHU_df9bb920",
     "species_code": "RTHU",
-    "common_name": "Ruby-throated Hummingbird",
+    "common_name": "Unknown (RTHU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4369,9 +4758,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHU_c88087a6",
+    "clip_id": "RTHU_f0d13969",
     "species_code": "RTHU",
-    "common_name": "Ruby-throated Hummingbird",
+    "common_name": "Unknown (RTHU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4382,9 +4771,9 @@
     "recordist": null
   },
   {
-    "clip_id": "RTHU_e9bd8e96",
+    "clip_id": "RTHU_2b67483e",
     "species_code": "RTHU",
-    "common_name": "Ruby-throated Hummingbird",
+    "common_name": "Unknown (RTHU)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4395,7 +4784,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RWBL_a57ffc9d",
+    "clip_id": "RWBL_9da88d42",
     "species_code": "RWBL",
     "common_name": "Red-winged Blackbird",
     "vocalization_type": "song",
@@ -4408,7 +4797,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RWBL_e3a1f129",
+    "clip_id": "RWBL_5d8d7b7d",
     "species_code": "RWBL",
     "common_name": "Red-winged Blackbird",
     "vocalization_type": "song",
@@ -4421,7 +4810,7 @@
     "recordist": null
   },
   {
-    "clip_id": "RWBL_1d5392ed",
+    "clip_id": "RWBL_b27ff056",
     "species_code": "RWBL",
     "common_name": "Red-winged Blackbird",
     "vocalization_type": "song",
@@ -4434,9 +4823,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SAVS_1e9b9fca",
+    "clip_id": "SAVS_ea19bbf4",
     "species_code": "SAVS",
-    "common_name": "Savannah Sparrow",
+    "common_name": "Unknown (SAVS)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4447,9 +4836,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SAVS_b843b912",
+    "clip_id": "SAVS_91fc9acb",
     "species_code": "SAVS",
-    "common_name": "Savannah Sparrow",
+    "common_name": "Unknown (SAVS)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4460,9 +4849,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SAVS_f0d66ba4",
+    "clip_id": "SAVS_bf7ea041",
     "species_code": "SAVS",
-    "common_name": "Savannah Sparrow",
+    "common_name": "Unknown (SAVS)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4473,9 +4862,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SAVS_21317fa2",
+    "clip_id": "SAVS_bc85a1b6",
     "species_code": "SAVS",
-    "common_name": "Savannah Sparrow",
+    "common_name": "Unknown (SAVS)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4486,9 +4875,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SAVS_f68cb584",
+    "clip_id": "SAVS_e639745a",
     "species_code": "SAVS",
-    "common_name": "Savannah Sparrow",
+    "common_name": "Unknown (SAVS)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4499,9 +4888,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SAVS_6f9f1341",
+    "clip_id": "SAVS_1f5b1bff",
     "species_code": "SAVS",
-    "common_name": "Savannah Sparrow",
+    "common_name": "Unknown (SAVS)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4512,7 +4901,7 @@
     "recordist": null
   },
   {
-    "clip_id": "SOSP_9ded6668",
+    "clip_id": "SOSP_75a0d82c",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
     "vocalization_type": "song",
@@ -4525,7 +4914,7 @@
     "recordist": null
   },
   {
-    "clip_id": "SOSP_b5d5d228",
+    "clip_id": "SOSP_4a876b57",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
     "vocalization_type": "song",
@@ -4538,7 +4927,7 @@
     "recordist": null
   },
   {
-    "clip_id": "SOSP_5f422fdd",
+    "clip_id": "SOSP_744d2d03",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
     "vocalization_type": "song",
@@ -4551,7 +4940,7 @@
     "recordist": null
   },
   {
-    "clip_id": "SOSP_6c796045",
+    "clip_id": "SOSP_a75e3216",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
     "vocalization_type": "song",
@@ -4564,7 +4953,7 @@
     "recordist": null
   },
   {
-    "clip_id": "SOSP_0347a7a5",
+    "clip_id": "SOSP_12562145",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
     "vocalization_type": "song",
@@ -4577,7 +4966,7 @@
     "recordist": null
   },
   {
-    "clip_id": "SOSP_262722e8",
+    "clip_id": "SOSP_76085653",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
     "vocalization_type": "song",
@@ -4590,7 +4979,7 @@
     "recordist": null
   },
   {
-    "clip_id": "SOSP_8cbd3082",
+    "clip_id": "SOSP_727b1e8a",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
     "vocalization_type": "song",
@@ -4603,7 +4992,7 @@
     "recordist": null
   },
   {
-    "clip_id": "SOSP_140ac2b5",
+    "clip_id": "SOSP_c099aba2",
     "species_code": "SOSP",
     "common_name": "Song Sparrow",
     "vocalization_type": "song",
@@ -4616,9 +5005,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SSHA_45d59c0b",
+    "clip_id": "SSHA_75e124aa",
     "species_code": "SSHA",
-    "common_name": "Sharp-shinned Hawk",
+    "common_name": "Unknown (SSHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4629,9 +5018,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SSHA_44e495d2",
+    "clip_id": "SSHA_f5e81da8",
     "species_code": "SSHA",
-    "common_name": "Sharp-shinned Hawk",
+    "common_name": "Unknown (SSHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4642,9 +5031,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SSHA_160ac708",
+    "clip_id": "SSHA_65cff250",
     "species_code": "SSHA",
-    "common_name": "Sharp-shinned Hawk",
+    "common_name": "Unknown (SSHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4655,9 +5044,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SSHA_106c6ed8",
+    "clip_id": "SSHA_b1feed33",
     "species_code": "SSHA",
-    "common_name": "Sharp-shinned Hawk",
+    "common_name": "Unknown (SSHA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4668,7 +5057,7 @@
     "recordist": null
   },
   {
-    "clip_id": "STJA_f33d258e",
+    "clip_id": "STJA_1360a0f5",
     "species_code": "STJA",
     "common_name": "Steller's Jay",
     "vocalization_type": "song",
@@ -4681,7 +5070,7 @@
     "recordist": null
   },
   {
-    "clip_id": "STJA_41e81ae1",
+    "clip_id": "STJA_3aa9d58d",
     "species_code": "STJA",
     "common_name": "Steller's Jay",
     "vocalization_type": "song",
@@ -4694,7 +5083,7 @@
     "recordist": null
   },
   {
-    "clip_id": "STJA_9d38bbfa",
+    "clip_id": "STJA_decd169b",
     "species_code": "STJA",
     "common_name": "Steller's Jay",
     "vocalization_type": "song",
@@ -4707,7 +5096,7 @@
     "recordist": null
   },
   {
-    "clip_id": "STJA_6a2d3792",
+    "clip_id": "STJA_da28c988",
     "species_code": "STJA",
     "common_name": "Steller's Jay",
     "vocalization_type": "song",
@@ -4720,7 +5109,7 @@
     "recordist": null
   },
   {
-    "clip_id": "STJA_d769e034",
+    "clip_id": "STJA_533a3bfb",
     "species_code": "STJA",
     "common_name": "Steller's Jay",
     "vocalization_type": "song",
@@ -4733,9 +5122,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SWSP_114d5778",
+    "clip_id": "SWSP_8f49a086",
     "species_code": "SWSP",
-    "common_name": "Swamp Sparrow",
+    "common_name": "Unknown (SWSP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4746,9 +5135,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SWSP_07b409f2",
+    "clip_id": "SWSP_5eeeea0c",
     "species_code": "SWSP",
-    "common_name": "Swamp Sparrow",
+    "common_name": "Unknown (SWSP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4759,9 +5148,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SWSP_6f063d47",
+    "clip_id": "SWSP_8caa2de8",
     "species_code": "SWSP",
-    "common_name": "Swamp Sparrow",
+    "common_name": "Unknown (SWSP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4772,9 +5161,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SWSP_04da08a7",
+    "clip_id": "SWSP_09b620f4",
     "species_code": "SWSP",
-    "common_name": "Swamp Sparrow",
+    "common_name": "Unknown (SWSP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4785,9 +5174,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SWSP_c0f3440f",
+    "clip_id": "SWSP_73ec0262",
     "species_code": "SWSP",
-    "common_name": "Swamp Sparrow",
+    "common_name": "Unknown (SWSP)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4798,9 +5187,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SWWA_d0728e4a",
+    "clip_id": "SWWA_6f528874",
     "species_code": "SWWA",
-    "common_name": "Swainson's Warbler",
+    "common_name": "Unknown (SWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4811,9 +5200,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SWWA_3aa3a791",
+    "clip_id": "SWWA_9d1b6b28",
     "species_code": "SWWA",
-    "common_name": "Swainson's Warbler",
+    "common_name": "Unknown (SWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4824,9 +5213,9 @@
     "recordist": null
   },
   {
-    "clip_id": "SWWA_6ce75c46",
+    "clip_id": "SWWA_975b7a42",
     "species_code": "SWWA",
-    "common_name": "Swainson's Warbler",
+    "common_name": "Unknown (SWWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4837,9 +5226,9 @@
     "recordist": null
   },
   {
-    "clip_id": "TEWA_e38250d8",
+    "clip_id": "TEWA_e9a9cd72",
     "species_code": "TEWA",
-    "common_name": "Tennessee Warbler",
+    "common_name": "Unknown (TEWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4850,9 +5239,9 @@
     "recordist": null
   },
   {
-    "clip_id": "TEWA_e8644978",
+    "clip_id": "TEWA_79da94e2",
     "species_code": "TEWA",
-    "common_name": "Tennessee Warbler",
+    "common_name": "Unknown (TEWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4863,9 +5252,9 @@
     "recordist": null
   },
   {
-    "clip_id": "TEWA_2cd6f591",
+    "clip_id": "TEWA_df6c2e14",
     "species_code": "TEWA",
-    "common_name": "Tennessee Warbler",
+    "common_name": "Unknown (TEWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4876,9 +5265,9 @@
     "recordist": null
   },
   {
-    "clip_id": "TEWA_98e38b4f",
+    "clip_id": "TEWA_f75448c8",
     "species_code": "TEWA",
-    "common_name": "Tennessee Warbler",
+    "common_name": "Unknown (TEWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -4889,7 +5278,7 @@
     "recordist": null
   },
   {
-    "clip_id": "TUTI_26859259",
+    "clip_id": "TUTI_7bf8e998",
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
     "vocalization_type": "song",
@@ -4902,7 +5291,7 @@
     "recordist": null
   },
   {
-    "clip_id": "TUTI_4f345bc2",
+    "clip_id": "TUTI_f49f7239",
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
     "vocalization_type": "song",
@@ -4915,7 +5304,7 @@
     "recordist": null
   },
   {
-    "clip_id": "TUTI_2d0937da",
+    "clip_id": "TUTI_ac0dfe97",
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
     "vocalization_type": "song",
@@ -4928,7 +5317,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WBNU_84d489cd",
+    "clip_id": "WBNU_3b5ad0f4",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
     "vocalization_type": "song",
@@ -4941,7 +5330,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WBNU_5a80eb1d",
+    "clip_id": "WBNU_eff6e53a",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
     "vocalization_type": "song",
@@ -4954,7 +5343,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WBNU_ce0d48af",
+    "clip_id": "WBNU_180f974d",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
     "vocalization_type": "song",
@@ -4967,7 +5356,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WBNU_f57cafb5",
+    "clip_id": "WBNU_35ec3674",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
     "vocalization_type": "song",
@@ -4980,7 +5369,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WBNU_ccc6d9ae",
+    "clip_id": "WBNU_ea446673",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
     "vocalization_type": "song",
@@ -4993,33 +5382,33 @@
     "recordist": null
   },
   {
-    "clip_id": "WBNU_b8bee298",
+    "clip_id": "WBNU_0258317d",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
     "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_015",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "WBNU_cornell_015_1",
     "file_path": "data/clips/WBNU_cornell_015_1.wav",
     "spectrogram_path": "data/spectrograms/WBNU_cornell_015_1.png",
     "recordist": null
   },
   {
-    "clip_id": "WBNU_6b29037f",
+    "clip_id": "WBNU_08e58428",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
-    "quality_score": 5,
-    "source": "cornell",
-    "source_id": "cornell_016",
+    "quality_score": 4,
+    "source": "xenocanto",
+    "source_id": "WBNU_cornell_016_1",
     "file_path": "data/clips/WBNU_cornell_016_1.wav",
     "spectrogram_path": "data/spectrograms/WBNU_cornell_016_1.png",
     "recordist": null
   },
   {
-    "clip_id": "WCSP_61c2eb8f",
+    "clip_id": "WCSP_d70d16cd",
     "species_code": "WCSP",
     "common_name": "White-crowned Sparrow",
     "vocalization_type": "song",
@@ -5032,7 +5421,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WCSP_14f2dbaa",
+    "clip_id": "WCSP_bdc72e04",
     "species_code": "WCSP",
     "common_name": "White-crowned Sparrow",
     "vocalization_type": "song",
@@ -5045,7 +5434,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WCSP_9cd8789f",
+    "clip_id": "WCSP_d59641de",
     "species_code": "WCSP",
     "common_name": "White-crowned Sparrow",
     "vocalization_type": "song",
@@ -5058,7 +5447,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WCSP_a3eda16b",
+    "clip_id": "WCSP_c64ec33f",
     "species_code": "WCSP",
     "common_name": "White-crowned Sparrow",
     "vocalization_type": "song",
@@ -5071,7 +5460,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WCSP_06462daf",
+    "clip_id": "WCSP_2f95a5e8",
     "species_code": "WCSP",
     "common_name": "White-crowned Sparrow",
     "vocalization_type": "song",
@@ -5084,9 +5473,88 @@
     "recordist": null
   },
   {
-    "clip_id": "WEWA_a7bd35b8",
+    "clip_id": "WEVI_3b1aaeed",
+    "species_code": "WEVI",
+    "common_name": "White-eyed Vireo",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC827619",
+    "file_path": "data/clips/WEVI_827619.wav",
+    "spectrogram_path": "data/spectrograms/WEVI_827619.png",
+    "recordist": "Richard E. Webster",
+    "canonical": true
+  },
+  {
+    "clip_id": "WEVI_18947ee8",
+    "species_code": "WEVI",
+    "common_name": "White-eyed Vireo",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC833700",
+    "file_path": "data/clips/WEVI_833700.wav",
+    "spectrogram_path": "data/spectrograms/WEVI_833700.png",
+    "recordist": "David A. Brinkman"
+  },
+  {
+    "clip_id": "WEVI_e2969b85",
+    "species_code": "WEVI",
+    "common_name": "White-eyed Vireo",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC897130",
+    "file_path": "data/clips/WEVI_897130.wav",
+    "spectrogram_path": "data/spectrograms/WEVI_897130.png",
+    "recordist": "Scott Gravette"
+  },
+  {
+    "clip_id": "WEVI_ce9ac62f",
+    "species_code": "WEVI",
+    "common_name": "White-eyed Vireo",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC901111",
+    "file_path": "data/clips/WEVI_901111.wav",
+    "spectrogram_path": "data/spectrograms/WEVI_901111.png",
+    "recordist": "David Tattersley"
+  },
+  {
+    "clip_id": "WEVI_72883edf",
+    "species_code": "WEVI",
+    "common_name": "White-eyed Vireo",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC988446",
+    "file_path": "data/clips/WEVI_988446.wav",
+    "spectrogram_path": "data/spectrograms/WEVI_988446.png",
+    "recordist": "Scott Gravette"
+  },
+  {
+    "clip_id": "WEVI_e058d5fb",
+    "species_code": "WEVI",
+    "common_name": "White-eyed Vireo",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "source": "xenocanto",
+    "source_id": "XC989689",
+    "file_path": "data/clips/WEVI_989689.wav",
+    "spectrogram_path": "data/spectrograms/WEVI_989689.png",
+    "recordist": "Scott Gravette"
+  },
+  {
+    "clip_id": "WEWA_03a75b16",
     "species_code": "WEWA",
-    "common_name": "Worm-eating Warbler",
+    "common_name": "Unknown (WEWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5097,9 +5565,9 @@
     "recordist": null
   },
   {
-    "clip_id": "WEWA_1338012d",
+    "clip_id": "WEWA_0ba0f667",
     "species_code": "WEWA",
-    "common_name": "Worm-eating Warbler",
+    "common_name": "Unknown (WEWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5110,9 +5578,9 @@
     "recordist": null
   },
   {
-    "clip_id": "WEWA_0bfb2dfe",
+    "clip_id": "WEWA_e7995587",
     "species_code": "WEWA",
-    "common_name": "Worm-eating Warbler",
+    "common_name": "Unknown (WEWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5123,9 +5591,9 @@
     "recordist": null
   },
   {
-    "clip_id": "WEWA_cd7cef8e",
+    "clip_id": "WEWA_f37a900c",
     "species_code": "WEWA",
-    "common_name": "Worm-eating Warbler",
+    "common_name": "Unknown (WEWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5136,9 +5604,9 @@
     "recordist": null
   },
   {
-    "clip_id": "WIWA_73de719e",
+    "clip_id": "WIWA_074536e9",
     "species_code": "WIWA",
-    "common_name": "Wilson's Warbler",
+    "common_name": "Unknown (WIWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5149,9 +5617,9 @@
     "recordist": null
   },
   {
-    "clip_id": "WIWA_54c980ce",
+    "clip_id": "WIWA_f1a33399",
     "species_code": "WIWA",
-    "common_name": "Wilson's Warbler",
+    "common_name": "Unknown (WIWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5162,9 +5630,9 @@
     "recordist": null
   },
   {
-    "clip_id": "WIWA_3e83d27b",
+    "clip_id": "WIWA_6d576a20",
     "species_code": "WIWA",
-    "common_name": "Wilson's Warbler",
+    "common_name": "Unknown (WIWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5175,7 +5643,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WTSP_1f5e917f",
+    "clip_id": "WTSP_1bab9e11",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
     "vocalization_type": "song",
@@ -5188,7 +5656,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WTSP_3199ba2d",
+    "clip_id": "WTSP_76847107",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
     "vocalization_type": "song",
@@ -5201,7 +5669,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WTSP_3523d9b0",
+    "clip_id": "WTSP_e62162b2",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
     "vocalization_type": "song",
@@ -5214,7 +5682,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WTSP_14c4721a",
+    "clip_id": "WTSP_7a4056a2",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
     "vocalization_type": "song",
@@ -5227,7 +5695,7 @@
     "recordist": null
   },
   {
-    "clip_id": "WTSP_00cf484a",
+    "clip_id": "WTSP_cb00d5ce",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
     "vocalization_type": "song",
@@ -5240,7 +5708,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_12f095ea",
+    "clip_id": "YBSA_0cc8c404",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5253,7 +5721,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_3d20c712",
+    "clip_id": "YBSA_6aca6db4",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5266,7 +5734,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_1b139300",
+    "clip_id": "YBSA_c9c87cc5",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5279,7 +5747,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_10055889",
+    "clip_id": "YBSA_dfbff483",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5292,7 +5760,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_83854173",
+    "clip_id": "YBSA_4453dba3",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5305,7 +5773,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_b85dda5d",
+    "clip_id": "YBSA_2b9a57c8",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5318,7 +5786,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_ba69ade6",
+    "clip_id": "YBSA_e5c01856",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5331,7 +5799,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_00fd7252",
+    "clip_id": "YBSA_64291229",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5344,7 +5812,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YBSA_ff44bde8",
+    "clip_id": "YBSA_aba39d15",
     "species_code": "YBSA",
     "common_name": "Yellow-bellied Sapsucker",
     "vocalization_type": "song",
@@ -5357,7 +5825,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YRWA_392f29aa",
+    "clip_id": "YRWA_966f9810",
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "vocalization_type": "song",
@@ -5370,7 +5838,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YRWA_cb64426f",
+    "clip_id": "YRWA_d64f107e",
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "vocalization_type": "song",
@@ -5383,7 +5851,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YRWA_6c64c824",
+    "clip_id": "YRWA_4b6e29ef",
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "vocalization_type": "song",
@@ -5396,7 +5864,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YRWA_ecac48e4",
+    "clip_id": "YRWA_343cdfde",
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "vocalization_type": "song",
@@ -5409,7 +5877,7 @@
     "recordist": null
   },
   {
-    "clip_id": "YRWA_72dfe816",
+    "clip_id": "YRWA_c9a1c627",
     "species_code": "YRWA",
     "common_name": "Yellow-rumped Warbler",
     "vocalization_type": "song",
@@ -5422,9 +5890,9 @@
     "recordist": null
   },
   {
-    "clip_id": "YTWA_d840f1bf",
+    "clip_id": "YTWA_74a30af3",
     "species_code": "YTWA",
-    "common_name": "Yellow-throated Warbler",
+    "common_name": "Unknown (YTWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5435,9 +5903,9 @@
     "recordist": null
   },
   {
-    "clip_id": "YTWA_84902829",
+    "clip_id": "YTWA_d4fd6b6e",
     "species_code": "YTWA",
-    "common_name": "Yellow-throated Warbler",
+    "common_name": "Unknown (YTWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5448,9 +5916,9 @@
     "recordist": null
   },
   {
-    "clip_id": "YTWA_817f3992",
+    "clip_id": "YTWA_bb2277aa",
     "species_code": "YTWA",
-    "common_name": "Yellow-throated Warbler",
+    "common_name": "Unknown (YTWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
@@ -5461,9 +5929,9 @@
     "recordist": null
   },
   {
-    "clip_id": "YTWA_e7304f7a",
+    "clip_id": "YTWA_ac200366",
     "species_code": "YTWA",
-    "common_name": "Yellow-throated Warbler",
+    "common_name": "Unknown (YTWA)",
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
