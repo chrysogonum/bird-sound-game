@@ -793,81 +793,18 @@ function Help() {
         </Section>
         </div>
 
-        {/* Bottom navigation */}
-        <div style={{
-          marginTop: '32px',
-          paddingTop: '24px',
-          borderTop: '1px solid var(--color-surface)',
-          display: 'flex',
-          justifyContent: 'center'
-        }}>
-          <button
-            className="btn-secondary"
-            onClick={() => location.state?.fromPackSelect ? navigate('/pack-select') : navigate(-1)}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '12px 24px',
-              background: 'var(--color-accent)',
-              color: 'white',
-              border: 'none',
-            }}
-          >
-            <BackIcon />
-            Back
-          </button>
-        </div>
       </div>
 
       {/* Floating buttons - visible after scroll */}
       {hasScrolled && (
-        <div style={{
-          position: 'fixed',
-          bottom: 'calc(24px + var(--safe-area-bottom, 0px))',
-          right: '24px',
-          display: 'flex',
-          gap: '8px',
-          zIndex: 1000,
-        }}>
-          {/* Scroll to top button */}
+        <>
+          {/* Back button - bottom left */}
           <button
-            onClick={scrollToTop}
+            onClick={() => location.state?.fromPackSelect ? navigate('/pack-select') : navigate(-1)}
             style={{
-              padding: '6px 10px',
-              fontSize: '11px',
-              fontWeight: 600,
-              background: 'rgba(76, 175, 80, 0.15)',
-              color: 'var(--color-success)',
-              border: '1px solid rgba(76, 175, 80, 0.3)',
-              borderRadius: '12px',
-              cursor: 'pointer',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
-              transition: 'all 0.2s',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05)';
-              e.currentTarget.style.background = 'rgba(76, 175, 80, 0.25)';
-              e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.background = 'rgba(76, 175, 80, 0.15)';
-              e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
-            }}
-            aria-label="Scroll to top"
-          >
-            <span style={{ fontSize: '12px' }}>↑</span>
-            Top
-          </button>
-
-          {/* Expand/Collapse All button */}
-          <button
-            onClick={toggleAll}
-            style={{
+              position: 'fixed',
+              bottom: 'calc(24px + var(--safe-area-bottom, 0px))',
+              left: '24px',
               padding: '6px 10px',
               fontSize: '11px',
               fontWeight: 600,
@@ -881,6 +818,7 @@ function Help() {
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
+              zIndex: 1000,
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'scale(1.05)';
@@ -892,13 +830,91 @@ function Help() {
               e.currentTarget.style.background = 'rgba(255, 152, 0, 0.15)';
               e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
             }}
+            aria-label="Back"
           >
-            <span style={{ fontSize: '12px' }}>
-              {allExpanded ? '▲' : '▼'}
-            </span>
-            {allExpanded ? 'Collapse All' : 'Expand All'}
+            <span style={{ fontSize: '12px' }}>←</span>
+            Back
           </button>
-        </div>
+
+          {/* Right side buttons group */}
+          <div style={{
+            position: 'fixed',
+            bottom: 'calc(24px + var(--safe-area-bottom, 0px))',
+            right: '24px',
+            display: 'flex',
+            gap: '8px',
+            zIndex: 1000,
+          }}>
+            {/* Expand/Collapse All button */}
+            <button
+              onClick={toggleAll}
+              style={{
+                padding: '6px 10px',
+                fontSize: '11px',
+                fontWeight: 600,
+                background: 'rgba(255, 152, 0, 0.15)',
+                color: 'var(--color-accent)',
+                border: '1px solid rgba(255, 152, 0, 0.3)',
+                borderRadius: '12px',
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+                transition: 'all 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.background = 'rgba(255, 152, 0, 0.25)';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.background = 'rgba(255, 152, 0, 0.15)';
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+              }}
+            >
+              <span style={{ fontSize: '12px' }}>
+                {allExpanded ? '▲' : '▼'}
+              </span>
+              {allExpanded ? 'Collapse All' : 'Expand All'}
+            </button>
+
+            {/* Scroll to top button */}
+            <button
+              onClick={scrollToTop}
+              style={{
+                padding: '6px 10px',
+                fontSize: '11px',
+                fontWeight: 600,
+                background: 'rgba(76, 175, 80, 0.15)',
+                color: 'var(--color-success)',
+                border: '1px solid rgba(76, 175, 80, 0.3)',
+                borderRadius: '12px',
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+                transition: 'all 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.background = 'rgba(76, 175, 80, 0.25)';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.background = 'rgba(76, 175, 80, 0.15)';
+                e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+              }}
+              aria-label="Scroll to top"
+            >
+              <span style={{ fontSize: '12px' }}>↑</span>
+              Top
+            </button>
+          </div>
+        </>
       )}
     </div>
   );
