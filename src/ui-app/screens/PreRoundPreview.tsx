@@ -169,6 +169,38 @@ function PreRoundPreview() {
     }
   };
 
+  // Re-sort selectedSpecies when taxonomicSort changes (without re-selecting)
+  useEffect(() => {
+    if (selectedSpecies.length === 0 || Object.keys(taxonomicOrder).length === 0) return;
+
+    // Extract current species codes
+    const currentCodes = selectedSpecies.map(s => s.code);
+
+    // Re-sort based on new taxonomicSort preference
+    const sortedCodes = taxonomicSort
+      ? [...currentCodes].sort((a, b) => {
+          const orderA = taxonomicOrder[a] || 9999;
+          const orderB = taxonomicOrder[b] || 9999;
+          return orderA - orderB;
+        })
+      : [...currentCodes].sort();
+
+    // Rebuild species array with new sort order (but same species)
+    const resorted = sortedCodes.map((code, index) => {
+      const existing = selectedSpecies.find(s => s.code === code);
+      return {
+        ...existing!,
+        color: SPECIES_COLORS[index % SPECIES_COLORS.length],
+      };
+    });
+
+    // Only update if order actually changed
+    const orderChanged = resorted.some((sp, i) => sp.code !== selectedSpecies[i].code);
+    if (orderChanged) {
+      setSelectedSpecies(resorted);
+    }
+  }, [taxonomicSort, taxonomicOrder]); // Depend on taxonomicSort and taxonomicOrder, but not selectedSpecies to avoid infinite loop
+
   // Load taxonomic order data and scientific names
   useEffect(() => {
     Promise.all([
@@ -186,15 +218,9 @@ function PreRoundPreview() {
   }, []);
 
   // Build species info from a list of codes (no shuffling)
+  // Always sorts alphabetically - the useEffect above handles taxonomic re-sorting
   const buildSpeciesInfo = useCallback((codes: string[], clipsData: ClipData[]): SelectedSpecies[] => {
-    // Sort based on mode: taxonomic or alphabetical
-    const sortedCodes = taxonomicSort && Object.keys(taxonomicOrder).length > 0
-      ? [...codes].sort((a, b) => {
-          const orderA = taxonomicOrder[a] || 9999;
-          const orderB = taxonomicOrder[b] || 9999;
-          return orderA - orderB;
-        })
-      : [...codes].sort();
+    const sortedCodes = [...codes].sort();
 
     return sortedCodes.map((code, index) => {
       const canonicalClip = clipsData.find(
@@ -211,7 +237,7 @@ function PreRoundPreview() {
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     });
-  }, [taxonomicSort, taxonomicOrder, scientificNames]);
+  }, [scientificNames]);
 
   // Select random species from the pool
   const selectRandomSpecies = useCallback((levelConfig: LevelConfig, clipsData: ClipData[]) => {
@@ -222,14 +248,8 @@ function PreRoundPreview() {
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, count);
 
-    // Sort based on mode: taxonomic or alphabetical
-    const sortedSelected = taxonomicSort && Object.keys(taxonomicOrder).length > 0
-      ? selected.sort((a, b) => {
-          const orderA = taxonomicOrder[a] || 9999;
-          const orderB = taxonomicOrder[b] || 9999;
-          return orderA - orderB;
-        })
-      : selected.sort();
+    // Always sort alphabetically initially - the re-sort useEffect will handle taxonomic ordering
+    const sortedSelected = selected.sort();
 
     // Build species info with canonical clips
     const speciesInfo: SelectedSpecies[] = sortedSelected.map((code, index) => {
@@ -249,7 +269,7 @@ function PreRoundPreview() {
     });
 
     setSelectedSpecies(speciesInfo);
-  }, [taxonomicSort, taxonomicOrder, scientificNames]);
+  }, [scientificNames]);
 
   // Load level and clips
   useEffect(() => {
