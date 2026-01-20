@@ -200,6 +200,13 @@ function Help() {
             name="Warbler Academy"
             description="For experts! 33 wood-warbler species with their high-pitched, buzzy songs. Nine warblers are selected randomly - shuffle for a new set anytime."
           />
+          <p style={{ marginTop: '16px', fontSize: '13px', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
+            There are 11,000 birds out there, so more are coming soon. Send your suggestions to{' '}
+            <a href="mailto:feedback@chipnotes.app" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+              feedback@chipnotes.app
+            </a>
+            !
+          </p>
         </Section>
 
         {/* The Levels */}
@@ -431,26 +438,26 @@ function Help() {
           onToggle={() => toggleSection('Support This Project')}
         >
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
-            ChipNotes is free, ad-free, and built as a passion project. If it's helped you level up your birding skills, consider{' '}
+            ChipNotes is free, open source, and built as a passion project. If it's helped you level-up your birding skills, consider{' '}
             <a href="https://ko-fi.com/chipnotes" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
               supporting development
             </a>
-            {' '}- your donations help me add new species packs, build new features, keep my coffee fund stocked - and allow me to go birding. Now, you go build something cool - it might be easier than you think! ;)
+            {' '}- your donations help me add new species, add features, and do more birding. Now, you go build something cool - it might be easier than you think! ;)
           </p>
 
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '8px', fontWeight: 600 }}>
-            Please also consider supporting the organizations that make this possible:
+            Please also consider supporting the organizations that make this possible, and tell them ChipNotes! sent you:
           </p>
           <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
             <li>
               <a href="https://www.birds.cornell.edu/home/support/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-                Cornell Macaulay Library
+                https://www.birds.cornell.edu/home/support/
               </a>
               {' '}- Incredible bird sound archive
             </li>
             <li>
               <a href="https://xeno-canto.org/about/donate" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-                Xeno-Canto
+                https://xeno-canto.org/about/donate
               </a>
               {' '}- Community-driven bird recording database
             </li>
