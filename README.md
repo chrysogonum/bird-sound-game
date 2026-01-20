@@ -35,7 +35,7 @@ Each round is 30 seconds. Use headphones for the best experience!
 
 | Pack | Species | Description |
 |------|---------|-------------|
-| **Eastern Backyard Birds** | 5 | Start here — Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow |
+| **Eastern Backyard Birds** | 6 | Start here — Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, Robin |
 | **Expanded Eastern Birds** | 39 | Eastern US species, 9 random per round (shuffle anytime) |
 | **Sparrows** | 8 | Eight sparrow species with distinctive patterns |
 | **Woodpeckers** | 7 | Drums, calls, and rattles from Downy to Pileated |
@@ -63,6 +63,7 @@ Each pack has 6 levels that progressively build your skills:
 - **Left/right stereo training** — spatial audio identification like real birding
 - **Real spectrograms** generated for every clip (400x200px, 500-10000 Hz range)
 - **Training Mode** — Toggle eye icon to show bird labels on tiles while learning
+- **Taxonomic sorting** — Toggle between alphabetical and phylogenetic order with scientific names
 - **Bird Reference** — Preview all sounds in the game, organized by pack
 - **Pre-round preview** — Hear and see birds before playing
 - **Confusion matrix** — See which birds you're mixing up in the round summary
@@ -153,4 +154,4 @@ Bird recordings from [Xeno-canto](https://xeno-canto.org) and [Cornell Macaulay 
 
 ---
 
-*Built with [Claude Code](https://claude.ai/code) · v3.32 · January 2026*
+*Built with [Claude Code](https://claude.ai/code) · v3.37 · January 2026*

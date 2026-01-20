@@ -34,6 +34,7 @@ function Help() {
     'The Levels',
     'Tips',
     'Training Mode',
+    'Taxonomic Sorting',
     'The 4-Letter Codes',
     'The Spectrograms',
     'About & Credits',
@@ -278,6 +279,53 @@ function Help() {
           </div>
         </Section>
 
+        {/* Taxonomic Sorting */}
+        <Section
+          title="Taxonomic Sorting"
+          isExpanded={expandedSections.has('Taxonomic Sorting')}
+          onToggle={() => toggleSection('Taxonomic Sorting')}
+        >
+          <p>
+            Toggle taxonomic sorting on the preview screen to see birds in phylogenetic order with scientific names - perfect for learning evolutionary relationships! 🐦🤓
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            When enabled, birds are sorted by their position on the evolutionary tree (using the 2025 eBird/AOS taxonomy) instead of alphabetically. Common names are replaced with <em>scientific names in italics</em>.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            This sorting also applies to the species buttons during gameplay, helping you build taxonomic muscle memory as you learn.
+          </p>
+          <div style={{
+            background: 'var(--color-surface)',
+            padding: '12px',
+            borderRadius: '8px',
+            marginTop: '12px',
+            fontSize: '14px',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+          }}>
+            <span style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '32px',
+              height: '32px',
+              background: 'rgba(100, 181, 246, 0.3)',
+              border: '2px solid rgba(100, 181, 246, 0.6)',
+              borderRadius: '50%',
+              color: '#64B5F6',
+            }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </span>
+            <span style={{ color: 'var(--color-text-muted)' }}>Toggle glows blue when Taxonomic Sorting is ON</span>
+          </div>
+        </Section>
+
         {/* Bird Codes */}
         <Section
           title="The 4-Letter Codes"
@@ -468,6 +516,13 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.37" date="January 19, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Help Documentation:</strong> Added dedicated "Taxonomic Sorting" section to Help page - explains phylogenetic ordering, scientific name display, and how the feature works during gameplay</li>
+              <li><strong>README Update:</strong> Fixed Eastern Backyard Birds species count (5→6, added Robin) and updated version number</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.36" date="January 19, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Taxonomic Sort Toggle:</strong> Added taxonomic/alphabetical sort toggle to pre-round preview screen - when enabled, shows birds in phylogenetic order with scientific names (italicized) instead of common names 🐦🤓</li>
