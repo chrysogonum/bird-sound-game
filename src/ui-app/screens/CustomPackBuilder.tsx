@@ -274,6 +274,12 @@ function CustomPackBuilder() {
     setSelectedCodes([]);
     setLoadedPackId(null);  // Clear loaded pack state
     setLoadedPackName('');
+    // Clear the persisted custom pack from localStorage
+    try {
+      localStorage.removeItem(CUSTOM_PACK_KEY);
+    } catch (e) {
+      console.error('Failed to clear custom pack from localStorage:', e);
+    }
   };
 
   // Clear search and refocus
