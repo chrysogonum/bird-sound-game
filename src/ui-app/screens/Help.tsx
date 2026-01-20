@@ -182,7 +182,7 @@ function Help() {
           />
           <PackInfo
             name="Expanded Eastern US Birds"
-            description="39 species from the eastern US. Nine birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
+            description="40 species from the eastern US. Nine birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
           />
           <PackInfo
             name="Sparrows"
@@ -757,7 +757,7 @@ function Help() {
 
           <VersionEntry version="3.16" date="January 16, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Bird Reference enhancement:</strong> Separated display species (39) from gameplay rotation (27) for Expanded Eastern US Birds pack - Bird Reference now shows all available species for preview</li>
+              <li><strong>Bird Reference enhancement:</strong> Separated display species (40) from gameplay rotation (28) for Expanded Eastern US Birds pack - Bird Reference now shows all available species for preview</li>
               <li><strong>UI improvements:</strong> Streamlined pack selection tips, improved Help page tips with confusion matrix mention</li>
             </ul>
           </VersionEntry>
