@@ -510,8 +510,72 @@ If creating NEW pack:
 
 If updating EXISTING pack:
 - Add new species codes to the `species` array
+- Add to `display_species` array if pack uses it (for Bird Reference)
 - Maintain alphabetical order (optional but nice)
 - Update species count in pack metadata if present
+
+### Step 6.5: **CRITICAL - Update levels.json**
+
+**DO NOT SKIP THIS STEP!** New species will NOT appear in gameplay without this.
+
+Adding species to a pack requires updating ALL level definitions for that pack in `data/levels.json`:
+
+```bash
+# Find all levels for the pack you're updating
+grep -n '"pack_id": "{pack_name}"' data/levels.json
+```
+
+For each level in the pack, add the new species codes to the `species_pool` array:
+
+**Method 1: Automated Python Script (Recommended)**
+```python
+python3 << 'EOF'
+import json
+
+# Load levels.json
+with open('data/levels.json', 'r') as f:
+    levels = json.load(f)
+
+# Define new species codes to add
+new_species = ['DEJU', 'STJA']  # Replace with your species codes
+pack_id = 'expanded_backyard'    # Replace with your pack ID
+
+# Add new species to all matching levels
+updated_count = 0
+for level in levels:
+    if level.get('pack_id') == pack_id:
+        species_pool = level.get('species_pool', [])
+        for sp in new_species:
+            if sp not in species_pool:
+                species_pool.append(sp)
+                updated_count += 1
+                print(f"Added {sp} to level {level['level_id']}")
+
+# Save updated levels.json
+with open('data/levels.json', 'w') as f:
+    json.dump(levels, f, indent=2)
+
+print(f"\nUpdated {updated_count} species entries across levels")
+EOF
+```
+
+**Method 2: Manual Edit**
+- Open `data/levels.json`
+- Find each level with `"pack_id": "{pack_name}"`
+- Add new species codes to the `species_pool` array
+- Save and verify with `make validate-schemas`
+
+**Verify the update:**
+```bash
+# Check that new species appear in all levels for the pack
+grep -A50 '"pack_id": "{pack_name}"' data/levels.json | grep -c 'DEJU'
+# Should equal the number of levels in the pack (usually 6)
+```
+
+**Why this matters:**
+- Packs define which species are available
+- Levels define which species actually appear in gameplay
+- Species in pack but NOT in levels = won't appear in game!
 
 ### Step 7: Validate Everything
 ```bash
