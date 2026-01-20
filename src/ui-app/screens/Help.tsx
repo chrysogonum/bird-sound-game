@@ -470,6 +470,8 @@ function Help() {
         >
           <VersionEntry version="3.34" date="January 19, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Scientific Names:</strong> Bird Reference now shows scientific names (italicized) below common names when sorted taxonomically - perfect for learning phylogenetic relationships!</li>
+              <li><strong>Pack Select UX:</strong> Enhanced grasshopper sparrow joke to read "6 levels/pack—start @ #1, 🦗 sparrow" - more punchy and visual</li>
               <li><strong>OCWA Clips:</strong> Added 7 new Orange-crowned Warbler clips from Xeno-Canto (6 songs, 1 call) - all quality A recordings for expanded species coverage</li>
               <li><strong>Audio Quality:</strong> Trimmed OCWA_985696 to remove interfering bird vocalization at beginning - now shows clean warbler song only</li>
               <li><strong>Data Fixes:</strong> Removed duplicate OCWA_1046368 entry in clips database, set OCWA_976251 as canonical clip, removed low-quality SASP_1060896 clip</li>
