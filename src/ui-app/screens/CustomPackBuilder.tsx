@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { trackTaxonomicSortToggle, trackCustomPackCreate, trackCustomPackSave, trackCustomPackLoad, trackCustomPackDelete } from '../utils/analytics';
 
 interface ClipData {
   clip_id: string;
@@ -256,6 +257,9 @@ function CustomPackBuilder() {
     // Save to localStorage
     localStorage.setItem(CUSTOM_PACK_KEY, JSON.stringify(selectedCodes));
 
+    // Track custom pack creation
+    trackCustomPackCreate(selectedCodes.length);
+
     // Navigate to level select for custom pack
     navigate('/level-select?pack=custom');
   };
@@ -280,6 +284,7 @@ function CustomPackBuilder() {
     setTaxonomicSort(newValue);
     try {
       localStorage.setItem('soundfield_taxonomic_sort', String(newValue));
+      trackTaxonomicSortToggle(newValue, 'custom_pack_builder');
     } catch (e) {
       console.error('Failed to save taxonomic sort:', e);
     }
@@ -317,6 +322,7 @@ function CustomPackBuilder() {
     setSavedPacks(updated);
     try {
       localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updated));
+      trackCustomPackSave(trimmedName, selectedCodes.length);
     } catch (e) {
       console.error('Failed to save pack:', e);
       alert('Failed to save pack. Storage may be full.');
@@ -353,6 +359,7 @@ function CustomPackBuilder() {
 
     setSelectedCodes(validSpecies);
     setSearchQuery('');
+    trackCustomPackLoad(pack.name, validSpecies.length);
   };
 
   // Delete a saved pack - show confirmation dialog
@@ -365,10 +372,12 @@ function CustomPackBuilder() {
   const confirmDeletePack = () => {
     if (!packToDelete) return;
 
+    const packName = savedPacks.find(p => p.id === packToDelete)?.name || 'unknown';
     const updated = savedPacks.filter(p => p.id !== packToDelete);
     setSavedPacks(updated);
     try {
       localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updated));
+      trackCustomPackDelete(packName);
     } catch (e) {
       console.error('Failed to update saved packs:', e);
     }
@@ -623,7 +632,7 @@ function CustomPackBuilder() {
         color: 'var(--color-text-muted)',
         lineHeight: 1.3,
       }}>
-        <span style={{ color: 'var(--color-accent)' }}>💡</span> Tap <strong style={{ color: 'var(--color-text)' }}>▶</strong> to preview, <strong style={{ color: 'var(--color-text)' }}>bird icon</strong> to add/remove.
+        <span style={{ color: 'var(--color-accent)' }}>💡</span> Tap <strong style={{ color: 'var(--color-text)' }}>▶</strong> to preview, <strong style={{ color: 'var(--color-text)' }}>anywhere else on the card</strong> to add/remove.
         {taxonomicSort && (
           <> <span style={{ color: 'var(--color-accent)' }}>🐦🤓</span> Taxonomic mode groups related species together.</>
         )}
@@ -697,6 +706,7 @@ function CustomPackBuilder() {
             return (
               <div
                 key={species.code}
+                onClick={() => toggleSpecies(species.code, filteredSpecies.length)}
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
@@ -707,6 +717,7 @@ function CustomPackBuilder() {
                   borderRadius: '12px',
                   opacity: isSelected || selectedCodes.length < MAX_SPECIES ? 1 : 0.5,
                   transition: 'all 0.15s',
+                  cursor: isSelected || selectedCodes.length < MAX_SPECIES ? 'pointer' : 'not-allowed',
                 }}
               >
                 {/* Top row: Play button (left) and Bird icon (right) */}
@@ -750,21 +761,16 @@ function CustomPackBuilder() {
                   </button>
 
                   {/* Bird icon - right side */}
-                  <button
-                    onClick={() => toggleSpecies(species.code, filteredSpecies.length)}
-                    disabled={!isSelected && selectedCodes.length >= MAX_SPECIES}
+                  <div
                     style={{
                       flex: '1',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      background: 'transparent',
-                      border: 'none',
-                      cursor: isSelected || selectedCodes.length < MAX_SPECIES ? 'pointer' : 'not-allowed',
                       padding: '4px',
                       position: 'relative',
+                      pointerEvents: 'none', // Let clicks pass through to parent card
                     }}
-                    aria-label={isSelected ? `Remove ${species.name}` : `Add ${species.name}`}
                   >
                     <BirdIcon code={species.code} size={48} />
 
@@ -785,11 +791,11 @@ function CustomPackBuilder() {
                         <CheckIcon />
                       </div>
                     )}
-                  </button>
+                  </div>
                 </div>
 
                 {/* Species info */}
-                <div style={{ width: '100%', textAlign: 'center' }}>
+                <div style={{ width: '100%', textAlign: 'center', pointerEvents: 'none' }}>
                   <div style={{
                     fontSize: '12px',
                     color: 'var(--color-text)',
