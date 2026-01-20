@@ -4,7 +4,7 @@
   "description": "Common backyard birds of western North America, from the Pacific coast to the Rocky Mountains. Features distinctive western species including jays, finches, and the Black-capped Chickadee.",
   "species": [
     "STJA",
-    "WESJ",
+    "CASJ",
     "BCCH",
     "WCSP",
     "CAFI",
@@ -15,7 +15,7 @@
     "NOFL",
     "WBNU",
     "HOFI",
-    "AMGO",
+    "AGOL",
     "RWBL"
   ],
   "vocalization_weights": {
