@@ -93,13 +93,15 @@ function PackSelect() {
   const [searchParams] = useSearchParams();
 
   const [clips, setClips] = useState<ClipData[]>([]);
-  const [_packSpecies, setPackSpecies] = useState<Record<string, string[]>>({});
   const [packDisplaySpecies, setPackDisplaySpecies] = useState<Record<string, string[]>>({});
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
   const [showAllPacks, setShowAllPacks] = useState(false);
   const [showMoreExamples, setShowMoreExamples] = useState(false);
+  const [taxonomicSort, setTaxonomicSort] = useState(false);
+  const [showNerdAlert, setShowNerdAlert] = useState(false);
+  const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Load clips data
@@ -126,6 +128,16 @@ function PackSelect() {
       .catch((err) => console.error('Failed to load clips:', err));
   }, []);
 
+  // Load taxonomic order
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`)
+      .then((res) => res.json())
+      .then((data: Record<string, number>) => {
+        setTaxonomicOrder(data);
+      })
+      .catch((err) => console.error('Failed to load taxonomic order:', err));
+  }, []);
+
   // Load pack species from JSON files (single source of truth)
   useEffect(() => {
     const packIds = ['starter_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds'];
@@ -140,16 +152,13 @@ function PackSelect() {
           })
       )
     ).then((packs) => {
-      const speciesMap: Record<string, string[]> = {};
       const displaySpeciesMap: Record<string, string[]> = {};
       packs.forEach((pack, i) => {
         if (pack && pack.species) {
-          speciesMap[packIds[i]] = pack.species;
           // Use display_species for Bird Reference, fallback to species if not available
           displaySpeciesMap[packIds[i]] = pack.display_species || pack.species;
         }
       });
-      setPackSpecies(speciesMap);
       setPackDisplaySpecies((prev) => ({ ...prev, ...displaySpeciesMap }));
     });
   }, []);
@@ -157,7 +166,7 @@ function PackSelect() {
   // Get bird info for a pack (use display_species for Bird Reference)
   const getBirdsForPack = (packId: string): BirdInfo[] => {
     const speciesCodes = packDisplaySpecies[packId] || [];
-    return speciesCodes.map((code) => {
+    const birds = speciesCodes.map((code) => {
       const speciesClips = clips.filter((c) =>
         c.species_code === code &&
         !c.rejected &&
@@ -192,7 +201,18 @@ function PackSelect() {
         clipCount: speciesClips.length,
         allClips,
       };
-    }).sort((a, b) => a.code.localeCompare(b.code));
+    });
+
+    // Sort based on mode: taxonomic or alphabetical
+    if (packId === 'all_birds' && taxonomicSort && Object.keys(taxonomicOrder).length > 0) {
+      return birds.sort((a, b) => {
+        const orderA = taxonomicOrder[a.code] || 9999;
+        const orderB = taxonomicOrder[b.code] || 9999;
+        return orderA - orderB;
+      });
+    }
+
+    return birds.sort((a, b) => a.code.localeCompare(b.code));
   };
 
   const handlePackSelect = (pack: Pack) => {
@@ -696,6 +716,109 @@ function PackSelect() {
                 </span>
               </div>
               {isExpanded && (
+              <>
+                {/* Taxonomic Sort Toggle - Enhanced visibility */}
+                <div style={{
+                  marginBottom: '12px',
+                  padding: '10px',
+                  background: 'rgba(70, 70, 90, 0.3)',
+                  borderRadius: '8px',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  position: 'relative',
+                }}>
+                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-text-muted)' }}>
+                      Sort:
+                    </span>
+                    <button
+                      onClick={() => {
+                        const newValue = !taxonomicSort;
+                        setTaxonomicSort(newValue);
+                        // Trigger nerd alert easter egg when switching TO taxonomic mode
+                        if (newValue) {
+                          setShowNerdAlert(true);
+                          setTimeout(() => setShowNerdAlert(false), 1400);
+                        }
+                      }}
+                      style={{
+                        padding: '6px 12px',
+                        fontSize: '12px',
+                        fontWeight: 600,
+                        background: taxonomicSort ? 'var(--color-accent)' : 'rgba(255,255,255,0.15)',
+                        color: taxonomicSort ? '#000' : 'var(--color-text)',
+                        border: taxonomicSort ? 'none' : '1.5px solid var(--color-accent)',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s',
+                        boxShadow: taxonomicSort ? '0 2px 8px rgba(245, 166, 35, 0.3)' : 'none',
+                      }}
+                      onMouseEnter={(e) => {
+                        if (!taxonomicSort) {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
+                          e.currentTarget.style.transform = 'scale(1.05)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (!taxonomicSort) {
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                          e.currentTarget.style.transform = 'scale(1)';
+                        }
+                      }}
+                    >
+                      {taxonomicSort ? '📊 Taxonomic' : '🔤 A-Z'}
+                    </button>
+                    <span style={{ fontSize: '11px', color: 'var(--color-text-muted)', flex: '1', minWidth: '180px' }}>
+                      {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Species codes'}
+                    </span>
+                  </div>
+
+                  {/* Nerd Alert Easter Egg - Floating bubble */}
+                  {showNerdAlert && (
+                    <div style={{
+                      position: 'absolute',
+                      top: '15px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      background: 'rgba(245, 166, 35, 0.75)',
+                      color: '#000',
+                      padding: '6px 16px',
+                      borderRadius: '16px',
+                      fontSize: '13px',
+                      fontWeight: 600,
+                      boxShadow: '0 2px 8px rgba(245, 166, 35, 0.3)',
+                      animation: 'floatPop 1.4s ease-out forwards',
+                      zIndex: 1000,
+                      pointerEvents: 'none',
+                    }}>
+                      🤓 nerd alert!
+                    </div>
+                  )}
+                </div>
+
+                <style>{`
+                  @keyframes floatPop {
+                    0% {
+                      opacity: 0;
+                      transform: translateX(-50%) translateY(0) scale(0.8);
+                    }
+                    15% {
+                      opacity: 0.75;
+                      transform: translateX(-50%) translateY(-5px) scale(1);
+                    }
+                    80% {
+                      opacity: 0.75;
+                      transform: translateX(-50%) translateY(-35px) scale(1);
+                    }
+                    90% {
+                      opacity: 0.5;
+                      transform: translateX(-50%) translateY(-40px) scale(1.05);
+                    }
+                    100% {
+                      opacity: 0;
+                      transform: translateX(-50%) translateY(-45px) scale(0.6);
+                    }
+                  }
+                `}</style>
               <div
                 style={{
                   display: 'grid',
@@ -855,6 +978,7 @@ function PackSelect() {
                   );
                 })}
               </div>
+              </>
               )}
             </div>
           );
