@@ -152,7 +152,7 @@ function MainMenu() {
           maxWidth: '280px',
           textAlign: 'center',
           lineHeight: 1.4,
-          marginTop: '4px',
+          marginTop: '-4px',
           fontWeight: 600,
         }}>
           Train your ear. Know the birds.
