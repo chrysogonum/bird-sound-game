@@ -173,6 +173,16 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const activeEventTimesRef = useRef<Map<string, number>>(new Map()); // eventId -> scheduled hit time
   const volumeUpdateRef = useRef<number | null>(null);
 
+  // Taxonomic sort preference and data
+  const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
+  const taxonomicSortEnabled = useMemo(() => {
+    try {
+      return localStorage.getItem('soundfield_taxonomic_sort') === 'true';
+    } catch {
+      return false;
+    }
+  }, []);
+
   // Clips and species data
   const [clips, setClips] = useState<ClipMetadata[]>([]);
   const [allPoolSpecies, setAllPoolSpecies] = useState<SpeciesInfo[]>([]); // All species in the pool
@@ -182,6 +192,28 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   useEffect(() => {
     console.log('species state changed, now has', species.length, 'species:', species.map(s => s.code));
   }, [species]);
+
+  // Load taxonomic order data
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`)
+      .then((res) => res.json())
+      .then((data: Record<string, number>) => {
+        setTaxonomicOrder(data);
+      })
+      .catch((err) => console.error('Failed to load taxonomic order:', err));
+  }, []);
+
+  // Helper function to sort species based on preference
+  const sortSpecies = useCallback((speciesToSort: SpeciesInfo[]): SpeciesInfo[] => {
+    if (taxonomicSortEnabled && Object.keys(taxonomicOrder).length > 0) {
+      return [...speciesToSort].sort((a, b) => {
+        const orderA = taxonomicOrder[a.code] || 9999;
+        const orderB = taxonomicOrder[b.code] || 9999;
+        return orderA - orderB;
+      });
+    }
+    return [...speciesToSort].sort((a, b) => a.code.localeCompare(b.code));
+  }, [taxonomicSortEnabled, taxonomicOrder]);
 
   // Game state
   const [roundState, setRoundState] = useState<RoundState>('idle');
@@ -299,9 +331,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         try {
           const preSelected = JSON.parse(preSelectedJson) as string[];
           // Filter to species that exist in the pool
-          const preSelectedSpecies = poolSpecies
-            .filter(s => preSelected.includes(s.code))
-            .sort((a, b) => a.code.localeCompare(b.code));
+          const filteredSpecies = poolSpecies.filter(s => preSelected.includes(s.code));
+          const preSelectedSpecies = sortSpecies(filteredSpecies);
           if (preSelectedSpecies.length > 0) {
             console.log('loadClips: Using pre-selected species:', preSelectedSpecies.map(s => s.code));
             setSpecies(preSelectedSpecies);
@@ -1069,9 +1100,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           allPoolSpecies.some(s => s.code === code)
         );
         if (validPreSelected.length > 0) {
-          const selectedForRound = allPoolSpecies
-            .filter(s => validPreSelected.includes(s.code))
-            .sort((a, b) => a.code.localeCompare(b.code));
+          const filteredForRound = allPoolSpecies.filter(s => validPreSelected.includes(s.code));
+          const selectedForRound = sortSpecies(filteredForRound);
           console.log('Using pre-selected species:', selectedForRound.map(s => s.code));
           setSpecies(selectedForRound);
           roundSpeciesCodes = selectedForRound.map(s => s.code);
@@ -1091,8 +1121,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           const j = Math.floor(Math.random() * (i + 1));
           [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
-        // Sort alphabetically by species code for consistent display
-        const selectedForRound = shuffled.slice(0, level.species_count).sort((a, b) => a.code.localeCompare(b.code));
+        // Sort by preference (taxonomic or alphabetical) for consistent display
+        const slicedSpecies = shuffled.slice(0, level.species_count);
+        const selectedForRound = sortSpecies(slicedSpecies);
         console.log('Random selection: setting species to', selectedForRound.length, 'species:', selectedForRound.map(s => s.code));
         setSpecies(selectedForRound);
         roundSpeciesCodes = selectedForRound.map(s => s.code);
