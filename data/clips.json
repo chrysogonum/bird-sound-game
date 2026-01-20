@@ -3935,7 +3935,7 @@
     "duration_ms": 3000,
     "source": "xenocanto",
     "source_id": "XC808323",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OCWA_808323.png",
     "quality_score": 4,
@@ -6322,7 +6322,7 @@
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "XC985696",
-    "duration_ms": 3000,
+    "duration_ms": 2000,
     "recordist": "Ed Pandolfino"
   },
   {
@@ -6351,7 +6351,7 @@
     "xeno_canto_id": "976251",
     "vocalization_type": "song",
     "quality_rating": "A",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/OCWA_976251.png",
     "common_name": "Orange-crowned Warbler",
