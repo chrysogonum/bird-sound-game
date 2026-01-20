@@ -1820,20 +1820,6 @@
     "recordist": null
   },
   {
-    "clip_id": "DEJU_b4006b4c",
-    "species_code": "DEJU",
-    "common_name": "Unknown (DEJU)",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "DEJU_1038383",
-    "file_path": "data/clips/DEJU_1038383.wav",
-    "spectrogram_path": "data/spectrograms/DEJU_1038383.png",
-    "recordist": null,
-    "canonical": true
-  },
-  {
     "clip_id": "DEJU_37ba5e4b",
     "species_code": "DEJU",
     "common_name": "Unknown (DEJU)",
@@ -1857,7 +1843,8 @@
     "source_id": "DEJU_1046357",
     "file_path": "data/clips/DEJU_1046357.wav",
     "spectrogram_path": "data/spectrograms/DEJU_1046357.png",
-    "recordist": null
+    "recordist": null,
+    "canonical": true
   },
   {
     "clip_id": "DEJU_1cff3978",
