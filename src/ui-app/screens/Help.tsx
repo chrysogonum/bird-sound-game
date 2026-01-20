@@ -541,6 +541,14 @@ function Help() {
             </div>
           </div>
 
+          <VersionEntry version="3.41" date="January 20, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Dark-eyed Junco added:</strong> Expanded Eastern Birds pack now includes 40 species (previously 39) with Dark-eyed Junco clips and spectrograms.</li>
+              <li><strong>Level rotation fix:</strong> Fixed bug where newly added species appeared in pack definitions but not in gameplay rotation - Dark-eyed Junco now appears in all 6 levels.</li>
+              <li><strong>Species count corrections:</strong> Updated pack selection and help text to reflect accurate species counts.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.40" date="January 20, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Custom Pack Editing:</strong> Load, edit, and update existing saved packs! When you load a pack and modify it, you can choose to update the original pack or save as a new one. Visual indicator shows "Editing: [Pack Name]" at the top of the builder.</li>
