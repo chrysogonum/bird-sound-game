@@ -5500,19 +5500,6 @@
     "recordist": "David A. Brinkman"
   },
   {
-    "clip_id": "WEVI_e2969b85",
-    "species_code": "WEVI",
-    "common_name": "White-eyed Vireo",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC897130",
-    "file_path": "data/clips/WEVI_897130.wav",
-    "spectrogram_path": "data/spectrograms/WEVI_897130.png",
-    "recordist": "Scott Gravette"
-  },
-  {
     "clip_id": "WEVI_ce9ac62f",
     "species_code": "WEVI",
     "common_name": "White-eyed Vireo",
