@@ -468,6 +468,16 @@ function Help() {
             isExpanded={expandedSections.has('Version History')}
             onToggle={() => toggleSection('Version History')}
         >
+          <VersionEntry version="3.35" date="January 19, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>2025 AOS Taxonomy:</strong> Updated all 86 species to official 2025 American Ornithological Society (66th Supplement) taxonomic positions - fixes phylogenetic ordering across all families, especially warblers (Swainson's Warbler now correctly appears before Setophaga radiation)</li>
+              <li><strong>Scientific Names Fix:</strong> Corrected numerous errors in displayed scientific names - WEWA now shows <em>Helmitheros vermivorum</em> (not <em>Setophaga pensylvanica</em>!), plus 13+ other species fixed to match 2025 AOS data</li>
+              <li><strong>Species Data File:</strong> Added comprehensive species.json with common names, scientific names, genus, species epithet, and taxonomic order for all birds - auto-generated from authoritative IBP-AOS-list25.csv</li>
+              <li><strong>Custom Pack Builder Icons:</strong> Replaced generic circles with cute illustrated bird icon images - makes custom pack building more visual and fun!</li>
+              <li><strong>Data Source:</strong> All taxonomy from The Institute for Bird Populations' official 2025 AOS list (2352 taxa) - scientifically accurate and up-to-date</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.34" date="January 19, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Scientific Names:</strong> Bird Reference now shows scientific names (italicized) below common names when sorted taxonomically - perfect for learning phylogenetic relationships!</li>
