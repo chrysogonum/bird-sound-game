@@ -334,6 +334,39 @@ grep -c "\"species_code\": \"STJA\"" data/clips.json
 # Should show number of STJA clips
 ```
 
+**CRITICAL: Verify recordist attribution and source URLs:**
+```bash
+# Check that source_url and recordist fields are populated
+python3 -c "
+import json
+clips = json.load(open('data/clips.json'))
+new_clips = [c for c in clips if c['species_code'] in ['ACWO', 'LEWO']]  # Replace with your codes
+missing_url = [c['clip_id'] for c in new_clips if not c.get('source_url')]
+missing_recordist = [c['clip_id'] for c in new_clips if not c.get('recordist')]
+
+print(f'New clips: {len(new_clips)}')
+print(f'Missing source_url: {len(missing_url)}')
+print(f'Missing recordist: {len(missing_recordist)}')
+
+if missing_url:
+    print('ERROR: Missing source_url for:', missing_url)
+if missing_recordist:
+    print('WARNING: Missing recordist for:', missing_recordist)
+"
+```
+
+**Expected output:**
+```
+New clips: 10
+Missing source_url: 0
+Missing recordist: 0
+```
+
+**If source_url or recordist are missing, STOP!** This means:
+- Legal attribution requirements not met (Xeno-canto requires recordist credit)
+- Bird Reference will not show clickable links to source
+- You need to fix merge_candidates.py or manually add the fields
+
 ### Step 3: Generate Spectrograms
 Generate spectrograms BEFORE review so they're visible in the review tool:
 
@@ -766,9 +799,10 @@ The changes are now on GitHub but NOT live on chipnotes.app.
    - Navigate to Pack Select → Bird Reference section
    - Expand the pack and verify:
      - New species appear with icons
-     - Recordist names display correctly (e.g., "Stanislas Wroza")
-     - XC catalog numbers are clickable links (e.g., "XC1014388")
+     - **CRITICAL: Recordist names display correctly** (e.g., "Stanislas Wroza" not "Unknown")
+     - **CRITICAL: XC catalog numbers are clickable links** (e.g., "XC1014388" is a blue hyperlink to xeno-canto.org)
      - Canonical clip is marked with ⭐
+   - **If recordist shows as blank or XC numbers aren't links:** STOP! Source URLs missing in clips.json (go back to Step 2 verification)
    - Test gameplay:
      - Verify all new species appear in pack
      - Test Level 1 with canonical clips
