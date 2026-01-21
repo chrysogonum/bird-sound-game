@@ -2171,7 +2171,7 @@
     "file_path": "data/clips/DEJU_1046357.wav",
     "spectrogram_path": "data/spectrograms/DEJU_1046357.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
