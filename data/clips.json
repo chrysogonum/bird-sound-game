@@ -7124,22 +7124,6 @@
     "spectrogram_path": "data/spectrograms/REVI_1014455.png"
   },
   {
-    "clip_id": "REVI_1014454",
-    "species_code": "REVI",
-    "common_name": "Red-eyed Vireo",
-    "file_path": "data/clips/REVI_1014454.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1014454",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/REVI_1014454.png"
-  },
-  {
     "clip_id": "REVI_1014453",
     "species_code": "REVI",
     "common_name": "Red-eyed Vireo",
