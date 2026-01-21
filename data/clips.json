@@ -6099,7 +6099,7 @@
     "clip_id": "SWSP_8caa2de8",
     "species_code": "SWSP",
     "common_name": "Swamp Sparrow",
-    "vocalization_type": "song",
+    "vocalization_type": "call",
     "duration_ms": 3000,
     "quality_score": 4,
     "source": "xenocanto",
