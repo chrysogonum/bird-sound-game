@@ -902,6 +902,9 @@ function Help() {
         </Section>
         </div>
 
+        {/* Spacer to prevent floating buttons from covering content */}
+        <div style={{ height: '120px' }} />
+
       </div>
 
       {/* Floating buttons - visible after scroll */}
