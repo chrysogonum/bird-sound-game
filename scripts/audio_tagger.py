@@ -2,6 +2,12 @@
 """
 Audio Tagger for ChipNotes!
 
+⚠️ WARNING: This script OVERWRITES the output JSON file completely.
+   - Safe for NEW projects (initial tagging)
+   - DANGEROUS for existing projects (destroys curated metadata)
+
+For adding clips to an existing project, use merge_candidates.py instead.
+
 Generates metadata JSON for processed audio clips.
 
 Usage:
