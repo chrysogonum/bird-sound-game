@@ -2388,7 +2388,7 @@
     "clip_id": "EAPH_e3b9c1da",
     "species_code": "EAPH",
     "common_name": "Eastern Phoebe",
-    "vocalization_type": "call",
+    "vocalization_type": "chip",
     "duration_ms": 3000,
     "quality_score": 5,
     "source": "xenocanto",
