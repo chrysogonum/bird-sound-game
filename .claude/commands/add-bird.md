@@ -2,6 +2,13 @@
 
 Add one or more bird species to ChipNotes with all required assets, metadata, and pack integration.
 
+⚠️ **CRITICAL: Follow this workflow step-by-step. DO NOT skip steps or work from memory.**
+
+Common failures:
+- Skipping Step 6b → species don't appear in gameplay (wrong species_count)
+- Skipping Step 6c → UI shows wrong species counts
+- Not doing hard refresh → browser cache shows old data
+
 ## Two Main Use Cases
 
 ### Use Case 1: Adding New Species
