@@ -32,7 +32,7 @@
       },
       "vocalization_type": {
         "type": "string",
-        "enum": ["song", "call", "flight call", "alarm call", "chip", "drum", "wing sound", "rattle", "trill", "other"],
+        "enum": ["song", "call", "flight call", "alarm call", "chip", "drum", "wing sound", "rattle", "trill", "duet", "juvenile", "other"],
         "description": "Type of vocalization"
       },
       "duration_ms": {

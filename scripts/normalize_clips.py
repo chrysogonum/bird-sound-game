@@ -82,7 +82,7 @@ def normalize_clip(clip: Dict[str, Any], index: int) -> tuple[Dict[str, Any], Li
     if 'vocalization_type' in clip:
         voc_type = clip['vocalization_type']
         # Valid types from schema
-        valid_types = ["song", "call", "flight call", "alarm call", "chip", "drum", "wing sound", "rattle", "trill", "other"]
+        valid_types = ["song", "call", "flight call", "alarm call", "chip", "drum", "wing sound", "rattle", "trill", "duet", "juvenile", "other"]
 
         # If already valid, keep it
         if voc_type in valid_types:
@@ -106,6 +106,10 @@ def normalize_clip(clip: Dict[str, Any], index: int) -> tuple[Dict[str, Any], Li
                 normalized_type = 'rattle'
             elif 'trill' in voc_lower:
                 normalized_type = 'trill'
+            elif 'duet' in voc_lower or 'duetting' in voc_lower:
+                normalized_type = 'duet'
+            elif 'juvenile' in voc_lower or 'young' in voc_lower or 'immature' in voc_lower:
+                normalized_type = 'juvenile'
             elif 'call' in voc_lower:
                 normalized_type = 'call'
             else:
