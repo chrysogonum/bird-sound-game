@@ -1065,21 +1065,6 @@
     "rejected": false
   },
   {
-    "clip_id": "BRTH_2d5fb165",
-    "species_code": "BRTH",
-    "common_name": "Brown Thrasher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "BRTH_982365",
-    "file_path": "data/clips/BRTH_982365.wav",
-    "spectrogram_path": "data/spectrograms/BRTH_982365.png",
-    "recordist": null,
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "BRTH_d0086c7d",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
