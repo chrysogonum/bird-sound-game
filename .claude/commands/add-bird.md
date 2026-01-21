@@ -287,21 +287,25 @@ ls data/clips/{CODE}_*.wav
 # Should show 5-10 files per species
 ```
 
-### Step 2: Tag Metadata
-Run the audio tagging script to create clips.json entries:
+### Step 2: Merge Candidate Clips into clips.json
+⚠️ **CRITICAL:** Use the safe merge script to add clips without destroying existing data:
 ```bash
-python3 scripts/audio_tagger.py --input data/clips --output data/clips.json
+python3 scripts/merge_candidates.py data/candidates_{CODE}
 ```
 
 **What this does:**
-- Reads `.ingest_manifest.json` (if it exists) to get metadata from Xeno-canto:
+- Loads existing clips.json (preserves ALL curated metadata)
+- Loads candidate manifest.json from the candidates folder
+- Appends new clips to clips.json (NEVER overwrites)
+- Creates automatic backup at data/clips.json.backup
+- Validates no data loss occurred (aborts if clip count decreases)
+- Reads `.ingest_manifest.json` to get metadata from Xeno-canto:
   - Vocalization type (song, call, drum, alarm, etc.)
   - Quality rating (A=5, B=4, etc.)
   - Recordist name
   - Source info
-- Falls back to filename parsing if no manifest
-- Creates/updates clips.json with new entries
-- **Preserves original vocalization types** from source (you'll verify during review)
+
+⚠️ **NEVER use audio_tagger.py on an existing project** - it overwrites the entire clips.json file and destroys all curated metadata (canonical flags, recordist attributions, vocalization corrections, etc.)
 
 **Verify clips.json was updated:**
 ```bash
