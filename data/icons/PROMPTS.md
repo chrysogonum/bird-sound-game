@@ -250,6 +250,9 @@ YTWA: Stylized icon of a Yellow-throated Warbler, simple flat design, circular f
 | PISI | Pine Siskin | Stylized icon of a Pine Siskin, simple flat design, circular frame, heavily streaked brown finch with yellow wing bars and tail base, white background, game asset style, clean vector look, centered composition, no text |
 | EVGR | Evening Grosbeak | Stylized icon of an Evening Grosbeak, simple flat design, circular frame, chunky yellow and black bird with massive pale bill and white wing patches, white background, game asset style, clean vector look, centered composition, no text |
 | RWBL | Red-winged Blackbird | Stylized icon of a Red-winged Blackbird, simple flat design, circular frame, black bird with bright red and yellow shoulder patches, white background, game asset style, clean vector look, centered composition, no text |
+| WREN | Wrentit | Stylized icon of a Wrentit, simple flat design, circular frame, small brown bird with long tail cocked upward and pale eye, white background, game asset style, clean vector look, centered composition, no text |
+| SPTO | Spotted Towhee | Stylized icon of a Spotted Towhee, simple flat design, circular frame, black head and back with white spots on wings, rufous sides and white belly, red eye, white background, game asset style, clean vector look, centered composition, no text |
+| WEBL | Western Bluebird | Stylized icon of a Western Bluebird, simple flat design, circular frame, deep blue bird with rusty orange breast and shoulders, white background, game asset style, clean vector look, centered composition, no text |
 
 ### Quick Copy - Western Birds
 
@@ -262,6 +265,9 @@ CAFI: Stylized icon of a Cassin's Finch, simple flat design, circular frame, ros
 PISI: Stylized icon of a Pine Siskin, simple flat design, circular frame, heavily streaked brown finch with yellow wing bars and tail base, white background, game asset style, clean vector look, centered composition, no text
 EVGR: Stylized icon of an Evening Grosbeak, simple flat design, circular frame, chunky yellow and black bird with massive pale bill and white wing patches, white background, game asset style, clean vector look, centered composition, no text
 RWBL: Stylized icon of a Red-winged Blackbird, simple flat design, circular frame, black bird with bright red and yellow shoulder patches, white background, game asset style, clean vector look, centered composition, no text
+WREN: Stylized icon of a Wrentit, simple flat design, circular frame, small brown bird with long tail cocked upward and pale eye, white background, game asset style, clean vector look, centered composition, no text
+SPTO: Stylized icon of a Spotted Towhee, simple flat design, circular frame, black head and back with white spots on wings, rufous sides and white belly, red eye, white background, game asset style, clean vector look, centered composition, no text
+WEBL: Stylized icon of a Western Bluebird, simple flat design, circular frame, deep blue bird with rusty orange breast and shoulders, white background, game asset style, clean vector look, centered composition, no text
 ```
 
 ---
