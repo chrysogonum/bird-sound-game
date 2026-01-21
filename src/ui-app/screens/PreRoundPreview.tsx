@@ -305,10 +305,44 @@ function PreRoundPreview() {
             const customSpecies = JSON.parse(customSpeciesJson) as string[];
             setFullCustomPack(customSpecies);
 
-            // If pack has >9 birds, randomly select 9 for gameplay
-            const selectedForPlay = customSpecies.length > 9
-              ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
-              : customSpecies;
+            let selectedForPlay: string[];
+
+            // Check if we should keep the same birds from previous round
+            if (keepBirds) {
+              const savedSpecies = sessionStorage.getItem('roundSpecies');
+              if (savedSpecies) {
+                try {
+                  const previousSpecies = JSON.parse(savedSpecies) as string[];
+                  // Verify these species are still in the custom pack
+                  const validSpecies = previousSpecies.filter(s => customSpecies.includes(s));
+                  if (validSpecies.length === previousSpecies.length) {
+                    // All previous species are valid, use them
+                    selectedForPlay = validSpecies;
+                  } else {
+                    // Some species were removed from pack, re-shuffle
+                    selectedForPlay = customSpecies.length > 9
+                      ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+                      : customSpecies;
+                  }
+                } catch (e) {
+                  console.error('Failed to parse saved species:', e);
+                  // Fall back to shuffling
+                  selectedForPlay = customSpecies.length > 9
+                    ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+                    : customSpecies;
+                }
+              } else {
+                // No saved species, shuffle
+                selectedForPlay = customSpecies.length > 9
+                  ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+                  : customSpecies;
+              }
+            } else {
+              // Not keeping birds, randomly select 9 for gameplay
+              selectedForPlay = customSpecies.length > 9
+                ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+                : customSpecies;
+            }
 
             // Create synthetic level config for custom pack
             const customLevel: LevelConfig = {
