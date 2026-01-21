@@ -62,7 +62,7 @@ const PACKS: Pack[] = [
   {
     id: 'sparrows',
     name: 'Sparrows',
-    speciesCount: 8,
+    speciesCount: 9,
     isUnlocked: true,
     description: 'Master their subtle songs.',
   },

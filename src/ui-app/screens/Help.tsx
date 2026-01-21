@@ -829,7 +829,7 @@ function Help() {
               <li><strong>UI refinements:</strong> Black backgrounds on Training Mode labels for better readability, Warbler Academy icon updated to Blackburnian Warbler, improved loading indicators</li>
               <li><strong>Bird Reference enhancements:</strong> Collapsible packs with expand/collapse controls, source badges (Xeno-canto, Cornell, contributors), pack cards with representative bird icons</li>
               <li><strong>Fixed blank spectrograms</strong> (async texture loading), added pull-to-refresh on main menu, audio preloading on preview screen</li>
-              <li>Added White-crowned Sparrow to Sparrows pack (now 8 species)</li>
+              <li>Added White-crowned Sparrow to Sparrows pack (now 9 species)</li>
             </ul>
           </VersionEntry>
 
