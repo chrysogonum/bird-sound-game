@@ -1001,7 +1001,7 @@ function PackSelect() {
                                     }}>
                                       {/* Format: XC667361 • Nick Komar OR Cornell CD Track 26 OR Peter Repetti */}
                                       {clip.sourceUrl ? (
-                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                                           {clip.sourceId}{clip.recordist ? ` • ${clip.recordist}` : ''}
                                         </a>
                                       ) : (
@@ -1271,7 +1271,7 @@ function PackSelect() {
                                     }}>
                                       {/* Format: XC667361 • Nick Komar OR Cornell CD Track 26 OR Peter Repetti */}
                                       {clip.sourceUrl ? (
-                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                                           {clip.sourceId}{clip.recordist ? ` • ${clip.recordist}` : ''}
                                         </a>
                                       ) : (
