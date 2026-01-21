@@ -53,6 +53,8 @@ Size: 128x128 or 256x256 pixels
 | PIWO | Pileated Woodpecker | Stylized icon of a Pileated Woodpecker, simple flat design, circular frame, large black woodpecker with red crest, white background, game asset style, clean vector look, centered composition, no text |
 | YBSA | Yellow-bellied Sapsucker | Stylized icon of a Yellow-bellied Sapsucker, simple flat design, circular frame, black and white with red forehead and yellow belly, white background, game asset style, clean vector look, centered composition, no text |
 | NOFL | Northern Flicker | Stylized icon of a Northern Flicker, simple flat design, circular frame, brown woodpecker with spotted breast and red nape, white background, game asset style, clean vector look, centered composition, no text |
+| ACWO | Acorn Woodpecker | Stylized icon of an Acorn Woodpecker, simple flat design, circular frame, black and white woodpecker with red cap and clown-like face pattern, white background, game asset style, clean vector look, centered composition, no text |
+| LEWO | Lewis's Woodpecker | Stylized icon of a Lewis's Woodpecker, simple flat design, circular frame, dark green-black back with pink-red face and belly, white background, game asset style, clean vector look, centered composition, no text |
 
 ### Sparrows
 | Code | Name | Prompt |
@@ -81,9 +83,10 @@ Size: 128x128 or 256x256 pixels
 ---
 
 ## Quick Copy List
-For batch generation, here are all 35 prompts:
+For batch generation, here are all 37 prompts:
 
 ```
+ACWO: Stylized icon of an Acorn Woodpecker, simple flat design, circular frame, black and white woodpecker with red cap and clown-like face pattern, white background, game asset style, clean vector look, centered composition, no text
 AMCR: Stylized icon of an American Crow, simple flat design, circular frame, all black bird, white background, game asset style, clean vector look, centered composition, no text
 AMGO: Stylized icon of an American Goldfinch, simple flat design, circular frame, bright yellow with black wings, white background, game asset style, clean vector look, centered composition, no text
 AMRO: Stylized icon of an American Robin, simple flat design, circular frame, gray-brown with orange breast, white background, game asset style, clean vector look, centered composition, no text
@@ -103,6 +106,7 @@ GRCA: Stylized icon of a Gray Catbird, simple flat design, circular frame, slate
 HAWO: Stylized icon of a Hairy Woodpecker, simple flat design, circular frame, black and white woodpecker, white background, game asset style, clean vector look, centered composition, no text
 HETH: Stylized icon of a Hermit Thrush, simple flat design, circular frame, brown thrush with spotted breast and rusty tail, white background, game asset style, clean vector look, centered composition, no text
 HOFI: Stylized icon of a House Finch, simple flat design, circular frame, brown streaked bird with red head, white background, game asset style, clean vector look, centered composition, no text
+LEWO: Stylized icon of a Lewis's Woodpecker, simple flat design, circular frame, dark green-black back with pink-red face and belly, white background, game asset style, clean vector look, centered composition, no text
 LISP: Stylized icon of a Lincoln's Sparrow, simple flat design, circular frame, buffy streaked sparrow with gray face, white background, game asset style, clean vector look, centered composition, no text
 MODO: Stylized icon of a Mourning Dove, simple flat design, circular frame, soft gray-brown dove, white background, game asset style, clean vector look, centered composition, no text
 NOCA: Stylized icon of a Northern Cardinal, simple flat design, circular frame, vibrant red male bird, white background, game asset style, clean vector look, centered composition, no text
