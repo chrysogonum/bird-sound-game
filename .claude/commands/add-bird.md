@@ -681,11 +681,41 @@ Content:
 Co-Authored-By: Claude <noreply@anthropic.com>
 ```
 
-### Step 11: Deploy
+### Step 11: Push to GitHub (NOT Deployment Yet!)
 ```bash
-# Push source changes to main branch
+# Push source changes to main branch ONLY
 git push
+```
 
+**⚠️ CRITICAL: DO NOT DEPLOY TO PRODUCTION YET!**
+
+The changes are now on GitHub but NOT live on chipnotes.app.
+
+### Step 12: Local Testing & Approval Required
+
+**Before deploying to production, you MUST:**
+
+1. **Test locally** (if not already done in Step 8):
+   ```bash
+   make dev
+   ```
+   - Navigate to the pack in the UI
+   - Verify all new species appear in gameplay
+   - Test Level 1 with canonical clips
+   - Check icons display correctly
+   - Verify spectrograms load correctly
+   - Play multiple rounds to ensure no errors
+
+2. **Get explicit user approval** before deploying:
+   - Ask: "Local testing looks good. Ready to deploy to chipnotes.app?"
+   - Wait for confirmation: "Yes" or "Deploy" or similar explicit approval
+   - If user says "No" or "Wait" - DO NOT deploy
+
+### Step 13: Deploy to Production (Only After Approval)
+
+**Only run this after user explicitly approves deployment:**
+
+```bash
 # Deploy to GitHub Pages
 cd src/ui-app && npm run deploy
 ```
@@ -697,6 +727,8 @@ rm -rf dist/ bird-sound-game/
 df -h  # Check available space
 npm run deploy  # Retry
 ```
+
+**Changes will be live at chipnotes.app in 1-2 minutes.**
 
 ## Common Pitfalls to Avoid
 
@@ -725,8 +757,9 @@ npm run deploy  # Retry
 - [ ] Local testing successful (especially Level 1 with new species)
 - [ ] All files tracked in git (no ?? in git status for new species)
 - [ ] Committed with descriptive message
-- [ ] Pushed to GitHub
-- [ ] Deployed to GitHub Pages successfully
+- [ ] Pushed to GitHub (Step 11)
+- [ ] **CRITICAL: User explicitly approved deployment** (Step 12)
+- [ ] Deployed to GitHub Pages successfully (Step 13 - only after approval)
 
 ## Output Format
 
