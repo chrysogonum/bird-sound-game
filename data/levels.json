@@ -178,7 +178,12 @@
       "FICR",
       "CEDW",
       "DEJU",
-      "EATO"
+      "EATO",
+      "WEVI",
+      "ACFL",
+      "EAPH",
+      "GCFL",
+      "EAWP"
     ],
     "clip_selection": "canonical",
     "channel_mode": "single",
@@ -234,7 +239,12 @@
       "FICR",
       "CEDW",
       "DEJU",
-      "EATO"
+      "EATO",
+      "WEVI",
+      "ACFL",
+      "EAPH",
+      "GCFL",
+      "EAWP"
     ],
     "clip_selection": 3,
     "channel_mode": "single",
@@ -290,7 +300,12 @@
       "FICR",
       "CEDW",
       "DEJU",
-      "EATO"
+      "EATO",
+      "WEVI",
+      "ACFL",
+      "EAPH",
+      "GCFL",
+      "EAWP"
     ],
     "clip_selection": "all",
     "channel_mode": "single",
@@ -346,7 +361,12 @@
       "FICR",
       "CEDW",
       "DEJU",
-      "EATO"
+      "EATO",
+      "WEVI",
+      "ACFL",
+      "EAPH",
+      "GCFL",
+      "EAWP"
     ],
     "clip_selection": "canonical",
     "channel_mode": "offset",
@@ -402,7 +422,12 @@
       "FICR",
       "CEDW",
       "DEJU",
-      "EATO"
+      "EATO",
+      "WEVI",
+      "ACFL",
+      "EAPH",
+      "GCFL",
+      "EAWP"
     ],
     "clip_selection": 3,
     "channel_mode": "offset",
@@ -458,7 +483,12 @@
       "FICR",
       "CEDW",
       "DEJU",
-      "EATO"
+      "EATO",
+      "WEVI",
+      "ACFL",
+      "EAPH",
+      "GCFL",
+      "EAWP"
     ],
     "clip_selection": "all",
     "channel_mode": "offset",
