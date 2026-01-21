@@ -7421,23 +7421,6 @@
     "rejected": false
   },
   {
-    "file_path": "data/clips/LEWO_597597.wav",
-    "species_name": "Lewis's Woodpecker",
-    "species_code": "LEWO",
-    "source": "xenocanto",
-    "source_id": "XC597597",
-    "recordist": "Steve Hampton",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A",
-    "clip_id": "LEWO_329e38f9",
-    "common_name": "Lewis's Woodpecker",
-    "quality_score": 5,
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "file_path": "data/clips/LEWO_575042.wav",
     "species_name": "Lewis's Woodpecker",
     "species_code": "LEWO",
@@ -7469,23 +7452,6 @@
     "common_name": "Lewis's Woodpecker",
     "quality_score": 5,
     "canonical": true,
-    "rejected": false
-  },
-  {
-    "file_path": "data/clips/LEWO_161333.wav",
-    "species_name": "Lewis's Woodpecker",
-    "species_code": "LEWO",
-    "source": "xenocanto",
-    "source_id": "XC161333",
-    "recordist": "Paul Marvin",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A",
-    "clip_id": "LEWO_8b5eb5d1",
-    "common_name": "Lewis's Woodpecker",
-    "quality_score": 5,
-    "canonical": false,
     "rejected": false
   },
   {
