@@ -219,42 +219,14 @@ useEffect(() => {
    ```
 
 3. **Add clip metadata to clips.json** (merge candidate manifest into clips.json):
-   ```python
-   python3 -c "
-   import json
-
-   # Load clips.json
-   with open('data/clips.json') as f:
-       clips = json.load(f)
-
-   # Load candidate manifest
-   with open('data/candidates_XXXX/manifest.json') as f:
-       candidates = json.load(f)
-
-   # Add each candidate to clips.json
-   for candidate in candidates:
-       clip_entry = {
-           'clip_id': candidate['source_id'].replace('XC', 'XXXX_'),
-           'species_code': 'XXXX',  # 4-letter code
-           'common_name': candidate['species_name'],
-           'file_path': f\"data/clips/{candidate['file_path'].split('/')[-1]}\",
-           'vocalization_type': candidate['vocalization_type'],
-           'duration_ms': candidate['duration_ms'],
-           'loudness_lufs': candidate['loudness_lufs'],
-           'source': 'xenocanto',
-           'source_id': candidate['source_id'],
-           'quality_score': 5,  # A=5, B=4, C=3, D=2, E=1
-           'recordist': candidate.get('recordist', '')
-       }
-       clips.append(clip_entry)
-
-   # Save updated clips.json
-   with open('data/clips.json', 'w') as f:
-       json.dump(clips, f, indent=2)
-
-   print(f'Added {len(candidates)} clips')
-   "
+   ```bash
+   python3 scripts/merge_candidates.py data/candidates_XXXX
    ```
+   This script safely:
+   - Appends new clips to existing clips.json (NEVER overwrites)
+   - Creates backup at data/clips.json.backup
+   - Validates no data loss occurred
+   - Sets sensible defaults (canonical=false, quality_score=5)
 
 4. **Generate spectrograms**:
    ```bash
