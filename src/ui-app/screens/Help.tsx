@@ -538,7 +538,7 @@ function Help() {
                 <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
                 <li><strong>New Western Birds</strong> – Western Backyard Birds pack expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
                 <li><strong>Woodpeckers Pack Expansion</strong> – Added Acorn Woodpecker and Lewis's Woodpecker, growing the pack from 7 to 9 species</li>
-                <li><strong>Expanded Eastern Birds</strong> – Grew from 40 to 46 species with flycatchers, vireos, Red-eyed Vireo, and Dark-eyed Junco</li>
+                <li><strong>Expanded Eastern Birds</strong> – Grew from 40 to 46 species with flycatchers, vireos, and Dark-eyed Junco</li>
                 <li><strong>Taxonomic Sorting</strong> – Find and play birds based on how they're related to each other</li>
                 <li><strong>Custom Pack Builder</strong> – Improved search, taxonomic filtering, and ability to save up to 10 named custom packs</li>
               </ul>
