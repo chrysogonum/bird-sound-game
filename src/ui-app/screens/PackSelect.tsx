@@ -102,7 +102,6 @@ function PackSelect() {
   const [showAllPacks, setShowAllPacks] = useState(false);
   const [showMoreExamples, setShowMoreExamples] = useState(false);
   const [taxonomicSort, setTaxonomicSort] = useState(false);
-  const [showNerdAlert, setShowNerdAlert] = useState(false);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
   const [commonNames, setCommonNames] = useState<Record<string, string>>({});
@@ -297,7 +296,7 @@ function PackSelect() {
   return (
     <div className="screen" style={{ paddingBottom: '24px' }}>
       <div className="flex-row items-center gap-md" style={{ marginBottom: '16px' }}>
-        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home">
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)' }}>
           <HomeIcon />
         </button>
         <h2 style={{ margin: 0 }}>Select a Bird Pack</h2>
@@ -749,7 +748,7 @@ function PackSelect() {
                   border: '1px solid rgba(255,255,255,0.1)',
                   position: 'relative',
                 }}>
-                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                     <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-text-muted)' }}>
                       Sort:
                     </span>
@@ -757,11 +756,6 @@ function PackSelect() {
                       onClick={() => {
                         const newValue = !taxonomicSort;
                         setTaxonomicSort(newValue);
-                        // Trigger nerd alert easter egg when switching TO taxonomic mode
-                        if (newValue) {
-                          setShowNerdAlert(true);
-                          setTimeout(() => setShowNerdAlert(false), 1400);
-                        }
                       }}
                       style={{
                         padding: '6px 12px',
@@ -788,61 +782,13 @@ function PackSelect() {
                         }
                       }}
                     >
-                      {taxonomicSort ? '📊 Taxonomic' : '🔤 A-Z'}
+                      {taxonomicSort ? '📊 Taxonomic' : '🔤 Species Codes'}
                     </button>
-                    <span style={{ fontSize: '11px', color: 'var(--color-text-muted)', flex: '1', minWidth: '180px' }}>
-                      {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Species codes'}
+                    <span style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>
+                      {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Alphabetical'}
                     </span>
                   </div>
-
-                  {/* Nerd Alert Easter Egg - Floating bubble */}
-                  {showNerdAlert && (
-                    <div style={{
-                      position: 'absolute',
-                      top: '15px',
-                      left: '70%',
-                      transform: 'translateX(-50%)',
-                      background: 'rgba(245, 166, 35, 1.0)',
-                      color: '#000',
-                      padding: '6px 20px',
-                      borderRadius: '16px',
-                      fontSize: '13px',
-                      fontWeight: 600,
-                      boxShadow: '0 2px 8px rgba(245, 166, 35, 0.3)',
-                      animation: 'floatPop 1.4s ease-out forwards',
-                      zIndex: 1000,
-                      pointerEvents: 'none',
-                      whiteSpace: 'nowrap',
-                    }}>
-                      🤓 nerd alert!
-                    </div>
-                  )}
                 </div>
-
-                <style>{`
-                  @keyframes floatPop {
-                    0% {
-                      opacity: 0;
-                      transform: translateX(-50%) translateY(0) scale(0.8);
-                    }
-                    15% {
-                      opacity: 0.75;
-                      transform: translateX(-50%) translateY(-5px) scale(1);
-                    }
-                    80% {
-                      opacity: 0.75;
-                      transform: translateX(-50%) translateY(-35px) scale(1);
-                    }
-                    90% {
-                      opacity: 0.5;
-                      transform: translateX(-50%) translateY(-40px) scale(1.05);
-                    }
-                    100% {
-                      opacity: 0;
-                      transform: translateX(-50%) translateY(-45px) scale(0.6);
-                    }
-                  }
-                `}</style>
               <div
                 style={{
                   display: 'grid',
@@ -1117,7 +1063,7 @@ function PackSelect() {
                 border: '1px solid rgba(255,255,255,0.1)',
                 position: 'relative',
               }}>
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                   <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-text-muted)' }}>
                     Sort:
                   </span>
@@ -1125,11 +1071,6 @@ function PackSelect() {
                     onClick={() => {
                       const newValue = !taxonomicSort;
                       setTaxonomicSort(newValue);
-                      // Trigger nerd alert easter egg when switching TO taxonomic mode
-                      if (newValue) {
-                        setShowNerdAlert(true);
-                        setTimeout(() => setShowNerdAlert(false), 1400);
-                      }
                     }}
                     style={{
                       padding: '6px 12px',
@@ -1156,35 +1097,12 @@ function PackSelect() {
                       }
                     }}
                   >
-                    {taxonomicSort ? '📊 Taxonomic' : '🔤 A-Z'}
+                    {taxonomicSort ? '📊 Taxonomic' : '🔤 Species Codes'}
                   </button>
-                  <span style={{ fontSize: '11px', color: 'var(--color-text-muted)', flex: '1', minWidth: '180px' }}>
-                    {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Species codes'}
+                  <span style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>
+                    {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Alphabetical'}
                   </span>
                 </div>
-
-                {/* Nerd Alert Easter Egg - Floating bubble */}
-                {showNerdAlert && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '15px',
-                    left: '70%',
-                    transform: 'translateX(-50%)',
-                    background: 'rgba(245, 166, 35, 1.0)',
-                    color: '#000',
-                    padding: '6px 20px',
-                    borderRadius: '16px',
-                    fontSize: '13px',
-                    fontWeight: 600,
-                    boxShadow: '0 2px 8px rgba(245, 166, 35, 0.3)',
-                    animation: 'floatPop 1.4s ease-out forwards',
-                    zIndex: 1000,
-                    pointerEvents: 'none',
-                    whiteSpace: 'nowrap',
-                  }}>
-                    🤓 nerd alert!
-                  </div>
-                )}
               </div>
             )}
 
@@ -1238,6 +1156,18 @@ function PackSelect() {
                         >
                           {bird.name}
                         </div>
+                        {taxonomicSort && scientificNames[bird.code] && (
+                          <div style={{
+                            fontSize: '10px',
+                            fontStyle: 'italic',
+                            color: 'var(--color-text-muted)',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                          }}>
+                            {scientificNames[bird.code]}
+                          </div>
+                        )}
                         <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
                           {bird.clipCount} clip{bird.clipCount !== 1 ? 's' : ''}
                           {bird.clipCount > 1 && (

@@ -6,11 +6,11 @@ function Help() {
   const location = useLocation();
 
   // Track which sections are expanded (some start open by default)
-  // If navigated from version number, auto-open Version History
+  // If navigated from version number, auto-open Full Version History
   // If navigated with #training-mode hash, auto-open Training Mode
-  const initialSections = ['Why Learn Bird Song?', 'The Basics', 'Scoring'];
+  const initialSections = ['Why Learn Bird Song?', 'ChipNotes Basics', 'Scoring'];
   if (location.state?.openVersionHistory) {
-    initialSections.push('Version History');
+    initialSections.push('Full Version History');
   }
   if (location.hash === '#training-mode') {
     initialSections.push('Training Mode');
@@ -28,7 +28,7 @@ function Help() {
 
   const allSections = [
     'Why Learn Bird Song?',
-    'The Basics',
+    'ChipNotes Basics',
     'Scoring',
     'The Packs',
     'The Levels',
@@ -40,7 +40,7 @@ function Help() {
     'About & Credits',
     'Support This Project',
     'Feedback & Bug Reports',
-    'Version History'
+    'Full Version History'
   ];
 
   const toggleSection = (title: string) => {
@@ -127,7 +127,7 @@ function Help() {
           onToggle={() => toggleSection('Why Learn Bird Song?')}
         >
           <p style={{ marginBottom: '12px' }}>
-            Birds are <em>heard</em> way more often than they're <em>seen</em>. Once you know the songs, you'll know what to look for - and suddenly your backyard becomes way more interesting.
+            Birds are <em>heard</em> way more than they're <em>seen</em>. But once you know the songs, you'll know what to look for - and suddenly your backyard becomes way more interesting.
           </p>
           <p style={{ marginBottom: '12px' }}>
             <strong>Why the left/right thing?</strong> That's birding! You're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" Training your ears to separate simultaneous sounds - like a pianist controlling both hands - dramatically sharpens your field skills.
@@ -140,11 +140,11 @@ function Help() {
           </p>
         </Section>
 
-        {/* The Basics */}
+        {/* ChipNotes Basics */}
         <Section
-          title="The Basics"
-          isExpanded={expandedSections.has('The Basics')}
-          onToggle={() => toggleSection('The Basics')}
+          title="ChipNotes Basics"
+          isExpanded={expandedSections.has('ChipNotes Basics')}
+          onToggle={() => toggleSection('ChipNotes Basics')}
         >
           <p style={{ marginBottom: '12px' }}>
             <strong>Listen. Identify. Tap.</strong>
@@ -181,27 +181,27 @@ function Help() {
         >
           <PackInfo
             name="Backyard Birds"
-            description="Perfect for beginners. Six distinctive birds you'll hear in your own backyard: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
+            description="Perfect for beginners. 6 distinctive birds you'll hear in your own backyard: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
           />
           <PackInfo
             name="Eastern Birds"
-            description="46 species from the eastern US. Nine birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
+            description="46 species from the eastern US. 9 birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
           />
           <PackInfo
             name="Sparrows"
-            description="Master the subtle singers! Nine sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, Lincoln's, White-crowned, and House Sparrow."
+            description="Master the subtle singers! 9 sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, Lincoln's, White-crowned, and House Sparrow."
           />
           <PackInfo
             name="Woodpeckers"
-            description="Drums, rattles, and calls. Learn nine species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, Red-headed, Acorn, and Lewis's."
+            description="Drums, rattles, and calls. 9 species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, Red-headed, Acorn, and Lewis's."
           />
           <PackInfo
             name="Western Birds"
-            description="18 common backyard species from western North America: Steller's Jay, California Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Cassin's Finch, Pine Siskin, Evening Grosbeak, and more."
+            description="18 common species from western North America: Steller's Jay, California Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Cassin's Finch, Pine Siskin, Evening Grosbeak, and more."
           />
           <PackInfo
             name="Warbler Academy"
-            description="For experts! 33 wood-warbler species with their high-pitched, buzzy songs. Nine warblers are selected randomly - shuffle for a new set anytime."
+            description="For experts! 33 wood-warbler species with their high-pitched, buzzy songs. 9 warblers are selected randomly—shuffle for a new set anytime."
           />
           <p style={{ marginTop: '16px', fontSize: '13px', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
             There are 11,000 birds out there, so more are coming soon. Send your suggestions to{' '}
@@ -524,14 +524,9 @@ function Help() {
 
         {/* Version History */}
         <div ref={versionHistoryRef}>
-          <Section
-            title="Version History"
-            isExpanded={expandedSections.has('Version History')}
-            onToggle={() => toggleSection('Version History')}
-        >
-          {/* TL;DR Summary */}
+          {/* Recent Updates - Always Visible */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.48)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.48)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
@@ -545,6 +540,12 @@ function Help() {
             </div>
           </div>
 
+          {/* Full Version History - Collapsible */}
+          <Section
+            title="Full Version History"
+            isExpanded={expandedSections.has('Full Version History')}
+            onToggle={() => toggleSection('Full Version History')}
+          >
           <VersionEntry version="3.48" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Western Birds Pack Expansion:</strong> Western Birds pack expanded from 14 to 18 species with Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker (14 new audio clips and spectrograms). Pack now includes distinctive western species across jays, finches, towhees, bluebirds, and woodpeckers.</li>
