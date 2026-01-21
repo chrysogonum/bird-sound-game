@@ -2201,7 +2201,7 @@
     "file_path": "data/clips/DOWO_1036590.wav",
     "spectrogram_path": "data/spectrograms/DOWO_1036590.png",
     "recordist": null,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -2231,7 +2231,7 @@
     "file_path": "data/clips/DOWO_cornell_003_1.wav",
     "spectrogram_path": "data/spectrograms/DOWO_cornell_003_1.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
