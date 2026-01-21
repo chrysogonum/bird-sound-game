@@ -7764,23 +7764,6 @@
     "spectrogram_path": "data/spectrograms/WEBL_703748.png"
   },
   {
-    "clip_id": "WEBL_1286b314",
-    "species_code": "WEBL",
-    "common_name": "Western Bluebird",
-    "file_path": "data/clips/WEBL_618579.wav",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.5,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC618579",
-    "source_url": "https://xeno-canto.org/618579",
-    "recordist": "Richard E. Webster",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_618579.png"
-  },
-  {
     "clip_id": "WEBL_c2789d9a",
     "species_code": "WEBL",
     "common_name": "Western Bluebird",
@@ -7832,23 +7815,6 @@
     "spectrogram_path": "data/spectrograms/WEBL_552950.png"
   },
   {
-    "clip_id": "WEBL_18dad97b",
-    "species_code": "WEBL",
-    "common_name": "Western Bluebird",
-    "file_path": "data/clips/WEBL_472281.wav",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC472281",
-    "source_url": "https://xeno-canto.org/472281",
-    "recordist": "bowtyler",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_472281.png"
-  },
-  {
     "clip_id": "WEBL_bd5f5db8",
     "species_code": "WEBL",
     "common_name": "Western Bluebird",
@@ -7864,22 +7830,5 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WEBL_457218.png"
-  },
-  {
-    "clip_id": "WEBL_2de0403f",
-    "species_code": "WEBL",
-    "common_name": "Western Bluebird",
-    "file_path": "data/clips/WEBL_448824.wav",
-    "vocalization_type": "flight call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC448824",
-    "source_url": "https://xeno-canto.org/448824",
-    "recordist": "Paul Marvin",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_448824.png"
   }
 ]
