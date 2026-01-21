@@ -110,6 +110,27 @@ Once source is confirmed/added:
 - **Download from Cornell** → Manual selection (waiting for API access)
 - **Download from new source** → Manual or custom script
 
+## ⚠️ CRITICAL: Canonical Flags - Do Not Lose This Data!
+
+**Before making ANY changes to clips.json, record the canonical count:**
+```bash
+python3 -c "import json; print(sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
+# Example output: 86
+```
+
+**After ANY clips.json modification, verify the count hasn't dropped:**
+```bash
+python3 -c "import json; print(sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
+# MUST match or exceed the before count
+```
+
+Canonical flags represent **hundreds of hours of manual curation**. They are:
+- Essential for Level 1 gameplay (intro rounds use only canonical clips)
+- Essential for Bird Reference UI (signature clip indicators)
+- **IRREPLACEABLE** - Cannot be auto-generated; requires human judgment
+
+**If you accidentally lose canonical flags, STOP and recover from git history immediately.**
+
 ## Audio Requirements Checklist
 
 CRITICAL: All audio files MUST meet these specs (see CLAUDE.md):
