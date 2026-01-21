@@ -16,6 +16,7 @@ Usage:
 import json
 import sys
 import shutil
+import hashlib
 from pathlib import Path
 from typing import List, Dict, Any
 
@@ -66,6 +67,12 @@ def merge_candidates(candidates_dir: str) -> None:
         # Derive species code from filename (assumes XXXX_*.wav format)
         species_code = filename.split('_')[0]
 
+        # Generate unique clip_id using MD5 hash of file path (matches existing pattern)
+        file_path = f"data/clips/{filename}"
+        hash_input = file_path.encode('utf-8')
+        hash_hex = hashlib.md5(hash_input).hexdigest()[:8]
+        clip_id = f"{species_code}_{hash_hex}"
+
         # Generate source_url for Xeno-canto clips
         source_id = candidate.get('source_id', '')
         source_url = None
@@ -75,10 +82,10 @@ def merge_candidates(candidates_dir: str) -> None:
             source_url = f'https://xeno-canto.org/{xc_number}'
 
         clip_entry = {
-            'clip_id': source_id.replace('XC', f'{species_code}_') if source_id else f'{species_code}_unknown',
+            'clip_id': clip_id,
             'species_code': species_code,
             'common_name': candidate['species_name'],
-            'file_path': f"data/clips/{filename}",
+            'file_path': file_path,
             'vocalization_type': candidate.get('vocalization_type', 'song'),
             'duration_ms': candidate['duration_ms'],
             'loudness_lufs': candidate['loudness_lufs'],

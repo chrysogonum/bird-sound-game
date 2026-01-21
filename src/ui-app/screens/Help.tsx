@@ -193,7 +193,7 @@ function Help() {
           />
           <PackInfo
             name="Woodpeckers"
-            description="Drums, rattles, and calls. Learn seven species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, and Red-headed."
+            description="Drums, rattles, and calls. Learn nine species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, Red-headed, Acorn, and Lewis's."
           />
           <PackInfo
             name="Western Backyard Birds"
@@ -543,6 +543,14 @@ function Help() {
               </ul>
             </div>
           </div>
+
+          <VersionEntry version="3.47" date="January 21, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Two New Woodpeckers Added:</strong> Woodpeckers pack expanded from 7 to 9 species with Acorn Woodpecker and Lewis's Woodpecker. Both western species with distinctive vocalizations.</li>
+              <li><strong>Pack Select UX Improvements:</strong> Added fifth tip bullet pointing users to custom pack builder feature below with pointing emoji. Updated timer anxiety tip for clarity. Pack descriptions updated to reflect new species counts.</li>
+              <li><strong>Merge Candidates Script Fix:</strong> Fixed <code>merge_candidates.py</code> to generate proper hash-based clip_ids (matching existing pattern) instead of flawed XC-based IDs. Future bird additions will now have correct unique identifiers from the start.</li>
+            </ul>
+          </VersionEntry>
 
           <VersionEntry version="3.46" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>

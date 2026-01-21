@@ -69,7 +69,7 @@ const PACKS: Pack[] = [
   {
     id: 'woodpeckers',
     name: 'Woodpeckers',
-    speciesCount: 7,
+    speciesCount: 9,
     isUnlocked: true,
     description: 'Drums, calls, and rattles.',
   },
@@ -320,11 +320,12 @@ function PackSelect() {
               Help →
             </Link>
           </li>
-          <li>Timer anxiety? Continuous Play{' '}
+          <li>Timer anxiety? Use Continuous Play{' '}
             <Link to="/settings" state={{ fromPackSelect: true }} style={{ color: 'var(--color-accent)' }}>
               🧘 ⚙️
             </Link>
           </li>
+          <li>👇 Build and save your own custom pack!</li>
         </ul>
       </div>
 
