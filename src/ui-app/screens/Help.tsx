@@ -544,6 +544,14 @@ function Help() {
             </div>
           </div>
 
+          <VersionEntry version="3.48" date="January 21, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Western Birds Pack Expansion:</strong> Western Backyard Birds pack expanded from 14 to 18 species with Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker (14 new audio clips and spectrograms). Pack now includes distinctive western species across jays, finches, towhees, bluebirds, and woodpeckers.</li>
+              <li><strong>Pack Display Fix:</strong> Fixed Western Backyard Birds levels to display 9 species on wheel (randomly selected from full pool of 18), matching behavior of other large packs like Expanded Eastern Birds. Previously showed all 17 species causing UI overflow.</li>
+              <li><strong>Schema Updates:</strong> Increased level schema maximum species_count from 12 to 20 to accommodate growing pack sizes while maintaining 9-species wheel limit for optimal gameplay.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.47" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Two New Woodpeckers Added:</strong> Woodpeckers pack expanded from 7 to 9 species with Acorn Woodpecker and Lewis's Woodpecker. Both western species with distinctive vocalizations.</li>
