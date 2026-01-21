@@ -180,11 +180,11 @@ function Help() {
           onToggle={() => toggleSection('The Packs')}
         >
           <PackInfo
-            name="Eastern Backyard Birds"
+            name="Backyard Birds"
             description="Perfect for beginners. Six distinctive birds you'll hear in your own backyard: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
           />
           <PackInfo
-            name="Expanded Eastern US Birds"
+            name="Eastern Birds"
             description="46 species from the eastern US. Nine birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
           />
           <PackInfo
@@ -196,8 +196,8 @@ function Help() {
             description="Drums, rattles, and calls. Learn nine species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, Red-headed, Acorn, and Lewis's."
           />
           <PackInfo
-            name="Western Backyard Birds"
-            description="14 common backyard species from western North America: Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Cassin's Finch, Pine Siskin, Evening Grosbeak, and more."
+            name="Western Birds"
+            description="18 common backyard species from western North America: Steller's Jay, California Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Cassin's Finch, Pine Siskin, Evening Grosbeak, and more."
           />
           <PackInfo
             name="Warbler Academy"
@@ -536,9 +536,9 @@ function Help() {
               <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
                 <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
-                <li><strong>New Western Birds</strong> – Western Backyard Birds pack expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
+                <li><strong>New Western Birds</strong> – Western Birds pack expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
                 <li><strong>Woodpeckers Pack Expansion</strong> – Added Acorn Woodpecker and Lewis's Woodpecker, growing the pack from 7 to 9 species</li>
-                <li><strong>Expanded Eastern Birds</strong> – Grew from 40 to 46 species with flycatchers, vireos, and Dark-eyed Junco</li>
+                <li><strong>Eastern Birds Pack</strong> – Grew from 40 to 46 species with flycatchers, vireos, and Dark-eyed Junco</li>
                 <li><strong>Taxonomic Sorting</strong> – Find and play birds based on how they're related to each other</li>
                 <li><strong>Custom Pack Builder</strong> – Improved search, taxonomic filtering, and ability to save up to 10 named custom packs</li>
               </ul>
@@ -547,8 +547,8 @@ function Help() {
 
           <VersionEntry version="3.48" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Western Birds Pack Expansion:</strong> Western Backyard Birds pack expanded from 14 to 18 species with Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker (14 new audio clips and spectrograms). Pack now includes distinctive western species across jays, finches, towhees, bluebirds, and woodpeckers.</li>
-              <li><strong>Pack Display Fix:</strong> Fixed Western Backyard Birds levels to display 9 species on wheel (randomly selected from full pool of 18), matching behavior of other large packs like Expanded Eastern Birds. Previously showed all 17 species causing UI overflow.</li>
+              <li><strong>Western Birds Pack Expansion:</strong> Western Birds pack expanded from 14 to 18 species with Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker (14 new audio clips and spectrograms). Pack now includes distinctive western species across jays, finches, towhees, bluebirds, and woodpeckers.</li>
+              <li><strong>Pack Display Fix:</strong> Fixed Western Birds levels to display 9 species on wheel (randomly selected from full pool of 18), matching behavior of other large packs like Eastern Birds. Previously showed all 17 species causing UI overflow.</li>
               <li><strong>Schema Updates:</strong> Increased level schema maximum species_count from 12 to 20 to accommodate growing pack sizes while maintaining 9-species wheel limit for optimal gameplay.</li>
             </ul>
           </VersionEntry>
@@ -572,7 +572,7 @@ function Help() {
 
           <VersionEntry version="3.45" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Red-eyed Vireo Added:</strong> Expanded Eastern Birds pack now includes 46 species with Red-eyed Vireo (5 new audio clips and spectrograms). One of the most common forest songbirds in eastern North America.</li>
+              <li><strong>Red-eyed Vireo Added:</strong> Eastern Birds pack now includes 46 species with Red-eyed Vireo (5 new audio clips and spectrograms). One of the most common forest songbirds in eastern North America.</li>
               <li><strong>Add-Bird Workflow Improvements:</strong> New automated pack count validation tool prevents UI species count mismatches. Script detects and auto-fixes hardcoded counts in PackSelect and Help screens with <code>--fix</code> flag, integrated into add-bird workflow as Step 6c.</li>
               <li><strong>Attribution Bug Fix:</strong> Fixed merge_candidates.py to generate clickable Xeno-canto source URLs for all new bird additions. Recordist names now appear as proper links in Bird Reference.</li>
               <li><strong>Pack Data Consistency:</strong> Synced species arrays in expanded_backyard pack definition for clearer data structure (species and display_species now both contain all 46 birds).</li>
@@ -581,7 +581,7 @@ function Help() {
 
           <VersionEntry version="3.44" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Documentation Updates:</strong> Updated Expanded Eastern Birds pack count from 40 to 45 in Help page, and clarified Training Mode can be enabled before or during gameplay.</li>
+              <li><strong>Documentation Updates:</strong> Updated Eastern Birds pack count from 40 to 45 in Help page, and clarified Training Mode can be enabled before or during gameplay.</li>
             </ul>
           </VersionEntry>
 
@@ -595,16 +595,16 @@ function Help() {
 
           <VersionEntry version="3.42" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>5 New Eastern Birds:</strong> Expanded Eastern Birds pack from 40 to 45 species with White-eyed Vireo, Acadian Flycatcher, Eastern Phoebe, Great Crested Flycatcher, and Eastern Wood-Pewee (24 new audio clips and spectrograms).</li>
+              <li><strong>5 New Eastern Birds:</strong> Eastern Birds pack from 40 to 45 species with White-eyed Vireo, Acadian Flycatcher, Eastern Phoebe, Great Crested Flycatcher, and Eastern Wood-Pewee (24 new audio clips and spectrograms).</li>
               <li><strong>Data Integrity Safeguards:</strong> Added comprehensive protection for canonical clip flags (Bird Reference signature indicators) including git pre-commit hooks, extensive documentation, and automated validation to prevent accidental data loss.</li>
               <li><strong>Audio Quality Improvements:</strong> Trimmed dead space from multiple clips for cleaner, more focused bird vocalizations.</li>
-              <li><strong>Pack Count Corrections:</strong> Updated Expanded Eastern Birds pack display to correctly show 45 species across all UI locations.</li>
+              <li><strong>Pack Count Corrections:</strong> Updated Eastern Birds pack display to correctly show 45 species across all UI locations.</li>
             </ul>
           </VersionEntry>
 
           <VersionEntry version="3.41" date="January 20, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Dark-eyed Junco added:</strong> Expanded Eastern Birds pack now includes 40 species (previously 39) with Dark-eyed Junco clips and spectrograms.</li>
+              <li><strong>Dark-eyed Junco added:</strong> Eastern Birds pack now includes 40 species (previously 39) with Dark-eyed Junco clips and spectrograms.</li>
               <li><strong>Level rotation fix:</strong> Fixed bug where newly added species appeared in pack definitions but not in gameplay rotation - Dark-eyed Junco now appears in all 6 levels.</li>
               <li><strong>Species count corrections:</strong> Updated pack selection and help text to reflect accurate species counts.</li>
             </ul>
@@ -653,7 +653,7 @@ function Help() {
           <VersionEntry version="3.37" date="January 19, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Help Documentation:</strong> Added dedicated "Taxonomic Sorting" section to Help page - explains phylogenetic ordering, scientific name display, and how the feature works during gameplay</li>
-              <li><strong>README Update:</strong> Fixed Eastern Backyard Birds species count (5→6, added Robin) and updated version number</li>
+              <li><strong>README Update:</strong> Fixed Backyard Birds species count (5→6, added Robin) and updated version number</li>
             </ul>
           </VersionEntry>
 
@@ -690,7 +690,7 @@ function Help() {
               <li><strong>Taxonomic Sort:</strong> Bird Reference now supports eBird/Clements 2025 taxonomic order - toggle between alphabetical and phylogenetic sorting with a fun easter egg for the science nerds</li>
               <li><strong>Species Fixes:</strong> Corrected Carolina Wren code from CAWR to CARW, and Barred Owl from BADO to BAOW - now matches eBird standard across all packs and data files</li>
               <li><strong>American Robin:</strong> Added AMRO to starter pack (now 6 birds) - merged PR #4 with Cornell/Macaulay Library attribution</li>
-              <li><strong>Pack Naming:</strong> Simplified "Common Eastern US Backyard Birds" to just "Eastern Backyard Birds" everywhere</li>
+              <li><strong>Pack Naming:</strong> Simplified "Common Eastern US Backyard Birds" to just "Backyard Birds" everywhere</li>
               <li><strong>Help Page Polish:</strong> Alphabetized bird list in pack descriptions, added "There are exceptions. Because, ornithology." note to 4-letter codes section</li>
               <li><strong>Help Navigation Fix:</strong> Fixed unwanted auto-scroll when expanding sections after navigating from Pack Select with hash links</li>
             </ul>
@@ -826,7 +826,7 @@ function Help() {
 
           <VersionEntry version="3.16" date="January 16, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Bird Reference enhancement:</strong> Separated display species (40) from gameplay rotation (28) for Expanded Eastern US Birds pack - Bird Reference now shows all available species for preview</li>
+              <li><strong>Bird Reference enhancement:</strong> Separated display species (40) from gameplay rotation (28) for Eastern Birds pack - Bird Reference now shows all available species for preview</li>
               <li><strong>UI improvements:</strong> Streamlined pack selection tips, improved Help page tips with confusion matrix mention</li>
             </ul>
           </VersionEntry>
@@ -850,7 +850,7 @@ function Help() {
 
           <VersionEntry version="3.13" date="January 15, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Western Backyard Birds pack:</strong> 14 new species including Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, and more. Fixed to use 9 random birds per round.</li>
+              <li><strong>Western Birds pack:</strong> 14 new species including Steller's Jay, California Scrub-Jay, Black-capped Chickadee, and more. Fixed to use 9 random birds per round.</li>
               <li><strong>Audio improvements:</strong> Restored canonical clips for 71+ species, resolved 202 broken audio references, cleaned up duplicate EATO clips (11→5)</li>
               <li><strong>UI refinements:</strong> Black backgrounds on Training Mode labels for better readability, Warbler Academy icon updated to Blackburnian Warbler, improved loading indicators</li>
               <li><strong>Bird Reference enhancements:</strong> Collapsible packs with expand/collapse controls, source badges (Xeno-canto, Cornell, contributors), pack cards with representative bird icons</li>

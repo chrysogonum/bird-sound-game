@@ -47,14 +47,14 @@ interface BirdInfo {
 const PACKS: Pack[] = [
   {
     id: 'starter_birds',
-    name: 'Eastern Backyard Birds',
+    name: 'Backyard Birds',
     speciesCount: 6,
     isUnlocked: true,
     description: 'Start here! Distinctive, bold, recognizable voices.',
   },
   {
     id: 'expanded_backyard',
-    name: 'Expanded Eastern Birds',
+    name: 'Eastern Birds',
     speciesCount: 46,
     isUnlocked: true,
     description: 'Ready for more? 9 random per round.',
@@ -75,7 +75,7 @@ const PACKS: Pack[] = [
   },
   {
     id: 'western_birds',
-    name: 'Western Backyard Birds',
+    name: 'Western Birds',
     speciesCount: 18,
     isUnlocked: true,
     description: 'Pacific coast to the Rockies.',

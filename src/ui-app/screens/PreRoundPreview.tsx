@@ -28,12 +28,12 @@ const SPECIES_COLORS = [
 
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
-  starter_birds: 'Eastern Backyard Birds',
-  expanded_backyard: 'Expanded Eastern US Birds',
+  starter_birds: 'Backyard Birds',
+  expanded_backyard: 'Eastern Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
   spring_warblers: 'Warbler Academy',
-  western_birds: 'Western Backyard Birds',
+  western_birds: 'Western Birds',
   custom: 'Custom Pack',
 };
 
