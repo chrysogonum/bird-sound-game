@@ -296,8 +296,21 @@ ls data/clips/{CODE}_*.wav
 
 ### Step 2: Merge Candidate Clips into clips.json
 ⚠️ **CRITICAL:** Use the safe merge script to add clips without destroying existing data:
+
+**BEFORE merging - Record canonical count:**
+```bash
+python3 -c "import json; print('Canonical clips before:', sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
+```
+
+**Merge candidates:**
 ```bash
 python3 scripts/merge_candidates.py data/candidates_{CODE}
+```
+
+**AFTER merging - Verify canonical count:**
+```bash
+python3 -c "import json; print('Canonical clips after:', sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
+# MUST match or exceed the before count - if it dropped, STOP and restore from backup!
 ```
 
 **What this does:**
@@ -312,7 +325,7 @@ python3 scripts/merge_candidates.py data/candidates_{CODE}
   - Recordist name
   - Source info
 
-⚠️ **NEVER use audio_tagger.py on an existing project** - it overwrites the entire clips.json file and destroys all curated metadata (canonical flags, recordist attributions, vocalization corrections, etc.)
+⚠️ **NEVER use audio_tagger.py - IT HAS BEEN DELETED** - it overwrites the entire clips.json file and destroys all curated metadata (canonical flags, recordist attributions, vocalization corrections, etc.)
 
 **Verify clips.json was updated:**
 ```bash
