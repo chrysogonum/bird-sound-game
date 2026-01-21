@@ -532,7 +532,7 @@ function Help() {
         >
           {/* TL;DR Summary */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.42)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.43)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
@@ -544,6 +544,14 @@ function Help() {
               </ul>
             </div>
           </div>
+
+          <VersionEntry version="3.43" date="January 21, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Bird Reference Attribution Overhaul:</strong> Improved clip source attribution system with clear categorization (Xeno-canto, Cornell Macaulay, User-contributed). Compact display format shows "XC667361 • Nick Komar" with clickable links to original Xeno-canto recordings. Recovered 363 lost recordist attributions and corrected 78 vocalization type errors from earlier data migration.</li>
+              <li><strong>Source Transparency:</strong> Every clip now clearly shows its origin - Xeno-canto (with catalog number link), Cornell CD track number, or user-contributed recordings. Enables proper attribution to recordists and easy access to original recordings for deeper learning.</li>
+              <li><strong>Metadata Protection:</strong> Enhanced git pre-commit hooks now protect recordist attributions and vocalization type classifications (song/call/drum) in addition to canonical flags, preventing future accidental data loss during bulk operations.</li>
+            </ul>
+          </VersionEntry>
 
           <VersionEntry version="3.42" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
