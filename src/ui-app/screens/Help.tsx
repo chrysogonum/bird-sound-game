@@ -531,15 +531,16 @@ function Help() {
         >
           {/* TL;DR Summary */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.43)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.48)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
+                <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with professionally curated audio clips and spectrograms</li>
+                <li><strong>New Western Birds</strong> – Western Backyard Birds pack expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
+                <li><strong>Woodpeckers Pack Expansion</strong> – Added Acorn Woodpecker and Lewis's Woodpecker, growing the pack from 7 to 9 species</li>
+                <li><strong>Expanded Eastern Birds</strong> – Grew from 40 to 46 species with flycatchers, vireos, Red-eyed Vireo, and Dark-eyed Junco</li>
                 <li><strong>Taxonomic Sorting</strong> – Find and play birds based on how they're related to each other</li>
-                <li><strong>Redesigned Ready-to-Play Screen</strong> – Easy access to Training Mode, taxonomic sorting, pack reference library (📚), and gameplay tips</li>
                 <li><strong>Custom Pack Builder</strong> – Improved search, taxonomic filtering, and ability to save up to 10 named custom packs</li>
-                <li><strong>Shareable Score Summary</strong> – Think you're as good as Merlin? Prove it and share your results!</li>
-                <li><strong>Expanded Eastern Birds Pack</strong> – Grew from 40 to 45 species with flycatchers and vireos</li>
               </ul>
             </div>
           </div>
