@@ -189,7 +189,7 @@ function Help() {
           />
           <PackInfo
             name="Sparrows"
-            description="Master the subtle singers! Eight sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, Lincoln's, and White-crowned."
+            description="Master the subtle singers! Nine sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, Lincoln's, White-crowned, and House Sparrow."
           />
           <PackInfo
             name="Woodpeckers"
