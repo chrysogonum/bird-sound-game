@@ -7121,7 +7121,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/REVI_1014455.png"
+    "spectrogram_path": "data/spectrograms/REVI_1014455.png",
+    "source_url": "https://xeno-canto.org/1014455"
   },
   {
     "clip_id": "REVI_1014453",
@@ -7137,7 +7138,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/REVI_1014453.png"
+    "spectrogram_path": "data/spectrograms/REVI_1014453.png",
+    "source_url": "https://xeno-canto.org/1014453"
   },
   {
     "clip_id": "REVI_1014451",
@@ -7153,7 +7155,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/REVI_1014451.png"
+    "spectrogram_path": "data/spectrograms/REVI_1014451.png",
+    "source_url": "https://xeno-canto.org/1014451"
   },
   {
     "clip_id": "REVI_1014388",
@@ -7169,7 +7172,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/REVI_1014388.png"
+    "spectrogram_path": "data/spectrograms/REVI_1014388.png",
+    "source_url": "https://xeno-canto.org/1014388"
   },
   {
     "clip_id": "REVI_1014387",
@@ -7185,6 +7189,7 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/REVI_1014387.png"
+    "spectrogram_path": "data/spectrograms/REVI_1014387.png",
+    "source_url": "https://xeno-canto.org/1014387"
   }
 ]

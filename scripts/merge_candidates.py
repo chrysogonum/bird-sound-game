@@ -66,8 +66,16 @@ def merge_candidates(candidates_dir: str) -> None:
         # Derive species code from filename (assumes XXXX_*.wav format)
         species_code = filename.split('_')[0]
 
+        # Generate source_url for Xeno-canto clips
+        source_id = candidate.get('source_id', '')
+        source_url = None
+        if source_id and source_id.startswith('XC'):
+            # Extract numeric ID from XC1014455 -> 1014455
+            xc_number = source_id.replace('XC', '')
+            source_url = f'https://xeno-canto.org/{xc_number}'
+
         clip_entry = {
-            'clip_id': candidate.get('source_id', '').replace('XC', f'{species_code}_'),
+            'clip_id': source_id.replace('XC', f'{species_code}_') if source_id else f'{species_code}_unknown',
             'species_code': species_code,
             'common_name': candidate['species_name'],
             'file_path': f"data/clips/{filename}",
@@ -76,7 +84,8 @@ def merge_candidates(candidates_dir: str) -> None:
             'loudness_lufs': candidate['loudness_lufs'],
             'quality_score': 5,  # Default to A rating, user can adjust in review tool
             'source': 'xenocanto',
-            'source_id': candidate.get('source_id', ''),
+            'source_id': source_id,
+            'source_url': source_url,
             'recordist': candidate.get('recordist', ''),
             'canonical': False,  # User must mark canonical in review tool
             'rejected': False
