@@ -4871,7 +4871,7 @@
     "file_path": "data/clips/RCKI_1014752.wav",
     "spectrogram_path": "data/spectrograms/RCKI_1014752.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4886,7 +4886,7 @@
     "file_path": "data/clips/RCKI_1014754.wav",
     "spectrogram_path": "data/spectrograms/RCKI_1014754.png",
     "recordist": null,
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {

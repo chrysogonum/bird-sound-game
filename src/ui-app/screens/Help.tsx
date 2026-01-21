@@ -130,7 +130,10 @@ function Help() {
             Birds are <em>heard</em> way more often than they're <em>seen</em>. Once you know the songs, you'll know what to look for - and suddenly your backyard becomes way more interesting.
           </p>
           <p style={{ marginBottom: '12px' }}>
-            <strong>Why the left/right thing?</strong> It feels like a hearing test because that's birding! In the field, you're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" This game mimics that chaos. Plus, training your ears to separate simultaneous sounds - like a pianist controlling both hands independently - dramatically sharpens your birding skills.
+            <strong>Why the left/right thing?</strong> That's birding! You're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" Training your ears to separate simultaneous sounds - like a pianist controlling both hands - dramatically sharpens your field skills.
+          </p>
+          <p style={{ marginBottom: '12px' }}>
+            <strong>Neuroplasticity works:</strong> Your brain rewires with practice. These sound patterns feel impossible at first, but repeated exposure trains your auditory cortex faster than you'd think. Give it a few sessions - you'll be amazed what you can hear.
           </p>
           <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
             <strong>Need real-time ID?</strong> Get Cornell's free <a href="https://merlin.allaboutbirds.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>Merlin app</a> - it's magic for "what bird is that singing <em>right now</em>?"
