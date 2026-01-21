@@ -185,7 +185,7 @@ function Help() {
           />
           <PackInfo
             name="Expanded Eastern US Birds"
-            description="45 species from the eastern US. Nine birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
+            description="46 species from the eastern US. Nine birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
           />
           <PackInfo
             name="Sparrows"
