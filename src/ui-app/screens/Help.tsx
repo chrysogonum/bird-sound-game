@@ -257,11 +257,10 @@ function Help() {
           onToggle={() => toggleSection('Training Mode')}
         >
           <p>
-            Toggle the <strong>eye icon</strong> (next to the back button) during gameplay to enable Training Mode.
+            Training Mode shows bird icons and species codes on each tile alongside the spectrogram - perfect for learning which sounds belong to which birds.
           </p>
           <p>
-            When active, each tile shows its bird icon and species code alongside the spectrogram.
-            Use this to learn which spectrograms belong to which birds, then toggle off to challenge yourself!
+            You can enable it on the preview screen before starting a round, or toggle it on/off anytime during gameplay using the <strong>eye icon</strong> (next to the back button). Start with labels visible, then toggle off to challenge yourself!
           </p>
           <div style={{
             background: 'var(--color-surface)',
