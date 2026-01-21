@@ -529,7 +529,7 @@ function Help() {
         >
           {/* TL;DR Summary */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.40)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Highlights (v3.23 → v3.42)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
@@ -537,9 +537,19 @@ function Help() {
                 <li><strong>Redesigned Ready-to-Play Screen</strong> – Easy access to Training Mode, taxonomic sorting, pack reference library (📚), and gameplay tips</li>
                 <li><strong>Custom Pack Builder</strong> – Improved search, taxonomic filtering, and ability to save up to 10 named custom packs</li>
                 <li><strong>Shareable Score Summary</strong> – Think you're as good as Merlin? Prove it and share your results!</li>
+                <li><strong>Expanded Eastern Birds Pack</strong> – Grew from 40 to 45 species with flycatchers and vireos</li>
               </ul>
             </div>
           </div>
+
+          <VersionEntry version="3.42" date="January 21, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>5 New Eastern Birds:</strong> Expanded Eastern Birds pack from 40 to 45 species with White-eyed Vireo, Acadian Flycatcher, Eastern Phoebe, Great Crested Flycatcher, and Eastern Wood-Pewee (24 new audio clips and spectrograms).</li>
+              <li><strong>Data Integrity Safeguards:</strong> Added comprehensive protection for canonical clip flags (Bird Reference signature indicators) including git pre-commit hooks, extensive documentation, and automated validation to prevent accidental data loss.</li>
+              <li><strong>Audio Quality Improvements:</strong> Trimmed dead space from multiple clips for cleaner, more focused bird vocalizations.</li>
+              <li><strong>Pack Count Corrections:</strong> Updated Expanded Eastern Birds pack display to correctly show 45 species across all UI locations.</li>
+            </ul>
+          </VersionEntry>
 
           <VersionEntry version="3.41" date="January 20, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
