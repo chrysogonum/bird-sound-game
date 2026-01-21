@@ -56,7 +56,7 @@
     "file_path": "data/clips/ACFL_839505.wav",
     "spectrogram_path": "data/spectrograms/ACFL_839505.png",
     "recordist": "Manuel Oudard",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -71,7 +71,7 @@
     "file_path": "data/clips/AGOL_1034479.wav",
     "spectrogram_path": "data/spectrograms/AGOL_1034479.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -176,7 +176,7 @@
     "file_path": "data/clips/AMCR_316302.wav",
     "spectrogram_path": "data/spectrograms/AMCR_316302.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -206,7 +206,7 @@
     "file_path": "data/clips/AMRE_1014425.wav",
     "spectrogram_path": "data/spectrograms/AMRE_1014425.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -251,7 +251,7 @@
     "file_path": "data/clips/AMRO_1010651.wav",
     "spectrogram_path": "data/spectrograms/AMRO_1010651.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -401,7 +401,7 @@
     "file_path": "data/clips/BAOW_cd219511.wav",
     "spectrogram_path": "data/spectrograms/BAOW_cd219511.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -446,7 +446,7 @@
     "file_path": "data/clips/BAWW_1013805.wav",
     "spectrogram_path": "data/spectrograms/BAWW_1013805.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -536,7 +536,7 @@
     "file_path": "data/clips/BBWA_1014733.wav",
     "spectrogram_path": "data/spectrograms/BBWA_1014733.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -581,7 +581,7 @@
     "file_path": "data/clips/BCCH_cornell_011_1.wav",
     "spectrogram_path": "data/spectrograms/BCCH_cornell_011_1.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -641,7 +641,7 @@
     "file_path": "data/clips/BEKI_1034325.wav",
     "spectrogram_path": "data/spectrograms/BEKI_1034325.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -731,7 +731,7 @@
     "file_path": "data/clips/BHNU_651187.wav",
     "spectrogram_path": "data/spectrograms/BHNU_651187.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -791,7 +791,7 @@
     "file_path": "data/clips/BLBW_1013883.wav",
     "spectrogram_path": "data/spectrograms/BLBW_1013883.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -836,7 +836,7 @@
     "file_path": "data/clips/BLJA_1010650.wav",
     "spectrogram_path": "data/spectrograms/BLJA_1010650.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -896,7 +896,7 @@
     "file_path": "data/clips/BLPW_1014468.wav",
     "spectrogram_path": "data/spectrograms/BLPW_1014468.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -941,7 +941,7 @@
     "file_path": "data/clips/BRCR_709621.wav",
     "spectrogram_path": "data/spectrograms/BRCR_709621.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1016,7 +1016,7 @@
     "file_path": "data/clips/BRTH_1011716.wav",
     "spectrogram_path": "data/spectrograms/BRTH_1011716.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1091,7 +1091,7 @@
     "file_path": "data/clips/BTBW_1013120.wav",
     "spectrogram_path": "data/spectrograms/BTBW_1013120.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1151,7 +1151,7 @@
     "file_path": "data/clips/BTNW_1013766.wav",
     "spectrogram_path": "data/spectrograms/BTNW_1013766.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1256,7 +1256,7 @@
     "file_path": "data/clips/BWWA_101664.wav",
     "spectrogram_path": "data/spectrograms/BWWA_101664.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1316,7 +1316,7 @@
     "file_path": "data/clips/CACH_877921.wav",
     "spectrogram_path": "data/spectrograms/CACH_877921.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1391,7 +1391,7 @@
     "file_path": "data/clips/CAFI_9696235e.wav",
     "spectrogram_path": "data/spectrograms/CAFI_9696235e.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1466,7 +1466,7 @@
     "file_path": "data/clips/CARW_941065.wav",
     "spectrogram_path": "data/spectrograms/CARW_941065.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1511,7 +1511,7 @@
     "file_path": "data/clips/CASJ_cornell_010_1.wav",
     "spectrogram_path": "data/spectrograms/CASJ_cornell_010_1.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1556,7 +1556,7 @@
     "file_path": "data/clips/CAWA_1014128.wav",
     "spectrogram_path": "data/spectrograms/CAWA_1014128.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1616,7 +1616,7 @@
     "file_path": "data/clips/CEDW_1014827.wav",
     "spectrogram_path": "data/spectrograms/CEDW_1014827.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1706,7 +1706,7 @@
     "file_path": "data/clips/CHSP_1012541.wav",
     "spectrogram_path": "data/spectrograms/CHSP_1012541.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1811,7 +1811,7 @@
     "file_path": "data/clips/CMWA_1013293.wav",
     "spectrogram_path": "data/spectrograms/CMWA_1013293.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1841,7 +1841,7 @@
     "file_path": "data/clips/COGR_1012859.wav",
     "spectrogram_path": "data/spectrograms/COGR_1012859.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1946,7 +1946,7 @@
     "file_path": "data/clips/COHA_859371.wav",
     "spectrogram_path": "data/spectrograms/COHA_859371.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -1991,7 +1991,7 @@
     "file_path": "data/clips/CONW_1013973.wav",
     "spectrogram_path": "data/spectrograms/CONW_1013973.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2036,7 +2036,7 @@
     "file_path": "data/clips/COYE_1013902.wav",
     "spectrogram_path": "data/spectrograms/COYE_1013902.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2081,7 +2081,7 @@
     "file_path": "data/clips/CSWA_1014420.wav",
     "spectrogram_path": "data/spectrograms/CSWA_1014420.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2201,7 +2201,7 @@
     "file_path": "data/clips/DOWO_1036590.wav",
     "spectrogram_path": "data/spectrograms/DOWO_1036590.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2276,7 +2276,7 @@
     "file_path": "data/clips/EABL_608740.wav",
     "spectrogram_path": "data/spectrograms/EABL_608740.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2366,7 +2366,7 @@
     "file_path": "data/clips/EAPH_682550.wav",
     "spectrogram_path": "data/spectrograms/EAPH_682550.png",
     "recordist": "Barry Edmonston",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -2501,7 +2501,7 @@
     "file_path": "data/clips/EATO_9ef2c5bc.wav",
     "spectrogram_path": "data/spectrograms/EATO_9ef2c5bc.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2531,7 +2531,7 @@
     "file_path": "data/clips/EVGR_cornell_027_1.wav",
     "spectrogram_path": "data/spectrograms/EVGR_cornell_027_1.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2621,7 +2621,7 @@
     "file_path": "data/clips/FICR_822351.wav",
     "spectrogram_path": "data/spectrograms/FICR_822351.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2651,7 +2651,7 @@
     "file_path": "data/clips/FISP_1014919.wav",
     "spectrogram_path": "data/spectrograms/FISP_1014919.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2726,7 +2726,7 @@
     "file_path": "data/clips/GCFL_1012534.wav",
     "spectrogram_path": "data/spectrograms/GCFL_1012534.png",
     "recordist": "Stanislas Wroza",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -2831,7 +2831,7 @@
     "file_path": "data/clips/GCKI_1013481.wav",
     "spectrogram_path": "data/spectrograms/GCKI_1013481.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2876,7 +2876,7 @@
     "file_path": "data/clips/GRCA_1002792.wav",
     "spectrogram_path": "data/spectrograms/GRCA_1002792.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3026,7 +3026,7 @@
     "file_path": "data/clips/GWWA_650432.wav",
     "spectrogram_path": "data/spectrograms/GWWA_650432.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3071,7 +3071,7 @@
     "file_path": "data/clips/HAWO_1028817.wav",
     "spectrogram_path": "data/spectrograms/HAWO_1028817.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3146,7 +3146,7 @@
     "file_path": "data/clips/HETH_1036596.wav",
     "spectrogram_path": "data/spectrograms/HETH_1036596.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3221,7 +3221,7 @@
     "file_path": "data/clips/HOFI_898674.wav",
     "spectrogram_path": "data/spectrograms/HOFI_898674.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3311,7 +3311,7 @@
     "file_path": "data/clips/KEWA_1002085.wav",
     "spectrogram_path": "data/spectrograms/KEWA_1002085.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3386,7 +3386,7 @@
     "file_path": "data/clips/LISP_1014972.wav",
     "spectrogram_path": "data/spectrograms/LISP_1014972.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3461,7 +3461,7 @@
     "file_path": "data/clips/LOWA_691609.wav",
     "spectrogram_path": "data/spectrograms/LOWA_691609.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3521,7 +3521,7 @@
     "file_path": "data/clips/MAWA_1013890.wav",
     "spectrogram_path": "data/spectrograms/MAWA_1013890.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3581,7 +3581,7 @@
     "file_path": "data/clips/MODO_638304.wav",
     "spectrogram_path": "data/spectrograms/MODO_638304.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3641,7 +3641,7 @@
     "file_path": "data/clips/MOWA_1014001.wav",
     "spectrogram_path": "data/spectrograms/MOWA_1014001.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3686,7 +3686,7 @@
     "file_path": "data/clips/NAWA_1013952.wav",
     "spectrogram_path": "data/spectrograms/NAWA_1013952.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3791,7 +3791,7 @@
     "file_path": "data/clips/NOCA_598016.wav",
     "spectrogram_path": "data/spectrograms/NOCA_598016.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -3821,7 +3821,7 @@
     "file_path": "data/clips/NOFL_1007124.wav",
     "spectrogram_path": "data/spectrograms/NOFL_1007124.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4001,7 +4001,7 @@
     "file_path": "data/clips/NOMO_862380.wav",
     "spectrogram_path": "data/spectrograms/NOMO_862380.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4091,7 +4091,7 @@
     "file_path": "data/clips/NOPA_1013754.wav",
     "spectrogram_path": "data/spectrograms/NOPA_1013754.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4136,7 +4136,7 @@
     "file_path": "data/clips/NOWA_1013461.wav",
     "spectrogram_path": "data/spectrograms/NOWA_1013461.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4181,7 +4181,7 @@
     "file_path": "data/clips/OCWA_1046368.wav",
     "spectrogram_path": "data/spectrograms/OCWA_1046368.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4271,7 +4271,7 @@
     "file_path": "data/clips/OVEN_1014291.wav",
     "spectrogram_path": "data/spectrograms/OVEN_1014291.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4316,7 +4316,7 @@
     "file_path": "data/clips/PAWA_1015024.wav",
     "spectrogram_path": "data/spectrograms/PAWA_1015024.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4376,7 +4376,7 @@
     "file_path": "data/clips/PISI_cornell_025_1.wav",
     "spectrogram_path": "data/spectrograms/PISI_cornell_025_1.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4496,7 +4496,7 @@
     "file_path": "data/clips/PIWA_901095.wav",
     "spectrogram_path": "data/spectrograms/PIWA_901095.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4586,7 +4586,7 @@
     "file_path": "data/clips/PIWO_797066.wav",
     "spectrogram_path": "data/spectrograms/PIWO_797066.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4616,7 +4616,7 @@
     "file_path": "data/clips/PRAW_691780.wav",
     "spectrogram_path": "data/spectrograms/PRAW_691780.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4676,7 +4676,7 @@
     "file_path": "data/clips/PROW_371157.wav",
     "spectrogram_path": "data/spectrograms/PROW_371157.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4736,7 +4736,7 @@
     "file_path": "data/clips/RBWO_1012058.wav",
     "spectrogram_path": "data/spectrograms/RBWO_1012058.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4871,7 +4871,7 @@
     "file_path": "data/clips/RCKI_1014752.wav",
     "spectrogram_path": "data/spectrograms/RCKI_1014752.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -4931,7 +4931,7 @@
     "file_path": "data/clips/RHWO_1062474.wav",
     "spectrogram_path": "data/spectrograms/RHWO_1062474.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5096,7 +5096,7 @@
     "file_path": "data/clips/RSHA_892537.wav",
     "spectrogram_path": "data/spectrograms/RSHA_892537.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5186,7 +5186,7 @@
     "file_path": "data/clips/RTHA_914680.wav",
     "spectrogram_path": "data/spectrograms/RTHA_914680.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5261,7 +5261,7 @@
     "file_path": "data/clips/RTHU_193646.wav",
     "spectrogram_path": "data/spectrograms/RTHU_193646.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5306,7 +5306,7 @@
     "file_path": "data/clips/RWBL_cornell_019_1.wav",
     "spectrogram_path": "data/spectrograms/RWBL_cornell_019_1.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5351,7 +5351,7 @@
     "file_path": "data/clips/SAVS_1014027.wav",
     "spectrogram_path": "data/spectrograms/SAVS_1014027.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5441,7 +5441,7 @@
     "file_path": "data/clips/SOSP_1021071.wav",
     "spectrogram_path": "data/spectrograms/SOSP_1021071.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5606,7 +5606,7 @@
     "file_path": "data/clips/SSHA_923859.wav",
     "spectrogram_path": "data/spectrograms/SSHA_923859.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5621,7 +5621,7 @@
     "file_path": "data/clips/STJA_cornell_008_2.wav",
     "spectrogram_path": "data/spectrograms/STJA_cornell_008_2.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5696,7 +5696,7 @@
     "file_path": "data/clips/SWSP_1012741.wav",
     "spectrogram_path": "data/spectrograms/SWSP_1012741.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5771,7 +5771,7 @@
     "file_path": "data/clips/SWWA_1071256.wav",
     "spectrogram_path": "data/spectrograms/SWWA_1071256.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5816,7 +5816,7 @@
     "file_path": "data/clips/TEWA_1013989.wav",
     "spectrogram_path": "data/spectrograms/TEWA_1013989.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5906,7 +5906,7 @@
     "file_path": "data/clips/TUTI_884288.wav",
     "spectrogram_path": "data/spectrograms/TUTI_884288.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -5921,7 +5921,7 @@
     "file_path": "data/clips/WBNU_728659.wav",
     "spectrogram_path": "data/spectrograms/WBNU_728659.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6026,7 +6026,7 @@
     "file_path": "data/clips/WCSP_411a953b.wav",
     "spectrogram_path": "data/spectrograms/WCSP_411a953b.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6101,7 +6101,7 @@
     "file_path": "data/clips/WEVI_827619.wav",
     "spectrogram_path": "data/spectrograms/WEVI_827619.png",
     "recordist": "Richard E. Webster",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   },
   {
@@ -6191,7 +6191,7 @@
     "file_path": "data/clips/WEWA_828191.wav",
     "spectrogram_path": "data/spectrograms/WEWA_828191.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6221,7 +6221,7 @@
     "file_path": "data/clips/WIWA_1014396.wav",
     "spectrogram_path": "data/spectrograms/WIWA_1014396.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6266,7 +6266,7 @@
     "file_path": "data/clips/WTSP_1015145.wav",
     "spectrogram_path": "data/spectrograms/WTSP_1015145.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6341,7 +6341,7 @@
     "file_path": "data/clips/YBSA_1011116.wav",
     "spectrogram_path": "data/spectrograms/YBSA_1011116.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6476,7 +6476,7 @@
     "file_path": "data/clips/YRWA_1000573.wav",
     "spectrogram_path": "data/spectrograms/YRWA_1000573.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6551,7 +6551,7 @@
     "file_path": "data/clips/YTWA_404733.wav",
     "spectrogram_path": "data/spectrograms/YTWA_404733.png",
     "recordist": null,
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -6660,7 +6660,7 @@
     "quality_score": 4,
     "recordist": "Greg Irving",
     "spectrogram_path": "data/spectrograms/EAWP_1038492.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false
   }
 ]
