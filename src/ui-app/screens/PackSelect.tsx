@@ -57,7 +57,7 @@ const PACKS: Pack[] = [
     name: 'Eastern Birds',
     speciesCount: 46,
     isUnlocked: true,
-    description: 'Ready for more? 9 random per round.',
+    description: 'Ready for more feathered friends? 9 random per round.',
   },
   {
     id: 'sparrows',
@@ -78,7 +78,7 @@ const PACKS: Pack[] = [
     name: 'Western Birds',
     speciesCount: 18,
     isUnlocked: true,
-    description: 'Pacific coast to the Rockies.',
+    description: 'Frequent flyers from the Pacific coast to the Rockies.',
   },
   {
     id: 'spring_warblers',
@@ -226,7 +226,7 @@ function PackSelect() {
     });
 
     // Sort based on mode: taxonomic or alphabetical
-    if (packId === 'all_birds' && taxonomicSort && Object.keys(taxonomicOrder).length > 0) {
+    if (taxonomicSort && Object.keys(taxonomicOrder).length > 0) {
       return birds.sort((a, b) => {
         const orderA = taxonomicOrder[a.code] || 9999;
         const orderB = taxonomicOrder[b.code] || 9999;
@@ -1104,6 +1104,87 @@ function PackSelect() {
                 >
                   Ready to Play?
                 </button>
+              </div>
+            )}
+
+            {/* Taxonomic Sort Toggle for individual packs */}
+            {isExpanded && (
+              <div style={{
+                marginBottom: '12px',
+                padding: '10px',
+                background: 'rgba(70, 70, 90, 0.3)',
+                borderRadius: '8px',
+                border: '1px solid rgba(255,255,255,0.1)',
+                position: 'relative',
+              }}>
+                <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-text-muted)' }}>
+                    Sort:
+                  </span>
+                  <button
+                    onClick={() => {
+                      const newValue = !taxonomicSort;
+                      setTaxonomicSort(newValue);
+                      // Trigger nerd alert easter egg when switching TO taxonomic mode
+                      if (newValue) {
+                        setShowNerdAlert(true);
+                        setTimeout(() => setShowNerdAlert(false), 1400);
+                      }
+                    }}
+                    style={{
+                      padding: '6px 12px',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      background: taxonomicSort ? 'var(--color-accent)' : 'rgba(255,255,255,0.15)',
+                      color: taxonomicSort ? '#000' : 'var(--color-text)',
+                      border: taxonomicSort ? 'none' : '1.5px solid var(--color-accent)',
+                      borderRadius: '6px',
+                      cursor: 'pointer',
+                      transition: 'all 0.2s',
+                      boxShadow: taxonomicSort ? '0 2px 8px rgba(245, 166, 35, 0.3)' : 'none',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!taxonomicSort) {
+                        e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
+                        e.currentTarget.style.transform = 'scale(1.05)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!taxonomicSort) {
+                        e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
+                        e.currentTarget.style.transform = 'scale(1)';
+                      }
+                    }}
+                  >
+                    {taxonomicSort ? '📊 Taxonomic' : '🔤 A-Z'}
+                  </button>
+                  <span style={{ fontSize: '11px', color: 'var(--color-text-muted)', flex: '1', minWidth: '180px' }}>
+                    {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Species codes'}
+                  </span>
+                </div>
+
+                {/* Nerd Alert Easter Egg - Floating bubble */}
+                {showNerdAlert && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '15px',
+                    left: '70%',
+                    transform: 'translateX(-50%)',
+                    background: 'rgba(245, 166, 35, 1.0)',
+                    color: '#000',
+                    padding: '6px 20px',
+                    borderRadius: '16px',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    boxShadow: '0 2px 8px rgba(245, 166, 35, 0.3)',
+                    animation: 'floatPop 1.4s ease-out forwards',
+                    zIndex: 1000,
+                    pointerEvents: 'none',
+                    whiteSpace: 'nowrap',
+                  }}>
+                    🤓 nerd alert!
+                  </div>
+                )}
               </div>
             )}
 
