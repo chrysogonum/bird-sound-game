@@ -7764,23 +7764,6 @@
     "spectrogram_path": "data/spectrograms/WREN_544579.png"
   },
   {
-    "clip_id": "SPTO_edb0d4d7",
-    "species_code": "SPTO",
-    "common_name": "Spotted Towhee",
-    "file_path": "data/clips/SPTO_1056013.wav",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1056013",
-    "source_url": "https://xeno-canto.org/1056013",
-    "recordist": "Denis Dujardin",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SPTO_1056013.png"
-  },
-  {
     "clip_id": "SPTO_413caab4",
     "species_code": "SPTO",
     "common_name": "Spotted Towhee",
@@ -7813,23 +7796,6 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/SPTO_1024564.png"
-  },
-  {
-    "clip_id": "SPTO_98c6866f",
-    "species_code": "SPTO",
-    "common_name": "Spotted Towhee",
-    "file_path": "data/clips/SPTO_1016552.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1016552",
-    "source_url": "https://xeno-canto.org/1016552",
-    "recordist": "Ned Bohman",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SPTO_1016552.png"
   },
   {
     "clip_id": "SPTO_03fda74a",
