@@ -7682,24 +7682,6 @@
     "rejected": false
   },
   {
-    "file_path": "data/clips/ACWO_780863.wav",
-    "species_name": "Acorn Woodpecker",
-    "species_code": "ACWO",
-    "source": "xenocanto",
-    "source_id": "XC780863",
-    "recordist": "Richard E. Webster",
-    "vocalization_type": "alarm call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A",
-    "spectrogram_path": "data/spectrograms/ACWO_780863.png",
-    "clip_id": "ACWO_600de8d5",
-    "common_name": "Acorn Woodpecker",
-    "quality_score": 5,
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "file_path": "data/clips/LEWI_786998.wav",
     "species_name": "Lewis's Woodpecker",
     "species_code": "LEWO",
