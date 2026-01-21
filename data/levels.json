@@ -1103,7 +1103,7 @@
     "mode": "campaign",
     "title": "Signature Sounds",
     "round_duration_sec": 30,
-    "species_count": 9,
+    "species_count": 17,
     "clip_selection": "canonical",
     "channel_mode": "single",
     "event_density": "low",
@@ -1124,7 +1124,10 @@
       "WBNU",
       "HOFI",
       "AGOL",
-      "RWBL"
+      "RWBL",
+      "WREN",
+      "SPTO",
+      "WEBL"
     ]
   },
   {
@@ -1133,7 +1136,7 @@
     "mode": "campaign",
     "title": "Song Varieties",
     "round_duration_sec": 35,
-    "species_count": 9,
+    "species_count": 17,
     "clip_selection": 2,
     "channel_mode": "offset",
     "event_density": "low",
@@ -1154,7 +1157,10 @@
       "WBNU",
       "HOFI",
       "AGOL",
-      "RWBL"
+      "RWBL",
+      "WREN",
+      "SPTO",
+      "WEBL"
     ]
   },
   {
@@ -1163,7 +1169,7 @@
     "mode": "campaign",
     "title": "Calls Included",
     "round_duration_sec": 40,
-    "species_count": 9,
+    "species_count": 17,
     "clip_selection": 3,
     "channel_mode": "offset",
     "event_density": "medium",
@@ -1184,7 +1190,10 @@
       "WBNU",
       "HOFI",
       "AGOL",
-      "RWBL"
+      "RWBL",
+      "WREN",
+      "SPTO",
+      "WEBL"
     ]
   },
   {
@@ -1193,7 +1202,7 @@
     "mode": "campaign",
     "title": "Both Ears",
     "round_duration_sec": 30,
-    "species_count": 9,
+    "species_count": 17,
     "clip_selection": "canonical",
     "channel_mode": "offset",
     "event_density": "low",
@@ -1214,7 +1223,10 @@
       "WBNU",
       "HOFI",
       "AGOL",
-      "RWBL"
+      "RWBL",
+      "WREN",
+      "SPTO",
+      "WEBL"
     ]
   },
   {
@@ -1223,7 +1235,7 @@
     "mode": "campaign",
     "title": "Both Ears",
     "round_duration_sec": 50,
-    "species_count": 9,
+    "species_count": 17,
     "clip_selection": "all",
     "channel_mode": "offset",
     "event_density": "high",
@@ -1244,7 +1256,10 @@
       "WBNU",
       "HOFI",
       "AGOL",
-      "RWBL"
+      "RWBL",
+      "WREN",
+      "SPTO",
+      "WEBL"
     ]
   },
   {
@@ -1253,7 +1268,7 @@
     "mode": "campaign",
     "title": "Expert Challenge",
     "round_duration_sec": 60,
-    "species_count": 9,
+    "species_count": 17,
     "clip_selection": "all",
     "channel_mode": "offset",
     "event_density": "high",
@@ -1274,7 +1289,10 @@
       "WBNU",
       "HOFI",
       "AGOL",
-      "RWBL"
+      "RWBL",
+      "WREN",
+      "SPTO",
+      "WEBL"
     ]
   }
 ]

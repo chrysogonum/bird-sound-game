@@ -76,7 +76,7 @@ const PACKS: Pack[] = [
   {
     id: 'western_birds',
     name: 'Western Backyard Birds',
-    speciesCount: 14,
+    speciesCount: 17,
     isUnlocked: true,
     description: 'Pacific coast to the Rockies.',
   },
