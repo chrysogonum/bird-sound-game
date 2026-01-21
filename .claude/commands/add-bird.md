@@ -703,7 +703,7 @@ npm run deploy  # Retry
 1. **Missing canonical clips** - CRITICAL! Run the canonical clip script (Step 2.5) or Level 1 will break
 2. **Forgetting to update levels.json** - MOST COMMON MISTAKE! Species in pack but not in levels = won't appear in gameplay
 3. **Only updating one array in pack JSON** - Must update BOTH `species` and `display_species` arrays
-4. **Missing audio files referenced in clips.json** - Verify files exist before running audio_tagger.py
+4. **Missing audio files referenced in clips.json** - Verify WAV files copied to data/clips/ before running merge_candidates.py
 5. **Untracked icon files** - Always check `git status` for ?? files
 6. **Missing spectrograms** - Run spectrogram_gen.py and verify output
 7. **Icon count ≠ species count** - Verify all icons exist before committing
