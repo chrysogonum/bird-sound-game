@@ -91,10 +91,11 @@ make validate-clips
 
 ```bash
 # 1. Ingest (now outputs correct fields)
-python3 scripts/cornell_ingest.py --input ~/cornell_audio --output data/clips --clips-json data/clips.json
+python3 scripts/cornell_ingest.py --input ~/cornell_audio --output data/candidates_cornell --clips-json data/clips.json
 
-# 2. Auto-tag canonical clips
-python3 scripts/audio_tagger.py data/clips.json
+# 2. Merge clips safely
+# ⚠️ DEPRECATED: python3 scripts/audio_tagger.py (overwrites clips.json!)
+python3 scripts/merge_candidates.py data/candidates_cornell
 
 # 3. Validate (normalizes + validates)
 make validate-clips
@@ -108,10 +109,11 @@ git commit -m "Add new Cornell clips"
 
 ```bash
 # 1. Ingest
-python3 scripts/audio_ingest.py --query "..."
+python3 scripts/audio_ingest.py --output data/candidates_{CODE} --species "Species Name" --max-per-species 5
 
-# 2. Tag
-python3 scripts/audio_tagger.py data/clips.json
+# 2. Copy WAV files and merge metadata
+cp data/candidates_{CODE}/*.wav data/clips/
+python3 scripts/merge_candidates.py data/candidates_{CODE}
 
 # 3. Validate
 make validate-clips

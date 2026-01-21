@@ -61,12 +61,15 @@ This queries the Xeno-canto API using the `source_id` field and updates `clips.j
    - Automatically fetches recordist name from API
    - Saves to `.ingest_manifest.json`
 
-2. **Tag clips**:
+2. **Merge clips into clips.json**:
    ```bash
-   python3 scripts/audio_tagger.py --input data/clips --output data/clips.json
+   # ⚠️ DEPRECATED: python3 scripts/audio_tagger.py (overwrites clips.json!)
+
+   # Use this instead:
+   python3 scripts/merge_candidates.py data/candidates_{CODE}
    ```
    - Reads recordist from manifest
-   - Includes in final clips.json
+   - Safely appends to clips.json (preserves existing data)
 
 3. **Generate spectrograms** (if needed):
    ```bash

@@ -57,19 +57,29 @@ When conducting the warbler pack overhaul with Cornell clips:
 
 1. **These orphaned clips are available** in `data/clips/`
 2. **Find them:** `ls data/clips/BLBW_*.wav` shows all BLBW files (tracked + orphaned)
-3. **Import them:** Run `scripts/audio_tagger.py` to add metadata to clips.json
+3. **Import them:** ⚠️ DEPRECATED workflow - see updated process below
 4. **Review in tool:** `python scripts/review_clips.py --filter <warbler-codes>`
 5. **Compare with Cornell:** Download Cornell clips and decide which to keep
 
 ## How to Import Later
 
-```bash
-# Import orphaned clips into clips.json
-python scripts/audio_tagger.py --input data/clips --output data/clips.json
+⚠️ **WARNING:** The old workflow used `audio_tagger.py` which OVERWRITES clips.json and destroys all curated metadata!
 
-# Then review in the review tool
-python scripts/review_clips.py --filter BLBW,COYE,OVEN,AMRE,NOPA,PROW
+**Safe import workflow (if these clips still exist as orphans):**
+
+```bash
+# 1. Create a candidates folder with manifest
+mkdir -p data/candidates_warblers
+# ... manually create manifest.json for orphaned clips ...
+
+# 2. Safely merge into clips.json (preserves existing data)
+python3 scripts/merge_candidates.py data/candidates_warblers
+
+# 3. Then review in the review tool
+python3 scripts/review_clips.py --filter BLBW,COYE,OVEN,AMRE,NOPA,PROW
 ```
+
+**Note:** These orphaned clips are likely already gone or have been re-acquired. Check if the WAV files still exist before attempting import.
 
 ## Notes
 

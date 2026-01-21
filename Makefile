@@ -108,12 +108,16 @@ lint:
 
 # ============================================================================
 # Phase A: Audio Ingestion & Tagging
+# ⚠️ WARNING: Only use this for NEW project bootstrap. For existing projects,
+#            use merge_candidates.py instead of audio_tagger.py!
 # ============================================================================
 
 phase-a: $(DATA_DIR)/clips.json
 
 $(DATA_DIR)/clips.json: $(SCRIPTS_DIR)/audio_ingest.py $(SCRIPTS_DIR)/audio_tagger.py
 	@echo "=== Phase A: Audio Ingestion & Tagging ==="
+	@echo "⚠️  WARNING: This target uses audio_tagger.py which OVERWRITES clips.json"
+	@echo "    Only run this on a NEW project. For existing projects, use merge_candidates.py"
 	@mkdir -p $(DATA_DIR)/clips
 	$(PYTHON) $(SCRIPTS_DIR)/audio_ingest.py --output $(DATA_DIR)/clips
 	$(PYTHON) $(SCRIPTS_DIR)/audio_tagger.py --input $(DATA_DIR)/clips --output $(DATA_DIR)/clips.json
