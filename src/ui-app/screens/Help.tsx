@@ -535,7 +535,7 @@ function Help() {
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
-                <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with professionally curated audio clips and spectrograms</li>
+                <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
                 <li><strong>New Western Birds</strong> – Western Backyard Birds pack expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
                 <li><strong>Woodpeckers Pack Expansion</strong> – Added Acorn Woodpecker and Lewis's Woodpecker, growing the pack from 7 to 9 species</li>
                 <li><strong>Expanded Eastern Birds</strong> – Grew from 40 to 46 species with flycatchers, vireos, Red-eyed Vireo, and Dark-eyed Junco</li>
