@@ -7414,7 +7414,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.5,
     "quality": "A",
-    "clip_id": "LEWO_7aa97937"
+    "clip_id": "LEWO_7aa97937",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_700388.wav",
@@ -7427,7 +7431,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_b6905c75"
+    "clip_id": "LEWO_b6905c75",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_597597.wav",
@@ -7440,7 +7448,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_329e38f9"
+    "clip_id": "LEWO_329e38f9",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_597596.wav",
@@ -7453,7 +7465,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.1,
     "quality": "A",
-    "clip_id": "LEWO_9a5e06d4"
+    "clip_id": "LEWO_9a5e06d4",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_575042.wav",
@@ -7466,7 +7482,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.5,
     "quality": "A",
-    "clip_id": "LEWO_3a96154a"
+    "clip_id": "LEWO_3a96154a",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_375761.wav",
@@ -7479,7 +7499,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_d62ae199"
+    "clip_id": "LEWO_d62ae199",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_361849.wav",
@@ -7492,7 +7516,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_6657ac6c"
+    "clip_id": "LEWO_6657ac6c",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_310350.wav",
@@ -7505,7 +7533,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_31a3b117"
+    "clip_id": "LEWO_31a3b117",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_161333.wav",
@@ -7518,7 +7550,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_8b5eb5d1"
+    "clip_id": "LEWO_8b5eb5d1",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_13662.wav",
@@ -7531,21 +7567,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_1c5813de"
-  },
-  {
-    "file_path": "data/clips/ACWO_1003758.wav",
-    "species_name": "Acorn Woodpecker",
-    "species_code": "ACWO",
-    "source": "xenocanto",
-    "source_id": "XC1003758",
-    "recordist": "Scott Crabtree",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A",
-    "spectrogram_path": "data/spectrograms/ACWO_1003758.png",
-    "clip_id": "ACWO_cfc0b671"
+    "clip_id": "LEWO_1c5813de",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/ACWO_1003757.wav",
@@ -7559,7 +7585,11 @@
     "loudness_lufs": -16.0,
     "quality": "A",
     "spectrogram_path": "data/spectrograms/ACWO_1003757.png",
-    "clip_id": "ACWO_8767353f"
+    "clip_id": "ACWO_8767353f",
+    "common_name": "Acorn Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/ACWO_961969.wav",
@@ -7573,7 +7603,11 @@
     "loudness_lufs": -16.0,
     "quality": "A",
     "spectrogram_path": "data/spectrograms/ACWO_961969.png",
-    "clip_id": "ACWO_e74b0af5"
+    "clip_id": "ACWO_e74b0af5",
+    "common_name": "Acorn Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/ACWO_959182.wav",
@@ -7587,7 +7621,11 @@
     "loudness_lufs": -16.0,
     "quality": "A",
     "spectrogram_path": "data/spectrograms/ACWO_959182.png",
-    "clip_id": "ACWO_31a213de"
+    "clip_id": "ACWO_31a213de",
+    "common_name": "Acorn Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/ACWO_936464.wav",
@@ -7602,7 +7640,10 @@
     "quality": "A",
     "spectrogram_path": "data/spectrograms/ACWO_936464.png",
     "clip_id": "ACWO_f5095bfb",
-    "canonical": true
+    "canonical": true,
+    "common_name": "Acorn Woodpecker",
+    "quality_score": 5,
+    "rejected": false
   },
   {
     "file_path": "data/clips/ACWO_915541.wav",
@@ -7616,7 +7657,11 @@
     "loudness_lufs": -16.0,
     "quality": "A",
     "spectrogram_path": "data/spectrograms/ACWO_915541.png",
-    "clip_id": "ACWO_79b62ad4"
+    "clip_id": "ACWO_79b62ad4",
+    "common_name": "Acorn Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/ACWO_810121.wav",
@@ -7630,21 +7675,11 @@
     "loudness_lufs": -16.0,
     "quality": "A",
     "spectrogram_path": "data/spectrograms/ACWO_810121.png",
-    "clip_id": "ACWO_1010611f"
-  },
-  {
-    "file_path": "data/clips/ACWO_786993.wav",
-    "species_name": "Acorn Woodpecker",
-    "species_code": "ACWO",
-    "source": "xenocanto",
-    "source_id": "XC786993",
-    "recordist": "Ed Pandolfino",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A",
-    "spectrogram_path": "data/spectrograms/ACWO_786993.png",
-    "clip_id": "ACWO_3652f4bb"
+    "clip_id": "ACWO_1010611f",
+    "common_name": "Acorn Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/ACWO_780863.wav",
@@ -7658,7 +7693,11 @@
     "loudness_lufs": -16.0,
     "quality": "A",
     "spectrogram_path": "data/spectrograms/ACWO_780863.png",
-    "clip_id": "ACWO_600de8d5"
+    "clip_id": "ACWO_600de8d5",
+    "common_name": "Acorn Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_786998.wav",
@@ -7671,7 +7710,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.5,
     "quality": "A",
-    "clip_id": "LEWO_7aa97937"
+    "clip_id": "LEWO_7aa97937",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_700388.wav",
@@ -7684,7 +7727,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_b6905c75"
+    "clip_id": "LEWO_b6905c75",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_597597.wav",
@@ -7697,7 +7744,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_329e38f9"
+    "clip_id": "LEWO_329e38f9",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_597596.wav",
@@ -7710,7 +7761,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.1,
     "quality": "A",
-    "clip_id": "LEWO_9a5e06d4"
+    "clip_id": "LEWO_9a5e06d4",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_575042.wav",
@@ -7723,7 +7778,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.5,
     "quality": "A",
-    "clip_id": "LEWO_3a96154a"
+    "clip_id": "LEWO_3a96154a",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_375761.wav",
@@ -7736,7 +7795,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_d62ae199"
+    "clip_id": "LEWO_d62ae199",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_361849.wav",
@@ -7749,7 +7812,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_6657ac6c"
+    "clip_id": "LEWO_6657ac6c",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_310350.wav",
@@ -7762,7 +7829,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_31a3b117"
+    "clip_id": "LEWO_31a3b117",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_161333.wav",
@@ -7775,7 +7846,11 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_8b5eb5d1"
+    "clip_id": "LEWO_8b5eb5d1",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   },
   {
     "file_path": "data/clips/LEWI_13662.wav",
@@ -7788,6 +7863,10 @@
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality": "A",
-    "clip_id": "LEWO_1c5813de"
+    "clip_id": "LEWO_1c5813de",
+    "common_name": "Lewis's Woodpecker",
+    "quality_score": 5,
+    "canonical": false,
+    "rejected": false
   }
 ]
