@@ -20,6 +20,7 @@ interface ClipData {
   rejected?: boolean;
   vocalization_type?: string;
   source?: string;
+  source_url?: string;
   spectrogram_path?: string;
   recordist?: string;
 }
@@ -31,6 +32,7 @@ interface BirdClip {
   vocalizationType?: string;
   source?: string;
   sourceId?: string;
+  sourceUrl?: string;
   recordist?: string;
 }
 
@@ -210,6 +212,7 @@ function PackSelect() {
           vocalizationType: c.vocalization_type,
           source: c.source,
           sourceId: c.source_id,
+          sourceUrl: c.source_url,
           recordist: c.recordist,
         }));
 
@@ -996,8 +999,17 @@ function PackSelect() {
                                       padding: '2px 6px',
                                       borderRadius: '4px',
                                     }}>
-                                      {clip.source === 'xenocanto' && clip.sourceId ? clip.sourceId : clip.source === 'cornell' ? 'Cornell' : clip.source === 'user_recording' ? 'User' : clip.source}
-                                      {clip.recordist && ` - ${clip.recordist}`}
+                                      {/* Format: XC667361 • Nick Komar OR Cornell CD Track 26 OR Peter Repetti */}
+                                      {clip.sourceUrl ? (
+                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                          {clip.sourceId}{clip.recordist ? ` • ${clip.recordist}` : ''}
+                                        </a>
+                                      ) : (
+                                        <>
+                                          {clip.source === 'macaulay' ? clip.sourceId || 'Cornell' : clip.source === 'user_recording' ? (clip.recordist || 'User') : clip.sourceId || clip.source}
+                                          {clip.source !== 'user_recording' && clip.recordist && !clip.sourceId && ` • ${clip.recordist}`}
+                                        </>
+                                      )}
                                     </span>
                                   )}
                                 </div>
@@ -1249,7 +1261,7 @@ function PackSelect() {
                                       {clip.vocalizationType}
                                     </span>
                                   )}
-                                  {clip.source && (
+                                  {(clip.source || clip.recordist) && (
                                     <span style={{
                                       fontSize: '9px',
                                       color: 'var(--color-text-muted)',
@@ -1257,8 +1269,17 @@ function PackSelect() {
                                       padding: '2px 6px',
                                       borderRadius: '4px',
                                     }}>
-                                      {clip.source === 'xenocanto' && clip.sourceId ? clip.sourceId : clip.source === 'cornell' ? 'Cornell' : clip.source === 'user_recording' ? 'User' : clip.source}
-                                      {clip.recordist && ` - ${clip.recordist}`}
+                                      {/* Format: XC667361 • Nick Komar OR Cornell CD Track 26 OR Peter Repetti */}
+                                      {clip.sourceUrl ? (
+                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                          {clip.sourceId}{clip.recordist ? ` • ${clip.recordist}` : ''}
+                                        </a>
+                                      ) : (
+                                        <>
+                                          {clip.source === 'macaulay' ? clip.sourceId || 'Cornell' : clip.source === 'user_recording' ? (clip.recordist || 'User') : clip.sourceId || clip.source}
+                                          {clip.source !== 'user_recording' && clip.recordist && !clip.sourceId && ` • ${clip.recordist}`}
+                                        </>
+                                      )}
                                     </span>
                                   )}
                                 </div>
