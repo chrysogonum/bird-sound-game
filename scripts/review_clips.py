@@ -49,6 +49,8 @@ VOCALIZATION_TYPES = [
     "wing sound",
     "rattle",
     "trill",
+    "duet",
+    "juvenile",
     "other"
 ]
 
@@ -723,7 +725,7 @@ def generate_html() -> str:
             const grid = section.querySelector('.clip-grid');
 
             // Sort clips: canonical first, then by vocalization type, then by quality
-            const vocTypeOrder = ['song', 'call', 'flight call', 'alarm call', 'chip', 'drum', 'wing sound', 'rattle', 'trill', 'other'];
+            const vocTypeOrder = ['song', 'call', 'flight call', 'alarm call', 'chip', 'drum', 'wing sound', 'rattle', 'trill', 'duet', 'juvenile', 'other'];
 
             const sortedClips = [...clips].sort((a, b) => {
                 // Get current state (might be modified)
