@@ -499,7 +499,11 @@ done
 
 List ALL icons that need creation/replacement BEFORE proceeding.
 
-### Step 6: Update or Create Pack Definition
+### Step 6: Update Pack Definition AND Levels (CRITICAL - TWO STEPS!)
+
+**⚠️ IMPORTANT:** Adding species requires updating BOTH files or species won't appear in gameplay!
+
+#### Step 6a: Update Pack Definition
 
 Navigate to `data/packs/{pack_name}.json`
 
@@ -512,11 +516,11 @@ If updating EXISTING pack:
 - Add new species codes to the `species` array
 - Add to `display_species` array if pack uses it (for Bird Reference)
 - Maintain alphabetical order (optional but nice)
-- Update species count in pack metadata if present
+- Update species count in description (e.g., "28 species" → "33 species")
 
-### Step 6.5: **CRITICAL - Update levels.json**
+#### Step 6b: **CRITICAL - Update levels.json**
 
-**DO NOT SKIP THIS STEP!** New species will NOT appear in gameplay without this.
+**DO NOT SKIP THIS STEP!** Adding species to pack definition alone is NOT enough. New species will NOT appear in gameplay without updating levels.
 
 Adding species to a pack requires updating ALL level definitions for that pack in `data/levels.json`:
 
@@ -672,12 +676,15 @@ npm run deploy  # Retry
 ## Common Pitfalls to Avoid
 
 1. **Missing canonical clips** - CRITICAL! Run the canonical clip script (Step 2.5) or Level 1 will break
-2. **Missing audio files referenced in clips.json** - Verify files exist before running audio_tagger.py
-3. **Untracked icon files** - Always check `git status` for ?? files
-4. **Missing spectrograms** - Run spectrogram_gen.py and verify output
-5. **Icon count ≠ species count** - Verify all icons exist before committing
-6. **Disk space** - Clean dist/ and bird-sound-game/ if deployment fails
-7. **Schema validation** - Run `make validate-schemas` before committing
+2. **Forgetting to update levels.json** - MOST COMMON MISTAKE! Species in pack but not in levels = won't appear in gameplay
+3. **Only updating one array in pack JSON** - Must update BOTH `species` and `display_species` arrays
+4. **Missing audio files referenced in clips.json** - Verify files exist before running audio_tagger.py
+5. **Untracked icon files** - Always check `git status` for ?? files
+6. **Missing spectrograms** - Run spectrogram_gen.py and verify output
+7. **Icon count ≠ species count** - Verify all icons exist before committing
+8. **Disk space** - Clean dist/ and bird-sound-game/ if deployment fails
+9. **Schema validation** - Run `make validate-schemas` before committing
+10. **Not updating species count in pack description** - Update "28 species" to "33 species" etc.
 
 ## Success Criteria
 
@@ -687,7 +694,8 @@ npm run deploy  # Retry
 - [ ] clips.json updated with metadata
 - [ ] **CRITICAL: All new species have canonical clips marked** (Step 2.5)
 - [ ] No missing file references in clips.json (all file_path entries exist on disk)
-- [ ] Pack JSON updated with new species
+- [ ] **CRITICAL: Pack JSON updated with new species in BOTH species and display_species arrays** (Step 6a)
+- [ ] **CRITICAL: levels.json updated - new species added to species_pool for ALL levels in the pack** (Step 6b)
 - [ ] Schema validation passes
 - [ ] Local testing successful (especially Level 1 with new species)
 - [ ] All files tracked in git (no ?? in git status for new species)
