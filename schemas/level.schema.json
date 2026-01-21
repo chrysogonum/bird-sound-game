@@ -42,7 +42,7 @@
       "species_count": {
         "type": "integer",
         "minimum": 4,
-        "maximum": 12,
+        "maximum": 20,
         "description": "Number of species on the wheel"
       },
       "event_density": {
