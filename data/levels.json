@@ -183,7 +183,8 @@
       "ACFL",
       "EAPH",
       "GCFL",
-      "EAWP"
+      "EAWP",
+      "REVI"
     ],
     "clip_selection": "canonical",
     "channel_mode": "single",
@@ -244,7 +245,8 @@
       "ACFL",
       "EAPH",
       "GCFL",
-      "EAWP"
+      "EAWP",
+      "REVI"
     ],
     "clip_selection": 3,
     "channel_mode": "single",
@@ -305,7 +307,8 @@
       "ACFL",
       "EAPH",
       "GCFL",
-      "EAWP"
+      "EAWP",
+      "REVI"
     ],
     "clip_selection": "all",
     "channel_mode": "single",
@@ -366,7 +369,8 @@
       "ACFL",
       "EAPH",
       "GCFL",
-      "EAWP"
+      "EAWP",
+      "REVI"
     ],
     "clip_selection": "canonical",
     "channel_mode": "offset",
@@ -427,7 +431,8 @@
       "ACFL",
       "EAPH",
       "GCFL",
-      "EAWP"
+      "EAWP",
+      "REVI"
     ],
     "clip_selection": 3,
     "channel_mode": "offset",
@@ -488,7 +493,8 @@
       "ACFL",
       "EAPH",
       "GCFL",
-      "EAWP"
+      "EAWP",
+      "REVI"
     ],
     "clip_selection": "all",
     "channel_mode": "offset",
