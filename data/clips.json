@@ -2415,21 +2415,6 @@
     "rejected": false
   },
   {
-    "clip_id": "EAPH_17ebdbd3",
-    "species_code": "EAPH",
-    "common_name": "Eastern Phoebe",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC801725",
-    "file_path": "data/clips/EAPH_801725.wav",
-    "spectrogram_path": "data/spectrograms/EAPH_801725.png",
-    "recordist": "Peter Ward",
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "EAPH_81c844f5",
     "species_code": "EAPH",
     "common_name": "Eastern Phoebe",
@@ -2471,36 +2456,6 @@
     "file_path": "data/clips/EAPH_893395.wav",
     "spectrogram_path": "data/spectrograms/EAPH_893395.png",
     "recordist": "Paul Driver",
-    "canonical": false,
-    "rejected": false
-  },
-  {
-    "clip_id": "EAPH_99e22644",
-    "species_code": "EAPH",
-    "common_name": "Eastern Phoebe",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC922957",
-    "file_path": "data/clips/EAPH_922957.wav",
-    "spectrogram_path": "data/spectrograms/EAPH_922957.png",
-    "recordist": "Dany Sloan",
-    "canonical": false,
-    "rejected": false
-  },
-  {
-    "clip_id": "EAPH_00f0937f",
-    "species_code": "EAPH",
-    "common_name": "Eastern Phoebe",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC961961",
-    "file_path": "data/clips/EAPH_961961.wav",
-    "spectrogram_path": "data/spectrograms/EAPH_961961.png",
-    "recordist": "A Richardson",
     "canonical": false,
     "rejected": false
   },
