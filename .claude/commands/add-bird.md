@@ -606,6 +606,45 @@ grep -A50 '"pack_id": "{pack_name}"' data/levels.json | grep -c 'DEJU'
 - Levels define which species actually appear in gameplay
 - Species in pack but NOT in levels = won't appear in game!
 
+#### Step 6c: **AUTO-UPDATE UI Pack Counts** (NEW!)
+
+**⚠️ CRITICAL:** Pack counts are hardcoded in UI files and must match pack JSON files.
+
+After updating pack definitions, run the automatic UI sync tool:
+
+```bash
+python3 scripts/validate_pack_counts.py --fix
+```
+
+**What this does:**
+- Reads actual species counts from all pack JSON files (using `display_species` if available)
+- Checks hardcoded counts in `PackSelect.tsx` (pack selector card)
+- Checks hardcoded counts in `Help.tsx` (pack descriptions)
+- **Automatically fixes mismatches** when run with `--fix`
+
+**Example output:**
+```
+❌ Found mismatches:
+
+   Expanded Eastern Birds:
+      Pack JSON:      46 species
+      PackSelect.tsx: 45 species
+      Difference:     +1
+
+🔧 Applying fixes...
+   ✓ Updated PackSelect.tsx: expanded_backyard 45 → 46
+   ✓ Updated Help.tsx: Expanded Eastern Birds 45 → 46 species
+```
+
+**Files updated:**
+- `src/ui-app/screens/PackSelect.tsx` (PACKS array `speciesCount`)
+- `src/ui-app/screens/Help.tsx` (pack description text)
+
+**Why this matters:**
+- Without this step, pack selector will show incorrect species counts
+- Users see "45 species" but pack actually has 46
+- Consistently missed in manual workflows → now automated!
+
 ### Step 7: Validate Everything
 ```bash
 make validate-schemas  # Validates clips.json and pack JSONs

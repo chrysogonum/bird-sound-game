@@ -55,7 +55,7 @@ const PACKS: Pack[] = [
   {
     id: 'expanded_backyard',
     name: 'Expanded Eastern Birds',
-    speciesCount: 45,
+    speciesCount: 46,
     isUnlocked: true,
     description: 'Ready for more? 9 random per round.',
   },
