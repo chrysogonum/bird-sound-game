@@ -526,7 +526,7 @@ function Help() {
         <div ref={versionHistoryRef}>
           {/* Recent Updates - Always Visible */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.48)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.49)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
@@ -546,6 +546,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.49" date="January 21, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Custom Pack "Play Again" Fix:</strong> Fixed Custom Pack behavior to match regular packs - clicking "Play Again" after completing a round now keeps the same 9 birds instead of shuffling to a new random selection. Previously, custom packs with more than 9 birds would re-shuffle on every "Play Again", breaking the practice loop.</li>
+              <li><strong>UI Polish:</strong> Pack Select home icon now displays in orange for better visibility. Help page restructured with "Recent Updates" card always visible and "Full Version History" collapsible. Pack descriptions updated for grammatical consistency and cleaner formatting.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.48" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Western Birds Pack Expansion:</strong> Western Birds pack expanded from 14 to 18 species with Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker (14 new audio clips and spectrograms). Pack now includes distinctive western species across jays, finches, towhees, bluebirds, and woodpeckers.</li>
