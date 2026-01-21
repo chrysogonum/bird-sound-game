@@ -7418,7 +7418,8 @@
     "common_name": "Lewis's Woodpecker",
     "quality_score": 5,
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/700388"
   },
   {
     "file_path": "data/clips/LEWO_575042.wav",
@@ -7435,7 +7436,8 @@
     "common_name": "Lewis's Woodpecker",
     "quality_score": 5,
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/575042"
   },
   {
     "file_path": "data/clips/LEWO_310350.wav",
@@ -7452,7 +7454,8 @@
     "common_name": "Lewis's Woodpecker",
     "quality_score": 5,
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/310350"
   },
   {
     "file_path": "data/clips/LEWO_13662.wav",
@@ -7469,7 +7472,8 @@
     "common_name": "Lewis's Woodpecker",
     "quality_score": 5,
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/13662"
   },
   {
     "file_path": "data/clips/ACWO_1003757.wav",
@@ -7487,7 +7491,8 @@
     "common_name": "Acorn Woodpecker",
     "quality_score": 5,
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/1003757"
   },
   {
     "file_path": "data/clips/ACWO_961969.wav",
@@ -7505,7 +7510,8 @@
     "common_name": "Acorn Woodpecker",
     "quality_score": 5,
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/961969"
   },
   {
     "file_path": "data/clips/ACWO_959182.wav",
@@ -7523,7 +7529,8 @@
     "common_name": "Acorn Woodpecker",
     "quality_score": 5,
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/959182"
   },
   {
     "file_path": "data/clips/ACWO_936464.wav",
@@ -7541,7 +7548,8 @@
     "canonical": true,
     "common_name": "Acorn Woodpecker",
     "quality_score": 5,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/936464"
   },
   {
     "file_path": "data/clips/ACWO_915541.wav",
@@ -7559,7 +7567,8 @@
     "common_name": "Acorn Woodpecker",
     "quality_score": 5,
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/915541"
   },
   {
     "file_path": "data/clips/ACWO_810121.wav",
@@ -7577,6 +7586,7 @@
     "common_name": "Acorn Woodpecker",
     "quality_score": 5,
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "source_url": "https://xeno-canto.org/810121"
   }
 ]

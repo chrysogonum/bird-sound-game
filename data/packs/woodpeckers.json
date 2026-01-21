@@ -9,7 +9,9 @@
     "PIWO",
     "NOFL",
     "RHWO",
-    "YBSA"
+    "YBSA",
+    "ACWO",
+    "LEWO"
   ],
   "vocalization_weights": {
     "song": 0.3,
