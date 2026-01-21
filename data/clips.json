@@ -2370,21 +2370,6 @@
     "rejected": false
   },
   {
-    "clip_id": "EAPH_b14aeb08",
-    "species_code": "EAPH",
-    "common_name": "Eastern Phoebe",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1012507",
-    "file_path": "data/clips/EAPH_1012507.wav",
-    "spectrogram_path": "data/spectrograms/EAPH_1012507.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "EAPH_880a91dc",
     "species_code": "EAPH",
     "common_name": "Eastern Phoebe",
@@ -2396,7 +2381,7 @@
     "file_path": "data/clips/EAPH_682550.wav",
     "spectrogram_path": "data/spectrograms/EAPH_682550.png",
     "recordist": "Barry Edmonston",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
