@@ -215,6 +215,36 @@ def main():
 
     args = parser.parse_args()
 
+    # SAFETY CHECK: Prevent running on existing projects
+    output_path = Path(args.output)
+    if output_path.exists():
+        try:
+            with open(output_path, 'r') as f:
+                existing_clips = json.load(f)
+            if len(existing_clips) > 0:
+                print("=" * 80)
+                print("🛑 FATAL ERROR: audio_tagger.py CANNOT run on existing projects!")
+                print("=" * 80)
+                print(f"\nThe output file {args.output} already contains {len(existing_clips)} clips.")
+                print("\nRunning this script would DESTROY all curated metadata:")
+                print("  ❌ Recordist attributions")
+                print("  ❌ Source URLs for hyperlinking")
+                print("  ❌ Canonical flags")
+                print("  ❌ Quality ratings")
+                print("  ❌ Vocalization type corrections")
+                print("\n⚠️  This script is ONLY for NEW/EMPTY projects!")
+                print("\n✅ To add clips to an existing project, use:")
+                print("     python3 scripts/merge_candidates.py <candidate_dir>")
+                print("\nIf you REALLY want to regenerate from scratch (data loss!), run:")
+                print(f"     rm {args.output}")
+                print(f"     python3 scripts/audio_tagger.py --input {args.input} --output {args.output}")
+                print("=" * 80)
+                return 1
+        except (json.JSONDecodeError, KeyError):
+            # File exists but is corrupted/empty - allow overwrite
+            pass
+
+
     if not os.path.isdir(args.input):
         print(f"ERROR: Input directory does not exist: {args.input}")
         return 1
