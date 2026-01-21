@@ -699,12 +699,18 @@ The changes are now on GitHub but NOT live on chipnotes.app.
    ```bash
    make dev
    ```
-   - Navigate to the pack in the UI
-   - Verify all new species appear in gameplay
-   - Test Level 1 with canonical clips
-   - Check icons display correctly
-   - Verify spectrograms load correctly
-   - Play multiple rounds to ensure no errors
+   - **IMPORTANT:** Do a **hard refresh** in your browser (Cmd+Shift+R on Mac, Ctrl+Shift+R on Windows) to reload clips.json with new bird data
+   - Navigate to Pack Select → Bird Reference section
+   - Expand the pack and verify:
+     - New species appear with icons
+     - Recordist names display correctly (e.g., "Stanislas Wroza")
+     - XC catalog numbers are clickable links (e.g., "XC1014388")
+     - Canonical clip is marked with ⭐
+   - Test gameplay:
+     - Verify all new species appear in pack
+     - Test Level 1 with canonical clips
+     - Verify spectrograms load correctly
+     - Play multiple rounds to ensure no errors
 
 2. **Get explicit user approval** before deploying:
    - Ask: "Local testing looks good. Ready to deploy to chipnotes.app?"
