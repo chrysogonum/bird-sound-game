@@ -89,6 +89,49 @@ make ralph PHASE=a    # Runs phase-a then smoke-a
 
 Phases A-N cover: Audio Ingestion → Playback Engine → Input/Scoring → Levels → UX → Modes → Packs → Difficulty → Random Mode → Persistence → Spectrograms → Lane Renderer → Visual Modes → Confusion Analytics.
 
+## ⚠️ CRITICAL: Canonical Flags - Data Integrity Warning
+
+**MOST IMPORTANT CURATION DATA IN THE PROJECT**
+
+The `canonical` flag in `clips.json` marks the "signature" clip for each species. This is:
+- **User-curated data** representing hundreds of hours of manual review
+- **Essential for gameplay** - Level 1 uses only canonical clips for species introduction
+- **Essential for UI** - Bird Reference displays canonical clips with special indicators
+- **IRREPLACEABLE** - Cannot be auto-generated; requires human judgment of audio quality
+
+### Critical Rules for Scripts That Modify clips.json
+
+**NEVER do any of these without explicit preservation of canonical flags:**
+1. Renaming clip IDs (e.g., during taxonomy migrations)
+2. Filtering/subsetting clips.json
+3. Regenerating clips.json from scratch
+4. Merging clip data from multiple sources
+5. Any bulk transformation of clip metadata
+
+**ALWAYS verify canonical preservation after ANY clips.json modification:**
+```bash
+# Before modification
+python3 -c "import json; print(sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
+
+# After modification - MUST match the before count
+python3 -c "import json; print(sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
+```
+
+**If canonical flags are lost:**
+- Check git history: `git log --oneline data/clips.json`
+- Restore from previous commit: See recovery procedure in commit 4cb08eb
+- Last resort: Extract from git history by matching source_id or species+quality
+
+### Git Safety for clips.json
+
+Before committing clips.json changes:
+```bash
+# Verify canonical count hasn't dropped
+git diff data/clips.json | grep -c "canonical.*true"  # Should show balanced +/- if any changes
+
+# If canonical count dropped, DO NOT COMMIT - investigate and recover first
+```
+
 ## Architecture
 
 ### Directory Structure
