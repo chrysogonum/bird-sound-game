@@ -64,6 +64,8 @@ Size: 128x128 or 256x256 pixels
 | SASP | Savannah Sparrow | Stylized icon of a Savannah Sparrow, simple flat design, circular frame, streaky sparrow with yellow eyebrow, white background, game asset style, clean vector look, centered composition, no text |
 | FISP | Field Sparrow | Stylized icon of a Field Sparrow, simple flat design, circular frame, pink bill plain face rusty cap sparrow, white background, game asset style, clean vector look, centered composition, no text |
 | LISP | Lincoln's Sparrow | Stylized icon of a Lincoln's Sparrow, simple flat design, circular frame, buffy streaked sparrow with gray face, white background, game asset style, clean vector look, centered composition, no text |
+| WCSP | White-crowned Sparrow | Stylized icon of a White-crowned Sparrow, simple flat design, circular frame, brown and gray sparrow with bold black and white head stripes, white background, game asset style, clean vector look, centered composition, no text |
+| HOSP | House Sparrow | Stylized icon of a House Sparrow, simple flat design, circular frame, brown streaked sparrow with gray crown and black bib on male, white background, game asset style, clean vector look, centered composition, no text |
 
 ### Other Species
 | Code | Name | Prompt |

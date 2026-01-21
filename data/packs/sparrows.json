@@ -10,7 +10,8 @@
     "SAVS",
     "SWSP",
     "LISP",
-    "WCSP"
+    "WCSP",
+    "HOSP"
   ],
   "vocalization_weights": {
     "song": 0.2,

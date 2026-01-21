@@ -518,7 +518,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": "canonical",
     "channel_mode": "single",
@@ -542,7 +543,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": 3,
     "channel_mode": "single",
@@ -566,7 +568,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": "all",
     "channel_mode": "single",
@@ -590,7 +593,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": "canonical",
     "channel_mode": "offset",
@@ -614,7 +618,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": 3,
     "channel_mode": "offset",
@@ -638,7 +643,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": "all",
     "channel_mode": "offset",
