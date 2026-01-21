@@ -544,6 +544,12 @@ function Help() {
             </div>
           </div>
 
+          <VersionEntry version="3.44" date="January 21, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Documentation Updates:</strong> Updated Expanded Eastern Birds pack count from 40 to 45 in Help page, and clarified Training Mode can be enabled before or during gameplay.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.43" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Bird Reference Attribution Overhaul:</strong> Improved clip source attribution system with clear categorization (Xeno-canto, Cornell Macaulay, User-contributed). Compact display format shows "XC667361 • Nick Komar" with clickable links to original Xeno-canto recordings. Recovered 363 lost recordist attributions and corrected 78 vocalization type errors from earlier data migration.</li>
