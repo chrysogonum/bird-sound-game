@@ -7747,23 +7747,6 @@
     "spectrogram_path": "data/spectrograms/SPTO_996432.png"
   },
   {
-    "clip_id": "WEBL_2d30048c",
-    "species_code": "WEBL",
-    "common_name": "Western Bluebird",
-    "file_path": "data/clips/WEBL_961965.wav",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC961965",
-    "source_url": "https://xeno-canto.org/961965",
-    "recordist": "A Richardson",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_961965.png"
-  },
-  {
     "clip_id": "WEBL_f92f7b01",
     "species_code": "WEBL",
     "common_name": "Western Bluebird",
@@ -7779,23 +7762,6 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WEBL_703748.png"
-  },
-  {
-    "clip_id": "WEBL_a8786c51",
-    "species_code": "WEBL",
-    "common_name": "Western Bluebird",
-    "file_path": "data/clips/WEBL_685078.wav",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.1,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC685078",
-    "source_url": "https://xeno-canto.org/685078",
-    "recordist": "Brad Banner",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_685078.png"
   },
   {
     "clip_id": "WEBL_1286b314",
