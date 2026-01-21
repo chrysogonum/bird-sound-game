@@ -7793,7 +7793,7 @@
     "source_id": "XC571075",
     "source_url": "https://xeno-canto.org/571075",
     "recordist": "Paul Marvin",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WEBL_571075.png"
   },
