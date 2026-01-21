@@ -2790,21 +2790,6 @@
     "rejected": false
   },
   {
-    "clip_id": "GCFL_4997f1e3",
-    "species_code": "GCFL",
-    "common_name": "Great Crested Flycatcher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1012533",
-    "file_path": "data/clips/GCFL_1012533.wav",
-    "spectrogram_path": "data/spectrograms/GCFL_1012533.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "GCFL_3a292a4c",
     "species_code": "GCFL",
     "common_name": "Great Crested Flycatcher",
@@ -2816,7 +2801,7 @@
     "file_path": "data/clips/GCFL_1012534.wav",
     "spectrogram_path": "data/spectrograms/GCFL_1012534.png",
     "recordist": "Stanislas Wroza",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
@@ -2865,21 +2850,6 @@
     "rejected": false
   },
   {
-    "clip_id": "GCFL_7f263bd0",
-    "species_code": "GCFL",
-    "common_name": "Great Crested Flycatcher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC840738",
-    "file_path": "data/clips/GCFL_840738.wav",
-    "spectrogram_path": "data/spectrograms/GCFL_840738.png",
-    "recordist": "Manuel Oudard",
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "GCFL_5bc8f1a0",
     "species_code": "GCFL",
     "common_name": "Great Crested Flycatcher",
@@ -2895,21 +2865,6 @@
     "rejected": false
   },
   {
-    "clip_id": "GCFL_2252034e",
-    "species_code": "GCFL",
-    "common_name": "Great Crested Flycatcher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC916955",
-    "file_path": "data/clips/GCFL_916955.wav",
-    "spectrogram_path": "data/spectrograms/GCFL_916955.png",
-    "recordist": "Denis Provencher",
-    "canonical": false,
-    "rejected": false
-  },
-  {
     "clip_id": "GCFL_762d7bf9",
     "species_code": "GCFL",
     "common_name": "Great Crested Flycatcher",
@@ -2921,21 +2876,6 @@
     "file_path": "data/clips/GCFL_916957.wav",
     "spectrogram_path": "data/spectrograms/GCFL_916957.png",
     "recordist": "Denis Provencher",
-    "canonical": false,
-    "rejected": false
-  },
-  {
-    "clip_id": "GCFL_aa8a160c",
-    "species_code": "GCFL",
-    "common_name": "Great Crested Flycatcher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC924423",
-    "file_path": "data/clips/GCFL_924423.wav",
-    "spectrogram_path": "data/spectrograms/GCFL_924423.png",
-    "recordist": "Oscar Gordo",
     "canonical": false,
     "rejected": false
   },
