@@ -525,10 +525,10 @@ function PackSelect() {
           lineHeight: 1.6,
         }}>
           <div style={{ marginBottom: '8px' }}>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> Got a nemesis bird? Queue it up and drill all its variations.
+            <span style={{ color: 'var(--color-accent)' }}>→</span> Got a nemesis bird? Add it and drill all its variations.
           </div>
           <div style={{ marginBottom: showMoreExamples ? '8px' : '12px' }}>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> A friend's eBird checklist has you jealous? Queue up their birds, and it will be like you were there.
+            <span style={{ color: 'var(--color-accent)' }}>→</span> A friend's eBird checklist has you jealous? Build their list and practice like you were there.
           </div>
 
           {showMoreExamples && (
