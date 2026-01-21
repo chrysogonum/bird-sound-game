@@ -547,6 +547,7 @@ function Help() {
           <VersionEntry version="3.46" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>House Sparrow Added:</strong> Sparrows pack now includes 9 species with House Sparrow (3 new audio clips and spectrograms). Common urban sparrow found across North America.</li>
+              <li><strong>Audio Clip Curation:</strong> Trimmed Swamp Sparrow canonical song clip to remove interfering bird at end. Updated canonical clip selection for improved audio quality.</li>
               <li><strong>Critical Safety Improvements:</strong> Deleted dangerous <code>audio_tagger.py</code> script that destroyed curated metadata. All workflows now use safe <code>merge_candidates.py</code> for adding clips. Updated <code>/add-bird</code> workflow with auto-updating species_count and stronger warnings about following documented steps.</li>
               <li><strong>Workflow Documentation:</strong> Added prominent warnings to <code>/add-bird</code> command documenting common failure modes (missing species_count updates, UI pack count mismatches, browser cache issues).</li>
             </ul>
