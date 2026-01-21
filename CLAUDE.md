@@ -201,21 +201,6 @@ useEffect(() => {
 
 ### Adding New Bird Audio Clips ⚠️ CRITICAL WORKFLOW
 
-**🛑 NEVER USE audio_tagger.py ON EXISTING PROJECTS! 🛑**
-
-The `scripts/audio_tagger.py` script **OVERWRITES clips.json COMPLETELY** and will **DESTROY ALL CURATED METADATA**:
-- ❌ All recordist attributions (389+ values)
-- ❌ All source URLs for hyperlinking
-- ❌ All canonical flags (hours of manual curation)
-- ❌ Proper source_id formatting (XC123456 format)
-- ❌ Quality ratings and vocalization type corrections
-
-**ALWAYS use `merge_candidates.py` to add clips to existing projects.**
-
-The `audio_tagger.py` script is ONLY for initializing NEW/EMPTY projects and will refuse to run if clips.json contains any data (as of commit 6d43a39).
-
----
-
 **Complete workflow to add new clips to the game:**
 
 1. **Download clips from Xeno-Canto** (downloads to temporary candidates folder):
