@@ -6075,7 +6075,7 @@
     "file_path": "data/clips/SWSP_1012741.wav",
     "spectrogram_path": "data/spectrograms/SWSP_1012741.png",
     "recordist": "Stanislas Wroza",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1012741"
   },
@@ -6091,7 +6091,7 @@
     "file_path": "data/clips/SWSP_1012743.wav",
     "spectrogram_path": "data/spectrograms/SWSP_1012743.png",
     "recordist": "Stanislas Wroza",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1012743"
   },
