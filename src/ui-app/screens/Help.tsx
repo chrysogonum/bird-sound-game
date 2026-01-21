@@ -544,6 +544,15 @@ function Help() {
             </div>
           </div>
 
+          <VersionEntry version="3.45" date="January 21, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Red-eyed Vireo Added:</strong> Expanded Eastern Birds pack now includes 46 species with Red-eyed Vireo (5 new audio clips and spectrograms). One of the most common forest songbirds in eastern North America.</li>
+              <li><strong>Add-Bird Workflow Improvements:</strong> New automated pack count validation tool prevents UI species count mismatches. Script detects and auto-fixes hardcoded counts in PackSelect and Help screens with <code>--fix</code> flag, integrated into add-bird workflow as Step 6c.</li>
+              <li><strong>Attribution Bug Fix:</strong> Fixed merge_candidates.py to generate clickable Xeno-canto source URLs for all new bird additions. Recordist names now appear as proper links in Bird Reference.</li>
+              <li><strong>Pack Data Consistency:</strong> Synced species arrays in expanded_backyard pack definition for clearer data structure (species and display_species now both contain all 46 birds).</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.44" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Documentation Updates:</strong> Updated Expanded Eastern Birds pack count from 40 to 45 in Help page, and clarified Training Mode can be enabled before or during gameplay.</li>
