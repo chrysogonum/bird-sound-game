@@ -136,7 +136,7 @@ git diff data/clips.json | grep -c "canonical.*true"  # Should show balanced +/-
 
 ### Directory Structure
 - `src/` - TypeScript source (organized by domain: audio/, input/, scoring/, game/, modes/, ui/, visual/, packs/, storage/, stats/)
-- `scripts/` - Python preprocessing scripts (audio_ingest.py, audio_tagger.py, spectrogram_gen.py, validate_schema.py)
+- `scripts/` - Python preprocessing scripts (audio_ingest.py, merge_candidates.py, spectrogram_gen.py, validate_schema.py, review_clips.py)
 - `data/` - Runtime data (clips/, packs/, spectrograms/, clips.json, levels.json)
 - `schemas/` - JSON schemas (clip.schema.json, level.schema.json, pack.schema.json)
 - `tests/` - Vitest test files
