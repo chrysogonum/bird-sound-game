@@ -509,7 +509,7 @@
     "mode": "campaign",
     "title": "Meet the Sparrows",
     "round_duration_sec": 30,
-    "species_count": 8,
+    "species_count": 9,
     "species_pool": [
       "WTSP",
       "SOSP",
@@ -518,7 +518,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": "canonical",
     "channel_mode": "single",
@@ -533,7 +534,7 @@
     "mode": "campaign",
     "title": "Sparrow Variations",
     "round_duration_sec": 30,
-    "species_count": 8,
+    "species_count": 9,
     "species_pool": [
       "WTSP",
       "SOSP",
@@ -542,7 +543,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": 3,
     "channel_mode": "single",
@@ -557,7 +559,7 @@
     "mode": "campaign",
     "title": "Full Repertoire",
     "round_duration_sec": 30,
-    "species_count": 8,
+    "species_count": 9,
     "species_pool": [
       "WTSP",
       "SOSP",
@@ -566,7 +568,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": "all",
     "channel_mode": "single",
@@ -581,7 +584,7 @@
     "mode": "campaign",
     "title": "Both Ears",
     "round_duration_sec": 30,
-    "species_count": 8,
+    "species_count": 9,
     "species_pool": [
       "WTSP",
       "SOSP",
@@ -590,7 +593,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": "canonical",
     "channel_mode": "offset",
@@ -605,7 +609,7 @@
     "mode": "campaign",
     "title": "Variations + Both Ears",
     "round_duration_sec": 30,
-    "species_count": 8,
+    "species_count": 9,
     "species_pool": [
       "WTSP",
       "SOSP",
@@ -614,7 +618,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": 3,
     "channel_mode": "offset",
@@ -629,7 +634,7 @@
     "mode": "campaign",
     "title": "Sparrow Master",
     "round_duration_sec": 30,
-    "species_count": 8,
+    "species_count": 9,
     "species_pool": [
       "WTSP",
       "SOSP",
@@ -638,7 +643,8 @@
       "SAVS",
       "FISP",
       "LISP",
-      "WCSP"
+      "WCSP",
+      "HOSP"
     ],
     "clip_selection": "all",
     "channel_mode": "offset",
