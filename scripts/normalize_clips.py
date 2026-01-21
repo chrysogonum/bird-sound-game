@@ -78,19 +78,40 @@ def normalize_clip(clip: Dict[str, Any], index: int) -> tuple[Dict[str, Any], Li
         clip['source_id'] = clip.get('clip_id', f"{clip.get('source', 'unknown')}_{index}")
         changes.append(f"Generated source_id: '{clip['source_id']}'")
 
-    # Normalize vocalization_type
+    # Normalize vocalization_type to valid schema values
     if 'vocalization_type' in clip:
-        voc_type = clip['vocalization_type'].lower()
-        # Normalize various formats to 'song' or 'call'
-        if 'song' in voc_type:
-            normalized_type = 'song'
-        elif any(word in voc_type for word in ['call', 'alarm', 'drum', 'rattle']):
-            normalized_type = 'call'
-        else:
-            normalized_type = 'call'  # Default to call if unclear
+        voc_type = clip['vocalization_type']
+        # Valid types from schema
+        valid_types = ["song", "call", "flight call", "alarm call", "chip", "drum", "wing sound", "rattle", "trill", "other"]
 
-        if clip['vocalization_type'] != normalized_type:
-            changes.append(f"Normalized vocalization_type '{clip['vocalization_type']}'  → '{normalized_type}'")
+        # If already valid, keep it
+        if voc_type in valid_types:
+            pass  # No change needed
+        else:
+            # Try to map common variations
+            voc_lower = voc_type.lower()
+            if 'song' in voc_lower:
+                normalized_type = 'song'
+            elif 'flight' in voc_lower or 'flight-call' in voc_lower:
+                normalized_type = 'flight call'
+            elif 'alarm' in voc_lower:
+                normalized_type = 'alarm call'
+            elif 'chip' in voc_lower or 'chipping' in voc_lower:
+                normalized_type = 'chip'
+            elif 'drum' in voc_lower or 'drumming' in voc_lower:
+                normalized_type = 'drum'
+            elif 'wing' in voc_lower:
+                normalized_type = 'wing sound'
+            elif 'rattle' in voc_lower or 'rattling' in voc_lower:
+                normalized_type = 'rattle'
+            elif 'trill' in voc_lower:
+                normalized_type = 'trill'
+            elif 'call' in voc_lower:
+                normalized_type = 'call'
+            else:
+                normalized_type = 'other'
+
+            changes.append(f"Normalized vocalization_type '{voc_type}' → '{normalized_type}'")
             clip['vocalization_type'] = normalized_type
 
     # Set defaults for boolean fields
