@@ -630,19 +630,24 @@ def generate_html() -> str:
         let modifications = {};
         let currentAudio = null;
         let currentPlayButton = null;
+        let speciesNames = {};  // Map of species_code -> common_name from species.json
 
         const vocalizationTypes = ''' + json.dumps(VOCALIZATION_TYPES) + ''';
 
-        // Load clips on startup
-        fetch('/api/clips')
-            .then(r => r.json())
-            .then(clips => {
-                allClips = clips;
-                renderClips();
-            })
-            .catch(err => {
-                alert('Failed to load clips: ' + err.message);
+        // Load species names and clips on startup
+        Promise.all([
+            fetch('/data/species.json').then(r => r.json()),
+            fetch('/api/clips').then(r => r.json())
+        ]).then(([speciesData, clips]) => {
+            // Build species names lookup from species.json (single source of truth)
+            speciesData.forEach(sp => {
+                speciesNames[sp.species_code] = sp.common_name;
             });
+            allClips = clips;
+            renderClips();
+        }).catch(err => {
+            alert('Failed to load data: ' + err.message);
+        });
 
         function applyFilters() {
             renderClips();
@@ -704,7 +709,8 @@ def generate_html() -> str:
             const section = document.createElement('div');
             section.className = 'species-section';
 
-            const commonName = clips[0].common_name || speciesCode;
+            // Load common name from species.json (single source of truth)
+            const commonName = speciesNames[speciesCode] || speciesCode;
             const songCount = clips.filter(c => c.vocalization_type === 'song').length;
             const callCount = clips.filter(c => c.vocalization_type?.includes('call')).length;
             const cornellCount = clips.filter(c => c.source === 'cornell').length;
