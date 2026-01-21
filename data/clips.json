@@ -6084,7 +6084,7 @@
     "species_code": "SWSP",
     "common_name": "Swamp Sparrow",
     "vocalization_type": "song",
-    "duration_ms": 3000,
+    "duration_ms": 2500,
     "quality_score": 4,
     "source": "xenocanto",
     "source_id": "XC1012743",
