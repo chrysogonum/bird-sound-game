@@ -7628,40 +7628,6 @@
     "spectrogram_path": "data/spectrograms/WREN_820990.png"
   },
   {
-    "clip_id": "WREN_8c88612e",
-    "species_code": "WREN",
-    "common_name": "Wrentit",
-    "file_path": "data/clips/WREN_817097.wav",
-    "vocalization_type": "alarm call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.2,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC817097",
-    "source_url": "https://xeno-canto.org/817097",
-    "recordist": "Thomas G. Graves",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_817097.png"
-  },
-  {
-    "clip_id": "WREN_a018f4ce",
-    "species_code": "WREN",
-    "common_name": "Wrentit",
-    "file_path": "data/clips/WREN_814569.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC814569",
-    "source_url": "https://xeno-canto.org/814569",
-    "recordist": "Paul Marvin",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_814569.png"
-  },
-  {
     "clip_id": "WREN_29567aa9",
     "species_code": "WREN",
     "common_name": "Wrentit",
@@ -7708,7 +7674,7 @@
     "source_id": "XC629171",
     "source_url": "https://xeno-canto.org/629171",
     "recordist": "Thomas G. Graves",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WREN_629171.png"
   },
@@ -7745,23 +7711,6 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/WREN_576849.png"
-  },
-  {
-    "clip_id": "WREN_e07003c8",
-    "species_code": "WREN",
-    "common_name": "Wrentit",
-    "file_path": "data/clips/WREN_544579.wav",
-    "vocalization_type": "alarm call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC544579",
-    "source_url": "https://xeno-canto.org/544579",
-    "recordist": "Steve Hampton",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_544579.png"
   },
   {
     "clip_id": "SPTO_413caab4",
