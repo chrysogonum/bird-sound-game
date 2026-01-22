@@ -614,6 +614,7 @@ function Help() {
                 textDecoration: 'none',
                 fontSize: '14px',
               }}
+              onClick={() => trackExternalLinkClick('https://github.com/chrysogonum/bird-sound-game/issues', 'github_issues', 'help_page')}
             >
               github.com/chrysogonum/bird-sound-game/issues
             </a>
