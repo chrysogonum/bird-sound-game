@@ -31,7 +31,7 @@ function Help() {
     'ChipNotes Basics',
     'The Spectrograms',
     'Scoring',
-    'The Packs',
+    'The Bird Packs',
     'The Levels',
     'Tips',
     'Training Mode',
@@ -263,12 +263,28 @@ function Help() {
           <ScoreRow label="Miss" points={0} description="Wrong bird or no response" color="var(--color-error)" />
         </Section>
 
-        {/* The Packs */}
+        {/* The Bird Packs */}
         <Section
-          title="The Packs"
-          isExpanded={expandedSections.has('The Packs')}
-          onToggle={() => toggleSection('The Packs')}
+          title="The Bird Packs"
+          isExpanded={expandedSections.has('The Bird Packs')}
+          onToggle={() => toggleSection('The Bird Packs')}
         >
+          {/* Custom Pack Builder callout */}
+          <div style={{
+            marginBottom: '16px',
+            padding: '12px 16px',
+            background: 'rgba(76, 175, 80, 0.1)',
+            borderRadius: '8px',
+            borderLeft: '3px solid var(--color-primary)',
+          }}>
+            <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
+              <span style={{ color: '#F5A623', fontSize: '16px', fontWeight: 'bold', flexShrink: 0 }}>+</span>
+              <div>
+                <strong>Build Your Own Pack:</strong> You can combine any birds from the packs below into custom training sessions. Perfect for drilling problem birds, comparing confusing species, or creating regional lists!
+              </div>
+            </div>
+          </div>
+
           <PackInfo
             name="Backyard Birds"
             description="Perfect for beginners. 6 distinctive birds you'll hear in your own backyard: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
@@ -605,7 +621,7 @@ function Help() {
         <div ref={versionHistoryRef}>
           {/* Recent Updates - Always Visible */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.51)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.52)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
                 <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
@@ -624,6 +640,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.52" date="January 22, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Custom Pack Builder Promotion:</strong> Added prominent callout box in Help page "The Bird Packs" section highlighting the ability to combine birds from any pack into custom training sessions.</li>
+              <li><strong>Section Rename:</strong> Renamed "The Packs" section to "The Bird Packs" for clarity.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.51" date="January 22, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Help Page Reorganization:</strong> Moved "The Spectrograms" section to appear just before "Scoring" section for better logical flow - spectrograms are introduced early as a core learning concept.</li>
