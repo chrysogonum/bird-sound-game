@@ -324,8 +324,123 @@ function PackSelect() {
               🧘 ⚙️
             </Link>
           </li>
-          <li>👇 Build and save your own custom pack!</li>
+          <li>👇 Check out the full sound library below</li>
         </ul>
+      </div>
+
+      {/* Create Custom Pack Section - Compact, Collapsible */}
+      <div
+        style={{
+          marginBottom: '20px',
+          background: 'var(--color-surface)',
+          border: '2px solid var(--color-accent)',
+          borderRadius: '16px',
+          overflow: 'visible',
+        }}
+      >
+        <div
+          onClick={() => navigate('/custom-pack')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '12px',
+            padding: '20px',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+            minHeight: '80px',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(45, 90, 39, 0.15)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'transparent';
+          }}
+        >
+          <div style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: '10px',
+            background: 'var(--color-accent)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#000',
+            flexShrink: 0,
+          }}>
+            <PlusIcon />
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ fontSize: '16px', fontWeight: 600, color: '#f5f0e6' }}>
+              Create Custom Pack
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowMoreExamples(!showMoreExamples);
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-accent)',
+                fontSize: '12px',
+                cursor: 'pointer',
+                padding: '0',
+                textDecoration: 'underline',
+                marginTop: '4px',
+              }}
+            >
+              {showMoreExamples ? 'Hide examples' : 'See examples'}
+            </button>
+          </div>
+        </div>
+
+        {showMoreExamples && (
+          <div
+            onClick={() => navigate('/custom-pack')}
+            style={{
+              padding: '0 16px 16px 16px',
+              cursor: 'pointer',
+            }}
+          >
+            <div style={{
+              fontSize: '13px',
+              color: 'var(--color-text-muted)',
+              lineHeight: 1.6,
+              borderTop: '1px solid rgba(255,255,255,0.1)',
+              paddingTop: '12px',
+            }}>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> Got a nemesis bird? Add it and drill all its variations.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> A friend's eBird checklist has you jealous? Build their list and practice like you were there.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> Warbler Wizard Wannabe? Training starts here!
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
+              </div>
+              <div style={{ marginBottom: '12px' }}>
+                <span style={{ color: 'var(--color-accent)' }}>→</span> Mix species from any pack — your rules, your practice.
+              </div>
+              <div style={{
+                marginTop: '12px',
+                padding: '10px 16px',
+                background: 'var(--color-accent)',
+                borderRadius: '8px',
+                color: '#000',
+                fontWeight: 600,
+                textAlign: 'center',
+              }}>
+                Click to Get Started →
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <div
@@ -471,135 +586,6 @@ function PackSelect() {
 
       </div>
 
-      {/* Create Custom Pack Section */}
-      <div
-        onClick={() => navigate('/custom-pack')}
-        style={{
-          marginBottom: '32px',
-          background: 'var(--color-surface)',
-          border: '2px solid var(--color-accent)',
-          borderRadius: '16px',
-          padding: '20px',
-          cursor: 'pointer',
-          transition: 'all 0.2s',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'rgba(45, 90, 39, 0.15)';
-          e.currentTarget.style.transform = 'translateY(-2px)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'var(--color-surface)';
-          e.currentTarget.style.transform = 'translateY(0)';
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            marginBottom: '16px',
-          }}
-        >
-          <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: '10px',
-            background: 'var(--color-accent)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#000',
-          }}>
-            <PlusIcon />
-          </div>
-          <div>
-            <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text)' }}>
-              Create Custom Pack
-            </div>
-            <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
-              Build your own training session
-            </div>
-          </div>
-        </div>
-
-        <div style={{
-          fontSize: '13px',
-          color: 'var(--color-text-muted)',
-          lineHeight: 1.6,
-        }}>
-          <div style={{ marginBottom: '8px' }}>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> Got a nemesis bird? Add it and drill all its variations.
-          </div>
-          <div style={{ marginBottom: showMoreExamples ? '8px' : '12px' }}>
-            <span style={{ color: 'var(--color-accent)' }}>→</span> A friend's eBird checklist has you jealous? Build their list and practice like you were there.
-          </div>
-
-          {showMoreExamples && (
-            <>
-              <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
-              </div>
-              <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> Warbler Wizard Wannabe? Training starts here!
-              </div>
-              <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
-              </div>
-              <div style={{ marginBottom: '12px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> Mix species from any pack — your rules, your practice.
-              </div>
-            </>
-          )}
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setShowMoreExamples(!showMoreExamples);
-            }}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--color-accent)',
-              fontSize: '13px',
-              cursor: 'pointer',
-              padding: '4px 0',
-              textDecoration: 'underline',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-            }}
-          >
-            {showMoreExamples ? '← Show less' : 'More examples →'}
-          </button>
-        </div>
-      </div>
-
-      {/* Scroll hint */}
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '8px',
-        marginTop: '24px',
-        marginBottom: '16px',
-        opacity: 0.5,
-      }}>
-        <div style={{
-          fontSize: '12px',
-          color: 'var(--color-text-muted)',
-          textAlign: 'center',
-        }}>
-          Browse all birds below
-        </div>
-        <div style={{
-          animation: 'bounce 2s ease-in-out infinite',
-        }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-text-muted)" strokeWidth="2">
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-        </div>
-      </div>
-
       {/* Sound Library Section */}
       <div id="bird-reference" style={{ marginTop: '16px', scrollMarginTop: '20px' }}>
         {/* Back navigation button (PWA-friendly) */}
@@ -655,8 +641,8 @@ function PackSelect() {
         )}
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-          <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
-            Sound Library
+          <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            Sound Library <span style={{ fontSize: '14px' }}>🎧📚</span>
           </h3>
           <button
             onClick={() => {

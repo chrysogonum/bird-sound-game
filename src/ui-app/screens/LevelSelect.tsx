@@ -201,23 +201,21 @@ function LevelSelect() {
         </button>
         <div style={{ flex: 1 }}>
           <h2 style={{ margin: 0, fontSize: '20px' }}>{packName}</h2>
-          <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
             <span>Select a level</span>
-            {packId !== 'custom' && (
-              <>
-                <span style={{ color: 'var(--color-surface)' }}>•</span>
-                <Link
-                  to={`/pack-select?expand=${packId}#bird-reference`}
-                  state={{ fromLevelSelect: true, packId }}
-                  style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '4px' }}
-                >
-                  <span style={{ fontSize: '14px' }}>📚</span>
-                  Sound Library
-                </Link>
-              </>
-            )}
           </div>
         </div>
+        {packId !== 'custom' && (
+          <Link
+            to={`/pack-select?expand=${packId}#bird-reference`}
+            state={{ fromLevelSelect: true, packId }}
+            className="btn-icon"
+            style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
+            aria-label="Sound Library"
+          >
+            <span>🎧</span><span>📚</span>
+          </Link>
+        )}
         <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)' }}>
           <HomeIcon />
         </button>
