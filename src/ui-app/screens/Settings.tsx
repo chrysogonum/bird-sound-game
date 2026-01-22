@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 type SpectrogramMode = 'full' | 'fading' | 'none';
 
@@ -14,7 +14,6 @@ const STORAGE_KEYS = {
 
 function Settings() {
   const navigate = useNavigate();
-  const location = useLocation();
 
   // Load from localStorage on mount
   const [spectrogramMode, setSpectrogramMode] = useState<SpectrogramMode>(() => {
