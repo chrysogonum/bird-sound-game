@@ -621,7 +621,7 @@ function Help() {
         <div ref={versionHistoryRef}>
           {/* Recent Updates - Always Visible */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.52)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.53)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
                 <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
@@ -640,6 +640,15 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.53" date="January 22, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Pack Select Page Redesign:</strong> Moved Custom Pack Builder to top of page (above pack grid), made it collapsible with "See examples" link for cleaner layout while maintaining discoverability.</li>
+              <li><strong>Sound Library Branding:</strong> Unified Sound Library icon to 🎧📚 (headphones + books) across all screens - appears in Pack Select header, Level Select, and Ready to Play screens for consistent visual identity.</li>
+              <li><strong>Level Select Cleanup:</strong> Simplified header by moving Sound Library link to icon-only button positioned near Home icon, removed redundant text for cleaner interface.</li>
+              <li><strong>Pack Select Flow:</strong> Removed redundant scroll hint below packs (already mentioned in intro bullets), streamlined page flow from intro → Custom Pack → packs → Sound Library.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.52" date="January 22, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Custom Pack Builder Promotion:</strong> Added prominent callout box in Help page "The Bird Packs" section highlighting the ability to combine birds from any pack into custom training sessions.</li>

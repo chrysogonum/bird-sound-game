@@ -617,7 +617,7 @@ function PreRoundPreview() {
             whiteSpace: 'nowrap',
           }}
         >
-          📚
+          🎧📚
         </button>
         {/* Shuffle/Re-roll button - compact top right */}
         {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
