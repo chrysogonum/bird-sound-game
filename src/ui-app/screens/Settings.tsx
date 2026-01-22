@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { trackExternalLinkClick } from '../utils/analytics';
 
 type SpectrogramMode = 'full' | 'fading' | 'none';
 
@@ -235,7 +236,13 @@ function Settings() {
           <h3 style={{ marginBottom: '8px' }}>Support This Project</h3>
           <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '12px' }}>
             ChipNotes is free, open source, and built as a passion project. If it's helped you level-up your birding skills, consider{' '}
-            <a href="https://ko-fi.com/chipnotes" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+            <a
+              href="https://ko-fi.com/chipnotes"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}
+              onClick={() => trackExternalLinkClick('https://ko-fi.com/chipnotes', 'donation', 'settings_page')}
+            >
               supporting development
             </a>
             {' '}- your donations help me add new species, add features, and do more birding. Now, you go build something cool - it might be easier than you think! ;)
