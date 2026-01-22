@@ -545,7 +545,7 @@ function CustomPackBuilder() {
       {/* Header */}
       <div style={{ flexShrink: 0, marginBottom: '12px' }}>
         <div className="flex-row items-center gap-md">
-          <button className="btn-icon" onClick={() => navigate('/pack-select')} aria-label="Back">
+          <button className="btn-icon" onClick={() => navigate('/pack-select')} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
             <BackIcon />
           </button>
           <div>
