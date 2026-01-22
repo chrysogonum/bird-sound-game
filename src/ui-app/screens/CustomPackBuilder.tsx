@@ -364,32 +364,6 @@ function CustomPackBuilder() {
     setShowSaveDialog(true);
   };
 
-  // Update an existing pack
-  const updateExistingPack = () => {
-    if (!loadedPackId) return;
-
-    const updatedPacks = savedPacks.map(p => {
-      if (p.id === loadedPackId) {
-        return {
-          ...p,
-          species: [...selectedCodes],
-          lastModified: new Date().toISOString(),
-        };
-      }
-      return p;
-    });
-
-    setSavedPacks(updatedPacks);
-    try {
-      localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updatedPacks));
-      alert(`✅ "${loadedPackName}" updated successfully!`);
-      trackCustomPackSave(loadedPackName, selectedCodes.length);
-    } catch (e) {
-      console.error('Failed to update pack:', e);
-      alert('Failed to update pack. Storage may be full.');
-    }
-  };
-
   const confirmSavePack = (saveAsNew: boolean = false) => {
     const trimmedName = packNameInput.trim();
     if (!trimmedName) {
