@@ -196,7 +196,7 @@ function LevelSelect() {
     <div className="screen" style={{ paddingBottom: '24px' }}>
       {/* Header */}
       <div className="flex-row items-center gap-md" style={{ marginBottom: '8px' }}>
-        <button className="btn-icon" onClick={() => navigate(packId === 'custom' ? '/custom-pack' : '/pack-select')} aria-label="Back">
+        <button className="btn-icon" onClick={() => navigate(packId === 'custom' ? '/custom-pack' : '/pack-select')} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
           <BackIcon />
         </button>
         <div style={{ flex: 1 }}>
@@ -217,7 +217,7 @@ function LevelSelect() {
             )}
           </div>
         </div>
-        <button className="btn-icon" onClick={() => navigate('/pack-select')} aria-label="Pack Select" style={{ color: 'var(--color-accent)' }}>
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)' }}>
           <HomeIcon />
         </button>
       </div>

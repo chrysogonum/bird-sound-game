@@ -27,6 +27,27 @@ Downloading additional clips for species already in the game to improve quality 
 
 **This guide covers both workflows.**
 
+## BEFORE CREATING TODOS - WORKFLOW VERIFICATION CHECKLIST
+
+⚠️ **CRITICAL: Complete this checklist BEFORE creating todos or starting work.**
+
+When Claude creates a todo list for this workflow, it MUST:
+- [ ] Read the ENTIRE workflow document first (Steps 1-13)
+- [ ] Identify which use case applies (Use Case 1: New Species vs Use Case 2: Auditing)
+- [ ] Create todos that match EXACT step numbers and order from the workflow
+- [ ] Include Step 1b (Icon Prompts) immediately after Step 1 (Download Audio) for NEW species
+- [ ] Verify the todo list against the workflow steps (cross-reference each step)
+- [ ] NOT reorder steps based on assumptions or general patterns
+- [ ] NOT skip steps that seem optional but are actually required
+
+**Common mistakes to avoid:**
+- ❌ Creating todos from memory instead of reading the workflow
+- ❌ Moving "Generate icon prompts" to later in the workflow (it belongs in Step 1b!)
+- ❌ Skipping Step 1b for new species
+- ❌ Reordering steps without explicit user approval
+
+**If in doubt:** Ask the user before deviating from the documented workflow order.
+
 ## BEFORE YOU START - Gather Information
 
 Ask the user to specify:
@@ -294,6 +315,44 @@ ls data/clips/{CODE}_*.wav
 # Should show 5-10 files per species
 ```
 
+### Step 1b: Generate Icon Prompts (NEW SPECIES ONLY)
+
+**IMPORTANT:** Only do this step if adding NEW species to the game. Skip if augmenting existing species.
+
+**Check if species already exist:**
+```bash
+# Check each species code
+for code in STJA WESJ BCCH; do
+  grep -q "\"species_code\": \"$code\"" data/clips.json && \
+    echo "✓ $code: EXISTING species (skip icon prompts)" || \
+    echo "✗ $code: NEW species (create icon prompt)"
+done
+```
+
+**For each NEW species, add icon prompt to `data/icons/PROMPTS.md`:**
+
+1. Open `data/icons/PROMPTS.md` in editor
+2. Find the appropriate section (Backyard Birds, Warblers, Sparrows, etc.)
+3. Add entry using the base template:
+   ```
+   ### {COMMON NAME} ({CODE})
+   Stylized icon of a {COMMON NAME}, simple flat design, circular frame,
+   {KEY VISUAL FEATURES}, white background, game asset style,
+   clean vector look, centered composition, no text
+   ```
+4. Replace `{KEY VISUAL FEATURES}` with distinctive field marks:
+   - Example: "blue crest and black necklace marking" (Blue Jay)
+   - Example: "bright red plumage with black face mask" (Northern Cardinal)
+   - Example: "yellow breast with black V-shaped bib" (Western Meadowlark)
+
+**Commit prompt updates:**
+```bash
+git add data/icons/PROMPTS.md
+git commit -m "Add icon prompts for {N} new species: {CODE1}, {CODE2}, ..."
+```
+
+**Note:** Icon generation (using ChatGPT/DALL-E) happens later in Step 5. This step just documents the prompts.
+
 ### Step 2: Merge Candidate Clips into clips.json
 ⚠️ **CRITICAL:** Use the safe merge script to add clips without destroying existing data:
 
@@ -524,31 +583,19 @@ done
 - [ ] clips.json saved and committed via review tool
 
 ### Step 5: Generate & Verify Species Icons
-**CRITICAL CHECKPOINT** - Icon workflow integration
 
-This step connects to `data/icons/PROMPTS.md` which maintains design prompts for all species.
+**Note:** Icon prompts were already added to `data/icons/PROMPTS.md` in Step 1b. This step is about actually generating the icon images.
 
-**4a. Generate Design Prompts**
+**5a. Create Icons (Manual)**
 
-For EACH new species, add to `data/icons/PROMPTS.md`:
-- Use base template:
-  ```
-  Stylized icon of a {COMMON NAME}, simple flat design, circular frame,
-  {KEY VISUAL FEATURES}, white background, game asset style,
-  clean vector look, centered composition, no text
-  ```
-- Add to appropriate section (Backyard Birds, Warblers, etc.)
-- Commit prompt updates to PROMPTS.md
-
-**4b. Create Icons (Manual)**
-
-User generates icons using prompts:
+User generates icons using prompts from `data/icons/PROMPTS.md`:
 - **Tool:** ChatGPT/DALL-E 3 (recommended), Midjourney, or Leonardo.ai
 - **Size:** 512x512px minimum
 - **Format:** PNG with transparent or white background
 - **Naming:** `data/icons/{CODE}.png`
+- **Source prompts:** Copy from PROMPTS.md (already created in Step 1b)
 
-**4c. Placeholder Icons (Optional)**
+**5b. Placeholder Icons (Optional)**
 
 If icons aren't ready yet, create simple placeholder:
 ```bash
@@ -562,7 +609,7 @@ done
 
 Or proceed with missing icons - the game will show species code as fallback.
 
-**4d. Verify Icons**
+**5c. Verify Icons**
 ```bash
 # List all icons for new species
 for code in {CODE1} {CODE2} {CODE3}; do
@@ -571,7 +618,7 @@ done
 ```
 
 **Decision Point:**
-- **Icons ready?** → Proceed to Step 5
+- **Icons ready?** → Proceed to Step 6
 - **Using placeholders?** → Document which icons need replacement
 - **Skipping icons?** → Game will work but show code instead of illustration
 
@@ -851,8 +898,9 @@ npm run deploy  # Retry
 - [ ] All audio files in data/clips/
 - [ ] All spectrograms generated in data/spectrograms/
 - [ ] All icons exist in data/icons/
+- [ ] **Icon prompts added to PROMPTS.md** (Step 1b - new species only)
 - [ ] clips.json updated with metadata
-- [ ] **CRITICAL: All new species have canonical clips marked** (Step 2.5)
+- [ ] **CRITICAL: All new species have canonical clips marked** (Step 4)
 - [ ] No missing file references in clips.json (all file_path entries exist on disk)
 - [ ] **CRITICAL: Pack JSON updated with new species in BOTH species and display_species arrays** (Step 6a)
 - [ ] **CRITICAL: levels.json updated - new species added to species_pool for ALL levels in the pack** (Step 6b)

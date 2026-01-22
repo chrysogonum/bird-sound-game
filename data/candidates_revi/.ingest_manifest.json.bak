@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_revi/RED-_1014455.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014455",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014454.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014454",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014453.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014453",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014452.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014452",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014451.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014451",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014450.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014450",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014448.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014448",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014447.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014447",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014388.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014388",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_revi/RED-_1014387.wav",
+    "species_name": "Red-eyed Vireo",
+    "species_code": "RED-",
+    "source": "xenocanto",
+    "source_id": "XC1014387",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

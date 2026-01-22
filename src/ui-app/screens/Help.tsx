@@ -459,6 +459,10 @@ function Help() {
             </p>
 
             <p style={{ marginBottom: '12px' }}>
+              <strong style={{ color: 'var(--color-accent)' }}>Bird icons:</strong> Designed by Peter Repetti with assistance from Claude and ChatGPT (DALL-E 3).
+            </p>
+
+            <p style={{ marginBottom: '12px' }}>
               <strong style={{ color: 'var(--color-accent)' }}>The Tech:</strong> Built by Claude Code with TypeScript, React, and PixiJS for buttery-smooth scrolling spectrograms. The Web Audio API handles sample-accurate playback with real-time stereo panning - your browser decodes and buffers audio into memory for zero-latency triggering. Vite bundles it all into a PWA (Progressive Web App) that caches sounds as you play them - so load up those birds before your flight to New Zealand takes off ✈️.
             </p>
 
@@ -588,6 +592,8 @@ function Help() {
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Custom Pack: "Save Before Play" Prompt:</strong> When clicking "Start" with an unsaved custom pack, users are now prompted to save before playing. Options include "Save & Play" (opens save dialog then plays), "Just Play" (plays immediately without saving), or "Cancel". Temporary packs are automatically cleared when returning to the builder, providing a clean slate.</li>
               <li><strong>Custom Pack: Rename & Update Improvements:</strong> Redesigned save dialog for editing existing packs. Users can now rename packs by updating the name in the save dialog - the "Update [Pack Name]" button updates the existing pack with the new name and species. Added "Save As New Pack" option to create variants while preserving the original pack.</li>
+              <li><strong>Navigation Icon Improvements:</strong> Level Select screen navigation icons now have consistent behavior and styling - home icon (top right) always returns to main menu, back arrow (top left) is now orange and returns to pack selection or custom pack builder.</li>
+              <li><strong>Icon Credits Added:</strong> Added attribution for bird icon design in About & Credits section - icons designed by Peter Repetti with assistance from Claude and ChatGPT (DALL-E 3).</li>
               <li><strong>Pack Select Text Polish:</strong> Changed "6 levels/pack" to "6 levels per pack" for improved readability in Quick Tips section.</li>
             </ul>
           </VersionEntry>
