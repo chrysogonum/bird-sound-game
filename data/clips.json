@@ -6763,7 +6763,7 @@
     "file_path": "data/clips/YBSA_1011116.wav",
     "spectrogram_path": "data/spectrograms/YBSA_1011116.png",
     "recordist": "David A. Brinkman",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1011116"
   },
@@ -6811,7 +6811,7 @@
     "file_path": "data/clips/YBSA_663258.wav",
     "spectrogram_path": "data/spectrograms/YBSA_663258.png",
     "recordist": "Richard E. Webster",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/663258"
   },
