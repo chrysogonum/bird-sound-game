@@ -331,7 +331,7 @@ function MainMenu() {
           right: 0,
           textAlign: 'center',
           fontSize: '11px',
-          color: 'var(--color-text-muted)',
+          color: 'var(--color-accent)',
           opacity: 0.6,
           background: 'none',
           border: 'none',
