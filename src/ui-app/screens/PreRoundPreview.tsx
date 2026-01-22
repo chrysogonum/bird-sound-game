@@ -585,7 +585,7 @@ function PreRoundPreview() {
           className="btn-icon"
           onClick={() => navigate(`/level-select?pack=${packId}`)}
           aria-label="Back"
-          style={{ flexShrink: 0 }}
+          style={{ flexShrink: 0, color: 'var(--color-accent)' }}
         >
           <BackIcon />
         </button>

@@ -24,9 +24,6 @@ function Settings() {
     const saved = localStorage.getItem(STORAGE_KEYS.SCROLL_SPEED);
     return saved ? parseFloat(saved) : 0.5;
   });
-  const [highContrast, setHighContrast] = useState(() => {
-    return localStorage.getItem(STORAGE_KEYS.HIGH_CONTRAST) === 'true';
-  });
   const [continuousPlay, setContinuousPlay] = useState(() => {
     return localStorage.getItem(STORAGE_KEYS.CONTINUOUS_PLAY) === 'true';
   });
@@ -44,9 +41,6 @@ function Settings() {
     localStorage.setItem(STORAGE_KEYS.SCROLL_SPEED, scrollSpeed.toString());
   }, [scrollSpeed]);
 
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEYS.HIGH_CONTRAST, highContrast.toString());
-  }, [highContrast]);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEYS.CONTINUOUS_PLAY, continuousPlay.toString());
@@ -138,25 +132,6 @@ function Settings() {
             onChange={(e) => setScrollSpeed(parseFloat(e.target.value))}
             style={{ width: '100%' }}
           />
-        </div>
-
-        {/* High Contrast */}
-        <div className="card">
-          <div className="flex-row justify-between items-center">
-            <div>
-              <h3 style={{ marginBottom: '4px' }}>High Contrast</h3>
-              <div className="text-muted" style={{ fontSize: '14px' }}>
-                Enhanced visibility
-              </div>
-            </div>
-            <button
-              className={highContrast ? 'btn-primary' : 'btn-secondary'}
-              onClick={() => setHighContrast(!highContrast)}
-              style={{ width: '60px' }}
-            >
-              {highContrast ? 'ON' : 'OFF'}
-            </button>
-          </div>
         </div>
 
         {/* Continuous Play */}

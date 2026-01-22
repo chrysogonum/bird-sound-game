@@ -173,10 +173,6 @@ function GameplayScreen() {
     return (saved as 'full' | 'fading' | 'none') || 'full';
   }, []);
 
-  // High contrast mode from settings
-  const highContrastSetting = useMemo(() => {
-    return localStorage.getItem('soundfield_high_contrast') === 'true';
-  }, []);
 
   // Persist training mode to localStorage and track usage
   useEffect(() => {
@@ -412,10 +408,10 @@ function GameplayScreen() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [gameState.roundState, handleChannelTap, handleSpeciesSelect, speciesForWheel]);
 
-  // Handle back button
+  // Handle back button - return to level select
   const handleBack = useCallback(() => {
     gameActions.reset();
-    navigate('/');
+    navigate(-1); // Go back to level select
   }, [navigate, gameActions]);
 
   // Handle quit confirmation
@@ -578,7 +574,6 @@ function GameplayScreen() {
           onChannelTap={handleChannelTap}
           trainingMode={trainingMode}
           spectrogramMode={levelConfig.spectrogram_mode}
-          highContrast={highContrastSetting}
         />
 
         {/* Channel flash overlays */}
@@ -715,7 +710,7 @@ function GameplayScreen() {
           background: rgba(0, 0, 0, 0.3);
           border: none;
           border-radius: 50%;
-          color: var(--color-text);
+          color: var(--color-accent);
           cursor: pointer;
           display: flex;
           align-items: center;
