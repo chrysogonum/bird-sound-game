@@ -499,6 +499,132 @@ function CustomPackBuilder() {
     setPackToDelete(null);
   };
 
+  // Export pack as JSON file using Web Share API (mobile-friendly)
+  const handleExportPack = async (pack: SavedPack) => {
+    const exportData = {
+      name: pack.name,
+      species: pack.species,
+      created: pack.created,
+      version: pack.version,
+      exportedFrom: 'ChipNotes!',
+      exportDate: new Date().toISOString(),
+    };
+
+    const filename = `${pack.name.replace(/[^a-zA-Z0-9_-]/g, '_')}.chipnotes.json`;
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+
+    // Try Web Share API first (better for mobile with HTTPS)
+    if (navigator.share) {
+      try {
+        const file = new File([blob], filename, { type: 'application/json' });
+        // Check if we can share files
+        const canShareFiles = navigator.canShare && navigator.canShare({ files: [file] });
+
+        if (canShareFiles) {
+          await navigator.share({
+            files: [file],
+            title: `${pack.name} - ChipNotes Pack`,
+            text: `Custom bird pack: ${pack.name} (${pack.species.length} birds)`,
+          });
+          return;
+        }
+      } catch (err) {
+        // User cancelled or share failed, fall through to download
+        if ((err as Error).name !== 'AbortError') {
+          console.error('Share failed:', err);
+        }
+      }
+    }
+
+    // Fallback to traditional download for desktop or if share fails
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+
+    // Show iOS-specific instructions if on mobile
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    if (isIOS) {
+      setTimeout(() => {
+        alert('💾 To save this file:\n\n1. Tap "More..." in the preview\n2. Select "Save to Files"\n3. Choose a location and tap "Save"');
+      }, 500);
+    }
+  };
+
+  // Import pack from JSON file
+  const handleImportPack = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    // Check file extension
+    if (!file.name.endsWith('.chipnotes.json') && !file.name.endsWith('.json')) {
+      alert('Please select a .chipnotes.json file');
+      event.target.value = ''; // Reset file input
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target?.result as string);
+
+        // Validate required fields
+        if (!data.name || !Array.isArray(data.species)) {
+          alert('Invalid pack file: missing name or species list');
+          return;
+        }
+
+        // Validate species codes
+        const validCodes = new Set(allSpecies.map(s => s.code));
+        const validSpecies = data.species.filter((code: string) => validCodes.has(code));
+        const invalidCount = data.species.length - validSpecies.length;
+
+        if (validSpecies.length === 0) {
+          alert('No valid species found in this pack file');
+          return;
+        }
+
+        // Check if we've hit the limit
+        if (savedPacks.length >= MAX_SAVED_PACKS) {
+          alert(`You've reached the maximum of ${MAX_SAVED_PACKS} saved packs. Please delete a pack first.`);
+          return;
+        }
+
+        // Create new pack with unique ID
+        const newPack: SavedPack = {
+          id: Date.now().toString(),
+          name: data.name,
+          species: validSpecies,
+          created: new Date().toISOString(),
+          version: data.version || 1,
+        };
+
+        // Add to saved packs
+        const updated = [...savedPacks, newPack];
+        setSavedPacks(updated);
+        try {
+          localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updated));
+          let message = `✅ "${newPack.name}" imported successfully with ${validSpecies.length} bird${validSpecies.length > 1 ? 's' : ''}!`;
+          if (invalidCount > 0) {
+            message += `\n\n⚠️ ${invalidCount} bird${invalidCount > 1 ? 's were' : ' was'} not recognized and removed.`;
+          }
+          alert(message);
+          trackCustomPackSave(newPack.name, validSpecies.length);
+        } catch (e) {
+          console.error('Failed to save imported pack:', e);
+          alert('Failed to import pack. Storage may be full.');
+        }
+      } catch (e) {
+        console.error('Failed to parse pack file:', e);
+        alert('Invalid pack file format');
+      }
+    };
+    reader.readAsText(file);
+    event.target.value = ''; // Reset file input for next import
+  };
+
   // Filter and sort species
   const filteredSpecies = (() => {
     // First filter by search
@@ -594,8 +720,36 @@ function CustomPackBuilder() {
             </span>
           </button>
           {savedPacksExpanded && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '8px' }}>
-              {savedPacks.map((pack) => (
+            <>
+              {/* Import Pack button */}
+              <div style={{ marginTop: '8px', marginBottom: '8px' }}>
+                <label
+                  htmlFor="import-pack-file"
+                  style={{
+                    display: 'inline-block',
+                    padding: '8px 12px',
+                    background: 'rgba(76, 175, 80, 0.15)',
+                    border: '1px solid rgba(76, 175, 80, 0.3)',
+                    borderRadius: '6px',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    color: 'var(--color-success)',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                  }}
+                >
+                  📥 Import Pack
+                </label>
+                <input
+                  id="import-pack-file"
+                  type="file"
+                  accept=".json,.chipnotes.json"
+                  onChange={handleImportPack}
+                  style={{ display: 'none' }}
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                {savedPacks.map((pack) => (
                 <div
                   key={pack.id}
                   style={{
@@ -631,6 +785,34 @@ function CustomPackBuilder() {
                     </div>
                   </button>
                   <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleExportPack(pack);
+                    }}
+                    type="button"
+                    style={{
+                      background: 'rgba(100, 181, 246, 0.1)',
+                      border: '1px solid rgba(100, 181, 246, 0.3)',
+                      borderRadius: '4px',
+                      padding: '8px 12px',
+                      fontSize: '11px',
+                      color: '#64B5F6',
+                      cursor: 'pointer',
+                      pointerEvents: 'auto',
+                      position: 'relative',
+                      zIndex: 100,
+                      touchAction: 'manipulation',
+                      WebkitUserSelect: 'none',
+                      userSelect: 'none',
+                      minWidth: '60px',
+                      minHeight: '32px',
+                    }}
+                    aria-label={`Export ${pack.name}`}
+                  >
+                    Export
+                  </button>
+                  <button
                     onPointerDown={(e) => {
                       e.stopPropagation();
                       console.log('Delete button pressed!', pack.id);
@@ -663,7 +845,8 @@ function CustomPackBuilder() {
                   </button>
                 </div>
               ))}
-            </div>
+              </div>
+            </>
           )}
         </div>
       )}
