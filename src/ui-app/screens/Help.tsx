@@ -1,17 +1,14 @@
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import { trackExternalLinkClick } from '../utils/analytics';
 
 function Help() {
   const navigate = useNavigate();
   const location = useLocation();
 
   // Track which sections are expanded (some start open by default)
-  // If navigated from version number, auto-open Full Version History
   // If navigated with #training-mode hash, auto-open Training Mode
   const initialSections = ['Why Learn Bird Song?', 'ChipNotes Basics'];
-  if (location.state?.openVersionHistory) {
-    initialSections.push('Full Version History');
-  }
   if (location.hash === '#training-mode') {
     initialSections.push('Training Mode');
   }
@@ -536,7 +533,13 @@ function Help() {
         >
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
             ChipNotes is free, open source, and built as a passion project. If it's helped you level-up your birding skills, consider{' '}
-            <a href="https://ko-fi.com/chipnotes" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+            <a
+              href="https://ko-fi.com/chipnotes"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}
+              onClick={() => trackExternalLinkClick('https://ko-fi.com/chipnotes', 'donation', 'help_page')}
+            >
               supporting development
             </a>
             {' '}- your donations help me add new species, add features, and do more birding. Now, you go build something cool - it might be easier than you think! ;)
@@ -621,7 +624,7 @@ function Help() {
         <div ref={versionHistoryRef}>
           {/* Recent Updates - Always Visible */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.53)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
                 <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>

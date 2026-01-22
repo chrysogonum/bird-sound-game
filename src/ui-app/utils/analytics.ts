@@ -135,3 +135,14 @@ export function trackCustomPackDelete(packName: string) {
     pack_name: packName,
   });
 }
+
+/**
+ * Track when an external link is clicked
+ */
+export function trackExternalLinkClick(url: string, linkType: string, location: string) {
+  trackEvent('external_link_click', {
+    url,
+    link_type: linkType,
+    location,
+  });
+}
