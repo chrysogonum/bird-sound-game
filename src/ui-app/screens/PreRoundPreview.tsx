@@ -597,7 +597,7 @@ function PreRoundPreview() {
             Level {level.level_id}: {level.title}
           </div>
         </div>
-        {/* Bird Reference link */}
+        {/* Sound Library link */}
         <button
           onClick={() => navigate(`/pack-select?scrollTo=${packId}&expandPack=${packId}#bird-reference`, {
             state: { fromPreview: true, pack: packId, level: levelId }

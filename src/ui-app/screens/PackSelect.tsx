@@ -600,7 +600,7 @@ function PackSelect() {
         </div>
       </div>
 
-      {/* Bird Reference Section */}
+      {/* Sound Library Section */}
       <div id="bird-reference" style={{ marginTop: '16px', scrollMarginTop: '20px' }}>
         {/* Back navigation button (PWA-friendly) */}
         {location.state?.fromLevelSelect && location.state?.packId && (
@@ -656,7 +656,7 @@ function PackSelect() {
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
           <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
-            Bird Reference
+            Sound Library
           </h3>
           <button
             onClick={() => {

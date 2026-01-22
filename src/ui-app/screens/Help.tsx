@@ -8,7 +8,7 @@ function Help() {
   // Track which sections are expanded (some start open by default)
   // If navigated from version number, auto-open Full Version History
   // If navigated with #training-mode hash, auto-open Training Mode
-  const initialSections = ['Why Learn Bird Song?', 'ChipNotes Basics', 'Scoring'];
+  const initialSections = ['Why Learn Bird Song?', 'ChipNotes Basics'];
   if (location.state?.openVersionHistory) {
     initialSections.push('Full Version History');
   }
@@ -29,6 +29,7 @@ function Help() {
   const allSections = [
     'Why Learn Bird Song?',
     'ChipNotes Basics',
+    'The Spectrograms',
     'Scoring',
     'The Packs',
     'The Levels',
@@ -36,7 +37,6 @@ function Help() {
     'Training Mode',
     'Taxonomic Sorting',
     'The 4-Letter Codes',
-    'The Spectrograms',
     'About & Credits',
     'Support This Project',
     'Feedback & Bug Reports',
@@ -200,6 +200,57 @@ function Help() {
           </p>
         </Section>
 
+        {/* Spectrograms */}
+        <Section
+          title="The Spectrograms"
+          isExpanded={expandedSections.has('The Spectrograms')}
+          onToggle={() => toggleSection('The Spectrograms')}
+        >
+          <p style={{ marginBottom: '12px' }}>
+            The colorful images on tiles are spectrograms - visual pictures of sound.
+            Time flows left to right, pitch goes bottom to top, and brightness shows volume.
+          </p>
+
+          {/* Example spectrogram */}
+          <div style={{
+            background: 'var(--color-surface)',
+            padding: '16px',
+            borderRadius: '12px',
+            marginBottom: '12px',
+          }}>
+            <div style={{
+              fontSize: '13px',
+              fontWeight: 600,
+              marginBottom: '8px',
+              color: 'var(--color-text-muted)'
+            }}>
+              Example: Carolina Wren song
+            </div>
+            <img
+              src={`${import.meta.env.BASE_URL}data/spectrograms/CARW_941065.png`}
+              alt="Carolina Wren spectrogram - loud, ringing 'teakettle teakettle' song"
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '8px',
+                border: '2px solid rgba(255, 152, 0, 0.3)',
+              }}
+            />
+            <div style={{
+              fontSize: '12px',
+              color: 'var(--color-text-muted)',
+              marginTop: '8px',
+              fontStyle: 'italic'
+            }}>
+              Notice the repeating pattern - this is the Carolina Wren's distinctive "teakettle teakettle" song
+            </div>
+          </div>
+
+          <p style={{ color: 'var(--color-text-muted)', fontSize: '14px' }}>
+            With practice, you'll recognize birds by their visual patterns too!
+          </p>
+        </Section>
+
         {/* Scoring */}
         <Section
           title="Scoring"
@@ -276,11 +327,11 @@ function Help() {
         >
           <Tip>Start with the 6 common birds, even if you're eager for more.</Tip>
           <Tip>
-            Use{' '}
+            Visit the{' '}
             <Link to="/pack-select#bird-reference" state={{ fromHelp: true }} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-              Bird Reference
+              Sound Library
             </Link>
-            {' '}to preview all sounds included in the game.
+            {' '}to preview all sounds.
           </Tip>
           <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
@@ -338,7 +389,7 @@ function Help() {
           onToggle={() => toggleSection('Taxonomic Sorting')}
         >
           <p>
-            Taxonomic sorting can be toggled on and off throughout the game - on the preview screen, in Bird Reference sections, in the Custom Pack Builder, and during gameplay. When enabled, birds appear in phylogenetic order with scientific names instead of alphabetically. 🐦🤓
+            Taxonomic sorting can be toggled on and off throughout the game - on the preview screen, in Sound Library sections, in the Custom Pack Builder, and during gameplay. When enabled, birds appear in phylogenetic order with scientific names instead of alphabetically. 🐦🤓
           </p>
           <p style={{ marginTop: '12px' }}>
             Birds are sorted by their position on the evolutionary tree (using the 2025 eBird/AOS taxonomy), and common names are replaced with <em>scientific names in italics</em>. Perfect for learning evolutionary relationships!
@@ -410,21 +461,6 @@ function Help() {
           </div>
         </Section>
 
-        {/* Spectrograms */}
-        <Section
-          title="The Spectrograms"
-          isExpanded={expandedSections.has('The Spectrograms')}
-          onToggle={() => toggleSection('The Spectrograms')}
-        >
-          <p>
-            The colorful images on tiles are spectrograms - visual pictures of sound.
-            Time flows left to right, pitch goes bottom to top, and brightness shows volume.
-          </p>
-          <p style={{ color: 'var(--color-text-muted)', fontSize: '14px' }}>
-            With practice, you'll recognize birds by their visual patterns too!
-          </p>
-        </Section>
-
         {/* About & Credits */}
         <Section
           title="About & Credits"
@@ -451,7 +487,7 @@ function Help() {
               <a href="https://www.macaulaylibrary.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Cornell Macaulay Library
               </a>
-              {' '}and from user contributions. All sound clips have attribution with XC catalog numbers and recordist names in the Bird Reference (expand any species on the{' '}
+              {' '}and from user contributions. All sound clips have attribution with XC catalog numbers and recordist names in the Sound Library (expand any species on the{' '}
               <Link to="/pack-select#bird-reference" state={{ fromHelp: true }} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Pack Select
               </Link>
@@ -569,7 +605,7 @@ function Help() {
         <div ref={versionHistoryRef}>
           {/* Recent Updates - Always Visible */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.49)</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.51)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
                 <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
@@ -588,6 +624,15 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.51" date="January 22, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Help Page Reorganization:</strong> Moved "The Spectrograms" section to appear just before "Scoring" section for better logical flow - spectrograms are introduced early as a core learning concept.</li>
+              <li><strong>Spectrograms Section Enhancement:</strong> Added visual example showing Carolina Wren canonical spectrogram with caption explaining the distinctive "teakettle teakettle" repeating pattern - makes the concept concrete for new users.</li>
+              <li><strong>Help Page UX:</strong> Changed default expanded sections - "Scoring" now starts collapsed to reduce initial information overload, keeping focus on "Why Learn Bird Song?" and "ChipNotes Basics".</li>
+              <li><strong>Main Menu Discoverability:</strong> Bottom navigation icons now include text labels ("How To", "Settings", "Stats") and are slightly larger for improved discoverability and clarity.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.50" date="January 22, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Custom Pack: "Save Before Play" Prompt:</strong> When clicking "Start" with an unsaved custom pack, users are now prompted to save before playing. Options include "Save & Play" (opens save dialog then plays), "Just Play" (plays immediately without saving), or "Cancel". Temporary packs are automatically cleared when returning to the builder, providing a clean slate.</li>

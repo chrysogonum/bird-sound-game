@@ -209,9 +209,10 @@ function LevelSelect() {
                 <Link
                   to={`/pack-select?expand=${packId}#bird-reference`}
                   state={{ fromLevelSelect: true, packId }}
-                  style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '12px' }}
+                  style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '12px', display: 'flex', alignItems: 'center', gap: '4px' }}
                 >
-                  Bird Reference
+                  <span style={{ fontSize: '14px' }}>📚</span>
+                  Sound Library
                 </Link>
               </>
             )}
