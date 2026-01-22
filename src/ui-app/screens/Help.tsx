@@ -592,8 +592,10 @@ function Help() {
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Custom Pack: "Save Before Play" Prompt:</strong> When clicking "Start" with an unsaved custom pack, users are now prompted to save before playing. Options include "Save & Play" (opens save dialog then plays), "Just Play" (plays immediately without saving), or "Cancel". Temporary packs are automatically cleared when returning to the builder, providing a clean slate.</li>
               <li><strong>Custom Pack: Rename & Update Improvements:</strong> Redesigned save dialog for editing existing packs. Users can now rename packs by updating the name in the save dialog - the "Update [Pack Name]" button updates the existing pack with the new name and species. Added "Save As New Pack" option to create variants while preserving the original pack.</li>
-              <li><strong>Navigation Icon Improvements:</strong> Level Select screen navigation icons now have consistent behavior and styling - home icon (top right) always returns to main menu, back arrow (top left) is now orange and returns to pack selection or custom pack builder.</li>
+              <li><strong>Navigation Consistency:</strong> All back arrows throughout the game are now orange for visual consistency. Gameplay back button now returns to level select (not home page) for better flow. Home icons always return to main menu.</li>
+              <li><strong>High Contrast Setting Removed:</strong> Removed ineffective high contrast setting from Settings page - the effect was too subtle to be useful for accessibility.</li>
               <li><strong>Icon Credits Added:</strong> Added attribution for bird icon design in About & Credits section - icons designed by Peter Repetti with assistance from Claude and ChatGPT (DALL-E 3).</li>
+              <li><strong>YBSA Canonical Update:</strong> Changed Yellow-bellied Sapsucker canonical clip from XC1011116 to XC663258 for improved audio quality.</li>
               <li><strong>Pack Select Text Polish:</strong> Changed "6 levels/pack" to "6 levels per pack" for improved readability in Quick Tips section.</li>
             </ul>
           </VersionEntry>
