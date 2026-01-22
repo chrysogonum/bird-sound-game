@@ -300,24 +300,64 @@ function MainMenu() {
           className="btn-icon"
           onClick={() => navigate('/help')}
           aria-label="How to Play"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+          }}
         >
-          <HelpIcon />
+          <div style={{ transform: 'scale(1.1)' }}>
+            <HelpIcon />
+          </div>
+          <span style={{
+            fontSize: '10px',
+            fontWeight: 500,
+            color: 'var(--color-text-muted)',
+            whiteSpace: 'nowrap',
+          }}>How To</span>
         </button>
 
         <button
           className="btn-icon"
           onClick={() => navigate('/settings')}
           aria-label="Settings"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+          }}
         >
-          <SettingsIcon />
+          <div style={{ transform: 'scale(1.1)' }}>
+            <SettingsIcon />
+          </div>
+          <span style={{
+            fontSize: '10px',
+            fontWeight: 500,
+            color: 'var(--color-text-muted)',
+          }}>Settings</span>
         </button>
 
         <button
           className="btn-icon"
           onClick={() => navigate('/progress')}
           aria-label="Progress"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+          }}
         >
-          <StatsIcon />
+          <div style={{ transform: 'scale(1.1)' }}>
+            <StatsIcon />
+          </div>
+          <span style={{
+            fontSize: '10px',
+            fontWeight: 500,
+            color: 'var(--color-text-muted)',
+          }}>Stats</span>
         </button>
       </div>
 
