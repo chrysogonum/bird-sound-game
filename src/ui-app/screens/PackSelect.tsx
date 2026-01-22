@@ -313,7 +313,7 @@ function PackSelect() {
       }}>
         <ul style={{ margin: 0, paddingLeft: '20px' }}>
           <li style={{ fontWeight: 600 }}>Use 🎧 (or not), but do UNmute 🔊📱</li>
-          <li>6 levels/pack—start @ #1, 🦗 sparrow</li>
+          <li>6 levels per pack—start @ #1, 🦗 sparrow</li>
           <li>Try training mode (👁){' '}
             <Link to="/help#training-mode" state={{ fromPackSelect: true }} style={{ color: 'var(--color-accent)' }}>
               Help →
