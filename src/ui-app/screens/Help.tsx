@@ -108,15 +108,54 @@ function Help() {
 
   return (
     <div ref={containerRef} className="screen" style={{ paddingBottom: '32px', position: 'relative' }}>
+        {/* Fixed "Top" button - always visible and pinned to viewport */}
+        <button
+          onClick={scrollToTop}
+          style={{
+            position: 'fixed',
+            top: 'calc(24px + var(--safe-area-top, 0px))',
+            right: '24px',
+            padding: '6px 10px',
+            fontSize: '11px',
+            fontWeight: 600,
+            background: 'rgba(76, 175, 80, 0.15)',
+            color: 'var(--color-success)',
+            border: '1px solid rgba(76, 175, 80, 0.3)',
+            borderRadius: '12px',
+            cursor: 'pointer',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+            transition: 'all 0.2s',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            zIndex: 1000,
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'scale(1.05)';
+            e.currentTarget.style.background = 'rgba(76, 175, 80, 0.25)';
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'scale(1)';
+            e.currentTarget.style.background = 'rgba(76, 175, 80, 0.15)';
+            e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+          }}
+          aria-label="Scroll to top"
+        >
+          <span style={{ fontSize: '12px' }}>↑</span>
+          Top
+        </button>
+
         <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
           <button
             className="btn-icon"
-            onClick={() => location.state?.fromPackSelect ? navigate('/pack-select') : navigate(-1)}
-            aria-label="Back"
+            onClick={() => navigate('/')}
+            aria-label="Home"
+            style={{ color: 'var(--color-accent)' }}
           >
-            <BackIcon />
+            <HomeIcon />
           </button>
-          <h2 style={{ margin: 0 }}>How to Play</h2>
+          <h2 style={{ margin: 0, flex: 1 }}>How to Play</h2>
         </div>
 
       <div style={{ maxWidth: '600px', margin: '0 auto' }}>
@@ -299,13 +338,13 @@ function Help() {
           onToggle={() => toggleSection('Taxonomic Sorting')}
         >
           <p>
-            Toggle taxonomic sorting on the preview screen to see birds in phylogenetic order with scientific names - perfect for learning evolutionary relationships! 🐦🤓
+            Taxonomic sorting can be toggled on and off throughout the game - on the preview screen, in Bird Reference sections, in the Custom Pack Builder, and during gameplay. When enabled, birds appear in phylogenetic order with scientific names instead of alphabetically. 🐦🤓
           </p>
           <p style={{ marginTop: '12px' }}>
-            When enabled, birds are sorted by their position on the evolutionary tree (using the 2025 eBird/AOS taxonomy) instead of alphabetically. Common names are replaced with <em>scientific names in italics</em>.
+            Birds are sorted by their position on the evolutionary tree (using the 2025 eBird/AOS taxonomy), and common names are replaced with <em>scientific names in italics</em>. Perfect for learning evolutionary relationships!
           </p>
           <p style={{ marginTop: '12px' }}>
-            This sorting also applies to the species buttons during gameplay, helping you build taxonomic muscle memory as you learn.
+            Most beginners stick with alphabetical sorting during gameplay - it's faster to find birds by their 4-letter codes. But as you advance, you might prefer taxonomic sorting everywhere, building muscle memory based on evolutionary relationships. Either way works - you're training your brain to recognize patterns!
           </p>
           <div style={{
             background: 'var(--color-surface)',
@@ -528,7 +567,6 @@ function Help() {
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
             <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates (v3.23 → v3.49)</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
-              <strong style={{ color: 'var(--color-text)' }}>Major additions:</strong>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
                 <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
                 <li><strong>New Western Birds</strong> – Western Birds pack expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
@@ -549,7 +587,9 @@ function Help() {
           <VersionEntry version="3.49" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Custom Pack "Play Again" Fix:</strong> Fixed Custom Pack behavior to match regular packs - clicking "Play Again" after completing a round now keeps the same 9 birds instead of shuffling to a new random selection. Previously, custom packs with more than 9 birds would re-shuffle on every "Play Again", breaking the practice loop.</li>
-              <li><strong>UI Polish:</strong> Pack Select home icon now displays in orange for better visibility. Help page restructured with "Recent Updates" card always visible and "Full Version History" collapsible. Pack descriptions updated for grammatical consistency and cleaner formatting.</li>
+              <li><strong>Navigation Consistency:</strong> Unified navigation across all screens with orange home icons - Pack Select, Settings, Help, Progress, and Level Select pages now all feature consistent small orange home icons in upper corners for quick navigation back to menu or pack selection.</li>
+              <li><strong>Help Page Restructure:</strong> "Recent Updates" card now always visible at top of Help page, with "Full Version History" collapsible below. Improved discoverability of latest features without requiring users to expand sections.</li>
+              <li><strong>Text Improvements:</strong> Pack descriptions updated for grammatical consistency (numeric formatting, removed redundant words). Section renamed from "The Basics" to "ChipNotes Basics" throughout Help page.</li>
             </ul>
           </VersionEntry>
 
@@ -1189,10 +1229,11 @@ function VersionEntry({ version, date, children }: { version: string; date: stri
   );
 }
 
-function BackIcon() {
+function HomeIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M15 18l-6-6 6-6" />
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
     </svg>
   );
 }
