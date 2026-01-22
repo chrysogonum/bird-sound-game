@@ -36,13 +36,14 @@ Each round is 30 seconds. Use headphones for the best experience!
 | Pack | Species | Description |
 |------|---------|-------------|
 | **Eastern Backyard Birds** | 6 | Start here — Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, Robin |
-| **Expanded Eastern Birds** | 39 | Eastern US species, 9 random per round (shuffle anytime) |
-| **Sparrows** | 8 | Eight sparrow species with distinctive patterns |
-| **Woodpeckers** | 7 | Drums, calls, and rattles from Downy to Pileated |
-| **Western Backyard Birds** | 14 | Steller's Jay, Western Scrub-Jay, and more |
-| **Warbler Academy** | 33 | High-pitched songs of migration (experts only!) |
+| **Expanded Eastern Birds** | 46 | Comprehensive eastern US species, 9 random per round |
+| **Common Southeast Birds** | 26 | Core southeastern species for focused practice |
+| **Woodpeckers** | 9 | Drums, calls, and rattles from Downy to Pileated (includes Acorn & Lewis's!) |
+| **Sparrows** | 9 | Nine sparrow species with distinctive patterns |
+| **Warbler Academy** | 33 | High-pitched songs of spring migration (experts only!) |
+| **Western Backyard Birds** | 18 | Steller's Jay, Western Scrub-Jay, and more |
 
-**Custom Packs:** Build your own training session — drill a nemesis bird, compare confusing species head-to-head, or mix from any pack.
+**Custom Packs:** Build your own training session from 100+ species — drill a nemesis bird, compare confusing species head-to-head, or create regional lists. Save up to 10 custom packs.
 
 ## Difficulty Levels
 
@@ -59,28 +60,31 @@ Each pack has 6 levels that progressively build your skills:
 
 ## Features
 
-- **86 species** with **400+ curated clips** from Xeno-canto and Cornell Macaulay Library
+- **100 species** with **486 curated clips** from Xeno-canto and Cornell Macaulay Library
 - **Left/right stereo training** — spatial audio identification like real birding
 - **Real spectrograms** generated for every clip (400x200px, 500-10000 Hz range)
+- **7 curated packs** ranging from beginner (6 birds) to expert (46 birds)
 - **Training Mode** — Toggle eye icon to show bird labels on tiles while learning
 - **Taxonomic sorting** — Toggle between alphabetical and phylogenetic order with scientific names
-- **Bird Reference** — Preview all sounds in the game, organized by pack
-- **Pre-round preview** — Hear and see birds before playing
+- **Bird Reference** — Preview all sounds in the game, organized by pack, with canonical recordings marked
+- **Pre-round preview** — Hear and see birds before playing, toggle spectrograms on/off
 - **Confusion matrix** — See which birds you're mixing up in the round summary
 - **Share score cards** — Download/share your results with bird icons and stats
 - **Continuous play mode** — Relaxed practice with no timer
-- **Custom pack builder** — Build targeted practice sessions
+- **Custom pack builder** — Create and save up to 10 custom packs from any combination of species
+- **Random mode** — Shuffle feature for large packs (randomly selects subset each round)
 - **PWA support** — Install on mobile, play offline (clips cache as you play)
 
 ## Species Coverage
 
-**86 species** across 6 packs:
+**100 species** across 7 packs:
 
-- Eastern backyard birds (cardinals, wrens, jays, chickadees, robins, bluebirds)
-- Western backyard birds (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow)
-- Woodpeckers (7 species from Downy to Pileated)
-- Sparrows (8 species including White-throated, White-crowned, Song, Field)
-- Warblers (33 spring migration species)
+- Eastern backyard birds (cardinals, wrens, jays, chickadees, robins, bluebirds, thrushes)
+- Western backyard birds (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, and more)
+- Woodpeckers (9 species from Downy to Pileated, including Acorn and Lewis's)
+- Sparrows (9 species including White-throated, White-crowned, Song, Chipping, Field, Savannah)
+- Warblers (33 spring migration species — the ultimate challenge!)
+- Southeast regional pack (26 core species for focused regional training)
 
 Audio sourced from [Xeno-canto](https://xeno-canto.org) and [Cornell Macaulay Library](https://www.macaulaylibrary.org/), with full attribution in the Bird Reference.
 
@@ -154,4 +158,4 @@ Bird recordings from [Xeno-canto](https://xeno-canto.org) and [Cornell Macaulay 
 
 ---
 
-*Built with [Claude Code](https://claude.ai/code) · v3.37 · January 2026*
+*Built with [Claude Code](https://claude.ai/code) · v3.50 · January 2026*
