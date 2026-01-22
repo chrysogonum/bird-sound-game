@@ -532,7 +532,17 @@ function Help() {
           onToggle={() => toggleSection('Support This Project')}
         >
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '16px' }}>
-            ChipNotes is free, open source, and built as a passion project. If it's helped you level-up your birding skills, consider{' '}
+            ChipNotes is free,{' '}
+            <a
+              href="https://github.com/chrysogonum/bird-sound-game"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}
+              onClick={() => trackExternalLinkClick('https://github.com/chrysogonum/bird-sound-game', 'github_repo', 'help_page')}
+            >
+              open source
+            </a>
+            , and built as a passion project. If it's helped you level-up your birding skills, consider{' '}
             <a
               href="https://ko-fi.com/chipnotes"
               target="_blank"
