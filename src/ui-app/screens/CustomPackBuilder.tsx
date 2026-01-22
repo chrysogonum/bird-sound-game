@@ -76,6 +76,8 @@ function CustomPackBuilder() {
   const [packToDelete, setPackToDelete] = useState<string | null>(null);
   const [loadedPackId, setLoadedPackId] = useState<string | null>(null);  // Track currently loaded pack
   const [loadedPackName, setLoadedPackName] = useState<string>('');  // Track loaded pack name
+  const [showSaveBeforePlayDialog, setShowSaveBeforePlayDialog] = useState(false);  // Prompt to save before playing
+  const [shouldPlayAfterSave, setShouldPlayAfterSave] = useState(false);  // Navigate to play after saving
 
   // Load all species from clips.json, taxonomic order, and scientific names
   useEffect(() => {
@@ -133,13 +135,24 @@ function CustomPackBuilder() {
         setLoading(false);
       });
 
-    // Load saved custom pack (legacy single pack)
+    // Check if the last pack was temporary (user clicked "Just Play" without saving)
+    // If so, clear it to provide a clean slate
     try {
-      const saved = localStorage.getItem(CUSTOM_PACK_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          setSelectedCodes(parsed);
+      const wasTemporary = sessionStorage.getItem('customPackWasTemporary');
+      if (wasTemporary === 'true') {
+        // Clear the temporary flag
+        sessionStorage.removeItem('customPackWasTemporary');
+        // Clear the temporary pack from localStorage
+        localStorage.removeItem(CUSTOM_PACK_KEY);
+        console.log('Cleared temporary custom pack after play session');
+      } else {
+        // Load saved custom pack (legacy single pack) - only if it wasn't temporary
+        const saved = localStorage.getItem(CUSTOM_PACK_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setSelectedCodes(parsed);
+          }
         }
       }
     } catch (e) {
@@ -262,14 +275,38 @@ function CustomPackBuilder() {
   const handleSaveAndPlay = () => {
     if (selectedCodes.length === 0) return;
 
-    // Save to localStorage
+    // Check if this pack is unsaved (not in saved packs list)
+    const isUnsaved = !loadedPackId || !savedPacks.some(p => p.id === loadedPackId);
+
+    if (isUnsaved) {
+      // Show prompt to save before playing
+      setShowSaveBeforePlayDialog(true);
+    } else {
+      // Pack is already saved, just play
+      handleJustPlay();
+    }
+  };
+
+  // Play without saving (marks pack as temporary)
+  const handleJustPlay = () => {
+    // Save to localStorage for this session
     localStorage.setItem(CUSTOM_PACK_KEY, JSON.stringify(selectedCodes));
+
+    // Mark as temporary so it gets cleared on return
+    sessionStorage.setItem('customPackWasTemporary', 'true');
 
     // Track custom pack creation
     trackCustomPackCreate(selectedCodes.length);
 
     // Navigate to level select for custom pack
     navigate('/level-select?pack=custom');
+  };
+
+  // Save pack and then play
+  const handleSaveAndThenPlay = () => {
+    setShowSaveBeforePlayDialog(false);
+    setShouldPlayAfterSave(true);  // Flag to navigate after save completes
+    setShowSaveDialog(true);  // Open save dialog
   };
 
   // Clear selection
@@ -313,35 +350,17 @@ function CustomPackBuilder() {
       return;
     }
 
-    // If editing an existing pack, offer to update it or save as new
-    if (loadedPackId) {
-      const choice = confirm(
-        `You're editing "${loadedPackName}".\n\n` +
-        `Click OK to update "${loadedPackName}"\n` +
-        `Click Cancel to save as a new pack`
-      );
-
-      if (choice) {
-        // Update existing pack
-        updateExistingPack();
-      } else {
-        // Save as new pack
-        if (savedPacks.length >= MAX_SAVED_PACKS) {
-          alert(`You can only save up to ${MAX_SAVED_PACKS} packs. Please delete one first.`);
-          return;
-        }
-        setLoadedPackId(null);  // Clear loaded pack so we save as new
-        setLoadedPackName('');
-        setShowSaveDialog(true);
-      }
-      return;
-    }
-
-    // New pack flow
-    if (savedPacks.length >= MAX_SAVED_PACKS) {
+    // Check if we're at max packs (only matters if saving as new)
+    if (savedPacks.length >= MAX_SAVED_PACKS && !loadedPackId) {
       alert(`You can only save up to ${MAX_SAVED_PACKS} packs. Please delete one first.`);
       return;
     }
+
+    // Pre-populate the name if editing an existing pack
+    if (loadedPackId && loadedPackName) {
+      setPackNameInput(loadedPackName);
+    }
+
     setShowSaveDialog(true);
   };
 
@@ -371,36 +390,83 @@ function CustomPackBuilder() {
     }
   };
 
-  const confirmSavePack = () => {
+  const confirmSavePack = (saveAsNew: boolean = false) => {
     const trimmedName = packNameInput.trim();
     if (!trimmedName) {
       alert('Please enter a name for your pack.');
       return;
     }
 
-    const newPack: SavedPack = {
-      id: Date.now().toString(),
-      name: trimmedName,
-      species: [...selectedCodes],
-      created: new Date().toISOString(),
-      version: 1,
-    };
+    // If we're updating an existing pack (and not explicitly saving as new)
+    if (loadedPackId && !saveAsNew) {
+      // Update the existing pack (with potentially new name and/or species)
+      const updatedPacks = savedPacks.map(p => {
+        if (p.id === loadedPackId) {
+          return {
+            ...p,
+            name: trimmedName,  // Allow name to be updated
+            species: [...selectedCodes],
+            lastModified: new Date().toISOString(),
+          };
+        }
+        return p;
+      });
 
-    const updated = [...savedPacks, newPack];
-    setSavedPacks(updated);
-    try {
-      localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updated));
-      trackCustomPackSave(trimmedName, selectedCodes.length);
-    } catch (e) {
-      console.error('Failed to save pack:', e);
-      alert('Failed to save pack. Storage may be full.');
+      setSavedPacks(updatedPacks);
+      try {
+        localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updatedPacks));
+        trackCustomPackSave(trimmedName, selectedCodes.length);
+      } catch (e) {
+        console.error('Failed to update pack:', e);
+        alert('Failed to update pack. Storage may be full.');
+      }
+
+      // Update the loaded pack name
+      setLoadedPackName(trimmedName);
+    } else {
+      // Save as new pack
+      // Check if we're at max packs when saving as new
+      if (savedPacks.length >= MAX_SAVED_PACKS) {
+        alert(`You can only save up to ${MAX_SAVED_PACKS} packs. Please delete one first.`);
+        return;
+      }
+
+      const newPack: SavedPack = {
+        id: Date.now().toString(),
+        name: trimmedName,
+        species: [...selectedCodes],
+        created: new Date().toISOString(),
+        version: 1,
+      };
+
+      const updated = [...savedPacks, newPack];
+      setSavedPacks(updated);
+      try {
+        localStorage.setItem(SAVED_PACKS_KEY, JSON.stringify(updated));
+        trackCustomPackSave(trimmedName, selectedCodes.length);
+      } catch (e) {
+        console.error('Failed to save pack:', e);
+        alert('Failed to save pack. Storage may be full.');
+      }
+
+      // Track this as the loaded pack for future edits
+      setLoadedPackId(newPack.id);
+      setLoadedPackName(newPack.name);
     }
 
     setShowSaveDialog(false);
     setPackNameInput('');
-    // After saving as new, track this as the loaded pack so subsequent edits can update it
-    setLoadedPackId(newPack.id);
-    setLoadedPackName(newPack.name);
+
+    // If user chose "Save & Play", navigate to level select
+    if (shouldPlayAfterSave) {
+      setShouldPlayAfterSave(false);
+      // Save to localStorage for the game session
+      localStorage.setItem(CUSTOM_PACK_KEY, JSON.stringify(selectedCodes));
+      // DON'T mark as temporary - it's been saved
+      // Track and navigate
+      trackCustomPackCreate(selectedCodes.length);
+      navigate('/level-select?pack=custom');
+    }
   };
 
   // Load a saved pack with validation
@@ -960,15 +1026,19 @@ function CustomPackBuilder() {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 style={{ margin: '0 0 16px 0', fontSize: '18px' }}>Save Custom Pack</h3>
+            <h3 style={{ margin: '0 0 16px 0', fontSize: '18px' }}>
+              {loadedPackId ? 'Update or Rename Pack' : 'Save Custom Pack'}
+            </h3>
             <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginBottom: '16px' }}>
-              Give your pack a name so you can load it later:
+              {loadedPackId
+                ? 'Edit the name or species list. You can update this pack or save as a new one:'
+                : 'Give your pack a name so you can load it later:'}
             </p>
             <input
               type="text"
               value={packNameInput}
               onChange={(e) => setPackNameInput(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && confirmSavePack()}
+              onKeyDown={(e) => e.key === 'Enter' && confirmSavePack(false)}
               placeholder="e.g., My Backyard, Lake Erie Migrants..."
               autoFocus
               style={{
@@ -982,28 +1052,133 @@ function CustomPackBuilder() {
                 marginBottom: '16px',
               }}
             />
-            <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+            {loadedPackId ? (
+              // When editing existing pack, show both Update and Save As New options
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <button
+                  onClick={() => confirmSavePack(false)}
+                  style={{
+                    padding: '12px 20px',
+                    background: 'var(--color-primary)',
+                    border: 'none',
+                    borderRadius: '8px',
+                    color: 'white',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                  }}
+                >
+                  💾 Update "{loadedPackName}"
+                </button>
+                <button
+                  onClick={() => confirmSavePack(true)}
+                  style={{
+                    padding: '12px 20px',
+                    background: 'var(--color-surface)',
+                    border: '1px solid var(--color-text-muted)',
+                    borderRadius: '8px',
+                    color: 'var(--color-text)',
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Save As New Pack
+                </button>
+                <button
+                  onClick={() => {
+                    setShowSaveDialog(false);
+                    setPackNameInput('');
+                  }}
+                  style={{
+                    padding: '8px 20px',
+                    background: 'transparent',
+                    border: 'none',
+                    color: 'var(--color-text-muted)',
+                    fontSize: '13px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              // When creating new pack, show standard save/cancel
+              <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+                <button
+                  onClick={() => {
+                    setShowSaveDialog(false);
+                    setPackNameInput('');
+                  }}
+                  style={{
+                    padding: '10px 20px',
+                    background: 'var(--color-surface)',
+                    border: '1px solid var(--color-text-muted)',
+                    borderRadius: '8px',
+                    color: 'var(--color-text)',
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => confirmSavePack(false)}
+                  style={{
+                    padding: '10px 20px',
+                    background: 'var(--color-primary)',
+                    border: 'none',
+                    borderRadius: '8px',
+                    color: 'white',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                  }}
+                >
+                  💾 Save Pack
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Save Before Play Dialog */}
+      {showSaveBeforePlayDialog && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.7)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 2000,
+          padding: '20px',
+        }}
+        onClick={() => setShowSaveBeforePlayDialog(false)}
+        >
+          <div
+            style={{
+              background: 'var(--color-background)',
+              borderRadius: '12px',
+              padding: '24px',
+              maxWidth: '400px',
+              width: '100%',
+              border: '2px solid var(--color-accent)',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 style={{ margin: '0 0 16px 0', fontSize: '18px' }}>Save this pack?</h3>
+            <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginBottom: '20px', lineHeight: 1.5 }}>
+              Would you like to save this pack before playing? If you save it, you can easily reload and edit it later.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <button
-                onClick={() => {
-                  setShowSaveDialog(false);
-                  setPackNameInput('');
-                }}
+                onClick={handleSaveAndThenPlay}
                 style={{
-                  padding: '10px 20px',
-                  background: 'var(--color-surface)',
-                  border: '1px solid var(--color-text-muted)',
-                  borderRadius: '8px',
-                  color: 'var(--color-text)',
-                  fontSize: '14px',
-                  cursor: 'pointer',
-                }}
-              >
-                Cancel
-              </button>
-              <button
-                onClick={confirmSavePack}
-                style={{
-                  padding: '10px 20px',
+                  padding: '12px 20px',
                   background: 'var(--color-primary)',
                   border: 'none',
                   borderRadius: '8px',
@@ -1013,7 +1188,37 @@ function CustomPackBuilder() {
                   cursor: 'pointer',
                 }}
               >
-                💾 Save Pack
+                💾 Save & Play
+              </button>
+              <button
+                onClick={() => {
+                  setShowSaveBeforePlayDialog(false);
+                  handleJustPlay();
+                }}
+                style={{
+                  padding: '12px 20px',
+                  background: 'var(--color-surface)',
+                  border: '1px solid var(--color-text-muted)',
+                  borderRadius: '8px',
+                  color: 'var(--color-text)',
+                  fontSize: '14px',
+                  cursor: 'pointer',
+                }}
+              >
+                Just Play (Don't Save)
+              </button>
+              <button
+                onClick={() => setShowSaveBeforePlayDialog(false)}
+                style={{
+                  padding: '12px 20px',
+                  background: 'transparent',
+                  border: 'none',
+                  color: 'var(--color-text-muted)',
+                  fontSize: '13px',
+                  cursor: 'pointer',
+                }}
+              >
+                Cancel
               </button>
             </div>
           </div>

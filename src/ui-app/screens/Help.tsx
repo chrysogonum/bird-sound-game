@@ -584,6 +584,14 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.50" date="January 22, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Custom Pack: "Save Before Play" Prompt:</strong> When clicking "Start" with an unsaved custom pack, users are now prompted to save before playing. Options include "Save & Play" (opens save dialog then plays), "Just Play" (plays immediately without saving), or "Cancel". Temporary packs are automatically cleared when returning to the builder, providing a clean slate.</li>
+              <li><strong>Custom Pack: Rename & Update Improvements:</strong> Redesigned save dialog for editing existing packs. Users can now rename packs by updating the name in the save dialog - the "Update [Pack Name]" button updates the existing pack with the new name and species. Added "Save As New Pack" option to create variants while preserving the original pack.</li>
+              <li><strong>Pack Select Text Polish:</strong> Changed "6 levels/pack" to "6 levels per pack" for improved readability in Quick Tips section.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.49" date="January 21, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Custom Pack "Play Again" Fix:</strong> Fixed Custom Pack behavior to match regular packs - clicking "Play Again" after completing a round now keeps the same 9 birds instead of shuffling to a new random selection. Previously, custom packs with more than 9 birds would re-shuffle on every "Play Again", breaking the practice loop.</li>
