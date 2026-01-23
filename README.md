@@ -35,15 +35,15 @@ Each round is 30 seconds. Use headphones for the best experience!
 
 | Pack | Species | Description |
 |------|---------|-------------|
-| **Eastern Backyard Birds** | 6 | Start here — Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, Robin |
-| **Expanded Eastern Birds** | 46 | Comprehensive eastern US species, 9 random per round |
-| **Common Southeast Birds** | 26 | Core southeastern species for focused practice |
+| **Backyard Birds** | 6 | Start here — Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, Robin |
+| **Grassland & Open Country** | 9 | Meadowlarks, Dickcissels, Indigo Buntings — songs of prairies and field edges |
+| **Eastern Birds** | 46 | Comprehensive eastern US species, 9 random per round |
+| **Western Birds** | 18 | Steller's Jay, Western Scrub-Jay, and more from the Pacific coast to the Rockies |
 | **Woodpeckers** | 9 | Drums, calls, and rattles from Downy to Pileated (includes Acorn & Lewis's!) |
 | **Sparrows** | 9 | Nine sparrow species with distinctive patterns |
-| **Warbler Academy** | 33 | High-pitched songs of spring migration (experts only!) |
-| **Western Backyard Birds** | 18 | Steller's Jay, Western Scrub-Jay, and more |
+| **Warbler Academy** | 34 | High-pitched songs of spring migration (experts only!) |
 
-**Custom Packs:** Build your own training session from 100+ species — drill a nemesis bird, compare confusing species head-to-head, or create regional lists. Save up to 10 custom packs.
+**Custom Packs:** Build your own training session from 106 species — drill a nemesis bird, compare confusing species head-to-head, or create regional lists. Filter by pack, search by name, and save up to 10 custom packs.
 
 ## Difficulty Levels
 
@@ -60,10 +60,10 @@ Each pack has 6 levels that progressively build your skills:
 
 ## Features
 
-- **100 species** with **486 curated clips** from Xeno-canto and Cornell Macaulay Library
+- **106 species** with **513 curated clips** from Xeno-canto and Cornell Macaulay Library
 - **Left/right stereo training** — spatial audio identification like real birding
 - **Real spectrograms** generated for every clip (400x200px, 500-10000 Hz range)
-- **7 curated packs** ranging from beginner (6 birds) to expert (46 birds)
+- **7 curated packs** from 6 to 46 species per pack
 - **Training Mode** — Toggle eye icon to show bird labels on tiles while learning
 - **Taxonomic sorting** — Toggle between alphabetical and phylogenetic order with scientific names
 - **Bird Reference** — Preview all sounds in the game, organized by pack, with canonical recordings marked
@@ -77,14 +77,15 @@ Each pack has 6 levels that progressively build your skills:
 
 ## Species Coverage
 
-**100 species** across 7 packs:
+**106 species** across 7 packs:
 
-- Eastern backyard birds (cardinals, wrens, jays, chickadees, robins, bluebirds, thrushes)
-- Western backyard birds (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, and more)
+- Backyard birds (cardinals, wrens, jays, chickadees, robins, bluebirds, thrushes)
+- Grassland & open country birds (Eastern Meadowlark, Dickcissel, Indigo Bunting, Barn Swallow, Eastern Kingbird, Common Yellowthroat, Yellow Warbler)
+- Eastern birds (46 species from the eastern US)
+- Western birds (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, and more)
 - Woodpeckers (9 species from Downy to Pileated, including Acorn and Lewis's)
 - Sparrows (9 species including White-throated, White-crowned, Song, Chipping, Field, Savannah)
-- Warblers (33 spring migration species — the ultimate challenge!)
-- Southeast regional pack (26 core species for focused regional training)
+- Warblers (34 spring migration species — the ultimate challenge!)
 
 Audio sourced from [Xeno-canto](https://xeno-canto.org) and [Cornell Macaulay Library](https://www.macaulaylibrary.org/), with full attribution in the Bird Reference.
 
@@ -158,4 +159,4 @@ Bird recordings from [Xeno-canto](https://xeno-canto.org) and [Cornell Macaulay 
 
 ---
 
-*Built with [Claude Code](https://claude.ai/code) · v3.50 · January 2026*
+*Built with [Claude Code](https://claude.ai/code) · v3.54 · January 2026*
