@@ -284,7 +284,7 @@ function Help() {
 
           <PackInfo
             name="Backyard Birds"
-            description="Perfect for beginners. 6 distinctive birds you'll hear in your own backyard: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
+            description="Perfect for beginners. 6 distinctive birds you'll hear around your neighborhood: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
           />
           <PackInfo
             name="Grassland & Open Country"
