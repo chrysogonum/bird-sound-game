@@ -288,7 +288,7 @@ function Help() {
           />
           <PackInfo
             name="Grassland & Open Country"
-            description="10 species of grasslands, prairies, farmland, and field edges: Barn Swallow (BARS), Common Yellowthroat (COYE), Dickcissel (DICK), Eastern Kingbird (EAKI), Eastern Meadowlark (EAME), Field Sparrow (FISP), Indigo Bunting (INBU), Red-winged Blackbird (RWBL), Savannah Sparrow (SAVS), and Yellow Warbler (YEWA)."
+            description="10 species of grasslands, prairies, farmland, and field edges: Barn Swallow, Common Yellowthroat, Dickcissel, Eastern Kingbird, Eastern Meadowlark, Field Sparrow, Indigo Bunting, Red-winged Blackbird, Savannah Sparrow, and Yellow Warbler."
           />
           <PackInfo
             name="Eastern Birds"
