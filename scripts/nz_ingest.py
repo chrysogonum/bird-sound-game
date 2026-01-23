@@ -9,14 +9,18 @@ License: Crown Copyright - FREE to use commercially with attribution
 Attribution: "Department of Conservation (NZ)"
 
 Usage:
-    # Download and process all NZ birds
-    python nz_ingest.py --output data/clips-nz
+    # Download and process all NZ birds (to main clips directory)
+    python nz_ingest.py --output data/clips
 
     # Process specific species only
-    python nz_ingest.py --output data/clips-nz --species TUIX BELL MORU
+    python nz_ingest.py --output data/clips --species TUIX BELL MORU
 
     # Dry run (show what would be downloaded)
-    python nz_ingest.py --output data/clips-nz --dry-run
+    python nz_ingest.py --output data/clips --dry-run
+
+Note: Output should go to data/clips/ (not a separate NZ directory) so clips
+are integrated with the main collection. Run spectrogram_gen.py separately
+to generate spectrograms, then merge results into data/clips.json.
 """
 
 import argparse

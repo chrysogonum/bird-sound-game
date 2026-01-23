@@ -40,7 +40,7 @@
       },
       "vocalization_type": {
         "type": "string",
-        "enum": ["song", "call"],
+        "enum": ["song", "call", "alarm call", "drum", "flight call", "contact call"],
         "description": "Type of vocalization"
       },
       "duration_ms": {
@@ -99,6 +99,14 @@
       "xeno_canto_id": {
         "type": ["string", "null"],
         "description": "Legacy field, use source_id instead"
+      },
+      "quality": {
+        "type": ["string", "null"],
+        "description": "Legacy field, use quality_score instead"
+      },
+      "incoming_prompt": {
+        "type": ["string", "null"],
+        "description": "Legacy field from review process"
       }
     },
     "additionalProperties": false
