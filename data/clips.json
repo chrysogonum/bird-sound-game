@@ -8098,7 +8098,7 @@
     "species_code": "BARS",
     "common_name": "Barn Swallow",
     "file_path": "data/clips/BARS_1011825.wav",
-    "vocalization_type": "song",
+    "vocalization_type": "call",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality_score": 5,
@@ -8140,7 +8140,7 @@
     "source_id": "XC753130",
     "source_url": "https://xeno-canto.org/753130",
     "recordist": "Sunny Tseng",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/BARS_753130.png"
   },
