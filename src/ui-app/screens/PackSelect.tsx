@@ -53,25 +53,18 @@ const PACKS: Pack[] = [
     description: 'Start here! Distinctive, bold, recognizable voices.',
   },
   {
+    id: 'grassland_birds',
+    name: 'Grassland & Open Country',
+    speciesCount: 9,
+    isUnlocked: true,
+    description: 'From prairies to farmland: meadowlarks, buntings, and field singers.',
+  },
+  {
     id: 'expanded_backyard',
     name: 'Eastern Birds',
     speciesCount: 46,
     isUnlocked: true,
     description: 'Ready for more feathered friends? 9 random per round.',
-  },
-  {
-    id: 'sparrows',
-    name: 'Sparrows',
-    speciesCount: 9,
-    isUnlocked: true,
-    description: 'Master their subtle songs.',
-  },
-  {
-    id: 'woodpeckers',
-    name: 'Woodpeckers',
-    speciesCount: 9,
-    isUnlocked: true,
-    description: 'Drums, calls, and rattles.',
   },
   {
     id: 'western_birds',
@@ -81,9 +74,23 @@ const PACKS: Pack[] = [
     description: 'Frequent flyers from the Pacific coast to the Rockies.',
   },
   {
+    id: 'woodpeckers',
+    name: 'Woodpeckers',
+    speciesCount: 9,
+    isUnlocked: true,
+    description: 'Drums, calls, and rattles.',
+  },
+  {
+    id: 'sparrows',
+    name: 'Sparrows',
+    speciesCount: 9,
+    isUnlocked: true,
+    description: 'Master their subtle songs.',
+  },
+  {
     id: 'spring_warblers',
     name: 'Warbler Academy',
-    speciesCount: 33,
+    speciesCount: 34,
     isUnlocked: true,
     description: '9 random per round. Custom Pack mode recommended!',
   },
@@ -455,21 +462,23 @@ function PackSelect() {
           // Different colors for each pack
           const packColors: Record<string, string> = {
             starter_birds: 'linear-gradient(135deg, #2d5a3d 0%, #1a3d2a 100%)',      // Forest green
+            grassland_birds: 'linear-gradient(135deg, #7a6b2d 0%, #5a4a1a 100%)',    // Prairie gold
             expanded_backyard: 'linear-gradient(135deg, #3d5a6e 0%, #2a3d4a 100%)',  // Slate blue
             sparrows: 'linear-gradient(135deg, #6b5344 0%, #4a3a2e 100%)',           // Earthy brown
             woodpeckers: 'linear-gradient(135deg, #6e3d3d 0%, #4a2a2a 100%)',        // Deep red
-            spring_warblers: 'linear-gradient(135deg, #7a6b2d 0%, #5a4a1a 100%)',    // Golden olive
             western_birds: 'linear-gradient(135deg, #5a4a7a 0%, #3a2a5a 100%)',      // Mountain purple
+            spring_warblers: 'linear-gradient(135deg, #3d6e5a 0%, #2a4a3d 100%)',    // Forest teal
           };
 
           // Pack representative bird icons
           const packIcons: Record<string, string> = {
             starter_birds: 'NOCA',
-            expanded_backyard: 'AMGO',
+            grassland_birds: 'EAME',
+            expanded_backyard: 'AGOL',
             sparrows: 'WTSP',
             woodpeckers: 'PIWO',
-            spring_warblers: 'BLBW',
             western_birds: 'STJA',
+            spring_warblers: 'BLBW',
           };
 
           return (
@@ -490,6 +499,7 @@ function PackSelect() {
               opacity: pack.isUnlocked ? 1 : 0.5,
               cursor: pack.isUnlocked ? 'pointer' : 'not-allowed',
               transition: 'transform 0.2s, box-shadow 0.2s',
+              gridColumn: pack.id === 'spring_warblers' ? '1 / -1' : 'auto',
             }}
             onMouseEnter={(e) => {
               if (pack.isUnlocked) {

@@ -350,3 +350,28 @@ BHCO: Stylized icon of a Brown-headed Cowbird, simple flat design, circular fram
 EUST: Stylized icon of a European Starling, simple flat design, circular frame, iridescent black bird with yellow bill and white spots, white background, game asset style, clean vector look, centered composition, no text
 CHSW: Stylized icon of a Chimney Swift, simple flat design, circular frame, cigar-shaped dark gray-brown bird with swept-back curved wings, white background, game asset style, clean vector look, centered composition, no text
 ```
+
+---
+
+## Grassland & Open Country Birds (V5)
+
+### Buntings, Warblers, Flycatchers, Swallows, Meadowlarks, Grassland Sparrows
+| Code | Name | Prompt |
+|------|------|--------|
+| INBU | Indigo Bunting | Stylized icon of an Indigo Bunting, simple flat design, circular frame, brilliant electric blue male bird with small conical bill, white background, game asset style, clean vector look, centered composition, no text |
+| YEWA | Yellow Warbler | Stylized icon of a Yellow Warbler, simple flat design, circular frame, entirely golden-yellow bird with rusty breast streaking, white background, game asset style, clean vector look, centered composition, no text |
+| EAKI | Eastern Kingbird | Stylized icon of an Eastern Kingbird, simple flat design, circular frame, black upperparts with clean white underparts and white tail band, white background, game asset style, clean vector look, centered composition, no text |
+| BARS | Barn Swallow | Stylized icon of a Barn Swallow, simple flat design, circular frame, sleek bird with deeply forked tail, blue-black back and rusty-orange throat, white background, game asset style, clean vector look, centered composition, no text |
+| EAME | Eastern Meadowlark | Stylized icon of an Eastern Meadowlark, simple flat design, circular frame, stocky bird with bright yellow breast and bold black V-shaped breast band, white background, game asset style, clean vector look, centered composition, no text |
+| DICK | Dickcissel | Stylized icon of a Dickcissel, simple flat design, circular frame, sparrow-like bird with yellow breast, black throat bib, and rusty shoulder patch, white background, game asset style, clean vector look, centered composition, no text |
+
+### Quick Copy - Grassland Birds
+
+```
+INBU: Stylized icon of an Indigo Bunting, simple flat design, circular frame, brilliant electric blue male bird with small conical bill, white background, game asset style, clean vector look, centered composition, no text
+YEWA: Stylized icon of a Yellow Warbler, simple flat design, circular frame, entirely golden-yellow bird with rusty breast streaking, white background, game asset style, clean vector look, centered composition, no text
+EAKI: Stylized icon of an Eastern Kingbird, simple flat design, circular frame, black upperparts with clean white underparts and white tail band, white background, game asset style, clean vector look, centered composition, no text
+BARS: Stylized icon of a Barn Swallow, simple flat design, circular frame, sleek bird with deeply forked tail, blue-black back and rusty-orange throat, white background, game asset style, clean vector look, centered composition, no text
+EAME: Stylized icon of an Eastern Meadowlark, simple flat design, circular frame, stocky bird with bright yellow breast and bold black V-shaped breast band, white background, game asset style, clean vector look, centered composition, no text
+DICK: Stylized icon of a Dickcissel, simple flat design, circular frame, sparrow-like bird with yellow breast, black throat bib, and rusty shoulder patch, white background, game asset style, clean vector look, centered composition, no text
+```
