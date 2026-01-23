@@ -78,15 +78,47 @@ function CustomPackBuilder() {
   const [loadedPackName, setLoadedPackName] = useState<string>('');  // Track loaded pack name
   const [showSaveBeforePlayDialog, setShowSaveBeforePlayDialog] = useState(false);  // Prompt to save before playing
   const [shouldPlayAfterSave, setShouldPlayAfterSave] = useState(false);  // Navigate to play after saving
+  const [availablePacks, setAvailablePacks] = useState<Array<{ id: string; name: string; species: string[] }>>([]);
+  const [selectedPackFilter, setSelectedPackFilter] = useState<string | null>(null);  // null = "All Birds"
 
-  // Load all species from clips.json, taxonomic order, and scientific names
+  // Load all species from clips.json, taxonomic order, scientific names, and packs
   useEffect(() => {
+    // Load pack definitions
+    const packFiles = [
+      'starter_birds',
+      'expanded_backyard',
+      'sparrows',
+      'woodpeckers',
+      'spring_warblers',
+      'western_birds',
+    ];
+
+    const packPromises = packFiles.map(packId =>
+      fetch(`${import.meta.env.BASE_URL}data/packs/${packId}.json`)
+        .then(r => r.json())
+        .catch(err => {
+          console.error(`Failed to load pack ${packId}:`, err);
+          return null;
+        })
+    );
+
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/clips.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
+      Promise.all(packPromises),
     ])
-      .then(([clips, taxonomicData, speciesData]: [ClipData[], Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>]) => {
+      .then(([clips, taxonomicData, speciesData, packsData]: [ClipData[], Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>, any[]]) => {
+        // Build available packs list
+        const packs = packsData
+          .filter(p => p !== null)
+          .map(p => ({
+            id: p.pack_id,
+            name: p.display_name,
+            species: p.species,
+          }));
+        setAvailablePacks(packs);
+
         // Build species metadata lookup
         const sciNames: Record<string, string> = {};
         const comNames: Record<string, string> = {};
@@ -501,15 +533,26 @@ function CustomPackBuilder() {
 
   // Filter and sort species
   const filteredSpecies = (() => {
-    // First filter by search
-    const filtered = searchQuery
-      ? allSpecies.filter(
-          (s) =>
-            s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            s.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (s.scientificName && s.scientificName.toLowerCase().includes(searchQuery.toLowerCase()))
-        )
-      : allSpecies;
+    let filtered = allSpecies;
+
+    // First filter by pack (if selected)
+    if (selectedPackFilter) {
+      const pack = availablePacks.find(p => p.id === selectedPackFilter);
+      if (pack) {
+        const packSpeciesSet = new Set(pack.species);
+        filtered = filtered.filter(s => packSpeciesSet.has(s.code));
+      }
+    }
+
+    // Then filter by search query
+    if (searchQuery) {
+      filtered = filtered.filter(
+        (s) =>
+          s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          s.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (s.scientificName && s.scientificName.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
+    }
 
     // Then sort based on taxonomic toggle
     if (taxonomicSort && Object.keys(taxonomicOrder).length > 0) {
@@ -665,6 +708,53 @@ function CustomPackBuilder() {
               ))}
             </div>
           )}
+        </div>
+      )}
+
+      {/* Pack Filter Chips */}
+      {availablePacks.length > 0 && (
+        <div style={{
+          flexShrink: 0,
+          marginBottom: '8px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '6px',
+        }}>
+          <button
+            onClick={() => setSelectedPackFilter(null)}
+            style={{
+              padding: '6px 12px',
+              background: selectedPackFilter === null ? 'rgba(255, 152, 0, 0.2)' : 'var(--color-surface)',
+              border: selectedPackFilter === null ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
+              borderRadius: '16px',
+              cursor: 'pointer',
+              fontSize: '12px',
+              fontWeight: selectedPackFilter === null ? 600 : 400,
+              color: selectedPackFilter === null ? 'var(--color-accent)' : 'var(--color-text)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            All Birds
+          </button>
+          {availablePacks.map(pack => (
+            <button
+              key={pack.id}
+              onClick={() => setSelectedPackFilter(pack.id)}
+              style={{
+                padding: '6px 12px',
+                background: selectedPackFilter === pack.id ? 'rgba(255, 152, 0, 0.2)' : 'var(--color-surface)',
+                border: selectedPackFilter === pack.id ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
+                borderRadius: '16px',
+                cursor: 'pointer',
+                fontSize: '12px',
+                fontWeight: selectedPackFilter === pack.id ? 600 : 400,
+                color: selectedPackFilter === pack.id ? 'var(--color-accent)' : 'var(--color-text)',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {pack.name}
+            </button>
+          ))}
         </div>
       )}
 
