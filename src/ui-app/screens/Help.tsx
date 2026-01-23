@@ -288,7 +288,7 @@ function Help() {
           />
           <PackInfo
             name="Grassland & Open Country"
-            description="9 species of grasslands, prairies, farmland, and field edges: Barn Swallow (BARS), Common Yellowthroat (COYE), Dickcissel (DICK), Eastern Kingbird (EAKI), Eastern Meadowlark (EAME), Field Sparrow (FISP), Indigo Bunting (INBU), Savannah Sparrow (SAVS), and Yellow Warbler (YEWA)."
+            description="10 species of grasslands, prairies, farmland, and field edges: Barn Swallow (BARS), Common Yellowthroat (COYE), Dickcissel (DICK), Eastern Kingbird (EAKI), Eastern Meadowlark (EAME), Field Sparrow (FISP), Indigo Bunting (INBU), Red-winged Blackbird (RWBL), Savannah Sparrow (SAVS), and Yellow Warbler (YEWA)."
           />
           <PackInfo
             name="Eastern Birds"
@@ -296,7 +296,7 @@ function Help() {
           />
           <PackInfo
             name="Western Birds"
-            description="18 common species from western North America: Steller's Jay, California Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Cassin's Finch, Pine Siskin, Evening Grosbeak, and more."
+            description="20 common species from western North America: Steller's Jay, California Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Common Grackle, Dark-eyed Junco, Red-winged Blackbird, and more."
           />
           <PackInfo
             name="Woodpeckers"
@@ -473,7 +473,7 @@ function Help() {
               Red-bellied Woodpecker → R + B + WO → RBWO
             </div>
             <div style={{ marginTop: '12px', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
-              There <a href="https://www.birdpop.org/pages/birdSpeciesCodes.php" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>are exceptions</a>. Because, ornithology.
+              There <a href="https://www.birdpop.org/pages/birdSpeciesCodes.php" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>are exceptions</a>. Because, ornithology. And when species collide (generating identical codes), things get <a href="https://www.carolinabirdclub.org/bandcodes.html" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>even messier</a>.
             </div>
           </div>
         </Section>
