@@ -8366,23 +8366,6 @@
     "spectrogram_path": "data/spectrograms/DICK_866017.png"
   },
   {
-    "clip_id": "DICK_d8954e7b",
-    "species_code": "DICK",
-    "common_name": "Dickcissel",
-    "file_path": "data/clips/DICK_900926.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC900926",
-    "source_url": "https://xeno-canto.org/900926",
-    "recordist": "David Tattersley",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/DICK_900926.png"
-  },
-  {
     "clip_id": "DICK_94f1a61a",
     "species_code": "DICK",
     "common_name": "Dickcissel",
