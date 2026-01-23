@@ -86,6 +86,7 @@ function CustomPackBuilder() {
     // Load pack definitions
     const packFiles = [
       'starter_birds',
+      'grassland_birds',
       'expanded_backyard',
       'sparrows',
       'woodpeckers',
