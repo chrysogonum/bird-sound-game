@@ -1,0 +1,34 @@
+{
+  "pack_id": "grassland_birds",
+  "display_name": "Grassland & Open Country",
+  "description": "Nine species of open habitats including grasslands, prairies, farmland, and field edges. Features distinctive singers like Eastern Meadowlark, Dickcissel, and Common Yellowthroat.",
+  "species": [
+    "INBU",
+    "YEWA",
+    "EAKI",
+    "BARS",
+    "EAME",
+    "DICK",
+    "SAVS",
+    "FISP",
+    "COYE"
+  ],
+  "display_species": [
+    "INBU",
+    "YEWA",
+    "EAKI",
+    "BARS",
+    "EAME",
+    "DICK",
+    "SAVS",
+    "FISP",
+    "COYE"
+  ],
+  "vocalization_weights": {
+    "song": 0.7,
+    "call": 0.3
+  },
+  "overlap_multiplier": 1.0,
+  "tempo_multiplier": 1.0,
+  "seasonal_context": "summer"
+}
