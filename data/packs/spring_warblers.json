@@ -1,7 +1,7 @@
 {
   "pack_id": "spring_warblers",
   "display_name": "Warbler Academy",
-  "description": "33 wood-warblers — 9 random per round. Use Custom Pack for focused warbler brain training!",
+  "description": "34 wood-warblers — 9 random per round. Use Custom Pack for focused warbler brain training!",
   "species": [
     "AMRE",
     "BAWW",
@@ -34,6 +34,7 @@
     "TEWA",
     "WEWA",
     "WIWA",
+    "YEWA",
     "YRWA",
     "YTWA"
   ],
