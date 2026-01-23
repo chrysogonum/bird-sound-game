@@ -8264,23 +8264,6 @@
     "spectrogram_path": "data/spectrograms/EAME_1014913.png"
   },
   {
-    "clip_id": "EAME_c5988cae",
-    "species_code": "EAME",
-    "common_name": "Eastern Meadowlark",
-    "file_path": "data/clips/EAME_1018270.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1018270",
-    "source_url": "https://xeno-canto.org/1018270",
-    "recordist": "David Liebl",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAME_1018270.png"
-  },
-  {
     "clip_id": "EAME_fb76bb6a",
     "species_code": "EAME",
     "common_name": "Eastern Meadowlark",
@@ -8293,7 +8276,7 @@
     "source_id": "XC840192",
     "source_url": "https://xeno-canto.org/840192",
     "recordist": "Manuel Oudard",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/EAME_840192.png"
   },
@@ -8332,28 +8315,11 @@
     "spectrogram_path": "data/spectrograms/EAME_934441.png"
   },
   {
-    "clip_id": "EAME_8461f5f9",
-    "species_code": "EAME",
-    "common_name": "Eastern Meadowlark",
-    "file_path": "data/clips/EAME_934442.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC934442",
-    "source_url": "https://xeno-canto.org/934442",
-    "recordist": "Thomas Magarian",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAME_934442.png"
-  },
-  {
     "clip_id": "EAME_7ceeb713",
     "species_code": "EAME",
     "common_name": "Eastern Meadowlark",
     "file_path": "data/clips/EAME_934443.wav",
-    "vocalization_type": "song",
+    "vocalization_type": "call",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
     "quality_score": 5,
