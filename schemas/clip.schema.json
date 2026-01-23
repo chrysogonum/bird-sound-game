@@ -30,6 +30,14 @@
         "type": "string",
         "description": "Common name of the bird species"
       },
+      "maori_name": {
+        "type": ["string", "null"],
+        "description": "Māori name for NZ birds (optional)"
+      },
+      "alternate_name": {
+        "type": ["string", "null"],
+        "description": "Alternate/regional name (optional)"
+      },
       "vocalization_type": {
         "type": "string",
         "enum": ["song", "call"],
@@ -47,9 +55,13 @@
         "maximum": 5,
         "description": "Quality score (1-5)"
       },
+      "loudness_lufs": {
+        "type": ["number", "null"],
+        "description": "Measured loudness in LUFS (optional)"
+      },
       "source": {
         "type": "string",
-        "enum": ["macaulay", "xenocanto", "cornell", "demo", "user_recording"],
+        "enum": ["macaulay", "xenocanto", "cornell", "demo", "user_recording", "doc"],
         "description": "Audio source"
       },
       "source_id": {
