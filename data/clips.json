@@ -8009,23 +8009,6 @@
     "spectrogram_path": "data/spectrograms/INBU_1002806.png"
   },
   {
-    "clip_id": "INBU_566e5e8d",
-    "species_code": "INBU",
-    "common_name": "Indigo Bunting",
-    "file_path": "data/clips/INBU_1006770.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1006770",
-    "source_url": "https://xeno-canto.org/1006770",
-    "recordist": "Rory Nefdt",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/INBU_1006770.png"
-  },
-  {
     "clip_id": "INBU_3ce9767b",
     "species_code": "INBU",
     "common_name": "Indigo Bunting",
