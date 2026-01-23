@@ -1078,6 +1078,7 @@ function GameplayScreen() {
           display: flex;
           flex-wrap: wrap;
           gap: 6px;
+          max-width: 180px; /* Force 3 columns: ~56px per button * 3 + gaps */
         }
 
         .input-column.left .species-buttons {
@@ -1086,6 +1087,7 @@ function GameplayScreen() {
 
         .input-column.right .species-buttons {
           justify-content: flex-end;
+          margin-left: auto; /* Push to right edge */
         }
 
         .species-btn {
@@ -1118,6 +1120,27 @@ function GameplayScreen() {
         .species-btn:disabled {
           opacity: 0.4;
           cursor: not-allowed;
+        }
+
+        /* Tablet: larger icons and more spacing */
+        @media (min-width: 768px) {
+          .species-buttons {
+            max-width: 260px; /* 3 larger buttons + gaps */
+            gap: 10px;
+          }
+
+          .species-btn {
+            padding: 8px;
+          }
+
+          .species-btn img {
+            width: 52px !important;
+            height: 52px !important;
+          }
+
+          .species-btn > div > span {
+            font-size: 13px !important;
+          }
         }
       `}</style>
     </div>
