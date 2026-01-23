@@ -88,13 +88,21 @@ function Settings() {
       <div className="flex-row items-center gap-md" style={{ marginBottom: '24px' }}>
         <button
           className="btn-icon"
+          onClick={() => navigate(-1)}
+          aria-label="Back"
+          style={{ color: 'var(--color-accent)' }}
+        >
+          <BackIcon />
+        </button>
+        <h2 style={{ margin: 0, flex: 1 }}>Settings</h2>
+        <button
+          className="btn-icon"
           onClick={() => navigate('/')}
           aria-label="Home"
           style={{ color: 'var(--color-accent)' }}
         >
           <HomeIcon />
         </button>
-        <h2 style={{ margin: 0 }}>Settings</h2>
       </div>
 
       <div className="flex-col gap-lg">
@@ -291,6 +299,15 @@ function Settings() {
         </div>
       </div>
     </div>
+  );
+}
+
+function BackIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M19 12H5" />
+      <path d="M12 19l-7-7 7-7" />
+    </svg>
   );
 }
 
