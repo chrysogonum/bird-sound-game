@@ -1,0 +1,26 @@
+{
+  "pack_id": "nz_all_birds",
+  "display_name": "New Zealand Native Birds",
+  "description": "All 47 species from the NZ Department of Conservation collection. From iconic Kiwi to alpine Kea, coastal penguins to forest songbirds. Audio: Crown Copyright, DOC NZ.",
+  "species": [
+    "ABIT", "ACGR", "AITE", "BELL", "BLDU", "BLST", "BUWE",
+    "CIFA", "CIOY", "CIPI", "CITO", "CITU",
+    "GRWA", "HIHI", "HUSH",
+    "KAKA", "KEAX", "KERE", "KOKA",
+    "MOHU", "MORU",
+    "NIBK", "NIFA", "NIKA", "NIRO", "NISA", "NITO", "NIWE",
+    "NZDO", "NZFA",
+    "OFPA", "PADU",
+    "RCPA", "ROWR",
+    "SIFA", "SIKA", "SILV", "SIRO", "SISA", "SITO",
+    "TAKA", "TUIX",
+    "WEWE", "WHHE", "WHIT", "WLPE", "YEPE"
+  ],
+  "vocalization_weights": {
+    "song": 0.5,
+    "call": 0.5
+  },
+  "overlap_multiplier": 1.0,
+  "tempo_multiplier": 1.0,
+  "seasonal_context": null
+}

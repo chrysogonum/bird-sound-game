@@ -1,7 +1,7 @@
 # New Zealand Birds - Feature Plan
 
 **Branch**: `feature/nz-birds`
-**Status**: Phase 1 Complete
+**Status**: Phase 2 Complete
 **Created**: January 16, 2026
 **Risk Level**: Low (DOC audio confirmed compatible)
 
@@ -68,18 +68,32 @@ Add New Zealand bird species to ChipNotes! using recordings from the NZ Departme
 - Tested 3 species: Tūī, Bellbird/Korimako, Morepork/Ruru
 - All converted to mono WAV, 3000ms, -16 LUFS
 - Spectrograms generate correctly
-- Test files in `data/clips-nz-test/`
+- Test files validated pipeline (removed after Phase 2)
 
-### Phase 2: Initial Pack (1 week)
-**Goal**: Create "Common NZ Backyard Birds" pack (10 birds)
+### Phase 2: Full NZ Collection ✅ COMPLETE
+**Goal**: Download and process ALL DOC bird audio
 
-- [ ] Download all DOC recordings for 10 species
-- [ ] Create `scripts/nz_ingest.py` (or adapt cornell_ingest.py)
-- [ ] Process all audio files
-- [ ] Generate spectrograms
-- [ ] Create `data/packs/nz_common_birds.json`
+- [x] Download all DOC recordings (57 source files)
+- [x] Create `scripts/nz_ingest.py`
+- [x] Process all audio files
+- [x] Generate spectrograms
+- [x] Create pack files
 - [ ] Test in game (all 6 difficulty levels)
-- [ ] Validate with `make validate-data`
+- [x] Validate with schema validation
+
+**Results (Jan 23, 2026):**
+- 47 species, 181 clips total
+- All clips: mono WAV, 2500ms, -16 LUFS normalized
+- 181 spectrograms generated
+- Schema updated to support `doc` source and `maori_name` field
+- 3 pack files created:
+  - `nz_all_birds.json` (47 species)
+  - `nz_backyard.json` (10 common species)
+  - `nz_iconic.json` (10 famous endemic species)
+- Data files:
+  - `data/clips-nz/` - 181 WAV files
+  - `data/spectrograms-nz/` - 181 PNG files
+  - `data/clips-nz.json` - clip metadata
 
 ### Phase 3: Icons & Polish (variable)
 **Goal**: Visual assets and UX
@@ -140,11 +154,12 @@ Add New Zealand bird species to ChipNotes! using recordings from the NZ Departme
 - **UI implications**: Need space for longer names
 - **Recommendation**: Default to Māori where standard (Tūī, Kea), bilingual where helpful
 
-### 4. 4-Letter Alpha Codes
+### 4. 4-Letter Alpha Codes ✅ RESOLVED
 - **Challenge**: Game uses codes like NOCA, BLJA
 - **Question**: Do NZ birds have standardized codes?
-- **Research needed**: Check eBird NZ or DOC for standard codes
-- **Fallback**: Create our own using Māori names (e.g., TUIX for Tūī)
+- **Solution**: Created custom codes for 47 species
+- Examples: TUIX (Tūī), BELL (Bellbird), MORU (Morepork), NIBK (North Island Brown Kiwi)
+- Full mapping in `scripts/nz_ingest.py`
 
 ## Success Criteria
 
