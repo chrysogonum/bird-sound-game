@@ -2171,7 +2171,7 @@
     "file_path": "data/clips/COYE_1013902.wav",
     "spectrogram_path": "data/spectrograms/COYE_1013902.png",
     "recordist": "Stanislas Wroza",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1013902"
   },
@@ -2203,7 +2203,7 @@
     "file_path": "data/clips/COYE_1021804.wav",
     "spectrogram_path": "data/spectrograms/COYE_1021804.png",
     "recordist": "Stanislas Wroza",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1021804"
   },
