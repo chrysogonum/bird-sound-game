@@ -522,7 +522,8 @@ function PackSelect() {
                 bottom: '-10px',
                 width: '80px',
                 height: '80px',
-                opacity: 0.3,
+                opacity: 0.5,
+                filter: 'brightness(1.3)',
                 transform: 'rotate(-15deg)',
                 objectFit: 'cover',
               }}
