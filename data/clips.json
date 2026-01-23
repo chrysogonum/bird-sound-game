@@ -8417,23 +8417,6 @@
     "spectrogram_path": "data/spectrograms/DICK_936314.png"
   },
   {
-    "clip_id": "DICK_1187bfcb",
-    "species_code": "DICK",
-    "common_name": "Dickcissel",
-    "file_path": "data/clips/DICK_936317.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC936317",
-    "source_url": "https://xeno-canto.org/936317",
-    "recordist": "Richard E. Webster",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/DICK_936317.png"
-  },
-  {
     "clip_id": "DICK_80a44ae0",
     "species_code": "DICK",
     "common_name": "Dickcissel",
