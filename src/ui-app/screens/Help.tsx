@@ -642,8 +642,9 @@ function Help() {
             <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
-                <li><strong>🎉 100-Bird Milestone!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
-                <li><strong>New Western Birds</strong> – Western Birds pack expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
+                <li><strong>🎉 100+ Species!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
+                <li><strong>New Pack: Grassland & Open Country</strong> – 9 species of grasslands, prairies, and farmland including Eastern Meadowlark, Dickcissel, and Indigo Bunting</li>
+                <li><strong>Western Birds Pack Expansion</strong> – Expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
                 <li><strong>Woodpeckers Pack Expansion</strong> – Added Acorn Woodpecker and Lewis's Woodpecker, growing the pack from 7 to 9 species</li>
                 <li><strong>Eastern Birds Pack</strong> – Grew from 40 to 46 species with flycatchers, vireos, and Dark-eyed Junco</li>
                 <li><strong>Taxonomic Sorting</strong> – Find and play birds based on how they're related to each other</li>
