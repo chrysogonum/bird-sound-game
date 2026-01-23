@@ -1,9 +1,9 @@
 # New Zealand Birds - Feature Plan
 
 **Branch**: `feature/nz-birds`
-**Status**: Planning / Initial Research
+**Status**: Phase 1 Complete
 **Created**: January 16, 2026
-**Risk Level**: Medium (new audio source, untested formats)
+**Risk Level**: Low (DOC audio confirmed compatible)
 
 ## Overview
 
@@ -52,15 +52,23 @@ Add New Zealand bird species to ChipNotes! using recordings from the NZ Departme
 
 ## Implementation Plan
 
-### Phase 1: Proof of Concept (1-2 days)
+### Phase 1: Proof of Concept (1-2 days) ✅ COMPLETE
 **Goal**: Test DOC audio with existing pipeline
 
-- [ ] Download 3-5 sample DOC recordings
-- [ ] Test audio format compatibility
-- [ ] Process through existing pipeline (or adapt cornell_ingest.py)
-- [ ] Generate spectrograms
+- [x] Download 3-5 sample DOC recordings
+- [x] Test audio format compatibility
+- [x] Process through existing pipeline (or adapt cornell_ingest.py)
+- [x] Generate spectrograms
 - [ ] Verify playback in game
-- [ ] Document any format issues
+- [x] Document any format issues
+
+**Results (Jan 23, 2026):**
+- DOC provides MP3 files (stereo, 44.1kHz, 128kbps)
+- Existing `audio_ingest.process_audio_file()` works perfectly
+- Tested 3 species: Tūī, Bellbird/Korimako, Morepork/Ruru
+- All converted to mono WAV, 3000ms, -16 LUFS
+- Spectrograms generate correctly
+- Test files in `data/clips-nz-test/`
 
 ### Phase 2: Initial Pack (1 week)
 **Goal**: Create "Common NZ Backyard Birds" pack (10 birds)
@@ -111,10 +119,11 @@ Add New Zealand bird species to ChipNotes! using recordings from the NZ Departme
 
 ## Technical Challenges
 
-### 1. Audio Format Compatibility
+### 1. Audio Format Compatibility ✅ RESOLVED
 - **Risk**: DOC files might be different format than Cornell/Xeno-canto
 - **Mitigation**: Test early with sample files
 - **Fallback**: Convert using ffmpeg in ingestion script
+- **Result**: No issues! DOC MP3s process cleanly through existing pipeline
 
 ### 2. Bird Icon Artwork
 - **Risk**: Need 10+ custom icons, could be expensive/time-consuming
