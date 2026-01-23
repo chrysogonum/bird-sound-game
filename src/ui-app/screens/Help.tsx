@@ -654,6 +654,15 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.54" date="January 22, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>New Pack: Grassland & Open Country:</strong> Added new 9-species pack featuring birds of grasslands, prairies, farmland, and field edges. Includes Indigo Bunting, Eastern Kingbird, Barn Swallow, Eastern Meadowlark, Dickcissel, Savannah Sparrow, Field Sparrow, Common Yellowthroat, and Yellow Warbler - 30 new audio clips and spectrograms.</li>
+              <li><strong>Species Icon Additions:</strong> Added bird icons for all 5 new grassland species (BARS, DICK, EAKI, EAME, INBU) - now available in Bird Reference and Custom Pack Builder.</li>
+              <li><strong>Yellow Warbler Addition:</strong> Added Yellow Warbler (YEWA) to spring_warblers pack alongside the new grassland pack - versatile species found in both habitats.</li>
+              <li><strong>Repository Cleanup:</strong> Removed temporary candidate folders from data directory (~13.6 MB) after clips were merged into game - cleaner project structure.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.53" date="January 22, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Pack Select Page Redesign:</strong> Moved Custom Pack Builder to top of page (above pack grid), made it collapsible with "See examples" link for cleaner layout while maintaining discoverability.</li>
