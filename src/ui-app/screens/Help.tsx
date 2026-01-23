@@ -277,7 +277,7 @@ function Help() {
             <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
               <span style={{ color: '#F5A623', fontSize: '16px', fontWeight: 'bold', flexShrink: 0 }}>+</span>
               <div>
-                <strong>Build Your Own Pack:</strong> You can combine any birds from the packs below into custom training sessions. Perfect for drilling problem birds, comparing confusing species, or creating regional lists!
+                <strong>Build Your Own Pack:</strong> You can combine any birds from the packs below into custom training sessions. Perfect for drilling problem birds, comparing confusing species, or creating and saving your yard list!
               </div>
             </div>
           </div>
