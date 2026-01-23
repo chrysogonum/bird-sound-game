@@ -740,6 +740,7 @@ function CustomPackBuilder() {
             // Simplify pack names for chips
             const shortName = pack.name
               .replace('Backyard Birds', 'Backyard')
+              .replace('Grassland & Open Country', 'Grassland')
               .replace('Eastern Birds', 'Eastern')
               .replace('Western Birds', 'Western')
               .replace('Warbler Academy', 'Warblers');
