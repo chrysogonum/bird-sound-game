@@ -734,27 +734,36 @@ function CustomPackBuilder() {
               whiteSpace: 'nowrap',
             }}
           >
-            All Birds
+            All
           </button>
-          {availablePacks.map(pack => (
-            <button
-              key={pack.id}
-              onClick={() => setSelectedPackFilter(pack.id)}
-              style={{
-                padding: '6px 12px',
-                background: selectedPackFilter === pack.id ? 'rgba(255, 152, 0, 0.2)' : 'var(--color-surface)',
-                border: selectedPackFilter === pack.id ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
-                borderRadius: '16px',
-                cursor: 'pointer',
-                fontSize: '12px',
-                fontWeight: selectedPackFilter === pack.id ? 600 : 400,
-                color: selectedPackFilter === pack.id ? 'var(--color-accent)' : 'var(--color-text)',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {pack.name}
-            </button>
-          ))}
+          {availablePacks.map(pack => {
+            // Simplify pack names for chips
+            const shortName = pack.name
+              .replace('Backyard Birds', 'Backyard')
+              .replace('Eastern Birds', 'Eastern')
+              .replace('Western Birds', 'Western')
+              .replace('Warbler Academy', 'Warblers');
+
+            return (
+              <button
+                key={pack.id}
+                onClick={() => setSelectedPackFilter(pack.id)}
+                style={{
+                  padding: '6px 12px',
+                  background: selectedPackFilter === pack.id ? 'rgba(255, 152, 0, 0.2)' : 'var(--color-surface)',
+                  border: selectedPackFilter === pack.id ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
+                  borderRadius: '16px',
+                  cursor: 'pointer',
+                  fontSize: '12px',
+                  fontWeight: selectedPackFilter === pack.id ? 600 : 400,
+                  color: selectedPackFilter === pack.id ? 'var(--color-accent)' : 'var(--color-text)',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {shortName}
+              </button>
+            );
+          })}
         </div>
       )}
 
@@ -899,13 +908,12 @@ function CustomPackBuilder() {
       <div style={{
         flex: 1,
         overflowY: 'auto',
-        marginBottom: '12px',
-        paddingBottom: selectedCodes.length > 0 ? '80px' : '0', // Space for sticky button
+        paddingBottom: selectedCodes.length > 0 ? '80px' : '12px', // Space for sticky button
       }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
-          gap: '8px',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))',
+          gap: '6px',
         }}>
           {filteredSpecies.map((species) => {
             const isSelected = selectedCodes.includes(species.code);
@@ -919,11 +927,11 @@ function CustomPackBuilder() {
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '6px',
-                  padding: '8px',
+                  gap: '4px',
+                  padding: '6px',
                   background: isSelected ? `${color}22` : 'var(--color-surface)',
                   border: isSelected ? `2px solid ${color}` : '1px solid transparent',
-                  borderRadius: '12px',
+                  borderRadius: '10px',
                   opacity: isSelected || selectedCodes.length < MAX_SPECIES ? 1 : 0.5,
                   transition: 'all 0.15s',
                   cursor: isSelected || selectedCodes.length < MAX_SPECIES ? 'pointer' : 'not-allowed',
@@ -943,9 +951,9 @@ function CustomPackBuilder() {
                       playPreview(species, e);
                     }}
                     style={{
-                      flex: '0 0 44px',
-                      width: '44px',
-                      height: '44px',
+                      flex: '0 0 36px',
+                      width: '36px',
+                      height: '36px',
                       borderRadius: '50%',
                       background: playingCode === species.code
                         ? 'rgba(255, 152, 0, 0.3)'
@@ -963,7 +971,7 @@ function CustomPackBuilder() {
                     {playingCode === species.code ? (
                       <StopIcon color="var(--color-accent)" />
                     ) : (
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--color-accent)">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--color-accent)">
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     )}
@@ -976,12 +984,12 @@ function CustomPackBuilder() {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      padding: '4px',
+                      padding: '2px',
                       position: 'relative',
                       pointerEvents: 'none', // Let clicks pass through to parent card
                     }}
                   >
-                    <BirdIcon code={species.code} size={48} />
+                    <BirdIcon code={species.code} size={40} />
 
                     {/* Selection checkmark */}
                     {isSelected && (
@@ -1006,8 +1014,8 @@ function CustomPackBuilder() {
                 {/* Species info */}
                 <div style={{ width: '100%', textAlign: 'center', pointerEvents: 'none' }}>
                   <div style={{
-                    fontSize: '12px',
-                    color: 'var(--color-text)',
+                    fontSize: '11px',
+                    color: '#ffffff',
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
@@ -1018,8 +1026,9 @@ function CustomPackBuilder() {
                   </div>
                   <div style={{
                     fontSize: '10px',
-                    color: 'var(--color-text-muted)',
+                    color: 'rgba(255, 255, 255, 0.7)',
                     marginTop: '2px',
+                    fontWeight: 600,
                   }}>
                     {species.code}
                   </div>
