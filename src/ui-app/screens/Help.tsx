@@ -287,24 +287,28 @@ function Help() {
             description="Perfect for beginners. 6 distinctive birds you'll hear in your own backyard: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
           />
           <PackInfo
+            name="Grassland & Open Country"
+            description="9 species of grasslands, prairies, farmland, and field edges: Barn Swallow (BARS), Common Yellowthroat (COYE), Dickcissel (DICK), Eastern Kingbird (EAKI), Eastern Meadowlark (EAME), Field Sparrow (FISP), Indigo Bunting (INBU), Savannah Sparrow (SAVS), and Yellow Warbler (YEWA)."
+          />
+          <PackInfo
             name="Eastern Birds"
             description="46 species from the eastern US. 9 birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
-          />
-          <PackInfo
-            name="Sparrows"
-            description="Master the subtle singers! 9 sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, Lincoln's, White-crowned, and House Sparrow."
-          />
-          <PackInfo
-            name="Woodpeckers"
-            description="Drums, rattles, and calls. 9 species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, Red-headed, Acorn, and Lewis's."
           />
           <PackInfo
             name="Western Birds"
             description="18 common species from western North America: Steller's Jay, California Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Cassin's Finch, Pine Siskin, Evening Grosbeak, and more."
           />
           <PackInfo
+            name="Woodpeckers"
+            description="Drums, rattles, and calls. 9 species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, Red-headed, Acorn, and Lewis's."
+          />
+          <PackInfo
+            name="Sparrows"
+            description="Master the subtle singers! 9 sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, Lincoln's, White-crowned, and House Sparrow."
+          />
+          <PackInfo
             name="Warbler Academy"
-            description="For experts! 33 wood-warbler species with their high-pitched, buzzy songs. 9 warblers are selected randomly—shuffle for a new set anytime."
+            description="For experts! 34 wood-warbler species with their high-pitched, buzzy songs. 9 warblers are selected randomly—shuffle for a new set anytime."
           />
           <p style={{ marginTop: '16px', fontSize: '13px', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
             There are 11,000 birds out there, so more are coming soon. Send your suggestions to{' '}
