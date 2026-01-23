@@ -625,7 +625,8 @@ def ingest_nz_birds(output_dir: str, species_filter: list = None, dry_run: bool 
                     'source': 'doc',
                     'source_id': f"DOC_{filename}_{idx + 1}" if len(results) > 1 else f"DOC_{filename}",
                     'file_path': result['file_path'],
-                    'quality_score': 4  # DOC recordings are high quality
+                    'quality_score': 4,  # DOC recordings are high quality
+                    'recordist': 'DOC NZ (Crown Copyright)'
                 })
 
         print()
