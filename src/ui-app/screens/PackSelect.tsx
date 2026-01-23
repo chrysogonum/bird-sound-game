@@ -55,7 +55,7 @@ const PACKS: Pack[] = [
   {
     id: 'grassland_birds',
     name: 'Grassland & Open Country',
-    speciesCount: 9,
+    speciesCount: 10,
     isUnlocked: true,
     description: 'From prairies to farmland: meadowlarks, buntings, and field singers.',
   },
@@ -69,7 +69,7 @@ const PACKS: Pack[] = [
   {
     id: 'western_birds',
     name: 'Western Birds',
-    speciesCount: 18,
+    speciesCount: 20,
     isUnlocked: true,
     description: 'Frequent flyers from the Pacific coast to the Rockies.',
   },
