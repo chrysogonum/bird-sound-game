@@ -31,3 +31,6 @@ coverage/
 # Rejected audio files
 **/clips-rejected/
 **/spectrograms-rejected/
+
+# Private documentation
+docs/private.docs/
