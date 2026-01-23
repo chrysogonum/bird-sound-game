@@ -2,6 +2,8 @@ Below is a **big, expandable list**, organized so you can tune rarity, tone, and
 
 Make harder sounds tied to funnier things (leaf blower, bigt turkey)
 
+Or, maybe it is just pink hearts
+
 ---
 
 ## 🌰 Harmless / Comic “Disturbances” (common, friendly)
