@@ -64,6 +64,10 @@
         "enum": ["macaulay", "xenocanto", "cornell", "demo", "user_recording", "doc"],
         "description": "Audio source"
       },
+      "recordist": {
+        "type": ["string", "null"],
+        "description": "Recordist or attribution credit for the audio"
+      },
       "source_id": {
         "type": "string",
         "description": "ID from the source database"

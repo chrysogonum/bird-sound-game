@@ -13,7 +13,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/AITE_auckland-island-teal-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "AITE_5aebd806",
@@ -29,7 +30,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/AITE_auckland-island-teal-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "AITE_37fe6796",
@@ -45,7 +47,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/AITE_auckland-island-teal-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ABIT_94d90d60",
@@ -61,7 +64,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ABIT_australasian-bittern_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ABIT_0d01faed",
@@ -77,7 +81,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ABIT_australasian-bittern_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ABIT_55249cf8",
@@ -93,7 +98,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ABIT_australasian-bittern_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ACGR_e0ede8cc",
@@ -109,7 +115,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ACGR_southern-crested-grebe-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ACGR_6eb4fb6f",
@@ -125,7 +132,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ACGR_southern-crested-grebe-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ACGR_4e7829b6",
@@ -141,7 +149,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ACGR_southern-crested-grebe-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_885dee00",
@@ -157,7 +166,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-06_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_e060a2c7",
@@ -173,7 +183,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-06_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_4e0f1804",
@@ -189,7 +200,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-06_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_70db8960",
@@ -205,7 +217,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-56_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_a734566d",
@@ -221,7 +234,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-56_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_15fff0d9",
@@ -237,7 +251,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-56_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_58ff31fd",
@@ -253,7 +268,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-04_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_12a99b0a",
@@ -269,7 +285,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-04_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BELL_9d3b763b",
@@ -285,7 +302,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BELL_bellbird-04_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BLST_b3b20cbc",
@@ -301,7 +319,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BLST_black-stilt_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BLST_215975ba",
@@ -317,7 +336,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BLST_black-stilt_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BLST_81d52e24",
@@ -333,7 +353,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BLST_black-stilt_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BLDU_8078aa8d",
@@ -349,7 +370,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BLDU_blue-duck_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BLDU_5babbd83",
@@ -365,7 +387,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BLDU_blue-duck_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BLDU_c819ba57",
@@ -381,7 +404,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BLDU_blue-duck_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIOY_b928704a",
@@ -397,7 +421,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIOY_chatham-island-oystercatcher-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIOY_01774f43",
@@ -413,7 +438,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIOY_chatham-island-oystercatcher-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIOY_a0ce8711",
@@ -429,7 +455,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIOY_chatham-island-oystercatcher-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIPI_9faa8a88",
@@ -445,7 +472,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIPI_chatham-island-pigeon_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIPI_a6de1b64",
@@ -461,7 +489,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIPI_chatham-island-pigeon_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIPI_e7dbc724",
@@ -477,7 +506,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIPI_chatham-island-pigeon_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CITU_49a01e60",
@@ -493,7 +523,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CITU_chatham-island-tui_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CITU_0b9f35fb",
@@ -509,7 +540,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CITU_chatham-island-tui_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CITU_496ca9c4",
@@ -525,7 +557,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CITU_chatham-island-tui_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIFA_6eb69e50",
@@ -541,7 +574,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIFA_chatham-island-fantail_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIFA_a405fba4",
@@ -557,7 +591,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIFA_chatham-island-fantail_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CIFA_ac104239",
@@ -573,7 +608,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CIFA_chatham-island-fantail_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIFA_da7c8db2",
@@ -589,7 +625,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIFA_fantail-02_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIFA_e62b1074",
@@ -605,7 +642,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIFA_fantail-02_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIFA_f0d229f8",
@@ -621,7 +659,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIFA_fantail-02_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIFA_ead88f90",
@@ -637,7 +676,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIFA_fantail-10_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIFA_5c8d172e",
@@ -653,7 +693,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIFA_fantail-10_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIFA_13318396",
@@ -669,7 +710,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIFA_fantail-10_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIFA_2958e29b",
@@ -685,7 +727,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIFA_south-island-fantail_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIFA_a816f1cd",
@@ -701,7 +744,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIFA_south-island-fantail_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIFA_4a1eeac1",
@@ -717,7 +761,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIFA_south-island-fantail_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "GRWA_8951aeb5",
@@ -733,7 +778,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/GRWA_grey-warbler-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "GRWA_28163742",
@@ -749,7 +795,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/GRWA_grey-warbler-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "GRWA_8a62f10f",
@@ -765,7 +812,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/GRWA_grey-warbler-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "HUSH_ac34af58",
@@ -781,7 +829,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/HUSH_huttons-shearwater_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "HUSH_f6724000",
@@ -797,7 +846,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/HUSH_huttons-shearwater_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "HUSH_fa62ac78",
@@ -813,7 +863,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/HUSH_huttons-shearwater_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIKA_8222a063",
@@ -829,7 +880,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIKA_north-island-kaka_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIKA_834cd4f9",
@@ -845,7 +897,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIKA_north-island-kaka_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIKA_cb49b0fe",
@@ -861,7 +914,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIKA_north-island-kaka_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIKA_f4d8aec0",
@@ -877,7 +931,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIKA_south-island-kaka_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIKA_c9a290f2",
@@ -893,7 +948,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIKA_south-island-kaka_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIKA_bdd1b8e7",
@@ -909,7 +965,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIKA_south-island-kaka_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_cb71c98a",
@@ -925,7 +982,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-18_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_d9e050a3",
@@ -941,7 +999,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-18_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_fb973713",
@@ -957,7 +1016,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-18_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_00e0231f",
@@ -973,7 +1033,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-bill-ching-1_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_43b2e494",
@@ -989,7 +1050,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-bill-ching-1_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_68cb761d",
@@ -1005,7 +1067,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-bill-ching-1_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_e284f74d",
@@ -1021,7 +1084,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-20_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_4b052899",
@@ -1037,7 +1101,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-20_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_f8683a1c",
@@ -1053,7 +1118,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-20_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_5da712f2",
@@ -1069,7 +1135,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-26_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_32e0d9a2",
@@ -1085,7 +1152,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-26_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KAKA_c54c7bf6",
@@ -1101,7 +1169,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KAKA_kakapo-26_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KEAX_a65ca23b",
@@ -1117,7 +1186,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KEAX_kea-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KEAX_30fce2e1",
@@ -1133,7 +1203,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KEAX_kea-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KEAX_5435e48f",
@@ -1149,7 +1220,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KEAX_kea-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIBK_26d009d9",
@@ -1165,7 +1237,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIBK_male-ni-brown-kiwi_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIBK_4f8d310f",
@@ -1181,7 +1254,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIBK_male-ni-brown-kiwi_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIBK_b1ec8b3e",
@@ -1197,7 +1271,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIBK_male-ni-brown-kiwi_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIBK_e7908eef",
@@ -1213,7 +1288,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIBK_female-ni-brown-kiwi_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIBK_04da1180",
@@ -1229,7 +1305,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIBK_female-ni-brown-kiwi_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIBK_fba6ea34",
@@ -1245,7 +1322,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIBK_female-ni-brown-kiwi_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KOKA_3ab33a1b",
@@ -1261,7 +1339,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KOKA_kokako-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KOKA_e65d9ef8",
@@ -1277,7 +1356,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KOKA_kokako-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KOKA_b953489e",
@@ -1293,7 +1373,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KOKA_kokako-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KOKA_6889e6e0",
@@ -1309,7 +1390,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KOKA_kokako-song-12_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KOKA_3b898737",
@@ -1325,7 +1407,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KOKA_kokako-song-12_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KOKA_d842618a",
@@ -1341,7 +1424,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KOKA_kokako-song-12_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "MORU_0759e653",
@@ -1357,7 +1441,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/MORU_morepork-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "MORU_bb118e89",
@@ -1373,7 +1458,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/MORU_morepork-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "MORU_1d572531",
@@ -1389,7 +1475,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/MORU_morepork-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZDO_7e009c2e",
@@ -1405,7 +1492,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZDO_nz-dotterel-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZDO_986b9d80",
@@ -1421,7 +1509,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZDO_nz-dotterel-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZDO_e6a56b79",
@@ -1437,7 +1526,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZDO_nz-dotterel-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KERE_b15bab5a",
@@ -1453,7 +1543,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KERE_nz-pigeon-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KERE_23934582",
@@ -1469,7 +1560,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KERE_nz-pigeon-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "KERE_1db56ebf",
@@ -1485,7 +1577,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/KERE_nz-pigeon-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZFA_c2306d00",
@@ -1501,7 +1594,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZFA_nz-falcon-song-10_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZFA_7da36783",
@@ -1517,7 +1611,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZFA_nz-falcon-song-10_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZFA_94289b88",
@@ -1533,7 +1628,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZFA_nz-falcon-song-10_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZFA_96b2f059",
@@ -1549,7 +1645,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZFA_nz-falcon-song-12_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZFA_c21a3e18",
@@ -1565,7 +1662,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZFA_nz-falcon-song-12_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NZFA_1ad9a1c7",
@@ -1581,7 +1679,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NZFA_nz-falcon-song-12_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "RCPA_822e8004",
@@ -1597,7 +1696,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/RCPA_red-crowned-parakeet-song-4_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "RCPA_359a2783",
@@ -1613,7 +1713,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/RCPA_red-crowned-parakeet-song-4_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "RCPA_721148e6",
@@ -1629,7 +1730,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/RCPA_red-crowned-parakeet-song-4_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "RCPA_7657f73e",
@@ -1645,7 +1747,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/RCPA_red-crowned-parakeet-song-8_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "RCPA_3ebe49c8",
@@ -1661,7 +1764,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/RCPA_red-crowned-parakeet-song-8_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "RCPA_cae46cfe",
@@ -1677,7 +1781,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/RCPA_red-crowned-parakeet-song-8_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "OFPA_f09c5445",
@@ -1693,7 +1798,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/OFPA_orange-fronted-parakeet-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "OFPA_b4fd6245",
@@ -1709,7 +1815,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/OFPA_orange-fronted-parakeet-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "OFPA_530fea60",
@@ -1725,7 +1832,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/OFPA_orange-fronted-parakeet-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIRO_fedf8681",
@@ -1741,7 +1849,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIRO_south-island-robin-song-48_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIRO_030bbb9b",
@@ -1757,7 +1866,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIRO_south-island-robin-song-48_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SIRO_3d0f66a6",
@@ -1773,7 +1883,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SIRO_south-island-robin-song-48_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIRO_b9a66fb5",
@@ -1789,7 +1900,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIRO_north-island-robin-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIRO_1a66598a",
@@ -1805,7 +1917,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIRO_north-island-robin-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIRO_5196bd54",
@@ -1821,7 +1934,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIRO_north-island-robin-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "PADU_c4a2bd84",
@@ -1837,7 +1951,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/PADU_paradise-duck-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "PADU_11d2adde",
@@ -1853,7 +1968,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/PADU_paradise-duck-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "PADU_179e0ef7",
@@ -1869,7 +1985,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/PADU_paradise-duck-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ROWR_c8c90f1c",
@@ -1885,7 +2002,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ROWR_rock-wren-contact-call.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ROWR_6fc63be3",
@@ -1901,7 +2019,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ROWR_rock-wren-chicks-begging_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ROWR_1ed4c7e0",
@@ -1917,7 +2036,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ROWR_rock-wren-chicks-begging_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "ROWR_4245966d",
@@ -1933,7 +2053,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/ROWR_rock-wren-chicks-begging_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NISA_d7b8961d",
@@ -1949,7 +2070,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NISA_north-island-saddleback-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NISA_6f796b20",
@@ -1965,7 +2087,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NISA_north-island-saddleback-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NISA_8b1bbd6c",
@@ -1981,7 +2104,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NISA_north-island-saddleback-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SISA_4e635a79",
@@ -1997,7 +2121,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SISA_south-island-saddleback-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SISA_fbd27df3",
@@ -2013,7 +2138,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SISA_south-island-saddleback-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SISA_2abc2609",
@@ -2029,7 +2155,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SISA_south-island-saddleback-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SILV_d505bdd9",
@@ -2045,7 +2172,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SILV_silvereye-song-22sy_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SILV_7a0a56a9",
@@ -2061,7 +2189,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SILV_silvereye-song-22sy_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SILV_109fade4",
@@ -2077,7 +2206,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SILV_silvereye-song-22sy_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "HIHI_eba26202",
@@ -2093,7 +2223,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/HIHI_stitchbird-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "HIHI_4b0c1772",
@@ -2109,7 +2240,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/HIHI_stitchbird-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "HIHI_daf2cee0",
@@ -2125,7 +2257,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/HIHI_stitchbird-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TAKA_a0ba3c62",
@@ -2141,7 +2274,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TAKA_takahe-song-10_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TAKA_3559ab12",
@@ -2157,7 +2291,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TAKA_takahe-song-10_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TAKA_8bac8aa7",
@@ -2173,7 +2308,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TAKA_takahe-song-10_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TAKA_2382aeec",
@@ -2189,7 +2325,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TAKA_takahe-song-12_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TAKA_0b8d3d1f",
@@ -2205,7 +2342,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TAKA_takahe-song-12_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TAKA_8231e253",
@@ -2221,7 +2359,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TAKA_takahe-song-12_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CITO_2f91128a",
@@ -2237,7 +2376,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CITO_chatham-island-tomtit-song-32ci_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CITO_e08c4e34",
@@ -2253,7 +2393,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CITO_chatham-island-tomtit-song-32ci_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "CITO_0e6c3387",
@@ -2269,7 +2410,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/CITO_chatham-island-tomtit-song-32ci_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NITO_acf5df57",
@@ -2285,7 +2427,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NITO_north-island-tomtit-song-18ni_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NITO_d98ff25d",
@@ -2301,7 +2444,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NITO_north-island-tomtit-song-18ni_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NITO_3b7a7dc2",
@@ -2317,7 +2461,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NITO_north-island-tomtit-song-18ni_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SITO_ffcc4bd9",
@@ -2333,7 +2478,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SITO_south-island-tomtit-song-24yb_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SITO_e702d5d6",
@@ -2349,7 +2495,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SITO_south-island-tomtit-song-24yb_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "SITO_87ca702e",
@@ -2365,7 +2512,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/SITO_south-island-tomtit-song-24yb_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TUIX_d2959dd0",
@@ -2381,7 +2529,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TUIX_tui-song-42_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TUIX_9a0b61fb",
@@ -2397,7 +2546,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TUIX_tui-song-42_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TUIX_93a25abd",
@@ -2413,7 +2563,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TUIX_tui-song-42_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TUIX_fc70edaa",
@@ -2429,7 +2580,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TUIX_tui-song-50_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TUIX_c3d25d21",
@@ -2445,7 +2597,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TUIX_tui-song-50_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "TUIX_86b656d1",
@@ -2461,7 +2614,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/TUIX_tui-song-50_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BUWE_52f7d666",
@@ -2477,7 +2631,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BUWE_buff-weka-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BUWE_58bdc5d3",
@@ -2493,7 +2648,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BUWE_buff-weka-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "BUWE_de5207df",
@@ -2509,7 +2665,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/BUWE_buff-weka-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIWE_f4f8faa6",
@@ -2525,7 +2682,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIWE_north-island-weka-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIWE_6c96bbc5",
@@ -2541,7 +2699,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIWE_north-island-weka-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "NIWE_d8f6f46e",
@@ -2557,7 +2716,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/NIWE_north-island-weka-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WEWE_e6a33261",
@@ -2573,7 +2733,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WEWE_western-weka-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WEWE_dcb5f811",
@@ -2589,7 +2750,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WEWE_western-weka-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WEWE_aa68f2a1",
@@ -2605,7 +2767,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WEWE_western-weka-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WLPE_a7780bbb",
@@ -2621,7 +2784,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WLPE_westland-black-petrel-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WLPE_eb85b5d5",
@@ -2637,7 +2801,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WLPE_westland-black-petrel-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WLPE_8c56a9ef",
@@ -2653,7 +2818,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WLPE_westland-black-petrel-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHHE_d11dd345",
@@ -2669,7 +2835,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHHE_white-heron-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHHE_4e0cbfc1",
@@ -2685,7 +2852,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHHE_white-heron-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHHE_c04fdfd7",
@@ -2701,7 +2869,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHHE_white-heron-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHIT_945e05c4",
@@ -2717,7 +2886,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHIT_whitehead-song-56_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHIT_0b0c7737",
@@ -2733,7 +2903,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHIT_whitehead-song-56_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHIT_3f35dd05",
@@ -2749,7 +2920,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHIT_whitehead-song-56_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHIT_7c8a3d5a",
@@ -2765,7 +2937,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHIT_whitehead-territorial-call-male-60_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHIT_f0e51bd4",
@@ -2781,7 +2954,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHIT_whitehead-territorial-call-male-60_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "WHIT_60af6f30",
@@ -2797,7 +2971,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/WHIT_whitehead-territorial-call-male-60_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "YEPE_0485a779",
@@ -2813,7 +2988,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/YEPE_yellow-eyed-penguin_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "YEPE_c32d138b",
@@ -2829,7 +3005,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/YEPE_yellow-eyed-penguin_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "YEPE_504a1c9a",
@@ -2845,7 +3022,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/YEPE_yellow-eyed-penguin_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "MOHU_ab1bff87",
@@ -2861,7 +3039,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/MOHU_yellowhead-song_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "MOHU_31f5c540",
@@ -2877,7 +3056,8 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/MOHU_yellowhead-song_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   },
   {
     "clip_id": "MOHU_c6d54377",
@@ -2893,6 +3073,7 @@
     "quality_score": 4,
     "spectrogram_path": "data/spectrograms-nz/MOHU_yellowhead-song_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "recordist": "DOC NZ (Crown Copyright)"
   }
 ]
