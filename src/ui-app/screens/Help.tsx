@@ -643,8 +643,8 @@ function Help() {
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
                 <li><strong>🎉 100+ Species!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
-                <li><strong>New Pack: Grassland & Open Country</strong> – 9 species of grasslands, prairies, and farmland including Eastern Meadowlark, Dickcissel, and Indigo Bunting</li>
-                <li><strong>Western Birds Pack Expansion</strong> – Expanded from 14 to 18 species including Wrentit, Spotted Towhee, Western Bluebird, and Acorn Woodpecker</li>
+                <li><strong>New Pack: Grassland & Open Country</strong> – 10 species of grasslands, prairies, and farmland including Eastern Meadowlark, Dickcissel, Red-winged Blackbird, and Indigo Bunting</li>
+                <li><strong>Western Birds Pack Expansion</strong> – Expanded from 14 to 20 species including Wrentit, Spotted Towhee, Common Grackle, and Dark-eyed Junco</li>
                 <li><strong>Woodpeckers Pack Expansion</strong> – Added Acorn Woodpecker and Lewis's Woodpecker, growing the pack from 7 to 9 species</li>
                 <li><strong>Eastern Birds Pack</strong> – Grew from 40 to 46 species with flycatchers, vireos, and Dark-eyed Junco</li>
                 <li><strong>Taxonomic Sorting</strong> – Find and play birds based on how they're related to each other</li>
@@ -659,11 +659,14 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
-          <VersionEntry version="3.54" date="January 22, 2026">
+          <VersionEntry version="3.54" date="January 23, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>New Pack: Grassland & Open Country:</strong> Added new 9-species pack featuring birds of grasslands, prairies, farmland, and field edges. Includes Indigo Bunting, Eastern Kingbird, Barn Swallow, Eastern Meadowlark, Dickcissel, Savannah Sparrow, Field Sparrow, Common Yellowthroat, and Yellow Warbler - 30 new audio clips and spectrograms.</li>
+              <li><strong>New Pack: Grassland & Open Country:</strong> Added new 10-species pack featuring birds of grasslands, prairies, farmland, and field edges. Includes Indigo Bunting, Eastern Kingbird, Barn Swallow, Eastern Meadowlark, Dickcissel, Red-winged Blackbird, Savannah Sparrow, Field Sparrow, Common Yellowthroat, and Yellow Warbler - 30 new audio clips and spectrograms.</li>
+              <li><strong>Pack Curation Improvements:</strong> Added Red-winged Blackbird to Grassland pack (iconic grassland/wetland species). Added Common Grackle and Dark-eyed Junco to Western Birds pack (common transcontinental species). Western Birds pack expanded from 18 to 20 species.</li>
               <li><strong>Species Icon Additions:</strong> Added bird icons for all 5 new grassland species (BARS, DICK, EAKI, EAME, INBU) - now available in Bird Reference and Custom Pack Builder.</li>
-              <li><strong>Yellow Warbler Addition:</strong> Added Yellow Warbler (YEWA) to spring_warblers pack alongside the new grassland pack - versatile species found in both habitats.</li>
+              <li><strong>Yellow Warbler Addition:</strong> Added Yellow Warbler (YEWA) to Warbler Academy pack alongside the new grassland pack - versatile species found in both habitats.</li>
+              <li><strong>Common Yellowthroat Canonical Update:</strong> Changed signature clip from XC1013902 to XC1021804 for improved audio quality.</li>
+              <li><strong>Help Page Enhancements:</strong> Added link to Carolina Bird Club's 4-letter code article in "The 4-Letter Codes" section explaining code collisions and exceptions. Updated Custom Pack Builder callout to emphasize "creating and saving your yard list" use case. Made Backyard Birds description more inclusive ("around your neighborhood" vs "in your own backyard").</li>
               <li><strong>Repository Cleanup:</strong> Removed temporary candidate folders from data directory (~13.6 MB) after clips were merged into game - cleaner project structure.</li>
             </ul>
           </VersionEntry>
