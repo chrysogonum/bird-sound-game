@@ -660,6 +660,12 @@ function Help() {
               <li><strong>Sound Library Branding:</strong> Unified Sound Library icon to 🎧📚 (headphones + books) across all screens - appears in Pack Select header, Level Select, and Ready to Play screens for consistent visual identity.</li>
               <li><strong>Level Select Cleanup:</strong> Simplified header by moving Sound Library link to icon-only button positioned near Home icon, removed redundant text for cleaner interface.</li>
               <li><strong>Pack Select Flow:</strong> Removed redundant scroll hint below packs (already mentioned in intro bullets), streamlined page flow from intro → Custom Pack → packs → Sound Library.</li>
+              <li><strong>Pack Select Intro:</strong> Refined "young Grasshopper" joke bullet point with SAVS sparrow icon for better visibility and clearer birding reference (Grasshopper Sparrow species).</li>
+              <li><strong>Custom Pack Builder Pack Filters:</strong> Added pack-based filtering chips (All Birds, Backyard, Eastern, Sparrows, Warblers, Woodpeckers, Western) above search bar. Click any pack to filter species grid to only birds in that pack. Combines with text search for powerful filtering like "all warblers with 'yellow' in name". Fully dynamic - auto-updates when pack definitions change.</li>
+              <li><strong>Version Navigation:</strong> Clicking version number on main menu now navigates to Recent Updates section instead of auto-expanding Full Version History - better UX for discovering latest features.</li>
+              <li><strong>Recent Updates Header:</strong> Simplified to just "🎯 Recent Updates" without version range for cleaner presentation.</li>
+              <li><strong>Analytics Tracking:</strong> Added Google Analytics tracking for Ko-fi donation link clicks, GitHub repository link clicks, and GitHub Issues link clicks to understand external link engagement and donation funnel.</li>
+              <li><strong>Open Source Transparency:</strong> Added clickable GitHub repository links to "open source" mentions in Help and Settings pages for easy access to source code.</li>
             </ul>
           </VersionEntry>
 
