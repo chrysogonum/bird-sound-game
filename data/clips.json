@@ -8257,23 +8257,6 @@
     "spectrogram_path": "data/spectrograms/DICK_936318.png"
   },
   {
-    "clip_id": "YEWA_746ddb61",
-    "species_code": "YEWA",
-    "common_name": "Yellow Warbler",
-    "file_path": "data/clips/YEWA_1046365.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1046365",
-    "source_url": "https://xeno-canto.org/1046365",
-    "recordist": "AUDEVARD Aur\u00e9lien",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/YEWA_1046365.png"
-  },
-  {
     "clip_id": "YEWA_1fca854f",
     "species_code": "YEWA",
     "common_name": "Yellow Warbler",
@@ -8286,26 +8269,9 @@
     "source_id": "XC1046364",
     "source_url": "https://xeno-canto.org/1046364",
     "recordist": "AUDEVARD Aur\u00e9lien",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YEWA_1046364.png"
-  },
-  {
-    "clip_id": "YEWA_94182bc7",
-    "species_code": "YEWA",
-    "common_name": "Yellow Warbler",
-    "file_path": "data/clips/YEWA_1046363.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1046363",
-    "source_url": "https://xeno-canto.org/1046363",
-    "recordist": "AUDEVARD Aur\u00e9lien",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/YEWA_1046363.png"
   },
   {
     "clip_id": "YEWA_32a4eafd",
@@ -8323,22 +8289,5 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/YEWA_1046362.png"
-  },
-  {
-    "clip_id": "YEWA_041a18c1",
-    "species_code": "YEWA",
-    "common_name": "Yellow Warbler",
-    "file_path": "data/clips/YEWA_1019374.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1019374",
-    "source_url": "https://xeno-canto.org/1019374",
-    "recordist": "Valerie Karasatra",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/YEWA_1019374.png"
   }
 ]
