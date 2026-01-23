@@ -167,7 +167,7 @@ function PackSelect() {
 
   // Load pack species from JSON files (single source of truth)
   useEffect(() => {
-    const packIds = ['starter_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds'];
+    const packIds = ['starter_birds', 'grassland_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds'];
 
     Promise.all(
       packIds.map((id) =>
