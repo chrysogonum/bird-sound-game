@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainMenu from './screens/MainMenu';
 import PackSelect from './screens/PackSelect';
@@ -12,9 +13,43 @@ import Help from './screens/Help';
 import Privacy from './screens/Privacy';
 import CookieConsent from './components/CookieConsent';
 
+// Tablet scaling: use CSS zoom to make everything larger
+const TABLET_ZOOM = 1.4;
+const TABLET_MIN_WIDTH = 768;
+
 function App() {
+  const [zoom, setZoom] = useState(1);
+
+  useEffect(() => {
+    const updateZoom = () => {
+      const width = window.innerWidth;
+      if (width >= TABLET_MIN_WIDTH) {
+        setZoom(TABLET_ZOOM);
+      } else {
+        setZoom(1);
+      }
+    };
+
+    updateZoom();
+    window.addEventListener('resize', updateZoom);
+    return () => window.removeEventListener('resize', updateZoom);
+  }, []);
+
+  // Apply zoom to the root element via CSS
+  useEffect(() => {
+    document.documentElement.style.fontSize = `${16 * zoom}px`;
+    return () => {
+      document.documentElement.style.fontSize = '16px';
+    };
+  }, [zoom]);
+
   return (
-    <>
+    <div style={{
+      zoom: zoom,
+      width: '100%',
+      height: '100%',
+      overflow: 'auto',
+    }}>
       <Routes>
         <Route path="/" element={<MainMenu />} />
         <Route path="/pack-select" element={<PackSelect />} />
@@ -29,7 +64,7 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
       </Routes>
       <CookieConsent />
-    </>
+    </div>
   );
 }
 
