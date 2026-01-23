@@ -8,12 +8,15 @@ Source: https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls
 License: Crown Copyright - FREE to use commercially with attribution
 Attribution: "Department of Conservation (NZ)"
 
+Species codes: Uses official eBird 6-character codes from eBird/Clements v2025.
+Display: First 4 characters of code shown on icons.
+
 Usage:
     # Download and process all NZ birds (to main clips directory)
     python nz_ingest.py --output data/clips
 
     # Process specific species only
-    python nz_ingest.py --output data/clips --species TUIX BELL MORU
+    python nz_ingest.py --output data/clips --species tui1 nezbel1 morepo2
 
     # Dry run (show what would be downloaded)
     python nz_ingest.py --output data/clips --dry-run
@@ -55,28 +58,29 @@ OUTPUT_SAMPLE_RATE = 44100
 DOC_BASE_URL = "https://www.doc.govt.nz"
 
 # Complete NZ bird species catalog from DOC
-# Format: code -> {common_name, maori_name (optional), files: [{url, voc_type}]}
+# Uses official eBird 6-character codes from eBird/Clements v2025 taxonomy
+# Format: ebird_code -> {common_name, maori_name (optional), files: [{url, voc_type}]}
 NZ_SPECIES = {
-    "AITE": {
-        "common_name": "Auckland Island Teal",
+    "auitea1": {
+        "common_name": "Auckland Islands Teal",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/auckland-island-teal-song.mp3", "voc_type": "call"}
         ]
     },
-    "ABIT": {
+    "ausbit1": {
         "common_name": "Australasian Bittern",
-        "maori_name": "Matuku-hurepo",
+        "maori_name": "Matuku-hūrepo",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/australasian-bittern.mp3", "voc_type": "call"}
         ]
     },
-    "ACGR": {
+    "grcgre1": {
         "common_name": "Australasian Crested Grebe",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/southern-crested-grebe-song.mp3", "voc_type": "call"}
         ]
     },
-    "BELL": {
+    "nezbel1": {
         "common_name": "Bellbird",
         "maori_name": "Korimako",
         "files": [
@@ -85,92 +89,76 @@ NZ_SPECIES = {
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/bellbird-04.mp3", "voc_type": "call"}
         ]
     },
-    "BLST": {
+    "blasti1": {
         "common_name": "Black Stilt",
-        "maori_name": "Kaki",
+        "maori_name": "Kakī",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/black-stilt.mp3", "voc_type": "call"}
         ]
     },
-    "BLDU": {
+    "bluduc1": {
         "common_name": "Blue Duck",
         "maori_name": "Whio",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/blue-duck.mp3", "voc_type": "call"}
         ]
     },
-    "CIOY": {
-        "common_name": "Chatham Island Oystercatcher",
-        "maori_name": "Torea",
+    "chaoys1": {
+        "common_name": "Chatham Islands Oystercatcher",
+        "maori_name": "Tōrea",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/chatham-island-oystercatcher-song.mp3", "voc_type": "call"}
         ]
     },
-    "CIPI": {
-        "common_name": "Chatham Island Pigeon",
+    "nezpig3": {
+        "common_name": "Chatham Islands Pigeon",
         "maori_name": "Parea",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/chatham-island-pigeon.mp3", "voc_type": "call"}
         ]
     },
-    "CITU": {
-        "common_name": "Chatham Island Tui",
+    # Note: Chatham Island Tui is subspecies of tui1, using tui1 for all Tui
+    # Note: Chatham Island Fantail is subspecies of nezfan1, using nezfan1 for all Fantails
+    "nezfan1": {
+        "common_name": "New Zealand Fantail",
+        "maori_name": "Pīwakawaka",
         "files": [
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/chatham-island-tui.mp3", "voc_type": "song"}
-        ]
-    },
-    "CIFA": {
-        "common_name": "Chatham Island Fantail",
-        "files": [
+            # North Island Fantail recordings
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/fantail-02.mp3", "voc_type": "song"},
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/fantail-10.mp3", "voc_type": "call"},
+            # South Island Fantail recording
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/south-island-fantail.mp3", "voc_type": "song"},
+            # Chatham Island Fantail recording
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/chatham-island-fantail.mp3", "voc_type": "song"}
         ]
     },
-    "NIFA": {
-        "common_name": "North Island Fantail",
-        "maori_name": "Piwakawaka",
-        "files": [
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/fantail-02.mp3", "voc_type": "song"},
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/fantail-10.mp3", "voc_type": "call"}
-        ]
-    },
-    "SIFA": {
-        "common_name": "South Island Fantail",
-        "maori_name": "Piwakawaka",
-        "files": [
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/south-island-fantail.mp3", "voc_type": "song"}
-        ]
-    },
-    "GRWA": {
+    "gryger1": {
         "common_name": "Grey Warbler",
         "maori_name": "Riroriro",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/grey-warbler-song.mp3", "voc_type": "song"}
         ]
     },
-    "HUSH": {
+    "hutshe1": {
         "common_name": "Hutton's Shearwater",
-        "maori_name": "Titi",
+        "maori_name": "Tītī",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/huttons-shearwater.mp3", "voc_type": "call"}
         ]
     },
-    "NIKA": {
-        "common_name": "North Island Kaka",
-        "maori_name": "Kaka",
+    "nezkak1": {
+        "common_name": "New Zealand Kākā",
+        "maori_name": "Kākā",
         "files": [
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/north-island-kaka.mp3", "voc_type": "call"}
-        ]
-    },
-    "SIKA": {
-        "common_name": "South Island Kaka",
-        "maori_name": "Kaka",
-        "files": [
+            # North Island Kaka recording
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/north-island-kaka.mp3", "voc_type": "call"},
+            # South Island Kaka recording
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/south-island-kaka.mp3", "voc_type": "call"}
         ]
     },
-    "KAKA": {
-        "common_name": "Kakapo",
-        "maori_name": "Kakapo",
+    "kakapo2": {
+        "common_name": "Kākāpō",
+        "maori_name": "Kākāpō",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/kakapo-18.mp3", "voc_type": "call"},
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/kakapo-bill-ching-1.mp3", "voc_type": "call"},
@@ -178,13 +166,13 @@ NZ_SPECIES = {
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/kakapo-26.mp3", "voc_type": "song"}
         ]
     },
-    "KEAX": {
+    "kea1": {
         "common_name": "Kea",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/kea-song.mp3", "voc_type": "call"}
         ]
     },
-    "NIBK": {
+    "nibkiw1": {
         "common_name": "North Island Brown Kiwi",
         "maori_name": "Kiwi",
         "files": [
@@ -192,201 +180,189 @@ NZ_SPECIES = {
             {"url": "/globalassets/documents/conservation/native-animals/birds/kiwi-cd/female-ni-brown-kiwi.mp3", "voc_type": "call"}
         ]
     },
-    "KOKA": {
-        "common_name": "Kokako",
-        "maori_name": "Kokako",
+    "kokako3": {
+        "common_name": "Kōkako",
+        "maori_name": "Kōkako",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/kokako-song.mp3", "voc_type": "song"},
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/kokako-song-12.mp3", "voc_type": "song"}
         ]
     },
-    "MORU": {
+    "morepo2": {
         "common_name": "Morepork",
         "maori_name": "Ruru",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/morepork-song.mp3", "voc_type": "call"}
         ]
     },
-    "NZDO": {
+    "rebdot1": {
         "common_name": "New Zealand Dotterel",
-        "maori_name": "Tuturiwhatu",
+        "maori_name": "Tūturiwhatu",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/nz-dotterel-song.mp3", "voc_type": "call"}
         ]
     },
-    "KERE": {
-        "common_name": "Kereru",
-        "maori_name": "Kereru",
+    "nezpig2": {
+        "common_name": "Kererū",
+        "maori_name": "Kererū",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/nz-pigeon-song.mp3", "voc_type": "call"}
         ]
     },
-    "NZFA": {
+    "nezfal1": {
         "common_name": "New Zealand Falcon",
-        "maori_name": "Karearea",
+        "maori_name": "Kārearea",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/nz-falcon-song-10.mp3", "voc_type": "call"},
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/nz-falcon-song-12.mp3", "voc_type": "call"}
         ]
     },
-    "RCPA": {
+    "refpar4": {
         "common_name": "Red-crowned Parakeet",
-        "maori_name": "Kakariki",
+        "maori_name": "Kākāriki",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/red-crowned-parakeet-song-4.mp3", "voc_type": "call"},
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/red-crowned-parakeet-song-8.mp3", "voc_type": "call"}
         ]
     },
-    "OFPA": {
+    "malpar2": {
         "common_name": "Orange-fronted Parakeet",
-        "maori_name": "Kakariki",
+        "maori_name": "Kākāriki",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/orange-fronted-parakeet-song.mp3", "voc_type": "call"}
         ]
     },
-    "SIRO": {
+    "nezrob3": {
         "common_name": "South Island Robin",
         "maori_name": "Toutouwai",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/south-island-robin-song-48.mp3", "voc_type": "song"}
         ]
     },
-    "NIRO": {
+    "nezrob2": {
         "common_name": "North Island Robin",
         "maori_name": "Toutouwai",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/north-island-robin-song.mp3", "voc_type": "song"}
         ]
     },
-    "PADU": {
-        "common_name": "Paradise Duck",
-        "maori_name": "Putangitangi",
+    "parshe1": {
+        "common_name": "Paradise Shelduck",
+        "maori_name": "Pūtangitangi",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/paradise-duck-song.mp3", "voc_type": "call"}
         ]
     },
-    "ROWR": {
+    "soiwre1": {
         "common_name": "Rock Wren",
+        "maori_name": "Pīwauwau",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/rock-wren-contact-call.mp3", "voc_type": "call"},
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/rock-wren-chicks-begging.mp3", "voc_type": "call"}
         ]
     },
-    "NISA": {
+    "saddle2": {
         "common_name": "North Island Saddleback",
-        "maori_name": "Tieke",
+        "maori_name": "Tīeke",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/north-island-saddleback-song.mp3", "voc_type": "song"}
         ]
     },
-    "SISA": {
+    "saddle3": {
         "common_name": "South Island Saddleback",
-        "maori_name": "Tieke",
+        "maori_name": "Tīeke",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/south-island-saddleback-song.mp3", "voc_type": "song"}
         ]
     },
-    "SILV": {
+    "silver3": {
         "common_name": "Silvereye",
         "maori_name": "Tauhou",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/silvereye-song-22sy.mp3", "voc_type": "song"}
         ]
     },
-    "HIHI": {
+    "stitch1": {
         "common_name": "Hihi",
         "maori_name": "Stitchbird",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/stitchbird-song.mp3", "voc_type": "song"}
         ]
     },
-    "TAKA": {
-        "common_name": "Takahe",
-        "maori_name": "Takahe",
+    "takahe3": {
+        "common_name": "Takahē",
+        "maori_name": "Takahē",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/takahe-song-10.mp3", "voc_type": "call"},
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/takahe-song-12.mp3", "voc_type": "call"}
         ]
     },
-    "CITO": {
-        "common_name": "Chatham Island Tomtit",
+    # Tomtit is single species with subspecies - using tomtit1 for all
+    "tomtit1": {
+        "common_name": "Tomtit",
+        "maori_name": "Miromiro",
         "files": [
+            # North Island Tomtit
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/north-island-tomtit-song-18ni.mp3", "voc_type": "song"},
+            # South Island Tomtit
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/south-island-tomtit-song-24yb.mp3", "voc_type": "song"},
+            # Chatham Island Tomtit
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/chatham-island-tomtit-song-32ci.mp3", "voc_type": "song"}
         ]
     },
-    "NITO": {
-        "common_name": "North Island Tomtit",
-        "maori_name": "Miromiro",
-        "files": [
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/north-island-tomtit-song-18ni.mp3", "voc_type": "song"}
-        ]
-    },
-    "SITO": {
-        "common_name": "South Island Tomtit",
-        "maori_name": "Miromiro",
-        "files": [
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/south-island-tomtit-song-24yb.mp3", "voc_type": "song"}
-        ]
-    },
-    "TUIX": {
-        "common_name": "Tui",
-        "maori_name": "Tui",
+    "tui1": {
+        "common_name": "Tūī",
+        "maori_name": "Tūī",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/tui-song-42.mp3", "voc_type": "song"},
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/tui-song-50.mp3", "voc_type": "song"}
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/tui-song-50.mp3", "voc_type": "song"},
+            # Chatham Island Tui (subspecies)
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/chatham-island-tui.mp3", "voc_type": "song"}
         ]
     },
-    "BUWE": {
-        "common_name": "Buff Weka",
+    # Weka is single species with subspecies - using weka1 for all
+    "weka1": {
+        "common_name": "Weka",
         "maori_name": "Weka",
         "files": [
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/buff-weka-song.mp3", "voc_type": "call"}
-        ]
-    },
-    "NIWE": {
-        "common_name": "North Island Weka",
-        "maori_name": "Weka",
-        "files": [
-            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/north-island-weka-song.mp3", "voc_type": "call"}
-        ]
-    },
-    "WEWE": {
-        "common_name": "Western Weka",
-        "maori_name": "Weka",
-        "files": [
+            # Buff Weka
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/buff-weka-song.mp3", "voc_type": "call"},
+            # North Island Weka
+            {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/north-island-weka-song.mp3", "voc_type": "call"},
+            # Western Weka
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/western-weka-song.mp3", "voc_type": "call"}
         ]
     },
-    "WLPE": {
+    "wespet1": {
         "common_name": "Westland Petrel",
-        "maori_name": "Taiko",
+        "maori_name": "Tāiko",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/westland-black-petrel-song.mp3", "voc_type": "call"}
         ]
     },
-    "WHHE": {
+    "greegr": {
         "common_name": "White Heron",
-        "maori_name": "Kotuku",
+        "maori_name": "Kōtuku",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/white-heron-song.mp3", "voc_type": "call"}
         ]
     },
-    "WHIT": {
+    "whiteh1": {
         "common_name": "Whitehead",
-        "maori_name": "Popokotea",
+        "maori_name": "Pōpokotea",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/whitehead-song-56.mp3", "voc_type": "song"},
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/whitehead-territorial-call-male-60.mp3", "voc_type": "call"}
         ]
     },
-    "YEPE": {
+    "yeepen1": {
         "common_name": "Yellow-eyed Penguin",
         "maori_name": "Hoiho",
         "files": [
             {"url": "/globalassets/documents/conservation/native-animals/birds/bird-song/yellow-eyed-penguin.mp3", "voc_type": "call"}
         ]
     },
-    "MOHU": {
+    "yellow3": {
         "common_name": "Yellowhead",
         "maori_name": "Mohua",
         "files": [
@@ -498,215 +474,141 @@ def process_audio_file(input_path: str, output_path: str, extract_multiple: bool
             audio = np.interp(indices, np.arange(len(audio)), audio)
             sample_rate = OUTPUT_SAMPLE_RATE
 
-        # Extract clips
+        # Extract clips from longer audio
         if extract_multiple:
             clips = extract_clips(audio, sample_rate)
         else:
-            # Just trim to max duration
-            max_samples = int(MAX_DURATION * sample_rate)
-            clips = [audio[:max_samples] if len(audio) > max_samples else audio]
+            clips = [audio[:int(MAX_DURATION * sample_rate)]]
 
         results = []
-        output_base = Path(output_path).stem
-        output_dir = Path(output_path).parent
-
-        for idx, clip_audio in enumerate(clips):
-            # Pad if too short
-            min_samples = int(MIN_DURATION * sample_rate)
-            if len(clip_audio) < min_samples:
-                clip_audio = np.pad(clip_audio, (0, min_samples - len(clip_audio)))
-
-            # Trim if too long
-            max_samples = int(MAX_DURATION * sample_rate)
-            if len(clip_audio) > max_samples:
-                clip_audio = clip_audio[:max_samples]
-
+        for idx, clip in enumerate(clips):
             # Normalize
-            clip_audio = normalize_loudness(clip_audio, sample_rate)
+            clip = normalize_loudness(clip, sample_rate)
 
-            # Generate output filename
+            # Generate output path
+            base = Path(output_path).stem
+            ext = Path(output_path).suffix
             if len(clips) > 1:
-                clip_output = output_dir / f"{output_base}_{idx + 1}.wav"
+                out_path = str(Path(output_path).parent / f"{base}_{idx+1}{ext}")
             else:
-                clip_output = output_dir / f"{output_base}.wav"
+                out_path = output_path
 
             # Save
-            sf.write(str(clip_output), clip_audio, sample_rate, subtype='PCM_16')
-
-            # Verify
-            meter = pyln.Meter(sample_rate)
-            final_loudness = meter.integrated_loudness(clip_audio)
-            duration_ms = int(len(clip_audio) / sample_rate * 1000)
+            sf.write(out_path, clip, sample_rate)
 
             results.append({
-                'file_path': str(clip_output),
-                'duration_ms': duration_ms,
-                'loudness_lufs': round(final_loudness, 1)
+                'path': out_path,
+                'duration_ms': int(len(clip) / sample_rate * 1000)
             })
 
         return results
 
     except Exception as e:
-        print(f"    ERROR processing: {e}")
+        print(f"    Processing failed: {e}")
         return []
 
 
-def generate_clip_id(species_code: str, url: str) -> str:
-    """Generate a unique clip ID from species code and URL."""
-    url_hash = hashlib.md5(url.encode()).hexdigest()[:8]
-    return f"{species_code}_{url_hash}"
+def main():
+    parser = argparse.ArgumentParser(description='Download and process NZ DOC bird audio')
+    parser.add_argument('--output', '-o', required=True, help='Output directory for clips')
+    parser.add_argument('--species', '-s', nargs='*', help='Specific species codes to process')
+    parser.add_argument('--dry-run', '-n', action='store_true', help='Show what would be downloaded')
+    args = parser.parse_args()
 
+    output_dir = Path(args.output)
+    if not args.dry_run:
+        output_dir.mkdir(parents=True, exist_ok=True)
 
-def ingest_nz_birds(output_dir: str, species_filter: list = None, dry_run: bool = False) -> list:
-    """
-    Download and process all NZ bird audio from DOC.
+    # Filter species if specified
+    species_to_process = NZ_SPECIES
+    if args.species:
+        species_to_process = {k: v for k, v in NZ_SPECIES.items() if k in args.species}
+        if not species_to_process:
+            print(f"ERROR: No matching species found. Available: {', '.join(NZ_SPECIES.keys())}")
+            return 1
 
-    Args:
-        output_dir: Directory for processed WAV clips
-        species_filter: Optional list of species codes to process
-        dry_run: If True, just show what would be downloaded
-    """
-    output_path = Path(output_dir)
-    output_path.mkdir(parents=True, exist_ok=True)
-
-    processed_files = []
-    species_to_process = species_filter if species_filter else list(NZ_SPECIES.keys())
-
-    print(f"Species to process: {len(species_to_process)}")
+    print(f"Processing {len(species_to_process)} NZ bird species...")
+    print(f"Output directory: {output_dir}")
+    if args.dry_run:
+        print("(DRY RUN - no files will be downloaded)")
     print()
 
-    for species_code in species_to_process:
-        if species_code not in NZ_SPECIES:
-            print(f"WARNING: Unknown species code: {species_code}")
-            continue
+    total_clips = 0
+    all_metadata = []
 
-        species_info = NZ_SPECIES[species_code]
-        common_name = species_info['common_name']
-        maori_name = species_info.get('maori_name', '')
-        display_name = f"{common_name} ({maori_name})" if maori_name else common_name
+    for species_code, info in species_to_process.items():
+        common_name = info['common_name']
+        maori_name = info.get('maori_name')
+        files = info['files']
 
-        print(f"Processing: {display_name} [{species_code}]")
+        print(f"{species_code}: {common_name}" + (f" / {maori_name}" if maori_name else ""))
 
-        for file_info in species_info['files']:
+        for file_info in files:
             url = file_info['url']
             voc_type = file_info['voc_type']
             filename = Path(url).stem
 
-            print(f"  File: {filename} ({voc_type})")
-
-            if dry_run:
-                print(f"    [DRY RUN] Would download: {DOC_BASE_URL}{url}")
+            if args.dry_run:
+                print(f"  Would download: {url}")
                 continue
 
             # Download to temp file
             with tempfile.NamedTemporaryFile(suffix='.mp3', delete=False) as tmp:
                 tmp_path = tmp.name
 
+            print(f"  Downloading {filename}...")
             if not download_file(url, tmp_path):
-                if os.path.exists(tmp_path):
-                    os.unlink(tmp_path)
                 continue
 
             # Process audio
-            base_output = output_path / f"{species_code}_{filename}"
-            results = process_audio_file(tmp_path, str(base_output))
+            output_base = output_dir / f"{species_code}_doc_{filename}.wav"
+            results = process_audio_file(tmp_path, str(output_base))
+
+            # Clean up temp file
             os.unlink(tmp_path)
 
-            for idx, result in enumerate(results):
-                clip_id = generate_clip_id(species_code, url + str(idx))
-                output_name = Path(result['file_path']).name
+            for result in results:
+                clip_path = Path(result['path'])
+                clip_id = clip_path.stem
 
-                print(f"    OK: {output_name} ({result['duration_ms']}ms, {result['loudness_lufs']} LUFS)")
-
-                processed_files.append({
+                metadata = {
                     'clip_id': clip_id,
                     'species_code': species_code,
                     'common_name': common_name,
-                    'maori_name': maori_name,
                     'vocalization_type': voc_type,
                     'duration_ms': result['duration_ms'],
-                    'loudness_lufs': result['loudness_lufs'],
-                    'source': 'doc',
-                    'source_id': f"DOC_{filename}_{idx + 1}" if len(results) > 1 else f"DOC_{filename}",
-                    'file_path': result['file_path'],
                     'quality_score': 4,  # DOC recordings are high quality
-                    'recordist': 'DOC NZ (Crown Copyright)'
-                })
+                    'source': 'doc',
+                    'recordist': 'DOC NZ (Crown Copyright)',
+                    'source_id': filename,
+                    'file_path': f"data/clips/{clip_path.name}",
+                    'spectrogram_path': f"data/spectrograms/{clip_id}.png",
+                    'canonical': False,
+                    'rejected': False
+                }
+
+                if maori_name:
+                    metadata['maori_name'] = maori_name
+
+                all_metadata.append(metadata)
+                total_clips += 1
+                print(f"    Created: {clip_path.name} ({result['duration_ms']}ms)")
 
         print()
 
-    return processed_files
+    if not args.dry_run and all_metadata:
+        # Save metadata
+        manifest_path = output_dir / 'manifest.json'
+        with open(manifest_path, 'w') as f:
+            json.dump(all_metadata, f, indent=2)
+        print(f"Saved manifest to {manifest_path}")
 
-
-def main():
-    parser = argparse.ArgumentParser(
-        description='Download and process NZ bird audio from DOC'
-    )
-    parser.add_argument('--output', help='Output directory for processed clips')
-    parser.add_argument('--species', nargs='+', help='Specific species codes to process')
-    parser.add_argument('--manifest', help='Output manifest JSON file')
-    parser.add_argument('--dry-run', action='store_true', help='Show what would be downloaded')
-    parser.add_argument('--list-species', action='store_true', help='List all available species and exit')
-
-    args = parser.parse_args()
-
-    if args.list_species:
-        print("Available NZ bird species:")
-        print()
-        for code in sorted(NZ_SPECIES.keys()):
-            info = NZ_SPECIES[code]
-            maori = info.get('maori_name', '')
-            name = f"{info['common_name']} ({maori})" if maori else info['common_name']
-            files = len(info['files'])
-            print(f"  {code}: {name:40s} [{files} file(s)]")
-        print()
-        print(f"Total: {len(NZ_SPECIES)} species")
-        return 0
-
-    if not args.output:
-        parser.error("--output is required unless using --list-species")
-
-    print("=== NZ DOC Audio Ingestion Pipeline ===")
-    print(f"Source: NZ Department of Conservation")
-    print(f"License: Crown Copyright (free with attribution)")
-    print(f"Target LUFS: {TARGET_LUFS}")
-    print(f"Clip duration: {MIN_DURATION}-{MAX_DURATION}s")
-    print()
-
-    processed = ingest_nz_birds(args.output, args.species, args.dry_run)
-
-    if args.dry_run:
-        print("=== Dry Run Complete ===")
-        return 0
-
-    print("=== Summary ===")
-    print(f"Successfully processed: {len(processed)} clips")
-
-    # Group by species
-    species_counts = {}
-    for clip in processed:
-        code = clip['species_code']
-        if code not in species_counts:
-            species_counts[code] = {'name': clip['common_name'], 'count': 0}
-        species_counts[code]['count'] += 1
-
-    print(f"\nClips by species:")
-    for code in sorted(species_counts.keys()):
-        info = species_counts[code]
-        print(f"  {code}: {info['name']:35s} - {info['count']} clip(s)")
-
-    if args.manifest:
-        with open(args.manifest, 'w') as f:
-            json.dump(processed, f, indent=2)
-        print(f"\nManifest written to: {args.manifest}")
-
-    # Write internal manifest
-    manifest_path = Path(args.output) / '.ingest_manifest.json'
-    with open(manifest_path, 'w') as f:
-        json.dump(processed, f, indent=2)
-
-    return 0 if len(processed) > 0 else 1
+    print(f"\nTotal: {total_clips} clips from {len(species_to_process)} species")
+    print("\nNext steps:")
+    print("  1. Run spectrogram_gen.py to generate spectrograms")
+    print("  2. Review clips using clip_selector.py or review_clips.py")
+    print("  3. Merge approved clips into data/clips.json")
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    main()
