@@ -8230,23 +8230,6 @@
     "spectrogram_path": "data/spectrograms/EAKI_1038742.png"
   },
   {
-    "clip_id": "EAME_c76d59d0",
-    "species_code": "EAME",
-    "common_name": "Eastern Meadowlark",
-    "file_path": "data/clips/EAME_1014912.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1014912",
-    "source_url": "https://xeno-canto.org/1014912",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAME_1014912.png"
-  },
-  {
     "clip_id": "EAME_7bc792c5",
     "species_code": "EAME",
     "common_name": "Eastern Meadowlark",
