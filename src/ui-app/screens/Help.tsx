@@ -352,7 +352,7 @@ function Help() {
           </Tip>
           <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
           <Tip>Don't rush. Let the sound register before you tap.</Tip>
-          <Tip>Check the round summary and confusion matrix to see which birds need practice.</Tip>
+          <Tip>Check the round summary and confusion matrix to see which birds need practice. If you confused 4+ birds, use the "Drill These Birds" button to immediately practice just those species.</Tip>
           <Tip>Adjust tile speed in Settings if things move too fast (or too slow). Once you're an expert, try playing muted using only spectrograms!</Tip>
         </Section>
 
@@ -642,6 +642,7 @@ function Help() {
             <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
+                <li><strong>🎯 Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</li>
                 <li><strong>🎉 100+ Species!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
                 <li><strong>📱 Tablet Support</strong> – Now works (better) on bigger screens like iPads and tablets</li>
                 <li><strong>New Pack: Grassland & Open Country</strong> – 10 species of grasslands, prairies, and farmland including Eastern Meadowlark, Dickcissel, Red-winged Blackbird, and Indigo Bunting</li>
@@ -660,6 +661,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.56" date="January 24, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Drill Confused Birds:</strong> After a round, if you confused 4+ different birds, a new "Drill These X Birds" button appears in the Confusion Summary. Click it to immediately start a focused practice session with just those species - the fastest way to improve on your trouble areas.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.55" date="January 24, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Tablet Support:</strong> ChipNotes now scales up on iPad and other tablets. UI elements are 1.4x larger on screens 768px+, making buttons easier to tap and spectrograms easier to see.</li>

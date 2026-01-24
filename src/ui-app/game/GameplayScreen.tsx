@@ -456,14 +456,14 @@ function GameplayScreen() {
     setShowQuitConfirm(true);
   }, []);
 
+  const handleQuitCancel = useCallback(() => {
+    setShowQuitConfirm(false);
+  }, []);
+
   const handleQuitConfirm = useCallback(() => {
     gameActions.reset();
     navigate(-1); // Go back to previous screen (pack select or level select)
   }, [navigate, gameActions]);
-
-  const handleQuitCancel = useCallback(() => {
-    setShowQuitConfirm(false);
-  }, []);
 
   // Handle start round
   const handleStart = useCallback(() => {
