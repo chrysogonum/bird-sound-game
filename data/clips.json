@@ -8300,7 +8300,8 @@
     "spectrogram_path": "data/spectrograms/nezbel1_doc_001.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "nezbel1_doc_001"
   },
   {
     "clip_id": "nezbel1_doc_002",
@@ -8319,7 +8320,8 @@
     "spectrogram_path": "data/spectrograms/nezbel1_doc_002.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "nezbel1_doc_002"
   },
   {
     "clip_id": "nezbel1_doc_003",
@@ -8338,7 +8340,8 @@
     "spectrogram_path": "data/spectrograms/nezbel1_doc_003.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "nezbel1_doc_003"
   },
   {
     "clip_id": "kea1_doc_001",
@@ -8357,7 +8360,8 @@
     "spectrogram_path": "data/spectrograms/kea1_doc_001.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "kea1_doc_001"
   },
   {
     "clip_id": "kea1_doc_002",
@@ -8376,7 +8380,8 @@
     "spectrogram_path": "data/spectrograms/kea1_doc_002.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "kea1_doc_002"
   },
   {
     "clip_id": "kea1_doc_003",
@@ -8395,7 +8400,8 @@
     "spectrogram_path": "data/spectrograms/kea1_doc_003.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "kea1_doc_003"
   },
   {
     "clip_id": "kokako3_doc_001",
@@ -8414,7 +8420,8 @@
     "spectrogram_path": "data/spectrograms/kokako3_doc_001.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "kokako3_doc_001"
   },
   {
     "clip_id": "kokako3_doc_002",
@@ -8433,7 +8440,8 @@
     "spectrogram_path": "data/spectrograms/kokako3_doc_002.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "kokako3_doc_002"
   },
   {
     "clip_id": "kokako3_doc_003",
@@ -8452,7 +8460,8 @@
     "spectrogram_path": "data/spectrograms/kokako3_doc_003.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "kokako3_doc_003"
   },
   {
     "clip_id": "morepo2_doc_001",
@@ -8471,7 +8480,8 @@
     "spectrogram_path": "data/spectrograms/morepo2_doc_001.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "morepo2_doc_001"
   },
   {
     "clip_id": "morepo2_doc_002",
@@ -8490,7 +8500,8 @@
     "spectrogram_path": "data/spectrograms/morepo2_doc_002.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "morepo2_doc_002"
   },
   {
     "clip_id": "morepo2_doc_003",
@@ -8509,7 +8520,8 @@
     "spectrogram_path": "data/spectrograms/morepo2_doc_003.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "morepo2_doc_003"
   },
   {
     "clip_id": "tui1_doc_001",
@@ -8528,7 +8540,8 @@
     "spectrogram_path": "data/spectrograms/tui1_doc_001.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "tui1_doc_001"
   },
   {
     "clip_id": "tui1_doc_002",
@@ -8547,7 +8560,8 @@
     "spectrogram_path": "data/spectrograms/tui1_doc_002.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "tui1_doc_002"
   },
   {
     "clip_id": "tui1_doc_003",
@@ -8566,7 +8580,8 @@
     "spectrogram_path": "data/spectrograms/tui1_doc_003.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "tui1_doc_003"
   },
   {
     "clip_id": "tui1_doc_004",
@@ -8585,6 +8600,7 @@
     "spectrogram_path": "data/spectrograms/tui1_doc_004.png",
     "canonical": false,
     "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)"
+    "recordist": "DOC NZ (Crown Copyright)",
+    "source_id": "tui1_doc_004"
   }
 ]
