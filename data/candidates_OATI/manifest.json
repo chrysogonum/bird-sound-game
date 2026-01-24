@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_999244.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC999244",
+    "recordist": "Ed Pandolfino",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_980363.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC980363",
+    "recordist": "Matthew L. Brady",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_807965.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC807965",
+    "recordist": "Paul Marvin",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_794296.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC794296",
+    "recordist": "Ed Pandolfino",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_714832.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC714832",
+    "recordist": "Paul Marvin",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_710735.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC710735",
+    "recordist": "Paul Marvin",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_602846.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC602846",
+    "recordist": "Steve Hampton",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_493955.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC493955",
+    "recordist": "Steve Hampton",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_481142.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC481142",
+    "recordist": "Meena Haribal",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_OATI/OATI_xenocanto_390184.wav",
+    "species_name": "Oak Titmouse",
+    "species_code": "OATI",
+    "source": "xenocanto",
+    "source_id": "XC390184",
+    "recordist": "Guy Kirwan",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]
