@@ -22,7 +22,8 @@
     "DEJU",
     "WREN",
     "SPTO",
-    "WEBL"
+    "WEBL",
+    "OATI"
   ],
   "vocalization_weights": {
     "song": 0.6,

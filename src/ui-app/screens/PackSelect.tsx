@@ -69,7 +69,7 @@ const PACKS: Pack[] = [
   {
     id: 'western_birds',
     name: 'Western Birds',
-    speciesCount: 20,
+    speciesCount: 21,
     isUnlocked: true,
     description: 'Frequent flyers from the Pacific coast to the Rockies.',
   },

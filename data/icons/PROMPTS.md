@@ -253,6 +253,7 @@ YTWA: Stylized icon of a Yellow-throated Warbler, simple flat design, circular f
 | WREN | Wrentit | Stylized icon of a Wrentit, simple flat design, circular frame, small brown bird with long tail cocked upward and pale eye, white background, game asset style, clean vector look, centered composition, no text |
 | SPTO | Spotted Towhee | Stylized icon of a Spotted Towhee, simple flat design, circular frame, black head and back with white spots on wings, rufous sides and white belly, red eye, white background, game asset style, clean vector look, centered composition, no text |
 | WEBL | Western Bluebird | Stylized icon of a Western Bluebird, simple flat design, circular frame, deep blue bird with rusty orange breast and shoulders, white background, game asset style, clean vector look, centered composition, no text |
+| OATI | Oak Titmouse | Stylized icon of an Oak Titmouse, simple flat design, circular frame, plain gray-brown bird with small crest and dark eye, white background, game asset style, clean vector look, centered composition, no text |
 
 ### Quick Copy - Western Birds
 
@@ -268,6 +269,7 @@ RWBL: Stylized icon of a Red-winged Blackbird, simple flat design, circular fram
 WREN: Stylized icon of a Wrentit, simple flat design, circular frame, small brown bird with long tail cocked upward and pale eye, white background, game asset style, clean vector look, centered composition, no text
 SPTO: Stylized icon of a Spotted Towhee, simple flat design, circular frame, black head and back with white spots on wings, rufous sides and white belly, red eye, white background, game asset style, clean vector look, centered composition, no text
 WEBL: Stylized icon of a Western Bluebird, simple flat design, circular frame, deep blue bird with rusty orange breast and shoulders, white background, game asset style, clean vector look, centered composition, no text
+OATI: Stylized icon of an Oak Titmouse, simple flat design, circular frame, plain gray-brown bird with small crest and dark eye, white background, game asset style, clean vector look, centered composition, no text
 ```
 
 ---
