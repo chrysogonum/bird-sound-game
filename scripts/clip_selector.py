@@ -721,52 +721,71 @@ def generate_html() -> str:
                 });
 
             // Auto-detect species from filename and display as read-only facts
-            const match = currentRecording.filename.match(/^([a-z]+)/i);
-            if (match) {
-                const name = match[1].toLowerCase();
-                // eBird 6-character codes with bilingual names per DOC convention
-                // Format: filename_prefix -> [species_code, common_name, scientific_name]
-                const taxonomy = {
-                    // Already completed (5 species, 16 clips)
-                    'tui': ['tui1', 'Tūī', 'Prosthemadera novaeseelandiae'],
-                    'bellbird': ['nezbel1', 'Bellbird / Korimako', 'Anthornis melanura'],
-                    'morepork': ['morepo2', 'Morepork / Ruru', 'Ninox novaeseelandiae'],
-                    'kea': ['kea1', 'Kea', 'Nestor notabilis'],
-                    'kokako': ['kokako3', 'Kōkako', 'Callaeas wilsoni'],
-                    // Remaining species
-                    'auckland': ['auitea1', 'Auckland Islands Teal', 'Anas aucklandica'],
-                    'australasian': ['ausbit1', 'Australasian Bittern / Matuku-hūrepo', 'Botaurus poiciloptilus'],
-                    'southern': ['grcgre1', 'Australasian Crested Grebe', 'Podiceps cristatus'],
-                    'black': ['blasti1', 'Black Stilt / Kakī', 'Himantopus novaezelandiae'],
-                    'blue': ['bluduc1', 'Blue Duck / Whio', 'Hymenolaimus malacorhynchos'],
-                    'chatham': ['nezpig3', 'Chatham Islands Pigeon / Parea', 'Hemiphaga chathamensis'],
-                    'fantail': ['nezfan1', 'New Zealand Fantail / Pīwakawaka', 'Rhipidura fuliginosa'],
-                    'south': ['nezfan1', 'New Zealand Fantail / Pīwakawaka', 'Rhipidura fuliginosa'],
-                    'grey': ['gryger1', 'Grey Warbler / Riroriro', 'Gerygone igata'],
-                    'huttons': ['hutshe1', "Hutton's Shearwater / Tītī", 'Puffinus huttoni'],
-                    'north': ['nezkak1', 'New Zealand Kākā', 'Nestor meridionalis'],
-                    'kakapo': ['kakapo2', 'Kākāpō', 'Strigops habroptilus'],
-                    'male': ['nibkiw1', 'North Island Brown Kiwi', 'Apteryx mantelli'],
-                    'female': ['nibkiw1', 'North Island Brown Kiwi', 'Apteryx mantelli'],
-                    'nz': ['rebdot1', 'New Zealand Dotterel / Tūturiwhatu', 'Anarhynchus obscurus'],
-                    'red': ['refpar4', 'Red-crowned Parakeet / Kākāriki', 'Cyanoramphus novaezelandiae'],
-                    'orange': ['malpar2', 'Orange-fronted Parakeet / Kākāriki', 'Cyanoramphus malherbi'],
-                    'paradise': ['parshe1', 'Paradise Shelduck / Pūtangitangi', 'Tadorna variegata'],
-                    'rock': ['soiwre1', 'Rock Wren / Pīwauwau', 'Xenicus gilviventris'],
-                    'silvereye': ['silver3', 'Silvereye / Tauhou', 'Zosterops lateralis'],
-                    'stitchbird': ['stitch1', 'Hihi / Stitchbird', 'Notiomystis cincta'],
-                    'takahe': ['takahe3', 'Takahē', 'Porphyrio hochstetteri'],
-                    'tomtit': ['tomtit1', 'Tomtit / Miromiro', 'Petroica macrocephala'],
-                    'buff': ['weka1', 'Weka', 'Gallirallus australis'],
-                    'western': ['weka1', 'Weka', 'Gallirallus australis'],
-                    'westland': ['wespet1', 'Westland Petrel / Tāiko', 'Procellaria westlandica'],
-                    'white': ['greegr', 'White Heron / Kōtuku', 'Ardea alba'],
-                    'whitehead': ['whiteh1', 'Whitehead / Pōpokotea', 'Mohoua albicilla'],
-                    'yellow': ['yeepen1', 'Yellow-eyed Penguin / Hoiho', 'Megadyptes antipodes'],
-                    'yellowhead': ['yellow3', 'Yellowhead / Mohua', 'Mohoua ochrocephala'],
-                };
-                if (taxonomy[name]) {
-                    const [code, commonName, sciName] = taxonomy[name];
+            // Use full filename (without extension) for matching to handle ambiguous prefixes
+            const filename = currentRecording.filename.replace(/\.(mp3|wav)$/i, '').toLowerCase();
+
+            // eBird 6-character codes with bilingual names per DOC convention
+            // Format: filename pattern -> [species_code, common_name, scientific_name]
+            // More specific patterns must come first (checked in order)
+            const taxonomyPatterns = [
+                // Chatham Island species (must check before generic patterns)
+                [/^chatham-island-fantail/, 'chafan1', 'Chatham Islands Fantail', 'Rhipidura fuliginosa penita'],
+                [/^chatham-island-oystercatcher/, 'chaoys1', 'Chatham Islands Oystercatcher', 'Haematopus chathamensis'],
+                [/^chatham-island-pigeon/, 'nezpig3', 'Chatham Islands Pigeon / Parea', 'Hemiphaga chathamensis'],
+                [/^chatham-island-tomtit/, 'chatom1', 'Chatham Islands Tomtit', 'Petroica macrocephala chathamensis'],
+                [/^chatham-island-tui/, 'chatui1', 'Chatham Islands Tui', 'Prosthemadera novaeseelandiae chathamensis'],
+                // North/South Island variants
+                [/^north-island-kaka/, 'nezkak1', 'North Island Kākā', 'Nestor meridionalis septentrionalis'],
+                [/^north-island-robin/, 'nezrob2', 'North Island Robin / Toutouwai', 'Petroica longipes'],
+                [/^north-island-saddleback/, 'saddle2', 'North Island Saddleback / Tīeke', 'Philesturnus rufusater'],
+                [/^north-island-tomtit/, 'tomtit1', 'North Island Tomtit / Miromiro', 'Petroica macrocephala toitoi'],
+                [/^north-island-weka/, 'weka1', 'North Island Weka', 'Gallirallus australis greyi'],
+                [/^south-island-fantail/, 'nezfan1', 'South Island Fantail / Pīwakawaka', 'Rhipidura fuliginosa fuliginosa'],
+                [/^south-island-kaka/, 'nezkak1', 'South Island Kākā', 'Nestor meridionalis meridionalis'],
+                [/^south-island-robin/, 'nezrob3', 'South Island Robin / Toutouwai', 'Petroica australis'],
+                [/^south-island-saddleback/, 'saddle3', 'South Island Saddleback / Tīeke', 'Philesturnus carunculatus'],
+                [/^south-island-tomtit/, 'tomtit1', 'South Island Tomtit / Miromiro', 'Petroica macrocephala macrocephala'],
+                // Kiwi
+                [/^(male-|female-)?ni-brown-kiwi|^(male-|female-)?north-island.*kiwi/, 'nibkiw1', 'North Island Brown Kiwi', 'Apteryx mantelli'],
+                // NZ-prefixed species
+                [/^nz-pigeon/, 'nezpig2', 'New Zealand Pigeon / Kererū', 'Hemiphaga novaeseelandiae'],
+                [/^nz-falcon/, 'nezfal1', 'New Zealand Falcon / Kārearea', 'Falco novaeseelandiae'],
+                [/^nz-dotterel/, 'rebdot1', 'New Zealand Dotterel / Tūturiwhatu', 'Charadrius obscurus'],
+                // Parakeets
+                [/^red-crowned-parakeet/, 'refpar4', 'Red-crowned Parakeet / Kākāriki', 'Cyanoramphus novaezelandiae'],
+                [/^orange-fronted-parakeet/, 'malpar2', 'Orange-fronted Parakeet / Kākāriki', 'Cyanoramphus malherbi'],
+                // Generic patterns (single word matches)
+                [/^tui/, 'tui1', 'Tūī', 'Prosthemadera novaeseelandiae'],
+                [/^bellbird/, 'nezbel1', 'Bellbird / Korimako', 'Anthornis melanura'],
+                [/^morepork/, 'morepo2', 'Morepork / Ruru', 'Ninox novaeseelandiae'],
+                [/^kea/, 'kea1', 'Kea', 'Nestor notabilis'],
+                [/^kokako/, 'kokako3', 'Kōkako', 'Callaeas wilsoni'],
+                [/^auckland/, 'auitea1', 'Auckland Islands Teal', 'Anas aucklandica'],
+                [/^australasian/, 'ausbit1', 'Australasian Bittern / Matuku-hūrepo', 'Botaurus poiciloptilus'],
+                [/^southern-crested-grebe/, 'grcgre1', 'Australasian Crested Grebe', 'Podiceps cristatus'],
+                [/^black-stilt/, 'blasti1', 'Black Stilt / Kakī', 'Himantopus novaezelandiae'],
+                [/^blue-duck/, 'bluduc1', 'Blue Duck / Whio', 'Hymenolaimus malacorhynchos'],
+                [/^fantail/, 'nezfan1', 'New Zealand Fantail / Pīwakawaka', 'Rhipidura fuliginosa'],
+                [/^grey-warbler/, 'gryger1', 'Grey Warbler / Riroriro', 'Gerygone igata'],
+                [/^huttons/, 'hutshe1', "Hutton's Shearwater / Tītī", 'Puffinus huttoni'],
+                [/^kakapo/, 'kakapo2', 'Kākāpō', 'Strigops habroptilus'],
+                [/^paradise/, 'parshe1', 'Paradise Shelduck / Pūtangitangi', 'Tadorna variegata'],
+                [/^rock-wren/, 'soiwre1', 'Rock Wren / Pīwauwau', 'Xenicus gilviventris'],
+                [/^silvereye/, 'silver3', 'Silvereye / Tauhou', 'Zosterops lateralis'],
+                [/^stitchbird/, 'stitch1', 'Hihi / Stitchbird', 'Notiomystis cincta'],
+                [/^takahe/, 'takahe3', 'Takahē', 'Porphyrio hochstetteri'],
+                [/^buff-weka/, 'weka1', 'Buff Weka', 'Gallirallus australis hectori'],
+                [/^western-weka/, 'weka1', 'Western Weka', 'Gallirallus australis australis'],
+                [/^westland/, 'wespet1', 'Westland Petrel / Tāiko', 'Procellaria westlandica'],
+                [/^white-heron/, 'greegr', 'White Heron / Kōtuku', 'Ardea alba modesta'],
+                [/^whitehead/, 'whiteh1', 'Whitehead / Pōpokotea', 'Mohoua albicilla'],
+                [/^yellow-eyed/, 'yeepen1', 'Yellow-eyed Penguin / Hoiho', 'Megadyptes antipodes'],
+                [/^yellowhead/, 'yellow3', 'Yellowhead / Mohua', 'Mohoua ochrocephala'],
+            ];
+
+            let matched = false;
+            for (const [pattern, code, commonName, sciName] of taxonomyPatterns) {
+                if (pattern.test(filename)) {
                     // Set hidden form values
                     document.getElementById('speciesCode').value = code;
                     document.getElementById('commonName').value = commonName;
@@ -775,12 +794,15 @@ def generate_html() -> str:
                     document.getElementById('commonNameDisplay').textContent = commonName;
                     document.getElementById('scientificNameDisplay').textContent = sciName;
                     document.getElementById('speciesCodeDisplay').textContent = code;
-                } else {
-                    document.getElementById('commonNameDisplay').textContent = 'Unknown species: ' + name;
-                    document.getElementById('scientificNameDisplay').textContent = '';
-                    document.getElementById('speciesCodeDisplay').textContent = '';
-                    document.getElementById('btnExtract').disabled = true;
+                    matched = true;
+                    break;
                 }
+            }
+            if (!matched) {
+                document.getElementById('commonNameDisplay').textContent = 'Unknown species: ' + filename;
+                document.getElementById('scientificNameDisplay').textContent = '';
+                document.getElementById('speciesCodeDisplay').textContent = '';
+                document.getElementById('btnExtract').disabled = true;
             }
         }
 
