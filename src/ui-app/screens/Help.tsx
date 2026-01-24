@@ -643,6 +643,7 @@ function Help() {
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
                 <li><strong>🎉 100+ Species!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
+                <li><strong>📱 Tablet Support</strong> – Now works (better) on bigger screens like iPads and tablets</li>
                 <li><strong>New Pack: Grassland & Open Country</strong> – 10 species of grasslands, prairies, and farmland including Eastern Meadowlark, Dickcissel, Red-winged Blackbird, and Indigo Bunting</li>
                 <li><strong>Western Birds Pack Expansion</strong> – Expanded from 14 to 20 species including Wrentit, Spotted Towhee, Common Grackle, and Dark-eyed Junco</li>
                 <li><strong>Woodpeckers Pack Expansion</strong> – Added Acorn Woodpecker and Lewis's Woodpecker, growing the pack from 7 to 9 species</li>
@@ -659,6 +660,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.55" date="January 24, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Tablet Support:</strong> ChipNotes now scales up on iPad and other tablets. UI elements are 1.4x larger on screens 768px+, making buttons easier to tap and spectrograms easier to see.</li>
+              <li><strong>Gameplay Bird Grid:</strong> Bird selection icons now display in consistent 3-column layout on tablets (previously wrapped to 6+3), with larger icons (52px vs 36px) and improved spacing for easier tapping during gameplay.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.54" date="January 23, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>New Pack: Grassland & Open Country:</strong> Added new 10-species pack featuring birds of grasslands, prairies, farmland, and field edges. Includes Indigo Bunting, Eastern Kingbird, Barn Swallow, Eastern Meadowlark, Dickcissel, Red-winged Blackbird, Savannah Sparrow, Field Sparrow, Common Yellowthroat, and Yellow Warbler - 30 new audio clips and spectrograms.</li>
