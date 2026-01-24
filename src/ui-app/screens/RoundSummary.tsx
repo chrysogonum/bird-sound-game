@@ -264,13 +264,39 @@ function RoundSummary() {
   };
 
   return (
-    <div className="screen" style={{ paddingTop: '32px', paddingBottom: 'calc(24px + var(--safe-area-bottom, 0px))' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '8px' }}>ROUND COMPLETE</h1>
-      {isCampaign && (
-        <p className="text-muted" style={{ textAlign: 'center', marginBottom: '16px' }}>
-          Level {currentLevel}: {results?.levelTitle || 'Campaign'}
-        </p>
-      )}
+    <div className="screen" style={{ paddingTop: 'calc(12px + var(--safe-area-top, 0px))', paddingBottom: 'calc(24px + var(--safe-area-bottom, 0px))' }}>
+      {/* Header with navigation */}
+      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+        <button
+          className="btn-icon"
+          onClick={goToLevelSelect}
+          aria-label="Back to levels"
+          style={{ color: 'var(--color-accent)' }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <div style={{ flex: 1, textAlign: 'center' }}>
+          <h1 style={{ fontSize: '20px', margin: 0 }}>Round Complete</h1>
+          {isCampaign && (
+            <p className="text-muted" style={{ margin: '4px 0 0', fontSize: '13px' }}>
+              Level {currentLevel}: {results?.levelTitle || 'Campaign'}
+            </p>
+          )}
+        </div>
+        <button
+          className="btn-icon"
+          onClick={goToMenu}
+          aria-label="Home"
+          style={{ color: 'var(--color-accent)' }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </button>
+      </div>
 
       {/* Share Score Button */}
       <div style={{ width: '100%', maxWidth: '320px', margin: '0 auto 16px' }}>
@@ -609,19 +635,6 @@ function RoundSummary() {
           >
             {isDrill ? 'Drill Again' : 'Play Again'}
           </button>
-          <div className="flex-row gap-md">
-            {!isDrill && (
-              <button className="btn-secondary" onClick={goToLevelSelect} style={{ flex: 1 }}>
-                Levels
-              </button>
-            )}
-            <button className="btn-secondary" onClick={goToPackSelect} style={{ flex: 1 }}>
-              Packs
-            </button>
-            <button className="btn-secondary" onClick={goToMenu} style={{ flex: 1 }}>
-              Home
-            </button>
-          </div>
         </div>
       </div>
     </div>

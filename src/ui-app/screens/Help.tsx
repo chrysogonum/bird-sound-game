@@ -640,18 +640,13 @@ function Help() {
           {/* Recent Updates - Always Visible */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
             <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates</h4>
-            <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
-              <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px' }}>
-                <li><strong>🎯 Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</li>
-                <li><strong>🎉 100+ Species!</strong> – ChipNotes now includes over 100 North American species with curated audio clips and spectrograms</li>
-                <li><strong>📱 Tablet Support</strong> – Now works (better) on bigger screens like iPads and tablets</li>
-                <li><strong>New Pack: Grassland & Open Country</strong> – 10 species of grasslands, prairies, and farmland including Eastern Meadowlark, Dickcissel, Red-winged Blackbird, and Indigo Bunting</li>
-                <li><strong>Western Birds Pack Expansion</strong> – Expanded from 14 to 20 species including Wrentit, Spotted Towhee, Common Grackle, and Dark-eyed Junco</li>
-                <li><strong>Woodpeckers Pack Expansion</strong> – Added Acorn Woodpecker and Lewis's Woodpecker, growing the pack from 7 to 9 species</li>
-                <li><strong>Eastern Birds Pack</strong> – Grew from 40 to 46 species with flycatchers, vireos, and Dark-eyed Junco</li>
-                <li><strong>Taxonomic Sorting</strong> – Find and play birds based on how they're related to each other</li>
-                <li><strong>Custom Pack Builder</strong> – Improved search, taxonomic filtering, and ability to save up to 10 named custom packs</li>
-              </ul>
+            <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
+              <div>🎉 <strong>100+ Species!</strong> – Over 100 North American species with curated audio clips and spectrograms</div>
+              <div>🔄 <strong>Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</div>
+              <div>📱 <strong>Tablet Support</strong> – Now works (better) on bigger screens like iPads and tablets</div>
+              <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 20, Eastern to 46, and Woodpeckers to 9</div>
+              <div>🐦 <strong>Taxonomic Sorting</strong> – Play birds in evolutionary order, see scientific names</div>
+              <div>🎨 <strong>Custom Pack Builder</strong> – Build and save up to 10 custom packs from any species</div>
             </div>
           </div>
 
