@@ -191,7 +191,7 @@ class ClipSelectorHandler(http.server.BaseHTTPRequestHandler):
                 duration=params['duration'],
                 species_code=params['species_code'],
                 common_name=params['common_name'],
-                maori_name=params.get('maori_name'),
+                scientific_name=params.get('scientific_name'),
                 vocalization_type=params.get('vocalization_type', 'call'),
                 recordist=params.get('recordist', 'DOC NZ (Crown Copyright)')
             )
@@ -235,7 +235,7 @@ def scan_recordings(input_dir: Path, species_filter: list = None) -> list:
 
 def extract_clip(input_dir: Path, filename: str, start_time: float,
                  duration: float, species_code: str, common_name: str,
-                 maori_name: str = None, vocalization_type: str = 'call',
+                 scientific_name: str = None, vocalization_type: str = 'call',
                  recordist: str = 'DOC NZ (Crown Copyright)') -> dict:
     """
     Extract a clip segment from source recording.
@@ -248,8 +248,8 @@ def extract_clip(input_dir: Path, filename: str, start_time: float,
     if duration < MIN_DURATION or duration > MAX_DURATION:
         raise ValueError(f"Duration must be {MIN_DURATION}-{MAX_DURATION}s, got {duration}")
 
-    if len(species_code) != 4:
-        raise ValueError(f"Species code must be 4 characters, got {species_code}")
+    if len(species_code) < 3 or len(species_code) > 10:
+        raise ValueError(f"Species code must be 3-10 characters, got {species_code}")
 
     # Load audio
     input_path = input_dir / filename
@@ -283,9 +283,26 @@ def extract_clip(input_dir: Path, filename: str, start_time: float,
         segment = pyln.normalize.loudness(segment, loudness, TARGET_LUFS)
         segment = np.clip(segment, -1.0, 1.0)
 
-    # Generate clip ID
-    source_hash = hashlib.md5(f"{filename}_{start_time}".encode()).hexdigest()[:8]
-    clip_id = f"{species_code}_{source_hash}"
+    # Generate sequential clip ID: {species_code}_doc_{sequence}
+    # Find next available sequence number for this species
+    clips_json_path = PROJECT_ROOT / "data" / "clips.json"
+    existing_clips = []
+    if clips_json_path.exists():
+        with open(clips_json_path, 'r') as f:
+            existing_clips = json.load(f)
+
+    # Count existing DOC clips for this species
+    prefix = f"{species_code}_doc_"
+    existing_nums = []
+    for c in existing_clips:
+        if c['clip_id'].startswith(prefix):
+            try:
+                num = int(c['clip_id'][len(prefix):])
+                existing_nums.append(num)
+            except ValueError:
+                pass
+    next_num = max(existing_nums, default=0) + 1
+    clip_id = f"{species_code}_doc_{next_num:03d}"
 
     # Output paths
     output_filename = f"{clip_id}.wav"
@@ -304,18 +321,20 @@ def extract_clip(input_dir: Path, filename: str, start_time: float,
     final_loudness = meter.integrated_loudness(segment)
     duration_ms = int(len(segment) / sr * 1000)
 
-    # Create clip metadata
+    # Create clip metadata with source provenance
     clip_data = {
         'clip_id': clip_id,
-        'species_code': species_code.upper(),
+        'species_code': species_code,
         'common_name': common_name,
-        'maori_name': maori_name,
+        'scientific_name': scientific_name,
         'vocalization_type': vocalization_type,
         'duration_ms': duration_ms,
         'quality_score': 4,
         'loudness_lufs': round(final_loudness, 1),
         'source': 'doc',
-        'source_id': f"DOC_{Path(filename).stem}",
+        'source_file': filename,  # Original source filename
+        'source_start_sec': round(start_time, 2),  # Start time in source file
+        'source_end_sec': round(start_time + duration, 2),  # End time in source file
         'file_path': f"data/clips/{output_filename}",
         'spectrogram_path': f"data/spectrograms/{clip_id}.png",
         'canonical': False,
@@ -323,23 +342,11 @@ def extract_clip(input_dir: Path, filename: str, start_time: float,
         'recordist': recordist
     }
 
-    # Append to clips.json
-    clips_json_path = PROJECT_ROOT / "data" / "clips.json"
-    if clips_json_path.exists():
-        with open(clips_json_path, 'r') as f:
-            clips = json.load(f)
-    else:
-        clips = []
-
-    # Check for duplicate clip_id
-    existing_ids = {c['clip_id'] for c in clips}
-    if clip_id in existing_ids:
-        raise ValueError(f"Clip ID {clip_id} already exists")
-
-    clips.append(clip_data)
+    # Append to already-loaded clips list
+    existing_clips.append(clip_data)
 
     with open(clips_json_path, 'w') as f:
-        json.dump(clips, f, indent=2)
+        json.dump(existing_clips, f, indent=2)
 
     return {
         'success': True,
@@ -508,6 +515,28 @@ def generate_html() -> str:
             border-radius: 8px;
             padding: 20px;
         }
+        .species-display {
+            background: #1a1a1a;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+        .species-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #e0e0e0;
+            margin-bottom: 5px;
+        }
+        .species-scientific {
+            font-style: italic;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+        .species-code {
+            font-family: monospace;
+            font-size: 0.9em;
+            color: #8b7ab8;
+        }
         .form-row {
             display: flex;
             gap: 15px;
@@ -606,19 +635,18 @@ def generate_html() -> str:
             </div>
 
             <div class="metadata-form">
-                <h2>Clip Metadata</h2>
-                <div class="form-row">
-                    <label>Species Code:</label>
-                    <input type="text" id="speciesCode" maxlength="4" placeholder="e.g. TUIX"
-                           style="text-transform: uppercase; width: 100px; flex: none;">
-                    <label>Common Name:</label>
-                    <input type="text" id="commonName" placeholder="e.g. Tui">
+                <h2>Species Info</h2>
+                <div class="species-display">
+                    <div class="species-name" id="commonNameDisplay">Select a recording</div>
+                    <div class="species-scientific" id="scientificNameDisplay"></div>
+                    <div class="species-code" id="speciesCodeDisplay"></div>
                 </div>
-                <div class="form-row">
-                    <label>Maori Name:</label>
-                    <input type="text" id="maoriName" placeholder="e.g. Tui (optional)">
-                    <label>Type:</label>
-                    <select id="vocType">
+                <input type="hidden" id="speciesCode">
+                <input type="hidden" id="commonName">
+                <input type="hidden" id="scientificName">
+                <div class="form-row" style="margin-top: 15px;">
+                    <label>Vocalization Type:</label>
+                    <select id="vocType" style="flex: 1;">
                         <option value="song">Song</option>
                         <option value="call" selected>Call</option>
                         <option value="alarm call">Alarm Call</option>
@@ -692,27 +720,66 @@ def generate_html() -> str:
                     document.getElementById('btnExtract').disabled = false;
                 });
 
-            // Pre-fill species code from filename if possible
+            // Auto-detect species from filename and display as read-only facts
             const match = currentRecording.filename.match(/^([a-z]+)/i);
             if (match) {
-                // Try to guess from filename
                 const name = match[1].toLowerCase();
-                const guesses = {
-                    'tui': ['TUIX', 'Tui', 'Tui'],
-                    'bellbird': ['BELL', 'Bellbird', 'Korimako'],
-                    'morepork': ['MORU', 'Morepork', 'Ruru'],
-                    'fantail': ['NIFA', 'Fantail', 'Piwakawaka'],
-                    'kea': ['KEAX', 'Kea', ''],
-                    'kaka': ['KAKA', 'Kakapo', 'Kakapo'],
-                    'kokako': ['KOKA', 'Kokako', 'Kokako'],
-                    'kereru': ['KERE', 'Kereru', 'Kereru'],
-                    'silvereye': ['SILV', 'Silvereye', 'Tauhou'],
-                    'grey': ['GRWA', 'Grey Warbler', 'Riroriro'],
+                // eBird 6-character codes with bilingual names per DOC convention
+                // Format: filename_prefix -> [species_code, common_name, scientific_name]
+                const taxonomy = {
+                    // Already completed (5 species, 16 clips)
+                    'tui': ['tui1', 'Tūī', 'Prosthemadera novaeseelandiae'],
+                    'bellbird': ['nezbel1', 'Bellbird / Korimako', 'Anthornis melanura'],
+                    'morepork': ['morepo2', 'Morepork / Ruru', 'Ninox novaeseelandiae'],
+                    'kea': ['kea1', 'Kea', 'Nestor notabilis'],
+                    'kokako': ['kokako3', 'Kōkako', 'Callaeas wilsoni'],
+                    // Remaining species
+                    'auckland': ['auitea1', 'Auckland Islands Teal', 'Anas aucklandica'],
+                    'australasian': ['ausbit1', 'Australasian Bittern / Matuku-hūrepo', 'Botaurus poiciloptilus'],
+                    'southern': ['grcgre1', 'Australasian Crested Grebe', 'Podiceps cristatus'],
+                    'black': ['blasti1', 'Black Stilt / Kakī', 'Himantopus novaezelandiae'],
+                    'blue': ['bluduc1', 'Blue Duck / Whio', 'Hymenolaimus malacorhynchos'],
+                    'chatham': ['nezpig3', 'Chatham Islands Pigeon / Parea', 'Hemiphaga chathamensis'],
+                    'fantail': ['nezfan1', 'New Zealand Fantail / Pīwakawaka', 'Rhipidura fuliginosa'],
+                    'south': ['nezfan1', 'New Zealand Fantail / Pīwakawaka', 'Rhipidura fuliginosa'],
+                    'grey': ['gryger1', 'Grey Warbler / Riroriro', 'Gerygone igata'],
+                    'huttons': ['hutshe1', "Hutton's Shearwater / Tītī", 'Puffinus huttoni'],
+                    'north': ['nezkak1', 'New Zealand Kākā', 'Nestor meridionalis'],
+                    'kakapo': ['kakapo2', 'Kākāpō', 'Strigops habroptilus'],
+                    'male': ['nibkiw1', 'North Island Brown Kiwi', 'Apteryx mantelli'],
+                    'female': ['nibkiw1', 'North Island Brown Kiwi', 'Apteryx mantelli'],
+                    'nz': ['rebdot1', 'New Zealand Dotterel / Tūturiwhatu', 'Anarhynchus obscurus'],
+                    'red': ['refpar4', 'Red-crowned Parakeet / Kākāriki', 'Cyanoramphus novaezelandiae'],
+                    'orange': ['malpar2', 'Orange-fronted Parakeet / Kākāriki', 'Cyanoramphus malherbi'],
+                    'paradise': ['parshe1', 'Paradise Shelduck / Pūtangitangi', 'Tadorna variegata'],
+                    'rock': ['soiwre1', 'Rock Wren / Pīwauwau', 'Xenicus gilviventris'],
+                    'silvereye': ['silver3', 'Silvereye / Tauhou', 'Zosterops lateralis'],
+                    'stitchbird': ['stitch1', 'Hihi / Stitchbird', 'Notiomystis cincta'],
+                    'takahe': ['takahe3', 'Takahē', 'Porphyrio hochstetteri'],
+                    'tomtit': ['tomtit1', 'Tomtit / Miromiro', 'Petroica macrocephala'],
+                    'buff': ['weka1', 'Weka', 'Gallirallus australis'],
+                    'western': ['weka1', 'Weka', 'Gallirallus australis'],
+                    'westland': ['wespet1', 'Westland Petrel / Tāiko', 'Procellaria westlandica'],
+                    'white': ['greegr', 'White Heron / Kōtuku', 'Ardea alba'],
+                    'whitehead': ['whiteh1', 'Whitehead / Pōpokotea', 'Mohoua albicilla'],
+                    'yellow': ['yeepen1', 'Yellow-eyed Penguin / Hoiho', 'Megadyptes antipodes'],
+                    'yellowhead': ['yellow3', 'Yellowhead / Mohua', 'Mohoua ochrocephala'],
                 };
-                if (guesses[name]) {
-                    document.getElementById('speciesCode').value = guesses[name][0];
-                    document.getElementById('commonName').value = guesses[name][1];
-                    document.getElementById('maoriName').value = guesses[name][2];
+                if (taxonomy[name]) {
+                    const [code, commonName, sciName] = taxonomy[name];
+                    // Set hidden form values
+                    document.getElementById('speciesCode').value = code;
+                    document.getElementById('commonName').value = commonName;
+                    document.getElementById('scientificName').value = sciName;
+                    // Update display
+                    document.getElementById('commonNameDisplay').textContent = commonName;
+                    document.getElementById('scientificNameDisplay').textContent = sciName;
+                    document.getElementById('speciesCodeDisplay').textContent = code;
+                } else {
+                    document.getElementById('commonNameDisplay').textContent = 'Unknown species: ' + name;
+                    document.getElementById('scientificNameDisplay').textContent = '';
+                    document.getElementById('speciesCodeDisplay').textContent = '';
+                    document.getElementById('btnExtract').disabled = true;
                 }
             }
         }
@@ -874,17 +941,13 @@ def generate_html() -> str:
         }
 
         function extractClip() {
-            const speciesCode = document.getElementById('speciesCode').value.toUpperCase().trim();
+            const speciesCode = document.getElementById('speciesCode').value.trim();
             const commonName = document.getElementById('commonName').value.trim();
-            const maoriName = document.getElementById('maoriName').value.trim() || null;
+            const scientificName = document.getElementById('scientificName').value.trim() || null;
             const vocType = document.getElementById('vocType').value;
 
-            if (!speciesCode || speciesCode.length !== 4) {
-                alert('Please enter a valid 4-letter species code');
-                return;
-            }
-            if (!commonName) {
-                alert('Please enter a common name');
+            if (!speciesCode || !commonName) {
+                alert('Species not recognized from filename. Cannot extract.');
                 return;
             }
             if (!currentRecording) {
@@ -904,7 +967,7 @@ def generate_html() -> str:
                     duration: duration,
                     species_code: speciesCode,
                     common_name: commonName,
-                    maori_name: maoriName,
+                    scientific_name: scientificName,
                     vocalization_type: vocType
                 })
             })
