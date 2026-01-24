@@ -1,13 +1,14 @@
 {
   "pack_id": "starter_birds",
-  "display_name": "5 Common Backyard Birds",
-  "description": "Learn to identify 5 of the most common and distinctive birds in eastern North America. Perfect for beginners.",
+  "display_name": "Backyard Birds",
+  "description": "Learn to identify 6 of the most common and distinctive birds in eastern North America. Perfect for beginners.",
   "species": [
     "NOCA",
     "CARW",
     "BLJA",
     "AMCR",
-    "TUTI"
+    "TUTI",
+    "AMRO"
   ],
   "vocalization_weights": {
     "song": 0.7,

@@ -36,6 +36,7 @@ from typing import Dict, List, Optional
 PORT = 8888
 PROJECT_ROOT = Path(__file__).parent.parent
 CLIPS_JSON_PATH = PROJECT_ROOT / "data" / "clips.json"
+REJECTED_XC_IDS_PATH = PROJECT_ROOT / "data" / "rejected_xc_ids.json"
 
 # Granular vocalization types (Cornell taxonomy)
 VOCALIZATION_TYPES = [
@@ -48,6 +49,8 @@ VOCALIZATION_TYPES = [
     "wing sound",
     "rattle",
     "trill",
+    "duet",
+    "juvenile",
     "other"
 ]
 
@@ -214,6 +217,7 @@ def save_changes(changes: Dict) -> Dict:
         'rejections': 0,
         'quality_changes': 0,
         'vocalization_changes': 0,
+        'recordist_changes': 0,
         'files_deleted': []
     }
 
@@ -256,6 +260,11 @@ def save_changes(changes: Dict) -> Dict:
             stats['vocalization_changes'] += 1
             clip['vocalization_type'] = updates['vocalization_type']
 
+        # Track recordist changes
+        if 'recordist' in updates and updates['recordist'] != clip.get('recordist'):
+            stats['recordist_changes'] += 1
+            clip['recordist'] = updates['recordist']
+
     # 5. Validate canonical uniqueness (exactly 1 per species)
     species_canonicals = {}
     for clip in clips:
@@ -267,7 +276,37 @@ def save_changes(changes: Dict) -> Dict:
                 )
             species_canonicals[species] = clip['clip_id']
 
-    # 6. Delete rejected files from disk
+    # 6. Log rejected XC IDs for future filtering
+    rejected_clips_to_log = {}
+    for clip in clips:
+        if clip.get('rejected') and clip.get('xeno_canto_id'):
+            species = clip['species_code']
+            xc_id = clip['xeno_canto_id']
+            if species not in rejected_clips_to_log:
+                rejected_clips_to_log[species] = []
+            rejected_clips_to_log[species].append(xc_id)
+
+    if rejected_clips_to_log:
+        # Load existing rejection log
+        if REJECTED_XC_IDS_PATH.exists():
+            with open(REJECTED_XC_IDS_PATH, 'r') as f:
+                rejection_log = json.load(f)
+        else:
+            rejection_log = {}
+
+        # Merge new rejections
+        for species, xc_ids in rejected_clips_to_log.items():
+            if species not in rejection_log:
+                rejection_log[species] = []
+            rejection_log[species].extend(xc_ids)
+            rejection_log[species] = sorted(list(set(rejection_log[species])))  # Dedupe
+
+        # Save updated log
+        with open(REJECTED_XC_IDS_PATH, 'w') as f:
+            json.dump(rejection_log, f, indent=2, sort_keys=True)
+        print(f"📝 Logged {sum(len(v) for v in rejected_clips_to_log.values())} rejected XC IDs")
+
+    # 7. Delete rejected files from disk
     deleted_count = 0
     for file_info in stats['files_deleted']:
         for file_path in [file_info['audio'], file_info['spectrogram']]:
@@ -278,7 +317,7 @@ def save_changes(changes: Dict) -> Dict:
                     deleted_count += 1
                     print(f"🗑️  Deleted: {file_path}")
 
-    # 7. Remove rejected clips from clips array
+    # 8. Remove rejected clips from clips array
     clips = [c for c in clips if not c.get('rejected', False)]
 
     # 8. Save updated clips.json
@@ -318,6 +357,8 @@ def generate_commit_message(stats: Dict) -> str:
         changes.append(f"{stats['quality_changes']} quality changes")
     if stats['vocalization_changes'] > 0:
         changes.append(f"{stats['vocalization_changes']} vocalization type changes")
+    if stats['recordist_changes'] > 0:
+        changes.append(f"{stats['recordist_changes']} recordist updates")
 
     if changes:
         parts.append(", ".join(changes))
@@ -479,13 +520,18 @@ def generate_html() -> str:
         }
 
         /* Spectrogram */
+        /* CRITICAL: Spectrograms are 400x200px (2:1 ratio) from spectrogram_gen.py
+         * MUST use height: auto and object-fit: contain to show FULL image without cropping
+         * DO NOT use height: 100px or object-fit: cover - this crops the frequency range!
+         */
         .spectrogram {
             width: 100%;
-            height: 100px;
-            object-fit: cover;
+            height: auto;               /* Preserves 2:1 aspect ratio */
+            object-fit: contain;        /* Shows full image, no cropping */
             border-radius: 4px;
             margin-bottom: 10px;
             background: #222;
+            display: block;
         }
 
         /* Clip metadata */
@@ -584,19 +630,24 @@ def generate_html() -> str:
         let modifications = {};
         let currentAudio = null;
         let currentPlayButton = null;
+        let speciesNames = {};  // Map of species_code -> common_name from species.json
 
         const vocalizationTypes = ''' + json.dumps(VOCALIZATION_TYPES) + ''';
 
-        // Load clips on startup
-        fetch('/api/clips')
-            .then(r => r.json())
-            .then(clips => {
-                allClips = clips;
-                renderClips();
-            })
-            .catch(err => {
-                alert('Failed to load clips: ' + err.message);
+        // Load species names and clips on startup
+        Promise.all([
+            fetch('/data/species.json').then(r => r.json()),
+            fetch('/api/clips').then(r => r.json())
+        ]).then(([speciesData, clips]) => {
+            // Build species names lookup from species.json (single source of truth)
+            speciesData.forEach(sp => {
+                speciesNames[sp.species_code] = sp.common_name;
             });
+            allClips = clips;
+            renderClips();
+        }).catch(err => {
+            alert('Failed to load data: ' + err.message);
+        });
 
         function applyFilters() {
             renderClips();
@@ -658,7 +709,8 @@ def generate_html() -> str:
             const section = document.createElement('div');
             section.className = 'species-section';
 
-            const commonName = clips[0].common_name || speciesCode;
+            // Load common name from species.json (single source of truth)
+            const commonName = speciesNames[speciesCode] || speciesCode;
             const songCount = clips.filter(c => c.vocalization_type === 'song').length;
             const callCount = clips.filter(c => c.vocalization_type?.includes('call')).length;
             const cornellCount = clips.filter(c => c.source === 'cornell').length;
@@ -679,7 +731,7 @@ def generate_html() -> str:
             const grid = section.querySelector('.clip-grid');
 
             // Sort clips: canonical first, then by vocalization type, then by quality
-            const vocTypeOrder = ['song', 'call', 'flight call', 'alarm call', 'chip', 'drum', 'wing sound', 'rattle', 'trill', 'other'];
+            const vocTypeOrder = ['song', 'call', 'flight call', 'alarm call', 'chip', 'drum', 'wing sound', 'rattle', 'trill', 'duet', 'juvenile', 'other'];
 
             const sortedClips = [...clips].sort((a, b) => {
                 // Get current state (might be modified)
@@ -763,6 +815,14 @@ def generate_html() -> str:
                         <select onchange="updateMetadata('${clipId}', 'quality_score', parseInt(this.value))">
                             ${qualityOptions}
                         </select>
+                    </div>
+                    <div class="metadata-row">
+                        <span class="metadata-label">🎙️ Recordist:</span>
+                        <input type="text"
+                               value="${current.recordist || ''}"
+                               placeholder="(none)"
+                               onchange="updateMetadata('${clipId}', 'recordist', this.value)"
+                               style="flex: 1; padding: 4px; background: #2a2a2a; color: #e0e0e0; border: 1px solid #444; border-radius: 4px;">
                     </div>
                 </div>
 

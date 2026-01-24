@@ -23,24 +23,16 @@
       },
       "species_code": {
         "type": "string",
-        "pattern": "^[A-Z]{4}$",
-        "description": "4-letter species code"
+        "pattern": "^[A-Za-z0-9]{3,10}$",
+        "description": "Species code (4-letter for NA birds, eBird 6-char for NZ birds)"
       },
       "common_name": {
         "type": "string",
         "description": "Common name of the bird species"
       },
-      "maori_name": {
-        "type": ["string", "null"],
-        "description": "Māori name for NZ birds (optional)"
-      },
-      "alternate_name": {
-        "type": ["string", "null"],
-        "description": "Alternate/regional name (optional)"
-      },
       "vocalization_type": {
         "type": "string",
-        "enum": ["song", "call", "alarm call", "drum", "flight call", "contact call"],
+        "enum": ["song", "call", "flight call", "alarm call", "chip", "drum", "wing sound", "rattle", "trill", "duet", "juvenile", "other"],
         "description": "Type of vocalization"
       },
       "duration_ms": {
@@ -55,18 +47,10 @@
         "maximum": 5,
         "description": "Quality score (1-5)"
       },
-      "loudness_lufs": {
-        "type": ["number", "null"],
-        "description": "Measured loudness in LUFS (optional)"
-      },
       "source": {
         "type": "string",
         "enum": ["macaulay", "xenocanto", "cornell", "demo", "user_recording", "doc"],
         "description": "Audio source"
-      },
-      "recordist": {
-        "type": ["string", "null"],
-        "description": "Recordist or attribution credit for the audio"
       },
       "source_id": {
         "type": "string",
@@ -79,6 +63,10 @@
       "spectrogram_path": {
         "type": ["string", "null"],
         "description": "Path to the spectrogram image"
+      },
+      "recordist": {
+        "type": ["string", "null"],
+        "description": "Name of the person who recorded the audio (required for Xeno-canto attribution)"
       },
       "canonical": {
         "type": "boolean",
@@ -100,15 +88,31 @@
         "type": ["string", "null"],
         "description": "Legacy field, use source_id instead"
       },
+      "loudness_lufs": {
+        "type": "number",
+        "description": "Measured loudness in LUFS"
+      },
       "quality": {
         "type": ["string", "null"],
-        "description": "Legacy field, use quality_score instead"
+        "description": "Legacy quality field (A-E), use quality_score instead"
       },
-      "incoming_prompt": {
+      "scientific_name": {
         "type": ["string", "null"],
-        "description": "Legacy field from review process"
+        "description": "Scientific name of the species (optional)"
+      },
+      "source_file": {
+        "type": ["string", "null"],
+        "description": "Original source filename for DOC clips"
+      },
+      "source_start_sec": {
+        "type": ["number", "null"],
+        "description": "Start time in source file (seconds) for DOC clips"
+      },
+      "source_end_sec": {
+        "type": ["number", "null"],
+        "description": "End time in source file (seconds) for DOC clips"
       }
     },
-    "additionalProperties": false
+    "additionalProperties": true
   }
 }

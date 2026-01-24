@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
+import { trackTaxonomicSortToggle } from '../utils/analytics';
 
 interface ClipData {
   clip_id: string;
@@ -14,6 +15,7 @@ interface ClipData {
 interface SelectedSpecies {
   code: string;
   name: string;
+  scientificName?: string;
   color: string;
   clipPath: string | null;
 }
@@ -26,12 +28,15 @@ const SPECIES_COLORS = [
 
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
-  starter_birds: '5 Common Eastern US Backyard Birds',
-  expanded_backyard: 'Expanded Eastern US Birds',
+  starter_birds: 'Backyard Birds',
+  grassland_birds: 'Grassland & Open Country',
+  expanded_backyard: 'Eastern Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
-  western_birds: 'Western Backyard Birds',
+  spring_warblers: 'Warbler Academy',
+  western_birds: 'Western Birds',
   custom: 'Custom Pack',
+  drill: 'Confusion Drill',
 };
 
 // Level titles for custom pack
@@ -134,6 +139,17 @@ function PreRoundPreview() {
       return false;
     }
   });
+  const [taxonomicSort, setTaxonomicSort] = useState(() => {
+    try {
+      return localStorage.getItem('soundfield_taxonomic_sort') === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
+  const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
+  const [commonNames, setCommonNames] = useState<Record<string, string>>({});
+  const [fullCustomPack, setFullCustomPack] = useState<string[]>([]);  // All species in custom pack (up to 30)
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Toggle training mode
@@ -147,9 +163,75 @@ function PreRoundPreview() {
     }
   };
 
+  // Toggle taxonomic sort
+  const handleTaxonomicSortToggle = () => {
+    const newValue = !taxonomicSort;
+    setTaxonomicSort(newValue);
+    try {
+      localStorage.setItem('soundfield_taxonomic_sort', String(newValue));
+      trackTaxonomicSortToggle(newValue, 'preview_screen');
+    } catch (e) {
+      console.error('Failed to save taxonomic sort:', e);
+    }
+  };
+
+  // Re-sort selectedSpecies when taxonomicSort changes (without re-selecting)
+  useEffect(() => {
+    if (selectedSpecies.length === 0 || Object.keys(taxonomicOrder).length === 0) return;
+
+    // Extract current species codes
+    const currentCodes = selectedSpecies.map(s => s.code);
+
+    // Re-sort based on new taxonomicSort preference
+    const sortedCodes = taxonomicSort
+      ? [...currentCodes].sort((a, b) => {
+          const orderA = taxonomicOrder[a] || 9999;
+          const orderB = taxonomicOrder[b] || 9999;
+          return orderA - orderB;
+        })
+      : [...currentCodes].sort();
+
+    // Rebuild species array with new sort order (but same species)
+    const resorted = sortedCodes.map((code, index) => {
+      const existing = selectedSpecies.find(s => s.code === code);
+      return {
+        ...existing!,
+        color: SPECIES_COLORS[index % SPECIES_COLORS.length],
+      };
+    });
+
+    // Only update if order actually changed
+    const orderChanged = resorted.some((sp, i) => sp.code !== selectedSpecies[i].code);
+    if (orderChanged) {
+      setSelectedSpecies(resorted);
+    }
+  }, [taxonomicSort, taxonomicOrder]); // Depend on taxonomicSort and taxonomicOrder, but not selectedSpecies to avoid infinite loop
+
+  // Load taxonomic order data and species metadata
+  useEffect(() => {
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
+      fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
+    ]).then(([taxonomicData, speciesData]: [Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>]) => {
+      setTaxonomicOrder(taxonomicData);
+      // Build species metadata lookup
+      const sciNames: Record<string, string> = {};
+      const comNames: Record<string, string> = {};
+      speciesData.forEach((sp: {species_code: string; common_name: string; scientific_name: string}) => {
+        sciNames[sp.species_code] = sp.scientific_name;
+        comNames[sp.species_code] = sp.common_name;
+      });
+      setScientificNames(sciNames);
+      setCommonNames(comNames);
+    }).catch((err) => console.error('Failed to load taxonomy data:', err));
+  }, []);
+
   // Build species info from a list of codes (no shuffling)
+  // Always sorts alphabetically - the useEffect above handles taxonomic re-sorting
   const buildSpeciesInfo = useCallback((codes: string[], clipsData: ClipData[]): SelectedSpecies[] => {
-    return codes.sort().map((code, index) => {
+    const sortedCodes = [...codes].sort();
+
+    return sortedCodes.map((code, index) => {
       const canonicalClip = clipsData.find(
         c => c.species_code === code && c.canonical && !c.rejected
       );
@@ -158,24 +240,39 @@ function PreRoundPreview() {
 
       return {
         code,
-        name: clip?.common_name || code,
+        name: commonNames[code] || code,
+        scientificName: scientificNames[code],
         color: SPECIES_COLORS[index % SPECIES_COLORS.length],
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     });
-  }, []);
+  }, [commonNames, scientificNames]);
+
+  // Select random subset from custom pack (for packs with >9 birds)
+  const selectRandomFromCustomPack = useCallback((allSpecies: string[], clipsData: ClipData[]) => {
+    const targetCount = Math.min(9, allSpecies.length);
+
+    // Shuffle and take 9
+    const shuffled = [...allSpecies].sort(() => Math.random() - 0.5);
+    const selected = shuffled.slice(0, targetCount);
+
+    setSelectedSpecies(buildSpeciesInfo(selected, clipsData));
+  }, [buildSpeciesInfo]);
 
   // Select random species from the pool
   const selectRandomSpecies = useCallback((levelConfig: LevelConfig, clipsData: ClipData[]) => {
     const pool = levelConfig.species_pool || [];
     const count = levelConfig.species_count || pool.length;
 
-    // Shuffle and take count, then sort alphabetically for display
+    // Shuffle and take count
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
-    const selected = shuffled.slice(0, count).sort();
+    const selected = shuffled.slice(0, count);
+
+    // Always sort alphabetically initially - the re-sort useEffect will handle taxonomic ordering
+    const sortedSelected = selected.sort();
 
     // Build species info with canonical clips
-    const speciesInfo: SelectedSpecies[] = selected.map((code, index) => {
+    const speciesInfo: SelectedSpecies[] = sortedSelected.map((code, index) => {
       const canonicalClip = clipsData.find(
         c => c.species_code === code && c.canonical && !c.rejected
       );
@@ -184,14 +281,15 @@ function PreRoundPreview() {
 
       return {
         code,
-        name: clip?.common_name || code,
+        name: commonNames[code] || code,
+        scientificName: scientificNames[code],
         color: SPECIES_COLORS[index % SPECIES_COLORS.length],
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     });
 
     setSelectedSpecies(speciesInfo);
-  }, []);
+  }, [commonNames, scientificNames]);
 
   // Load level and clips
   useEffect(() => {
@@ -201,12 +299,86 @@ function PreRoundPreview() {
     ]).then(([levels, clipsData]: [LevelConfig[], ClipData[]]) => {
       setClips(clipsData);
 
+      // Handle drill pack (from confusion summary)
+      if (packId === 'drill') {
+        const drillSpeciesJson = sessionStorage.getItem('drillSpecies');
+        if (drillSpeciesJson) {
+          try {
+            const drillSpecies = JSON.parse(drillSpeciesJson) as string[];
+
+            // Create synthetic level config for drill
+            const drillLevel: LevelConfig = {
+              level_id: 1,
+              pack_id: 'drill',
+              mode: 'campaign',
+              title: 'Confusion Drill',
+              round_duration_sec: 30,
+              species_count: drillSpecies.length,
+              species_pool: drillSpecies,
+              clip_selection: 'all', // Use all clips to maximize exposure
+              channel_mode: 'single', // Keep it simpler for focused practice
+              event_density: 'low',
+              overlap_probability: 0,
+              scoring_window_ms: 2000,
+              spectrogram_mode: 'full',
+            };
+            setLevel(drillLevel);
+            setSelectedSpecies(buildSpeciesInfo(drillSpecies, clipsData));
+          } catch (e) {
+            console.error('Failed to parse drill species:', e);
+          }
+        }
+        setLoading(false);
+        return;
+      }
+
       // Handle custom pack specially
       if (packId === 'custom') {
         const customSpeciesJson = localStorage.getItem('soundfield_custom_pack');
         if (customSpeciesJson) {
           try {
             const customSpecies = JSON.parse(customSpeciesJson) as string[];
+            setFullCustomPack(customSpecies);
+
+            let selectedForPlay: string[];
+
+            // Check if we should keep the same birds from previous round
+            if (keepBirds) {
+              const savedSpecies = sessionStorage.getItem('roundSpecies');
+              if (savedSpecies) {
+                try {
+                  const previousSpecies = JSON.parse(savedSpecies) as string[];
+                  // Verify these species are still in the custom pack
+                  const validSpecies = previousSpecies.filter(s => customSpecies.includes(s));
+                  if (validSpecies.length === previousSpecies.length) {
+                    // All previous species are valid, use them
+                    selectedForPlay = validSpecies;
+                  } else {
+                    // Some species were removed from pack, re-shuffle
+                    selectedForPlay = customSpecies.length > 9
+                      ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+                      : customSpecies;
+                  }
+                } catch (e) {
+                  console.error('Failed to parse saved species:', e);
+                  // Fall back to shuffling
+                  selectedForPlay = customSpecies.length > 9
+                    ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+                    : customSpecies;
+                }
+              } else {
+                // No saved species, shuffle
+                selectedForPlay = customSpecies.length > 9
+                  ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+                  : customSpecies;
+              }
+            } else {
+              // Not keeping birds, randomly select 9 for gameplay
+              selectedForPlay = customSpecies.length > 9
+                ? [...customSpecies].sort(() => Math.random() - 0.5).slice(0, 9)
+                : customSpecies;
+            }
+
             // Create synthetic level config for custom pack
             const customLevel: LevelConfig = {
               level_id: levelId,
@@ -214,8 +386,8 @@ function PreRoundPreview() {
               mode: 'campaign',
               title: LEVEL_TITLES[levelId] || `Level ${levelId}`,
               round_duration_sec: 30,
-              species_count: customSpecies.length,
-              species_pool: customSpecies,
+              species_count: selectedForPlay.length,
+              species_pool: selectedForPlay,
               clip_selection: getLevelClipSelection(levelId),
               channel_mode: getLevelChannelMode(levelId),
               event_density: 'low',
@@ -224,8 +396,7 @@ function PreRoundPreview() {
               spectrogram_mode: 'full',
             };
             setLevel(customLevel);
-            // For custom pack, use all selected species (no random subset)
-            setSelectedSpecies(buildSpeciesInfo(customSpecies, clipsData));
+            setSelectedSpecies(buildSpeciesInfo(selectedForPlay, clipsData));
           } catch (e) {
             console.error('Failed to parse custom pack:', e);
           }
@@ -332,6 +503,21 @@ function PreRoundPreview() {
     }
   };
 
+  // Re-roll custom pack (select new random 9 from larger pack)
+  const handleReroll = () => {
+    if (fullCustomPack.length > 0 && clips.length > 0) {
+      // Stop any playing audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+        setPlayingCode(null);
+      }
+      // Reset preload status - new birds need new clips
+      setPreloadStatus('idle');
+      selectRandomFromCustomPack(fullCustomPack, clips);
+    }
+  };
+
   // Play preview sound
   const playPreview = (species: SelectedSpecies) => {
     console.log(`[Preview] Attempting to play: ${species.code}`);
@@ -419,181 +605,200 @@ function PreRoundPreview() {
   const packName = PACK_NAMES[packId] || packId;
 
   return (
-    <div className="screen" style={{ display: 'flex', flexDirection: 'column' }}>
-      {/* Header */}
-      <div style={{ marginBottom: '12px' }}>
-        <div className="flex-row items-center" style={{ marginBottom: '8px' }}>
-          <button
-            className="btn-icon"
-            onClick={() => navigate(`/level-select?pack=${packId}`)}
-            aria-label="Back"
-          >
-            <BackIcon />
-          </button>
-          <div style={{ flex: 1, marginLeft: '8px' }}>
-            <h2 style={{ margin: 0, fontSize: '16px' }}>{packName}</h2>
-            <div style={{ fontSize: '13px', color: 'var(--color-accent)' }}>
-              Level {level.level_id}: {level.title}
-            </div>
+    <div className="screen" style={{
+      display: 'flex',
+      flexDirection: 'column',
+      paddingTop: 'calc(12px + var(--safe-area-top))',
+      paddingBottom: 'calc(12px + var(--safe-area-bottom))',
+      paddingLeft: '16px',
+      paddingRight: '16px',
+      gap: '10px'
+    }}>
+      {/* Compact Header */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <button
+          className="btn-icon"
+          onClick={() => navigate(`/level-select?pack=${packId}`)}
+          aria-label="Back"
+          style={{ flexShrink: 0, color: 'var(--color-accent)' }}
+        >
+          <BackIcon />
+        </button>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <h2 style={{ margin: 0, fontSize: '14px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            {packName}
+          </h2>
+          <div style={{ fontSize: '12px', color: 'var(--color-accent)', lineHeight: 1.1 }}>
+            Level {level.level_id}: {level.title}
           </div>
         </div>
-
-        {/* Ready button - prominent at top */}
+        {/* Sound Library link */}
         <button
-          onClick={handleReady}
+          onClick={() => navigate(`/pack-select?scrollTo=${packId}&expandPack=${packId}#bird-reference`, {
+            state: { fromPreview: true, pack: packId, level: levelId }
+          })}
           style={{
-            width: '100%',
-            padding: '14px',
-            fontSize: '16px',
-            fontWeight: 700,
-            background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '12px',
+            padding: '6px 10px',
+            background: 'transparent',
+            border: '1px solid rgba(100, 181, 246, 0.3)',
+            borderRadius: '6px',
+            color: '#64B5F6',
+            fontSize: '15px',
             cursor: 'pointer',
-            boxShadow: '0 4px 12px rgba(45, 90, 39, 0.3)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
+            gap: '4px',
+            flexShrink: 0,
+            whiteSpace: 'nowrap',
           }}
         >
-          Ready to Play <PlayArrowIcon />
+          🎧📚
         </button>
-        {/* Preload status indicator */}
-        {preloadStatus === 'loading' && (
-          <div style={{
-            marginTop: '8px',
-            textAlign: 'center',
-          }}>
-            <div style={{
+        {/* Shuffle/Re-roll button - compact top right */}
+        {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
+          <button
+            onClick={fullCustomPack.length > 9 ? handleReroll : handleShuffle}
+            style={{
+              padding: '6px 10px',
+              background: 'transparent',
+              border: '1px solid var(--color-accent)',
+              borderRadius: '6px',
+              color: 'var(--color-accent)',
               fontSize: '11px',
-              color: 'var(--color-text-muted)',
-              marginBottom: '6px',
-            }}>
-              Loading sounds {preloadProgress.loaded}/{preloadProgress.total}
-            </div>
-            {/* Progress bar */}
-            <div style={{
-              width: '100%',
-              height: '4px',
-              background: 'var(--color-surface)',
-              borderRadius: '2px',
-              overflow: 'hidden',
-            }}>
-              <div style={{
-                width: `${(preloadProgress.loaded / preloadProgress.total) * 100}%`,
-                height: '100%',
-                background: 'var(--color-accent)',
-                transition: 'width 0.2s ease',
-              }} />
-            </div>
-          </div>
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+              flexShrink: 0,
+            }}
+            title={fullCustomPack.length > 9 ? `Re-roll (${fullCustomPack.length} total birds)` : 'Shuffle birds'}
+          >
+            <ShuffleIcon />
+          </button>
         )}
-        {preloadStatus === 'ready' && (
-          <div style={{
-            marginTop: '6px',
-            fontSize: '11px',
-            color: 'var(--color-success)',
-            textAlign: 'center',
+      </div>
+
+      {/* Compact Toggles Row */}
+      <div style={{ display: 'flex', gap: '6px', fontSize: '12px' }}>
+        <button
+          onClick={handleTrainingModeToggle}
+          style={{
+            flex: 1,
+            padding: '6px 8px',
+            background: trainingMode ? 'rgba(76, 175, 80, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+            border: trainingMode ? '2px solid var(--color-success)' : '1px solid rgba(255, 255, 255, 0.15)',
+            borderRadius: '6px',
+            cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             gap: '4px',
-          }}>
-            <span>✓</span> Sounds ready
-          </div>
-        )}
-
-        {/* Training Mode toggle */}
+          }}
+        >
+          <EyeIcon filled={trainingMode} color={trainingMode ? 'var(--color-success)' : undefined} />
+          <span style={{ fontSize: '11px' }}>Training</span>
+        </button>
         <button
-          onClick={handleTrainingModeToggle}
+          onClick={handleTaxonomicSortToggle}
           style={{
-            width: '100%',
-            marginTop: '8px',
-            padding: '10px 14px',
-            background: trainingMode ? 'rgba(245, 166, 35, 0.15)' : 'var(--color-surface)',
-            border: trainingMode ? '1px solid var(--color-accent)' : '1px solid transparent',
-            borderRadius: '8px',
+            flex: 1,
+            padding: '6px 8px',
+            background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+            border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
+            borderRadius: '6px',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
-            transition: 'all 0.15s',
+            justifyContent: 'center',
+            gap: '4px',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <EyeIcon filled={trainingMode} />
-            <span style={{ fontSize: '14px', color: 'var(--color-text)' }}>
-              Training Mode
-            </span>
-          </div>
-          <div style={{
-            width: '40px',
-            height: '22px',
-            borderRadius: '11px',
-            background: trainingMode ? 'var(--color-accent)' : 'var(--color-text-muted)',
-            position: 'relative',
-            transition: 'background 0.15s',
-          }}>
-            <div style={{
-              width: '18px',
-              height: '18px',
-              borderRadius: '50%',
-              background: 'white',
-              position: 'absolute',
-              top: '2px',
-              left: trainingMode ? '20px' : '2px',
-              transition: 'left 0.15s',
-            }} />
-          </div>
+          <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+          <span style={{ fontSize: '11px' }}>{taxonomicSort ? 'Taxonomic 🐦🤓' : 'Sort'}</span>
         </button>
-        {trainingMode && (
-          <div style={{
-            fontSize: '11px',
-            color: 'var(--color-text-muted)',
-            marginTop: '4px',
-            paddingLeft: '4px',
-          }}>
-            Bird icons appear on spectrograms. Toggle on mid-round? Icons show up on the next new bird.
-          </div>
-        )}
       </div>
 
-      {/* Preview section */}
+      {/* Preload status indicator */}
+      {preloadStatus === 'loading' && (
+        <div style={{
+          background: 'var(--color-surface)',
+          borderRadius: '6px',
+          padding: '6px 10px',
+        }}>
+          <div style={{
+            fontSize: '10px',
+            color: 'var(--color-text-muted)',
+            marginBottom: '4px',
+          }}>
+            Loading sounds {preloadProgress.loaded}/{preloadProgress.total}
+          </div>
+          <div style={{
+            width: '100%',
+            height: '3px',
+            background: 'rgba(0,0,0,0.2)',
+            borderRadius: '2px',
+            overflow: 'hidden',
+          }}>
+            <div style={{
+              width: `${(preloadProgress.loaded / preloadProgress.total) * 100}%`,
+              height: '100%',
+              background: 'var(--color-accent)',
+              transition: 'width 0.2s ease',
+            }} />
+          </div>
+        </div>
+      )}
+
+      {/* Tip Box - Study the Grid */}
+      <div style={{
+        background: 'rgba(100, 181, 246, 0.1)',
+        border: '1px solid rgba(100, 181, 246, 0.3)',
+        borderRadius: '8px',
+        padding: '10px 12px',
+      }}>
+        <div style={{
+          fontSize: '12px',
+          color: 'var(--color-text)',
+          lineHeight: 1.4,
+          textAlign: 'center',
+        }}>
+          <strong>💡 Study the grid:</strong> Each bird will appear in the same position during play. Take a moment to memorize where each species lives on screen—and any unfamiliar code names. Use 🔀 to mix it up. Engage 👁️ for speed-learning.
+        </div>
+      </div>
+
+      {/* Species grid - MAIN FOCUS */}
       <div style={{
         flex: 1,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '16px 0',
+        minHeight: 0,
       }}>
+        {fullCustomPack.length > 9 && (
+          <div style={{
+            fontSize: '12px',
+            color: 'var(--color-accent)',
+            marginBottom: '6px',
+            textAlign: 'center',
+            fontWeight: 600,
+          }}>
+            Playing 9 of {fullCustomPack.length} birds
+          </div>
+        )}
         <div style={{
-          fontSize: '14px',
+          fontSize: '11px',
           color: 'var(--color-text-muted)',
-          marginBottom: '20px',
+          marginBottom: '8px',
           textAlign: 'center',
-          maxWidth: '280px',
         }}>
-          {level.level_id === 1 ? (
-            'Tap to preview each bird\'s signature sound'
-          ) : (
-            <>
-              Tap to preview signature sounds.
-              <br />
-              <span style={{ fontSize: '12px', opacity: 0.8 }}>
-                You'll hear variations during play!
-              </span>
-            </>
-          )}
+          Tap to preview signature song. Press and hold to get a closer look!
         </div>
 
-        {/* Species grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '16px',
+          gap: '10px',
           maxWidth: '320px',
           width: '100%',
         }}>
@@ -606,11 +811,11 @@ function PreRoundPreview() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '8px',
-                padding: '12px 8px',
+                gap: '6px',
+                padding: '10px 6px',
                 background: playingCode === species.code ? `${species.color}33` : 'var(--color-surface)',
                 border: `2px solid ${species.color}`,
-                borderRadius: '12px',
+                borderRadius: '10px',
                 cursor: species.clipPath ? 'pointer' : 'not-allowed',
                 opacity: species.clipPath ? 1 : 0.5,
                 transition: 'transform 0.15s, background 0.15s',
@@ -619,50 +824,59 @@ function PreRoundPreview() {
             >
               {/* Bird icon/code */}
               <div style={{ position: 'relative', WebkitTapHighlightColor: 'transparent' }}>
-                <BirdIcon code={species.code} size={56} color={species.color} />
+                <BirdIcon code={species.code} size={52} color={species.color} />
               </div>
               {/* Name */}
               <div style={{
-                fontSize: '11px',
+                fontSize: '10px',
                 color: 'var(--color-text)',
                 textAlign: 'center',
                 lineHeight: 1.2,
-                maxWidth: '80px',
+                maxWidth: '75px',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 display: '-webkit-box',
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: 'vertical',
+                fontStyle: taxonomicSort && species.scientificName ? 'italic' : 'normal',
               }}>
-                {species.name}
+                {taxonomicSort && species.scientificName ? species.scientificName : species.name}
               </div>
             </button>
           ))}
         </div>
-
-        {/* Shuffle button */}
-        {level.species_pool && level.species_pool.length > (level.species_count || 0) && (
-          <button
-            onClick={handleShuffle}
-            style={{
-              marginTop: '24px',
-              padding: '10px 20px',
-              background: 'transparent',
-              border: '1px solid var(--color-text-muted)',
-              borderRadius: '8px',
-              color: 'var(--color-text-muted)',
-              fontSize: '14px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-            }}
-          >
-            <ShuffleIcon />
-            Shuffle Birds
-          </button>
-        )}
       </div>
+
+      {/* Ready button - bottom */}
+      <button
+        onClick={handleReady}
+        style={{
+          width: '100%',
+          padding: '12px',
+          fontSize: '15px',
+          fontWeight: 700,
+          background: preloadStatus === 'ready'
+            ? 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)'
+            : 'linear-gradient(135deg, #555 0%, #444 100%)',
+          color: 'white',
+          border: 'none',
+          borderRadius: '10px',
+          cursor: 'pointer',
+          boxShadow: '0 3px 10px rgba(45, 90, 39, 0.3)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '6px',
+        }}
+      >
+        {preloadStatus === 'ready' ? (
+          <>Ready to Play <PlayArrowIcon /></>
+        ) : preloadStatus === 'loading' ? (
+          <>Loading...</>
+        ) : (
+          <>Ready to Play <PlayArrowIcon /></>
+        )}
+      </button>
 
 
       {/* Pulse animation and tap highlight fix */}
@@ -707,11 +921,12 @@ function PlayArrowIcon() {
   );
 }
 
-function EyeIcon({ filled }: { filled: boolean }) {
+function EyeIcon({ filled, color }: { filled: boolean; color?: string }) {
+  const iconColor = color || (filled ? 'var(--color-accent)' : 'var(--color-text-muted)');
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={filled ? 'var(--color-accent)' : 'var(--color-text-muted)'} strokeWidth="2">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={iconColor} strokeWidth="2">
       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-      <circle cx="12" cy="12" r="3" fill={filled ? 'var(--color-accent)' : 'none'} />
+      <circle cx="12" cy="12" r="3" fill={filled ? iconColor : 'none'} />
     </svg>
   );
 }

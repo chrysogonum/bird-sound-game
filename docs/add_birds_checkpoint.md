@@ -68,11 +68,16 @@ python3 scripts/cornell_ingest.py --input <cornell_downloads> --output data/clip
 - Outputs to `data/clips/`
 
 **Step 3: Update clips.json**
+⚠️ **DEPRECATED - Use merge_candidates.py instead!**
 ```bash
-python3 scripts/audio_tagger.py
+# OLD (DANGEROUS - overwrites clips.json):
+# python3 scripts/audio_tagger.py
+
+# NEW (SAFE - appends to clips.json):
+python3 scripts/merge_candidates.py data/candidates_{CODE}
 ```
-- Adds metadata for new clips
-- Verifies all species have canonical clips
+- Safely adds metadata for new clips
+- Preserves all existing curated metadata (canonical flags, recordists, etc.)
 
 **Step 4: Generate Spectrograms**
 ```bash

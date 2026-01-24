@@ -87,3 +87,62 @@ export function trackLevelSelect(packId: string, levelId: number, levelTitle: st
     level_title: levelTitle,
   });
 }
+
+/**
+ * Track when taxonomic sorting is toggled
+ */
+export function trackTaxonomicSortToggle(enabled: boolean, location: 'custom_pack_builder' | 'preview_screen') {
+  trackEvent('taxonomic_sort_toggle', {
+    enabled,
+    location,
+  });
+}
+
+/**
+ * Track when a custom pack is created (birds selected)
+ */
+export function trackCustomPackCreate(speciesCount: number) {
+  trackEvent('custom_pack_create', {
+    species_count: speciesCount,
+  });
+}
+
+/**
+ * Track when a custom pack is saved
+ */
+export function trackCustomPackSave(packName: string, speciesCount: number) {
+  trackEvent('custom_pack_save', {
+    pack_name: packName,
+    species_count: speciesCount,
+  });
+}
+
+/**
+ * Track when a saved pack is loaded
+ */
+export function trackCustomPackLoad(packName: string, speciesCount: number) {
+  trackEvent('custom_pack_load', {
+    pack_name: packName,
+    species_count: speciesCount,
+  });
+}
+
+/**
+ * Track when a saved pack is deleted
+ */
+export function trackCustomPackDelete(packName: string) {
+  trackEvent('custom_pack_delete', {
+    pack_name: packName,
+  });
+}
+
+/**
+ * Track when an external link is clicked
+ */
+export function trackExternalLinkClick(url: string, linkType: string, location: string) {
+  trackEvent('external_link_click', {
+    url,
+    link_type: linkType,
+    location,
+  });
+}

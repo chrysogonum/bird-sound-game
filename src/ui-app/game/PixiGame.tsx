@@ -15,7 +15,6 @@ export interface PixiGameProps {
   onChannelTap?: (channel: 'left' | 'right') => void;
   trainingMode?: boolean;
   spectrogramMode?: 'full' | 'fading' | 'none';
-  highContrast?: boolean;
 }
 
 // Colors from design system
@@ -100,7 +99,6 @@ function PixiGame({
   onChannelTap,
   trainingMode = false,
   spectrogramMode = 'full',
-  highContrast = false,
 }: PixiGameProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<PIXI.Application | null>(null);
@@ -226,8 +224,7 @@ function PixiGame({
         hitZoneY,
         event.spectrogramPath,
         trainingMode,
-        spectrogramMode,
-        highContrast
+        spectrogramMode
       );
 
       // Set initial Y position immediately (tile enters at top)
@@ -236,7 +233,7 @@ function PixiGame({
       tileContainer.addChild(tile.container);
       tilesRef.current.set(event.event_id, tile);
     }
-  }, [scheduledEvents, roundState, width, height, trainingMode, spectrogramMode, highContrast]);
+  }, [scheduledEvents, roundState, width, height, trainingMode, spectrogramMode]);
 
   // Animation loop
   useEffect(() => {
@@ -364,8 +361,7 @@ function createTile(
   _hitZoneY: number,
   spectrogramPath: string | null,
   trainingMode: boolean = false,
-  spectrogramMode: 'full' | 'fading' | 'none' = 'full',
-  highContrast: boolean = false
+  spectrogramMode: 'full' | 'fading' | 'none' = 'full'
 ): TileState {
   const container = new PIXI.Container();
 
@@ -376,13 +372,10 @@ function createTile(
   // Background color based on channel
   const bgColor = event.channel === 'left' ? COLORS.laneLeft : COLORS.laneRight;
 
-  // Tile background - higher opacity and thicker border in high contrast mode
+  // Tile background
   const background = new PIXI.Graphics();
-  const bgAlpha = highContrast ? 0.7 : 0.4;
-  const borderWidth = highContrast ? 4 : 2;
-  const borderAlpha = highContrast ? 1.0 : 0.8;
-  background.beginFill(bgColor, bgAlpha);
-  background.lineStyle(borderWidth, bgColor, borderAlpha);
+  background.beginFill(bgColor, 0.4);
+  background.lineStyle(2, bgColor, 0.8);
   background.drawRoundedRect(-tileWidth / 2, -tileHeight / 2, tileWidth, tileHeight, 8);
   background.endFill();
   container.addChild(background);

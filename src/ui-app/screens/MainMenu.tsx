@@ -5,7 +5,6 @@ function MainMenu() {
   const navigate = useNavigate();
   const [pullDistance, setPullDistance] = useState(0);
   const [isRefreshing, setIsRefreshing] = useState(false);
-  const touchStartY = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const PULL_THRESHOLD = 80; // Distance to trigger refresh
@@ -118,6 +117,7 @@ function MainMenu() {
         zIndex: 1,
         transform: `translateY(${pullDistance}px)`,
         transition: pullDistance === 0 ? 'transform 0.3s ease' : 'none',
+        paddingBottom: '120px',
       }}>
         {/* Owl Professor hero image */}
         <img
@@ -148,13 +148,14 @@ function MainMenu() {
 
         <p style={{
           color: 'var(--color-text-muted)',
-          fontSize: '15px',
+          fontSize: '16px',
           maxWidth: '280px',
           textAlign: 'center',
-          lineHeight: 1.5,
-          marginTop: '0px',
+          lineHeight: 1.4,
+          marginTop: '-4px',
+          fontWeight: 600,
         }}>
-          Your gamified study guide to bird sounds
+          Train your ear. Know the birds.
         </p>
 
         {/* Main Play Button */}
@@ -187,23 +188,23 @@ function MainMenu() {
 
         {/* How it works - visual gameplay preview */}
         <div style={{
-          marginTop: '16px',
-          padding: '12px 16px',
+          marginTop: '20px',
+          padding: '16px',
           background: 'var(--color-surface)',
           borderRadius: '16px',
-          maxWidth: '340px',
+          maxWidth: '360px',
         }}>
           <div style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '16px',
+            gap: '12px',
           }}>
             {/* Step 1: Spectrogram representing sound */}
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center', flex: '0 0 auto' }}>
               <div style={{
-                width: '88px',
-                height: '56px',
+                width: '72px',
+                height: '52px',
                 background: 'linear-gradient(180deg, #1a1a2e 0%, #0d1520 100%)',
                 borderRadius: '10px',
                 padding: '6px',
@@ -215,33 +216,33 @@ function MainMenu() {
               }}>
                 <SpectrogramMini />
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
-                Hear a sound
+              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+                Hear
               </div>
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', fontSize: '28px', marginTop: '-20px' }}>
+            <div style={{ color: 'var(--color-accent)', fontSize: '24px', marginTop: '-16px' }}>
               →
             </div>
 
             {/* Step 2: Bird options */}
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center', flex: '0 0 auto' }}>
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '6px',
+                gap: '4px',
               }}>
-                {['NOCA', 'BLJA', 'TUTI', 'CAWR'].map((code, i) => (
+                {['NOCA', 'BLJA', 'TUTI', 'CARW'].map((code, i) => (
                   <div
                     key={code}
                     style={{
-                      width: '36px',
-                      height: '36px',
-                      borderRadius: '8px',
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '6px',
                       overflow: 'hidden',
                       border: i === 0 ? '2px solid var(--color-accent)' : '2px solid transparent',
-                      boxShadow: i === 0 ? '0 0 10px rgba(255, 152, 0, 0.4)' : 'none',
+                      boxShadow: i === 0 ? '0 0 8px rgba(255, 152, 0, 0.4)' : 'none',
                     }}
                   >
                     <img
@@ -252,8 +253,32 @@ function MainMenu() {
                   </div>
                 ))}
               </div>
-              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
-                Match the bird!
+              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+                Match
+              </div>
+            </div>
+
+            {/* Arrow */}
+            <div style={{ color: 'var(--color-accent)', fontSize: '24px', marginTop: '-16px' }}>
+              →
+            </div>
+
+            {/* Step 3: Learning outcome */}
+            <div style={{ textAlign: 'center', flex: '0 0 auto' }}>
+              <div style={{
+                width: '72px',
+                height: '52px',
+                background: '#2a2a3e',
+                borderRadius: '10px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.4)',
+              }}>
+                <div style={{ fontSize: '32px' }}>🧠</div>
+              </div>
+              <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
+                Train
               </div>
             </div>
           </div>
@@ -263,57 +288,104 @@ function MainMenu() {
       {/* Bottom nav icons */}
       <div style={{
         position: 'absolute',
-        bottom: 'calc(40px + var(--safe-area-bottom, 0px))',
+        bottom: '70px',
         left: 0,
         right: 0,
         display: 'flex',
         justifyContent: 'center',
         gap: '40px',
+        zIndex: 1000,
       }}>
         <button
           className="btn-icon"
           onClick={() => navigate('/help')}
           aria-label="How to Play"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+          }}
         >
-          <HelpIcon />
-          <span style={{ fontSize: '12px', opacity: 0.7 }}>Help</span>
+          <div style={{ transform: 'scale(1.1)' }}>
+            <HelpIcon />
+          </div>
+          <span style={{
+            fontSize: '10px',
+            fontWeight: 500,
+            color: 'var(--color-text-muted)',
+            whiteSpace: 'nowrap',
+          }}>How To</span>
         </button>
 
         <button
           className="btn-icon"
           onClick={() => navigate('/settings')}
           aria-label="Settings"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+          }}
         >
-          <SettingsIcon />
-          <span style={{ fontSize: '12px', opacity: 0.7 }}>Settings</span>
+          <div style={{ transform: 'scale(1.1)' }}>
+            <SettingsIcon />
+          </div>
+          <span style={{
+            fontSize: '10px',
+            fontWeight: 500,
+            color: 'var(--color-text-muted)',
+          }}>Settings</span>
         </button>
 
         <button
           className="btn-icon"
           onClick={() => navigate('/progress')}
           aria-label="Progress"
-          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '4px',
+          }}
         >
-          <StatsIcon />
-          <span style={{ fontSize: '12px', opacity: 0.7 }}>Stats</span>
+          <div style={{ transform: 'scale(1.1)' }}>
+            <StatsIcon />
+          </div>
+          <span style={{
+            fontSize: '10px',
+            fontWeight: 500,
+            color: 'var(--color-text-muted)',
+          }}>Stats</span>
         </button>
       </div>
 
-      {/* Version and credits */}
-      <div style={{
-        position: 'absolute',
-        bottom: 'calc(4px + var(--safe-area-bottom, 0px))',
-        left: 0,
-        right: 0,
-        textAlign: 'center',
-        fontSize: '11px',
-        color: 'var(--color-text-muted)',
-        opacity: 0.85,
-      }}>
-        v3.14 | Made with 🎧 🐦 🎵 and ❤️
-      </div>
+      {/* Version */}
+      <button
+        onClick={() => navigate('/help', { state: { openVersionHistory: true } })}
+        style={{
+          position: 'absolute',
+          bottom: 'calc(4px + var(--safe-area-bottom, 0px))',
+          left: 0,
+          right: 0,
+          textAlign: 'center',
+          fontSize: '11px',
+          color: 'var(--color-accent)',
+          opacity: 0.6,
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          padding: '4px',
+          transition: 'opacity 0.2s',
+          zIndex: 1001,
+        }}
+        onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
+        aria-label="View version history"
+      >
+        v3.57
+      </button>
     </div>
   );
 }

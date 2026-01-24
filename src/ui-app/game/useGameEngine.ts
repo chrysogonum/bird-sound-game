@@ -69,6 +69,7 @@ export interface ScheduledEvent extends GameEvent {
 /** Game engine state */
 export interface GameEngineState {
   roundState: RoundState;
+  isPaused: boolean;
   score: number;
   streak: number;
   timeRemaining: number;
@@ -94,6 +95,8 @@ export interface GameEngineActions {
   endRound: () => void;
   submitInput: (speciesCode: string, channel: Channel) => void;
   reset: () => void;
+  pauseGame: () => void;
+  resumeGame: () => void;
 }
 
 /** Scroll speed based on difficulty (pixels per second) */
@@ -173,6 +176,16 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const activeEventTimesRef = useRef<Map<string, number>>(new Map()); // eventId -> scheduled hit time
   const volumeUpdateRef = useRef<number | null>(null);
 
+  // Taxonomic sort preference and data
+  const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
+  const taxonomicSortEnabled = useMemo(() => {
+    try {
+      return localStorage.getItem('soundfield_taxonomic_sort') === 'true';
+    } catch {
+      return false;
+    }
+  }, []);
+
   // Clips and species data
   const [clips, setClips] = useState<ClipMetadata[]>([]);
   const [allPoolSpecies, setAllPoolSpecies] = useState<SpeciesInfo[]>([]); // All species in the pool
@@ -183,11 +196,35 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     console.log('species state changed, now has', species.length, 'species:', species.map(s => s.code));
   }, [species]);
 
+  // Load taxonomic order data
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`)
+      .then((res) => res.json())
+      .then((data: Record<string, number>) => {
+        setTaxonomicOrder(data);
+      })
+      .catch((err) => console.error('Failed to load taxonomic order:', err));
+  }, []);
+
+  // Helper function to sort species based on preference
+  const sortSpecies = useCallback((speciesToSort: SpeciesInfo[]): SpeciesInfo[] => {
+    if (taxonomicSortEnabled && Object.keys(taxonomicOrder).length > 0) {
+      return [...speciesToSort].sort((a, b) => {
+        const orderA = taxonomicOrder[a.code] || 9999;
+        const orderB = taxonomicOrder[b.code] || 9999;
+        return orderA - orderB;
+      });
+    }
+    return [...speciesToSort].sort((a, b) => a.code.localeCompare(b.code));
+  }, [taxonomicSortEnabled, taxonomicOrder]);
+
   // Game state
   const [roundState, setRoundState] = useState<RoundState>('idle');
+  const [isPaused, setIsPaused] = useState(false);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(level.round_duration_sec);
+  const pauseTimeRef = useRef<number>(0); // Track when we paused for time adjustments
   const [eventsScored, setEventsScored] = useState(0);
   const [speciesCorrect, setSpeciesCorrect] = useState(0);
   const [channelCorrect, setChannelCorrect] = useState(0);
@@ -299,9 +336,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         try {
           const preSelected = JSON.parse(preSelectedJson) as string[];
           // Filter to species that exist in the pool
-          const preSelectedSpecies = poolSpecies
-            .filter(s => preSelected.includes(s.code))
-            .sort((a, b) => a.code.localeCompare(b.code));
+          const filteredSpecies = poolSpecies.filter(s => preSelected.includes(s.code));
+          const preSelectedSpecies = sortSpecies(filteredSpecies);
           if (preSelectedSpecies.length > 0) {
             console.log('loadClips: Using pre-selected species:', preSelectedSpecies.map(s => s.code));
             setSpecies(preSelectedSpecies);
@@ -1069,9 +1105,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           allPoolSpecies.some(s => s.code === code)
         );
         if (validPreSelected.length > 0) {
-          const selectedForRound = allPoolSpecies
-            .filter(s => validPreSelected.includes(s.code))
-            .sort((a, b) => a.code.localeCompare(b.code));
+          const filteredForRound = allPoolSpecies.filter(s => validPreSelected.includes(s.code));
+          const selectedForRound = sortSpecies(filteredForRound);
           console.log('Using pre-selected species:', selectedForRound.map(s => s.code));
           setSpecies(selectedForRound);
           roundSpeciesCodes = selectedForRound.map(s => s.code);
@@ -1091,8 +1126,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           const j = Math.floor(Math.random() * (i + 1));
           [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
-        // Sort alphabetically by species code for consistent display
-        const selectedForRound = shuffled.slice(0, level.species_count).sort((a, b) => a.code.localeCompare(b.code));
+        // Sort by preference (taxonomic or alphabetical) for consistent display
+        const slicedSpecies = shuffled.slice(0, level.species_count);
+        const selectedForRound = sortSpecies(slicedSpecies);
         console.log('Random selection: setting species to', selectedForRound.length, 'species:', selectedForRound.map(s => s.code));
         setSpecies(selectedForRound);
         roundSpeciesCodes = selectedForRound.map(s => s.code);
@@ -1293,6 +1329,58 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     };
     localStorage.setItem('soundfield_round_results', JSON.stringify(roundResults));
   }, [species, level.mode, level.pack_id, level.level_id, level.title]);
+
+  /**
+   * Pause the game - stops timer and suspends audio
+   */
+  const pauseGame = useCallback(() => {
+    if (roundState !== 'playing' || isPaused) return;
+
+    setIsPaused(true);
+    pauseTimeRef.current = performance.now();
+
+    // Pause the timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
+    // Suspend audio context to pause all sounds
+    if (audioContextRef.current && audioContextRef.current.state === 'running') {
+      audioContextRef.current.suspend();
+    }
+  }, [roundState, isPaused]);
+
+  /**
+   * Resume the game - restarts timer and resumes audio
+   */
+  const resumeGame = useCallback(() => {
+    if (roundState !== 'playing' || !isPaused) return;
+
+    setIsPaused(false);
+
+    // Resume audio context
+    if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+      audioContextRef.current.resume();
+    }
+
+    // Restart the timer
+    if (!continuousModeRef.current) {
+      timerRef.current = window.setInterval(() => {
+        setTimeRemaining((prev) => {
+          if (prev <= 1) {
+            endRound();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    } else {
+      timerRef.current = window.setInterval(() => {
+        setTimeRemaining((prev) => prev + 1);
+      }, 1000);
+    }
+  }, [roundState, isPaused, endRound]);
 
   /**
    * Calculate score breakdown
@@ -1593,6 +1681,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   // Assemble state and actions
   const state: GameEngineState = {
     roundState,
+    isPaused,
     score,
     streak,
     timeRemaining,
@@ -1617,7 +1706,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     endRound,
     submitInput,
     reset,
-  }), [initialize, startRound, endRound, submitInput, reset]);
+    pauseGame,
+    resumeGame,
+  }), [initialize, startRound, endRound, submitInput, reset, pauseGame, resumeGame]);
 
   return [state, actions];
 }

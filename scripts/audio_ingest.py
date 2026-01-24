@@ -159,7 +159,7 @@ def get_api_key() -> str:
     return key
 
 
-def fetch_xeno_canto_recordings(species_name: str, max_results: int = 5) -> list:
+def fetch_xeno_canto_recordings(species_name: str, max_results: int = 5, vocalization_type: str = None) -> list:
     """
     Fetch recording metadata from Xeno-canto API v3.
 
@@ -169,6 +169,11 @@ def fetch_xeno_canto_recordings(species_name: str, max_results: int = 5) -> list
     - Queries MUST use tags (en:, q:, cnt:, etc.) - plain text searches return 0 results
     - Tag format: en:"Species Name" (quotes required for multi-word values)
     - Multiple tags joined with + in URL
+
+    Args:
+        species_name: Species to search for
+        max_results: Maximum number of recordings to return
+        vocalization_type: Optional filter for vocalization type (song, call, drum, etc.)
 
     See: https://xeno-canto.org/explore/api
     """
@@ -211,6 +216,23 @@ def fetch_xeno_canto_recordings(species_name: str, max_results: int = 5) -> list
                         good_recordings.append(rec)
             except (ValueError, IndexError):
                 continue
+
+        # Filter by vocalization type if specified
+        if vocalization_type:
+            voc_type_lower = vocalization_type.lower()
+            filtered_by_type = []
+            for rec in good_recordings:
+                rec_type = rec.get('type', '').lower()
+                # Split on comma to handle multi-type recordings like "call, song"
+                rec_types = [t.strip() for t in rec_type.split(',')]
+                if voc_type_lower in rec_types:
+                    filtered_by_type.append(rec)
+
+            if not filtered_by_type:
+                print(f"  No recordings found with vocalization type '{vocalization_type}'")
+                print(f"  Available types in results: {set(rec.get('type', 'unknown') for rec in good_recordings[:10])}")
+
+            good_recordings = filtered_by_type
 
         return good_recordings[:max_results]
 
@@ -461,7 +483,7 @@ def generate_demo_clips(species_list: list, output_dir: str) -> list:
     return processed_files
 
 
-def ingest_from_xeno_canto(species_list: list, output_dir: str, max_per_species: int = 1) -> list:
+def ingest_from_xeno_canto(species_list: list, output_dir: str, max_per_species: int = 1, vocalization_type: str = None) -> list:
     """Ingest audio from Xeno-canto for given species."""
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
@@ -470,7 +492,7 @@ def ingest_from_xeno_canto(species_list: list, output_dir: str, max_per_species:
 
     for species_name in species_list:
         print(f"Fetching recordings for: {species_name}")
-        recordings = fetch_xeno_canto_recordings(species_name, max_per_species)
+        recordings = fetch_xeno_canto_recordings(species_name, max_per_species, vocalization_type)
 
         if not recordings:
             print(f"  No suitable recordings found")
@@ -510,6 +532,7 @@ def ingest_from_xeno_canto(species_list: list, output_dir: str, max_per_species:
                     'species_code': species_code,
                     'source': 'xenocanto',
                     'source_id': f"XC{rec_id}",
+                    'recordist': rec.get('rec'),
                     'vocalization_type': rec.get('type', 'song').split(',')[0].strip().lower(),
                     'duration_ms': result['duration_ms'],
                     'loudness_lufs': result['loudness_lufs'],
@@ -570,6 +593,7 @@ def main():
     parser.add_argument('--output', help='Output directory for processed audio')
     parser.add_argument('--species', nargs='+', help='Species names to fetch')
     parser.add_argument('--max-per-species', type=int, default=1, help='Max recordings per species')
+    parser.add_argument('--vocalization-type', help='Filter by vocalization type (song, call, drum, alarm, flight call, etc.)')
     parser.add_argument('--manifest', help='Output manifest JSON file')
     parser.add_argument('--demo', action='store_true', help='Generate demo clips instead of downloading')
     parser.add_argument('--test-api', action='store_true', help='Test API connection and exit')
@@ -598,7 +622,7 @@ def main():
     if args.demo:
         processed = generate_demo_clips(species_list, args.output)
     else:
-        processed = ingest_from_xeno_canto(species_list, args.output, args.max_per_species)
+        processed = ingest_from_xeno_canto(species_list, args.output, args.max_per_species, args.vocalization_type)
 
     print()
     print(f"=== Summary ===")

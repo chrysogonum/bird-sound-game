@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
 import { trackLevelSelect } from '../utils/analytics';
 
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
-  starter_birds: 'Common Eastern US Backyard Birds',
-  expanded_backyard: 'Expanded Eastern US Birds',
+  starter_birds: 'Backyard Birds',
+  grassland_birds: 'Grassland & Open Country',
+  expanded_backyard: 'Eastern Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
   spring_warblers: 'Warbler Academy',
-  western_birds: 'Western Backyard Birds',
+  western_birds: 'Western Birds',
   custom: 'Custom Pack',
 };
 
@@ -196,15 +197,29 @@ function LevelSelect() {
     <div className="screen" style={{ paddingBottom: '24px' }}>
       {/* Header */}
       <div className="flex-row items-center gap-md" style={{ marginBottom: '8px' }}>
-        <button className="btn-icon" onClick={() => navigate(packId === 'custom' ? '/custom-pack' : '/pack-select')} aria-label="Back">
+        <button className="btn-icon" onClick={() => navigate(packId === 'custom' ? '/custom-pack' : '/pack-select')} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
           <BackIcon />
         </button>
-        <div>
+        <div style={{ flex: 1 }}>
           <h2 style={{ margin: 0, fontSize: '20px' }}>{packName}</h2>
           <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
-            Select a level
+            <span>Select a level</span>
           </div>
         </div>
+        {packId !== 'custom' && (
+          <Link
+            to={`/pack-select?expand=${packId}#bird-reference`}
+            state={{ fromLevelSelect: true, packId }}
+            className="btn-icon"
+            style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
+            aria-label="Sound Library"
+          >
+            <span>🎧</span><span>📚</span>
+          </Link>
+        )}
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)' }}>
+          <HomeIcon />
+        </button>
       </div>
 
       {loading ? (
@@ -315,6 +330,15 @@ function ArrowIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}
+
+function HomeIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      <polyline points="9 22 9 12 15 12 15 22" />
     </svg>
   );
 }
