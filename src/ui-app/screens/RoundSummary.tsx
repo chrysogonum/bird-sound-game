@@ -185,10 +185,6 @@ function RoundSummary() {
     navigate(`/level-select?pack=${packId}`);
   };
 
-  const goToPackSelect = () => {
-    navigate('/pack-select');
-  };
-
   const goToMenu = () => {
     navigate('/');
   };
