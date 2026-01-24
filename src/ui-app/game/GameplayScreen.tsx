@@ -5,7 +5,7 @@ import PixiGame from './PixiGame';
 import { useGameEngine } from './useGameEngine';
 import type { Channel } from '@engine/audio/types';
 import type { LevelConfig, GameMode } from '@engine/game/types';
-import { trackTrainingModeToggle } from '../utils/analytics';
+import { trackTrainingModeToggle, trackGameStart, trackRoundComplete } from '../utils/analytics';
 
 // Bird icon component - shows icon with code label below
 function BirdIcon({ code, size = 32, color }: { code: string; size?: number; color?: string }) {
@@ -157,6 +157,7 @@ function GameplayScreen() {
   const [selectedChannel, setSelectedChannel] = useState<Channel | null>(null);
   const [selectedSpecies, setSelectedSpecies] = useState<string | null>(null);
   const [campaignLevels, setCampaignLevels] = useState<LevelConfig[]>([]);
+  const [showQuitConfirm, setShowQuitConfirm] = useState(false);
 
   // Training mode state (shows bird icons on tiles)
   const [trainingMode, setTrainingMode] = useState(() => {
@@ -172,10 +173,6 @@ function GameplayScreen() {
     return (saved as 'full' | 'fading' | 'none') || 'full';
   }, []);
 
-  // High contrast mode from settings
-  const highContrastSetting = useMemo(() => {
-    return localStorage.getItem('soundfield_high_contrast') === 'true';
-  }, []);
 
   // Persist training mode to localStorage and track usage
   useEffect(() => {
@@ -248,6 +245,43 @@ function GameplayScreen() {
       };
     }
 
+    // Handle drill pack (from confusion summary) - reads from sessionStorage
+    if (packId === 'drill') {
+      let drillSpecies: string[] = [];
+      try {
+        const sessionJson = sessionStorage.getItem('roundSpecies');
+        if (sessionJson) {
+          drillSpecies = JSON.parse(sessionJson);
+        } else {
+          // Fallback to drillSpecies if roundSpecies not set
+          const drillJson = sessionStorage.getItem('drillSpecies');
+          if (drillJson) {
+            drillSpecies = JSON.parse(drillJson);
+            sessionStorage.setItem('roundSpecies', drillJson);
+          }
+        }
+      } catch (e) {
+        console.error('Failed to parse drill species:', e);
+      }
+      console.log('Drill pack: using species:', drillSpecies);
+
+      return {
+        level_id: 1,
+        pack_id: 'drill',
+        mode: 'campaign',
+        title: 'Confusion Drill',
+        round_duration_sec: 30,
+        species_count: drillSpecies.length,
+        species_pool: drillSpecies,
+        clip_selection: 'all', // Use all clips for maximum exposure
+        channel_mode: 'single', // Keep simpler for focused practice
+        event_density: 'low',
+        overlap_probability: 0,
+        scoring_window_ms: 2000,
+        spectrogram_mode: spectrogramModeSetting,
+      };
+    }
+
     if (mode === 'campaign' && campaignLevels.length > 0) {
       // Find the requested level from levels.json (match both pack_id AND level_id)
       const level = campaignLevels.find((l) => l.pack_id === packId && l.level_id === levelId);
@@ -285,8 +319,8 @@ function GameplayScreen() {
   const lastLevelKeyRef = useRef<string | null>(null);
   useEffect(() => {
     // Don't initialize until we have the real level config with species_pool
-    // (except for custom pack which doesn't need levels.json)
-    if (mode === 'campaign' && campaignLevels.length === 0 && packId !== 'custom') {
+    // (except for custom/drill packs which don't need levels.json)
+    if (mode === 'campaign' && campaignLevels.length === 0 && packId !== 'custom' && packId !== 'drill') {
       console.log('Waiting for levels.json to load...');
       return;
     }
@@ -299,6 +333,12 @@ function GameplayScreen() {
       lastLevelKeyRef.current = key;
       console.log('Initializing for', key);
       gameActions.initialize();
+      // Track game start
+      trackGameStart(
+        levelConfig.pack_id,
+        levelConfig.level_id,
+        levelConfig.species_pool?.length ?? 0
+      );
     }
   }, [mode, campaignLevels.length, levelConfig.pack_id, levelConfig.level_id, levelConfig.species_pool, gameActions]);
 
@@ -405,10 +445,24 @@ function GameplayScreen() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [gameState.roundState, handleChannelTap, handleSpeciesSelect, speciesForWheel]);
 
-  // Handle back button
+  // Handle back button - return to level select
   const handleBack = useCallback(() => {
     gameActions.reset();
-    navigate('/');
+    navigate(-1); // Go back to level select
+  }, [navigate, gameActions]);
+
+  // Handle quit confirmation
+  const handleQuitClick = useCallback(() => {
+    setShowQuitConfirm(true);
+  }, []);
+
+  const handleQuitCancel = useCallback(() => {
+    setShowQuitConfirm(false);
+  }, []);
+
+  const handleQuitConfirm = useCallback(() => {
+    gameActions.reset();
+    navigate(-1); // Go back to previous screen (pack select or level select)
   }, [navigate, gameActions]);
 
   // Handle start round
@@ -451,13 +505,26 @@ function GameplayScreen() {
           const results = JSON.parse(savedResults);
           results.usedTrainingMode = usedTrainingModeRef.current;
           localStorage.setItem('soundfield_round_results', JSON.stringify(results));
+
+          // Track round completion
+          const accuracy = results.correctCount && results.totalEvents
+            ? (results.correctCount / results.totalEvents) * 100
+            : 0;
+          const duration = results.duration ?? 0;
+          trackRoundComplete(
+            levelConfig.pack_id,
+            levelConfig.level_id,
+            gameState.score,
+            accuracy,
+            duration
+          );
         }
       } catch (e) {
         console.error('Failed to update results with training mode flag:', e);
       }
       navigate('/summary', { replace: true });
     }
-  }, [gameState.roundState, navigate]);
+  }, [gameState.roundState, gameState.score, levelConfig.pack_id, levelConfig.level_id, navigate]);
 
   return (
     <div className="gameplay-screen">
@@ -477,6 +544,20 @@ function GameplayScreen() {
           <path d="M15 18l-6-6 6-6" />
         </svg>
       </button>
+
+      {/* Quit button - only show during playing state */}
+      {gameState.roundState === 'playing' && (
+        <button
+          className="quit-button"
+          onClick={handleQuitClick}
+          aria-label="Quit round"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      )}
 
       {/* Training mode toggle button */}
       <button
@@ -530,7 +611,6 @@ function GameplayScreen() {
           onChannelTap={handleChannelTap}
           trainingMode={trainingMode}
           spectrogramMode={levelConfig.spectrogram_mode}
-          highContrast={highContrastSetting}
         />
 
         {/* Channel flash overlays */}
@@ -621,6 +701,34 @@ function GameplayScreen() {
         </div>
       </div>
 
+      {/* Quit confirmation modal */}
+      {showQuitConfirm && (
+        <div className="quit-modal-overlay">
+          <div className="quit-modal">
+            <h3 style={{ margin: 0, marginBottom: '16px', fontSize: '20px' }}>Quit Round?</h3>
+            <p style={{ margin: 0, marginBottom: '24px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
+              Your progress will not be saved.
+            </p>
+            <div style={{ display: 'flex', gap: '12px' }}>
+              <button
+                className="btn-secondary"
+                onClick={handleQuitCancel}
+                style={{ flex: 1, padding: '12px' }}
+              >
+                Cancel
+              </button>
+              <button
+                className="btn-primary"
+                onClick={handleQuitConfirm}
+                style={{ flex: 1, padding: '12px', background: 'var(--color-error)' }}
+              >
+                Quit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         .gameplay-screen {
           display: flex;
@@ -639,7 +747,7 @@ function GameplayScreen() {
           background: rgba(0, 0, 0, 0.3);
           border: none;
           border-radius: 50%;
-          color: var(--color-text);
+          color: var(--color-accent);
           cursor: pointer;
           display: flex;
           align-items: center;
@@ -650,6 +758,68 @@ function GameplayScreen() {
 
         .back-button:hover {
           background: rgba(0, 0, 0, 0.5);
+        }
+
+        .quit-button {
+          position: absolute;
+          top: calc(12px + var(--safe-area-top, 0px));
+          right: 8px;
+          width: 40px;
+          height: 40px;
+          background: rgba(229, 115, 115, 0.3);
+          border: none;
+          border-radius: 50%;
+          color: var(--color-error);
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 100;
+          transition: background 0.2s;
+        }
+
+        .quit-button:hover {
+          background: rgba(229, 115, 115, 0.5);
+        }
+
+        .quit-modal-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 1000;
+          animation: fadeIn 0.2s ease-out;
+        }
+
+        .quit-modal {
+          background: var(--color-surface);
+          border-radius: 16px;
+          padding: 24px;
+          max-width: 320px;
+          width: 90%;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+          animation: slideUp 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+          from {
+            transform: translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
         }
 
         .training-toggle {
@@ -945,6 +1115,7 @@ function GameplayScreen() {
           display: flex;
           flex-wrap: wrap;
           gap: 6px;
+          max-width: 180px; /* Force 3 columns: ~56px per button * 3 + gaps */
         }
 
         .input-column.left .species-buttons {
@@ -953,6 +1124,7 @@ function GameplayScreen() {
 
         .input-column.right .species-buttons {
           justify-content: flex-end;
+          margin-left: auto; /* Push to right edge */
         }
 
         .species-btn {
@@ -985,6 +1157,27 @@ function GameplayScreen() {
         .species-btn:disabled {
           opacity: 0.4;
           cursor: not-allowed;
+        }
+
+        /* Tablet: larger icons and more spacing */
+        @media (min-width: 768px) {
+          .species-buttons {
+            max-width: 260px; /* 3 larger buttons + gaps */
+            gap: 10px;
+          }
+
+          .species-btn {
+            padding: 8px;
+          }
+
+          .species-btn img {
+            width: 52px !important;
+            height: 52px !important;
+          }
+
+          .species-btn > div > span {
+            font-size: 13px !important;
+          }
         }
       `}</style>
     </div>

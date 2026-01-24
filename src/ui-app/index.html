@@ -8,17 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#1A1A2E" />
     <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="description" content="Your study guide to bird songs - learn to identify birds by their sounds" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MJXQZYWWZ0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MJXQZYWWZ0');
-    </script>
+    <!-- Security & Privacy Headers -->
+    <meta name="referrer" content="no-referrer" />
+    <!-- CSP temporarily disabled for analytics debugging -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://region1.google-analytics.com ws: wss:; font-src 'self'; media-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self';" /> -->
+
+    <!-- Google Analytics loaded conditionally after user consent (see CookieConsent.tsx) -->
 
     <title>ChipNotes!</title>
     <style>
@@ -34,6 +33,14 @@
         background-color: #1A1A2E;
         color: #FFFFFF;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(6px);
+        }
       }
     </style>
   </head>

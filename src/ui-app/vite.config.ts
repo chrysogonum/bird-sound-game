@@ -4,7 +4,12 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/bird-sound-game/',
+  // Use root '/' for custom domain (chipnotes.app)
+  // Use '/bird-sound-game/' for GitHub Pages subdomain
+  // The CNAME file in public/ will trigger custom domain mode
+  base: '/',
+  // Ensure SPA mode for proper routing (this is the default, but explicit for clarity)
+  appType: 'spa',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './'),

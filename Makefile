@@ -75,6 +75,10 @@ help:
 	@echo "  make validate-clips     Validate clips.json"
 	@echo "  make validate-packs     Validate pack definitions"
 	@echo "  make validate-data      Validate data integrity (files, canonicals, etc.)"
+	@echo ""
+	@echo "Species Data:"
+	@echo "  make generate-species-data   Regenerate species.json + taxonomic_order.json from IBP-AOS-list25.csv"
+	@echo "  make audit-species-data      Audit all species data for consistency with IBP-AOS-list25.csv"
 
 # ============================================================================
 # Setup & Common
@@ -104,12 +108,16 @@ lint:
 
 # ============================================================================
 # Phase A: Audio Ingestion & Tagging
+# ⚠️ WARNING: Only use this for NEW project bootstrap. For existing projects,
+#            use merge_candidates.py instead of audio_tagger.py!
 # ============================================================================
 
 phase-a: $(DATA_DIR)/clips.json
 
 $(DATA_DIR)/clips.json: $(SCRIPTS_DIR)/audio_ingest.py $(SCRIPTS_DIR)/audio_tagger.py
 	@echo "=== Phase A: Audio Ingestion & Tagging ==="
+	@echo "⚠️  WARNING: This target uses audio_tagger.py which OVERWRITES clips.json"
+	@echo "    Only run this on a NEW project. For existing projects, use merge_candidates.py"
 	@mkdir -p $(DATA_DIR)/clips
 	$(PYTHON) $(SCRIPTS_DIR)/audio_ingest.py --output $(DATA_DIR)/clips
 	$(PYTHON) $(SCRIPTS_DIR)/audio_tagger.py --input $(DATA_DIR)/clips --output $(DATA_DIR)/clips.json
@@ -447,10 +455,14 @@ validate-schemas:
 	done
 	@echo "All schemas valid"
 
-validate-clips:
+normalize-clips:
+	@echo "=== Normalizing clips.json ==="
+	$(PYTHON) $(SCRIPTS_DIR)/normalize_clips.py $(DATA_DIR)/clips.json
+
+validate-clips: normalize-clips
 	@echo "=== Validating clips.json ==="
 	$(PYTHON) $(SCRIPTS_DIR)/validate_schema.py --schema schemas/clip.schema.json --data $(DATA_DIR)/clips.json
-	$(PYTHON) -c "import json; d=json.load(open('$(DATA_DIR)/clips.json')); [assert 500<=c['duration_ms']<=3000 for c in d]; print('All clip durations valid')"
+	@$(PYTHON) -c "import json; d=json.load(open('$(DATA_DIR)/clips.json')); valid=all(500<=c['duration_ms']<=3000 for c in d); assert valid, 'Invalid durations found'; print('All clip durations valid')"
 
 validate-packs:
 	@echo "=== Validating pack definitions ==="
@@ -462,6 +474,26 @@ validate-packs:
 validate-data:
 	@echo "=== Running comprehensive data validation ==="
 	$(PYTHON) $(SCRIPTS_DIR)/validate_data.py
+
+# ============================================================================
+# Species Data Generation
+# ============================================================================
+
+# IMPORTANT: docs/IBP-AOS-list25.csv is the SINGLE SOURCE OF TRUTH for:
+#   - 4-letter bird codes
+#   - Common names
+#   - Scientific names
+#   - Taxonomic ordering (AOS/eBird 2025 taxonomy)
+# Run this target whenever the CSV is updated to regenerate JSON files.
+
+generate-species-data:
+	@echo "=== Generating species.json and taxonomic_order.json from IBP-AOS-list25.csv ==="
+	$(PYTHON) $(SCRIPTS_DIR)/generate_species_data.py
+	@echo "Species data generation complete"
+
+audit-species-data:
+	@echo "=== Auditing species data consistency ==="
+	$(PYTHON) $(SCRIPTS_DIR)/audit_species_data.py
 
 # ============================================================================
 # Aggregate Targets
