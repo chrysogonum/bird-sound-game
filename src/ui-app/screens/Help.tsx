@@ -296,7 +296,7 @@ function Help() {
           />
           <PackInfo
             name="Western Birds"
-            description="20 common species from western North America: Steller's Jay, California Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, Common Grackle, Dark-eyed Junco, Red-winged Blackbird, and more."
+            description="21 common species from western North America: Steller's Jay, California Scrub-Jay, Oak Titmouse, Black-capped Chickadee, White-crowned Sparrow, Common Grackle, Dark-eyed Junco, Red-winged Blackbird, and more."
           />
           <PackInfo
             name="Woodpeckers"
@@ -644,7 +644,7 @@ function Help() {
               <div>🎉 <strong>100+ Species!</strong> – Over 100 North American species with curated audio clips and spectrograms</div>
               <div>🔄 <strong>Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</div>
               <div>📱 <strong>Tablet Support</strong> – Now works (better) on bigger screens like iPads and tablets</div>
-              <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 20, Eastern to 46, and Woodpeckers to 9</div>
+              <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 21, Eastern to 46, and Woodpeckers to 9</div>
               <div>🐦 <strong>Taxonomic Sorting</strong> – Play birds in evolutionary order, see scientific names</div>
               <div>🎨 <strong>Custom Pack Builder</strong> – Build and save up to 10 custom packs from any species</div>
             </div>
@@ -656,6 +656,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="3.57" date="January 24, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Oak Titmouse:</strong> Added Oak Titmouse (OATI) to Western Birds pack - a common California oak woodland species. 9 new audio clips from Xeno-canto. Western Birds pack now has 21 species.</li>
+              <li><strong>Tufted Titmouse Icon:</strong> Updated Tufted Titmouse (TUTI) icon with improved design.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="3.56" date="January 24, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Drill Confused Birds:</strong> After a round, if you confused 4+ different birds, a new "Drill These X Birds" button appears in the Confusion Summary. Click it to immediately start a focused practice session with just those species - the fastest way to improve on your trouble areas.</li>

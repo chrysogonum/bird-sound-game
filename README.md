@@ -38,7 +38,7 @@ Each round is 30 seconds. Use headphones for the best experience!
 | **Backyard Birds** | 6 | Start here — Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, Robin |
 | **Grassland & Open Country** | 9 | Meadowlarks, Dickcissels, Indigo Buntings — songs of prairies and field edges |
 | **Eastern Birds** | 46 | Comprehensive eastern US species, 9 random per round |
-| **Western Birds** | 18 | Steller's Jay, Western Scrub-Jay, and more from the Pacific coast to the Rockies |
+| **Western Birds** | 21 | Steller's Jay, Western Scrub-Jay, Oak Titmouse, and more from the Pacific coast to the Rockies |
 | **Woodpeckers** | 9 | Drums, calls, and rattles from Downy to Pileated (includes Acorn & Lewis's!) |
 | **Sparrows** | 9 | Nine sparrow species with distinctive patterns |
 | **Warbler Academy** | 34 | High-pitched songs of spring migration (experts only!) |
