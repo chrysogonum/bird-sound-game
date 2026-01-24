@@ -157,6 +157,28 @@ function RoundSummary() {
     navigate('/');
   };
 
+  // Get unique species from confusion data for drill mode
+  const getConfusedSpecies = (): string[] => {
+    if (!confusionSummary.length) return [];
+    const speciesSet = new Set<string>();
+    for (const item of confusionSummary) {
+      speciesSet.add(item.expectedSpecies);
+      if (item.guessedSpecies) {
+        speciesSet.add(item.guessedSpecies);
+      }
+    }
+    return Array.from(speciesSet);
+  };
+
+  const confusedSpecies = getConfusedSpecies();
+  const showDrillButton = confusedSpecies.length >= 4;
+
+  const startDrill = () => {
+    // Store confused species for drill mode
+    sessionStorage.setItem('drillSpecies', JSON.stringify(confusedSpecies));
+    navigate('/preview?pack=drill&level=1');
+  };
+
   // Check when share card is ready
   useEffect(() => {
     const checkReady = setInterval(() => {
@@ -360,6 +382,23 @@ function RoundSummary() {
               )}
             </div>
           ))}
+          {showDrillButton && (
+            <button
+              className="btn-primary"
+              onClick={startDrill}
+              style={{
+                width: '100%',
+                marginTop: '12px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '8px',
+              }}
+            >
+              <DrillIcon />
+              Drill These {confusedSpecies.length} Birds
+            </button>
+          )}
         </div>
       )}
 
@@ -476,6 +515,16 @@ function ShareIcon() {
       <circle cx="18" cy="19" r="3" />
       <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
       <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+    </svg>
+  );
+}
+
+function DrillIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
     </svg>
   );
 }

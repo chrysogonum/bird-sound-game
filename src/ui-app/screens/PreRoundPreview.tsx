@@ -36,6 +36,7 @@ const PACK_NAMES: Record<string, string> = {
   spring_warblers: 'Warbler Academy',
   western_birds: 'Western Birds',
   custom: 'Custom Pack',
+  drill: 'Confusion Drill',
 };
 
 // Level titles for custom pack
@@ -297,6 +298,39 @@ function PreRoundPreview() {
       fetch(`${import.meta.env.BASE_URL}data/clips.json`).then(r => r.json()),
     ]).then(([levels, clipsData]: [LevelConfig[], ClipData[]]) => {
       setClips(clipsData);
+
+      // Handle drill pack (from confusion summary)
+      if (packId === 'drill') {
+        const drillSpeciesJson = sessionStorage.getItem('drillSpecies');
+        if (drillSpeciesJson) {
+          try {
+            const drillSpecies = JSON.parse(drillSpeciesJson) as string[];
+
+            // Create synthetic level config for drill
+            const drillLevel: LevelConfig = {
+              level_id: 1,
+              pack_id: 'drill',
+              mode: 'campaign',
+              title: 'Confusion Drill',
+              round_duration_sec: 30,
+              species_count: drillSpecies.length,
+              species_pool: drillSpecies,
+              clip_selection: 'all', // Use all clips to maximize exposure
+              channel_mode: 'single', // Keep it simpler for focused practice
+              event_density: 'low',
+              overlap_probability: 0,
+              scoring_window_ms: 2000,
+              spectrogram_mode: 'full',
+            };
+            setLevel(drillLevel);
+            setSelectedSpecies(buildSpeciesInfo(drillSpecies, clipsData));
+          } catch (e) {
+            console.error('Failed to parse drill species:', e);
+          }
+        }
+        setLoading(false);
+        return;
+      }
 
       // Handle custom pack specially
       if (packId === 'custom') {

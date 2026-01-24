@@ -245,6 +245,43 @@ function GameplayScreen() {
       };
     }
 
+    // Handle drill pack (from confusion summary) - reads from sessionStorage
+    if (packId === 'drill') {
+      let drillSpecies: string[] = [];
+      try {
+        const sessionJson = sessionStorage.getItem('roundSpecies');
+        if (sessionJson) {
+          drillSpecies = JSON.parse(sessionJson);
+        } else {
+          // Fallback to drillSpecies if roundSpecies not set
+          const drillJson = sessionStorage.getItem('drillSpecies');
+          if (drillJson) {
+            drillSpecies = JSON.parse(drillJson);
+            sessionStorage.setItem('roundSpecies', drillJson);
+          }
+        }
+      } catch (e) {
+        console.error('Failed to parse drill species:', e);
+      }
+      console.log('Drill pack: using species:', drillSpecies);
+
+      return {
+        level_id: 1,
+        pack_id: 'drill',
+        mode: 'campaign',
+        title: 'Confusion Drill',
+        round_duration_sec: 30,
+        species_count: drillSpecies.length,
+        species_pool: drillSpecies,
+        clip_selection: 'all', // Use all clips for maximum exposure
+        channel_mode: 'single', // Keep simpler for focused practice
+        event_density: 'low',
+        overlap_probability: 0,
+        scoring_window_ms: 2000,
+        spectrogram_mode: spectrogramModeSetting,
+      };
+    }
+
     if (mode === 'campaign' && campaignLevels.length > 0) {
       // Find the requested level from levels.json (match both pack_id AND level_id)
       const level = campaignLevels.find((l) => l.pack_id === packId && l.level_id === levelId);
@@ -282,8 +319,8 @@ function GameplayScreen() {
   const lastLevelKeyRef = useRef<string | null>(null);
   useEffect(() => {
     // Don't initialize until we have the real level config with species_pool
-    // (except for custom pack which doesn't need levels.json)
-    if (mode === 'campaign' && campaignLevels.length === 0 && packId !== 'custom') {
+    // (except for custom/drill packs which don't need levels.json)
+    if (mode === 'campaign' && campaignLevels.length === 0 && packId !== 'custom' && packId !== 'drill') {
       console.log('Waiting for levels.json to load...');
       return;
     }
