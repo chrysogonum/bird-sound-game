@@ -38,6 +38,26 @@ interface RoundResults {
 // Total number of campaign levels per pack
 const TOTAL_LEVELS = 6;
 
+// Pack display names
+const PACK_NAMES: Record<string, string> = {
+  starter_birds: 'Backyard Birds',
+  grassland_birds: 'Grassland & Open Country',
+  expanded_backyard: 'Eastern Birds',
+  sparrows: 'Sparrows',
+  woodpeckers: 'Woodpeckers',
+  spring_warblers: 'Warbler Academy',
+  western_birds: 'Western Birds',
+  custom: 'Custom Pack',
+  drill: 'Confusion Drill',
+};
+
+// Level color based on difficulty (matches LevelSelect.tsx)
+function getLevelColor(level: number): string {
+  if (level <= 2) return '#4CAF50'; // Easy - green
+  if (level <= 4) return '#FFC107'; // Medium - yellow/orange
+  return '#FF5722'; // Hard - red/orange
+}
+
 interface ConfusionSummaryItem {
   expectedSpecies: string;
   guessedSpecies: string | null;
@@ -54,6 +74,7 @@ function RoundSummary() {
   const [isSharing, setIsSharing] = useState(false);
   const [shareReady, setShareReady] = useState(false);
   const [shareMessage, setShareMessage] = useState<string | null>(null);
+  const [drillOrigin, setDrillOrigin] = useState<{ packId: string; level: number } | null>(null);
 
   useEffect(() => {
     // Load results from localStorage
@@ -134,6 +155,21 @@ function RoundSummary() {
   const packId = results?.packId || 'starter_birds';
   const hasPrevLevel = currentLevel > 1;
   const hasNextLevel = currentLevel < TOTAL_LEVELS;
+  const isDrill = packId === 'drill';
+
+  // Check for drill origin on mount
+  useEffect(() => {
+    if (isDrill) {
+      const origin = sessionStorage.getItem('drillOrigin');
+      if (origin) {
+        try {
+          setDrillOrigin(JSON.parse(origin));
+        } catch (e) {
+          console.error('Failed to parse drill origin:', e);
+        }
+      }
+    }
+  }, [isDrill]);
 
   // Navigation helpers - all go through preview
   const goToLevel = (level: number) => {
@@ -157,6 +193,15 @@ function RoundSummary() {
     navigate('/');
   };
 
+  const returnToOriginPack = () => {
+    if (drillOrigin) {
+      // Clear drill origin so it doesn't persist
+      sessionStorage.removeItem('drillOrigin');
+      sessionStorage.removeItem('drillSpecies');
+      navigate(`/preview?pack=${drillOrigin.packId}&level=${drillOrigin.level}`);
+    }
+  };
+
   // Get unique species from confusion data for drill mode
   const getConfusedSpecies = (): string[] => {
     if (!confusionSummary.length) return [];
@@ -172,11 +217,14 @@ function RoundSummary() {
 
   const confusedSpecies = getConfusedSpecies();
   const showDrillButton = confusedSpecies.length >= 4;
+  const [showDrillLevelPicker, setShowDrillLevelPicker] = useState(false);
 
-  const startDrill = () => {
+  const startDrill = (level: number = currentLevel) => {
     // Store confused species for drill mode
     sessionStorage.setItem('drillSpecies', JSON.stringify(confusedSpecies));
-    navigate('/preview?pack=drill&level=1');
+    // Save origin pack/level so user can return after drilling
+    sessionStorage.setItem('drillOrigin', JSON.stringify({ packId, level: currentLevel }));
+    navigate(`/preview?pack=drill&level=${level}`);
   };
 
   // Check when share card is ready
@@ -383,21 +431,98 @@ function RoundSummary() {
             </div>
           ))}
           {showDrillButton && (
-            <button
-              className="btn-primary"
-              onClick={startDrill}
-              style={{
-                width: '100%',
-                marginTop: '12px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-              }}
-            >
-              <DrillIcon />
-              Drill These {confusedSpecies.length} Birds
-            </button>
+            <div style={{ marginTop: '12px' }}>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center', justifyContent: 'center' }}>
+                <button
+                  onClick={() => startDrill(currentLevel)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '8px 14px',
+                    fontSize: '13px',
+                    fontWeight: 600,
+                    borderRadius: '8px',
+                    border: 'none',
+                    background: 'linear-gradient(135deg, #E57373 0%, #C62828 100%)',
+                    color: 'white',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <DrillIcon />
+                  Drill These {confusedSpecies.length} Birds
+                </button>
+                <button
+                  onClick={() => setShowDrillLevelPicker(!showDrillLevelPicker)}
+                  title="Change drill level"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    background: 'transparent',
+                    border: 'none',
+                    color: getLevelColor(currentLevel),
+                    fontSize: '12px',
+                    cursor: 'pointer',
+                    padding: '4px',
+                  }}
+                >
+                  <span style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '50%',
+                    background: showDrillLevelPicker
+                      ? getLevelColor(currentLevel)
+                      : `linear-gradient(135deg, ${getLevelColor(currentLevel)}33, ${getLevelColor(currentLevel)}11)`,
+                    border: `2px solid ${getLevelColor(currentLevel)}`,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 700,
+                    fontSize: '14px',
+                    color: showDrillLevelPicker ? 'var(--color-background)' : getLevelColor(currentLevel),
+                  }}>
+                    {currentLevel}
+                  </span>
+                  <span style={{ textDecoration: 'underline' }}>Level</span>
+                </button>
+              </div>
+              {showDrillLevelPicker && (
+                <div style={{
+                  marginTop: '10px',
+                  padding: '12px',
+                  background: 'var(--color-surface)',
+                  borderRadius: '8px',
+                }}>
+                  <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginBottom: '10px', textAlign: 'center' }}>
+                    Drill at level:
+                  </div>
+                  <div style={{ display: 'flex', gap: '8px', justifyContent: 'center' }}>
+                    {[1, 2, 3, 4, 5, 6].map((level) => (
+                      <button
+                        key={level}
+                        onClick={() => startDrill(level)}
+                        style={{
+                          width: '40px',
+                          height: '40px',
+                          borderRadius: '50%',
+                          border: level === currentLevel ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
+                          background: level === currentLevel
+                            ? 'var(--color-accent)'
+                            : 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02))',
+                          color: level === currentLevel ? 'var(--color-background)' : 'var(--color-text)',
+                          fontWeight: 600,
+                          fontSize: '16px',
+                          cursor: 'pointer',
+                        }}
+                      >
+                        {level}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           )}
         </div>
       )}
@@ -467,17 +592,29 @@ function RoundSummary() {
 
         {/* Main Actions */}
         <div className="flex-col gap-md">
+          {/* Return to origin pack after drill */}
+          {isDrill && drillOrigin && (
+            <button
+              className="btn-primary"
+              onClick={returnToOriginPack}
+              style={{ width: '100%', background: 'linear-gradient(135deg, #4A90D9 0%, #357ABD 100%)' }}
+            >
+              ← Back to {PACK_NAMES[drillOrigin.packId] || drillOrigin.packId}
+            </button>
+          )}
           <button
             className="btn-primary"
             onClick={() => goToLevel(currentLevel)}
             style={{ width: '100%' }}
           >
-            Play Again
+            {isDrill ? 'Drill Again' : 'Play Again'}
           </button>
           <div className="flex-row gap-md">
-            <button className="btn-secondary" onClick={goToLevelSelect} style={{ flex: 1 }}>
-              Levels
-            </button>
+            {!isDrill && (
+              <button className="btn-secondary" onClick={goToLevelSelect} style={{ flex: 1 }}>
+                Levels
+              </button>
+            )}
             <button className="btn-secondary" onClick={goToPackSelect} style={{ flex: 1 }}>
               Packs
             </button>

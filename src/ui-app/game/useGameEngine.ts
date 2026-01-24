@@ -69,6 +69,7 @@ export interface ScheduledEvent extends GameEvent {
 /** Game engine state */
 export interface GameEngineState {
   roundState: RoundState;
+  isPaused: boolean;
   score: number;
   streak: number;
   timeRemaining: number;
@@ -94,6 +95,8 @@ export interface GameEngineActions {
   endRound: () => void;
   submitInput: (speciesCode: string, channel: Channel) => void;
   reset: () => void;
+  pauseGame: () => void;
+  resumeGame: () => void;
 }
 
 /** Scroll speed based on difficulty (pixels per second) */
@@ -217,9 +220,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
   // Game state
   const [roundState, setRoundState] = useState<RoundState>('idle');
+  const [isPaused, setIsPaused] = useState(false);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(level.round_duration_sec);
+  const pauseTimeRef = useRef<number>(0); // Track when we paused for time adjustments
   const [eventsScored, setEventsScored] = useState(0);
   const [speciesCorrect, setSpeciesCorrect] = useState(0);
   const [channelCorrect, setChannelCorrect] = useState(0);
@@ -1326,6 +1331,58 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   }, [species, level.mode, level.pack_id, level.level_id, level.title]);
 
   /**
+   * Pause the game - stops timer and suspends audio
+   */
+  const pauseGame = useCallback(() => {
+    if (roundState !== 'playing' || isPaused) return;
+
+    setIsPaused(true);
+    pauseTimeRef.current = performance.now();
+
+    // Pause the timer
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+      timerRef.current = null;
+    }
+
+    // Suspend audio context to pause all sounds
+    if (audioContextRef.current && audioContextRef.current.state === 'running') {
+      audioContextRef.current.suspend();
+    }
+  }, [roundState, isPaused]);
+
+  /**
+   * Resume the game - restarts timer and resumes audio
+   */
+  const resumeGame = useCallback(() => {
+    if (roundState !== 'playing' || !isPaused) return;
+
+    setIsPaused(false);
+
+    // Resume audio context
+    if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+      audioContextRef.current.resume();
+    }
+
+    // Restart the timer
+    if (!continuousModeRef.current) {
+      timerRef.current = window.setInterval(() => {
+        setTimeRemaining((prev) => {
+          if (prev <= 1) {
+            endRound();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    } else {
+      timerRef.current = window.setInterval(() => {
+        setTimeRemaining((prev) => prev + 1);
+      }, 1000);
+    }
+  }, [roundState, isPaused, endRound]);
+
+  /**
    * Calculate score breakdown
    * SCORING: Based on screen position when identified
    * - Top 25% of screen: 100% of points
@@ -1624,6 +1681,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   // Assemble state and actions
   const state: GameEngineState = {
     roundState,
+    isPaused,
     score,
     streak,
     timeRemaining,
@@ -1648,7 +1706,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     endRound,
     submitInput,
     reset,
-  }), [initialize, startRound, endRound, submitInput, reset]);
+    pauseGame,
+    resumeGame,
+  }), [initialize, startRound, endRound, submitInput, reset, pauseGame, resumeGame]);
 
   return [state, actions];
 }
