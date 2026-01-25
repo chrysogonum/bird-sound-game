@@ -45,6 +45,10 @@ const PACK_NAMES: Record<string, string> = {
   nz_rare: 'Rare & Endemic',
 };
 
+// NZ pack IDs and theme color
+const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_rare'];
+const NZ_ACCENT_COLOR = '#4db6ac';  // Muted teal for NZ
+
 // Level titles for custom pack
 const LEVEL_TITLES: Record<number, string> = {
   1: 'Meet the Birds',
@@ -132,6 +136,11 @@ function PreRoundPreview() {
   const levelId = parseInt(searchParams.get('level') || '1', 10);
   const keepBirds = searchParams.get('keepBirds') === 'true';
 
+  // Determine if this is an NZ pack for theming
+  const isNZPack = NZ_PACK_IDS.includes(packId) ||
+    (packId === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'nz');
+  const accentColor = isNZPack ? NZ_ACCENT_COLOR : 'var(--color-accent)';
+
   const [level, setLevel] = useState<LevelConfig | null>(null);
   const [clips, setClips] = useState<ClipData[]>([]);
   const [selectedSpecies, setSelectedSpecies] = useState<SelectedSpecies[]>([]);
@@ -187,31 +196,25 @@ function PreRoundPreview() {
   useEffect(() => {
     if (selectedSpecies.length === 0 || Object.keys(taxonomicOrder).length === 0) return;
 
-    // Extract current species codes
-    const currentCodes = selectedSpecies.map(s => s.code);
-
     // Re-sort based on new taxonomicSort preference
-    const sortedCodes = taxonomicSort
-      ? [...currentCodes].sort((a, b) => {
-          const orderA = taxonomicOrder[a] || 9999;
-          const orderB = taxonomicOrder[b] || 9999;
+    const resorted = taxonomicSort
+      ? [...selectedSpecies].sort((a, b) => {
+          const orderA = taxonomicOrder[a.code] || 9999;
+          const orderB = taxonomicOrder[b.code] || 9999;
           return orderA - orderB;
         })
-      : [...currentCodes].sort();
+      : [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
 
-    // Rebuild species array with new sort order (but same species)
-    const resorted = sortedCodes.map((code, index) => {
-      const existing = selectedSpecies.find(s => s.code === code);
-      return {
-        ...existing!,
-        color: SPECIES_COLORS[index % SPECIES_COLORS.length],
-      };
-    });
+    // Reassign colors based on new sort order
+    const withColors = resorted.map((species, index) => ({
+      ...species,
+      color: SPECIES_COLORS[index % SPECIES_COLORS.length],
+    }));
 
     // Only update if order actually changed
-    const orderChanged = resorted.some((sp, i) => sp.code !== selectedSpecies[i].code);
+    const orderChanged = withColors.some((sp, i) => sp.code !== selectedSpecies[i].code);
     if (orderChanged) {
-      setSelectedSpecies(resorted);
+      setSelectedSpecies(withColors);
     }
   }, [taxonomicSort, taxonomicOrder]); // Depend on taxonomicSort and taxonomicOrder, but not selectedSpecies to avoid infinite loop
 
@@ -237,11 +240,10 @@ function PreRoundPreview() {
   }, []);
 
   // Build species info from a list of codes (no shuffling)
-  // Always sorts alphabetically - the useEffect above handles taxonomic re-sorting
+  // Sorts alphabetically by tileName - the useEffect above handles taxonomic re-sorting
   const buildSpeciesInfo = useCallback((codes: string[], clipsData: ClipData[]): SelectedSpecies[] => {
-    const sortedCodes = [...codes].sort();
-
-    return sortedCodes.map((code, index) => {
+    // First build the species info with tileNames
+    const unsorted = codes.map((code) => {
       const canonicalClip = clipsData.find(
         c => c.species_code === code && c.canonical && !c.rejected
       );
@@ -254,10 +256,19 @@ function PreRoundPreview() {
         tileName: nzDisplayCodes[code]?.tileName || code,
         name: commonNames[code] || code,
         scientificName: scientificNames[code],
-        color: SPECIES_COLORS[index % SPECIES_COLORS.length],
-        clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
+        color: '', // Will be assigned after sorting
+        clipPath: clip ? `${import.meta.env.BASE_URL}${clip.file_path}` : null,
       };
     });
+
+    // Sort by tileName alphabetically
+    const sorted = unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
+
+    // Assign colors based on sorted position
+    return sorted.map((species, index) => ({
+      ...species,
+      color: SPECIES_COLORS[index % SPECIES_COLORS.length],
+    }));
   }, [commonNames, scientificNames, nzDisplayCodes]);
 
   // Select random subset from custom pack (for packs with >9 birds)
@@ -280,11 +291,8 @@ function PreRoundPreview() {
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, count);
 
-    // Always sort alphabetically initially - the re-sort useEffect will handle taxonomic ordering
-    const sortedSelected = selected.sort();
-
-    // Build species info with canonical clips
-    const speciesInfo: SelectedSpecies[] = sortedSelected.map((code, index) => {
+    // Build species info with canonical clips (unsorted first)
+    const unsorted: SelectedSpecies[] = selected.map((code) => {
       const canonicalClip = clipsData.find(
         c => c.species_code === code && c.canonical && !c.rejected
       );
@@ -297,19 +305,31 @@ function PreRoundPreview() {
         tileName: nzDisplayCodes[code]?.tileName || code,
         name: commonNames[code] || code,
         scientificName: scientificNames[code],
-        color: SPECIES_COLORS[index % SPECIES_COLORS.length],
-        clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
+        color: '', // Will be assigned after sorting
+        clipPath: clip ? `${import.meta.env.BASE_URL}${clip.file_path}` : null,
       };
     });
+
+    // Sort by tileName alphabetically, then assign colors
+    const sorted = unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
+    const speciesInfo = sorted.map((species, index) => ({
+      ...species,
+      color: SPECIES_COLORS[index % SPECIES_COLORS.length],
+    }));
 
     setSelectedSpecies(speciesInfo);
   }, [commonNames, scientificNames, nzDisplayCodes]);
 
   // Load level and clips
   useEffect(() => {
+    // Determine which clips file to load based on pack
+    const isNZPack = packId.startsWith('nz_') ||
+      (packId === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'nz');
+    const clipsFile = isNZPack ? 'clips-nz.json' : 'clips.json';
+
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/levels.json`).then(r => r.json()),
-      fetch(`${import.meta.env.BASE_URL}data/clips.json`).then(r => r.json()),
+      fetch(`${import.meta.env.BASE_URL}data/${clipsFile}`).then(r => r.json()),
     ]).then(([levels, clipsData]: [LevelConfig[], ClipData[]]) => {
       setClips(clipsData);
 
@@ -634,7 +654,7 @@ function PreRoundPreview() {
           className="btn-icon"
           onClick={() => navigate(`/level-select?pack=${packId}`)}
           aria-label="Back"
-          style={{ flexShrink: 0, color: 'var(--color-accent)' }}
+          style={{ flexShrink: 0, color: accentColor, opacity: 0.6 }}
         >
           <BackIcon />
         </button>
@@ -642,15 +662,18 @@ function PreRoundPreview() {
           <h2 style={{ margin: 0, fontSize: '14px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {packName}
           </h2>
-          <div style={{ fontSize: '12px', color: 'var(--color-accent)', lineHeight: 1.1 }}>
+          <div style={{ fontSize: '12px', color: accentColor, opacity: 0.85, lineHeight: 1.1 }}>
             Level {level.level_id}: {level.title}
           </div>
         </div>
         {/* Sound Library link */}
         <button
-          onClick={() => navigate(`/pack-select?scrollTo=${packId}&expandPack=${packId}#bird-reference`, {
-            state: { fromPreview: true, pack: packId, level: levelId }
-          })}
+          onClick={() => navigate(
+            isNZPack
+              ? `/nz-packs?scrollTo=${packId}&expandPack=${packId}#bird-reference`
+              : `/pack-select?scrollTo=${packId}&expandPack=${packId}#bird-reference`,
+            { state: { fromPreview: true, pack: packId, level: levelId } }
+          )}
           style={{
             padding: '6px 10px',
             background: 'transparent',
@@ -675,15 +698,16 @@ function PreRoundPreview() {
             style={{
               padding: '6px 10px',
               background: 'transparent',
-              border: '1px solid var(--color-accent)',
+              border: `1px solid ${accentColor}`,
               borderRadius: '6px',
-              color: 'var(--color-accent)',
+              color: accentColor,
               fontSize: '11px',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
               flexShrink: 0,
+              opacity: 0.6,
             }}
             title={fullCustomPack.length > 9 ? `Re-roll (${fullCustomPack.length} total birds)` : 'Shuffle birds'}
           >
@@ -756,7 +780,7 @@ function PreRoundPreview() {
             <div style={{
               width: `${(preloadProgress.loaded / preloadProgress.total) * 100}%`,
               height: '100%',
-              background: 'var(--color-accent)',
+              background: accentColor,
               transition: 'width 0.2s ease',
             }} />
           </div>
@@ -780,6 +804,18 @@ function PreRoundPreview() {
         </div>
       </div>
 
+      {/* NZ naming note */}
+      {isNZPack && (
+        <div style={{
+          fontSize: '11px',
+          color: 'var(--color-text-muted)',
+          textAlign: 'center',
+          fontStyle: 'italic',
+        }}>
+          Māori names shown. Subspecies: (NI) North Island, (SI) South Island, (Ch.) Chatham Is.
+        </div>
+      )}
+
       {/* Species grid - MAIN FOCUS */}
       <div style={{
         flex: 1,
@@ -792,7 +828,8 @@ function PreRoundPreview() {
         {fullCustomPack.length > 9 && (
           <div style={{
             fontSize: '12px',
-            color: 'var(--color-accent)',
+            color: accentColor,
+            opacity: 0.85,
             marginBottom: '6px',
             textAlign: 'center',
             fontWeight: 600,

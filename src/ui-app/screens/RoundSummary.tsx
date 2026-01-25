@@ -49,12 +49,20 @@ const PACK_NAMES: Record<string, string> = {
   western_birds: 'Western Birds',
   custom: 'Custom Pack',
   drill: 'Confusion Drill',
+  // NZ packs
+  nz_all_birds: 'All NZ Birds',
+  nz_common: 'Garden & Bush',
+  nz_rare: 'Rare & Endemic',
 };
+
+// NZ pack IDs and theme color
+const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_rare'];
+const NZ_ACCENT_COLOR = '#4db6ac';  // Muted teal for NZ
 
 // Level color based on difficulty (matches LevelSelect.tsx)
 function getLevelColor(level: number): string {
   if (level <= 2) return '#4CAF50'; // Easy - green
-  if (level <= 4) return '#FFC107'; // Medium - yellow/orange
+  if (level <= 4) return 'rgba(245, 166, 35, 0.8)'; // Medium - muted orange
   return '#FF5722'; // Hard - red/orange
 }
 
@@ -156,6 +164,26 @@ function RoundSummary() {
   const hasPrevLevel = currentLevel > 1;
   const hasNextLevel = currentLevel < TOTAL_LEVELS;
   const isDrill = packId === 'drill';
+
+  // Determine if this is an NZ pack for theming
+  // For drills, check the origin pack (from state or sessionStorage); otherwise check the current pack
+  const isNZPack = (() => {
+    if (NZ_PACK_IDS.includes(packId)) return true;
+    if (packId === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'nz') return true;
+    if (isDrill) {
+      // Check state first, then sessionStorage for initial render
+      if (drillOrigin && NZ_PACK_IDS.includes(drillOrigin.packId)) return true;
+      try {
+        const origin = sessionStorage.getItem('drillOrigin');
+        if (origin) {
+          const parsed = JSON.parse(origin);
+          if (NZ_PACK_IDS.includes(parsed.packId)) return true;
+        }
+      } catch { /* ignore */ }
+    }
+    return false;
+  })();
+  const accentColor = isNZPack ? NZ_ACCENT_COLOR : 'var(--color-accent)';
 
   // Check for drill origin on mount
   useEffect(() => {
@@ -267,7 +295,7 @@ function RoundSummary() {
           className="btn-icon"
           onClick={goToLevelSelect}
           aria-label="Back to levels"
-          style={{ color: 'var(--color-accent)' }}
+          style={{ color: accentColor, opacity: 0.6 }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M15 18l-6-6 6-6" />
@@ -285,7 +313,7 @@ function RoundSummary() {
           className="btn-icon"
           onClick={goToMenu}
           aria-label="Home"
-          style={{ color: 'var(--color-accent)' }}
+          style={{ color: accentColor, opacity: 0.6 }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -324,7 +352,7 @@ function RoundSummary() {
         {shareMessage && (
           <p style={{
             fontSize: '14px',
-            color: 'var(--color-accent)',
+            color: accentColor,
             textAlign: 'center',
             marginTop: '8px',
             marginBottom: '0',
@@ -365,7 +393,7 @@ function RoundSummary() {
       <div className="card" style={{ width: '100%', maxWidth: '320px', margin: '0 auto 20px' }}>
         <div className="flex-row justify-between" style={{ marginBottom: '12px' }}>
           <span>Score</span>
-          <span className="text-accent" style={{ fontFamily: 'var(--font-mono)', fontSize: '24px' }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '24px', color: accentColor, opacity: 0.85 }}>
             {results?.score || 0}
           </span>
         </div>
@@ -528,9 +556,9 @@ function RoundSummary() {
                           width: '40px',
                           height: '40px',
                           borderRadius: '50%',
-                          border: level === currentLevel ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
+                          border: level === currentLevel ? `2px solid ${accentColor}` : '1px solid var(--color-text-muted)',
                           background: level === currentLevel
-                            ? 'var(--color-accent)'
+                            ? accentColor
                             : 'linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02))',
                           color: level === currentLevel ? 'var(--color-background)' : 'var(--color-text)',
                           fontWeight: 600,
@@ -598,8 +626,8 @@ function RoundSummary() {
                     width: '40px',
                     height: '40px',
                     borderRadius: '8px',
-                    border: level === currentLevel ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
-                    background: level === currentLevel ? 'var(--color-accent)' : 'var(--color-surface)',
+                    border: level === currentLevel ? `2px solid ${accentColor}` : '1px solid var(--color-text-muted)',
+                    background: level === currentLevel ? accentColor : 'var(--color-surface)',
                     color: level === currentLevel ? 'var(--color-background)' : 'var(--color-text)',
                     fontWeight: 600,
                     cursor: 'pointer',

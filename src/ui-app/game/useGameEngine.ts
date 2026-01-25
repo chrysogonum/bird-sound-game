@@ -237,7 +237,8 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         return orderA - orderB;
       });
     }
-    return [...speciesToSort].sort((a, b) => a.code.localeCompare(b.code));
+    // Sort alphabetically by tileName (display name), not by eBird code
+    return [...speciesToSort].sort((a, b) => a.tileName.localeCompare(b.tileName));
   }, [taxonomicSortEnabled, taxonomicOrder]);
 
   // Game state
@@ -313,7 +314,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const channelTimerRef = useRef<{ left: number | null; right: number | null }>({ left: null, right: null });
 
   /**
-   * Load clips.json data
+   * Load clips data (clips.json for NA birds, clips-nz.json for NZ birds)
    */
   const loadClips = useCallback(async () => {
     // Wait for NZ display codes to load before proceeding
@@ -327,9 +328,16 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       species_count: level.species_count,
     });
     try {
-      const response = await fetch(`${import.meta.env.BASE_URL}data/clips.json`);
+      // Determine which clips file to load based on pack
+      // NZ packs start with 'nz_', custom packs check the stored region
+      const isNZPack = level.pack_id.startsWith('nz_') ||
+        (level.pack_id === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'nz');
+      const clipsFile = isNZPack ? 'clips-nz.json' : 'clips.json';
+      console.log('loadClips: Loading', clipsFile, 'for pack', level.pack_id);
+
+      const response = await fetch(`${import.meta.env.BASE_URL}data/${clipsFile}`);
       if (!response.ok) {
-        throw new Error('Failed to load clips.json');
+        throw new Error(`Failed to load ${clipsFile}`);
       }
       const data: ClipMetadata[] = await response.json();
       setClips(data);
@@ -387,15 +395,15 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     } catch (error) {
       console.error('Error loading clips:', error);
     }
-  }, [level.species_pool, level.species_count, nzDisplayCodes, nzDisplayCodesLoaded]);
+  }, [level.pack_id, level.species_pool, level.species_count, nzDisplayCodes, nzDisplayCodesLoaded, sortSpecies]);
 
-  // Re-run loadClips when NZ display codes finish loading (if clips already loaded)
+  // Run loadClips when NZ display codes finish loading or pack changes
   useEffect(() => {
-    if (nzDisplayCodesLoaded && clips.length > 0) {
-      console.log('NZ display codes loaded, re-processing species with display codes');
+    if (nzDisplayCodesLoaded) {
+      console.log('NZ display codes loaded or pack changed, running loadClips for pack:', level.pack_id);
       loadClips();
     }
-  }, [nzDisplayCodesLoaded]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [nzDisplayCodesLoaded, level.pack_id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /**
    * Initialize audio context

@@ -342,7 +342,7 @@ function Help() {
             <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
               <span style={{ fontSize: '16px', flexShrink: 0 }}>🥝</span>
               <div>
-                <strong>New Zealand Birds:</strong> ChipNotes goes global, starting with New Zealand—home to some of the world's most unusual and iconic birds, species found nowhere else. Learn Tūī, Kea, Kiwi, Kākāpō, and 38 more native species. Birds display their Māori names during gameplay.
+                <strong>New Zealand Birds:</strong> ChipNotes goes global, starting with New Zealand—home to some of the world's most unusual and iconic birds, species found nowhere else. Learn Tūī, Kea, Kiwi, Kākāpō, and 38 more native species. Birds display their Māori names during gameplay. Subspecies are distinguished with abbreviations like (NI) for North Island and (SI) for South Island.
               </div>
             </div>
           </div>
@@ -703,7 +703,7 @@ function Help() {
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>🌏 Worldwide Bird Packs:</strong> ChipNotes goes global, starting with New Zealand—home to some of the most unusual and iconic birds on Earth, species found nowhere else.</li>
               <li><strong>🥝 New Zealand Birds:</strong> 42 native NZ species across 3 packs: "All NZ Birds in ChipNotes" (complete collection), "Garden & Bush" (21 common species like Tūī, Kea, and Fantail), and "Rare & Endemic" (21 conservation stars including Kiwi, Kākāpō, and Takahē).</li>
-              <li><strong>Te Reo Māori Names:</strong> NZ birds display their Māori names during gameplay (Tūī, Korimako, Ruru, Pīwakawaka, etc.) with English names shown in tooltips. Common names throughout the app show Māori first (e.g., "Korimako / Bellbird").</li>
+              <li><strong>Te Reo Māori Names:</strong> NZ birds display their Māori names during gameplay (Tūī, Korimako, Ruru, Pīwakawaka, etc.) with English names shown in tooltips. Common names throughout the app show Māori first (e.g., "Korimako / Bellbird"). For subspecies sharing a Māori name, a parenthetical qualifier distinguishes them—e.g., "Toutouwai (NI)" for North Island Robin vs "Toutouwai (SI)" for South Island Robin.</li>
               <li><strong>NZ Sound Library:</strong> Expandable sound library showing all clips for each NZ species with recordist attribution and Xeno-canto source links.</li>
               <li><strong>NZ Custom Pack Builder:</strong> Build custom packs from NZ birds with region-aware navigation that remembers your region when going back.</li>
               <li><strong>🎨 UI Refresh:</strong> Refined color palette throughout the app—muted accent colors for navigation and chrome, teal theme for NZ pages, improved visual hierarchy and readability.</li>
