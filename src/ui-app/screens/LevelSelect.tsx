@@ -152,6 +152,9 @@ function getLevelDifficulty(level: LevelConfig): { label: string; color: string 
   return { label: 'Hard', color: '#FF5722' };
 }
 
+// Theme colors by region
+const NZ_ACCENT_COLOR = '#4db6ac';  // Muted teal for NZ
+
 function LevelSelect() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -159,6 +162,11 @@ function LevelSelect() {
 
   const [levels, setLevels] = useState<LevelConfig[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Determine if this is an NZ pack for theming
+  const isNZPack = NZ_PACK_IDS.includes(packId) ||
+    (packId === 'custom' && localStorage.getItem(CUSTOM_PACK_REGION_KEY) === 'nz');
+  const accentColor = isNZPack ? NZ_ACCENT_COLOR : 'var(--color-accent)';
 
   // Load levels for this pack
   useEffect(() => {
@@ -219,7 +227,7 @@ function LevelSelect() {
           } else {
             navigate('/pack-select');
           }
-        }} aria-label="Back" style={{ color: 'var(--color-accent)', opacity: 0.6 }}>
+        }} aria-label="Back" style={{ color: accentColor, opacity: 0.6 }}>
           <BackIcon />
         </button>
         <div style={{ flex: 1 }}>
@@ -230,16 +238,16 @@ function LevelSelect() {
         </div>
         {packId !== 'custom' && (
           <Link
-            to={`/pack-select?expand=${packId}#bird-reference`}
+            to={isNZPack ? `/nz-packs?expand=${packId}#bird-reference` : `/pack-select?expand=${packId}#bird-reference`}
             state={{ fromLevelSelect: true, packId }}
             className="btn-icon"
-            style={{ color: 'var(--color-accent)', opacity: 0.6, textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
+            style={{ color: accentColor, opacity: 0.6, textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
             aria-label="Sound Library"
           >
             <span>🎧</span><span>📚</span>
           </Link>
         )}
-        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)', opacity: 0.6 }}>
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: accentColor, opacity: 0.6 }}>
           <HomeIcon />
         </button>
       </div>
@@ -327,12 +335,12 @@ function LevelSelect() {
       <div style={{
         marginTop: '24px',
         padding: '12px 16px',
-        background: 'rgba(245, 166, 35, 0.1)',
+        background: isNZPack ? 'rgba(77, 182, 172, 0.1)' : 'rgba(245, 166, 35, 0.1)',
         borderRadius: '8px',
-        borderLeft: '3px solid rgba(245, 166, 35, 0.5)',
+        borderLeft: isNZPack ? '3px solid rgba(77, 182, 172, 0.5)' : '3px solid rgba(245, 166, 35, 0.5)',
       }}>
         <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-          <strong style={{ color: 'var(--color-accent)', opacity: 0.7 }}>Tip:</strong> Start with Level 1 to learn
+          <strong style={{ color: accentColor, opacity: 0.7 }}>Tip:</strong> Start with Level 1 to learn
           each bird's signature sound, then progress to variations and both-ear challenges.
         </div>
       </div>

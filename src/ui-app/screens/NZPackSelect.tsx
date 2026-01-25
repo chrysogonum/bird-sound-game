@@ -154,7 +154,7 @@ function NZPackSelect() {
         })
         .map((c) => ({
           id: c.clip_id,
-          path: `${import.meta.env.BASE_URL}data/clips/${c.file_path.split('/').pop()}`,
+          path: `${import.meta.env.BASE_URL}${c.file_path}`,
           isCanonical: !!c.canonical,
           vocalizationType: c.vocalization_type,
           source: c.source,
@@ -168,7 +168,7 @@ function NZPackSelect() {
         displayCode: nzDisplayCodes[code]?.code || code,
         tileName: nzDisplayCodes[code]?.tileName || code,
         name: commonNames[code] || code,
-        canonicalClipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
+        canonicalClipPath: clip ? `${import.meta.env.BASE_URL}${clip.file_path}` : null,
         clipCount: speciesClips.length,
         allClips,
       };
@@ -245,9 +245,17 @@ function NZPackSelect() {
         padding: '16px',
         borderRadius: '12px',
       }}>
-        <p style={{ margin: 0 }}>
-          42 endemic species from Aotearoa New Zealand. Audio recordings courtesy of the
-          <strong style={{ color: '#a8d5a2' }}> NZ Department of Conservation</strong> (Crown Copyright).
+        <p style={{ margin: '0 0 10px 0' }}>
+          42 endemic species from Aotearoa New Zealand. Audio recordings courtesy of the{' '}
+          <a
+            href="https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#a8d5a2', textDecoration: 'underline' }}
+          >NZ Department of Conservation</a> (Crown Copyright).
+        </p>
+        <p style={{ margin: 0, fontSize: '13px', fontStyle: 'italic' }}>
+          Birds display their Māori names. Subspecies are distinguished with abbreviations: (NI) North Island, (SI) South Island, (Ch.) Chatham Islands.
         </p>
       </div>
 
@@ -430,7 +438,7 @@ function NZPackSelect() {
                 }}
               >
                 <span style={{ color: '#2d7a7a', opacity: 0.7 }}>{isExpanded ? '▼' : '▶'}</span>
-                <span style={{ fontWeight: 600 }}>{pack.name}</span>
+                <span style={{ fontWeight: 600, color: '#4db6ac', opacity: 0.85 }}>{pack.name}</span>
                 <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
                   {birds.length} species
                 </span>
