@@ -341,7 +341,7 @@ function PackSelect() {
   return (
     <div className="screen" style={{ paddingBottom: '24px' }}>
       <div className="flex-row items-center gap-md" style={{ marginBottom: '16px' }}>
-        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)' }}>
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)', opacity: 0.6 }}>
           <HomeIcon />
         </button>
         <h2 style={{ margin: 0 }}>Select a Bird Pack</h2>
@@ -378,7 +378,7 @@ function PackSelect() {
         style={{
           marginBottom: '20px',
           background: 'var(--color-surface)',
-          border: '2px solid var(--color-accent)',
+          border: '2px solid rgba(245, 166, 35, 0.4)',
           borderRadius: '16px',
           overflow: 'visible',
         }}
@@ -405,7 +405,7 @@ function PackSelect() {
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'var(--color-accent)',
+            background: 'rgba(245, 166, 35, 0.5)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -455,29 +455,29 @@ function PackSelect() {
               paddingTop: '12px',
             }}>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> Got a nemesis bird? Add it and drill all its variations.
+                <span style={{ color: 'var(--color-accent)', opacity: 0.6 }}>→</span> Got a nemesis bird? Add it and drill all its variations.
               </div>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> A friend's eBird checklist has you jealous? Build their list and practice like you were there.
+                <span style={{ color: 'var(--color-accent)', opacity: 0.6 }}>→</span> A friend's eBird checklist has you jealous? Build their list and practice like you were there.
               </div>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
+                <span style={{ color: 'var(--color-accent)', opacity: 0.6 }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
               </div>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> Warbler Wizard Wannabe? Training starts here!
+                <span style={{ color: 'var(--color-accent)', opacity: 0.6 }}>→</span> Warbler Wizard Wannabe? Training starts here!
               </div>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
+                <span style={{ color: 'var(--color-accent)', opacity: 0.6 }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
               </div>
               <div style={{ marginBottom: '12px' }}>
-                <span style={{ color: 'var(--color-accent)' }}>→</span> Mix species from any pack — your rules, your practice.
+                <span style={{ color: 'var(--color-accent)', opacity: 0.6 }}>→</span> Mix species from any pack — your rules, your practice.
               </div>
               <div style={{
                 marginTop: '12px',
                 padding: '10px 16px',
-                background: 'var(--color-accent)',
+                background: 'rgba(245, 166, 35, 0.5)',
                 borderRadius: '8px',
-                color: '#000',
+                color: '#f5f0e6',
                 fontWeight: 600,
                 textAlign: 'center',
               }}>
@@ -783,7 +783,7 @@ function PackSelect() {
           lineHeight: 1.6,
           marginBottom: '20px',
           paddingLeft: '12px',
-          borderLeft: '3px solid var(--color-accent)',
+          borderLeft: '3px solid rgba(245, 166, 35, 0.5)',
         }}>
           Preview signature sounds for each bird before you play. Click pack names to expand and see all birds, or click individual birds to explore their full library of recordings.
         </p>
@@ -807,7 +807,7 @@ function PackSelect() {
                 style={{
                   fontSize: '14px',
                   marginBottom: isExpanded ? '12px' : '0',
-                  color: 'var(--color-accent)',
+                  color: 'var(--color-text)',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -820,7 +820,7 @@ function PackSelect() {
                 onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 1)'}
                 onMouseLeave={(e) => e.currentTarget.style.background = 'var(--color-surface)'}
               >
-                <span style={{ fontSize: '14px' }}>
+                <span style={{ fontSize: '14px', color: 'var(--color-accent)', opacity: 0.6 }}>
                   {isExpanded ? '▼' : '▶'}
                 </span>
                 <span style={{ fontWeight: 600 }}>
@@ -1085,7 +1085,7 @@ function PackSelect() {
               style={{
                 fontSize: '14px',
                 marginBottom: isExpanded ? '12px' : '0',
-                color: 'var(--color-accent)',
+                color: 'var(--color-text)',
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
@@ -1098,7 +1098,7 @@ function PackSelect() {
               onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 1)'}
               onMouseLeave={(e) => e.currentTarget.style.background = 'var(--color-surface)'}
             >
-              <span style={{ fontSize: '14px' }}>
+              <span style={{ fontSize: '14px', color: 'var(--color-accent)', opacity: 0.6 }}>
                 {isExpanded ? '▼' : '▶'}
               </span>
               <span style={{ fontWeight: 600 }}>
@@ -1264,7 +1264,7 @@ function PackSelect() {
                         <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
                           {bird.clipCount} clip{bird.clipCount !== 1 ? 's' : ''}
                           {bird.clipCount > 1 && (
-                            <span style={{ marginLeft: '4px', color: 'var(--color-accent)' }}>
+                            <span style={{ marginLeft: '4px', color: 'var(--color-accent)', opacity: 0.6 }}>
                               {isExpanded ? '▲' : '▼'}
                             </span>
                           )}

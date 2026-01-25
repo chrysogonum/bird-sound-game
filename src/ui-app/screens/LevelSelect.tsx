@@ -148,7 +148,7 @@ function getLevelDescription(level: LevelConfig): string {
 function getLevelDifficulty(level: LevelConfig): { label: string; color: string } {
   const levelId = level.level_id;
   if (levelId <= 2) return { label: 'Easy', color: '#4CAF50' };
-  if (levelId <= 4) return { label: 'Medium', color: '#FFC107' };
+  if (levelId <= 4) return { label: 'Medium', color: 'rgba(245, 166, 35, 0.8)' };
   return { label: 'Hard', color: '#FF5722' };
 }
 
@@ -219,7 +219,7 @@ function LevelSelect() {
           } else {
             navigate('/pack-select');
           }
-        }} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
+        }} aria-label="Back" style={{ color: 'var(--color-accent)', opacity: 0.6 }}>
           <BackIcon />
         </button>
         <div style={{ flex: 1 }}>
@@ -233,13 +233,13 @@ function LevelSelect() {
             to={`/pack-select?expand=${packId}#bird-reference`}
             state={{ fromLevelSelect: true, packId }}
             className="btn-icon"
-            style={{ color: 'var(--color-accent)', textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
+            style={{ color: 'var(--color-accent)', opacity: 0.6, textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
             aria-label="Sound Library"
           >
             <span>🎧</span><span>📚</span>
           </Link>
         )}
-        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)' }}>
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)', opacity: 0.6 }}>
           <HomeIcon />
         </button>
       </div>
@@ -329,10 +329,10 @@ function LevelSelect() {
         padding: '12px 16px',
         background: 'rgba(245, 166, 35, 0.1)',
         borderRadius: '8px',
-        borderLeft: '3px solid var(--color-accent)',
+        borderLeft: '3px solid rgba(245, 166, 35, 0.5)',
       }}>
         <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-          <strong style={{ color: 'var(--color-accent)' }}>Tip:</strong> Start with Level 1 to learn
+          <strong style={{ color: 'var(--color-accent)', opacity: 0.7 }}>Tip:</strong> Start with Level 1 to learn
           each bird's signature sound, then progress to variations and both-ear challenges.
         </div>
       </div>

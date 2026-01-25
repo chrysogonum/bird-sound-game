@@ -224,7 +224,7 @@ function NZPackSelect() {
           className="btn-icon"
           onClick={() => navigate('/pack-select')}
           aria-label="Back"
-          style={{ color: 'var(--color-accent)' }}
+          style={{ color: '#2d7a7a', opacity: 0.7 }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -256,7 +256,7 @@ function NZPackSelect() {
         style={{
           marginBottom: '20px',
           background: 'var(--color-surface)',
-          border: '2px solid #a8d5a2',
+          border: '2px solid rgba(45, 122, 122, 0.4)',
           borderRadius: '16px',
           overflow: 'visible',
         }}
@@ -272,7 +272,7 @@ function NZPackSelect() {
             transition: 'all 0.2s',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'rgba(45, 90, 39, 0.15)';
+            e.currentTarget.style.background = 'rgba(45, 122, 122, 0.15)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = 'transparent';
@@ -282,11 +282,11 @@ function NZPackSelect() {
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: '#a8d5a2',
+            background: 'rgba(45, 122, 122, 0.5)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#000',
+            color: '#fff',
             flexShrink: 0,
           }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -418,7 +418,7 @@ function NZPackSelect() {
                 }}
                 style={{
                   fontSize: '14px',
-                  color: 'var(--color-accent)',
+                  color: 'var(--color-text)',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
@@ -429,7 +429,7 @@ function NZPackSelect() {
                   transition: 'background 0.15s',
                 }}
               >
-                <span>{isExpanded ? '▼' : '▶'}</span>
+                <span style={{ color: '#2d7a7a', opacity: 0.7 }}>{isExpanded ? '▼' : '▶'}</span>
                 <span style={{ fontWeight: 600 }}>{pack.name}</span>
                 <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
                   {birds.length} species
@@ -489,7 +489,7 @@ function NZPackSelect() {
                             }}
                           />
                           <div style={{ flex: 1, minWidth: 0 }}>
-                            <div style={{ fontSize: '11px', fontWeight: 700, color: 'var(--color-accent)' }}>
+                            <div style={{ fontSize: '11px', fontWeight: 700, color: '#4db6ac' }}>
                               {bird.tileName}
                             </div>
                             <div style={{
@@ -503,7 +503,7 @@ function NZPackSelect() {
                             <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
                               {bird.clipCount} clip{bird.clipCount !== 1 ? 's' : ''}
                               {bird.clipCount > 1 && (
-                                <span style={{ marginLeft: '4px', color: 'var(--color-accent)' }}>
+                                <span style={{ marginLeft: '4px', color: '#2d7a7a', opacity: 0.7 }}>
                                   {isBirdExpanded ? '▲' : '▼'}
                                 </span>
                               )}
@@ -520,7 +520,7 @@ function NZPackSelect() {
                                 height: '28px',
                                 borderRadius: '50%',
                                 border: 'none',
-                                background: playingClip === bird.code ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)',
+                                background: playingClip === bird.code ? '#4db6ac' : 'rgba(255,255,255,0.1)',
                                 color: playingClip === bird.code ? '#000' : 'var(--color-text)',
                                 cursor: 'pointer',
                                 display: 'flex',
@@ -564,7 +564,7 @@ function NZPackSelect() {
                                       height: '24px',
                                       borderRadius: '50%',
                                       border: 'none',
-                                      background: playingClip === clip.id ? 'var(--color-accent)' : 'rgba(255,255,255,0.15)',
+                                      background: playingClip === clip.id ? '#4db6ac' : 'rgba(255,255,255,0.15)',
                                       color: 'white',
                                       cursor: 'pointer',
                                       display: 'flex',
@@ -586,7 +586,7 @@ function NZPackSelect() {
                                         <span style={{
                                           fontSize: '9px',
                                           color: '#000',
-                                          background: 'var(--color-accent)',
+                                          background: '#4db6ac',
                                           padding: '2px 6px',
                                           borderRadius: '4px',
                                           fontWeight: 600,

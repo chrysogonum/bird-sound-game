@@ -65,16 +65,28 @@ function Help() {
   // Show button once user scrolls
   useEffect(() => {
     const handleScroll = () => {
-      if (!hasScrolled && containerRef.current && containerRef.current.scrollTop > 0) {
-        setHasScrolled(true);
+      if (!hasScrolled) {
+        // Check both the container and its parent (App wrapper has overflow: auto)
+        const containerScrolled = containerRef.current && containerRef.current.scrollTop > 0;
+        const parentScrolled = containerRef.current?.parentElement && containerRef.current.parentElement.scrollTop > 0;
+        if (containerScrolled || parentScrolled) {
+          setHasScrolled(true);
+        }
       }
     };
 
     const container = containerRef.current;
+    const parent = container?.parentElement;
     if (container) {
       container.addEventListener('scroll', handleScroll);
-      return () => container.removeEventListener('scroll', handleScroll);
     }
+    if (parent) {
+      parent.addEventListener('scroll', handleScroll);
+    }
+    return () => {
+      container?.removeEventListener('scroll', handleScroll);
+      parent?.removeEventListener('scroll', handleScroll);
+    };
   }, [hasScrolled]);
 
   // Auto-scroll to Version History if navigated from version number
@@ -100,7 +112,14 @@ function Help() {
   }, [location.hash]);
 
   const scrollToTop = () => {
-    containerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+    // Try scrolling the container itself
+    if (containerRef.current) {
+      containerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // Also try scrolling the parent (App wrapper has overflow: auto)
+    if (containerRef.current?.parentElement) {
+      containerRef.current.parentElement.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -148,7 +167,7 @@ function Help() {
             className="btn-icon"
             onClick={() => navigate('/')}
             aria-label="Home"
-            style={{ color: 'var(--color-accent)' }}
+            style={{ color: 'var(--color-accent)', opacity: 0.6 }}
           >
             <HomeIcon />
           </button>
@@ -663,7 +682,7 @@ function Help() {
         <div ref={versionHistoryRef}>
           {/* Recent Updates - Always Visible */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)' }}>🎯 Recent Updates</h4>
+            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)', opacity: 0.6 }}>🎯 Recent Updates</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
               <div>🌏 <strong>Worldwide Bird Packs!</strong> – ChipNotes goes global! Starting with New Zealand, home to some of the world's most unusual and iconic birds. Learn to identify Tūī, Kea, Kiwi, Kākāpō, and 38 more native NZ species.</div>
               <div>🎉 <strong>100+ Species!</strong> – Over 100 North American species with curated audio clips and spectrograms</div>
@@ -680,13 +699,14 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
-          <VersionEntry version="3.58" date="January 25, 2026">
+          <VersionEntry version="4.0" date="January 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>🌏 Worldwide Bird Packs:</strong> ChipNotes goes global, starting with New Zealand—home to some of the most unusual and iconic birds on Earth, species found nowhere else.</li>
               <li><strong>🥝 New Zealand Birds:</strong> 42 native NZ species across 3 packs: "All NZ Birds in ChipNotes" (complete collection), "Garden & Bush" (21 common species like Tūī, Kea, and Fantail), and "Rare & Endemic" (21 conservation stars including Kiwi, Kākāpō, and Takahē).</li>
               <li><strong>Te Reo Māori Names:</strong> NZ birds display their Māori names during gameplay (Tūī, Korimako, Ruru, Pīwakawaka, etc.) with English names shown in tooltips. Common names throughout the app show Māori first (e.g., "Korimako / Bellbird").</li>
               <li><strong>NZ Sound Library:</strong> Expandable sound library showing all clips for each NZ species with recordist attribution and Xeno-canto source links.</li>
               <li><strong>NZ Custom Pack Builder:</strong> Build custom packs from NZ birds with region-aware navigation that remembers your region when going back.</li>
+              <li><strong>🎨 UI Refresh:</strong> Refined color palette throughout the app—muted accent colors for navigation and chrome, teal theme for NZ pages, improved visual hierarchy and readability.</li>
             </ul>
           </VersionEntry>
 
@@ -1238,23 +1258,24 @@ function Section({ id, title, children, isExpanded, onToggle }: {
           fontWeight: 600,
           marginBottom: isExpanded ? '12px' : '0',
           color: 'var(--color-accent)',
+          opacity: 0.85,
           borderBottom: '1px solid var(--color-surface)',
           paddingBottom: '8px',
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           gap: '8px',
-          transition: 'color 0.2s',
+          transition: 'opacity 0.2s',
           userSelect: 'none',
         }}
-        onMouseEnter={(e) => e.currentTarget.style.color = '#FFA726'}
-        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
+        onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = '0.85'}
       >
         <span style={{
           fontSize: '14px',
           width: '14px',
           textAlign: 'center',
-          flexShrink: 0
+          flexShrink: 0,
         }}>
           {isExpanded ? '▼' : '▶'}
         </span>
@@ -1360,10 +1381,10 @@ function VersionEntry({ version, date, children }: { version: string; date: stri
       padding: '12px',
       background: 'var(--color-surface)',
       borderRadius: '8px',
-      borderLeft: '3px solid var(--color-accent)',
+      borderLeft: '3px solid rgba(245, 166, 35, 0.5)',
     }}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '8px' }}>
-        <span style={{ fontWeight: 700, fontSize: '16px', color: 'var(--color-accent)' }}>v{version}</span>
+        <span style={{ fontWeight: 700, fontSize: '16px', color: 'var(--color-accent)', opacity: 0.7 }}>v{version}</span>
         <span style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>{date}</span>
       </div>
       {children}

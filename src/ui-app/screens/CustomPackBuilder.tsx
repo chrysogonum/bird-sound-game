@@ -57,6 +57,11 @@ function CustomPackBuilder() {
   const [searchParams] = useSearchParams();
   const region = searchParams.get('region'); // 'nz' for New Zealand birds only
   const isNZMode = region === 'nz';
+
+  // Region-specific accent colors (teal for NZ, muted orange for NA)
+  const accentColor = isNZMode ? '#4db6ac' : 'var(--color-accent)';
+  const accentColorMuted = isNZMode ? 'rgba(45, 122, 122, 0.7)' : 'rgba(245, 166, 35, 0.6)';
+  const accentColorBorder = isNZMode ? 'rgba(45, 122, 122, 0.5)' : 'rgba(255, 152, 0, 0.3)';
   const [allSpecies, setAllSpecies] = useState<SpeciesInfo[]>([]);
   const [selectedCodes, setSelectedCodes] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -618,7 +623,7 @@ function CustomPackBuilder() {
       {/* Header */}
       <div style={{ flexShrink: 0, marginBottom: '12px' }}>
         <div className="flex-row items-center gap-md">
-          <button className="btn-icon" onClick={() => navigate(isNZMode ? '/nz-packs' : '/pack-select')} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
+          <button className="btn-icon" onClick={() => navigate(isNZMode ? '/nz-packs' : '/pack-select')} aria-label="Back" style={{ color: accentColor, opacity: 0.7 }}>
             <BackIcon />
           </button>
           <div>
@@ -626,7 +631,7 @@ function CustomPackBuilder() {
             <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
               {loadedPackId ? (
                 <span>
-                  Editing: <strong style={{ color: 'var(--color-accent)' }}>{loadedPackName}</strong>
+                  Editing: <strong style={{ color: accentColor }}>{loadedPackName}</strong>
                 </span>
               ) : (
                 `Select up to ${MAX_SPECIES} birds`
@@ -754,13 +759,13 @@ function CustomPackBuilder() {
             onClick={() => setSelectedPackFilter(null)}
             style={{
               padding: '6px 12px',
-              background: selectedPackFilter === null ? 'rgba(255, 152, 0, 0.2)' : 'var(--color-surface)',
-              border: selectedPackFilter === null ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
+              background: selectedPackFilter === null ? (isNZMode ? 'rgba(45, 122, 122, 0.2)' : 'rgba(255, 152, 0, 0.2)') : 'var(--color-surface)',
+              border: selectedPackFilter === null ? `2px solid ${accentColor}` : '1px solid var(--color-text-muted)',
               borderRadius: '16px',
               cursor: 'pointer',
               fontSize: '12px',
               fontWeight: selectedPackFilter === null ? 600 : 400,
-              color: selectedPackFilter === null ? 'var(--color-accent)' : 'var(--color-text)',
+              color: selectedPackFilter === null ? accentColor : 'var(--color-text)',
               whiteSpace: 'nowrap',
             }}
           >
@@ -781,13 +786,13 @@ function CustomPackBuilder() {
                 onClick={() => setSelectedPackFilter(pack.id)}
                 style={{
                   padding: '6px 12px',
-                  background: selectedPackFilter === pack.id ? 'rgba(255, 152, 0, 0.2)' : 'var(--color-surface)',
-                  border: selectedPackFilter === pack.id ? '2px solid var(--color-accent)' : '1px solid var(--color-text-muted)',
+                  background: selectedPackFilter === pack.id ? (isNZMode ? 'rgba(45, 122, 122, 0.2)' : 'rgba(255, 152, 0, 0.2)') : 'var(--color-surface)',
+                  border: selectedPackFilter === pack.id ? `2px solid ${accentColor}` : '1px solid var(--color-text-muted)',
                   borderRadius: '16px',
                   cursor: 'pointer',
                   fontSize: '12px',
                   fontWeight: selectedPackFilter === pack.id ? 600 : 400,
-                  color: selectedPackFilter === pack.id ? 'var(--color-accent)' : 'var(--color-text)',
+                  color: selectedPackFilter === pack.id ? accentColor : 'var(--color-text)',
                   whiteSpace: 'nowrap',
                 }}
               >
@@ -852,8 +857,8 @@ function CustomPackBuilder() {
           onClick={handleTaxonomicSortToggle}
           style={{
             padding: '10px 14px',
-            background: taxonomicSort ? 'rgba(100, 181, 246, 0.15)' : 'var(--color-surface)',
-            border: taxonomicSort ? '1px solid #64B5F6' : '1px solid var(--color-text-muted)',
+            background: taxonomicSort ? (isNZMode ? 'rgba(45, 122, 122, 0.15)' : 'rgba(255, 152, 0, 0.15)') : 'var(--color-surface)',
+            border: taxonomicSort ? `1px solid ${accentColorMuted}` : '1px solid var(--color-text-muted)',
             borderRadius: '8px',
             cursor: 'pointer',
             display: 'flex',
@@ -862,6 +867,7 @@ function CustomPackBuilder() {
             fontSize: '13px',
             fontWeight: 600,
             whiteSpace: 'nowrap',
+            color: 'var(--color-text)',
           }}
           aria-label="Toggle taxonomic sort"
         >
@@ -881,9 +887,9 @@ function CustomPackBuilder() {
         color: 'var(--color-text-muted)',
         lineHeight: 1.3,
       }}>
-        <span style={{ color: 'var(--color-accent)' }}>💡</span> Tap <strong style={{ color: 'var(--color-text)' }}>▶</strong> to preview, <strong style={{ color: 'var(--color-text)' }}>anywhere else on the card</strong> to add/remove.
+        <span style={{ color: accentColorMuted }}>💡</span> Tap <strong style={{ color: 'var(--color-text)' }}>▶</strong> to preview, <strong style={{ color: 'var(--color-text)' }}>anywhere else on the card</strong> to add/remove.
         {taxonomicSort && (
-          <> <span style={{ color: 'var(--color-accent)' }}>🐦🤓</span> Taxonomic mode groups related species together.</>
+          <> <span style={{ color: accentColorMuted }}>🐦🤓</span> Taxonomic mode groups related species together.</>
         )}
       </div>
 
@@ -899,7 +905,7 @@ function CustomPackBuilder() {
         alignItems: 'center',
       }}>
         <span style={{ fontSize: '14px' }}>
-          <span style={{ fontWeight: 700, color: 'var(--color-accent)' }}>{selectedCodes.length}</span>/{MAX_SPECIES} selected
+          <span style={{ fontWeight: 700, color: accentColor }}>{selectedCodes.length}</span>/{MAX_SPECIES} selected
         </span>
         {selectedCodes.length > 0 && (
           <div style={{ display: 'flex', gap: '8px' }}>
@@ -987,9 +993,9 @@ function CustomPackBuilder() {
                       height: '36px',
                       borderRadius: '50%',
                       background: playingCode === species.code
-                        ? 'rgba(255, 152, 0, 0.3)'
-                        : 'rgba(255, 152, 0, 0.1)',
-                      border: `2px solid ${playingCode === species.code ? 'var(--color-accent)' : 'rgba(255, 152, 0, 0.3)'}`,
+                        ? (isNZMode ? 'rgba(45, 122, 122, 0.3)' : 'rgba(255, 152, 0, 0.3)')
+                        : (isNZMode ? 'rgba(45, 122, 122, 0.1)' : 'rgba(255, 152, 0, 0.1)'),
+                      border: `2px solid ${playingCode === species.code ? accentColor : accentColorBorder}`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -1000,9 +1006,9 @@ function CustomPackBuilder() {
                     aria-label={`Preview ${species.name}`}
                   >
                     {playingCode === species.code ? (
-                      <StopIcon color="var(--color-accent)" />
+                      <StopIcon color={accentColor} />
                     ) : (
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--color-accent)">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill={accentColor}>
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     )}
@@ -1270,7 +1276,7 @@ function CustomPackBuilder() {
               padding: '24px',
               maxWidth: '400px',
               width: '100%',
-              border: '2px solid var(--color-accent)',
+              border: `2px solid ${accentColorBorder}`,
             }}
             onClick={(e) => e.stopPropagation()}
           >
