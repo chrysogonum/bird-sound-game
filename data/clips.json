@@ -8616,7 +8616,7 @@
     "source_id": "auitea1_doc_001",
     "file_path": "data/clips/auitea1_doc_001.wav",
     "spectrogram_path": "data/spectrograms/auitea1_doc_001.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "scientific_name": "Anas aucklandica"
