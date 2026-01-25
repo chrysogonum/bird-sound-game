@@ -17,6 +17,8 @@ import CookieConsent from './components/CookieConsent';
 // Tablet scaling: use CSS zoom to make everything larger
 const TABLET_ZOOM = 1.4;
 const TABLET_MIN_WIDTH = 768;
+// Max width for desktop - keeps game playable on wide monitors
+const MAX_APP_WIDTH = 1024;
 
 function App() {
   const [zoom, setZoom] = useState(1);
@@ -48,8 +50,10 @@ function App() {
     <div style={{
       zoom: zoom,
       width: '100%',
+      maxWidth: `${MAX_APP_WIDTH}px`,
       height: '100%',
       overflow: 'auto',
+      margin: '0 auto', // Center on wide screens
     }}>
       <Routes>
         <Route path="/" element={<MainMenu />} />
