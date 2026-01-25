@@ -514,7 +514,7 @@ function Help() {
 
           <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Bird sounds:</strong> Sourced from{' '}
+              <strong style={{ color: 'var(--color-accent)' }}>Bird sounds:</strong> North American species sourced from{' '}
               <a href="https://xeno-canto.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Xeno-Canto
               </a>
@@ -522,11 +522,11 @@ function Help() {
               <a href="https://www.macaulaylibrary.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Cornell Macaulay Library
               </a>
-              {' '}and from user contributions. All sound clips have attribution with XC catalog numbers and recordist names in the Sound Library (expand any species on the{' '}
-              <Link to="/pack-select#bird-reference" state={{ fromHelp: true }} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-                Pack Select
-              </Link>
-              {' '}screen).
+              , and from user contributions. New Zealand species sourced from the{' '}
+              <a href="https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                New Zealand Department of Conservation (DOC)
+              </a>
+              . All sound clips have attribution in the Sound Library.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
@@ -592,6 +592,12 @@ function Help() {
                 https://xeno-canto.org/about/donate
               </a>
               {' '}- Community-driven bird recording database
+            </li>
+            <li>
+              <a href="https://www.doc.govt.nz/get-involved/donate/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                https://www.doc.govt.nz/get-involved/donate/
+              </a>
+              {' '}- New Zealand bird conservation and sound archive
             </li>
           </ul>
 

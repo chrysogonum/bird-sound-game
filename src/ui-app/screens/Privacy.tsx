@@ -15,7 +15,7 @@ function Privacy() {
       <div className="flex-col gap-lg" style={{ maxWidth: '800px' }}>
         <div className="text-muted" style={{ fontSize: '14px', lineHeight: 1.6 }}>
           <p style={{ marginBottom: '12px' }}>
-            <strong>Last Updated:</strong> January 20, 2026
+            <strong>Last Updated:</strong> January 25, 2026
           </p>
           <p style={{ marginBottom: '12px' }}>
             ChipNotes! is committed to protecting your privacy. This policy explains what data is collected, how it is used, and your rights.
@@ -72,11 +72,11 @@ function Privacy() {
               <li>Learn more: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>Google Privacy Policy</a></li>
             </ul>
             <p style={{ marginBottom: '8px' }}>
-              <strong>Xeno-Canto Audio</strong>
+              <strong>Bird Audio</strong>
             </p>
             <ul style={{ marginLeft: '20px' }}>
-              <li>Bird sound recordings are sourced from Xeno-Canto and cached locally on your device</li>
-              <li>No data is sent to Xeno-Canto when you play sounds offline</li>
+              <li>Bird sound recordings are sourced from Xeno-Canto, Cornell Macaulay Library, and New Zealand Department of Conservation, and cached locally on your device</li>
+              <li>No data is sent to these sources when you play sounds offline</li>
             </ul>
           </div>
         </div>

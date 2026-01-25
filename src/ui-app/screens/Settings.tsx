@@ -281,6 +281,12 @@ function Settings() {
               </a>
               {' '}- Community-driven bird recording database
             </li>
+            <li style={{ marginTop: '8px' }}>
+              <a href="https://www.doc.govt.nz/get-involved/donate/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                https://www.doc.govt.nz/get-involved/donate/
+              </a>
+              {' '}- New Zealand bird conservation and sound archive
+            </li>
           </ul>
           <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5' }}>
             Thank you for learning with me! 🐦
