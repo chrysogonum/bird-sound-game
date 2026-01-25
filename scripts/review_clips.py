@@ -610,6 +610,7 @@ def generate_html() -> str:
                 <option value="all">All Sources</option>
                 <option value="cornell">Cornell Only</option>
                 <option value="xenocanto">Xeno-Canto Only</option>
+                <option value="doc">DOC (NZ) Only</option>
             </select>
             <select id="filterQuality">
                 <option value="all">All Quality</option>

@@ -377,6 +377,22 @@ BARS: Stylized icon of a Barn Swallow, simple flat design, circular frame, sleek
 EAME: Stylized icon of an Eastern Meadowlark, simple flat design, circular frame, stocky bird with bright yellow breast and bold black V-shaped breast band, white background, game asset style, clean vector look, centered composition, no text
 DICK: Stylized icon of a Dickcissel, simple flat design, circular frame, sparrow-like bird with yellow breast, black throat bib, and rusty shoulder patch, white background, game asset style, clean vector look, centered composition, no text
 ```
- echo --- echo  git show HEAD:data/icons/PROMPTS.md
- echo --- echo  git show HEAD:data/icons/PROMPTS.md
- echo --- echo  git show HEAD:data/icons/PROMPTS.md
+---
+
+## Chatham Islands Subspecies (Missing Icons)
+
+These 3 Chatham Islands subspecies have documented vocal differences from their mainland counterparts and need icons.
+
+| Code | Name | Prompt |
+|------|------|--------|
+| chafan1 | Chatham Islands Fantail | Stylized icon of a Chatham Islands Fantail, simple flat design, circular frame, small gray-brown bird with distinctive fan-shaped tail spread wide, darker plumage than mainland fantail, white background, game asset style, clean vector look, centered composition, no text |
+| chatom1 | Chatham Islands Tomtit | Stylized icon of a Chatham Islands Tomtit, simple flat design, circular frame, small compact bird with black head and back, white breast, larger and darker than mainland tomtit, white background, game asset style, clean vector look, centered composition, no text |
+| chatui1 | Chatham Islands Tūī | Stylized icon of a Chatham Islands Tūī, simple flat design, circular frame, iridescent dark bird with white throat tuft (poi), larger than mainland tūī with longer throat tufts, white background, game asset style, clean vector look, centered composition, no text |
+
+### Quick Copy - Chatham Islands Subspecies
+
+```
+chafan1: Stylized icon of a Chatham Islands Fantail, simple flat design, circular frame, small gray-brown bird with distinctive fan-shaped tail spread wide, darker plumage than mainland fantail, white background, game asset style, clean vector look, centered composition, no text
+chatom1: Stylized icon of a Chatham Islands Tomtit, simple flat design, circular frame, small compact bird with black head and back, white breast, larger and darker than mainland tomtit, white background, game asset style, clean vector look, centered composition, no text
+chatui1: Stylized icon of a Chatham Islands Tūī, simple flat design, circular frame, iridescent dark bird with white throat tuft (poi), larger than mainland tūī with longer throat tufts, white background, game asset style, clean vector look, centered composition, no text
+```
