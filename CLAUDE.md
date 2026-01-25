@@ -10,7 +10,7 @@ ChipNotes! is a rhythm-game–style audio training application that teaches play
 
 ## Project Status
 
-**Current Version:** v3.41 (January 2026)
+**Current Version:** v4.01 (January 2026)
 **Status:** Production - Shipped and live at [chipnotes.app](https://chipnotes.app)
 **Phase:** All 20 phases (A-T) complete. Post-launch iteration and refinement.
 
@@ -320,4 +320,13 @@ When displaying spectrograms in ANY UI (review tools, game UI, etc.):
 # ALWAYS use the official script - never inline matplotlib code
 python3 scripts/spectrogram_gen.py --input data/clips --output data/spectrograms
 ```
-- never deploy to gh-pages (chipnotes.app) without first testing locally and getting approval to push/deploy
+## ⚠️ DEPLOYMENT REQUIRES EXPLICIT APPROVAL
+
+**NEVER run `npm run deploy` without explicit user approval.**
+
+Before deploying to production (chipnotes.app):
+1. Always ask: "Ready to deploy?" or similar
+2. Wait for explicit confirmation (e.g., "yes", "deploy it", "go ahead")
+3. Do NOT assume approval - even if the user seems eager to ship
+
+This applies even after successful builds and tests. The user controls when changes go live.
