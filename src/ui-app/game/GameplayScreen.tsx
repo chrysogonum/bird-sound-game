@@ -27,6 +27,10 @@ function BirdIcon({ code, tileName, size = 32, color }: { code: string; tileName
           color: '#FFFFFF',
           lineHeight: 1,
           textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+          maxWidth: '100%',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
         }}>
           {labelCode}
         </span>
@@ -1117,18 +1121,18 @@ function GameplayScreen() {
         }
 
         .species-buttons {
-          display: flex;
-          flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
           gap: 6px;
-          max-width: 180px; /* Force 3 columns: ~56px per button * 3 + gaps */
+          width: 180px; /* Fixed width for 3 columns */
         }
 
         .input-column.left .species-buttons {
-          justify-content: flex-start;
+          justify-self: start;
         }
 
         .input-column.right .species-buttons {
-          justify-content: flex-end;
+          justify-self: end;
           margin-left: auto; /* Push to right edge */
         }
 
@@ -1144,6 +1148,9 @@ function GameplayScreen() {
           transition: all 0.15s ease-out;
           touch-action: manipulation;
           -webkit-tap-highlight-color: transparent;
+          width: 100%; /* Fill grid cell */
+          min-width: 0; /* Allow shrinking */
+          overflow: hidden; /* Hide overflow */
         }
 
         .species-btn:hover:not(:disabled) {
@@ -1167,7 +1174,7 @@ function GameplayScreen() {
         /* Tablet: larger icons and more spacing */
         @media (min-width: 768px) {
           .species-buttons {
-            max-width: 260px; /* 3 larger buttons + gaps */
+            width: 260px; /* Wider for larger buttons */
             gap: 10px;
           }
 
