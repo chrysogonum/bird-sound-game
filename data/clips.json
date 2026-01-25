@@ -8688,7 +8688,7 @@
     "source_id": "ausbit1_doc_003",
     "file_path": "data/clips/ausbit1_doc_003.wav",
     "spectrogram_path": "data/spectrograms/ausbit1_doc_003.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "scientific_name": "Botaurus poiciloptilus"
@@ -8742,7 +8742,7 @@
     "source_id": "blasti1_doc_001",
     "file_path": "data/clips/blasti1_doc_001.wav",
     "spectrogram_path": "data/spectrograms/blasti1_doc_001.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "scientific_name": "Himantopus novaezelandiae"
@@ -8814,7 +8814,7 @@
     "source_id": "bluduc1_doc_002",
     "file_path": "data/clips/bluduc1_doc_002.wav",
     "spectrogram_path": "data/spectrograms/bluduc1_doc_002.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "scientific_name": "Hymenolaimus malacorhynchos"
@@ -8940,7 +8940,7 @@
     "source_id": "chafan1_doc_003",
     "file_path": "data/clips/chafan1_doc_003.wav",
     "spectrogram_path": "data/spectrograms/chafan1_doc_003.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "scientific_name": "Rhipidura fuliginosa penita"
