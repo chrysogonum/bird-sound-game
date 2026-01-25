@@ -8974,7 +8974,7 @@
     "source_end_sec": 20.36,
     "file_path": "data/clips/nezpig3_doc_001.wav",
     "spectrogram_path": "data/spectrograms/nezpig3_doc_001.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "nezpig3_doc_001"
@@ -9274,7 +9274,7 @@
     "source_end_sec": 105.31,
     "file_path": "data/clips/nibkiw1_doc_003.wav",
     "spectrogram_path": "data/spectrograms/nibkiw1_doc_003.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "nibkiw1_doc_003"
@@ -9794,7 +9794,7 @@
     "source_end_sec": 42.03,
     "file_path": "data/clips/nezrob2_doc_002.wav",
     "spectrogram_path": "data/spectrograms/nezrob2_doc_002.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "nezrob2_doc_002"
@@ -10014,7 +10014,7 @@
     "source_end_sec": 72.37,
     "file_path": "data/clips/rebdot1_doc_001.wav",
     "spectrogram_path": "data/spectrograms/rebdot1_doc_001.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "rebdot1_doc_001"
@@ -10154,7 +10154,7 @@
     "source_end_sec": 12.76,
     "file_path": "data/clips/nezpig2_doc_001.wav",
     "spectrogram_path": "data/spectrograms/nezpig2_doc_001.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "nezpig2_doc_001"
@@ -10314,7 +10314,7 @@
     "source_end_sec": 54.58,
     "file_path": "data/clips/parshe1_doc_004.wav",
     "spectrogram_path": "data/spectrograms/parshe1_doc_004.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "parshe1_doc_004"
@@ -10340,26 +10340,6 @@
     "source_id": "refpar4_doc_001"
   },
   {
-    "clip_id": "refpar4_doc_002",
-    "species_code": "refpar4",
-    "common_name": "Red-crowned Parakeet / K\u0101k\u0101riki",
-    "scientific_name": "Cyanoramphus novaezelandiae",
-    "vocalization_type": "call",
-    "duration_ms": 1899,
-    "quality_score": 4,
-    "loudness_lufs": -16.0,
-    "source": "doc",
-    "source_file": "red-crowned-parakeet-song-4.mp3",
-    "source_start_sec": 3.98,
-    "source_end_sec": 5.88,
-    "file_path": "data/clips/refpar4_doc_002.wav",
-    "spectrogram_path": "data/spectrograms/refpar4_doc_002.png",
-    "canonical": false,
-    "rejected": false,
-    "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "refpar4_doc_002"
-  },
-  {
     "clip_id": "refpar4_doc_003",
     "species_code": "refpar4",
     "common_name": "Red-crowned Parakeet / K\u0101k\u0101riki",
@@ -10374,7 +10354,7 @@
     "source_end_sec": 85.01,
     "file_path": "data/clips/refpar4_doc_003.wav",
     "spectrogram_path": "data/spectrograms/refpar4_doc_003.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "refpar4_doc_003"
@@ -10614,7 +10594,7 @@
     "source_end_sec": 62.38,
     "file_path": "data/clips/nezkak1_doc_005.wav",
     "spectrogram_path": "data/spectrograms/nezkak1_doc_005.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "nezkak1_doc_005"
@@ -10694,7 +10674,7 @@
     "source_end_sec": 53.68,
     "file_path": "data/clips/nezrob3_doc_003.wav",
     "spectrogram_path": "data/spectrograms/nezrob3_doc_003.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "nezrob3_doc_003"
