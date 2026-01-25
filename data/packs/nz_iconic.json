@@ -1,24 +1,24 @@
 {
   "pack_id": "nz_iconic",
-  "display_name": "Iconic NZ Birds",
-  "description": "New Zealand's most famous and unique birds: Kiwi, Kea, Kakapo, Kokako, Takahe, and more. Many are found nowhere else on Earth.",
+  "region": "nz",
+  "display_name": "Iconic Endemics",
+  "description": "New Zealand's most famous native birds - conservation stars found nowhere else on Earth. Includes Kiwi, Kea, Kākāpō, and more.",
   "species": [
-    "NIBK",
-    "KEAX",
-    "KAKA",
-    "KOKA",
-    "TAKA",
-    "TUIX",
-    "BELL",
-    "MORU",
-    "HIHI",
-    "MOHU"
+    "nibkiw1",
+    "kea1",
+    "kakapo2",
+    "kokako3",
+    "takahe3",
+    "stitch1",
+    "saddle2",
+    "saddle3",
+    "nezrob2",
+    "nezrob3"
   ],
   "vocalization_weights": {
     "song": 0.5,
     "call": 0.5
   },
   "overlap_multiplier": 1.0,
-  "tempo_multiplier": 1.0,
-  "seasonal_context": null
+  "tempo_multiplier": 1.0
 }

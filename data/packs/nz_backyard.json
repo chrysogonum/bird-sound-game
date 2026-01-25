@@ -1,24 +1,24 @@
 {
   "pack_id": "nz_backyard",
-  "display_name": "NZ Backyard Birds",
-  "description": "10 common birds you might hear in a New Zealand garden. Perfect for beginners learning NZ bird songs.",
+  "region": "nz",
+  "display_name": "Backyard Birds",
+  "description": "Common birds you'll find in New Zealand gardens and neighborhoods. From the melodious Tūī to the friendly Fantail.",
   "species": [
-    "TUIX",
-    "BELL",
-    "NIFA",
-    "GRWA",
-    "SILV",
-    "KERE",
-    "MORU",
-    "NITO",
-    "PADU",
-    "WHIT"
+    "tui1",
+    "nezbel1",
+    "nezfan1",
+    "silver3",
+    "gryger1",
+    "nezpig2",
+    "morepo2",
+    "weka1",
+    "parshe1",
+    "nezkak1"
   ],
   "vocalization_weights": {
     "song": 0.6,
     "call": 0.4
   },
   "overlap_multiplier": 1.0,
-  "tempo_multiplier": 1.0,
-  "seasonal_context": null
+  "tempo_multiplier": 1.0
 }
