@@ -104,33 +104,6 @@ const PACKS: Pack[] = [
   },
 ];
 
-const NZ_PACKS: Pack[] = [
-  {
-    id: 'nz_all_birds',
-    name: 'All NZ Birds',
-    speciesCount: 42,
-    isUnlocked: true,
-    description: 'The complete collection. Audio: DOC NZ (Crown Copyright).',
-    region: 'nz',
-  },
-  {
-    id: 'nz_common',
-    name: 'Garden & Bush',
-    speciesCount: 21,
-    isUnlocked: true,
-    description: 'Birds you\'ll encounter in gardens, parks, and forests.',
-    region: 'nz',
-  },
-  {
-    id: 'nz_rare',
-    name: 'Rare & Endemic',
-    speciesCount: 21,
-    isUnlocked: true,
-    description: 'Conservation stars: Kiwi, Kākāpō, Takahē, Chatham Islands subspecies.',
-    region: 'nz',
-  },
-];
-
 function PackSelect() {
   const navigate = useNavigate();
   const location = useLocation();

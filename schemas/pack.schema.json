@@ -25,21 +25,26 @@
       "type": "string",
       "description": "Description of the pack"
     },
+    "region": {
+      "type": "string",
+      "enum": ["na", "nz"],
+      "description": "Region identifier: 'na' for North America (default), 'nz' for New Zealand"
+    },
     "species": {
       "type": "array",
       "items": {
         "type": "string",
-        "pattern": "^[A-Z]{4}$"
+        "pattern": "^[A-Za-z0-9]{3,10}$"
       },
       "minItems": 1,
       "uniqueItems": true,
-      "description": "Array of 4-letter species codes for gameplay rotation"
+      "description": "Array of species codes (4-letter NA codes or eBird codes for NZ)"
     },
     "display_species": {
       "type": "array",
       "items": {
         "type": "string",
-        "pattern": "^[A-Z]{4}$"
+        "pattern": "^[A-Za-z0-9]{3,10}$"
       },
       "minItems": 1,
       "uniqueItems": true,
