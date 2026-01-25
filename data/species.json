@@ -14116,5 +14116,257 @@
     "common_name": "Unidentified Bird",
     "scientific_name": "Aves (gen, sp)",
     "taxonomic_order": 2353
+  },
+  {
+    "species_code": "tui1",
+    "common_name": "T\u016b\u012b",
+    "scientific_name": "Prosthemadera novaeseelandiae",
+    "taxonomic_order": 2354
+  },
+  {
+    "species_code": "nezbel1",
+    "common_name": "Korimako / Bellbird",
+    "scientific_name": "Anthornis melanura",
+    "taxonomic_order": 2355
+  },
+  {
+    "species_code": "nezfan1",
+    "common_name": "Pīwakawaka / NZ Fantail",
+    "scientific_name": "Rhipidura fuliginosa",
+    "taxonomic_order": 2356
+  },
+  {
+    "species_code": "gryger1",
+    "common_name": "Riroriro / Grey Warbler",
+    "scientific_name": "Gerygone igata",
+    "taxonomic_order": 2357
+  },
+  {
+    "species_code": "morepo2",
+    "common_name": "Ruru / Morepork",
+    "scientific_name": "Ninox novaeseelandiae",
+    "taxonomic_order": 2358
+  },
+  {
+    "species_code": "kea1",
+    "common_name": "Kea",
+    "scientific_name": "Nestor notabilis",
+    "taxonomic_order": 2359
+  },
+  {
+    "species_code": "nezkak1",
+    "common_name": "Kākā",
+    "scientific_name": "Nestor meridionalis",
+    "taxonomic_order": 2360
+  },
+  {
+    "species_code": "kakapo2",
+    "common_name": "K\u0101k\u0101p\u014d",
+    "scientific_name": "Strigops habroptilus",
+    "taxonomic_order": 2361
+  },
+  {
+    "species_code": "refpar4",
+    "common_name": "Kākāriki / Red-crowned Parakeet",
+    "scientific_name": "Cyanoramphus novaezelandiae",
+    "taxonomic_order": 2362
+  },
+  {
+    "species_code": "malpar2",
+    "common_name": "Kākāriki / Orange-fronted Parakeet",
+    "scientific_name": "Cyanoramphus malherbi",
+    "taxonomic_order": 2363
+  },
+  {
+    "species_code": "nibkiw1",
+    "common_name": "Kiwi / North Island Brown",
+    "scientific_name": "Apteryx mantelli",
+    "taxonomic_order": 2364
+  },
+  {
+    "species_code": "kokako3",
+    "common_name": "K\u014dkako",
+    "scientific_name": "Callaeas wilsoni",
+    "taxonomic_order": 2365
+  },
+  {
+    "species_code": "nezpig2",
+    "common_name": "Kerer\u016b",
+    "scientific_name": "Hemiphaga novaeseelandiae",
+    "taxonomic_order": 2366
+  },
+  {
+    "species_code": "nezpig3",
+    "common_name": "Parea / Chatham Is. Pigeon",
+    "scientific_name": "Hemiphaga chathamensis",
+    "taxonomic_order": 2367
+  },
+  {
+    "species_code": "nezfal1",
+    "common_name": "Kārearea / NZ Falcon",
+    "scientific_name": "Falco novaeseelandiae",
+    "taxonomic_order": 2368
+  },
+  {
+    "species_code": "nezrob2",
+    "common_name": "Toutouwai / NI Robin",
+    "scientific_name": "Petroica longipes",
+    "taxonomic_order": 2369
+  },
+  {
+    "species_code": "nezrob3",
+    "common_name": "Toutouwai / SI Robin",
+    "scientific_name": "Petroica australis",
+    "taxonomic_order": 2370
+  },
+  {
+    "species_code": "tomtit1",
+    "common_name": "Miromiro / Tomtit",
+    "scientific_name": "Petroica macrocephala",
+    "taxonomic_order": 2371
+  },
+  {
+    "species_code": "parshe1",
+    "common_name": "Pūtangitangi / Paradise Shelduck",
+    "scientific_name": "Tadorna variegata",
+    "taxonomic_order": 2372
+  },
+  {
+    "species_code": "soiwre1",
+    "common_name": "Pīwauwau / Rock Wren",
+    "scientific_name": "Xenicus gilviventris",
+    "taxonomic_order": 2373
+  },
+  {
+    "species_code": "saddle2",
+    "common_name": "Tīeke / NI Saddleback",
+    "scientific_name": "Philesturnus rufusater",
+    "taxonomic_order": 2374
+  },
+  {
+    "species_code": "saddle3",
+    "common_name": "Tīeke / SI Saddleback",
+    "scientific_name": "Philesturnus carunculatus",
+    "taxonomic_order": 2375
+  },
+  {
+    "species_code": "silver3",
+    "common_name": "Tauhou / Silvereye",
+    "scientific_name": "Zosterops lateralis",
+    "taxonomic_order": 2376
+  },
+  {
+    "species_code": "stitch1",
+    "common_name": "Hihi / Stitchbird",
+    "scientific_name": "Notiomystis cincta",
+    "taxonomic_order": 2377
+  },
+  {
+    "species_code": "takahe3",
+    "common_name": "Takah\u0113",
+    "scientific_name": "Porphyrio hochstetteri",
+    "taxonomic_order": 2378
+  },
+  {
+    "species_code": "whiteh1",
+    "common_name": "Pōpokotea / Whitehead",
+    "scientific_name": "Mohoua albicilla",
+    "taxonomic_order": 2379
+  },
+  {
+    "species_code": "yellow3",
+    "common_name": "Mohua / Yellowhead",
+    "scientific_name": "Mohoua ochrocephala",
+    "taxonomic_order": 2380
+  },
+  {
+    "species_code": "yeepen1",
+    "common_name": "Hoiho / Yellow-eyed Penguin",
+    "scientific_name": "Megadyptes antipodes",
+    "taxonomic_order": 2381
+  },
+  {
+    "species_code": "rebdot1",
+    "common_name": "Tūturiwhatu / NZ Dotterel",
+    "scientific_name": "Anarhynchus obscurus",
+    "taxonomic_order": 2382
+  },
+  {
+    "species_code": "chaoys1",
+    "common_name": "Tōrea / Chatham Is. Oystercatcher",
+    "scientific_name": "Haematopus chathamensis",
+    "taxonomic_order": 2383
+  },
+  {
+    "species_code": "hutshe1",
+    "common_name": "Tītī / Hutton's Shearwater",
+    "scientific_name": "Puffinus huttoni",
+    "taxonomic_order": 2384
+  },
+  {
+    "species_code": "wespet1",
+    "common_name": "Tāiko / Westland Petrel",
+    "scientific_name": "Procellaria westlandica",
+    "taxonomic_order": 2385
+  },
+  {
+    "species_code": "ausbit1",
+    "common_name": "Matuku-hūrepo / Australasian Bittern",
+    "scientific_name": "Botaurus poiciloptilus",
+    "taxonomic_order": 2386
+  },
+  {
+    "species_code": "blasti1",
+    "common_name": "Kakī / Black Stilt",
+    "scientific_name": "Himantopus novaezelandiae",
+    "taxonomic_order": 2387
+  },
+  {
+    "species_code": "bluduc1",
+    "common_name": "Whio / Blue Duck",
+    "scientific_name": "Hymenolaimus malacorhynchos",
+    "taxonomic_order": 2388
+  },
+  {
+    "species_code": "auitea1",
+    "common_name": "Auckland Islands Teal",
+    "scientific_name": "Anas aucklandica",
+    "taxonomic_order": 2389
+  },
+  {
+    "species_code": "grcgre1",
+    "common_name": "Australasian Crested Grebe",
+    "scientific_name": "Podiceps cristatus",
+    "taxonomic_order": 2390
+  },
+  {
+    "species_code": "weka1",
+    "common_name": "Weka",
+    "scientific_name": "Gallirallus australis",
+    "taxonomic_order": 2391
+  },
+  {
+    "species_code": "greegr",
+    "common_name": "Kōtuku / White Heron",
+    "scientific_name": "Ardea alba",
+    "taxonomic_order": 2392
+  },
+  {
+    "species_code": "chafan1",
+    "common_name": "Chatham Islands Fantail",
+    "scientific_name": "Rhipidura fuliginosa penita",
+    "taxonomic_order": 2393
+  },
+  {
+    "species_code": "chatom1",
+    "common_name": "Chatham Islands Tomtit",
+    "scientific_name": "Petroica macrocephala chathamensis",
+    "taxonomic_order": 2394
+  },
+  {
+    "species_code": "chatui1",
+    "common_name": "Chatham Islands Tui",
+    "scientific_name": "Prosthemadera novaeseelandiae chathamensis",
+    "taxonomic_order": 2395
   }
 ]
