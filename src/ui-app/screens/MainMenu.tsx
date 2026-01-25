@@ -222,7 +222,7 @@ function MainMenu() {
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', fontSize: '24px', marginTop: '-16px' }}>
+            <div style={{ color: 'var(--color-accent)', opacity: 0.5, fontSize: '24px', marginTop: '-16px' }}>
               →
             </div>
 
@@ -259,7 +259,7 @@ function MainMenu() {
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', fontSize: '24px', marginTop: '-16px' }}>
+            <div style={{ color: 'var(--color-accent)', opacity: 0.5, fontSize: '24px', marginTop: '-16px' }}>
               →
             </div>
 
@@ -384,7 +384,7 @@ function MainMenu() {
         onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
         aria-label="View version history"
       >
-        v3.58
+        v4.0
       </button>
     </div>
   );
