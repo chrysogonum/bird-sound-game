@@ -1,7 +1,7 @@
 {
   "pack_id": "nz_backyard",
   "region": "nz",
-  "display_name": "Backyard Birds",
+  "display_name": "NZ Backyard Birds",
   "description": "Common birds you'll find in New Zealand gardens and neighborhoods. From the melodious Tūī to the friendly Fantail.",
   "species": [
     "tui1",

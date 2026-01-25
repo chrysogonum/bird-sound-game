@@ -8,9 +8,10 @@ import type { LevelConfig, GameMode } from '@engine/game/types';
 import { trackTrainingModeToggle, trackGameStart, trackRoundComplete } from '../utils/analytics';
 
 // Bird icon component - shows icon with code label below
-function BirdIcon({ code, size = 32, color }: { code: string; size?: number; color?: string }) {
+function BirdIcon({ code, tileName, size = 32, color }: { code: string; tileName?: string; size?: number; color?: string }) {
   const [hasIcon, setHasIcon] = useState(true);
   const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
+  const labelCode = tileName || code;  // Show tileName if available, otherwise use code
 
   return (
     <div style={{
@@ -27,13 +28,13 @@ function BirdIcon({ code, size = 32, color }: { code: string; size?: number; col
           lineHeight: 1,
           textShadow: '0 1px 2px rgba(0,0,0,0.5)',
         }}>
-          {code}
+          {labelCode}
         </span>
       )}
       {hasIcon ? (
         <img
           src={iconPath}
-          alt={code}
+          alt={labelCode}
           width={size}
           height={size}
           style={{
@@ -54,7 +55,7 @@ function BirdIcon({ code, size = 32, color }: { code: string; size?: number; col
           fontSize: size * 0.35,
           fontWeight: 700,
         }}>
-          {code}
+          {labelCode}
         </div>
       )}
     </div>
@@ -63,6 +64,8 @@ function BirdIcon({ code, size = 32, color }: { code: string; size?: number; col
 
 interface Species {
   code: string;
+  displayCode: string;
+  tileName: string;
   name: string;
   color: string;
 }
@@ -383,6 +386,8 @@ function GameplayScreen() {
   // Convert species from engine to RadialWheel format
   const speciesForWheel: Species[] = gameState.species.map((sp, index) => ({
     code: sp.code,
+    displayCode: sp.displayCode,
+    tileName: sp.tileName || sp.displayCode,
     name: sp.name,
     color: sp.color || DEFAULT_COLORS[index % DEFAULT_COLORS.length],
   }));
@@ -671,7 +676,7 @@ function GameplayScreen() {
                 }}
                 disabled={gameState.roundState !== 'playing'}
               >
-                <BirdIcon code={sp.code} size={36} color={sp.color} />
+                <BirdIcon code={sp.code} tileName={sp.tileName} size={36} color={sp.color} />
               </button>
             ))}
           </div>
@@ -694,7 +699,7 @@ function GameplayScreen() {
                 }}
                 disabled={gameState.roundState !== 'playing'}
               >
-                <BirdIcon code={sp.code} size={36} color={sp.color} />
+                <BirdIcon code={sp.code} tileName={sp.tileName} size={36} color={sp.color} />
               </button>
             ))}
           </div>

@@ -11,6 +11,7 @@ import Settings from './screens/Settings';
 import Progress from './screens/Progress';
 import Help from './screens/Help';
 import Privacy from './screens/Privacy';
+import NZPackSelect from './screens/NZPackSelect';
 import CookieConsent from './components/CookieConsent';
 
 // Tablet scaling: use CSS zoom to make everything larger
@@ -53,6 +54,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainMenu />} />
         <Route path="/pack-select" element={<PackSelect />} />
+        <Route path="/nz-packs" element={<NZPackSelect />} />
         <Route path="/level-select" element={<LevelSelect />} />
         <Route path="/preview" element={<PreRoundPreview />} />
         <Route path="/custom-pack" element={<CustomPackBuilder />} />

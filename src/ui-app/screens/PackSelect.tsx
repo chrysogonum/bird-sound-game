@@ -2,14 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useNavigate, Link, useSearchParams, useLocation } from 'react-router-dom';
 import { trackPackSelect } from '../utils/analytics';
 
-interface Pack {
-  id: string;
-  name: string;
-  speciesCount: number;
-  isUnlocked: boolean;
-  description: string;
-}
-
 interface ClipData {
   clip_id: string;
   species_code: string;
@@ -44,6 +36,15 @@ interface BirdInfo {
   allClips: BirdClip[];
 }
 
+interface Pack {
+  id: string;
+  name: string;
+  speciesCount: number;
+  isUnlocked: boolean;
+  description: string;
+  region?: 'na' | 'nz';
+}
+
 const PACKS: Pack[] = [
   {
     id: 'starter_birds',
@@ -51,13 +52,15 @@ const PACKS: Pack[] = [
     speciesCount: 6,
     isUnlocked: true,
     description: 'Start here! Distinctive, bold, recognizable voices.',
+    region: 'na',
   },
   {
     id: 'grassland_birds',
-    name: 'Grassland & Open Country',
+    name: 'Grasslands',
     speciesCount: 10,
     isUnlocked: true,
     description: 'From prairies to farmland: meadowlarks, buntings, and field singers.',
+    region: 'na',
   },
   {
     id: 'expanded_backyard',
@@ -65,6 +68,7 @@ const PACKS: Pack[] = [
     speciesCount: 46,
     isUnlocked: true,
     description: 'Ready for more feathered friends? 9 random per round.',
+    region: 'na',
   },
   {
     id: 'western_birds',
@@ -72,6 +76,7 @@ const PACKS: Pack[] = [
     speciesCount: 21,
     isUnlocked: true,
     description: 'Frequent flyers from the Pacific coast to the Rockies.',
+    region: 'na',
   },
   {
     id: 'woodpeckers',
@@ -79,6 +84,7 @@ const PACKS: Pack[] = [
     speciesCount: 9,
     isUnlocked: true,
     description: 'Drums, calls, and rattles.',
+    region: 'na',
   },
   {
     id: 'sparrows',
@@ -86,13 +92,42 @@ const PACKS: Pack[] = [
     speciesCount: 9,
     isUnlocked: true,
     description: 'Master their subtle songs.',
+    region: 'na',
   },
   {
     id: 'spring_warblers',
     name: 'Warbler Academy',
     speciesCount: 34,
     isUnlocked: true,
-    description: '9 random per round. Custom Pack mode recommended!',
+    description: '9 random per round. Custom Pack\nmode recommended!',
+    region: 'na',
+  },
+];
+
+const NZ_PACKS: Pack[] = [
+  {
+    id: 'nz_all_birds',
+    name: 'All NZ Birds',
+    speciesCount: 42,
+    isUnlocked: true,
+    description: 'The complete collection. Audio: DOC NZ (Crown Copyright).',
+    region: 'nz',
+  },
+  {
+    id: 'nz_common',
+    name: 'Garden & Bush',
+    speciesCount: 21,
+    isUnlocked: true,
+    description: 'Birds you\'ll encounter in gardens, parks, and forests.',
+    region: 'nz',
+  },
+  {
+    id: 'nz_rare',
+    name: 'Rare & Endemic',
+    speciesCount: 21,
+    isUnlocked: true,
+    description: 'Conservation stars: Kiwi, Kākāpō, Takahē, Chatham Islands subspecies.',
+    region: 'nz',
   },
 ];
 
@@ -167,7 +202,10 @@ function PackSelect() {
 
   // Load pack species from JSON files (single source of truth)
   useEffect(() => {
-    const packIds = ['starter_birds', 'grassland_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds'];
+    const packIds = [
+      'starter_birds', 'grassland_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds',
+      'nz_all_birds', 'nz_common', 'nz_rare'
+    ];
 
     Promise.all(
       packIds.map((id) =>
@@ -467,7 +505,7 @@ function PackSelect() {
             sparrows: 'linear-gradient(135deg, #6b5344 0%, #4a3a2e 100%)',           // Earthy brown
             woodpeckers: 'linear-gradient(135deg, #6e3d3d 0%, #4a2a2a 100%)',        // Deep red
             western_birds: 'linear-gradient(135deg, #5a4a7a 0%, #3a2a5a 100%)',      // Mountain purple
-            spring_warblers: 'linear-gradient(135deg, #3d6e5a 0%, #2a4a3d 100%)',    // Forest teal
+            spring_warblers: 'linear-gradient(135deg, #c46a28 0%, #8a4a18 100%)',    // Muted Blackburnian orange
           };
 
           // Pack representative bird icons
@@ -557,7 +595,7 @@ function PackSelect() {
             )}
 
             {/* Content */}
-            <div style={{ position: 'relative', zIndex: 1 }}>
+            <div style={{ position: 'relative', zIndex: 1, paddingTop: pack.id === 'spring_warblers' ? 0 : '8px' }}>
               <div
                 style={{
                   fontSize: '15px',
@@ -576,6 +614,7 @@ function PackSelect() {
                   color: 'rgba(245, 240, 230, 0.6)',
                   lineHeight: 1.4,
                   marginBottom: '10px',
+                  whiteSpace: 'pre-line',
                 }}
               >
                 {pack.description}
@@ -596,6 +635,63 @@ function PackSelect() {
         );})}
 
       </div>
+
+      {/* New Zealand Birds - Link to separate page */}
+      <button
+        onClick={() => navigate('/nz-packs')}
+        style={{
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px',
+          marginBottom: '32px',
+          padding: '16px 20px',
+          background: 'linear-gradient(135deg, #2a7a6a 0%, #1a5a4a 100%)',
+          borderRadius: '16px',
+          border: '2px solid rgba(100, 200, 180, 0.5)',
+          cursor: 'pointer',
+          transition: 'all 0.2s',
+          textAlign: 'left',
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'translateY(-2px)';
+          e.currentTarget.style.boxShadow = '0 6px 20px rgba(100, 200, 180, 0.3)';
+          e.currentTarget.style.borderColor = 'rgba(100, 200, 180, 0.8)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'translateY(0)';
+          e.currentTarget.style.boxShadow = 'none';
+          e.currentTarget.style.borderColor = 'rgba(100, 200, 180, 0.5)';
+        }}
+      >
+        {/* Decorative bird icon - right side */}
+        <img
+          src={`${import.meta.env.BASE_URL}data/icons/yeepen1.png`}
+          alt=""
+          style={{
+            position: 'absolute',
+            right: '-10px',
+            bottom: '-10px',
+            width: '80px',
+            height: '80px',
+            opacity: 0.5,
+            filter: 'brightness(1.3)',
+            transform: 'rotate(-15deg)',
+            objectFit: 'cover',
+          }}
+        />
+        <span style={{ fontSize: '32px', position: 'relative', zIndex: 1 }}>🇳🇿</span>
+        <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
+          <h3 style={{ margin: 0, fontSize: '18px', color: '#a8d5a2', fontWeight: 700 }}>
+            New Zealand Birds <span style={{ fontSize: '16px' }}>→</span>
+          </h3>
+          <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-muted)' }}>
+            42 endemic species from<br />Aotearoa New Zealand • 3 packs
+          </p>
+        </div>
+      </button>
 
       {/* Sound Library Section */}
       <div id="bird-reference" style={{ marginTop: '16px', scrollMarginTop: '20px' }}>

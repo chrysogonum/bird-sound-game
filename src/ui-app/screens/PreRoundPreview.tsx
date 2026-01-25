@@ -14,6 +14,8 @@ interface ClipData {
 
 interface SelectedSpecies {
   code: string;
+  displayCode: string;  // Short code for UI display (may differ from eBird code for NZ birds)
+  tileName: string;     // Name to show on buttons (Māori name or short English)
   name: string;
   scientificName?: string;
   color: string;
@@ -29,7 +31,7 @@ const SPECIES_COLORS = [
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
   starter_birds: 'Backyard Birds',
-  grassland_birds: 'Grassland & Open Country',
+  grassland_birds: 'Grasslands',
   expanded_backyard: 'Eastern Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
@@ -37,6 +39,10 @@ const PACK_NAMES: Record<string, string> = {
   western_birds: 'Western Birds',
   custom: 'Custom Pack',
   drill: 'Confusion Drill',
+  // NZ packs
+  nz_all_birds: 'All NZ Birds',
+  nz_common: 'Garden & Bush',
+  nz_rare: 'Rare & Endemic',
 };
 
 // Level titles for custom pack
@@ -62,9 +68,10 @@ function getLevelChannelMode(levelId: number): 'single' | 'offset' {
 }
 
 // Bird icon component - shows icon with code label below
-function BirdIcon({ code, size = 56, color }: { code: string; size?: number; color?: string }) {
+function BirdIcon({ code, tileName, size = 56, color }: { code: string; tileName?: string; size?: number; color?: string }) {
   const [hasIcon, setHasIcon] = useState(true);
   const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
+  const labelCode = tileName || code;  // Show tileName if available
 
   return (
     <div style={{
@@ -82,13 +89,13 @@ function BirdIcon({ code, size = 56, color }: { code: string; size?: number; col
           lineHeight: 1,
           textShadow: '0 1px 2px rgba(0,0,0,0.5)',
         }}>
-          {code}
+          {labelCode}
         </span>
       )}
       {hasIcon ? (
         <img
           src={iconPath}
-          alt={code}
+          alt={labelCode}
           width={size}
           height={size}
           style={{
@@ -111,7 +118,7 @@ function BirdIcon({ code, size = 56, color }: { code: string; size?: number; col
           fontWeight: 700,
           color: '#1A1A2E',
         }}>
-          {code}
+          {labelCode}
         </div>
       )}
     </div>
@@ -149,6 +156,7 @@ function PreRoundPreview() {
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
   const [commonNames, setCommonNames] = useState<Record<string, string>>({});
+  const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string }>>({});
   const [fullCustomPack, setFullCustomPack] = useState<string[]>([]);  // All species in custom pack (up to 30)
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -207,13 +215,15 @@ function PreRoundPreview() {
     }
   }, [taxonomicSort, taxonomicOrder]); // Depend on taxonomicSort and taxonomicOrder, but not selectedSpecies to avoid infinite loop
 
-  // Load taxonomic order data and species metadata
+  // Load taxonomic order data, species metadata, and NZ display codes
   useEffect(() => {
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
-    ]).then(([taxonomicData, speciesData]: [Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>]) => {
+      fetch(`${import.meta.env.BASE_URL}data/nz_display_codes.json`).then(r => r.json()).catch(() => ({ codes: {} })),
+    ]).then(([taxonomicData, speciesData, nzCodesData]: [Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>, { codes: Record<string, { code: string; tileName: string }> }]) => {
       setTaxonomicOrder(taxonomicData);
+      setNzDisplayCodes(nzCodesData.codes || {});
       // Build species metadata lookup
       const sciNames: Record<string, string> = {};
       const comNames: Record<string, string> = {};
@@ -240,13 +250,15 @@ function PreRoundPreview() {
 
       return {
         code,
+        displayCode: nzDisplayCodes[code]?.code || code,
+        tileName: nzDisplayCodes[code]?.tileName || code,
         name: commonNames[code] || code,
         scientificName: scientificNames[code],
         color: SPECIES_COLORS[index % SPECIES_COLORS.length],
         clipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
       };
     });
-  }, [commonNames, scientificNames]);
+  }, [commonNames, scientificNames, nzDisplayCodes]);
 
   // Select random subset from custom pack (for packs with >9 birds)
   const selectRandomFromCustomPack = useCallback((allSpecies: string[], clipsData: ClipData[]) => {
@@ -281,6 +293,8 @@ function PreRoundPreview() {
 
       return {
         code,
+        displayCode: nzDisplayCodes[code]?.code || code,
+        tileName: nzDisplayCodes[code]?.tileName || code,
         name: commonNames[code] || code,
         scientificName: scientificNames[code],
         color: SPECIES_COLORS[index % SPECIES_COLORS.length],
@@ -289,7 +303,7 @@ function PreRoundPreview() {
     });
 
     setSelectedSpecies(speciesInfo);
-  }, [commonNames, scientificNames]);
+  }, [commonNames, scientificNames, nzDisplayCodes]);
 
   // Load level and clips
   useEffect(() => {
@@ -824,7 +838,7 @@ function PreRoundPreview() {
             >
               {/* Bird icon/code */}
               <div style={{ position: 'relative', WebkitTapHighlightColor: 'transparent' }}>
-                <BirdIcon code={species.code} size={52} color={species.color} />
+                <BirdIcon code={species.code} tileName={species.tileName} size={52} color={species.color} />
               </div>
               {/* Name */}
               <div style={{

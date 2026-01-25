@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { trackTaxonomicSortToggle, trackCustomPackCreate, trackCustomPackSave, trackCustomPackLoad, trackCustomPackDelete } from '../utils/analytics';
 
 interface ClipData {
@@ -9,6 +9,7 @@ interface ClipData {
   file_path: string;
   canonical?: boolean;
   rejected?: boolean;
+  source?: string;
 }
 
 interface SpeciesInfo {
@@ -20,6 +21,7 @@ interface SpeciesInfo {
 
 const MAX_SPECIES = 30;
 const CUSTOM_PACK_KEY = 'soundfield_custom_pack';  // Legacy single pack
+const CUSTOM_PACK_REGION_KEY = 'soundfield_custom_pack_region';  // Track region for back navigation
 
 /**
  * Saved Packs System with Validation & Versioning
@@ -52,6 +54,9 @@ const SPECIES_COLORS = [
 
 function CustomPackBuilder() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const region = searchParams.get('region'); // 'nz' for New Zealand birds only
+  const isNZMode = region === 'nz';
   const [allSpecies, setAllSpecies] = useState<SpeciesInfo[]>([]);
   const [selectedCodes, setSelectedCodes] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -83,16 +88,22 @@ function CustomPackBuilder() {
 
   // Load all species from clips.json, taxonomic order, scientific names, and packs
   useEffect(() => {
-    // Load pack definitions
-    const packFiles = [
-      'starter_birds',
-      'grassland_birds',
-      'expanded_backyard',
-      'sparrows',
-      'woodpeckers',
-      'spring_warblers',
-      'western_birds',
-    ];
+    // Load pack definitions based on region
+    const packFiles = isNZMode
+      ? [
+          'nz_all_birds',
+          'nz_common',
+          'nz_rare',
+        ]
+      : [
+          'starter_birds',
+          'grassland_birds',
+          'expanded_backyard',
+          'sparrows',
+          'woodpeckers',
+          'spring_warblers',
+          'western_birds',
+        ];
 
     const packPromises = packFiles.map(packId =>
       fetch(`${import.meta.env.BASE_URL}data/packs/${packId}.json`)
@@ -109,7 +120,12 @@ function CustomPackBuilder() {
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
       Promise.all(packPromises),
     ])
-      .then(([clips, taxonomicData, speciesData, packsData]: [ClipData[], Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>, any[]]) => {
+      .then(([allClips, taxonomicData, speciesData, packsData]: [ClipData[], Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>, any[]]) => {
+        // Filter clips by region if needed (NZ uses source === 'doc')
+        const clips = isNZMode
+          ? allClips.filter(c => c.source === 'doc')
+          : allClips.filter(c => c.source !== 'doc'); // NA excludes NZ clips
+
         // Build available packs list
         const packs = packsData
           .filter(p => p !== null)
@@ -204,7 +220,7 @@ function CustomPackBuilder() {
     } catch (e) {
       console.error('Failed to load saved packs:', e);
     }
-  }, []);
+  }, [isNZMode]);
 
   // Validate saved packs after species data loads (runs only once)
   useEffect(() => {
@@ -324,6 +340,13 @@ function CustomPackBuilder() {
   const handleJustPlay = () => {
     // Save to localStorage for this session
     localStorage.setItem(CUSTOM_PACK_KEY, JSON.stringify(selectedCodes));
+
+    // Save the region so we can navigate back correctly
+    if (isNZMode) {
+      localStorage.setItem(CUSTOM_PACK_REGION_KEY, 'nz');
+    } else {
+      localStorage.removeItem(CUSTOM_PACK_REGION_KEY);
+    }
 
     // Mark as temporary so it gets cleared on return
     sessionStorage.setItem('customPackWasTemporary', 'true');
@@ -469,6 +492,12 @@ function CustomPackBuilder() {
       setShouldPlayAfterSave(false);
       // Save to localStorage for the game session
       localStorage.setItem(CUSTOM_PACK_KEY, JSON.stringify(selectedCodes));
+      // Save the region so we can navigate back correctly
+      if (isNZMode) {
+        localStorage.setItem(CUSTOM_PACK_REGION_KEY, 'nz');
+      } else {
+        localStorage.removeItem(CUSTOM_PACK_REGION_KEY);
+      }
       // DON'T mark as temporary - it's been saved
       // Track and navigate
       trackCustomPackCreate(selectedCodes.length);
@@ -589,11 +618,11 @@ function CustomPackBuilder() {
       {/* Header */}
       <div style={{ flexShrink: 0, marginBottom: '12px' }}>
         <div className="flex-row items-center gap-md">
-          <button className="btn-icon" onClick={() => navigate('/pack-select')} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
+          <button className="btn-icon" onClick={() => navigate(isNZMode ? '/nz-packs' : '/pack-select')} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
             <BackIcon />
           </button>
           <div>
-            <h2 style={{ margin: 0, fontSize: '18px' }}>Custom Pack Builder</h2>
+            <h2 style={{ margin: 0, fontSize: '18px' }}>{isNZMode ? 'Custom NZ Pack' : 'Custom Pack Builder'}</h2>
             <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
               {loadedPackId ? (
                 <span>
