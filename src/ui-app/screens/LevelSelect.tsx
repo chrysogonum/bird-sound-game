@@ -3,6 +3,14 @@ import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
 import { trackLevelSelect } from '../utils/analytics';
 
+// Species info for gallery display
+interface SpeciesInfo {
+  code: string;
+  displayName: string;  // Common name for NA, tile name (Māori) for NZ
+  scientificName: string;
+  showCode: boolean;    // Show 4-letter code for NA, hide for NZ
+}
+
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
   starter_birds: 'Backyard Birds',
@@ -162,6 +170,8 @@ function LevelSelect() {
 
   const [levels, setLevels] = useState<LevelConfig[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showGallery, setShowGallery] = useState(false);
+  const [gallerySpecies, setGallerySpecies] = useState<SpeciesInfo[]>([]);
 
   // Determine if this is an NZ pack for theming
   const isNZPack = NZ_PACK_IDS.includes(packId) ||
@@ -206,6 +216,75 @@ function LevelSelect() {
       });
   }, [packId, navigate]);
 
+  // Load species for the gallery when opened
+  useEffect(() => {
+    if (!showGallery || packId === 'custom') return;
+
+    const isNZ = NZ_PACK_IDS.includes(packId);
+    const packJsonPath = `${import.meta.env.BASE_URL}data/packs/${packId}.json`;
+    const speciesJsonPath = `${import.meta.env.BASE_URL}data/species.json`;
+    const nzDisplayCodesPath = `${import.meta.env.BASE_URL}data/nz_display_codes.json`;
+
+    const fetches: Promise<unknown>[] = [
+      fetch(packJsonPath).then(r => r.json()),
+      fetch(speciesJsonPath).then(r => r.json()),
+    ];
+    if (isNZ) {
+      fetches.push(fetch(nzDisplayCodesPath).then(r => r.json()));
+    }
+
+    Promise.all(fetches)
+      .then((results) => {
+        const packData = results[0] as { species: string[] };
+        const speciesData = results[1] as Array<{ species_code: string; common_name: string; scientific_name: string }>;
+        const nzDisplayCodes = isNZ ? (results[2] as { codes: Record<string, { code: string; tileName: string }> }).codes : null;
+
+        const speciesCodes: string[] = packData.species || [];
+
+        // Build a map of species code -> species info from species.json
+        const speciesMap: Record<string, { name: string; scientificName: string }> = {};
+        for (const sp of speciesData) {
+          speciesMap[sp.species_code] = {
+            name: sp.common_name,
+            scientificName: sp.scientific_name,
+          };
+        }
+
+        // Build species info array
+        let speciesInfo: SpeciesInfo[] = speciesCodes.map(code => {
+          if (isNZ && nzDisplayCodes && nzDisplayCodes[code]) {
+            // NZ birds: use tile name (Māori), hide code
+            return {
+              code,
+              displayName: nzDisplayCodes[code].tileName,
+              scientificName: speciesMap[code]?.scientificName || '',
+              showCode: false,
+            };
+          } else {
+            // NA birds: use common name, show 4-letter code
+            return {
+              code,
+              displayName: speciesMap[code]?.name || code,
+              scientificName: speciesMap[code]?.scientificName || '',
+              showCode: true,
+            };
+          }
+        });
+
+        // Sort: NA birds by 4-letter code, NZ birds by tile name (Māori)
+        if (isNZ) {
+          speciesInfo.sort((a, b) => a.displayName.localeCompare(b.displayName));
+        } else {
+          speciesInfo.sort((a, b) => a.code.localeCompare(b.code));
+        }
+
+        setGallerySpecies(speciesInfo);
+      })
+      .catch(err => {
+        console.error('Failed to load gallery species:', err);
+      });
+  }, [showGallery, packId]);
+
   const handleLevelSelect = (level: LevelConfig) => {
     trackLevelSelect(packId, level.level_id, level.title || `Level ${level.level_id}`);
     navigate(`/preview?pack=${packId}&level=${level.level_id}`);
@@ -231,25 +310,50 @@ function LevelSelect() {
           <BackIcon />
         </button>
         <div style={{ flex: 1 }}>
-          <h2 style={{ margin: 0, fontSize: '20px' }}>{packName}</h2>
+          {packId !== 'custom' ? (
+            <button
+              onClick={() => setShowGallery(true)}
+              style={{
+                background: 'none',
+                border: 'none',
+                padding: 0,
+                margin: 0,
+                cursor: 'pointer',
+                textAlign: 'left',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                color: accentColor,
+                opacity: 0.6,
+              }}
+              aria-label={`View ${packName} bird gallery`}
+            >
+              <h2 style={{ margin: 0, fontSize: '20px', color: 'inherit' }}>{packName}</h2>
+              <span style={{ fontSize: '14px', opacity: 0.7 }}>🖼️</span>
+            </button>
+          ) : (
+            <h2 style={{ margin: 0, fontSize: '20px' }}>{packName}</h2>
+          )}
           <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
             <span>Select a level</span>
           </div>
         </div>
-        {packId !== 'custom' && (
-          <Link
-            to={isNZPack ? `/nz-packs?expand=${packId}#bird-reference` : `/pack-select?expand=${packId}#bird-reference`}
-            state={{ fromLevelSelect: true, packId }}
-            className="btn-icon"
-            style={{ color: accentColor, opacity: 0.6, textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
-            aria-label="Sound Library"
-          >
-            <span>🎧</span><span>📚</span>
-          </Link>
-        )}
-        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: accentColor, opacity: 0.6 }}>
-          <HomeIcon />
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+          {packId !== 'custom' && (
+            <Link
+              to={isNZPack ? `/nz-packs?expand=${packId}#bird-reference` : `/pack-select?expand=${packId}#bird-reference`}
+              state={{ fromLevelSelect: true, packId }}
+              className="btn-icon"
+              style={{ color: accentColor, opacity: 0.6, textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
+              aria-label="Sound Library"
+            >
+              <span>🎧</span><span>📚</span>
+            </Link>
+          )}
+          <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: accentColor, opacity: 0.6 }}>
+            <HomeIcon />
+          </button>
+        </div>
       </div>
 
       {loading ? (
@@ -340,10 +444,135 @@ function LevelSelect() {
         borderLeft: isNZPack ? '3px solid rgba(77, 182, 172, 0.5)' : '3px solid rgba(245, 166, 35, 0.5)',
       }}>
         <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-          <strong style={{ color: accentColor, opacity: 0.7 }}>Tip:</strong> Start with Level 1 to learn
-          each bird's signature sound, then progress to variations and both-ear challenges.
+          <strong style={{ color: accentColor, opacity: 0.7 }}>Tip:</strong> Tap the pack name to see all birds.
+          Start with Level 1 to learn each bird's signature sound, then progress to variations and both-ear challenges.
         </div>
       </div>
+
+      {/* Bird Gallery Modal */}
+      {showGallery && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            animation: 'fadeIn 0.2s ease-out',
+          }}
+          onClick={() => setShowGallery(false)}
+        >
+          {/* Header */}
+          <div style={{
+            padding: '16px',
+            paddingTop: 'calc(16px + var(--safe-area-top, 0px))',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            borderBottom: '1px solid rgba(255,255,255,0.1)',
+          }}>
+            <h3 style={{ margin: 0, fontSize: '18px', color: 'var(--color-text)' }}>
+              {packName}
+            </h3>
+            <button
+              onClick={() => setShowGallery(false)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-text-muted)',
+                fontSize: '28px',
+                cursor: 'pointer',
+                padding: '4px',
+                lineHeight: 1,
+              }}
+              aria-label="Close gallery"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Gallery Grid */}
+          <div
+            style={{
+              flex: 1,
+              overflow: 'auto',
+              padding: '16px',
+              paddingBottom: 'calc(16px + var(--safe-area-bottom, 0px))',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+              maxWidth: '400px',
+              margin: '0 auto',
+            }}>
+              {gallerySpecies.map((species) => (
+                <div
+                  key={species.code}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '12px',
+                    padding: '16px',
+                    background: 'var(--color-surface)',
+                    borderRadius: '16px',
+                  }}
+                >
+                  <img
+                    src={`${import.meta.env.BASE_URL}data/icons/${species.code}.png`}
+                    alt={species.displayName}
+                    style={{
+                      width: '100%',
+                      aspectRatio: '1',
+                      borderRadius: '12px',
+                      objectFit: 'cover',
+                    }}
+                  />
+                  <div style={{
+                    textAlign: 'center',
+                  }}>
+                    <div style={{
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: 'var(--color-text)',
+                      marginBottom: '4px',
+                    }}>
+                      {species.displayName}
+                    </div>
+                    {species.scientificName && (
+                      <div style={{
+                        fontSize: '15px',
+                        fontStyle: 'italic',
+                        color: 'var(--color-text-muted)',
+                        marginBottom: species.showCode ? '6px' : '0',
+                      }}>
+                        {species.scientificName}
+                      </div>
+                    )}
+                    {species.showCode && (
+                      <div style={{
+                        fontSize: '12px',
+                        fontWeight: 600,
+                        color: accentColor,
+                        opacity: 0.7,
+                      }}>
+                        {species.code}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
