@@ -322,46 +322,15 @@ function RoundSummary() {
         </button>
       </div>
 
-      {/* Share Score Button */}
+      {/* Play Again Button - top position for easy access */}
       <div style={{ width: '100%', maxWidth: '320px', margin: '0 auto 16px' }}>
         <button
           className="btn-primary"
-          onClick={handleShare}
-          disabled={isSharing || !results || !shareReady}
-          style={{
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
-          }}
+          onClick={() => goToLevel(currentLevel)}
+          style={{ width: '100%' }}
         >
-          <ShareIcon />
-          {isSharing ? 'Generating...' : !shareReady ? 'Preparing...' : 'Share Your Score'}
+          {isDrill ? 'Drill Again' : 'Play Again'}
         </button>
-        <p style={{
-          fontSize: '13px',
-          color: 'var(--color-text-muted)',
-          textAlign: 'center',
-          marginTop: '8px',
-          marginBottom: '0',
-          fontStyle: 'italic',
-        }}>
-          Let them Wordle, you already know how to spell.
-        </p>
-        {shareMessage && (
-          <p style={{
-            fontSize: '14px',
-            color: accentColor,
-            textAlign: 'center',
-            marginTop: '8px',
-            marginBottom: '0',
-            fontWeight: 600,
-            animation: 'fadeIn 0.3s ease',
-          }}>
-            {shareMessage}
-          </p>
-        )}
       </div>
 
       {/* Hidden ShareCard - always rendered for canvas generation */}
@@ -652,13 +621,46 @@ function RoundSummary() {
               ← Back to {PACK_NAMES[drillOrigin.packId] || drillOrigin.packId}
             </button>
           )}
+
+          {/* Share Score Button - bottom position */}
           <button
             className="btn-primary"
-            onClick={() => goToLevel(currentLevel)}
-            style={{ width: '100%' }}
+            onClick={handleShare}
+            disabled={isSharing || !results || !shareReady}
+            style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+            }}
           >
-            {isDrill ? 'Drill Again' : 'Play Again'}
+            <ShareIcon />
+            {isSharing ? 'Generating...' : !shareReady ? 'Preparing...' : 'Share Your Score'}
           </button>
+          <p style={{
+            fontSize: '13px',
+            color: 'var(--color-text-muted)',
+            textAlign: 'center',
+            marginTop: '-8px',
+            marginBottom: '0',
+            fontStyle: 'italic',
+          }}>
+            Let them Wordle, you already know how to spell.
+          </p>
+          {shareMessage && (
+            <p style={{
+              fontSize: '14px',
+              color: accentColor,
+              textAlign: 'center',
+              marginTop: '0',
+              marginBottom: '0',
+              fontWeight: 600,
+              animation: 'fadeIn 0.3s ease',
+            }}>
+              {shareMessage}
+            </p>
+          )}
         </div>
       </div>
     </div>
