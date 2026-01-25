@@ -32,6 +32,8 @@ export interface ClipMetadata {
 /** Species data for UI display */
 export interface SpeciesInfo {
   code: string;
+  displayCode: string;  // Short code shown in UI (may differ from eBird code for NZ birds)
+  tileName: string;     // Name to show on buttons/tiles (Māori name or short English)
   name: string;
   color?: string;
 }
@@ -64,6 +66,8 @@ export interface ConfusionEntry {
 export interface ScheduledEvent extends GameEvent {
   spectrogramPath: string | null;
   filePath: string;
+  displayCode: string;  // Short code for UI display (may differ from species_code for NZ birds)
+  tileName: string;     // Name to show on spectrogram tiles (Māori name or short English name)
 }
 
 /** Game engine state */
@@ -186,6 +190,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     }
   }, []);
 
+  // NZ display codes for friendlier UI
+  const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string }>>({});
+
   // Clips and species data
   const [clips, setClips] = useState<ClipMetadata[]>([]);
   const [allPoolSpecies, setAllPoolSpecies] = useState<SpeciesInfo[]>([]); // All species in the pool
@@ -204,6 +211,16 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         setTaxonomicOrder(data);
       })
       .catch((err) => console.error('Failed to load taxonomic order:', err));
+  }, []);
+
+  // Load NZ display codes
+  useEffect(() => {
+    fetch(`${import.meta.env.BASE_URL}data/nz_display_codes.json`)
+      .then((res) => res.json())
+      .then((data: { codes: Record<string, { code: string; tileName: string }> }) => {
+        setNzDisplayCodes(data.codes || {});
+      })
+      .catch((err) => console.error('Failed to load NZ display codes:', err));
   }, []);
 
   // Helper function to sort species based on preference
@@ -319,8 +336,14 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           continue;
         }
         if (!speciesMap.has(clip.species_code)) {
+          // Use NZ display data if available, otherwise use the eBird code
+          const nzData = nzDisplayCodes[clip.species_code];
+          const displayCode = nzData?.code || clip.species_code;
+          const tileName = nzData?.tileName || clip.species_code;
           speciesMap.set(clip.species_code, {
             code: clip.species_code,
+            displayCode,
+            tileName,
             name: clip.common_name,
             color: SPECIES_COLORS[clip.species_code],
           });
@@ -354,7 +377,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     } catch (error) {
       console.error('Error loading clips:', error);
     }
-  }, [level.species_pool, level.species_count]);
+  }, [level.species_pool, level.species_count, nzDisplayCodes]);
 
   /**
    * Initialize audio context
@@ -847,10 +870,13 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     // Add to generated events for results tracking (only if clip exists)
     generatedEventsRef.current.push(event);
 
+    const nzData = nzDisplayCodes[event.species_code];
     const scheduledEvent: ScheduledEvent = {
       ...event,
       spectrogramPath: clip.spectrogram_path || null,
       filePath: clip.file_path,
+      displayCode: nzData?.code || event.species_code,
+      tileName: nzData?.tileName || event.species_code,
     };
     setScheduledEvents((prev) => [...prev, scheduledEvent]);
 

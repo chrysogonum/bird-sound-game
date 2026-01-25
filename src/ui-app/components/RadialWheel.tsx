@@ -2,6 +2,8 @@ import { memo, useState, useCallback } from 'react';
 
 export interface Species {
   code: string;
+  displayCode: string;  // Short code shown in UI (may differ from eBird code for NZ birds)
+  tileName: string;     // Name to show on buttons/tiles (Māori name or short English)
   name: string;
   color?: string;
 }
@@ -77,7 +79,7 @@ function RadialWheel({ species, selectedSpecies, onSelect, disabled = false }: R
               aria-label={sp.name}
               aria-pressed={isSelected}
             >
-              <span className="species-code">{sp.code}</span>
+              <span className="species-code">{sp.tileName}</span>
               {(isHovered || isSelected) && (
                 <span className="species-tooltip">{sp.name}</span>
               )}

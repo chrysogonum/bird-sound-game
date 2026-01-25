@@ -1,0 +1,35 @@
+{
+  "pack_id": "nz_common",
+  "region": "nz",
+  "display_name": "Garden & Bush",
+  "description": "Birds you'll encounter in gardens, parks, and forests across New Zealand. From the melodious Tūī to the cheeky Kea.",
+  "species": [
+    "tui1",
+    "nezbel1",
+    "nezfan1",
+    "gryger1",
+    "silver3",
+    "nezpig2",
+    "morepo2",
+    "weka1",
+    "parshe1",
+    "nezkak1",
+    "kea1",
+    "nezfal1",
+    "nezrob2",
+    "nezrob3",
+    "tomtit1",
+    "whiteh1",
+    "refpar4",
+    "greegr",
+    "grcgre1",
+    "malpar2",
+    "yellow3"
+  ],
+  "vocalization_weights": {
+    "song": 0.6,
+    "call": 0.4
+  },
+  "overlap_multiplier": 1.0,
+  "tempo_multiplier": 1.0
+}

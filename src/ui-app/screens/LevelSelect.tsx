@@ -6,14 +6,24 @@ import { trackLevelSelect } from '../utils/analytics';
 // Pack display names
 const PACK_NAMES: Record<string, string> = {
   starter_birds: 'Backyard Birds',
-  grassland_birds: 'Grassland & Open Country',
+  grassland_birds: 'Grasslands',
   expanded_backyard: 'Eastern Birds',
   sparrows: 'Sparrows',
   woodpeckers: 'Woodpeckers',
   spring_warblers: 'Warbler Academy',
   western_birds: 'Western Birds',
   custom: 'Custom Pack',
+  // NZ packs
+  nz_all_birds: 'All NZ Birds',
+  nz_common: 'Garden & Bush',
+  nz_rare: 'Rare & Endemic',
 };
+
+// NZ pack IDs for routing
+const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_rare'];
+
+// Key for tracking custom pack region
+const CUSTOM_PACK_REGION_KEY = 'soundfield_custom_pack_region';
 
 // Generate standard levels for custom packs
 function generateCustomLevels(speciesCount: number): LevelConfig[] {
@@ -165,10 +175,12 @@ function LevelSelect() {
           }
         }
         // No custom pack saved - redirect to builder
-        navigate('/custom-pack', { replace: true });
+        const customPackRegion = localStorage.getItem(CUSTOM_PACK_REGION_KEY);
+        navigate(customPackRegion === 'nz' ? '/custom-pack?region=nz' : '/custom-pack', { replace: true });
       } catch (e) {
         console.error('Failed to load custom pack:', e);
-        navigate('/custom-pack', { replace: true });
+        const customPackRegion = localStorage.getItem(CUSTOM_PACK_REGION_KEY);
+        navigate(customPackRegion === 'nz' ? '/custom-pack?region=nz' : '/custom-pack', { replace: true });
       }
       return;
     }
@@ -197,7 +209,17 @@ function LevelSelect() {
     <div className="screen" style={{ paddingBottom: '24px' }}>
       {/* Header */}
       <div className="flex-row items-center gap-md" style={{ marginBottom: '8px' }}>
-        <button className="btn-icon" onClick={() => navigate(packId === 'custom' ? '/custom-pack' : '/pack-select')} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
+        <button className="btn-icon" onClick={() => {
+          if (packId === 'custom') {
+            // Check if custom pack was NZ region
+            const customPackRegion = localStorage.getItem(CUSTOM_PACK_REGION_KEY);
+            navigate(customPackRegion === 'nz' ? '/custom-pack?region=nz' : '/custom-pack');
+          } else if (NZ_PACK_IDS.includes(packId)) {
+            navigate('/nz-packs');
+          } else {
+            navigate('/pack-select');
+          }
+        }} aria-label="Back" style={{ color: 'var(--color-accent)' }}>
           <BackIcon />
         </button>
         <div style={{ flex: 1 }}>
