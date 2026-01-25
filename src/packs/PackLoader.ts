@@ -26,7 +26,8 @@ const PACK_DEFAULTS = {
 /** Validation constraints */
 const CONSTRAINTS = {
   packIdPattern: /^[a-z_]+$/,
-  speciesCodePattern: /^[A-Z]{4}$/,
+  // Accept 4-letter NA codes (NOCA) or eBird 6-char codes (nezbel1)
+  speciesCodePattern: /^([A-Z]{4}|[a-z]{3,6}[0-9]?)$/,
   minSpecies: 1,
   minWeight: 0,
   maxWeight: 1,

@@ -1,26 +1,20 @@
 {
   "pack_id": "nz_all_birds",
-  "display_name": "New Zealand Native Birds",
-  "description": "All 47 species from the NZ Department of Conservation collection. From iconic Kiwi to alpine Kea, coastal penguins to forest songbirds. Audio: Crown Copyright, DOC NZ.",
+  "region": "nz",
+  "display_name": "All NZ Birds",
+  "description": "The complete collection of 42 New Zealand native bird species. Audio courtesy of the NZ Department of Conservation (Crown Copyright).",
   "species": [
-    "ABIT", "ACGR", "AITE", "BELL", "BLDU", "BLST", "BUWE",
-    "CIFA", "CIOY", "CIPI", "CITO", "CITU",
-    "GRWA", "HIHI", "HUSH",
-    "KAKA", "KEAX", "KERE", "KOKA",
-    "MOHU", "MORU",
-    "NIBK", "NIFA", "NIKA", "NIRO", "NISA", "NITO", "NIWE",
-    "NZDO", "NZFA",
-    "OFPA", "PADU",
-    "RCPA", "ROWR",
-    "SIFA", "SIKA", "SILV", "SIRO", "SISA", "SITO",
-    "TAKA", "TUIX",
-    "WEWE", "WHHE", "WHIT", "WLPE", "YEPE"
+    "auitea1", "ausbit1", "blasti1", "bluduc1", "chafan1", "chaoys1", "chatom1", "chatui1",
+    "grcgre1", "greegr", "gryger1", "hutshe1", "kakapo2", "kea1", "kokako3", "malpar2",
+    "morepo2", "nezbel1", "nezfal1", "nezfan1", "nezkak1", "nezpig2", "nezpig3", "nezrob2",
+    "nezrob3", "nibkiw1", "parshe1", "rebdot1", "refpar4", "saddle2", "saddle3", "silver3",
+    "soiwre1", "stitch1", "takahe3", "tomtit1", "tui1", "weka1", "wespet1", "whiteh1",
+    "yeepen1", "yellow3"
   ],
   "vocalization_weights": {
     "song": 0.5,
     "call": 0.5
   },
   "overlap_multiplier": 1.0,
-  "tempo_multiplier": 1.0,
-  "seasonal_context": null
+  "tempo_multiplier": 1.0
 }
