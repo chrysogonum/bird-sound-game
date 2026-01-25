@@ -14119,7 +14119,7 @@
   },
   {
     "species_code": "tui1",
-    "common_name": "Tūī",
+    "common_name": "T\u016b\u012b",
     "scientific_name": "Prosthemadera novaeseelandiae",
     "taxonomic_order": 2354
   },
@@ -14131,7 +14131,7 @@
   },
   {
     "species_code": "nezfan1",
-    "common_name": "New Zealand Fantail / Pīwakawaka",
+    "common_name": "New Zealand Fantail / P\u012bwakawaka",
     "scientific_name": "Rhipidura fuliginosa",
     "taxonomic_order": 2356
   },
@@ -14155,25 +14155,25 @@
   },
   {
     "species_code": "nezkak1",
-    "common_name": "New Zealand Kākā",
+    "common_name": "New Zealand K\u0101k\u0101",
     "scientific_name": "Nestor meridionalis",
     "taxonomic_order": 2360
   },
   {
     "species_code": "kakapo2",
-    "common_name": "Kākāpō",
+    "common_name": "K\u0101k\u0101p\u014d",
     "scientific_name": "Strigops habroptilus",
     "taxonomic_order": 2361
   },
   {
     "species_code": "refpar4",
-    "common_name": "Red-crowned Parakeet / Kākāriki",
+    "common_name": "Red-crowned Parakeet / K\u0101k\u0101riki",
     "scientific_name": "Cyanoramphus novaezelandiae",
     "taxonomic_order": 2362
   },
   {
     "species_code": "malpar2",
-    "common_name": "Orange-fronted Parakeet / Kākāriki",
+    "common_name": "Orange-fronted Parakeet / K\u0101k\u0101riki",
     "scientific_name": "Cyanoramphus malherbi",
     "taxonomic_order": 2363
   },
@@ -14185,13 +14185,13 @@
   },
   {
     "species_code": "kokako3",
-    "common_name": "Kōkako",
+    "common_name": "K\u014dkako",
     "scientific_name": "Callaeas wilsoni",
     "taxonomic_order": 2365
   },
   {
     "species_code": "nezpig2",
-    "common_name": "Kererū",
+    "common_name": "Kerer\u016b",
     "scientific_name": "Hemiphaga novaeseelandiae",
     "taxonomic_order": 2366
   },
@@ -14203,7 +14203,7 @@
   },
   {
     "species_code": "nezfal1",
-    "common_name": "New Zealand Falcon / Kārearea",
+    "common_name": "New Zealand Falcon / K\u0101rearea",
     "scientific_name": "Falco novaeseelandiae",
     "taxonomic_order": 2368
   },
@@ -14227,25 +14227,25 @@
   },
   {
     "species_code": "parshe1",
-    "common_name": "Paradise Shelduck / Pūtangitangi",
+    "common_name": "Paradise Shelduck / P\u016btangitangi",
     "scientific_name": "Tadorna variegata",
     "taxonomic_order": 2372
   },
   {
     "species_code": "soiwre1",
-    "common_name": "Rock Wren / Pīwauwau",
+    "common_name": "Rock Wren / P\u012bwauwau",
     "scientific_name": "Xenicus gilviventris",
     "taxonomic_order": 2373
   },
   {
     "species_code": "saddle2",
-    "common_name": "North Island Saddleback / Tīeke",
+    "common_name": "North Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus rufusater",
     "taxonomic_order": 2374
   },
   {
     "species_code": "saddle3",
-    "common_name": "South Island Saddleback / Tīeke",
+    "common_name": "South Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus carunculatus",
     "taxonomic_order": 2375
   },
@@ -14263,13 +14263,13 @@
   },
   {
     "species_code": "takahe3",
-    "common_name": "Takahē",
+    "common_name": "Takah\u0113",
     "scientific_name": "Porphyrio hochstetteri",
     "taxonomic_order": 2378
   },
   {
     "species_code": "whiteh1",
-    "common_name": "Whitehead / Pōpokotea",
+    "common_name": "Whitehead / P\u014dpokotea",
     "scientific_name": "Mohoua albicilla",
     "taxonomic_order": 2379
   },
@@ -14287,37 +14287,37 @@
   },
   {
     "species_code": "rebdot1",
-    "common_name": "New Zealand Dotterel / Tūturiwhatu",
+    "common_name": "New Zealand Dotterel / T\u016bturiwhatu",
     "scientific_name": "Anarhynchus obscurus",
     "taxonomic_order": 2382
   },
   {
     "species_code": "chaoys1",
-    "common_name": "Chatham Islands Oystercatcher / Tōrea",
+    "common_name": "Chatham Islands Oystercatcher / T\u014drea",
     "scientific_name": "Haematopus chathamensis",
     "taxonomic_order": 2383
   },
   {
     "species_code": "hutshe1",
-    "common_name": "Hutton's Shearwater / Tītī",
+    "common_name": "Hutton's Shearwater / T\u012bt\u012b",
     "scientific_name": "Puffinus huttoni",
     "taxonomic_order": 2384
   },
   {
     "species_code": "wespet1",
-    "common_name": "Westland Petrel / Tāiko",
+    "common_name": "Westland Petrel / T\u0101iko",
     "scientific_name": "Procellaria westlandica",
     "taxonomic_order": 2385
   },
   {
     "species_code": "ausbit1",
-    "common_name": "Australasian Bittern / Matuku-hūrepo",
+    "common_name": "Australasian Bittern / Matuku-h\u016brepo",
     "scientific_name": "Botaurus poiciloptilus",
     "taxonomic_order": 2386
   },
   {
     "species_code": "blasti1",
-    "common_name": "Black Stilt / Kakī",
+    "common_name": "Black Stilt / Kak\u012b",
     "scientific_name": "Himantopus novaezelandiae",
     "taxonomic_order": 2387
   },
@@ -14347,8 +14347,26 @@
   },
   {
     "species_code": "greegr",
-    "common_name": "White Heron / Kōtuku",
+    "common_name": "White Heron / K\u014dtuku",
     "scientific_name": "Ardea alba",
     "taxonomic_order": 2392
+  },
+  {
+    "species_code": "chafan1",
+    "common_name": "Chatham Islands Fantail",
+    "scientific_name": "Rhipidura fuliginosa penita",
+    "taxonomic_order": 2393
+  },
+  {
+    "species_code": "chatom1",
+    "common_name": "Chatham Islands Tomtit",
+    "scientific_name": "Petroica macrocephala chathamensis",
+    "taxonomic_order": 2394
+  },
+  {
+    "species_code": "chatui1",
+    "common_name": "Chatham Islands Tui",
+    "scientific_name": "Prosthemadera novaeseelandiae chathamensis",
+    "taxonomic_order": 2395
   }
 ]
