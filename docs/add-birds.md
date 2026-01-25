@@ -13,12 +13,45 @@ This guide documents the audio ingestion workflows for adding bird species to Ch
 
 ## Standard Workflow (North American Birds)
 
-**Best for:** Xeno-canto, Cornell Macaulay Library, and other sources with pre-segmented recordings.
+**Best for:** Xeno-canto, Cornell Macaulay Library - sources where recordings are relatively short (3-90 seconds) and contain clear vocalizations.
 
-### Prerequisites
-- Audio files are already ~0.5-3 seconds
-- Each file contains a single clear vocalization
-- Minimal background noise
+### How It Works
+
+The standard workflow **automatically extracts the loudest 3-second window** from each recording:
+
+1. Downloads recordings filtered by quality (A/B rating) and length (3-90 seconds)
+2. Scans the audio using sliding windows (100ms steps)
+3. Calculates RMS energy for each window
+4. Extracts the 3-second section with highest energy (loudest)
+5. Normalizes to -16 LUFS
+
+This works well when:
+- The recording has a clear, prominent vocalization
+- Background noise is relatively low
+- The "loudest" part is also the "best" part
+
+It may produce poor results when:
+- Multiple vocalizations compete for loudness
+- Background noise (wind, other birds) is loud
+- The best vocalization isn't the loudest one
+
+**For problematic clips:** Use the review tool to reject them, or use the Manual Selection workflow with the Clip Selector tool for finer control.
+
+### When to Use Clip Selector for NA Birds
+
+You can use the Clip Selector tool with NA sources too! This is useful when:
+- Auto-extraction picked a noisy section
+- You have a long field recording with multiple good vocalizations
+- You want precise control over clip boundaries
+
+```bash
+# Download raw files without processing
+# (manually download from Xeno-canto or Cornell)
+# Place in data/raw-candidates/
+
+# Use Clip Selector for manual extraction
+python scripts/clip_selector.py --input data/raw-candidates/ --output data/clips/
+```
 
 ### Steps
 
