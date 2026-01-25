@@ -703,6 +703,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.02" date="January 25, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Play Again Button:</strong> Moved Play Again to top of Round Summary screen for quick access. Share Your Score moved to bottom—most users want to replay immediately.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.01" date="January 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Audio Processing Documentation:</strong> Added technical note to About & Credits explaining how clips are prepared—automatic loudest-window extraction for NA birds, visual Clip Selector tool for NZ field recordings.</li>
