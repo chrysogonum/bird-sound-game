@@ -49,24 +49,24 @@ interface BirdInfo {
 const NZ_PACKS: Pack[] = [
   {
     id: 'nz_all_birds',
-    name: 'All NZ Birds',
+    name: 'All NZ Birds in ChipNotes',
     speciesCount: 42,
     isUnlocked: true,
-    description: 'The complete collection of\nNew Zealand native birds.',
+    description: 'Some of New Zealand\'s most\niconic native birds.',
   },
   {
     id: 'nz_common',
     name: 'Garden & Bush',
     speciesCount: 21,
     isUnlocked: true,
-    description: 'Gardens, parks, and forests.\nTūī, Kea, Fantail, and more.',
+    description: 'Gardens, parks, and forests. Tūī, Kea, Fantail, and\nmore.',
   },
   {
     id: 'nz_rare',
     name: 'Rare & Endemic',
     speciesCount: 21,
     isUnlocked: true,
-    description: 'Conservation stars: Kiwi, Kākāpō, Takahē, and Chatham Islands subspecies.',
+    description: 'Conservation stars: Kiwi, Kākāpō, Takahē, and Chatham\nIslands\nsubspecies.',
   },
 ];
 
@@ -207,8 +207,8 @@ function NZPackSelect() {
 
   const nzPackColors: Record<string, string> = {
     nz_all_birds: 'linear-gradient(135deg, #5a8ab0 0%, #3a6a8a 100%)',
-    nz_common: 'linear-gradient(135deg, #2d5a4d 0%, #1a3d32 100%)',
-    nz_rare: 'linear-gradient(135deg, #5a4a2d 0%, #3d321a 100%)',
+    nz_common: 'linear-gradient(135deg, #b8a832 0%, #8a7a28 100%)',
+    nz_rare: 'linear-gradient(135deg, #2d7a7a 0%, #1a5a5a 100%)',
   };
 
   const nzPackIcons: Record<string, string> = {
