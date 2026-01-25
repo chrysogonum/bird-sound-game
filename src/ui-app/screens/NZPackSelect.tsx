@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import { trackPackSelect } from '../utils/analytics';
 
 interface Pack {
@@ -41,6 +41,7 @@ interface BirdInfo {
   displayCode: string;  // Short code for UI display
   tileName: string;     // Name to show (Māori name or short English)
   name: string;
+  scientificName?: string;
   canonicalClipPath: string | null;
   clipCount: number;
   allClips: BirdClip[];
@@ -72,14 +73,32 @@ const NZ_PACKS: Pack[] = [
 
 function NZPackSelect() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
   const [clips, setClips] = useState<ClipData[]>([]);
   const [packDisplaySpecies, setPackDisplaySpecies] = useState<Record<string, string[]>>({});
   const [commonNames, setCommonNames] = useState<Record<string, string>>({});
+  const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
   const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string }>>({});
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [playingClip, setPlayingClip] = useState<string | null>(null);
+  const [taxonomicSort, setTaxonomicSort] = useState(false);
+  const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const soundLibraryRef = useRef<HTMLDivElement | null>(null);
+
+  // Handle URL params for auto-expanding packs and scrolling to sound library
+  useEffect(() => {
+    const expandPack = searchParams.get('expand') || searchParams.get('expandPack');
+    if (expandPack) {
+      setExpandedPacks(new Set([expandPack]));
+      // Scroll to sound library section after a brief delay
+      setTimeout(() => {
+        soundLibraryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }, [searchParams]);
 
   // Load clips data
   useEffect(() => {
@@ -93,18 +112,25 @@ function NZPackSelect() {
       .catch((err) => console.error('Failed to load clips:', err));
   }, []);
 
-  // Load species names and NZ display codes
+  // Load species names, scientific names, NZ display codes, and taxonomic order
   useEffect(() => {
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(res => res.json()),
       fetch(`${import.meta.env.BASE_URL}data/nz_display_codes.json`).then(res => res.json()).catch(() => ({ codes: {} })),
-    ]).then(([speciesData, nzCodesData]: [Array<{species_code: string; common_name: string}>, { codes: Record<string, { code: string; tileName: string }> }]) => {
+      fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(res => res.json()).catch(() => ({})),
+    ]).then(([speciesData, nzCodesData, taxOrder]: [Array<{species_code: string; common_name: string; scientific_name?: string}>, { codes: Record<string, { code: string; tileName: string }> }, Record<string, number>]) => {
       const names: Record<string, string> = {};
+      const sciNames: Record<string, string> = {};
       speciesData.forEach((sp) => {
         names[sp.species_code] = sp.common_name;
+        if (sp.scientific_name) {
+          sciNames[sp.species_code] = sp.scientific_name;
+        }
       });
       setCommonNames(names);
+      setScientificNames(sciNames);
       setNzDisplayCodes(nzCodesData.codes || {});
+      setTaxonomicOrder(taxOrder);
     }).catch((err) => console.error('Failed to load species:', err));
   }, []);
 
@@ -136,7 +162,7 @@ function NZPackSelect() {
 
   const getBirdsForPack = (packId: string): BirdInfo[] => {
     const speciesCodes = packDisplaySpecies[packId] || [];
-    return speciesCodes.map((code) => {
+    const birds = speciesCodes.map((code) => {
       const speciesClips = clips.filter((c) =>
         c.species_code === code && !c.rejected
       );
@@ -168,11 +194,22 @@ function NZPackSelect() {
         displayCode: nzDisplayCodes[code]?.code || code,
         tileName: nzDisplayCodes[code]?.tileName || code,
         name: commonNames[code] || code,
+        scientificName: scientificNames[code],
         canonicalClipPath: clip ? `${import.meta.env.BASE_URL}${clip.file_path}` : null,
         clipCount: speciesClips.length,
         allClips,
       };
     });
+
+    // Sort based on mode: taxonomic or alphabetical by tileName
+    if (taxonomicSort && Object.keys(taxonomicOrder).length > 0) {
+      return birds.sort((a, b) => {
+        const orderA = taxonomicOrder[a.code] || 9999;
+        const orderB = taxonomicOrder[b.code] || 9999;
+        return orderA - orderB;
+      });
+    }
+    return birds.sort((a, b) => a.tileName.localeCompare(b.tileName));
   };
 
   const playSound = (clipPath: string, code: string) => {
@@ -403,10 +440,37 @@ function NZPackSelect() {
       </div>
 
       {/* Sound Library */}
-      <div>
+      <div ref={soundLibraryRef}>
         <h3 style={{ fontSize: '16px', margin: '0 0 16px 0', color: 'var(--color-text-muted)' }}>
           Sound Library 🎧📚
         </h3>
+
+        {/* Back to Level Select button */}
+        {location.state?.fromLevelSelect && location.state?.packId && (
+          <div style={{ marginBottom: '16px' }}>
+            <button
+              onClick={() => navigate(`/level-select?pack=${location.state.packId}`)}
+              style={{
+                background: '#4db6ac',
+                color: 'var(--color-background)',
+                border: 'none',
+                borderRadius: '8px',
+                padding: '10px 16px',
+                fontSize: '14px',
+                fontWeight: 600,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+              }}
+              aria-label="Back to Level Select"
+            >
+              <span style={{ fontSize: '18px' }}>←</span>
+              Back to Level Select
+            </button>
+          </div>
+        )}
 
         {NZ_PACKS.map((pack) => {
           const isExpanded = expandedPacks.has(pack.id);
@@ -445,17 +509,67 @@ function NZPackSelect() {
               </div>
 
               {isExpanded && (
-                <div
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                    gap: '8px',
-                    marginTop: '8px',
-                    padding: '8px',
-                    background: 'rgba(0,0,0,0.2)',
-                    borderRadius: '8px',
-                  }}
-                >
+                <div style={{ marginTop: '8px' }}>
+                  {/* Ready to Play button - shown when navigating from preview */}
+                  {location.state?.fromPreview && location.state?.pack === pack.id && (
+                    <div style={{ marginBottom: '12px', display: 'flex', justifyContent: 'flex-end', paddingRight: '8px' }}>
+                      <button
+                        onClick={() => {
+                          const { pack: packId, level } = location.state as { pack: string; level: number };
+                          navigate(`/preview?pack=${packId}&level=${level}&keepBirds=true`);
+                        }}
+                        style={{
+                          padding: '10px 16px',
+                          fontSize: '14px',
+                          fontWeight: 700,
+                          background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
+                          color: 'white',
+                          border: 'none',
+                          borderRadius: '10px',
+                          cursor: 'pointer',
+                          boxShadow: '0 4px 12px rgba(45, 90, 39, 0.4)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                        }}
+                      >
+                        Ready to Play?
+                      </button>
+                    </div>
+                  )}
+                  {/* Sort toggle */}
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '8px', paddingRight: '8px' }}>
+                    <button
+                      onClick={() => setTaxonomicSort(!taxonomicSort)}
+                      style={{
+                        padding: '6px 12px',
+                        fontSize: '11px',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        background: taxonomicSort ? '#4db6ac' : 'rgba(255,255,255,0.15)',
+                        color: taxonomicSort ? '#000' : 'var(--color-text)',
+                        border: taxonomicSort ? 'none' : '1.5px solid #4db6ac',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                      }}
+                    >
+                      {taxonomicSort ? '📊 Taxonomic' : '🔤 Māori Names'}
+                      <span style={{ fontSize: '10px', opacity: 0.8 }}>
+                        {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Alphabetical'}
+                      </span>
+                    </button>
+                  </div>
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                      gap: '8px',
+                      padding: '8px',
+                      background: 'rgba(0,0,0,0.2)',
+                      borderRadius: '8px',
+                    }}
+                  >
                   {birds.map((bird) => {
                     const isBirdExpanded = expandedBird === bird.code;
                     return (
@@ -505,8 +619,9 @@ function NZPackSelect() {
                               whiteSpace: 'nowrap',
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
+                              fontStyle: taxonomicSort && bird.scientificName ? 'italic' : 'normal',
                             }}>
-                              {bird.name}
+                              {taxonomicSort && bird.scientificName ? bird.scientificName : bird.name}
                             </div>
                             <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
                               {bird.clipCount} clip{bird.clipCount !== 1 ? 's' : ''}
@@ -528,8 +643,8 @@ function NZPackSelect() {
                                 height: '28px',
                                 borderRadius: '50%',
                                 border: 'none',
-                                background: playingClip === bird.code ? '#4db6ac' : 'rgba(255,255,255,0.1)',
-                                color: playingClip === bird.code ? '#000' : 'var(--color-text)',
+                                background: playingClip === bird.code ? '#4db6ac' : 'rgba(77, 182, 172, 0.3)',
+                                color: playingClip === bird.code ? '#000' : '#4db6ac',
                                 cursor: 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -572,8 +687,8 @@ function NZPackSelect() {
                                       height: '24px',
                                       borderRadius: '50%',
                                       border: 'none',
-                                      background: playingClip === clip.id ? '#4db6ac' : 'rgba(255,255,255,0.15)',
-                                      color: 'white',
+                                      background: playingClip === clip.id ? '#4db6ac' : 'rgba(77, 182, 172, 0.3)',
+                                      color: playingClip === clip.id ? '#000' : '#4db6ac',
                                       cursor: 'pointer',
                                       display: 'flex',
                                       alignItems: 'center',
@@ -635,6 +750,7 @@ function NZPackSelect() {
                       </div>
                     );
                   })}
+                  </div>
                 </div>
               )}
             </div>

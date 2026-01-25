@@ -240,7 +240,7 @@ function PreRoundPreview() {
   }, []);
 
   // Build species info from a list of codes (no shuffling)
-  // Sorts alphabetically by tileName - the useEffect above handles taxonomic re-sorting
+  // Respects current taxonomicSort preference
   const buildSpeciesInfo = useCallback((codes: string[], clipsData: ClipData[]): SelectedSpecies[] => {
     // First build the species info with tileNames
     const unsorted = codes.map((code) => {
@@ -261,15 +261,21 @@ function PreRoundPreview() {
       };
     });
 
-    // Sort by tileName alphabetically
-    const sorted = unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
+    // Sort based on current preference: taxonomic or alphabetical by tileName
+    const sorted = taxonomicSort && Object.keys(taxonomicOrder).length > 0
+      ? unsorted.sort((a, b) => {
+          const orderA = taxonomicOrder[a.code] || 9999;
+          const orderB = taxonomicOrder[b.code] || 9999;
+          return orderA - orderB;
+        })
+      : unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
 
     // Assign colors based on sorted position
     return sorted.map((species, index) => ({
       ...species,
       color: SPECIES_COLORS[index % SPECIES_COLORS.length],
     }));
-  }, [commonNames, scientificNames, nzDisplayCodes]);
+  }, [commonNames, scientificNames, nzDisplayCodes, taxonomicSort, taxonomicOrder]);
 
   // Select random subset from custom pack (for packs with >9 birds)
   const selectRandomFromCustomPack = useCallback((allSpecies: string[], clipsData: ClipData[]) => {
@@ -666,31 +672,38 @@ function PreRoundPreview() {
             Level {level.level_id}: {level.title}
           </div>
         </div>
-        {/* Sound Library link */}
-        <button
-          onClick={() => navigate(
-            isNZPack
-              ? `/nz-packs?scrollTo=${packId}&expandPack=${packId}#bird-reference`
-              : `/pack-select?scrollTo=${packId}&expandPack=${packId}#bird-reference`,
-            { state: { fromPreview: true, pack: packId, level: levelId } }
-          )}
-          style={{
-            padding: '6px 10px',
-            background: 'transparent',
-            border: '1px solid rgba(100, 181, 246, 0.3)',
-            borderRadius: '6px',
-            color: '#64B5F6',
-            fontSize: '15px',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            flexShrink: 0,
-            whiteSpace: 'nowrap',
-          }}
-        >
-          🎧📚
-        </button>
+        {/* Sound Library link - hidden for custom packs since birds could be from any pack */}
+        {packId !== 'custom' && (
+          <button
+            onClick={() => {
+              // Save current species selection before navigating so we can restore it
+              const speciesCodes = selectedSpecies.map(s => s.code);
+              sessionStorage.setItem('roundSpecies', JSON.stringify(speciesCodes));
+              navigate(
+                isNZPack
+                  ? `/nz-packs?scrollTo=${packId}&expandPack=${packId}#bird-reference`
+                  : `/pack-select?scrollTo=${packId}&expandPack=${packId}#bird-reference`,
+                { state: { fromPreview: true, pack: packId, level: levelId } }
+              );
+            }}
+            style={{
+              padding: '6px 10px',
+              background: 'transparent',
+              border: '1px solid rgba(100, 181, 246, 0.3)',
+              borderRadius: '6px',
+              color: '#64B5F6',
+              fontSize: '15px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+              flexShrink: 0,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            🎧📚
+          </button>
+        )}
         {/* Shuffle/Re-roll button - compact top right */}
         {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
           <button

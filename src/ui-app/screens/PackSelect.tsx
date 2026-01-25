@@ -251,7 +251,7 @@ function PackSelect() {
         })
         .map((c) => ({
           id: c.clip_id,
-          path: `${import.meta.env.BASE_URL}data/clips/${c.file_path.split('/').pop()}`,
+          path: `${import.meta.env.BASE_URL}${c.file_path}`,
           isCanonical: !!c.canonical,
           vocalizationType: c.vocalization_type,
           source: c.source,
@@ -263,7 +263,7 @@ function PackSelect() {
       return {
         code,
         name: commonNames[code] || code,
-        canonicalClipPath: clip ? `${import.meta.env.BASE_URL}data/clips/${clip.file_path.split('/').pop()}` : null,
+        canonicalClipPath: clip ? `${import.meta.env.BASE_URL}${clip.file_path}` : null,
         clipCount: speciesClips.length,
         allClips,
       };
@@ -823,7 +823,7 @@ function PackSelect() {
                 <span style={{ fontSize: '14px', color: 'var(--color-accent)', opacity: 0.6 }}>
                   {isExpanded ? '▼' : '▶'}
                 </span>
-                <span style={{ fontWeight: 600 }}>
+                <span style={{ fontWeight: 600, color: 'var(--color-accent)', opacity: 0.85 }}>
                   All Birds
                 </span>
                 <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
@@ -947,8 +947,8 @@ function PackSelect() {
                               height: '32px',
                               borderRadius: '50%',
                               border: 'none',
-                              background: playingClip === bird.code ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)',
-                              color: playingClip === bird.code ? '#000' : 'var(--color-text)',
+                              background: playingClip === bird.code ? 'var(--color-accent)' : 'rgba(245, 166, 35, 0.3)',
+                              color: playingClip === bird.code ? '#000' : 'var(--color-accent)',
                               cursor: 'pointer',
                               display: 'flex',
                               alignItems: 'center',
@@ -995,8 +995,8 @@ function PackSelect() {
                                   height: '24px',
                                   borderRadius: '50%',
                                   border: 'none',
-                                  background: playingClip === `${bird.code}_${idx}` ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)',
-                                  color: playingClip === `${bird.code}_${idx}` ? '#000' : 'var(--color-text)',
+                                  background: playingClip === `${bird.code}_${idx}` ? 'var(--color-accent)' : 'rgba(245, 166, 35, 0.3)',
+                                  color: playingClip === `${bird.code}_${idx}` ? '#000' : 'var(--color-accent)',
                                   cursor: 'pointer',
                                   display: 'flex',
                                   alignItems: 'center',
@@ -1101,7 +1101,7 @@ function PackSelect() {
               <span style={{ fontSize: '14px', color: 'var(--color-accent)', opacity: 0.6 }}>
                 {isExpanded ? '▼' : '▶'}
               </span>
-              <span style={{ fontWeight: 600 }}>
+              <span style={{ fontWeight: 600, color: 'var(--color-accent)', opacity: 0.85 }}>
                 {pack.name}
               </span>
               <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
@@ -1115,7 +1115,7 @@ function PackSelect() {
                 <button
                   onClick={() => {
                     const { pack, level } = location.state as { pack: string; level: number };
-                    navigate(`/preview?pack=${pack}&level=${level}`);
+                    navigate(`/preview?pack=${pack}&level=${level}&keepBirds=true`);
                   }}
                   style={{
                     padding: '10px 16px',
@@ -1281,8 +1281,8 @@ function PackSelect() {
                           height: '28px',
                           borderRadius: '50%',
                           border: 'none',
-                          background: playingClip === bird.code ? 'var(--color-accent)' : 'var(--color-primary)',
-                          color: 'white',
+                          background: playingClip === bird.code ? 'var(--color-accent)' : 'rgba(245, 166, 35, 0.3)',
+                          color: playingClip === bird.code ? '#000' : 'var(--color-accent)',
                           cursor: bird.canonicalClipPath ? 'pointer' : 'not-allowed',
                           opacity: bird.canonicalClipPath ? 1 : 0.3,
                           display: 'flex',
@@ -1325,8 +1325,8 @@ function PackSelect() {
                                   height: '24px',
                                   borderRadius: '50%',
                                   border: 'none',
-                                  background: playingClip === clip.id ? 'var(--color-accent)' : 'rgba(255,255,255,0.15)',
-                                  color: 'white',
+                                  background: playingClip === clip.id ? 'var(--color-accent)' : 'rgba(245, 166, 35, 0.3)',
+                                  color: playingClip === clip.id ? '#000' : 'var(--color-accent)',
                                   cursor: 'pointer',
                                   display: 'flex',
                                   alignItems: 'center',
