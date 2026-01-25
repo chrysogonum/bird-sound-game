@@ -557,7 +557,7 @@ function Help() {
             </p>
 
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Audio Processing:</strong> Every clip in ChipNotes is 0.5-3 seconds, mono, and normalized to -16 LUFS for consistent volume. For North American birds, we download recordings from Xeno-canto and Cornell, then automatically extract the loudest 3-second window using a sliding RMS energy algorithm - the idea being that the loudest moment is usually when the bird is singing most clearly. For New Zealand birds, recordings from DOC are often longer field recordings, so we built a visual Clip Selector tool that displays the waveform and lets us manually scrub through and select the perfect segment. Either way, every clip gets the same final processing: convert to mono, normalize loudness, generate spectrogram.
+              <strong style={{ color: 'var(--color-accent)' }}>Audio Processing:</strong> Every clip in ChipNotes is 0.5-3 seconds, mono, and normalized to -16 LUFS for consistent volume. For North American birds, recordings from Xeno-canto and Cornell are processed through an algorithm that automatically extracts the loudest 3-second window using sliding RMS energy analysis - the idea being that the loudest moment is usually when the bird is singing most clearly. For New Zealand birds, DOC recordings are often longer field recordings, so a visual Clip Selector tool displays the waveform for manual scrubbing and segment selection. Either way, every clip gets the same final processing: convert to mono, normalize loudness, generate spectrogram.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
