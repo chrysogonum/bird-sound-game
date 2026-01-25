@@ -182,4 +182,4 @@ Bird recordings from [Xeno-canto](https://xeno-canto.org) and [Cornell Macaulay 
 
 ---
 
-*Built with [Claude Code](https://claude.ai/code) · v4.0 · January 2026*
+*Built with [Claude Code](https://claude.ai/code) · v4.01 · January 2026*

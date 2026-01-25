@@ -703,6 +703,14 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.01" date="January 25, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Audio Processing Documentation:</strong> Added technical note to About & Credits explaining how clips are prepared—automatic loudest-window extraction for NA birds, visual Clip Selector tool for NZ field recordings.</li>
+              <li><strong>Sound Library Navigation:</strong> Fixed species selection being lost when navigating to Sound Library and back. Sorting preference (alphabetical/taxonomic) now preserved correctly.</li>
+              <li><strong>Custom Pack UX:</strong> Sound Library button hidden on Ready to Play screen for custom packs (since birds come from mixed sources).</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.0" date="January 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>🌏 Worldwide Bird Packs:</strong> ChipNotes goes global, starting with New Zealand—home to some of the most unusual and iconic birds on Earth, species found nowhere else.</li>
