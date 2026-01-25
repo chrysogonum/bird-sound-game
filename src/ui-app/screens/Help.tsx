@@ -185,7 +185,7 @@ function Help() {
             <strong>Birds</strong> are heard more often than they're seen. But, even their sounds can be easy to miss. If you learn their songs, you'll know what to look for - and suddenly your backyard becomes way more interesting.
           </p>
           <p style={{ marginBottom: '12px' }}>
-            <strong>ChipNotes</strong> plays sounds separately in your left and right ears. It may seem like a hearing test, but that's birding! You're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" Training your ears to separate simultaneous sounds - like a pianist controlling both hands - dramatically sharpens your field skills.
+            <strong>ChipNotes</strong> plays sounds separately in your left and right ears. It may seem like a hearing test, but that's birding! You're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" Training your ears to separate simultaneous sounds - like a pianist controlling both hands independently - dramatically sharpens your field skills.
           </p>
           <p style={{ marginBottom: '12px' }}>
             <strong>Neuroplasticity works:</strong> Your brain rewires with practice. These sound patterns feel impossible at first, but repeated exposure trains your auditory cortex faster than you'd think. Give it a few sessions - you'll be amazed what you can hear.
