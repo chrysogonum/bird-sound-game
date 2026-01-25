@@ -192,6 +192,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
   // NZ display codes for friendlier UI
   const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string }>>({});
+  const [nzDisplayCodesLoaded, setNzDisplayCodesLoaded] = useState(false);
 
   // Clips and species data
   const [clips, setClips] = useState<ClipMetadata[]>([]);
@@ -219,8 +220,12 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       .then((res) => res.json())
       .then((data: { codes: Record<string, { code: string; tileName: string }> }) => {
         setNzDisplayCodes(data.codes || {});
+        setNzDisplayCodesLoaded(true);
       })
-      .catch((err) => console.error('Failed to load NZ display codes:', err));
+      .catch((err) => {
+        console.error('Failed to load NZ display codes:', err);
+        setNzDisplayCodesLoaded(true); // Still mark as loaded so we can proceed
+      });
   }, []);
 
   // Helper function to sort species based on preference
@@ -311,6 +316,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
    * Load clips.json data
    */
   const loadClips = useCallback(async () => {
+    // Wait for NZ display codes to load before proceeding
+    if (!nzDisplayCodesLoaded) {
+      console.log('loadClips: Waiting for NZ display codes to load...');
+      return;
+    }
     console.log('loadClips called with level:', {
       pack_id: level.pack_id,
       species_pool_length: level.species_pool?.length,
@@ -377,7 +387,15 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     } catch (error) {
       console.error('Error loading clips:', error);
     }
-  }, [level.species_pool, level.species_count, nzDisplayCodes]);
+  }, [level.species_pool, level.species_count, nzDisplayCodes, nzDisplayCodesLoaded]);
+
+  // Re-run loadClips when NZ display codes finish loading (if clips already loaded)
+  useEffect(() => {
+    if (nzDisplayCodesLoaded && clips.length > 0) {
+      console.log('NZ display codes loaded, re-processing species with display codes');
+      loadClips();
+    }
+  }, [nzDisplayCodesLoaded]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /**
    * Initialize audio context
