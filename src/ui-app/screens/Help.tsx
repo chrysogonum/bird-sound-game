@@ -706,6 +706,7 @@ function Help() {
           <VersionEntry version="4.02" date="January 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Play Again Button:</strong> Moved Play Again to top of Round Summary screen for quick access. Share Your Score moved to bottom—most users want to replay immediately.</li>
+              <li><strong>Desktop Layout:</strong> Added max-width constraint (1024px) for wide desktop monitors. Game now stays centered and playable instead of stretching edge-to-edge.</li>
             </ul>
           </VersionEntry>
 
