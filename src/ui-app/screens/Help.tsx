@@ -707,6 +707,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.06" date="January 26, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>NZ Bird Naming:</strong> Subspecies now use consistent naming—Māori names for sorting (so Fantail and Chatham Fantail group under Pīwakawaka), English names for display (Fantail, Fantail (Ch.)).</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.05" date="January 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>More Improved Icons:</strong> Continuing icon refresh—46 bird icons now updated with improved artwork.</li>
