@@ -40,8 +40,8 @@
     "grcgre1": { "code": "CGRE", "tileName": "Grebe (Cr.)" },
     "weka1": { "code": "WEKA", "tileName": "Weka" },
     "greegr": { "code": "KOTU", "tileName": "Kōtuku" },
-    "chafan1": { "code": "CHFN", "tileName": "Fantail (Ch.)" },
-    "chatom1": { "code": "CHTT", "tileName": "Tomtit (Ch.)" },
+    "chafan1": { "code": "CHFN", "tileName": "Pīwakawaka (Ch.)" },
+    "chatom1": { "code": "CHTT", "tileName": "Miromiro (Ch.)" },
     "chatui1": { "code": "CHTU", "tileName": "Tūī (Ch.)" }
   }
 }

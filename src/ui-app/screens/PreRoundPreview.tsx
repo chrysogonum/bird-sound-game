@@ -167,6 +167,8 @@ function PreRoundPreview() {
   const [commonNames, setCommonNames] = useState<Record<string, string>>({});
   const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string }>>({});
   const [fullCustomPack, setFullCustomPack] = useState<string[]>([]);  // All species in custom pack (up to 30)
+  const [metadataLoaded, setMetadataLoaded] = useState(false);  // Track when NZ display codes etc are loaded
+  const selectedForRef = useRef<string | null>(null);  // Track which pack/level we've selected species for
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Toggle training mode
@@ -236,6 +238,7 @@ function PreRoundPreview() {
       });
       setScientificNames(sciNames);
       setCommonNames(comNames);
+      setMetadataLoaded(true);
     }).catch((err) => console.error('Failed to load taxonomy data:', err));
   }, []);
 
@@ -328,6 +331,13 @@ function PreRoundPreview() {
 
   // Load level and clips
   useEffect(() => {
+    // Wait for metadata to be loaded before selecting species
+    if (!metadataLoaded) return;
+
+    // Only select species once per pack/level combination (prevents re-shuffle on sort toggle)
+    const selectionKey = `${packId}-${levelId}`;
+    if (selectedForRef.current === selectionKey) return;
+
     // Determine which clips file to load based on pack
     const isNZPack = packId.startsWith('nz_') ||
       (packId === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'nz');
@@ -338,6 +348,7 @@ function PreRoundPreview() {
       fetch(`${import.meta.env.BASE_URL}data/${clipsFile}`).then(r => r.json()),
     ]).then(([levels, clipsData]: [LevelConfig[], ClipData[]]) => {
       setClips(clipsData);
+      selectedForRef.current = selectionKey;  // Mark that we've selected species for this pack/level
 
       // Handle drill pack (from confusion summary)
       if (packId === 'drill') {
@@ -478,7 +489,11 @@ function PreRoundPreview() {
       console.error('Failed to load data:', err);
       setLoading(false);
     });
-  }, [packId, levelId, keepBirds, buildSpeciesInfo, selectRandomSpecies]);
+  // Note: intentionally excluding buildSpeciesInfo and selectRandomSpecies from deps
+  // to prevent re-shuffling when taxonomicSort changes. The separate useEffect
+  // above handles re-sorting without re-selecting.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [packId, levelId, keepBirds, metadataLoaded]);
 
   // Preload all clips for selected species in the background
   useEffect(() => {
