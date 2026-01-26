@@ -322,17 +322,6 @@ function RoundSummary() {
         </button>
       </div>
 
-      {/* Play Again Button - top position for easy access */}
-      <div style={{ width: '100%', maxWidth: '320px', margin: '0 auto 16px' }}>
-        <button
-          className="btn-primary"
-          onClick={() => goToLevel(currentLevel)}
-          style={{ width: '100%' }}
-        >
-          {isDrill ? 'Drill Again' : 'Play Again'}
-        </button>
-      </div>
-
       {/* Hidden ShareCard - always rendered for canvas generation */}
       {results && (
         <ShareCard
@@ -402,6 +391,17 @@ function RoundSummary() {
             Training Mode was used
           </div>
         )}
+      </div>
+
+      {/* Play Again Button - below score summary, above species breakdown */}
+      <div style={{ width: '100%', maxWidth: '320px', margin: '0 auto 20px' }}>
+        <button
+          className="btn-primary"
+          onClick={() => goToLevel(currentLevel)}
+          style={{ width: '100%' }}
+        >
+          {isDrill ? 'Drill Again' : 'Play Again'}
+        </button>
       </div>
 
       {/* Species Breakdown */}
