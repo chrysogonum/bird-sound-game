@@ -10,6 +10,7 @@ import type { GameEvent, LevelConfig, RoundState } from '@engine/game/types';
 import type { ScoreBreakdown, FeedbackType } from '@engine/scoring/types';
 import { SCORE_VALUES } from '@engine/scoring/types';
 import { getAudioAdapter, type PannerNode } from '@engine/audio/CrossBrowserAudioAdapter';
+import { loadMergeConfig, areEquivalentSpecies } from '../utils/nzSubspeciesMerge';
 
 /** Clip metadata from clips.json */
 export interface ClipMetadata {
@@ -214,12 +215,15 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       .catch((err) => console.error('Failed to load taxonomic order:', err));
   }, []);
 
-  // Load NZ display codes
+  // Load NZ display codes and subspecies merge config
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/nz_display_codes.json`)
-      .then((res) => res.json())
-      .then((data: { codes: Record<string, { code: string; tileName: string }> }) => {
-        setNzDisplayCodes(data.codes || {});
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}data/nz_display_codes.json`)
+        .then((res) => res.json())
+        .catch(() => ({ codes: {} })),
+      loadMergeConfig(), // Load subspecies merge config for scoring equivalence
+    ]).then(([nzCodesData]) => {
+        setNzDisplayCodes(nzCodesData.codes || {});
         setNzDisplayCodesLoaded(true);
       })
       .catch((err) => {
@@ -1450,7 +1454,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     inputChannel: Channel,
     inputTime: number
   ): ScoreBreakdown => {
-    const speciesCorrectResult = inputSpecies === event.species_code;
+    // For NZ birds, accept any subspecies of a merged species as correct
+    // e.g., if event is nezrob2 (NI Robin) and player guesses nezrob3 (SI Robin), it's correct
+    const speciesCorrectResult = areEquivalentSpecies(inputSpecies, event.species_code);
     const channelCorrectResult = inputChannel === event.channel;
 
     // Calculate position on screen (1.0 = top, 0.0 = hit zone)
