@@ -435,7 +435,10 @@ function RoundSummary() {
       {/* Confusion Summary */}
       {confusionSummary.length > 0 && (
         <div className="card" style={{ width: '100%', maxWidth: '320px', margin: '0 auto 20px' }}>
-          <h3 style={{ marginBottom: '12px' }}>Confusion Summary</h3>
+          <h3 style={{ marginBottom: '4px' }}>Confusion Summary</h3>
+          <p style={{ fontSize: '12px', color: 'var(--color-text-muted)', margin: '0 0 12px 0' }}>
+            Played → Your guess
+          </p>
           {confusionSummary.map((item, index) => (
             <div key={index} style={{ marginBottom: '8px', fontSize: '14px' }}>
               {item.guessedSpecies === null ? (
