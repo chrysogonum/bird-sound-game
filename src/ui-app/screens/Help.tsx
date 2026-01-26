@@ -387,7 +387,7 @@ function Help() {
           <Tip>
             Visit the{' '}
             <Link to="/pack-select#bird-reference" state={{ fromHelp: true }} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-              Sound Library
+              Sound Library 🎧📚
             </Link>
             {' '}to preview all sounds.
           </Tip>
@@ -404,17 +404,11 @@ function Help() {
           isExpanded={expandedSections.has('Training Mode')}
           onToggle={() => toggleSection('Training Mode')}
         >
-          <p>
-            Training Mode shows bird icons and species codes on each tile alongside the spectrogram - perfect for learning which sounds belong to which birds.
-          </p>
-          <p>
-            You can enable it on the preview screen before starting a round, or toggle it on/off anytime during gameplay using the <strong>eye icon</strong> (next to the back button). Start with labels visible, then toggle off to challenge yourself!
-          </p>
           <div style={{
             background: 'var(--color-surface)',
             padding: '12px',
             borderRadius: '8px',
-            marginTop: '12px',
+            marginBottom: '12px',
             fontSize: '14px',
             display: 'flex',
             alignItems: 'center',
@@ -438,6 +432,12 @@ function Help() {
             </span>
             <span style={{ color: 'var(--color-text-muted)' }}>Eye icon glows green when Training Mode is ON</span>
           </div>
+          <p>
+            Training Mode shows bird icons and species codes on each tile alongside the spectrogram - perfect for learning which sounds belong to which birds.
+          </p>
+          <p>
+            You can enable it on the preview screen before starting a round, or toggle it on/off anytime during gameplay using the <strong>eye icon</strong> (next to the back button). Start with labels visible, then toggle off to challenge yourself!
+          </p>
         </Section>
 
         {/* Taxonomic Sorting */}
@@ -707,6 +707,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.05" date="January 25, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>More Improved Icons:</strong> Continuing icon refresh—46 bird icons now updated with improved artwork.</li>
+              <li><strong>Help Page Polish:</strong> Level descriptions now show colored difficulty circles (green/orange/red) matching the Level Select screen. Sound Library link shows 🎧📚 icons. Training Mode section leads with the glowing green eye icon.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.04" date="January 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Bird Gallery:</strong> Tap any pack name on the Level Select screen to see all birds in that pack displayed as large, scrollable cards. Each card shows the bird's icon, common name (or Māori name for NZ birds), and scientific name. Great for learning what each bird looks like before you play!</li>
@@ -1364,26 +1371,43 @@ function PackInfo({ name, description }: { name: string; description: string }) 
 }
 
 function LevelInfo({ level, title, description }: { level: number; title: string; description: string }) {
+  // Match the colors from LevelSelect: green (1-2), orange (3-4), red (5-6)
+  const getColor = (lvl: number) => {
+    if (lvl <= 2) return '#4CAF50';
+    if (lvl <= 4) return 'rgba(245, 166, 35, 0.8)';
+    return '#FF5722';
+  };
+  const color = getColor(level);
+
   return (
     <div style={{
       display: 'flex',
+      alignItems: 'center',
       gap: '12px',
-      marginBottom: '8px',
-      padding: '8px 12px',
+      marginBottom: '10px',
+      padding: '10px 12px',
       background: 'var(--color-surface)',
-      borderRadius: '8px',
+      borderRadius: '10px',
     }}>
-      <span style={{
-        fontFamily: 'var(--font-mono)',
+      <div style={{
+        width: '36px',
+        height: '36px',
+        borderRadius: '50%',
+        background: `linear-gradient(135deg, ${color}33, ${color}11)`,
+        border: `2px solid ${color}`,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         fontWeight: 700,
-        color: 'var(--color-accent)',
-        minWidth: '24px',
+        fontSize: '16px',
+        color: color,
+        flexShrink: 0,
       }}>
         {level}
-      </span>
-      <div>
-        <span style={{ fontWeight: 600 }}>{title}</span>
-        <div style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>{description}</div>
+      </div>
+      <div style={{ flex: 1 }}>
+        <div style={{ fontWeight: 600, marginBottom: '2px' }}>{title}</div>
+        <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.3 }}>{description}</div>
       </div>
     </div>
   );
