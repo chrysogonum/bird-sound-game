@@ -342,6 +342,12 @@ function PackSelect() {
               🧘 ⚙️
             </Link>
           </li>
+          <li>🔎{' '}
+            <Link to="/help" state={{ fromPackSelect: true, openVersionHistory: true }} style={{ color: 'var(--color-accent)' }}>
+              Version notes
+            </Link>
+            {' '}for recent changes
+          </li>
           <li>👇 Check out the full sound library below</li>
         </ul>
       </div>

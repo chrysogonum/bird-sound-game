@@ -8,9 +8,13 @@ function Help() {
 
   // Track which sections are expanded (some start open by default)
   // If navigated with #training-mode hash, auto-open Training Mode
+  // If navigated with openVersionHistory state, auto-open Full Version History
   const initialSections = ['Why Learn Bird Song?', 'ChipNotes Basics'];
   if (location.hash === '#training-mode') {
     initialSections.push('Training Mode');
+  }
+  if (location.state?.openVersionHistory) {
+    initialSections.push('Full Version History');
   }
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set(initialSections)
@@ -706,12 +710,7 @@ function Help() {
           <VersionEntry version="4.04" date="January 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Bird Gallery:</strong> Tap any pack name on the Level Select screen to see all birds in that pack displayed as large, scrollable cards. Each card shows the bird's icon, common name (or Māori name for NZ birds), and scientific name. Great for learning what each bird looks like before you play!</li>
-            </ul>
-          </VersionEntry>
-
-          <VersionEntry version="4.03" date="January 25, 2026">
-            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Improved Bird Icons:</strong> Refreshed 15 bird icons with improved artwork: AMCR, AMRO, BEKI, BHNU, BLJA, BRCR, BRTH, CACH, CARW, CHSP, DOWO, EABL, FISP, GRCA, NOCA.</li>
+              <li><strong>More Improved Icons:</strong> Refreshed 38 bird icons total with improved artwork.</li>
             </ul>
           </VersionEntry>
 
