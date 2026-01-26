@@ -177,7 +177,7 @@ function PackSelect() {
   useEffect(() => {
     const packIds = [
       'starter_birds', 'grassland_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds',
-      'nz_all_birds', 'nz_common', 'nz_rare'
+      'nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'
     ];
 
     Promise.all(
@@ -667,7 +667,7 @@ function PackSelect() {
             New Zealand Birds <span style={{ fontSize: '16px' }}>→</span>
           </h3>
           <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-muted)' }}>
-            42 endemic species from<br />Aotearoa New Zealand • 3 packs
+            37 native species from<br />Aotearoa New Zealand • 4 packs
           </p>
         </div>
       </button>
@@ -730,30 +730,72 @@ function PackSelect() {
           <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
             Sound Library <span style={{ fontSize: '14px' }}>🎧📚</span>
           </h3>
-          <button
-            onClick={() => {
-              if (showAllPacks) {
-                setExpandedPacks(new Set());
-                setShowAllPacks(false);
-              } else {
-                const allPackIds = PACKS.filter(p => p.isUnlocked).map(p => p.id);
-                setExpandedPacks(new Set(allPackIds));
-                setShowAllPacks(true);
-              }
-            }}
-            style={{
-              fontSize: '12px',
-              padding: '6px 12px',
-              background: showAllPacks ? 'var(--color-accent)' : 'var(--color-surface)',
-              color: showAllPacks ? '#000' : 'var(--color-text)',
-              border: 'none',
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            {/* Sort toggle */}
+            <div style={{
+              display: 'flex',
               borderRadius: '6px',
-              cursor: 'pointer',
-              fontWeight: 600,
-            }}
-          >
-            {showAllPacks ? 'Collapse All' : 'Expand All'}
-          </button>
+              overflow: 'hidden',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+            }}>
+              <button
+                onClick={() => setTaxonomicSort(false)}
+                style={{
+                  padding: '6px 10px',
+                  background: !taxonomicSort ? 'rgba(245, 166, 35, 0.3)' : 'rgba(255, 255, 255, 0.05)',
+                  border: 'none',
+                  borderRight: '1px solid rgba(255, 255, 255, 0.15)',
+                  cursor: 'pointer',
+                  fontSize: '11px',
+                  color: !taxonomicSort ? 'var(--color-accent)' : 'var(--color-text-muted)',
+                  fontWeight: !taxonomicSort ? 600 : 400,
+                }}
+                title="Sort alphabetically by species code"
+              >
+                🔤
+              </button>
+              <button
+                onClick={() => setTaxonomicSort(true)}
+                style={{
+                  padding: '6px 10px',
+                  background: taxonomicSort ? 'rgba(245, 166, 35, 0.3)' : 'rgba(255, 255, 255, 0.05)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '11px',
+                  color: taxonomicSort ? 'var(--color-accent)' : 'var(--color-text-muted)',
+                  fontWeight: taxonomicSort ? 600 : 400,
+                }}
+                title="Sort by taxonomic order"
+              >
+                📊
+              </button>
+            </div>
+            {/* Expand/Collapse button */}
+            <button
+              onClick={() => {
+                if (showAllPacks) {
+                  setExpandedPacks(new Set());
+                  setShowAllPacks(false);
+                } else {
+                  const allPackIds = PACKS.filter(p => p.isUnlocked).map(p => p.id);
+                  setExpandedPacks(new Set(allPackIds));
+                  setShowAllPacks(true);
+                }
+              }}
+              style={{
+                fontSize: '12px',
+                padding: '6px 12px',
+                background: showAllPacks ? 'var(--color-accent)' : 'var(--color-surface)',
+                color: showAllPacks ? '#000' : 'var(--color-text)',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 600,
+              }}
+            >
+              {showAllPacks ? 'Collapse All' : 'Expand All'}
+            </button>
+          </div>
         </div>
 
         <p style={{
@@ -810,57 +852,6 @@ function PackSelect() {
                 </span>
               </div>
               {isExpanded && (
-              <>
-                {/* Taxonomic Sort Toggle - Enhanced visibility */}
-                <div style={{
-                  marginBottom: '12px',
-                  padding: '10px',
-                  background: 'rgba(70, 70, 90, 0.3)',
-                  borderRadius: '8px',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  position: 'relative',
-                }}>
-                  <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                    <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-text-muted)' }}>
-                      Sort:
-                    </span>
-                    <button
-                      onClick={() => {
-                        const newValue = !taxonomicSort;
-                        setTaxonomicSort(newValue);
-                      }}
-                      style={{
-                        padding: '6px 12px',
-                        fontSize: '12px',
-                        fontWeight: 600,
-                        background: taxonomicSort ? 'var(--color-accent)' : 'rgba(255,255,255,0.15)',
-                        color: taxonomicSort ? '#000' : 'var(--color-text)',
-                        border: taxonomicSort ? 'none' : '1.5px solid var(--color-accent)',
-                        borderRadius: '6px',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s',
-                        boxShadow: taxonomicSort ? '0 2px 8px rgba(245, 166, 35, 0.3)' : 'none',
-                      }}
-                      onMouseEnter={(e) => {
-                        if (!taxonomicSort) {
-                          e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
-                          e.currentTarget.style.transform = 'scale(1.05)';
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (!taxonomicSort) {
-                          e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                          e.currentTarget.style.transform = 'scale(1)';
-                        }
-                      }}
-                    >
-                      {taxonomicSort ? '📊 Taxonomic' : '🔤 Species Codes'}
-                    </button>
-                    <span style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>
-                      {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Alphabetical'}
-                    </span>
-                  </div>
-                </div>
               <div
                 style={{
                   display: 'grid',
@@ -1041,7 +1032,6 @@ function PackSelect() {
                   );
                 })}
               </div>
-              </>
               )}
             </div>
           );
@@ -1122,59 +1112,6 @@ function PackSelect() {
                 >
                   Ready to Play?
                 </button>
-              </div>
-            )}
-
-            {/* Taxonomic Sort Toggle for individual packs */}
-            {isExpanded && (
-              <div style={{
-                marginBottom: '12px',
-                padding: '10px',
-                background: 'rgba(70, 70, 90, 0.3)',
-                borderRadius: '8px',
-                border: '1px solid rgba(255,255,255,0.1)',
-                position: 'relative',
-              }}>
-                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                  <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-text-muted)' }}>
-                    Sort:
-                  </span>
-                  <button
-                    onClick={() => {
-                      const newValue = !taxonomicSort;
-                      setTaxonomicSort(newValue);
-                    }}
-                    style={{
-                      padding: '6px 12px',
-                      fontSize: '12px',
-                      fontWeight: 600,
-                      background: taxonomicSort ? 'var(--color-accent)' : 'rgba(255,255,255,0.15)',
-                      color: taxonomicSort ? '#000' : 'var(--color-text)',
-                      border: taxonomicSort ? 'none' : '1.5px solid var(--color-accent)',
-                      borderRadius: '6px',
-                      cursor: 'pointer',
-                      transition: 'all 0.2s',
-                      boxShadow: taxonomicSort ? '0 2px 8px rgba(245, 166, 35, 0.3)' : 'none',
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!taxonomicSort) {
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.25)';
-                        e.currentTarget.style.transform = 'scale(1.05)';
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!taxonomicSort) {
-                        e.currentTarget.style.background = 'rgba(255,255,255,0.15)';
-                        e.currentTarget.style.transform = 'scale(1)';
-                      }
-                    }}
-                  >
-                    {taxonomicSort ? '📊 Taxonomic' : '🔤 Species Codes'}
-                  </button>
-                  <span style={{ fontSize: '11px', color: 'var(--color-text-muted)' }}>
-                    {taxonomicSort ? 'Phylogenetic (eBird 2025)' : 'Alphabetical'}
-                  </span>
-                </div>
               </div>
             )}
 

@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
-import { trackTaxonomicSortToggle } from '../utils/analytics';
+import { trackTaxonomicSortToggle, trackNZSortModeChange } from '../utils/analytics';
+import { useNZSortMode, getSortModeDisplayNames } from '../hooks/useNZSortMode';
+import { loadMergeConfig, deduplicateSubspecies, getIconCode } from '../utils/nzSubspeciesMerge';
 
 interface ClipData {
   clip_id: string;
@@ -16,6 +18,7 @@ interface SelectedSpecies {
   code: string;
   displayCode: string;  // Short code for UI display (may differ from eBird code for NZ birds)
   tileName: string;     // Name to show on buttons (Māori name or short English)
+  englishName: string;  // English common name (for 3-way sort)
   name: string;
   scientificName?: string;
   color: string;
@@ -42,11 +45,12 @@ const PACK_NAMES: Record<string, string> = {
   // NZ packs
   nz_all_birds: 'All NZ Birds',
   nz_common: 'Garden & Bush',
-  nz_rare: 'Rare & Endemic',
+  nz_north_island: 'North Island',
+  nz_south_island: 'South Island',
 };
 
 // NZ pack IDs and theme color
-const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_rare'];
+const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'];
 const NZ_ACCENT_COLOR = '#4db6ac';  // Muted teal for NZ
 
 // Level titles for custom pack
@@ -75,7 +79,6 @@ function getLevelChannelMode(levelId: number): 'single' | 'offset' {
 function BirdIcon({ code, tileName, size = 56, color }: { code: string; tileName?: string; size?: number; color?: string }) {
   const [hasIcon, setHasIcon] = useState(true);
   const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
-  const labelCode = tileName || code;  // Show tileName if available
 
   return (
     <div style={{
@@ -85,7 +88,7 @@ function BirdIcon({ code, tileName, size = 56, color }: { code: string; tileName
       gap: '4px',
       WebkitTapHighlightColor: 'transparent',
     }}>
-      {hasIcon && (
+      {hasIcon && tileName && (
         <span style={{
           fontSize: '11px',
           fontWeight: 700,
@@ -93,13 +96,13 @@ function BirdIcon({ code, tileName, size = 56, color }: { code: string; tileName
           lineHeight: 1,
           textShadow: '0 1px 2px rgba(0,0,0,0.5)',
         }}>
-          {labelCode}
+          {tileName}
         </span>
       )}
       {hasIcon ? (
         <img
           src={iconPath}
-          alt={labelCode}
+          alt={tileName || code}
           width={size}
           height={size}
           style={{
@@ -122,7 +125,7 @@ function BirdIcon({ code, tileName, size = 56, color }: { code: string; tileName
           fontWeight: 700,
           color: '#1A1A2E',
         }}>
-          {labelCode}
+          {tileName || code}
         </div>
       )}
     </div>
@@ -165,7 +168,10 @@ function PreRoundPreview() {
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
   const [commonNames, setCommonNames] = useState<Record<string, string>>({});
-  const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string }>>({});
+  const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string; englishName?: string }>>({});
+
+  // NZ-specific 3-way sort mode
+  const [nzSortMode, setNzSortMode] = useNZSortMode();
   const [fullCustomPack, setFullCustomPack] = useState<string[]>([]);  // All species in custom pack (up to 30)
   const [metadataLoaded, setMetadataLoaded] = useState(false);  // Track when NZ display codes etc are loaded
   const selectedForRef = useRef<string | null>(null);  // Track which pack/level we've selected species for
@@ -194,18 +200,42 @@ function PreRoundPreview() {
     }
   };
 
-  // Re-sort selectedSpecies when taxonomicSort changes (without re-selecting)
+  // Re-sort selectedSpecies when sort mode changes (without re-selecting)
   useEffect(() => {
-    if (selectedSpecies.length === 0 || Object.keys(taxonomicOrder).length === 0) return;
+    if (selectedSpecies.length === 0) return;
 
-    // Re-sort based on new taxonomicSort preference
-    const resorted = taxonomicSort
-      ? [...selectedSpecies].sort((a, b) => {
-          const orderA = taxonomicOrder[a.code] || 9999;
-          const orderB = taxonomicOrder[b.code] || 9999;
-          return orderA - orderB;
-        })
-      : [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
+    let resorted: SelectedSpecies[];
+
+    if (isNZPack) {
+      // NZ packs use 3-way sort mode
+      switch (nzSortMode) {
+        case 'english':
+          resorted = [...selectedSpecies].sort((a, b) => a.englishName.localeCompare(b.englishName));
+          break;
+        case 'taxonomic':
+          if (Object.keys(taxonomicOrder).length === 0) return;
+          resorted = [...selectedSpecies].sort((a, b) => {
+            const orderA = taxonomicOrder[a.code] || 9999;
+            const orderB = taxonomicOrder[b.code] || 9999;
+            return orderA - orderB;
+          });
+          break;
+        case 'maori':
+        default:
+          resorted = [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
+          break;
+      }
+    } else {
+      // NA packs use 2-way toggle
+      if (taxonomicSort && Object.keys(taxonomicOrder).length === 0) return;
+      resorted = taxonomicSort
+        ? [...selectedSpecies].sort((a, b) => {
+            const orderA = taxonomicOrder[a.code] || 9999;
+            const orderB = taxonomicOrder[b.code] || 9999;
+            return orderA - orderB;
+          })
+        : [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
+    }
 
     // Reassign colors based on new sort order
     const withColors = resorted.map((species, index) => ({
@@ -218,15 +248,16 @@ function PreRoundPreview() {
     if (orderChanged) {
       setSelectedSpecies(withColors);
     }
-  }, [taxonomicSort, taxonomicOrder]); // Depend on taxonomicSort and taxonomicOrder, but not selectedSpecies to avoid infinite loop
+  }, [taxonomicSort, taxonomicOrder, nzSortMode, isNZPack]); // Depend on sort modes but not selectedSpecies to avoid infinite loop
 
-  // Load taxonomic order data, species metadata, and NZ display codes
+  // Load taxonomic order data, species metadata, NZ display codes, and subspecies merge config
   useEffect(() => {
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/nz_display_codes.json`).then(r => r.json()).catch(() => ({ codes: {} })),
-    ]).then(([taxonomicData, speciesData, nzCodesData]: [Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>, { codes: Record<string, { code: string; tileName: string }> }]) => {
+      loadMergeConfig(), // Load subspecies merge configuration
+    ]).then(([taxonomicData, speciesData, nzCodesData]: [Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>, { codes: Record<string, { code: string; tileName: string; englishName?: string }> }, unknown]) => {
       setTaxonomicOrder(taxonomicData);
       setNzDisplayCodes(nzCodesData.codes || {});
       // Build species metadata lookup
@@ -243,42 +274,74 @@ function PreRoundPreview() {
   }, []);
 
   // Build species info from a list of codes (no shuffling)
-  // Respects current taxonomicSort preference
+  // Respects current sort preference (taxonomic for NA, 3-way for NZ)
   const buildSpeciesInfo = useCallback((codes: string[], clipsData: ClipData[]): SelectedSpecies[] => {
+    // For NZ packs, deduplicate subspecies (e.g., nezrob2 and nezrob3 become just nezrob2)
+    const dedupedCodes = isNZPack ? deduplicateSubspecies(codes) : codes;
+
     // First build the species info with tileNames
-    const unsorted = codes.map((code) => {
+    const unsorted = dedupedCodes.map((code) => {
+      // For merged subspecies, use the icon code for clip lookup
+      const iconCode = isNZPack ? getIconCode(code) : code;
       const canonicalClip = clipsData.find(
-        c => c.species_code === code && c.canonical && !c.rejected
+        c => c.species_code === iconCode && c.canonical && !c.rejected
       );
-      const anyClip = clipsData.find(c => c.species_code === code && !c.rejected);
+      const anyClip = clipsData.find(c => c.species_code === iconCode && !c.rejected);
       const clip = canonicalClip || anyClip;
 
+      const nzData = nzDisplayCodes[iconCode];
+      const englishName = nzData?.englishName || commonNames[iconCode] || iconCode;
+      const tileName = nzData?.tileName || iconCode;
+
       return {
-        code,
-        displayCode: nzDisplayCodes[code]?.code || code,
-        tileName: nzDisplayCodes[code]?.tileName || code,
-        name: commonNames[code] || code,
-        scientificName: scientificNames[code],
+        code: iconCode, // Use icon code as the primary code for merged species
+        displayCode: nzData?.code || iconCode,
+        tileName,
+        englishName,
+        name: commonNames[iconCode] || iconCode,
+        scientificName: scientificNames[iconCode],
         color: '', // Will be assigned after sorting
         clipPath: clip ? `${import.meta.env.BASE_URL}${clip.file_path}` : null,
       };
     });
 
-    // Sort based on current preference: taxonomic or alphabetical by tileName
-    const sorted = taxonomicSort && Object.keys(taxonomicOrder).length > 0
-      ? unsorted.sort((a, b) => {
-          const orderA = taxonomicOrder[a.code] || 9999;
-          const orderB = taxonomicOrder[b.code] || 9999;
-          return orderA - orderB;
-        })
-      : unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
+    // Sort based on current preference
+    let sorted: SelectedSpecies[];
+    if (isNZPack) {
+      // NZ packs use 3-way sort mode
+      switch (nzSortMode) {
+        case 'english':
+          sorted = unsorted.sort((a, b) => a.englishName.localeCompare(b.englishName));
+          break;
+        case 'taxonomic':
+          sorted = unsorted.sort((a, b) => {
+            const orderA = taxonomicOrder[a.code] || 9999;
+            const orderB = taxonomicOrder[b.code] || 9999;
+            return orderA - orderB;
+          });
+          break;
+        case 'maori':
+        default:
+          sorted = unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
+          break;
+      }
+    } else {
+      // NA packs use 2-way toggle (alphabetic/taxonomic)
+      sorted = taxonomicSort && Object.keys(taxonomicOrder).length > 0
+        ? unsorted.sort((a, b) => {
+            const orderA = taxonomicOrder[a.code] || 9999;
+            const orderB = taxonomicOrder[b.code] || 9999;
+            return orderA - orderB;
+          })
+        : unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
+    }
 
     // Assign colors based on sorted position
     return sorted.map((species, index) => ({
       ...species,
       color: SPECIES_COLORS[index % SPECIES_COLORS.length],
     }));
-  }, [commonNames, scientificNames, nzDisplayCodes, taxonomicSort, taxonomicOrder]);
+  }, [commonNames, scientificNames, nzDisplayCodes, taxonomicSort, taxonomicOrder, isNZPack, nzSortMode]);
 
   // Select random subset from custom pack (for packs with >9 birds)
   const selectRandomFromCustomPack = useCallback((allSpecies: string[], clipsData: ClipData[]) => {
@@ -300,34 +363,9 @@ function PreRoundPreview() {
     const shuffled = [...pool].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, count);
 
-    // Build species info with canonical clips (unsorted first)
-    const unsorted: SelectedSpecies[] = selected.map((code) => {
-      const canonicalClip = clipsData.find(
-        c => c.species_code === code && c.canonical && !c.rejected
-      );
-      const anyClip = clipsData.find(c => c.species_code === code && !c.rejected);
-      const clip = canonicalClip || anyClip;
-
-      return {
-        code,
-        displayCode: nzDisplayCodes[code]?.code || code,
-        tileName: nzDisplayCodes[code]?.tileName || code,
-        name: commonNames[code] || code,
-        scientificName: scientificNames[code],
-        color: '', // Will be assigned after sorting
-        clipPath: clip ? `${import.meta.env.BASE_URL}${clip.file_path}` : null,
-      };
-    });
-
-    // Sort by tileName alphabetically, then assign colors
-    const sorted = unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
-    const speciesInfo = sorted.map((species, index) => ({
-      ...species,
-      color: SPECIES_COLORS[index % SPECIES_COLORS.length],
-    }));
-
-    setSelectedSpecies(speciesInfo);
-  }, [commonNames, scientificNames, nzDisplayCodes]);
+    // Use buildSpeciesInfo for consistent handling (including NZ deduplication)
+    setSelectedSpecies(buildSpeciesInfo(selected, clipsData));
+  }, [buildSpeciesInfo]);
 
   // Load level and clips
   useEffect(() => {
@@ -764,24 +802,96 @@ function PreRoundPreview() {
           <EyeIcon filled={trainingMode} color={trainingMode ? 'var(--color-success)' : undefined} />
           <span style={{ fontSize: '11px' }}>Training</span>
         </button>
-        <button
-          onClick={handleTaxonomicSortToggle}
-          style={{
+        {isNZPack ? (
+          /* NZ 3-way sort toggle */
+          <div style={{
             flex: 1,
-            padding: '6px 8px',
-            background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-            border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
-            borderRadius: '6px',
-            cursor: 'pointer',
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '4px',
-          }}
-        >
-          <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
-          <span style={{ fontSize: '11px' }}>{taxonomicSort ? 'Taxonomic 🐦🤓' : 'Sort'}</span>
-        </button>
+            borderRadius: '6px',
+            overflow: 'hidden',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+          }}>
+            <button
+              onClick={() => {
+                setNzSortMode('maori');
+                trackNZSortModeChange('maori', 'preview_screen');
+              }}
+              style={{
+                flex: 1,
+                padding: '6px 4px',
+                background: nzSortMode === 'maori' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
+                border: 'none',
+                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
+                cursor: 'pointer',
+                fontSize: '12px',
+                color: nzSortMode === 'maori' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
+                fontWeight: nzSortMode === 'maori' ? 600 : 400,
+              }}
+              title="Sort by Maori name"
+            >
+              Te Reo
+            </button>
+            <button
+              onClick={() => {
+                setNzSortMode('english');
+                trackNZSortModeChange('english', 'preview_screen');
+              }}
+              style={{
+                flex: 1,
+                padding: '6px 4px',
+                background: nzSortMode === 'english' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
+                border: 'none',
+                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
+                cursor: 'pointer',
+                fontSize: '12px',
+                color: nzSortMode === 'english' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
+                fontWeight: nzSortMode === 'english' ? 600 : 400,
+              }}
+              title="Sort by English name"
+            >
+              English
+            </button>
+            <button
+              onClick={() => {
+                setNzSortMode('taxonomic');
+                trackNZSortModeChange('taxonomic', 'preview_screen');
+              }}
+              style={{
+                flex: 1,
+                padding: '6px 4px',
+                background: nzSortMode === 'taxonomic' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
+                border: 'none',
+                cursor: 'pointer',
+                fontSize: '12px',
+                color: nzSortMode === 'taxonomic' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
+                fontWeight: nzSortMode === 'taxonomic' ? 600 : 400,
+              }}
+              title="Sort by taxonomic order"
+            >
+              📊
+            </button>
+          </div>
+        ) : (
+          /* NA 2-way sort toggle */
+          <button
+            onClick={handleTaxonomicSortToggle}
+            style={{
+              flex: 1,
+              padding: '6px 8px',
+              background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+              border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '6px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '4px',
+            }}
+          >
+            <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+            <span style={{ fontSize: '11px' }}>{taxonomicSort ? 'Taxonomic 🐦🤓' : 'Sort'}</span>
+          </button>
+        )}
       </div>
 
       {/* Preload status indicator */}
@@ -828,21 +938,9 @@ function PreRoundPreview() {
           lineHeight: 1.4,
           textAlign: 'center',
         }}>
-          <strong>💡 Study the grid:</strong> Each bird will appear in the same position during play. Take a moment to memorize where each species lives on screen—and any unfamiliar code names. Use 🔀 to mix it up. Engage 👁️ for speed-learning.
+          <strong>💡 Study the grid:</strong> Each bird keeps its position during play. Use 🔀 to shuffle. Tap 👁️ Training to hear each bird before you start.
         </div>
       </div>
-
-      {/* NZ naming note */}
-      {isNZPack && (
-        <div style={{
-          fontSize: '11px',
-          color: 'var(--color-text-muted)',
-          textAlign: 'center',
-          fontStyle: 'italic',
-        }}>
-          Māori names shown. Subspecies: (NI) North Island, (SI) South Island, (Ch.) Chatham Is.
-        </div>
-      )}
 
       {/* Species grid - MAIN FOCUS */}
       <div style={{
@@ -901,25 +999,57 @@ function PreRoundPreview() {
                 WebkitTapHighlightColor: 'transparent',
               }}
             >
-              {/* Bird icon/code */}
+              {/* Bird icon/code - don't pass tileName for NZ packs since we show names separately below */}
               <div style={{ position: 'relative', WebkitTapHighlightColor: 'transparent' }}>
-                <BirdIcon code={species.code} tileName={species.tileName} size={52} color={species.color} />
+                <BirdIcon code={species.code} tileName={isNZPack ? undefined : species.tileName} size={52} color={species.color} />
               </div>
-              {/* Name */}
+              {/* Name - shows primary and secondary based on sort mode */}
               <div style={{
-                fontSize: '10px',
+                fontSize: '12px',
                 color: 'var(--color-text)',
                 textAlign: 'center',
                 lineHeight: 1.2,
-                maxWidth: '75px',
+                maxWidth: '80px',
                 overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                display: '-webkit-box',
-                WebkitLineClamp: 2,
-                WebkitBoxOrient: 'vertical',
-                fontStyle: taxonomicSort && species.scientificName ? 'italic' : 'normal',
               }}>
-                {taxonomicSort && species.scientificName ? species.scientificName : species.name}
+                {(() => {
+                  if (isNZPack) {
+                    const { primary, secondary } = getSortModeDisplayNames(
+                      nzSortMode,
+                      species.tileName,
+                      species.englishName,
+                      species.scientificName
+                    );
+                    return (
+                      <>
+                        <div style={{
+                          fontWeight: 600,
+                        }}>
+                          {primary}
+                        </div>
+                        {secondary && (
+                          <div style={{
+                            fontSize: '10px',
+                            color: 'var(--color-text-muted)',
+                            fontStyle: nzSortMode === 'taxonomic' ? 'italic' : 'normal',
+                            marginTop: '2px',
+                          }}>
+                            {secondary}
+                          </div>
+                        )}
+                      </>
+                    );
+                  } else {
+                    // NA birds: show common name or scientific in taxonomic mode
+                    return (
+                      <span style={{
+                        fontStyle: taxonomicSort && species.scientificName ? 'italic' : 'normal',
+                      }}>
+                        {taxonomicSort && species.scientificName ? species.scientificName : species.name}
+                      </span>
+                    );
+                  }
+                })()}
               </div>
             </button>
           ))}

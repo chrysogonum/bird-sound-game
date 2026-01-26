@@ -146,3 +146,13 @@ export function trackExternalLinkClick(url: string, linkType: string, location: 
     location,
   });
 }
+
+/**
+ * Track when NZ sort mode is changed
+ */
+export function trackNZSortModeChange(mode: 'english' | 'maori' | 'taxonomic', location: string) {
+  trackEvent('nz_sort_mode_change', {
+    mode,
+    location,
+  });
+}

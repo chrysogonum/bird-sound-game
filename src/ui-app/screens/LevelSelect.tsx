@@ -6,9 +6,11 @@ import { trackLevelSelect } from '../utils/analytics';
 // Species info for gallery display
 interface SpeciesInfo {
   code: string;
-  displayName: string;  // Common name for NA, tile name (Māori) for NZ
+  displayName: string;  // Common name for NA, tile name (Maori) for NZ
+  englishName: string;  // English common name (for NZ birds)
   scientificName: string;
   showCode: boolean;    // Show 4-letter code for NA, hide for NZ
+  isNZ: boolean;        // Whether this is an NZ bird
 }
 
 // Pack display names
@@ -24,11 +26,12 @@ const PACK_NAMES: Record<string, string> = {
   // NZ packs
   nz_all_birds: 'All NZ Birds',
   nz_common: 'Garden & Bush',
-  nz_rare: 'Rare & Endemic',
+  nz_north_island: 'North Island',
+  nz_south_island: 'South Island',
 };
 
 // NZ pack IDs for routing
-const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_rare'];
+const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'];
 
 // Key for tracking custom pack region
 const CUSTOM_PACK_REGION_KEY = 'soundfield_custom_pack_region';
@@ -253,27 +256,32 @@ function LevelSelect() {
         // Build species info array
         let speciesInfo: SpeciesInfo[] = speciesCodes.map(code => {
           if (isNZ && nzDisplayCodes && nzDisplayCodes[code]) {
-            // NZ birds: use tile name (Māori), hide code
+            // NZ birds: use tile name (Maori), include English name for 3-name display
+            const nzData = nzDisplayCodes[code] as { tileName: string; englishName?: string };
             return {
               code,
-              displayName: nzDisplayCodes[code].tileName,
+              displayName: nzData.tileName,
+              englishName: nzData.englishName || speciesMap[code]?.name || '',
               scientificName: speciesMap[code]?.scientificName || '',
               showCode: false,
+              isNZ: true,
             };
           } else {
             // NA birds: use common name, show 4-letter code
             return {
               code,
               displayName: speciesMap[code]?.name || code,
+              englishName: '',
               scientificName: speciesMap[code]?.scientificName || '',
               showCode: true,
+              isNZ: false,
             };
           }
         });
 
-        // Sort: NA birds by 4-letter code, NZ birds by tile name (Māori)
+        // Sort: NA birds by 4-letter code, NZ birds by English name (for consistent gallery viewing)
         if (isNZ) {
-          speciesInfo.sort((a, b) => a.displayName.localeCompare(b.displayName));
+          speciesInfo.sort((a, b) => a.englishName.localeCompare(b.englishName));
         } else {
           speciesInfo.sort((a, b) => a.code.localeCompare(b.code));
         }
@@ -324,12 +332,12 @@ function LevelSelect() {
                 alignItems: 'center',
                 gap: '6px',
                 color: accentColor,
-                opacity: 0.6,
+                opacity: 0.85,
               }}
               aria-label={`View ${packName} bird gallery`}
             >
               <h2 style={{ margin: 0, fontSize: '20px', color: 'inherit' }}>{packName}</h2>
-              <span style={{ fontSize: '14px', opacity: 0.7 }}>🖼️</span>
+              <span style={{ fontSize: '16px' }}>🖼️</span>
             </button>
           ) : (
             <h2 style={{ margin: 0, fontSize: '20px' }}>{packName}</h2>
@@ -538,33 +546,68 @@ function LevelSelect() {
                   <div style={{
                     textAlign: 'center',
                   }}>
-                    <div style={{
-                      fontSize: '20px',
-                      fontWeight: 700,
-                      color: 'var(--color-text)',
-                      marginBottom: '4px',
-                    }}>
-                      {species.displayName}
-                    </div>
-                    {species.scientificName && (
-                      <div style={{
-                        fontSize: '15px',
-                        fontStyle: 'italic',
-                        color: 'var(--color-text-muted)',
-                        marginBottom: species.showCode ? '6px' : '0',
-                      }}>
-                        {species.scientificName}
-                      </div>
-                    )}
-                    {species.showCode && (
-                      <div style={{
-                        fontSize: '12px',
-                        fontWeight: 600,
-                        color: accentColor,
-                        opacity: 0.7,
-                      }}>
-                        {species.code}
-                      </div>
+                    {/* NZ birds show Maori name, English name, then Scientific */}
+                    {species.isNZ ? (
+                      <>
+                        <div style={{
+                          fontSize: '20px',
+                          fontWeight: 700,
+                          color: 'var(--color-text)',
+                          marginBottom: '4px',
+                        }}>
+                          {species.displayName}
+                        </div>
+                        {species.englishName && species.englishName !== species.displayName && (
+                          <div style={{
+                            fontSize: '15px',
+                            color: 'var(--color-text-muted)',
+                            marginBottom: '4px',
+                          }}>
+                            {species.englishName}
+                          </div>
+                        )}
+                        {species.scientificName && (
+                          <div style={{
+                            fontSize: '13px',
+                            fontStyle: 'italic',
+                            color: 'rgba(255,255,255,0.4)',
+                          }}>
+                            {species.scientificName}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {/* NA birds show Common name, Scientific, then Code */}
+                        <div style={{
+                          fontSize: '20px',
+                          fontWeight: 700,
+                          color: 'var(--color-text)',
+                          marginBottom: '4px',
+                        }}>
+                          {species.displayName}
+                        </div>
+                        {species.scientificName && (
+                          <div style={{
+                            fontSize: '15px',
+                            fontStyle: 'italic',
+                            color: 'var(--color-text-muted)',
+                            marginBottom: species.showCode ? '6px' : '0',
+                          }}>
+                            {species.scientificName}
+                          </div>
+                        )}
+                        {species.showCode && (
+                          <div style={{
+                            fontSize: '12px',
+                            fontWeight: 600,
+                            color: accentColor,
+                            opacity: 0.7,
+                          }}>
+                            {species.code}
+                          </div>
+                        )}
+                      </>
                     )}
                   </div>
                 </div>
