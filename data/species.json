@@ -14131,7 +14131,7 @@
   },
   {
     "species_code": "nezfan1",
-    "common_name": "Pīwakawaka / NZ Fantail",
+    "common_name": "Fantail",
     "scientific_name": "Rhipidura fuliginosa",
     "taxonomic_order": 2356
   },
@@ -14221,7 +14221,7 @@
   },
   {
     "species_code": "tomtit1",
-    "common_name": "Miromiro / Tomtit",
+    "common_name": "Tomtit",
     "scientific_name": "Petroica macrocephala",
     "taxonomic_order": 2371
   },
@@ -14353,19 +14353,19 @@
   },
   {
     "species_code": "chafan1",
-    "common_name": "Chatham Islands Fantail",
+    "common_name": "Fantail (Ch.)",
     "scientific_name": "Rhipidura fuliginosa penita",
     "taxonomic_order": 2393
   },
   {
     "species_code": "chatom1",
-    "common_name": "Chatham Islands Tomtit",
+    "common_name": "Tomtit (Ch.)",
     "scientific_name": "Petroica macrocephala chathamensis",
     "taxonomic_order": 2394
   },
   {
     "species_code": "chatui1",
-    "common_name": "Chatham Islands Tui",
+    "common_name": "Tūī (Ch.)",
     "scientific_name": "Prosthemadera novaeseelandiae chathamensis",
     "taxonomic_order": 2395
   }
