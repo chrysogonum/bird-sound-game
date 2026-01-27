@@ -656,7 +656,10 @@ function GameplayScreen() {
             <div className="feedback-score">+{gameState.currentFeedback.score}</div>
             <div className="feedback-type">{gameState.currentFeedback.type.toUpperCase()}</div>
             {gameState.currentFeedback.type === 'miss' && gameState.currentFeedback.expectedSpecies && (
-              <div className="feedback-correct">Was: {gameState.currentFeedback.expectedSpecies}</div>
+              <div className="feedback-correct">Was: {
+                speciesForWheel.find(sp => sp.code === gameState.currentFeedback!.expectedSpecies)?.tileName
+                || gameState.currentFeedback.expectedSpecies
+              }</div>
             )}
           </div>
         )}
