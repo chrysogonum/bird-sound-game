@@ -709,10 +709,12 @@ function Help() {
           >
           <VersionEntry version="4.07" date="January 26, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>NZ Pack Overhaul:</strong> New regional packs—North Island and South Island—replace the old Rare & Endemic pack. Garden & Bush expanded to 9 species (added Ruru, Pūtangitangi, Weka).</li>
-              <li><strong>3-Way NZ Sorting:</strong> NZ birds now support three sort modes: Te Reo (Māori names), English, and Taxonomic. Toggle appears on Ready to Play and in Sound Library.</li>
+              <li><strong>NZ Pack Overhaul:</strong> Reorganized NZ birds into regional packs—North Island and South Island—replacing the old Rare & Endemic pack. Garden & Bush consolidated to 9 common species to help visitors get familiar with the birds they're most likely to encounter.</li>
+              <li><strong>3-Way NZ Sorting:</strong> NZ birds now support three sort modes: Te Reo (Māori names), English, and Taxonomic. Toggle appears on Ready to Play and in Sound Library. Your sort preference carries through to gameplay—if you sort by English, both the buttons and spectrogram tiles show English names.</li>
               <li><strong>Sound Library Consistency:</strong> Sort toggles moved to header level for both NA and NZ Sound Libraries—cleaner UI with one toggle affecting all packs.</li>
-              <li><strong>Bird Gallery:</strong> Gallery icon (🖼️) on Level Select now brighter and more visible.</li>
+              <li><strong>Bird Gallery:</strong> Tap the play button on any bird card to hear its signature sound. Gallery icon (🖼️) now wiggles to show it's tappable.</li>
+              <li><strong>Back Button Fix:</strong> Pressing back from gameplay now returns you to Ready to Play with the same birds in the same order.</li>
+              <li><strong>More Improved Icons:</strong> Continuing icon refresh—49 bird icons now updated with improved artwork.</li>
             </ul>
           </VersionEntry>
 

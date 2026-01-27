@@ -454,11 +454,12 @@ function GameplayScreen() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [gameState.roundState, handleChannelTap, handleSpeciesSelect, speciesForWheel]);
 
-  // Handle back button - return to level select
+  // Handle back button - return to preview with same birds
   const handleBack = useCallback(() => {
     gameActions.reset();
-    navigate(-1); // Go back to level select
-  }, [navigate, gameActions]);
+    // Navigate back to PreRoundPreview with keepBirds=true to restore the same selection
+    navigate(`/preview?pack=${packId}&level=${levelId}&keepBirds=true`);
+  }, [navigate, gameActions, packId, levelId]);
 
   // Handle quit confirmation
   const handleQuitClick = useCallback(() => {
@@ -471,8 +472,9 @@ function GameplayScreen() {
 
   const handleQuitConfirm = useCallback(() => {
     gameActions.reset();
-    navigate(-1); // Go back to previous screen (pack select or level select)
-  }, [navigate, gameActions]);
+    // Navigate back to PreRoundPreview with keepBirds=true to restore the same selection
+    navigate(`/preview?pack=${packId}&level=${levelId}&keepBirds=true`);
+  }, [navigate, gameActions, packId, levelId]);
 
   // Handle start round
   const handleStart = useCallback(() => {

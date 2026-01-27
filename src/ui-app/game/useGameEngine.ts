@@ -192,7 +192,7 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   }, []);
 
   // NZ display codes for friendlier UI
-  const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string }>>({});
+  const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string; englishName?: string }>>({});
   const [nzDisplayCodesLoaded, setNzDisplayCodesLoaded] = useState(false);
 
   // Clips and species data
@@ -352,6 +352,10 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
       // Extract unique species (filtered by species_pool if present)
       const speciesMap = new Map<string, SpeciesInfo>();
+      // Check if user has a sort mode preference for NZ packs
+      const nzSortMode = sessionStorage.getItem('nzSortMode') || 'maori';
+      const useEnglishNames = isNZPack && nzSortMode === 'english';
+
       for (const clip of data) {
         // Skip if we have a species_pool and this species isn't in it
         if (allowedSpecies && !allowedSpecies.has(clip.species_code)) {
@@ -361,7 +365,10 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           // Use NZ display data if available, otherwise use the eBird code
           const nzData = nzDisplayCodes[clip.species_code];
           const displayCode = nzData?.code || clip.species_code;
-          const tileName = nzData?.tileName || clip.species_code;
+          // Use English name if user sorted by English, otherwise use Māori tileName
+          const tileName = useEnglishNames && nzData?.englishName
+            ? nzData.englishName
+            : (nzData?.tileName || clip.species_code);
           speciesMap.set(clip.species_code, {
             code: clip.species_code,
             displayCode,
@@ -377,14 +384,20 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
       // Check for pre-selected species from PreRoundPreview
       const preSelectedJson = sessionStorage.getItem('roundSpecies');
+      console.log('loadClips: roundSpecies from sessionStorage:', preSelectedJson);
       if (preSelectedJson) {
         try {
           const preSelected = JSON.parse(preSelectedJson) as string[];
-          // Filter to species that exist in the pool
-          const filteredSpecies = poolSpecies.filter(s => preSelected.includes(s.code));
-          const preSelectedSpecies = sortSpecies(filteredSpecies);
+          console.log('loadClips: Parsed preSelected order:', preSelected);
+          // Build a map of species code to SpeciesInfo for quick lookup
+          const speciesLookup = new Map(poolSpecies.map(s => [s.code, s]));
+          // Preserve the order from PreRoundPreview by mapping in order
+          const preSelectedSpecies = preSelected
+            .map(code => speciesLookup.get(code))
+            .filter((s): s is SpeciesInfo => s !== undefined);
           if (preSelectedSpecies.length > 0) {
-            console.log('loadClips: Using pre-selected species:', preSelectedSpecies.map(s => s.code));
+            console.log('loadClips: Using pre-selected species (preserving order):', preSelectedSpecies.map(s => s.code));
+            console.log('loadClips: Species tileNames in order:', preSelectedSpecies.map(s => s.tileName));
             setSpecies(preSelectedSpecies);
             return; // Don't fall through to default selection
           }
@@ -393,13 +406,17 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         }
       }
 
-      // If pool size equals species_count, use all (no random selection needed)
-      // Otherwise, will be randomly selected at round start - show all for now so button is enabled
+      // No pre-selected species from PreRoundPreview.
+      // Don't set species here - let startRound handle random selection.
+      // But we need SOME species for the UI to enable the Start button,
+      // so set them temporarily (startRound will re-select if needed).
+      // We use a marker to indicate these need shuffling.
+      console.log('loadClips: No pre-selected species, using pool (will be shuffled in startRound)');
       setSpecies(poolSpecies);
     } catch (error) {
       console.error('Error loading clips:', error);
     }
-  }, [level.pack_id, level.species_pool, level.species_count, nzDisplayCodes, nzDisplayCodesLoaded, sortSpecies]);
+  }, [level.pack_id, level.species_pool, level.species_count, nzDisplayCodes, nzDisplayCodesLoaded]);
 
   // Run loadClips when NZ display codes finish loading or pack changes
   useEffect(() => {
@@ -901,12 +918,15 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     generatedEventsRef.current.push(event);
 
     const nzData = nzDisplayCodes[event.species_code];
+    // Check user's sort mode preference for NZ packs - use English names if they chose English sort
+    const nzSortMode = sessionStorage.getItem('nzSortMode') || 'maori';
+    const useEnglishForTile = nzSortMode === 'english' && nzData?.englishName;
     const scheduledEvent: ScheduledEvent = {
       ...event,
       spectrogramPath: clip.spectrogram_path || null,
       filePath: clip.file_path,
       displayCode: nzData?.code || event.species_code,
-      tileName: nzData?.tileName || event.species_code,
+      tileName: useEnglishForTile ? nzData.englishName! : (nzData?.tileName || event.species_code),
     };
     setScheduledEvents((prev) => [...prev, scheduledEvent]);
 
@@ -1147,53 +1167,40 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
     // Select species for this round
     let roundSpeciesCodes: string[] | undefined;
-    console.log('startRound: allPoolSpecies.length =', allPoolSpecies.length, 'species_count =', level.species_count);
+    console.log('startRound: species.length =', species.length, 'allPoolSpecies.length =', allPoolSpecies.length, 'species_count =', level.species_count);
 
-    // Check for pre-selected species from PreRoundPreview
-    const preSelectedSpeciesJson = sessionStorage.getItem('roundSpecies');
-    if (preSelectedSpeciesJson) {
-      try {
-        const preSelected = JSON.parse(preSelectedSpeciesJson) as string[];
-        // Clear the session storage so it's not used again
-        sessionStorage.removeItem('roundSpecies');
-        // Filter to species that exist in allPoolSpecies
-        const validPreSelected = preSelected.filter(code =>
-          allPoolSpecies.some(s => s.code === code)
-        );
-        if (validPreSelected.length > 0) {
-          const filteredForRound = allPoolSpecies.filter(s => validPreSelected.includes(s.code));
-          const selectedForRound = sortSpecies(filteredForRound);
-          console.log('Using pre-selected species:', selectedForRound.map(s => s.code));
-          setSpecies(selectedForRound);
-          roundSpeciesCodes = selectedForRound.map(s => s.code);
-        }
-      } catch (e) {
-        console.error('Failed to parse pre-selected species:', e);
-        sessionStorage.removeItem('roundSpecies');
-      }
-    }
+    // Check if we have an explicit selection from PreRoundPreview (stored in sessionStorage)
+    const hasExplicitSelection = sessionStorage.getItem('roundSpecies') !== null;
+    console.log('startRound: hasExplicitSelection =', hasExplicitSelection);
 
-    // If no pre-selected species, use normal selection logic
-    if (!roundSpeciesCodes) {
-      if (level.species_count && allPoolSpecies.length > level.species_count) {
-        // Randomly select species_count species from the pool
-        const shuffled = [...allPoolSpecies];
-        for (let i = shuffled.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-        }
-        // Sort by preference (taxonomic or alphabetical) for consistent display
-        const slicedSpecies = shuffled.slice(0, level.species_count);
-        const selectedForRound = sortSpecies(slicedSpecies);
-        console.log('Random selection: setting species to', selectedForRound.length, 'species:', selectedForRound.map(s => s.code));
-        setSpecies(selectedForRound);
-        roundSpeciesCodes = selectedForRound.map(s => s.code);
-      } else {
-        // Use all pool species
-        console.log('Using all pool species:', allPoolSpecies.length);
-        setSpecies(allPoolSpecies);
-        roundSpeciesCodes = allPoolSpecies.map(s => s.code);
+    // Note: We keep roundSpecies and nzSortMode in sessionStorage so that
+    // if the user hits "back", PreRoundPreview can restore the same birds.
+    // These will be overwritten next time the user goes through PreRoundPreview.
+
+    if (hasExplicitSelection && species.length > 0) {
+      // Use species already set by loadClips (preserves order from PreRoundPreview)
+      console.log('startRound: Using explicit selection from PreRoundPreview:', species.map(s => s.code));
+      console.log('startRound: Species tileNames in order:', species.map(s => s.tileName));
+      roundSpeciesCodes = species.map(s => s.code);
+    } else if (level.species_count && allPoolSpecies.length > level.species_count) {
+      // Randomly select species_count species from the pool
+      console.log('startRound: Randomly selecting', level.species_count, 'species from pool of', allPoolSpecies.length);
+      const shuffled = [...allPoolSpecies];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
+      // Sort by preference (taxonomic or alphabetical) for consistent display
+      const slicedSpecies = shuffled.slice(0, level.species_count);
+      const selectedForRound = sortSpecies(slicedSpecies);
+      console.log('Random selection: setting species to', selectedForRound.length, 'species:', selectedForRound.map(s => s.code));
+      setSpecies(selectedForRound);
+      roundSpeciesCodes = selectedForRound.map(s => s.code);
+    } else {
+      // Use all pool species
+      console.log('Using all pool species:', allPoolSpecies.length);
+      setSpecies(allPoolSpecies);
+      roundSpeciesCodes = allPoolSpecies.map(s => s.code);
     }
 
     // Generate event templates (species, clip, channel - but not timing)

@@ -1,7 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
 import { trackLevelSelect } from '../utils/analytics';
+
+// Clip data for audio playback
+interface ClipData {
+  clip_id: string;
+  species_code: string;
+  file_path: string;
+  canonical?: boolean;
+  rejected?: boolean;
+  spectrogram_path?: string;
+}
 
 // Species info for gallery display
 interface SpeciesInfo {
@@ -11,6 +21,7 @@ interface SpeciesInfo {
   scientificName: string;
   showCode: boolean;    // Show 4-letter code for NA, hide for NZ
   isNZ: boolean;        // Whether this is an NZ bird
+  canonicalClipPath?: string;  // Path to canonical audio clip
 }
 
 // Pack display names
@@ -175,6 +186,8 @@ function LevelSelect() {
   const [loading, setLoading] = useState(true);
   const [showGallery, setShowGallery] = useState(false);
   const [gallerySpecies, setGallerySpecies] = useState<SpeciesInfo[]>([]);
+  const [playingClip, setPlayingClip] = useState<string | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   // Determine if this is an NZ pack for theming
   const isNZPack = NZ_PACK_IDS.includes(packId) ||
@@ -226,11 +239,13 @@ function LevelSelect() {
     const isNZ = NZ_PACK_IDS.includes(packId);
     const packJsonPath = `${import.meta.env.BASE_URL}data/packs/${packId}.json`;
     const speciesJsonPath = `${import.meta.env.BASE_URL}data/species.json`;
+    const clipsJsonPath = `${import.meta.env.BASE_URL}data/clips.json`;
     const nzDisplayCodesPath = `${import.meta.env.BASE_URL}data/nz_display_codes.json`;
 
     const fetches: Promise<unknown>[] = [
       fetch(packJsonPath).then(r => r.json()),
       fetch(speciesJsonPath).then(r => r.json()),
+      fetch(clipsJsonPath).then(r => r.json()),
     ];
     if (isNZ) {
       fetches.push(fetch(nzDisplayCodesPath).then(r => r.json()));
@@ -240,7 +255,8 @@ function LevelSelect() {
       .then((results) => {
         const packData = results[0] as { species: string[] };
         const speciesData = results[1] as Array<{ species_code: string; common_name: string; scientific_name: string }>;
-        const nzDisplayCodes = isNZ ? (results[2] as { codes: Record<string, { code: string; tileName: string }> }).codes : null;
+        const clipsData = results[2] as ClipData[];
+        const nzDisplayCodes = isNZ ? (results[3] as { codes: Record<string, { code: string; tileName: string }> }).codes : null;
 
         const speciesCodes: string[] = packData.species || [];
 
@@ -251,6 +267,14 @@ function LevelSelect() {
             name: sp.common_name,
             scientificName: sp.scientific_name,
           };
+        }
+
+        // Build a map of species code -> canonical clip path
+        const canonicalClipMap: Record<string, string> = {};
+        for (const clip of clipsData) {
+          if (clip.canonical && !clip.rejected) {
+            canonicalClipMap[clip.species_code] = `${import.meta.env.BASE_URL}${clip.file_path}`;
+          }
         }
 
         // Build species info array
@@ -265,6 +289,7 @@ function LevelSelect() {
               scientificName: speciesMap[code]?.scientificName || '',
               showCode: false,
               isNZ: true,
+              canonicalClipPath: canonicalClipMap[code],
             };
           } else {
             // NA birds: use common name, show 4-letter code
@@ -275,6 +300,7 @@ function LevelSelect() {
               scientificName: speciesMap[code]?.scientificName || '',
               showCode: true,
               isNZ: false,
+              canonicalClipPath: canonicalClipMap[code],
             };
           }
         });
@@ -292,6 +318,45 @@ function LevelSelect() {
         console.error('Failed to load gallery species:', err);
       });
   }, [showGallery, packId]);
+
+  // Cleanup audio on unmount or when gallery closes
+  useEffect(() => {
+    if (!showGallery && audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+      setPlayingClip(null);
+    }
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, [showGallery]);
+
+  // Play sound function for gallery
+  const playSound = (clipPath: string, code: string) => {
+    // Stop current audio if playing
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current = null;
+    }
+
+    if (playingClip === code) {
+      // Toggle off
+      setPlayingClip(null);
+      return;
+    }
+
+    const audio = new Audio(clipPath);
+    audioRef.current = audio;
+    setPlayingClip(code);
+
+    audio.play().catch((err) => console.error('Failed to play audio:', err));
+    audio.onended = () => {
+      setPlayingClip(null);
+      audioRef.current = null;
+    };
+  };
 
   const handleLevelSelect = (level: LevelConfig) => {
     trackLevelSelect(packId, level.level_id, level.title || `Level ${level.level_id}`);
@@ -337,7 +402,12 @@ function LevelSelect() {
               aria-label={`View ${packName} bird gallery`}
             >
               <h2 style={{ margin: 0, fontSize: '20px', color: 'inherit' }}>{packName}</h2>
-              <span style={{ fontSize: '16px' }}>🖼️</span>
+              <span
+                style={{
+                  fontSize: '16px',
+                  display: 'inline-block',
+                  animation: 'wiggle 2s ease-in-out infinite',
+                }}>🖼️</span>
             </button>
           ) : (
             <h2 style={{ margin: 0, fontSize: '20px' }}>{packName}</h2>
@@ -533,16 +603,50 @@ function LevelSelect() {
                     borderRadius: '16px',
                   }}
                 >
-                  <img
-                    src={`${import.meta.env.BASE_URL}data/icons/${species.code}.png`}
-                    alt={species.displayName}
-                    style={{
-                      width: '100%',
-                      aspectRatio: '1',
-                      borderRadius: '12px',
-                      objectFit: 'cover',
-                    }}
-                  />
+                  {/* Image container with play button overlay */}
+                  <div style={{ position: 'relative', width: '100%' }}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}data/icons/${species.code}.png`}
+                      alt={species.displayName}
+                      style={{
+                        width: '100%',
+                        aspectRatio: '1',
+                        borderRadius: '12px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                    {/* Play button overlay */}
+                    {species.canonicalClipPath && (
+                      <button
+                        onClick={() => playSound(species.canonicalClipPath!, species.code)}
+                        style={{
+                          position: 'absolute',
+                          bottom: '12px',
+                          right: '12px',
+                          width: '48px',
+                          height: '48px',
+                          borderRadius: '50%',
+                          border: 'none',
+                          background: playingClip === species.code
+                            ? 'var(--color-accent)'
+                            : 'rgba(0, 0, 0, 0.7)',
+                          color: playingClip === species.code
+                            ? '#000'
+                            : 'var(--color-accent)',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '20px',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                          transition: 'all 0.15s',
+                        }}
+                        aria-label={playingClip === species.code ? `Stop ${species.displayName}` : `Play ${species.displayName}`}
+                      >
+                        {playingClip === species.code ? '⏸' : '▶'}
+                      </button>
+                    )}
+                  </div>
                   <div style={{
                     textAlign: 'center',
                   }}>

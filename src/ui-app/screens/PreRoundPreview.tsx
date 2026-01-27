@@ -661,6 +661,11 @@ function PreRoundPreview() {
     const speciesCodes = selectedSpecies.map(s => s.code);
     sessionStorage.setItem('roundSpecies', JSON.stringify(speciesCodes));
 
+    // Store NZ sort mode so gameplay can show names in the same format
+    if (isNZPack) {
+      sessionStorage.setItem('nzSortMode', nzSortMode);
+    }
+
     navigate(`/gameplay?mode=campaign&pack=${packId}&level=${levelId}&preview=true`);
   };
 

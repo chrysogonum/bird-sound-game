@@ -283,10 +283,10 @@ function NZPackSelect() {
   }, []);
 
   const nzPackColors: Record<string, string> = {
-    nz_all_birds: 'linear-gradient(135deg, #5a8ab0 0%, #3a6a8a 100%)',
+    nz_all_birds: 'linear-gradient(135deg, #4a7a6a 0%, #2a5a4a 100%)',
     nz_common: 'linear-gradient(135deg, #b8a832 0%, #8a7a28 100%)',
     nz_north_island: 'linear-gradient(135deg, #7a5a3d 0%, #5a4028 100%)',
-    nz_south_island: 'linear-gradient(135deg, #3d6a7a 0%, #285a6a 100%)',
+    nz_south_island: 'linear-gradient(135deg, #5a6a8a 0%, #3a4a6a 100%)',
   };
 
   const nzPackIcons: Record<string, string> = {
@@ -379,7 +379,7 @@ function NZPackSelect() {
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: '16px', fontWeight: 600, color: '#f5f0e6' }}>
-              Build Custom NZ Pack
+              Create Custom Pack
             </div>
             <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
               Mix and match your own selection of NZ birds
@@ -433,8 +433,8 @@ function NZPackSelect() {
                 bottom: '-10px',
                 width: '80px',
                 height: '80px',
-                opacity: 0.5,
-                filter: 'brightness(1.3)',
+                opacity: 0.75,
+                filter: 'brightness(1.2)',
                 transform: 'rotate(-15deg)',
                 objectFit: 'cover',
               }}
@@ -464,13 +464,13 @@ function NZPackSelect() {
             </div>
 
             <div style={{ position: 'relative', zIndex: 1, paddingTop: (pack.id === 'nz_common' || pack.id === 'nz_all_birds') ? 0 : '8px' }}>
-              <div style={{ fontSize: '16px', fontWeight: 600, color: '#f5f0e6', marginBottom: '6px' }}>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f5f0e6', marginBottom: '6px', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.9)' }}>
                 {pack.name}
               </div>
-              <div style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.6)', marginBottom: '10px', whiteSpace: 'pre-line' }}>
+              <div style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', marginBottom: '10px', whiteSpace: 'pre-line', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.9)' }}>
                 {pack.description}
               </div>
-              <span style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.7)', fontWeight: 500 }}>
+              <span style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', fontWeight: 600, textShadow: '1px 1px 2px rgba(0, 0, 0, 0.9)' }}>
                 {pack.speciesCount} species
               </span>
             </div>
