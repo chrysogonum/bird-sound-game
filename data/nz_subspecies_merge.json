@@ -1,0 +1,65 @@
+{
+  "description": "Subspecies merge configuration for NZ birds. These subspecies pairs are treated as a single species during gameplay while preserving their distinct clips for regional packs.",
+  "merges": {
+    "toutouwai": {
+      "maori_name": "Toutouwai",
+      "english_name": "New Zealand Robin",
+      "scientific_name": "Petroica longipes / P. australis",
+      "display_code": "TOUT",
+      "subspecies": ["nezrob2", "nezrob3"],
+      "region_labels": {
+        "nezrob2": "NI",
+        "nezrob3": "SI"
+      },
+      "icon": "nezrob2"
+    },
+    "tieke": {
+      "maori_name": "Tieke",
+      "english_name": "Saddleback",
+      "scientific_name": "Philesturnus spp.",
+      "display_code": "TIEK",
+      "subspecies": ["saddle2", "saddle3"],
+      "region_labels": {
+        "saddle2": "NI",
+        "saddle3": "SI"
+      },
+      "icon": "saddle2"
+    },
+    "piwakawaka": {
+      "maori_name": "Piwakawaka",
+      "english_name": "Fantail",
+      "scientific_name": "Rhipidura fuliginosa",
+      "display_code": "PIWK",
+      "subspecies": ["nezfan1", "chafan1"],
+      "region_labels": {
+        "nezfan1": "",
+        "chafan1": "Ch"
+      },
+      "icon": "nezfan1"
+    },
+    "miromiro": {
+      "maori_name": "Miromiro",
+      "english_name": "Tomtit",
+      "scientific_name": "Petroica macrocephala",
+      "display_code": "MIRO",
+      "subspecies": ["tomtit1", "chatom1"],
+      "region_labels": {
+        "tomtit1": "",
+        "chatom1": "Ch"
+      },
+      "icon": "tomtit1"
+    },
+    "tui": {
+      "maori_name": "Tui",
+      "english_name": "Tui",
+      "scientific_name": "Prosthemadera novaeseelandiae",
+      "display_code": "TUI",
+      "subspecies": ["tui1", "chatui1"],
+      "region_labels": {
+        "tui1": "",
+        "chatui1": "Ch"
+      },
+      "icon": "tui1"
+    }
+  }
+}
