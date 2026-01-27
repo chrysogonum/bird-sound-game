@@ -174,6 +174,7 @@ function PreRoundPreview() {
   const [nzSortMode, setNzSortMode] = useNZSortMode();
   const [fullCustomPack, setFullCustomPack] = useState<string[]>([]);  // All species in custom pack (up to 30)
   const [metadataLoaded, setMetadataLoaded] = useState(false);  // Track when NZ display codes etc are loaded
+  const [mergeConfigLoaded, setMergeConfigLoaded] = useState(false);  // Track when subspecies merge config is loaded
   const selectedForRef = useRef<string | null>(null);  // Track which pack/level we've selected species for
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -269,6 +270,7 @@ function PreRoundPreview() {
       });
       setScientificNames(sciNames);
       setCommonNames(comNames);
+      setMergeConfigLoaded(true);  // Merge config is now cached and ready
       setMetadataLoaded(true);
     }).catch((err) => console.error('Failed to load taxonomy data:', err));
   }, []);
@@ -341,7 +343,7 @@ function PreRoundPreview() {
       ...species,
       color: SPECIES_COLORS[index % SPECIES_COLORS.length],
     }));
-  }, [commonNames, scientificNames, nzDisplayCodes, taxonomicSort, taxonomicOrder, isNZPack, nzSortMode]);
+  }, [commonNames, scientificNames, nzDisplayCodes, taxonomicSort, taxonomicOrder, isNZPack, nzSortMode, mergeConfigLoaded]);
 
   // Select random subset from custom pack (for packs with >9 birds)
   const selectRandomFromCustomPack = useCallback((allSpecies: string[], clipsData: ClipData[]) => {
