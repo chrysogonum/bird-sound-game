@@ -749,6 +749,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.10" date="January 27, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Audio Fix:</strong> Replaced Eastern Meadowlark clip that had background noise from another species.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.09" date="January 27, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Better Feedback:</strong> When you miss a bird, the "Was:" text now shows the bird's name instead of its species code—much more helpful for learning.</li>
