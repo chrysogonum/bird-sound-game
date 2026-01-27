@@ -8,11 +8,69 @@ import type { LevelConfig, GameMode } from '@engine/game/types';
 import { trackTrainingModeToggle, trackGameStart, trackRoundComplete } from '../utils/analytics';
 
 // Bird icon component - shows icon with code label below
-function BirdIcon({ code, tileName, size = 32, color }: { code: string; tileName?: string; size?: number; color?: string }) {
+function BirdIcon({ code, tileName, size = 32, color, twoRowLayout = false }: { code: string; tileName?: string; size?: number; color?: string; twoRowLayout?: boolean }) {
   const [hasIcon, setHasIcon] = useState(true);
   const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
   const labelCode = tileName || code;  // Show tileName if available, otherwise use code
 
+  // Two-row layout: larger icon on top, text below with 2-line wrapping
+  if (twoRowLayout) {
+    return (
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '3px',
+        width: '100%',
+      }}>
+        {hasIcon ? (
+          <img
+            src={iconPath}
+            alt={labelCode}
+            width={size}
+            height={size}
+            style={{
+              borderRadius: '50%',
+              objectFit: 'cover',
+            }}
+            onError={() => setHasIcon(false)}
+          />
+        ) : (
+          <div style={{
+            width: size,
+            height: size,
+            borderRadius: '50%',
+            background: color || 'transparent',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: size * 0.35,
+            fontWeight: 700,
+          }}>
+            {labelCode.slice(0, 4)}
+          </div>
+        )}
+        <span style={{
+          fontSize: '8px',
+          fontWeight: 600,
+          color: '#FFFFFF',
+          lineHeight: 1.2,
+          textShadow: '0 1px 2px rgba(0,0,0,0.5)',
+          textAlign: 'center',
+          width: '100%',
+          overflow: 'hidden',
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical',
+          wordBreak: 'break-word',
+        }}>
+          {labelCode}
+        </span>
+      </div>
+    );
+  }
+
+  // Original layout: text above icon
   return (
     <div style={{
       display: 'flex',
@@ -685,7 +743,7 @@ function GameplayScreen() {
                 }}
                 disabled={gameState.roundState !== 'playing'}
               >
-                <BirdIcon code={sp.code} tileName={sp.tileName} size={36} color={sp.color} />
+                <BirdIcon code={sp.code} tileName={sp.tileName} size={40} color={sp.color} twoRowLayout={true} />
               </button>
             ))}
           </div>
@@ -708,7 +766,7 @@ function GameplayScreen() {
                 }}
                 disabled={gameState.roundState !== 'playing'}
               >
-                <BirdIcon code={sp.code} tileName={sp.tileName} size={36} color={sp.color} />
+                <BirdIcon code={sp.code} tileName={sp.tileName} size={40} color={sp.color} twoRowLayout={true} />
               </button>
             ))}
           </div>
