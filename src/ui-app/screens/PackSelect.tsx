@@ -114,7 +114,6 @@ function PackSelect() {
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
-  const [showAllPacks, setShowAllPacks] = useState(false);
   const [showMoreExamples, setShowMoreExamples] = useState(false);
   const [taxonomicSort, setTaxonomicSort] = useState(false);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
@@ -772,31 +771,6 @@ function PackSelect() {
                 📊
               </button>
             </div>
-            {/* Expand/Collapse button */}
-            <button
-              onClick={() => {
-                if (showAllPacks) {
-                  setExpandedPacks(new Set());
-                  setShowAllPacks(false);
-                } else {
-                  const allPackIds = PACKS.filter(p => p.isUnlocked).map(p => p.id);
-                  setExpandedPacks(new Set(allPackIds));
-                  setShowAllPacks(true);
-                }
-              }}
-              style={{
-                fontSize: '12px',
-                padding: '6px 12px',
-                background: showAllPacks ? 'var(--color-accent)' : 'var(--color-surface)',
-                color: showAllPacks ? '#000' : 'var(--color-text)',
-                border: 'none',
-                borderRadius: '6px',
-                cursor: 'pointer',
-                fontWeight: 600,
-              }}
-            >
-              {showAllPacks ? 'Collapse All' : 'Expand All'}
-            </button>
           </div>
         </div>
 
@@ -814,7 +788,7 @@ function PackSelect() {
         {/* All Birds pack - dynamically populated */}
         {packDisplaySpecies['all_birds'] && (() => {
           const packId = 'all_birds';
-          const isExpanded = showAllPacks || expandedPacks.has(packId);
+          const isExpanded = expandedPacks.has(packId);
           return (
             <div key={packId} style={{ marginBottom: '16px' }}>
               <div
@@ -1040,7 +1014,7 @@ function PackSelect() {
         })()}
 
         {PACKS.filter(p => p.isUnlocked).map((pack) => {
-          const isExpanded = showAllPacks || expandedPacks.has(pack.id);
+          const isExpanded = expandedPacks.has(pack.id);
           return (
           <div key={pack.id} style={{ marginBottom: '16px' }}>
             <div
