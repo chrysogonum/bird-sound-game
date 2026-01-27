@@ -526,10 +526,15 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
         clip_data['file_path'] = f"data/clips/{output_filename}"
         clip_data['spectrogram_path'] = f"data/spectrograms/{clip_id}.png"
     else:
-        # New clip
+        # New clip - look up common_name from species.json
+        species_data = load_species_data()
+        species_info = species_data.get(species_code.upper(), {})
+        common_name = species_info.get('common_name', species_code.upper())
+
         clip_data = {
             'clip_id': clip_id,
             'species_code': species_code.upper(),
+            'common_name': common_name,
             'vocalization_type': vocalization_type,
             'duration_ms': duration_ms,
             'quality_score': 5,
