@@ -7944,23 +7944,6 @@
     "spectrogram_path": "data/spectrograms/EAME_840192.png"
   },
   {
-    "clip_id": "EAME_cc1eff98",
-    "species_code": "EAME",
-    "common_name": "Eastern Meadowlark",
-    "file_path": "data/clips/EAME_906697.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC906697",
-    "source_url": "https://xeno-canto.org/906697",
-    "recordist": "Jeff Stewart",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAME_906697.png"
-  },
-  {
     "clip_id": "EAME_edf630ae",
     "species_code": "EAME",
     "common_name": "Eastern Meadowlark",
@@ -11318,5 +11301,39 @@
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
     "source_id": "yellow3_doc_003"
+  },
+  {
+    "clip_id": "EAME_906697_1",
+    "species_code": "EAME",
+    "vocalization_type": "song",
+    "duration_ms": 1450,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC906697",
+    "source_url": "https://xeno-canto.org/906697",
+    "recordist": "Jeff Stewart",
+    "file_path": "data/clips/EAME_906697_1.wav",
+    "spectrogram_path": "data/spectrograms/EAME_906697_1.png",
+    "canonical": false,
+    "rejected": false,
+    "common_name": "Eastern Meadowlark"
+  },
+  {
+    "clip_id": "EAME_906697_2",
+    "species_code": "EAME",
+    "vocalization_type": "song",
+    "duration_ms": 1450,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC906697",
+    "source_url": "https://xeno-canto.org/906697",
+    "recordist": "Jeff Stewart",
+    "file_path": "data/clips/EAME_906697_2.wav",
+    "spectrogram_path": "data/spectrograms/EAME_906697_2.png",
+    "canonical": false,
+    "rejected": false,
+    "common_name": "Eastern Meadowlark"
   }
 ]
