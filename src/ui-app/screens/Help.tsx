@@ -749,6 +749,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.08" date="January 26, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Bug Fix:</strong> Fixed issue where All NZ Birds pack would sometimes show only 8 birds instead of 9 when both subspecies of a merged species were randomly selected.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.07" date="January 26, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>NZ Pack Overhaul:</strong> Reorganized NZ birds into regional packs—North Island and South Island—replacing the old Rare & Endemic pack. Garden & Bush consolidated to 9 common species to help visitors get familiar with the birds they're most likely to encounter. Regional subspecies (like North Island Robin and South Island Robin) are now merged for gameplay—you'll see "Toutouwai" as one bird. Regional packs play region-specific clips: North Island pack plays only NI subspecies recordings, South Island pack plays only SI subspecies recordings. All NZ Birds pools clips from all regions.</li>
