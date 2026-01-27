@@ -463,14 +463,14 @@ function NZPackSelect() {
               </span>
             </div>
 
-            <div style={{ position: 'relative', zIndex: 1, paddingTop: (pack.id === 'nz_common' || pack.id === 'nz_all_birds') ? 0 : '8px' }}>
-              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f5f0e6', marginBottom: '6px', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.9)' }}>
+            <div style={{ position: 'relative', zIndex: 1, paddingTop: (pack.id === 'nz_common' || pack.id === 'nz_all_birds') ? 0 : '8px', maxWidth: '55%' }}>
+              <div style={{ fontSize: '16px', fontWeight: 700, color: '#f5f0e6', marginBottom: '6px' }}>
                 {pack.name}
               </div>
-              <div style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', marginBottom: '10px', whiteSpace: 'pre-line', textShadow: '1px 1px 2px rgba(0, 0, 0, 0.9)' }}>
+              <div style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', marginBottom: '10px' }}>
                 {pack.description}
               </div>
-              <span style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', fontWeight: 600, textShadow: '1px 1px 2px rgba(0, 0, 0, 0.9)' }}>
+              <span style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', fontWeight: 600 }}>
                 {pack.speciesCount} species
               </span>
             </div>
