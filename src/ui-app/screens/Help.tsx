@@ -749,6 +749,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.09" date="January 27, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Better Feedback:</strong> When you miss a bird, the "Was:" text now shows the bird's name instead of its species code—much more helpful for learning.</li>
+              <li><strong>UI Polish:</strong> Sound Library header and sort buttons cleaned up for clarity.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.08" date="January 26, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Bug Fix:</strong> Fixed issue where All NZ Birds pack would sometimes show only 8 birds instead of 9 when both subspecies of a merged species were randomly selected.</li>
