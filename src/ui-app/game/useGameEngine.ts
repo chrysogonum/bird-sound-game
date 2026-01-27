@@ -10,7 +10,7 @@ import type { GameEvent, LevelConfig, RoundState } from '@engine/game/types';
 import type { ScoreBreakdown, FeedbackType } from '@engine/scoring/types';
 import { SCORE_VALUES } from '@engine/scoring/types';
 import { getAudioAdapter, type PannerNode } from '@engine/audio/CrossBrowserAudioAdapter';
-import { loadMergeConfig, areEquivalentSpecies, getMergeInfoByCode, getSubspeciesForRegion } from '../utils/nzSubspeciesMerge';
+import { loadMergeConfig, areEquivalentSpecies, getMergeInfoByCode, getSubspeciesForRegion, getIconCode } from '../utils/nzSubspeciesMerge';
 
 /** Clip metadata from clips.json */
 export interface ClipMetadata {
@@ -390,25 +390,32 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         if (allowedSpecies && !allowedSpecies.has(clip.species_code)) {
           continue;
         }
-        if (!speciesMap.has(clip.species_code)) {
+        // For NZ packs, use the icon code (primary subspecies) as the key
+        // This ensures merged subspecies like nezrob2/nezrob3 map to the same entry
+        const speciesKey = isNZPack ? getIconCode(clip.species_code) : clip.species_code;
+        if (isNZPack && clip.species_code !== speciesKey) {
+          console.log(`loadClips: Mapped subspecies ${clip.species_code} -> ${speciesKey}`);
+        }
+        if (!speciesMap.has(speciesKey)) {
           // Use NZ display data if available, otherwise use the eBird code
-          const nzData = nzDisplayCodes[clip.species_code];
-          const displayCode = nzData?.code || clip.species_code;
+          const nzData = nzDisplayCodes[speciesKey];
+          const displayCode = nzData?.code || speciesKey;
           // Use English name if user sorted by English, otherwise use Māori tileName
           const tileName = useEnglishNames && nzData?.englishName
             ? nzData.englishName
-            : (nzData?.tileName || clip.species_code);
-          speciesMap.set(clip.species_code, {
-            code: clip.species_code,
+            : (nzData?.tileName || speciesKey);
+          speciesMap.set(speciesKey, {
+            code: speciesKey,
             displayCode,
             tileName,
             name: clip.common_name,
-            color: SPECIES_COLORS[clip.species_code],
+            color: SPECIES_COLORS[speciesKey],
           });
         }
       }
 
       const poolSpecies = Array.from(speciesMap.values());
+      console.log('loadClips: Built speciesMap with keys:', Array.from(speciesMap.keys()));
       setAllPoolSpecies(poolSpecies);
 
       // Check for pre-selected species from PreRoundPreview
