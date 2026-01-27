@@ -727,10 +727,13 @@ function PackSelect() {
           </div>
         )}
 
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-          <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-            Sound Library <span style={{ fontSize: '14px' }}>🎧📚</span>
-          </h3>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <div>
+            <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
+              Sound Library
+            </h3>
+            <div style={{ fontSize: '14px', marginTop: '2px' }}>🎧📚</div>
+          </div>
           <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
             {/* Sort toggle */}
             <div style={{
@@ -753,7 +756,7 @@ function PackSelect() {
                 }}
                 title="Sort alphabetically by species code"
               >
-                🔤
+                🔤 A-Z
               </button>
               <button
                 onClick={() => setTaxonomicSort(true)}
@@ -768,7 +771,7 @@ function PackSelect() {
                 }}
                 title="Sort by taxonomic order"
               >
-                📊
+                📊 Taxonomy
               </button>
             </div>
           </div>
