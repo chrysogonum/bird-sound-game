@@ -347,7 +347,7 @@ function Help() {
             <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
               <span style={{ fontSize: '16px', flexShrink: 0 }}>🥝</span>
               <div>
-                <strong>New Zealand Birds:</strong> ChipNotes goes global, starting with New Zealand—home to some of the world's most unusual and iconic birds, species found nowhere else. Learn Tūī, Kea, Kiwi, Kākāpō, and 38 more native species. Birds display their Māori names during gameplay. Subspecies are distinguished with abbreviations like (NI) for North Island and (SI) for South Island.
+                <strong>New Zealand Birds:</strong> ChipNotes goes global, starting with New Zealand—home to some of the world's most unusual and iconic birds, species found nowhere else. 42 native species across 4 packs: "All NZ Birds" (complete collection), "Garden & Bush" (9 common species), "North Island" (21 species), and "South Island" (22 species). Birds display their Māori names during gameplay. Regional packs play region-specific recordings for subspecies like Toutouwai (NZ Robin).
               </div>
             </div>
           </div>
@@ -734,7 +734,7 @@ function Help() {
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
             <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)', opacity: 0.6 }}>🎯 Recent Updates</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
-              <div>🌏 <strong>Worldwide Bird Packs!</strong> – ChipNotes goes global! Starting with New Zealand, home to some of the world's most unusual and iconic birds. Learn to identify Tūī, Kea, Kiwi, Kākāpō, and 38 more native NZ species.</div>
+              <div>🌏 <strong>Worldwide Bird Packs!</strong> – ChipNotes goes global! Starting with New Zealand, home to some of the world's most unusual and iconic birds. 42 native NZ species across 4 regional packs.</div>
               <div>🎉 <strong>100+ Species!</strong> – Over 100 North American species with curated audio clips and spectrograms</div>
               <div>🔄 <strong>Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</div>
               <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 21, Eastern to 46, and Woodpeckers to 9</div>
@@ -798,7 +798,7 @@ function Help() {
           <VersionEntry version="4.0" date="January 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>🌏 Worldwide Bird Packs:</strong> ChipNotes goes global, starting with New Zealand—home to some of the most unusual and iconic birds on Earth, species found nowhere else.</li>
-              <li><strong>🥝 New Zealand Birds:</strong> 42 native NZ species across 3 packs: "All NZ Birds in ChipNotes" (complete collection), "Garden & Bush" (21 common species like Tūī, Kea, and Fantail), and "Rare & Endemic" (21 conservation stars including Kiwi, Kākāpō, and Takahē).</li>
+              <li><strong>🥝 New Zealand Birds:</strong> 42 native NZ species across 4 packs: "All NZ Birds" (complete collection), "Garden & Bush" (9 common species), "North Island" (21 species), and "South Island" (22 species). Regional packs play region-specific recordings for merged subspecies.</li>
               <li><strong>Te Reo Māori Names:</strong> NZ birds display their Māori names during gameplay (Tūī, Korimako, Ruru, Pīwakawaka, etc.) with English names shown in tooltips. Common names throughout the app show Māori first (e.g., "Korimako / Bellbird"). For subspecies sharing a Māori name, a parenthetical qualifier distinguishes them—e.g., "Toutouwai (NI)" for North Island Robin vs "Toutouwai (SI)" for South Island Robin.</li>
               <li><strong>NZ Sound Library:</strong> Expandable sound library showing all clips for each NZ species with recordist attribution and Xeno-canto source links.</li>
               <li><strong>NZ Custom Pack Builder:</strong> Build custom packs from NZ birds with region-aware navigation that remembers your region when going back.</li>
