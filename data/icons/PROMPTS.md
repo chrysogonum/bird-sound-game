@@ -29,7 +29,7 @@ Size: 128x128 or 256x256 pixels
 | BLJA | Blue Jay | Stylized icon of a Blue Jay, simple flat design, circular frame, bright blue with white and black markings, white background, game asset style, clean vector look, centered composition, no text |
 | AMCR | American Crow | Stylized icon of an American Crow, simple flat design, circular frame, all black bird, white background, game asset style, clean vector look, centered composition, no text |
 | TUTI | Tufted Titmouse | Stylized icon of a Tufted Titmouse, simple flat design, circular frame, gray bird with crest, white background, game asset style, clean vector look, centered composition, no text |
-| AMGO | American Goldfinch | Stylized icon of an American Goldfinch, simple flat design, circular frame, bright yellow with black wings, white background, game asset style, clean vector look, centered composition, no text |
+| AGOL | American Goldfinch | Stylized icon of an American Goldfinch, simple flat design, circular frame, bright yellow with black wings, white background, game asset style, clean vector look, centered composition, no text |
 | AMRO | American Robin | Stylized icon of an American Robin, simple flat design, circular frame, gray-brown with orange breast, white background, game asset style, clean vector look, centered composition, no text |
 | EABL | Eastern Bluebird | Stylized icon of an Eastern Bluebird, simple flat design, circular frame, bright blue with rusty breast, white background, game asset style, clean vector look, centered composition, no text |
 | HOFI | House Finch | Stylized icon of a House Finch, simple flat design, circular frame, brown streaked bird with red head, white background, game asset style, clean vector look, centered composition, no text |
@@ -138,7 +138,7 @@ YBSA: Stylized icon of a Yellow-bellied Sapsucker, simple flat design, circular 
 | SSHA | Sharp-shinned Hawk | Stylized icon of a Sharp-shinned Hawk, simple flat design, circular frame, small blue-gray hawk with rusty barred breast, white background, game asset style, clean vector look, centered composition, no text |
 | RTHA | Red-tailed Hawk | Stylized icon of a Red-tailed Hawk, simple flat design, circular frame, brown hawk with rusty red tail and pale chest, white background, game asset style, clean vector look, centered composition, no text |
 | RTHU | Ruby-throated Hummingbird | Stylized icon of a Ruby-throated Hummingbird, simple flat design, circular frame, tiny green bird with iridescent red throat, white background, game asset style, clean vector look, centered composition, no text |
-| BADO | Barred Owl | Stylized icon of a Barred Owl, simple flat design, circular frame, large brown owl with dark barring on chest and dark eyes, white background, game asset style, clean vector look, centered composition, no text |
+| BAOW | Barred Owl | Stylized icon of a Barred Owl, simple flat design, circular frame, large brown owl with dark barring on chest and dark eyes, white background, game asset style, clean vector look, centered composition, no text |
 
 ---
 
