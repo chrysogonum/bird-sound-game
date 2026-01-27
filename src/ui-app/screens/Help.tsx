@@ -33,6 +33,7 @@ function Help() {
     'The Spectrograms',
     'Scoring',
     'The Bird Packs',
+    'The Bird Gallery',
     'The Levels',
     'Tips',
     'Training Mode',
@@ -357,6 +358,47 @@ function Help() {
               feedback@chipnotes.app
             </a>
             !
+          </p>
+        </Section>
+
+        {/* The Bird Gallery */}
+        <Section
+          title="The Bird Gallery"
+          isExpanded={expandedSections.has('The Bird Gallery')}
+          onToggle={() => toggleSection('The Bird Gallery')}
+        >
+          <p style={{ marginBottom: '12px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
+            Before you play, get to know your birds! Look for the{' '}
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '24px',
+              height: '24px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '4px',
+              fontSize: '16px',
+              verticalAlign: 'middle',
+            }}>🖼️</span>
+            {' '}gallery icon on any pack's Level Select screen.
+          </p>
+
+          <div className="card" style={{ marginBottom: '12px', background: 'rgba(100, 181, 246, 0.08)', border: '1px solid rgba(100, 181, 246, 0.2)' }}>
+            <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#64B5F6' }}>🖼️ See the Birds</h4>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+              Tap the gallery icon to see all birds in a pack displayed as large, scrollable cards. Each card shows:
+            </p>
+            <ul style={{ margin: '8px 0 0 0', paddingLeft: '20px', fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
+              <li>A large icon so you can see what the bird looks like</li>
+              <li>All the ways the bird is known—common names, Māori names, 4-letter codes, and scientific names</li>
+              <li>A <strong>▶ play button</strong> to hear the bird's signature sound</li>
+            </ul>
+          </div>
+
+          <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+            This is a great way to preview unfamiliar species before jumping into gameplay.
+            Tap the play button on each card to hear what you'll be listening for,
+            while seeing the bird's face at the same time—connecting sight and sound helps the names stick!
           </p>
         </Section>
 
