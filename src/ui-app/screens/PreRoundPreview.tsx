@@ -3,7 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
 import { trackTaxonomicSortToggle, trackNZSortModeChange } from '../utils/analytics';
 import { useNZSortMode, getSortModeDisplayNames } from '../hooks/useNZSortMode';
-import { loadMergeConfig, deduplicateSubspecies, getIconCode } from '../utils/nzSubspeciesMerge';
+import { loadMergeConfig, deduplicateSubspecies, getIconCode, getMergeInfoByCode } from '../utils/nzSubspeciesMerge';
 
 interface ClipData {
   clip_id: string;
@@ -283,12 +283,18 @@ function PreRoundPreview() {
 
     // First build the species info with tileNames
     const unsorted = dedupedCodes.map((code) => {
-      // For merged subspecies, use the icon code for clip lookup
+      // For merged subspecies, use the icon code for display/lookup
       const iconCode = isNZPack ? getIconCode(code) : code;
+
+      // For clip lookup, we need to search for clips with ANY subspecies code that maps to this icon
+      // e.g., for Toutouwai (iconCode nezrob2), search for both nezrob2 AND nezrob3 clips
+      const mergeInfo = isNZPack ? getMergeInfoByCode(iconCode) : null;
+      const clipSearchCodes = mergeInfo ? mergeInfo.subspecies : [iconCode];
+
       const canonicalClip = clipsData.find(
-        c => c.species_code === iconCode && c.canonical && !c.rejected
+        c => clipSearchCodes.includes(c.species_code) && c.canonical && !c.rejected
       );
-      const anyClip = clipsData.find(c => c.species_code === iconCode && !c.rejected);
+      const anyClip = clipsData.find(c => clipSearchCodes.includes(c.species_code) && !c.rejected);
       const clip = canonicalClip || anyClip;
 
       const nzData = nzDisplayCodes[iconCode];
@@ -361,13 +367,17 @@ function PreRoundPreview() {
     const pool = levelConfig.species_pool || [];
     const count = levelConfig.species_count || pool.length;
 
+    // For NZ packs, deduplicate BEFORE shuffling to avoid selecting both subspecies
+    // (e.g., both nezrob2 and nezrob3) which would collapse to 1 bird after dedup
+    const dedupedPool = isNZPack ? deduplicateSubspecies(pool) : pool;
+
     // Shuffle and take count
-    const shuffled = [...pool].sort(() => Math.random() - 0.5);
+    const shuffled = [...dedupedPool].sort(() => Math.random() - 0.5);
     const selected = shuffled.slice(0, count);
 
-    // Use buildSpeciesInfo for consistent handling (including NZ deduplication)
+    // Use buildSpeciesInfo for consistent handling
     setSelectedSpecies(buildSpeciesInfo(selected, clipsData));
-  }, [buildSpeciesInfo]);
+  }, [buildSpeciesInfo, isNZPack]);
 
   // Load level and clips
   useEffect(() => {
