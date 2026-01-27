@@ -539,8 +539,8 @@ function PackSelect() {
                 bottom: '-10px',
                 width: '80px',
                 height: '80px',
-                opacity: 0.5,
-                filter: 'brightness(1.3)',
+                opacity: 0.75,
+                filter: 'brightness(1.2)',
                 transform: 'rotate(-15deg)',
                 objectFit: 'cover',
               }}
@@ -583,6 +583,7 @@ function PackSelect() {
                   lineHeight: 1.3,
                   marginBottom: '6px',
                   paddingRight: '50px',
+                  textShadow: '0 1px 3px rgba(0, 0, 0, 0.5)',
                 }}
               >
                 {pack.name}
@@ -590,10 +591,11 @@ function PackSelect() {
               <div
                 style={{
                   fontSize: '12px',
-                  color: 'rgba(245, 240, 230, 0.6)',
+                  color: 'rgba(245, 240, 230, 0.75)',
                   lineHeight: 1.4,
                   marginBottom: '10px',
                   whiteSpace: 'pre-line',
+                  textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)',
                 }}
               >
                 {pack.description}
@@ -655,8 +657,8 @@ function PackSelect() {
             bottom: '-10px',
             width: '80px',
             height: '80px',
-            opacity: 0.5,
-            filter: 'brightness(1.3)',
+            opacity: 0.75,
+            filter: 'brightness(1.2)',
             transform: 'rotate(-15deg)',
             objectFit: 'cover',
           }}
