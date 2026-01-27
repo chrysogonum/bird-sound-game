@@ -10,7 +10,7 @@ import type { GameEvent, LevelConfig, RoundState } from '@engine/game/types';
 import type { ScoreBreakdown, FeedbackType } from '@engine/scoring/types';
 import { SCORE_VALUES } from '@engine/scoring/types';
 import { getAudioAdapter, type PannerNode } from '@engine/audio/CrossBrowserAudioAdapter';
-import { loadMergeConfig, areEquivalentSpecies } from '../utils/nzSubspeciesMerge';
+import { loadMergeConfig, areEquivalentSpecies, getMergeInfoByCode, getSubspeciesForRegion } from '../utils/nzSubspeciesMerge';
 
 /** Clip metadata from clips.json */
 export interface ClipMetadata {
@@ -195,6 +195,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
   const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string; englishName?: string }>>({});
   const [nzDisplayCodesLoaded, setNzDisplayCodesLoaded] = useState(false);
 
+  // Pack's subspecies filter (for regional NZ packs)
+  // Maps species codes to the specific subspecies code that should be used for clips
+  const [subspeciesFilter, setSubspeciesFilter] = useState<Record<string, string>>({});
+  const [regionFilter, setRegionFilter] = useState<string | undefined>(undefined);
+
   // Clips and species data
   const [clips, setClips] = useState<ClipMetadata[]>([]);
   const [allPoolSpecies, setAllPoolSpecies] = useState<SpeciesInfo[]>([]); // All species in the pool
@@ -231,6 +236,30 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
         setNzDisplayCodesLoaded(true); // Still mark as loaded so we can proceed
       });
   }, []);
+
+  // Load pack config to get subspecies_filter for regional packs
+  useEffect(() => {
+    const isNZPack = level.pack_id.startsWith('nz_');
+    if (!isNZPack) {
+      setSubspeciesFilter({});
+      setRegionFilter(undefined);
+      return;
+    }
+
+    // Try to load the pack config
+    fetch(`${import.meta.env.BASE_URL}data/packs/${level.pack_id}.json`)
+      .then((res) => res.json())
+      .then((packConfig: { subspecies_filter?: Record<string, string>; region_filter?: string }) => {
+        console.log('Loaded pack config for', level.pack_id, '- subspecies_filter:', packConfig.subspecies_filter, 'region_filter:', packConfig.region_filter);
+        setSubspeciesFilter(packConfig.subspecies_filter || {});
+        setRegionFilter(packConfig.region_filter);
+      })
+      .catch((err) => {
+        console.warn('Failed to load pack config for', level.pack_id, err);
+        setSubspeciesFilter({});
+        setRegionFilter(undefined);
+      });
+  }, [level.pack_id]);
 
   // Helper function to sort species based on preference
   const sortSpecies = useCallback((speciesToSort: SpeciesInfo[]): SpeciesInfo[] => {
@@ -610,6 +639,9 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
    * - "canonical": only canonical clips
    * - number (e.g., 3): canonical + up to (N-1) non-canonical clips
    * - "all": all non-rejected clips
+   *
+   * For regional NZ packs (North Island, South Island), uses subspecies_filter
+   * to only include clips from the correct regional subspecies.
    */
   const selectClipsForSpecies = useCallback((
     speciesCode: string,
@@ -617,11 +649,63 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     clipSelection: 'canonical' | number | 'all',
     random: () => number
   ): ClipMetadata[] => {
-    // Get all non-rejected clips for this species
+    // Determine which subspecies code(s) to use for clips
+    // For regional packs, this filters to the correct regional subspecies
+    let clipSpeciesCodes = [speciesCode];
+
+    // Check if we have a region filter and this species is a merged subspecies
+    if (regionFilter) {
+      // Check if there's a subspecies filter entry for this species
+      const filteredCode = subspeciesFilter[speciesCode];
+      if (filteredCode) {
+        // Use the filtered subspecies code (e.g., nezrob2 for NI, nezrob3 for SI)
+        clipSpeciesCodes = [filteredCode];
+        console.log(`selectClipsForSpecies: Using subspecies filter ${speciesCode} -> ${filteredCode} for region ${regionFilter}`);
+      } else {
+        // Check if this species is part of a merged subspecies group
+        const mergeInfo = getMergeInfoByCode(speciesCode);
+        if (mergeInfo) {
+          // Find the subspecies code for the current region
+          const regionalCode = getSubspeciesForRegion(
+            // Get the merge ID by finding which merge this code belongs to
+            Object.keys(mergeInfo.region_labels).find(
+              code => mergeInfo.region_labels[code] === regionFilter
+            ) ? speciesCode : speciesCode,
+            regionFilter
+          );
+          if (regionalCode) {
+            clipSpeciesCodes = [regionalCode];
+            console.log(`selectClipsForSpecies: Using regional subspecies ${speciesCode} -> ${regionalCode} for region ${regionFilter}`);
+          }
+        }
+      }
+    }
+
+    // Get all non-rejected clips for the target subspecies code(s)
     const speciesClips = allClips.filter(
-      (c) => c.species_code === speciesCode && !c.rejected
+      (c) => clipSpeciesCodes.includes(c.species_code) && !c.rejected
     );
 
+    if (speciesClips.length === 0) {
+      // Fallback: if no clips found for filtered subspecies, try original species code
+      console.warn(`selectClipsForSpecies: No clips found for ${clipSpeciesCodes.join(', ')}, falling back to ${speciesCode}`);
+      const fallbackClips = allClips.filter((c) => c.species_code === speciesCode && !c.rejected);
+      if (fallbackClips.length === 0) return [];
+      // Continue with fallback clips
+      return selectClipsFromPool(fallbackClips, clipSelection, random);
+    }
+
+    return selectClipsFromPool(speciesClips, clipSelection, random);
+  }, [subspeciesFilter, regionFilter]);
+
+  /**
+   * Helper to select clips from a pool based on clip_selection mode
+   */
+  const selectClipsFromPool = useCallback((
+    speciesClips: ClipMetadata[],
+    clipSelection: 'canonical' | number | 'all',
+    random: () => number
+  ): ClipMetadata[] => {
     if (speciesClips.length === 0) return [];
 
     // Find canonical clip(s)
