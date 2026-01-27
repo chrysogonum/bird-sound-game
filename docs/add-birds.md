@@ -334,7 +334,8 @@ The NZ workflow can be adapted for other regions (UK, Australia, etc.):
 | `audio_ingest.py` | Download & process from Xeno-canto |
 | `cornell_ingest.py` | Process Cornell Macaulay downloads |
 | `nz_ingest.py` | Download NZ DOC audio |
-| `clip_selector.py` | **Manual clip extraction tool** |
+| `clip_selector.py` | Manual clip extraction from raw recordings |
+| `clip_editor.py` | **Fix/replace existing clips, add clips by species** |
 | `review_clips.py` | Review & curate clips |
 | `spectrogram_gen.py` | Generate spectrograms |
 | `merge_candidates.py` | Safely add clips to clips.json |
@@ -360,6 +361,87 @@ The NZ workflow can be adapted for other regions (UK, Australia, etc.):
 
 ---
 
+## Editing & Fixing Existing Clips
+
+The **Clip Editor** (`scripts/clip_editor.py`) is a tool for fixing problematic clips and adding more clips to existing species. It differs from the Clip Selector in that it's designed around *existing clips in your game* rather than raw source recordings.
+
+### When to Use Each Tool
+
+| Tool | Use Case |
+|------|----------|
+| `clip_editor.py` | Fix a problematic clip, add clips to existing species, browse clips by species |
+| `clip_selector.py` | Extract clips from long raw recordings (NZ/DOC workflow) |
+| `review_clips.py` | Curate clips (mark canonical, reject poor quality) |
+
+### Clip Editor Features
+
+- **Browse by species** - See all existing clips for a species
+- **Auto-download sources** - Fetches full XC recording when you click a clip
+- **Replace clips** - Extract new segment and overwrite problematic clip (with backup)
+- **Add new clips** - Extract additional clips from same or new sources
+- **Proper naming** - New clips named `{SPECIES}_{XCID}_{N}` (e.g., `EAME_906697_1`)
+
+### Command Line Options
+
+```bash
+python scripts/clip_editor.py [OPTIONS]
+
+Options:
+  --clip CLIP_ID      Load a specific clip for editing (by ID or filename)
+  --species CODE      Browse/edit clips for a species (4-letter code)
+  --xc XCID           Download and load a Xeno-Canto recording
+  --source FILE       Load a local source file
+  --port PORT         Server port (default: 8889)
+```
+
+### Example Workflows
+
+#### Fix a problematic clip
+```bash
+# A clip has background noise or wrong bird - need to re-extract
+python scripts/clip_editor.py --clip EAME_906697
+
+# Opens browser showing:
+# - All EAME clips on the right
+# - Source recording (auto-downloaded from XC) in waveform editor
+# - Click problematic clip, find clean segment, click "Replace Selected Clip"
+```
+
+#### Add more clips to existing species
+```bash
+# Species needs more variety
+python scripts/clip_editor.py --species RWBL
+
+# Browse existing clips, load a new XC recording, extract additional clips
+```
+
+#### Add clips from new XC recording
+```bash
+# Found a great recording on Xeno-Canto
+python scripts/clip_editor.py --xc 123456 --species RWBL
+
+# Waveform loads immediately, extract multiple clips
+```
+
+### Workflow in Browser
+
+1. **Right panel** shows all existing clips for the species
+2. **Click a clip** to load its XC source into the waveform editor
+3. **Scrub and preview** to find clean vocalizations
+4. **Set selection** by clicking waveform, adjust duration slider
+5. **Extract New Clip** creates a new clip with proper naming
+6. **Replace Selected Clip** overwrites the selected clip (backs up old version)
+
+### Backup Behavior
+
+When replacing a clip, the old audio and spectrogram are backed up to:
+```
+data/backups/{YYYYMMDD}/{clip_id}.wav
+data/backups/{YYYYMMDD}/{clip_id}.png
+```
+
+---
+
 ## Troubleshooting
 
 ### Clip Selector won't start
@@ -381,4 +463,4 @@ The NZ workflow can be adapted for other regions (UK, Australia, etc.):
 
 ---
 
-*Last updated: January 2026 (v4.0 - NZ Birds release)*
+*Last updated: January 2026 (v4.09 - Added clip_editor.py)*
