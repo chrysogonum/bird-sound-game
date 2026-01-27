@@ -480,10 +480,13 @@ function NZPackSelect() {
 
       {/* Sound Library */}
       <div ref={soundLibraryRef}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
-          <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
-            Sound Library 🎧📚
-          </h3>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '12px' }}>
+          <div>
+            <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
+              Sound Library
+            </h3>
+            <div style={{ fontSize: '14px', marginTop: '2px' }}>🎧📚</div>
+          </div>
           {/* 3-way sort toggle */}
           <div style={{
             display: 'flex',
@@ -545,7 +548,7 @@ function NZPackSelect() {
               }}
               title="Sort by taxonomic order"
             >
-              📊
+              📊 Taxonomy
             </button>
           </div>
         </div>
