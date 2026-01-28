@@ -34,3 +34,5 @@ coverage/
 
 # Private documentation
 docs/private.docs/
+client_secret_*.json
+ga_token.json
