@@ -1,4 +1,4 @@
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 import { trackExternalLinkClick } from '../utils/analytics';
 
@@ -31,12 +31,12 @@ function Help() {
     'Why Learn Bird Song?',
     'ChipNotes Basics',
     'The Spectrograms',
+    'Training Mode',
     'Scoring',
     'The Bird Packs',
     'The Bird Gallery',
+    'The Sound Library',
     'The Levels',
-    'Tips',
-    'Training Mode',
     'Taxonomic Sorting',
     'The 4-Letter Codes',
     'About & Credits',
@@ -172,7 +172,7 @@ function Help() {
             className="btn-icon"
             onClick={() => navigate('/')}
             aria-label="Home"
-            style={{ color: 'var(--color-accent)', opacity: 0.6 }}
+            style={{ color: 'var(--color-accent)' }}
           >
             <HomeIcon />
           </button>
@@ -272,6 +272,72 @@ function Help() {
           </p>
         </Section>
 
+        {/* Training Mode */}
+        <Section
+          id="training-mode"
+          title="Training Mode"
+          isExpanded={expandedSections.has('Training Mode')}
+          onToggle={() => toggleSection('Training Mode')}
+        >
+          <p style={{ marginBottom: '12px' }}>
+            Training Mode shows bird icons and species codes on each tile alongside the spectrogram - perfect for learning which sounds belong to which birds.
+          </p>
+
+          {/* Side-by-side: Eye icon info + Example tile */}
+          <div style={{
+            display: 'flex',
+            gap: '12px',
+            alignItems: 'center',
+            marginBottom: '12px',
+          }}>
+            {/* Eye icon info box */}
+            <div style={{
+              background: 'var(--color-surface)',
+              padding: '10px',
+              borderRadius: '8px',
+              fontSize: '13px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              flex: 1,
+            }}>
+              <span style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '28px',
+                height: '28px',
+                background: 'rgba(76, 175, 80, 0.3)',
+                border: '2px solid rgba(76, 175, 80, 0.6)',
+                borderRadius: '50%',
+                color: '#81C784',
+                flexShrink: 0,
+              }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </span>
+              <span style={{ color: 'var(--color-text-muted)' }}>Eye icon glows green when ON</span>
+            </div>
+            {/* Training mode tile example */}
+            <img
+              src={`${import.meta.env.BASE_URL}images/training-mode-example.png`}
+              alt="Training mode tile showing spectrogram with bird icon and NOCA label"
+              style={{
+                width: '120px',
+                height: 'auto',
+                borderRadius: '8px',
+                flexShrink: 0,
+              }}
+            />
+          </div>
+
+          <p>
+            Enable it on the preview screen before starting a round, or toggle on/off anytime during gameplay using the <strong>eye icon</strong> (next to the back button). Start with labels visible, then toggle off to challenge yourself!
+          </p>
+        </Section>
+
         {/* Scoring */}
         <Section
           title="Scoring"
@@ -282,6 +348,9 @@ function Help() {
           <ScoreRow label="Good" points={75} description="Right bird + right ear" color="var(--color-success)" />
           <ScoreRow label="Partial" points={25} description="Right bird, wrong ear" color="var(--color-accent)" />
           <ScoreRow label="Miss" points={0} description="Wrong bird or no response" color="var(--color-error)" />
+          <p style={{ marginTop: '12px', fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+            After each round, check the confusion matrix to see which birds you mixed up. If you confused 4+ birds, use the 🎯 <strong>"Drill These Birds"</strong> button to immediately practice just those species!
+          </p>
         </Section>
 
         {/* The Bird Packs */}
@@ -290,6 +359,10 @@ function Help() {
           isExpanded={expandedSections.has('The Bird Packs')}
           onToggle={() => toggleSection('The Bird Packs')}
         >
+          <p style={{ marginBottom: '16px', fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+            <strong style={{ color: 'var(--color-text)' }}>Start with Backyard Birds</strong>—even if you're eager for more! Mastering 6 distinctive species builds the foundation for tackling larger packs.
+          </p>
+
           {/* Custom Pack Builder callout */}
           <div style={{
             marginBottom: '16px',
@@ -402,6 +475,42 @@ function Help() {
           </p>
         </Section>
 
+        {/* The Sound Library */}
+        <Section
+          title="The Sound Library"
+          isExpanded={expandedSections.has('The Sound Library')}
+          onToggle={() => toggleSection('The Sound Library')}
+        >
+          <p style={{ marginBottom: '12px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
+            The Sound Library 🎧📚 lets you explore every audio clip in the game. Access it from three places:
+          </p>
+
+          <div className="card" style={{ marginBottom: '12px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.2)' }}>
+            <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: 'var(--color-accent)' }}>📦 Pack Select Page</h4>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+              Scroll to the bottom of the Pack Select page to find the complete Sound Library. Expand any species to see all available clips with recordist credits and source links. Great for deep exploration!
+            </p>
+          </div>
+
+          <div className="card" style={{ marginBottom: '12px', background: 'rgba(100, 181, 246, 0.08)', border: '1px solid rgba(100, 181, 246, 0.2)' }}>
+            <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#64B5F6' }}>📋 Level Select Page</h4>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+              Tap the 🎧📚 icon to open a modal with all clips for every bird in that pack. Quick access without leaving the page.
+            </p>
+          </div>
+
+          <div className="card" style={{ marginBottom: '12px', background: 'rgba(76, 175, 80, 0.08)', border: '1px solid rgba(76, 175, 80, 0.2)' }}>
+            <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#81C784' }}>🏁 Ready to Play Page</h4>
+            <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
+              Tap the 🎧📚 icon to preview clips for just the 9 birds you're about to play. Perfect for a quick refresher before the round starts!
+            </p>
+          </div>
+
+          <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5, marginTop: '12px' }}>
+            Each clip shows its vocalization type (song, call, drum, etc.) and whether it's the signature clip (⭐) used in Level 1.
+          </p>
+        </Section>
+
         {/* The Levels */}
         <Section
           title="The Levels"
@@ -409,7 +518,7 @@ function Help() {
           onToggle={() => toggleSection('The Levels')}
         >
           <p style={{ marginBottom: '12px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
-            Each pack has 6 levels that build your skills:
+            Each pack has 6 levels that build your skills. Your selected birds stay the same between rounds—hit the shuffle button on the Ready to Play screen for a fresh set.
           </p>
           <LevelInfo level={1} title="Meet the Birds" description="One clear recording per bird, single ear. Learn each signature voice." />
           <LevelInfo level={2} title="Sound Variations" description="Up to 3 recordings per bird. Same species, different songs." />
@@ -419,89 +528,17 @@ function Help() {
           <LevelInfo level={6} title="Master Birder" description="Everything at once. You're a pro now." />
         </Section>
 
-        {/* Tips */}
-        <Section
-          title="Tips"
-          isExpanded={expandedSections.has('Tips')}
-          onToggle={() => toggleSection('Tips')}
-        >
-          <Tip>Start with the 6 common birds, even if you're eager for more.</Tip>
-          <Tip>
-            Visit the{' '}
-            <Link to="/pack-select#bird-reference" state={{ fromHelp: true }} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-              Sound Library 🎧📚
-            </Link>
-            {' '}to preview all sounds.
-          </Tip>
-          <Tip>Your birds stay the same between rounds. Hit the shuffle button on the preview screen for a fresh set.</Tip>
-          <Tip>Don't rush. Let the sound register before you tap.</Tip>
-          <Tip>Check the round summary and confusion matrix to see which birds need practice. If you confused 4+ birds, use the "Drill These Birds" button to immediately practice just those species.</Tip>
-          <Tip>Adjust tile speed in Settings if things move too fast (or too slow). Once you're an expert, try playing muted using only spectrograms!</Tip>
-        </Section>
-
-        {/* Training Mode */}
-        <Section
-          id="training-mode"
-          title="Training Mode"
-          isExpanded={expandedSections.has('Training Mode')}
-          onToggle={() => toggleSection('Training Mode')}
-        >
-          <div style={{
-            background: 'var(--color-surface)',
-            padding: '12px',
-            borderRadius: '8px',
-            marginBottom: '12px',
-            fontSize: '14px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-          }}>
-            <span style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '32px',
-              height: '32px',
-              background: 'rgba(76, 175, 80, 0.3)',
-              border: '2px solid rgba(76, 175, 80, 0.6)',
-              borderRadius: '50%',
-              color: '#81C784',
-            }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </span>
-            <span style={{ color: 'var(--color-text-muted)' }}>Eye icon glows green when Training Mode is ON</span>
-          </div>
-          <p>
-            Training Mode shows bird icons and species codes on each tile alongside the spectrogram - perfect for learning which sounds belong to which birds.
-          </p>
-          <p>
-            You can enable it on the preview screen before starting a round, or toggle it on/off anytime during gameplay using the <strong>eye icon</strong> (next to the back button). Start with labels visible, then toggle off to challenge yourself!
-          </p>
-        </Section>
-
         {/* Taxonomic Sorting */}
         <Section
           title="Taxonomic Sorting"
           isExpanded={expandedSections.has('Taxonomic Sorting')}
           onToggle={() => toggleSection('Taxonomic Sorting')}
         >
-          <p>
-            Taxonomic sorting can be toggled on and off throughout the game - on the preview screen, in Sound Library sections, in the Custom Pack Builder, and during gameplay. When enabled, birds appear in phylogenetic order with scientific names instead of alphabetically. 🐦🤓
-          </p>
-          <p style={{ marginTop: '12px' }}>
-            Birds are sorted by their position on the evolutionary tree (using the 2025 eBird/AOS taxonomy), and common names are replaced with <em>scientific names in italics</em>. Perfect for learning evolutionary relationships!
-          </p>
-          <p style={{ marginTop: '12px' }}>
-            Most beginners stick with alphabetical sorting during gameplay - it's faster to find birds by their 4-letter codes. But as you advance, you might prefer taxonomic sorting everywhere, building muscle memory based on evolutionary relationships. Either way works - you're training your brain to recognize patterns!
-          </p>
           <div style={{
             background: 'var(--color-surface)',
             padding: '12px',
             borderRadius: '8px',
-            marginTop: '12px',
+            marginBottom: '12px',
             fontSize: '14px',
             display: 'flex',
             alignItems: 'center',
@@ -527,6 +564,15 @@ function Help() {
             </span>
             <span style={{ color: 'var(--color-text-muted)' }}>Toggle glows blue when Taxonomic Sorting is ON</span>
           </div>
+          <p>
+            Taxonomic sorting can be toggled on and off throughout the game - on the preview screen, in Sound Library sections, in the Custom Pack Builder, and during gameplay. When enabled, birds appear in phylogenetic order with scientific names instead of alphabetically. 🐦🤓
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            Birds are sorted by their position on the evolutionary tree (using the 2025 eBird/AOS taxonomy), and common names are replaced with <em>scientific names in italics</em>. Perfect for learning evolutionary relationships!
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            Most beginners stick with alphabetical sorting during gameplay - it's faster to find birds by their 4-letter codes. But as you advance, you might prefer taxonomic sorting everywhere, building muscle memory based on evolutionary relationships. Either way works - you're training your brain to recognize patterns!
+          </p>
         </Section>
 
         {/* Bird Codes */}
@@ -749,6 +795,17 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.12" date="January 27, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Meet Birders Where They're At:</strong> North American birds can now be displayed with common names instead of 4-letter codes—toggle on the Ready to Play screen. Whether you're fluent in banding codes or prefer "Northern Cardinal," ChipNotes adapts to you.</li>
+              <li><strong>Settings Status Line:</strong> Current settings (Training, Display, Sort) now shown above the Ready to Play button for quick reference.</li>
+              <li><strong>Sound Library Modals:</strong> The 🎧📚 icon on Ready to Play and Level Select pages now opens a Sound Library modal showing all clips for the selected birds—no more navigating away to explore sounds.</li>
+              <li><strong>Slower Scroll Option:</strong> Scroll speed can now go as low as 0.25x for players who want more time to identify birds.</li>
+              <li><strong>UI Polish:</strong> Home icons and Custom Pack card now more vibrant; added home button to NZ Pack Select page for easier navigation.</li>
+              <li><strong>How To Page Refresh:</strong> Reorganized sections for better flow—Training Mode now follows Spectrograms, new Sound Library section explains all access points. Tips integrated into relevant sections. Added visual examples for Training Mode and Taxonomic Sorting.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.11" date="January 27, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Gameplay Tile Redesign:</strong> Bird icons are now larger with names displayed below in up to 2 lines—no more truncated names like "Yellow..." or "Orange...".</li>
@@ -1493,21 +1550,6 @@ function LevelInfo({ level, title, description }: { level: number; title: string
         <div style={{ fontWeight: 600, marginBottom: '2px' }}>{title}</div>
         <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.3 }}>{description}</div>
       </div>
-    </div>
-  );
-}
-
-function Tip({ children }: { children: React.ReactNode }) {
-  return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'flex-start',
-      gap: '8px',
-      marginBottom: '8px',
-      fontSize: '14px',
-    }}>
-      <span style={{ color: 'var(--color-accent)' }}>•</span>
-      <span>{children}</span>
     </div>
   );
 }
