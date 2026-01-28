@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
 import { trackTaxonomicSortToggle, trackNZSortModeChange } from '../utils/analytics';
 import { useNZSortMode, getSortModeDisplayNames } from '../hooks/useNZSortMode';
+import { useNADisplayMode } from '../hooks/useNADisplayMode';
 import { loadMergeConfig, deduplicateSubspecies, getIconCode, getMergeInfoByCode } from '../utils/nzSubspeciesMerge';
 
 interface ClipData {
@@ -10,6 +11,8 @@ interface ClipData {
   species_code: string;
   common_name: string;
   file_path: string;
+  vocalization_type?: string;
+  spectrogram_path?: string;
   canonical?: boolean;
   rejected?: boolean;
 }
@@ -172,11 +175,16 @@ function PreRoundPreview() {
 
   // NZ-specific 3-way sort mode
   const [nzSortMode, setNzSortMode] = useNZSortMode();
+  // NA display mode (4-letter code vs common name)
+  const [naDisplayMode, setNaDisplayMode] = useNADisplayMode();
   const [fullCustomPack, setFullCustomPack] = useState<string[]>([]);  // All species in custom pack (up to 30)
   const [metadataLoaded, setMetadataLoaded] = useState(false);  // Track when NZ display codes etc are loaded
   const [mergeConfigLoaded, setMergeConfigLoaded] = useState(false);  // Track when subspecies merge config is loaded
+  const [showSoundLibrary, setShowSoundLibrary] = useState(false);  // Mini sound library modal
+  const [libraryPlayingClip, setLibraryPlayingClip] = useState<string | null>(null);  // Currently playing clip in library
   const selectedForRef = useRef<string | null>(null);  // Track which pack/level we've selected species for
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const libraryAudioRef = useRef<HTMLAudioElement | null>(null);
 
   // Toggle training mode
   const handleTrainingModeToggle = () => {
@@ -299,7 +307,17 @@ function PreRoundPreview() {
 
       const nzData = nzDisplayCodes[iconCode];
       const englishName = nzData?.englishName || commonNames[iconCode] || iconCode;
-      const tileName = nzData?.tileName || iconCode;
+
+      // For NZ packs, use Māori tileName; for NA packs, use code or common name based on display mode
+      let tileName: string;
+      if (isNZPack) {
+        tileName = nzData?.tileName || iconCode;
+      } else {
+        // NA birds: show 4-letter code or common name based on user preference
+        tileName = naDisplayMode === 'name'
+          ? (commonNames[iconCode] || iconCode)
+          : iconCode;
+      }
 
       return {
         code: iconCode, // Use icon code as the primary code for merged species
@@ -335,13 +353,14 @@ function PreRoundPreview() {
       }
     } else {
       // NA packs use 2-way toggle (alphabetic/taxonomic)
+      // Always sort by 4-letter code alphabetically (not tileName, which may be common name)
       sorted = taxonomicSort && Object.keys(taxonomicOrder).length > 0
         ? unsorted.sort((a, b) => {
             const orderA = taxonomicOrder[a.code] || 9999;
             const orderB = taxonomicOrder[b.code] || 9999;
             return orderA - orderB;
           })
-        : unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
+        : unsorted.sort((a, b) => a.code.localeCompare(b.code));
     }
 
     // Assign colors based on sorted position
@@ -349,7 +368,7 @@ function PreRoundPreview() {
       ...species,
       color: SPECIES_COLORS[index % SPECIES_COLORS.length],
     }));
-  }, [commonNames, scientificNames, nzDisplayCodes, taxonomicSort, taxonomicOrder, isNZPack, nzSortMode, mergeConfigLoaded]);
+  }, [commonNames, scientificNames, nzDisplayCodes, taxonomicSort, taxonomicOrder, isNZPack, nzSortMode, naDisplayMode, mergeConfigLoaded]);
 
   // Select random subset from custom pack (for packs with >9 birds)
   const selectRandomFromCustomPack = useCallback((allSpecies: string[], clipsData: ClipData[]) => {
@@ -673,9 +692,11 @@ function PreRoundPreview() {
     const speciesCodes = selectedSpecies.map(s => s.code);
     sessionStorage.setItem('roundSpecies', JSON.stringify(speciesCodes));
 
-    // Store NZ sort mode so gameplay can show names in the same format
+    // Store sort/display mode so gameplay can show names in the same format
     if (isNZPack) {
       sessionStorage.setItem('nzSortMode', nzSortMode);
+    } else {
+      sessionStorage.setItem('naDisplayMode', naDisplayMode);
     }
 
     navigate(`/gameplay?mode=campaign&pack=${packId}&level=${levelId}&preview=true`);
@@ -742,38 +763,27 @@ function PreRoundPreview() {
             Level {level.level_id}: {level.title}
           </div>
         </div>
-        {/* Sound Library link - hidden for custom packs since birds could be from any pack */}
-        {packId !== 'custom' && (
-          <button
-            onClick={() => {
-              // Save current species selection before navigating so we can restore it
-              const speciesCodes = selectedSpecies.map(s => s.code);
-              sessionStorage.setItem('roundSpecies', JSON.stringify(speciesCodes));
-              navigate(
-                isNZPack
-                  ? `/nz-packs?scrollTo=${packId}&expandPack=${packId}#bird-reference`
-                  : `/pack-select?scrollTo=${packId}&expandPack=${packId}#bird-reference`,
-                { state: { fromPreview: true, pack: packId, level: levelId } }
-              );
-            }}
-            style={{
-              padding: '6px 10px',
-              background: 'transparent',
-              border: '1px solid rgba(100, 181, 246, 0.3)',
-              borderRadius: '6px',
-              color: '#64B5F6',
-              fontSize: '15px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-              flexShrink: 0,
-              whiteSpace: 'nowrap',
-            }}
-          >
-            🎧📚
-          </button>
-        )}
+        {/* Sound Library button - opens modal with all clips for selected birds */}
+        <button
+          onClick={() => setShowSoundLibrary(true)}
+          style={{
+            padding: '6px 10px',
+            background: 'transparent',
+            border: '1px solid rgba(100, 181, 246, 0.3)',
+            borderRadius: '6px',
+            color: '#64B5F6',
+            fontSize: '15px',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4px',
+            flexShrink: 0,
+            whiteSpace: 'nowrap',
+          }}
+          title="Sound Library - hear all clips for these birds"
+        >
+          🎧📚
+        </button>
         {/* Shuffle/Re-roll button - compact top right */}
         {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
           <button
@@ -889,25 +899,53 @@ function PreRoundPreview() {
             </button>
           </div>
         ) : (
-          /* NA 2-way sort toggle */
-          <button
-            onClick={handleTaxonomicSortToggle}
-            style={{
-              flex: 1,
-              padding: '6px 8px',
-              background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-              border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '4px',
-            }}
-          >
-            <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
-            <span style={{ fontSize: '11px' }}>{taxonomicSort ? 'Taxonomic 🐦🤓' : 'Sort'}</span>
-          </button>
+          /* NA display mode + taxonomic sort toggles */
+          <div style={{
+            display: 'flex',
+            gap: '6px',
+            flex: 1,
+          }}>
+            {/* Display mode toggle: 4-letter code vs common name */}
+            <button
+              onClick={() => setNaDisplayMode(naDisplayMode === 'code' ? 'name' : 'code')}
+              style={{
+                flex: 1,
+                padding: '6px 8px',
+                background: naDisplayMode === 'name' ? 'rgba(255, 152, 0, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+                border: naDisplayMode === 'name' ? '2px solid var(--color-accent)' : '1px solid rgba(255, 255, 255, 0.15)',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4px',
+              }}
+              title={naDisplayMode === 'code' ? 'Show common names' : 'Show 4-letter codes'}
+            >
+              <span style={{ fontSize: '11px', fontWeight: naDisplayMode === 'name' ? 600 : 400 }}>
+                {naDisplayMode === 'name' ? 'Names' : 'NOCA'}
+              </span>
+            </button>
+            {/* Taxonomic sort toggle */}
+            <button
+              onClick={handleTaxonomicSortToggle}
+              style={{
+                flex: 1,
+                padding: '6px 8px',
+                background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+                border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4px',
+              }}
+              title={taxonomicSort ? 'Sort alphabetically' : 'Sort by taxonomy'}
+            >
+              <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+            </button>
+          </div>
         )}
       </div>
 
@@ -943,6 +981,7 @@ function PreRoundPreview() {
       )}
 
       {/* Tip Box - Study the Grid */}
+      {/* Tip box */}
       <div style={{
         background: 'rgba(100, 181, 246, 0.1)',
         border: '1px solid rgba(100, 181, 246, 0.3)',
@@ -955,7 +994,7 @@ function PreRoundPreview() {
           lineHeight: 1.4,
           textAlign: 'center',
         }}>
-          <strong>💡 Study the grid:</strong> Each bird keeps its position during play. Use 🔀 to shuffle. Tap 👁️ Training to hear each bird before you start.
+          <strong>💡 Study the grid:</strong> Each bird keeps its position during play. Tap to hear, hold for a closer look. Use 🔀 to shuffle.
         </div>
       </div>
 
@@ -980,15 +1019,6 @@ function PreRoundPreview() {
             Playing 9 of {fullCustomPack.length} birds
           </div>
         )}
-        <div style={{
-          fontSize: '11px',
-          color: 'var(--color-text-muted)',
-          marginBottom: '8px',
-          textAlign: 'center',
-        }}>
-          Tap to preview signature song. Press and hold to get a closer look!
-        </div>
-
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
@@ -1016,11 +1046,11 @@ function PreRoundPreview() {
                 WebkitTapHighlightColor: 'transparent',
               }}
             >
-              {/* Bird icon/code - don't pass tileName for NZ packs since we show names separately below */}
+              {/* Bird icon - no tileName above, we show names below */}
               <div style={{ position: 'relative', WebkitTapHighlightColor: 'transparent' }}>
-                <BirdIcon code={species.code} tileName={isNZPack ? undefined : species.tileName} size={52} color={species.color} />
+                <BirdIcon code={species.code} size={52} color={species.color} />
               </div>
-              {/* Name - shows primary and secondary based on sort mode */}
+              {/* Name display based on region and mode */}
               <div style={{
                 fontSize: '12px',
                 color: 'var(--color-text)',
@@ -1031,6 +1061,7 @@ function PreRoundPreview() {
               }}>
                 {(() => {
                   if (isNZPack) {
+                    // NZ birds: use 3-way sort mode display
                     const { primary, secondary } = getSortModeDisplayNames(
                       nzSortMode,
                       species.tileName,
@@ -1039,9 +1070,7 @@ function PreRoundPreview() {
                     );
                     return (
                       <>
-                        <div style={{
-                          fontWeight: 600,
-                        }}>
+                        <div style={{ fontWeight: 600 }}>
                           {primary}
                         </div>
                         {secondary && (
@@ -1057,13 +1086,12 @@ function PreRoundPreview() {
                       </>
                     );
                   } else {
-                    // NA birds: show common name or scientific in taxonomic mode
+                    // NA birds: code or common name based on display mode
+                    // (taxonomic sort only changes order, not display)
                     return (
-                      <span style={{
-                        fontStyle: taxonomicSort && species.scientificName ? 'italic' : 'normal',
-                      }}>
-                        {taxonomicSort && species.scientificName ? species.scientificName : species.name}
-                      </span>
+                      <div style={{ fontWeight: 600 }}>
+                        {naDisplayMode === 'name' ? species.name : species.code}
+                      </div>
                     );
                   }
                 })()}
@@ -1071,6 +1099,24 @@ function PreRoundPreview() {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* Status line showing current settings */}
+      <div style={{
+        fontSize: '11px',
+        color: 'var(--color-text-muted)',
+        textAlign: 'center',
+        marginBottom: '8px',
+      }}>
+        {isNZPack ? (
+          <>
+            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {nzSortMode === 'maori' ? 'Te Reo' : nzSortMode === 'english' ? 'English' : 'Taxonomic'} • Sort: {nzSortMode === 'taxonomic' ? 'Taxonomic' : 'A-Z'}
+          </>
+        ) : (
+          <>
+            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {naDisplayMode === 'name' ? 'Common names' : '4-letter codes'} • Sort: {taxonomicSort ? 'Taxonomic' : 'A-Z'}
+          </>
+        )}
       </div>
 
       {/* Ready button - bottom */}
@@ -1104,6 +1150,212 @@ function PreRoundPreview() {
         )}
       </button>
 
+
+      {/* Mini Sound Library Modal */}
+      {showSoundLibrary && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+          }}
+          onClick={() => {
+            // Stop any playing audio when closing
+            if (libraryAudioRef.current) {
+              libraryAudioRef.current.pause();
+            }
+            setLibraryPlayingClip(null);
+            setShowSoundLibrary(false);
+          }}
+        >
+          {/* Header */}
+          <div
+            style={{
+              padding: '16px 20px',
+              paddingTop: 'calc(16px + var(--safe-area-top, 0px))',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexShrink: 0,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div>
+              <h3 style={{ margin: 0, fontSize: '18px', color: 'white' }}>
+                🎧 Sound Library
+              </h3>
+              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
+                {selectedSpecies.length} birds • Tap any clip to play
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                if (libraryAudioRef.current) {
+                  libraryAudioRef.current.pause();
+                }
+                setLibraryPlayingClip(null);
+                setShowSoundLibrary(false);
+              }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '20px',
+              }}
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Scrollable content */}
+          <div
+            style={{
+              flex: 1,
+              overflow: 'auto',
+              padding: '16px 20px',
+              paddingBottom: 'calc(16px + var(--safe-area-bottom, 0px))',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {selectedSpecies.map((species) => {
+              // Get all clips for this species
+              const speciesClips = clips.filter(
+                (c) => c.species_code === species.code && !c.rejected
+              );
+              // Sort: canonical first, then by vocalization type
+              const sortedClips = [...speciesClips].sort((a, b) => {
+                if (a.canonical && !b.canonical) return -1;
+                if (!a.canonical && b.canonical) return 1;
+                return (a.vocalization_type || '').localeCompare(b.vocalization_type || '');
+              });
+
+              return (
+                <div
+                  key={species.code}
+                  style={{
+                    marginBottom: '20px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    borderRadius: '12px',
+                    padding: '12px',
+                  }}
+                >
+                  {/* Species header */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}data/icons/${species.code}.png`}
+                      alt={species.name}
+                      style={{
+                        width: '44px',
+                        height: '44px',
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                        border: `2px solid ${species.color}`,
+                      }}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: '15px', color: 'white' }}>
+                        {species.name}
+                      </div>
+                      <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
+                        {species.code} • {sortedClips.length} clip{sortedClips.length !== 1 ? 's' : ''}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Clips grid */}
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '8px',
+                  }}>
+                    {sortedClips.map((clip) => {
+                      const isPlaying = libraryPlayingClip === clip.clip_id;
+                      return (
+                        <button
+                          key={clip.clip_id}
+                          onClick={() => {
+                            if (isPlaying) {
+                              // Stop playing
+                              if (libraryAudioRef.current) {
+                                libraryAudioRef.current.pause();
+                              }
+                              setLibraryPlayingClip(null);
+                            } else {
+                              // Start playing
+                              if (libraryAudioRef.current) {
+                                libraryAudioRef.current.pause();
+                              }
+                              const audio = new Audio(`${import.meta.env.BASE_URL}${clip.file_path}`);
+                              libraryAudioRef.current = audio;
+                              audio.onended = () => setLibraryPlayingClip(null);
+                              audio.play().catch(console.error);
+                              setLibraryPlayingClip(clip.clip_id);
+                            }
+                          }}
+                          style={{
+                            padding: '6px 12px',
+                            background: isPlaying
+                              ? 'rgba(76, 175, 80, 0.3)'
+                              : clip.canonical
+                                ? 'rgba(255, 152, 0, 0.2)'
+                                : 'rgba(255, 255, 255, 0.1)',
+                            border: isPlaying
+                              ? '2px solid #4CAF50'
+                              : clip.canonical
+                                ? '1px solid rgba(255, 152, 0, 0.4)'
+                                : '1px solid rgba(255, 255, 255, 0.2)',
+                            borderRadius: '20px',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            color: 'white',
+                            fontSize: '12px',
+                            transition: 'all 0.15s ease',
+                          }}
+                        >
+                          <span style={{ fontSize: '14px' }}>
+                            {isPlaying ? '⏹️' : '▶️'}
+                          </span>
+                          <span style={{ textTransform: 'capitalize' }}>
+                            {clip.vocalization_type || 'clip'}
+                          </span>
+                          {clip.canonical && (
+                            <span style={{ fontSize: '10px', opacity: 0.7 }}>⭐</span>
+                          )}
+                        </button>
+                      );
+                    })}
+                    {sortedClips.length === 0 && (
+                      <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
+                        No clips available
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* Pulse animation and tap highlight fix */}
       <style>{`

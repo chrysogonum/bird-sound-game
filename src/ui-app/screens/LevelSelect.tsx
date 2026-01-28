@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import type { LevelConfig } from '@engine/game/types';
 import { trackLevelSelect } from '../utils/analytics';
 
@@ -7,7 +7,9 @@ import { trackLevelSelect } from '../utils/analytics';
 interface ClipData {
   clip_id: string;
   species_code: string;
+  common_name: string;
   file_path: string;
+  vocalization_type?: string;
   canonical?: boolean;
   rejected?: boolean;
   spectrogram_path?: string;
@@ -184,8 +186,10 @@ function LevelSelect() {
 
   const [levels, setLevels] = useState<LevelConfig[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showGallery, setShowGallery] = useState(false);
+  const [showGallery, setShowGallery] = useState(false);  // Species overview (icons + names)
+  const [showSoundLibrary, setShowSoundLibrary] = useState(false);  // Clips per species
   const [gallerySpecies, setGallerySpecies] = useState<SpeciesInfo[]>([]);
+  const [galleryClips, setGalleryClips] = useState<ClipData[]>([]);  // All clips for sound library
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -232,9 +236,9 @@ function LevelSelect() {
       });
   }, [packId, navigate]);
 
-  // Load species for the gallery when opened
+  // Load species for the gallery/sound library when either is opened
   useEffect(() => {
-    if (!showGallery || packId === 'custom') return;
+    if ((!showGallery && !showSoundLibrary) || packId === 'custom') return;
 
     const isNZ = NZ_PACK_IDS.includes(packId);
     const packJsonPath = `${import.meta.env.BASE_URL}data/packs/${packId}.json`;
@@ -313,15 +317,21 @@ function LevelSelect() {
         }
 
         setGallerySpecies(speciesInfo);
+
+        // Store all clips for the pack's species (for sound library view)
+        const packClips = clipsData.filter(
+          c => speciesCodes.includes(c.species_code) && !c.rejected
+        );
+        setGalleryClips(packClips);
       })
       .catch(err => {
         console.error('Failed to load gallery species:', err);
       });
-  }, [showGallery, packId]);
+  }, [showGallery, showSoundLibrary, packId]);
 
-  // Cleanup audio on unmount or when gallery closes
+  // Cleanup audio on unmount or when modals close
   useEffect(() => {
-    if (!showGallery && audioRef.current) {
+    if (!showSoundLibrary && !showGallery && audioRef.current) {
       audioRef.current.pause();
       audioRef.current = null;
       setPlayingClip(null);
@@ -331,10 +341,10 @@ function LevelSelect() {
         audioRef.current.pause();
       }
     };
-  }, [showGallery]);
+  }, [showSoundLibrary, showGallery]);
 
-  // Play sound function for gallery
-  const playSound = (clipPath: string, code: string) => {
+  // Play sound function for gallery (canonical clips only)
+  const playGallerySound = (clipPath: string, code: string) => {
     // Stop current audio if playing
     if (audioRef.current) {
       audioRef.current.pause();
@@ -418,17 +428,16 @@ function LevelSelect() {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
           {packId !== 'custom' && (
-            <Link
-              to={isNZPack ? `/nz-packs?expand=${packId}#bird-reference` : `/pack-select?expand=${packId}#bird-reference`}
-              state={{ fromLevelSelect: true, packId }}
+            <button
+              onClick={() => setShowSoundLibrary(true)}
               className="btn-icon"
-              style={{ color: accentColor, opacity: 0.6, textDecoration: 'none', fontSize: '18px', display: 'flex', gap: '2px' }}
+              style={{ color: accentColor, opacity: 0.6, background: 'none', border: 'none', fontSize: '18px', display: 'flex', gap: '2px', cursor: 'pointer' }}
               aria-label="Sound Library"
             >
               <span>🎧</span><span>📚</span>
-            </Link>
+            </button>
           )}
-          <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: accentColor, opacity: 0.6 }}>
+          <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: accentColor }}>
             <HomeIcon />
           </button>
         </div>
@@ -522,12 +531,221 @@ function LevelSelect() {
         borderLeft: isNZPack ? '3px solid rgba(77, 182, 172, 0.5)' : '3px solid rgba(245, 166, 35, 0.5)',
       }}>
         <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-          <strong style={{ color: accentColor, opacity: 0.7 }}>Tip:</strong> Tap the pack name to see all birds.
+          <strong style={{ color: accentColor, opacity: 0.7 }}>Tip:</strong> Tap the pack name to see all birds, or 🎧📚 to explore all sounds.
           Start with Level 1 to learn each bird's signature sound, then progress to variations and both-ear challenges.
         </div>
       </div>
 
-      {/* Bird Gallery Modal */}
+      {/* Sound Library Modal (all clips per species) */}
+      {showSoundLibrary && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden',
+          }}
+          onClick={() => {
+            if (audioRef.current) {
+              audioRef.current.pause();
+            }
+            setPlayingClip(null);
+            setShowSoundLibrary(false);
+          }}
+        >
+          {/* Header */}
+          <div
+            style={{
+              padding: '16px 20px',
+              paddingTop: 'calc(16px + var(--safe-area-top, 0px))',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexShrink: 0,
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div>
+              <h3 style={{ margin: 0, fontSize: '18px', color: 'white' }}>
+                🎧 {packName}
+              </h3>
+              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
+                {gallerySpecies.length} birds • Tap any clip to play
+              </div>
+            </div>
+            <button
+              onClick={() => {
+                if (audioRef.current) {
+                  audioRef.current.pause();
+                }
+                setPlayingClip(null);
+                setShowSoundLibrary(false);
+              }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '20px',
+              }}
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Scrollable content */}
+          <div
+            style={{
+              flex: 1,
+              overflow: 'auto',
+              padding: '16px 20px',
+              paddingBottom: 'calc(16px + var(--safe-area-bottom, 0px))',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {gallerySpecies.map((species) => {
+              // Get all clips for this species
+              const speciesClips = galleryClips.filter(
+                (c) => c.species_code === species.code
+              );
+              // Sort: canonical first, then by vocalization type
+              const sortedClips = [...speciesClips].sort((a, b) => {
+                if (a.canonical && !b.canonical) return -1;
+                if (!a.canonical && b.canonical) return 1;
+                return (a.vocalization_type || '').localeCompare(b.vocalization_type || '');
+              });
+
+              return (
+                <div
+                  key={species.code}
+                  style={{
+                    marginBottom: '20px',
+                    background: 'rgba(255, 255, 255, 0.05)',
+                    borderRadius: '12px',
+                    padding: '12px',
+                  }}
+                >
+                  {/* Species header */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}data/icons/${species.code}.png`}
+                      alt={species.displayName}
+                      style={{
+                        width: '44px',
+                        height: '44px',
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                        border: `2px solid ${accentColor}`,
+                      }}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontWeight: 700, fontSize: '15px', color: 'white' }}>
+                        {species.displayName}
+                      </div>
+                      <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
+                        {species.isNZ && species.englishName && species.englishName !== species.displayName
+                          ? `${species.englishName} • `
+                          : ''
+                        }
+                        {species.code} • {sortedClips.length} clip{sortedClips.length !== 1 ? 's' : ''}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Clips grid */}
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '8px',
+                  }}>
+                    {sortedClips.map((clip) => {
+                      const isPlaying = playingClip === clip.clip_id;
+                      return (
+                        <button
+                          key={clip.clip_id}
+                          onClick={() => {
+                            if (isPlaying) {
+                              // Stop playing
+                              if (audioRef.current) {
+                                audioRef.current.pause();
+                              }
+                              setPlayingClip(null);
+                            } else {
+                              // Start playing
+                              if (audioRef.current) {
+                                audioRef.current.pause();
+                              }
+                              const audio = new Audio(`${import.meta.env.BASE_URL}${clip.file_path}`);
+                              audioRef.current = audio;
+                              audio.onended = () => setPlayingClip(null);
+                              audio.play().catch(console.error);
+                              setPlayingClip(clip.clip_id);
+                            }
+                          }}
+                          style={{
+                            padding: '6px 12px',
+                            background: isPlaying
+                              ? 'rgba(76, 175, 80, 0.3)'
+                              : clip.canonical
+                                ? 'rgba(255, 152, 0, 0.2)'
+                                : 'rgba(255, 255, 255, 0.1)',
+                            border: isPlaying
+                              ? '2px solid #4CAF50'
+                              : clip.canonical
+                                ? '1px solid rgba(255, 152, 0, 0.4)'
+                                : '1px solid rgba(255, 255, 255, 0.2)',
+                            borderRadius: '20px',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            color: 'white',
+                            fontSize: '12px',
+                            transition: 'all 0.15s ease',
+                          }}
+                        >
+                          <span style={{ fontSize: '14px' }}>
+                            {isPlaying ? '⏹️' : '▶️'}
+                          </span>
+                          <span style={{ textTransform: 'capitalize' }}>
+                            {clip.vocalization_type || 'clip'}
+                          </span>
+                          {clip.canonical && (
+                            <span style={{ fontSize: '10px', opacity: 0.7 }}>⭐</span>
+                          )}
+                        </button>
+                      );
+                    })}
+                    {sortedClips.length === 0 && (
+                      <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
+                        No clips available
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Gallery Modal (Instagram-style single column with large tiles) */}
       {showGallery && (
         <div
           style={{
@@ -546,7 +764,7 @@ function LevelSelect() {
         >
           {/* Header */}
           <div style={{
-            padding: '16px',
+            padding: '16px 20px',
             paddingTop: 'calc(16px + var(--safe-area-top, 0px))',
             display: 'flex',
             alignItems: 'center',
@@ -618,7 +836,7 @@ function LevelSelect() {
                     {/* Play button overlay */}
                     {species.canonicalClipPath && (
                       <button
-                        onClick={() => playSound(species.canonicalClipPath!, species.code)}
+                        onClick={() => playGallerySound(species.canonicalClipPath!, species.code)}
                         style={{
                           position: 'absolute',
                           bottom: '12px',

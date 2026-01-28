@@ -51,6 +51,9 @@ interface BirdInfo {
   allClips: BirdClip[];
 }
 
+// NZ accent color for consistent theming
+const NZ_ACCENT_COLOR = '#4db6ac';
+
 const NZ_PACKS: Pack[] = [
   {
     id: 'nz_common',
@@ -100,6 +103,16 @@ function NZPackSelect() {
   const [nzSortMode, setNzSortMode] = useNZSortMode();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const soundLibraryRef = useRef<HTMLDivElement | null>(null);
+
+  // Scroll to top on mount
+  useEffect(() => {
+    // The App wrapper has overflow: auto, so we need to scroll the parent container
+    const appContainer = document.querySelector('.screen')?.parentElement;
+    if (appContainer) {
+      appContainer.scrollTo(0, 0);
+    }
+    window.scrollTo(0, 0);
+  }, []);
 
   // Handle URL params for auto-expanding packs and scrolling to sound library
   useEffect(() => {
@@ -303,16 +316,24 @@ function NZPackSelect() {
           className="btn-icon"
           onClick={() => navigate('/pack-select')}
           aria-label="Back"
-          style={{ color: '#2d7a7a', opacity: 0.7 }}
+          style={{ color: NZ_ACCENT_COLOR }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
         </button>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span style={{ fontSize: '28px' }}>🇳🇿</span>
-          <h2 style={{ margin: 0 }}>New Zealand Birds</h2>
-        </div>
+        <h2 style={{ margin: 0, flex: 1, fontSize: '22px' }}>New Zealand Birds <span style={{ fontSize: '26px' }}>🇳🇿</span></h2>
+        <button
+          className="btn-icon"
+          onClick={() => navigate('/')}
+          aria-label="Home"
+          style={{ color: NZ_ACCENT_COLOR }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+        </button>
       </div>
 
       <div style={{

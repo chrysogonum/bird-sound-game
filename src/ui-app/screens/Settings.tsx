@@ -128,15 +128,15 @@ function Settings() {
 
         {/* Scroll Speed */}
         <div className="card">
-          <h3>Scroll Speed</h3>
+          <h3>Scroll Speed <span style={{ fontWeight: 400, opacity: 0.6 }}>(default 0.5x)</span></h3>
           <div className="text-muted" style={{ fontSize: '14px', marginBottom: '12px' }}>
-            How fast tiles move: {scrollSpeed.toFixed(1)}x
+            How fast tiles move: {scrollSpeed.toFixed(2)}x
           </div>
           <input
             type="range"
-            min="0.5"
+            min="0.25"
             max="2.0"
-            step="0.1"
+            step="0.05"
             value={scrollSpeed}
             onChange={(e) => setScrollSpeed(parseFloat(e.target.value))}
             style={{ width: '100%' }}

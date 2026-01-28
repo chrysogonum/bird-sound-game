@@ -381,9 +381,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
 
       // Extract unique species (filtered by species_pool if present)
       const speciesMap = new Map<string, SpeciesInfo>();
-      // Check if user has a sort mode preference for NZ packs
+      // Check display/sort mode preferences
       const nzSortMode = sessionStorage.getItem('nzSortMode') || 'maori';
+      const naDisplayMode = sessionStorage.getItem('naDisplayMode') || 'code';
       const useEnglishNames = isNZPack && nzSortMode === 'english';
+      const useCommonNames = !isNZPack && naDisplayMode === 'name';
 
       for (const clip of data) {
         // Skip if we have a species_pool and this species isn't in it
@@ -400,10 +402,17 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
           // Use NZ display data if available, otherwise use the eBird code
           const nzData = nzDisplayCodes[speciesKey];
           const displayCode = nzData?.code || speciesKey;
-          // Use English name if user sorted by English, otherwise use Māori tileName
-          const tileName = useEnglishNames && nzData?.englishName
-            ? nzData.englishName
-            : (nzData?.tileName || speciesKey);
+          // Determine tileName based on region and display preference
+          let tileName: string;
+          if (isNZPack) {
+            // NZ: Use English name if user sorted by English, otherwise use Māori tileName
+            tileName = useEnglishNames && nzData?.englishName
+              ? nzData.englishName
+              : (nzData?.tileName || speciesKey);
+          } else {
+            // NA: Use common name if display mode is 'name', otherwise use 4-letter code
+            tileName = useCommonNames ? clip.common_name : speciesKey;
+          }
           speciesMap.set(speciesKey, {
             code: speciesKey,
             displayCode,
@@ -1009,15 +1018,27 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
     generatedEventsRef.current.push(event);
 
     const nzData = nzDisplayCodes[event.species_code];
-    // Check user's sort mode preference for NZ packs - use English names if they chose English sort
+    // Check user's display/sort mode preferences
     const nzSortMode = sessionStorage.getItem('nzSortMode') || 'maori';
+    const naDisplayMode = sessionStorage.getItem('naDisplayMode') || 'code';
+    const isNZEvent = !!nzData;
     const useEnglishForTile = nzSortMode === 'english' && nzData?.englishName;
+    const useCommonNameForTile = !isNZEvent && naDisplayMode === 'name';
+
+    // Determine tileName based on region and display preference
+    let tileName: string;
+    if (isNZEvent) {
+      tileName = useEnglishForTile ? nzData.englishName! : (nzData?.tileName || event.species_code);
+    } else {
+      tileName = useCommonNameForTile ? clip.common_name : event.species_code;
+    }
+
     const scheduledEvent: ScheduledEvent = {
       ...event,
       spectrogramPath: clip.spectrogram_path || null,
       filePath: clip.file_path,
       displayCode: nzData?.code || event.species_code,
-      tileName: useEnglishForTile ? nzData.englishName! : (nzData?.tileName || event.species_code),
+      tileName,
     };
     setScheduledEvents((prev) => [...prev, scheduledEvent]);
 

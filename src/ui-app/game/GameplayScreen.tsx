@@ -7,8 +7,14 @@ import type { Channel } from '@engine/audio/types';
 import type { LevelConfig, GameMode } from '@engine/game/types';
 import { trackTrainingModeToggle, trackGameStart, trackRoundComplete } from '../utils/analytics';
 
-// Bird icon component - shows icon with code label below
-function BirdIcon({ code, tileName, size = 32, color, twoRowLayout = false }: { code: string; tileName?: string; size?: number; color?: string; twoRowLayout?: boolean }) {
+// Bird icon component - shows icon with label below
+function BirdIcon({ code, tileName, size = 32, color, twoRowLayout = false }: {
+  code: string;
+  tileName?: string;
+  size?: number;
+  color?: string;
+  twoRowLayout?: boolean
+}) {
   const [hasIcon, setHasIcon] = useState(true);
   const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
   const labelCode = tileName || code;  // Show tileName if available, otherwise use code

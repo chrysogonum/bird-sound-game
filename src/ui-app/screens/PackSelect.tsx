@@ -313,7 +313,7 @@ function PackSelect() {
   return (
     <div className="screen" style={{ paddingBottom: '24px' }}>
       <div className="flex-row items-center gap-md" style={{ marginBottom: '16px' }}>
-        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)', opacity: 0.6 }}>
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-accent)' }}>
           <HomeIcon />
         </button>
         <h2 style={{ margin: 0 }}>Select a Bird Pack</h2>
@@ -356,7 +356,7 @@ function PackSelect() {
         style={{
           marginBottom: '20px',
           background: 'var(--color-surface)',
-          border: '2px solid rgba(245, 166, 35, 0.4)',
+          border: '2px solid rgba(245, 166, 35, 0.7)',
           borderRadius: '16px',
           overflow: 'visible',
         }}
@@ -383,7 +383,7 @@ function PackSelect() {
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'rgba(245, 166, 35, 0.5)',
+            background: 'rgba(245, 166, 35, 0.8)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
