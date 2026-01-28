@@ -531,8 +531,7 @@ function LevelSelect() {
         borderLeft: isNZPack ? '3px solid rgba(77, 182, 172, 0.5)' : '3px solid rgba(245, 166, 35, 0.5)',
       }}>
         <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-          <strong style={{ color: accentColor, opacity: 0.7 }}>Tip:</strong> Tap the pack name to see all birds, or 🎧📚 to explore all sounds.
-          Start with Level 1 to learn each bird's signature sound, then progress to variations and both-ear challenges.
+          <strong style={{ color: accentColor, opacity: 0.7 }}>Tip:</strong> Tap the pack name 🖼️ to see all birds, or 🎧📚 to explore all sounds.
         </div>
       </div>
 
@@ -945,7 +944,7 @@ function LevelSelect() {
 function BackIcon() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M15 18l-6-6 6-6" />
+      <path d="M19 12H5M12 19l-7-7 7-7" />
     </svg>
   );
 }
