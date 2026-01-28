@@ -73,7 +73,8 @@ npm run dev -- --host  # Exposes dev server on local network
 3. Add version history entry in Help.tsx
 4. Commit changes to `main` branch: `git add . && git commit && git push`
 5. Deploy to production: `cd src/ui-app && npm run deploy`
-6. Wait 1-2 minutes, verify at chipnotes.app
+6. Tag the release: `git tag v4.XX && git push --tags`
+7. Wait 1-2 minutes, verify at chipnotes.app
 
 ## Phase-Based Development (Ralph Loops)
 
