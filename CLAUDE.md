@@ -76,6 +76,27 @@ npm run dev -- --host  # Exposes dev server on local network
 6. Tag the release: `git tag v4.XX && git push --tags`
 7. Wait 1-2 minutes, verify at chipnotes.app
 
+## Google Analytics
+
+ChipNotes tracks user engagement via GA4 (Property ID: 520100308). A Python script queries the API via OAuth.
+
+```bash
+# Run all reports (traffic, events, packs, devices, geo, sources, retention)
+python3 scripts/ga_query.py all
+
+# Individual reports
+python3 scripts/ga_query.py overview    # Daily traffic & 30-day summary
+python3 scripts/ga_query.py events      # All event counts (90 days)
+python3 scripts/ga_query.py packs       # Pack popularity (requires custom dimensions)
+python3 scripts/ga_query.py rounds      # Round completions by pack
+python3 scripts/ga_query.py devices     # Device & OS breakdown
+python3 scripts/ga_query.py geo         # Country & region breakdown
+python3 scripts/ga_query.py sources     # Traffic sources
+python3 scripts/ga_query.py retention   # New vs returning users
+```
+
+OAuth token is cached in `ga_token.json` (gitignored). If it expires, the script will open a browser to re-authenticate.
+
 ## Phase-Based Development (Ralph Loops)
 
 The project uses phased development with Make targets. Each phase has a build target and smoke test:
