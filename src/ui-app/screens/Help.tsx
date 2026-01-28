@@ -280,7 +280,7 @@ function Help() {
           onToggle={() => toggleSection('Training Mode')}
         >
           <p style={{ marginBottom: '12px' }}>
-            Training Mode shows bird icons and species codes on each tile alongside the spectrogram - perfect for learning which sounds belong to which birds.
+            Training Mode shows bird icons and names on each tile alongside the spectrogram—perfect for learning which sounds belong to which birds. North American packs show 4-letter codes (like NOCA), while New Zealand packs show Māori names.
           </p>
 
           {/* Side-by-side: Eye icon info + Example tile */}
@@ -323,7 +323,7 @@ function Help() {
             {/* Training mode tile example */}
             <img
               src={`${import.meta.env.BASE_URL}images/training-mode-example.png`}
-              alt="Training mode tile showing spectrogram with bird icon and NOCA label"
+              alt="Training mode tile showing spectrogram with bird icon and species label"
               style={{
                 width: '120px',
                 height: 'auto',
@@ -509,6 +509,28 @@ function Help() {
           <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5, marginTop: '12px' }}>
             Each clip shows its vocalization type (song, call, drum, etc.) and whether it's the signature clip (⭐) used in Level 1.
           </p>
+          <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5, marginTop: '12px' }}>
+            Want to know where the bird sounds come from? (And no, we're not talking about the syrinx...) See{' '}
+            <button
+              onClick={() => {
+                setExpandedSections(prev => new Set([...prev, 'About & Credits']));
+                setTimeout(() => {
+                  document.getElementById('about-credits')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-accent)',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                padding: 0,
+                font: 'inherit',
+              }}
+            >
+              About & Credits
+            </button>.
+          </p>
         </Section>
 
         {/* The Levels */}
@@ -609,6 +631,7 @@ function Help() {
 
         {/* About & Credits */}
         <Section
+          id="about-credits"
           title="About & Credits"
           isExpanded={expandedSections.has('About & Credits')}
           onToggle={() => toggleSection('About & Credits')}
@@ -795,7 +818,7 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
-          <VersionEntry version="4.12" date="January 27, 2026">
+          <VersionEntry version="4.12" date="January 28, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Meet Birders Where They're At:</strong> North American birds can now be displayed with common names instead of 4-letter codes—toggle on the Ready to Play screen. Whether you're fluent in banding codes or prefer "Northern Cardinal," ChipNotes adapts to you.</li>
               <li><strong>Settings Status Line:</strong> Current settings (Training, Display, Sort) now shown above the Ready to Play button for quick reference.</li>
