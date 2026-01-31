@@ -178,124 +178,64 @@ If user has existing .wav files:
 - Verify audio meets specs (mono, 0.5-3s, -16 LUFS)
 - Proceed directly to Step 2 (metadata tagging)
 
-### Plan B: Download from Xeno-canto (Recommended)
+### Plan B: Manual Extraction from Xeno-canto (Recommended)
 
-**Step 1: Verify API Key Setup**
+**Primary tool: `clip_editor.py`** — manual selection with waveform UI for precise segment extraction.
+
+**Step 1: Find Good XC Recordings**
+
+For each species, search Xeno-canto for top-rated (quality A/B) recordings. Claude can query the XC API to find candidates and present XC IDs.
+
+**Step 2: Extract Clips with Clip Editor**
+
 ```bash
-# Test API connection FIRST
-python3 scripts/audio_ingest.py --test-api
+# Load a specific XC recording for a species
+python3 scripts/clip_editor.py --xc 123456 --species RWBL
+
+# Or browse/add clips for a species
+python3 scripts/clip_editor.py --species RWBL
 ```
 
-**If API key not found**, Claude should:
-1. Check environment variable:
-   ```bash
-   echo $XENO_CANTO_API_KEY
-   ```
-2. If empty, load from zsh config:
-   ```bash
-   source ~/.zshrc && echo $XENO_CANTO_API_KEY
-   ```
-3. If still not working, instruct user to manually add to ~/.zshrc:
-   ```bash
-   echo "export XENO_CANTO_API_KEY='user-api-key-here'" >> ~/.zshrc
-   source ~/.zshrc
-   ```
+**What clip_editor.py does:**
+- Downloads the full XC recording to `/tmp/clip-edit/`
+- Queries XC API to auto-populate recordist and vocalization type
+- Renders waveform in browser (http://localhost:8889)
+- User clicks to set start point, adjusts duration (0.5-3s)
+- Previews selection, clicks "Extract" to save
+- Auto-normalizes to -16 LUFS, mono, correct sample rate
+- Saves to `data/clips/` with proper naming (`{CODE}_{XCID}_{N}.wav`)
+- Adds entry to `clips.json` automatically (no merge_candidates step needed)
 
-**Step 2: Download with Vocalization Type Diversity**
+**Goal:** 5-8 high-quality clips per species with maximum variation in vocalization types.
 
-**Goal:** Get 5-10 high-quality clips per species with **maximum variation** in vocalization types (song, call, drum, alarm, flight call, etc.)
+### Tool Decision Guide
 
-**Strategy:**
-For each species, query Xeno-canto API to:
-1. Fetch ALL available clips with quality rating A or B
-2. Group by vocalization type tags (song, call, drum, alarm, etc.)
-3. **Proportionally sample** from each type to get diverse representation
+| Tool | When to Use |
+|------|-------------|
+| `clip_editor.py` | **Primary** — manual extraction from XC recordings with waveform UI |
+| `audio_ingest.py` | Bulk auto-extraction (quick additions where manual selection isn't needed) |
+| `augment_species.py` | Adding more clips to species already in game (auto-filters existing/rejected) |
+| `clip_selector.py` | Extracting from local long-form recordings (NZ workflow) |
 
-**Example:** If Xeno-canto has:
-- 10 clips tagged "song" (quality A)
-- 5 clips tagged "call" (quality A-B)
-- 3 clips tagged "drum" (quality A)
+### Alternative: Bulk Auto-Extraction
 
-**We want:** ~5-6 songs, ~3 calls, ~2 drums = **10 total clips** with full type coverage
+For quick bulk additions where manual selection isn't critical:
 
-**Download Audio:**
-
-**For New Species (Mixed Vocalization Types):**
 ```bash
-# Download diverse clips (songs, calls, drums, etc.)
+# Auto-extract from Xeno-canto
 python3 scripts/audio_ingest.py \
-  --output data/clips \
-  --species "Steller's Jay" "Western Scrub-Jay" \
+  --output data/candidates_RWBL \
+  --species "Red-winged Blackbird" \
   --max-per-species 10
+
+# Merge into clips.json
+python3 scripts/merge_candidates.py data/candidates_RWBL
 ```
 
-**For Auditing Existing Species (Specific Vocalization Type):**
+**For existing species, use augment_species.py:**
 ```bash
-# Download ONLY call vocalizations for White-throated Sparrow
-python3 scripts/audio_ingest.py \
-  --output data/clips \
-  --species "White-throated Sparrow" \
-  --max-per-species 10 \
-  --vocalization-type call
-
-# Or download ONLY songs
-python3 scripts/audio_ingest.py \
-  --output data/clips \
-  --species "Northern Cardinal" \
-  --max-per-species 8 \
-  --vocalization-type song
-```
-
-**Alternative: `augment_species.py` (Optimized for Existing Species)**
-
-For species already in the game, use this script which automatically filters out previously reviewed clips:
-
-```bash
-# Augment Yellow-rumped Warbler with 10 new Quality A clips
-# Automatically excludes clips already in clips.json AND rejected_xc_ids.json
 python3 scripts/augment_species.py YRWA --max 10 --quality A
-
-# Or Cedar Waxwing
-python3 scripts/augment_species.py CEWA --max 8 --quality A
 ```
-
-**Key differences from audio_ingest.py:**
-- ✅ Automatically filters out existing clips from clips.json
-- ✅ Automatically filters out rejected clips from data/rejected_xc_ids.json (no re-downloads!)
-- ✅ Generates spectrograms immediately
-- ✅ Adds directly to clips.json (ready for review)
-- ✅ Requires species scientific name in SPECIES_SCIENTIFIC_NAMES dict
-
-**Before using augment_species.py:**
-1. Check if species is in the mapping (scripts/augment_species.py line 39):
-   ```python
-   SPECIES_SCIENTIFIC_NAMES = {
-       'CEWA': ('Bombycilla', 'cedrorum'),
-       'YRWA': ('Setophaga', 'coronata'),
-       # Add more as needed
-   }
-   ```
-2. If missing, add the scientific name mapping first
-3. Run the script - it handles everything through to clips.json entry
-
-**What happens:**
-- Downloads top-quality recordings from Xeno-canto
-- Filters by vocalization type if `--vocalization-type` is specified
-- Preprocesses to mono, 0.5-3s duration, -16 LUFS normalization
-- Names files: `{CODE}_xenocanto_{recording_id}.wav`
-- Creates `.ingest_manifest.json` with metadata (vocalization type, quality, recordist)
-- Ready for Step 2 (metadata tagging)
-
-**Quality Criteria:**
-- ✅ Only quality ratings **A** (excellent) or **B** (good)
-- ✅ Prefer **A-rated** recordings, fall back to B if needed
-- ❌ Reject C/D/E quality recordings
-
-**Type Coverage:**
-- Prioritize **song** and **call** (most common types)
-- Include **drum**, **alarm**, **flight call** if available
-- Sample proportionally to ensure representation of all types
-- Aim for 5-10 total clips with maximum type diversity
 
 ### Plan C: Cornell Macaulay Library (Manual)
 Cornell API access pending. For now:
@@ -350,6 +290,8 @@ done
 git add data/icons/PROMPTS.md
 git commit -m "Add icon prompts for {N} new species: {CODE1}, {CODE2}, ..."
 ```
+
+**Photo Reference (Optional):** When generating icons, you can provide a reference photo of the bird. See the photo-reference guidance at the top of `data/icons/PROMPTS.md` for how to use photos to inform posture, pose, and proportions while maintaining the flat-design art style.
 
 **Note:** Icon generation (using ChatGPT/DALL-E) happens later in Step 5. This step just documents the prompts.
 

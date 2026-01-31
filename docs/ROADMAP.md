@@ -30,7 +30,7 @@
 | **Owls** | 1 (Barred) | Missing Great Horned, Screech-Owls, Barn Owl |
 | **Nightjars** | 0 | Missing Whip-poor-will, Nighthawk |
 | **Thrushes** | 1 (Hermit) | Missing Wood Thrush, Veery, Swainson's |
-| **Wrens** | 1 (Carolina) | Missing House Wren, Canyon Wren, Marsh Wren |
+| **Wrens** | 1 (Carolina) | Missing Northern House Wren, Canyon Wren, Marsh Wren |
 | **Orioles** | 0 | Missing Baltimore, Bullock's |
 | **Tanagers** | 0 | Missing Scarlet, Summer, Western |
 | **Empidonax Flycatchers** | 1 (Acadian) | Missing Least, Willow, Alder |
@@ -53,7 +53,7 @@ Species that virtually every birder learns by sound. Extremely common, highly di
 | KILL | Killdeer | Loud "kill-deer!" - most recognizable shorebird |
 | WITU | Wild Turkey | Iconic gobble |
 | BAOR | Baltimore Oriole | Rich whistled song - backyard favorite |
-| HOWR | House Wren | Bubbling cascade - extremely common |
+| NHWR | Northern House Wren | Bubbling cascade - extremely common |
 | EUST | European Starling | Complex mimicry - ubiquitous, important to recognize |
 | CONI | Common Nighthawk | Nasal "peent" and booming dive - summer evening sound |
 | EWPW | Eastern Whip-poor-will | Namesake call repeated endlessly - classic night sound |
@@ -190,26 +190,26 @@ Fill the Empidonax gap - notoriously tricky birds to ID.
 | Say's Phoebe | To add |
 | Black Phoebe | To add |
 
-### Expand: Backyard Birds (6 → 12 species)
+### Expand: Eastern Birds (46 → 60 species)
 
-Add universal backyard essentials:
+Add 14 species from Tier 1/2 to bring Eastern Birds to 60:
 
-| Species | Status |
-|---------|--------|
-| House Wren | To add |
-| Baltimore Oriole | To add |
-| European Starling | To add |
-| Chimney Swift | To add |
-| Wild Turkey | To add |
-| Killdeer | To add |
-
-### Expand: Eastern Birds
-
-Add Tier 1/2 eastern species:
-- Wood Thrush, Veery, Scarlet Tanager, Summer Tanager
-- Baltimore Oriole, House Wren, Yellow-billed Cuckoo
-- Red-breasted Nuthatch, Warbling Vireo, Blue-gray Gnatcatcher
-- Great Blue Heron, Green Heron
+| Code | Species | Tier |
+|------|---------|------|
+| WOTH | Wood Thrush | 1 |
+| KILL | Killdeer | 1 |
+| BAOR | Baltimore Oriole | 1 |
+| NHWR | Northern House Wren | 1 |
+| EUST | European Starling | 1 |
+| YBCU | Yellow-billed Cuckoo | 1 |
+| CHSW | Chimney Swift | 1 |
+| SCTA | Scarlet Tanager | 1 |
+| VEER | Veery | 1 |
+| SUTA | Summer Tanager | 2 |
+| BGGN | Blue-gray Gnatcatcher | 2 |
+| GBHE | Great Blue Heron | 2 |
+| GRHE | Green Heron | 2 |
+| RBNU | Red-breasted Nuthatch | 2 |
 
 ### Expand: Western Birds
 
@@ -249,7 +249,7 @@ Species to add:
 1. Wood Thrush (WOTH)
 2. Veery (VEER)
 3. Swainson's Thrush (SWTH)
-4. House Wren (HOWR)
+4. Northern House Wren (NHWR)
 5. Baltimore Oriole (BAOR)
 6. Scarlet Tanager (SCTA)
 7. European Starling (EUST)
@@ -257,7 +257,6 @@ Species to add:
 
 **Deliverables:**
 - New "Thrushes & Mimics" pack
-- Expand "Backyard Birds" pack
 - Expand "Eastern Birds" pack
 
 ### Phase 3: Waterbirds & Wetlands (8 species)
@@ -306,7 +305,7 @@ Species to add:
 5. Red-breasted Nuthatch (RBNU)
 6. Northern Bobwhite (NOBO)
 
-**Deliverable:** Final updates to Backyard Birds and Eastern Birds packs
+**Deliverable:** Final updates to Eastern Birds pack
 
 ### Phase 6: Regional Specialists (Tier 3)
 
