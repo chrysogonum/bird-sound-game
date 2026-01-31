@@ -87,6 +87,17 @@
     "seasonal_context": {
       "type": ["string", "null"],
       "description": "Optional seasonal context (e.g., 'spring', 'winter')"
+    },
+    "region_filter": {
+      "type": "string",
+      "description": "Optional region filter for subspecies selection (e.g., 'north_island', 'south_island')"
+    },
+    "subspecies_filter": {
+      "type": "object",
+      "description": "Optional mapping of species codes to subspecies filters",
+      "additionalProperties": {
+        "type": "string"
+      }
     }
   },
   "additionalProperties": false

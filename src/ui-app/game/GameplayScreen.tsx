@@ -337,15 +337,15 @@ function GameplayScreen() {
       console.log('Drill pack: using species:', drillSpecies);
 
       return {
-        level_id: 1,
+        level_id: levelId,
         pack_id: 'drill',
         mode: 'campaign',
         title: 'Confusion Drill',
         round_duration_sec: 30,
         species_count: drillSpecies.length,
         species_pool: drillSpecies,
-        clip_selection: 'all', // Use all clips for maximum exposure
-        channel_mode: 'single', // Keep simpler for focused practice
+        clip_selection: getLevelClipSelection(levelId),
+        channel_mode: getLevelChannelMode(levelId),
         event_density: 'low',
         overlap_probability: 0,
         scoring_window_ms: 2000,
