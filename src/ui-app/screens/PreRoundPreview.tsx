@@ -426,21 +426,30 @@ function PreRoundPreview() {
           try {
             const drillSpecies = JSON.parse(drillSpeciesJson) as string[];
 
-            // Create synthetic level config for drill
+            // Create synthetic level config for drill, matching difficulty of the level the user came from
+            const drillLevelSettings: Record<number, { clip_selection: string | number; channel_mode: string; spectrogram_mode: string }> = {
+              1: { clip_selection: 'canonical', channel_mode: 'single', spectrogram_mode: 'full' },
+              2: { clip_selection: 3, channel_mode: 'single', spectrogram_mode: 'full' },
+              3: { clip_selection: 'all', channel_mode: 'single', spectrogram_mode: 'full' },
+              4: { clip_selection: 'canonical', channel_mode: 'offset', spectrogram_mode: 'full' },
+              5: { clip_selection: 3, channel_mode: 'offset', spectrogram_mode: 'full' },
+              6: { clip_selection: 'all', channel_mode: 'offset', spectrogram_mode: 'full' },
+            };
+            const settings = drillLevelSettings[levelId] || drillLevelSettings[1];
             const drillLevel: LevelConfig = {
-              level_id: 1,
+              level_id: levelId,
               pack_id: 'drill',
               mode: 'campaign',
               title: 'Confusion Drill',
               round_duration_sec: 30,
               species_count: drillSpecies.length,
               species_pool: drillSpecies,
-              clip_selection: 'all', // Use all clips to maximize exposure
-              channel_mode: 'single', // Keep it simpler for focused practice
+              clip_selection: settings.clip_selection as LevelConfig['clip_selection'],
+              channel_mode: settings.channel_mode as LevelConfig['channel_mode'],
               event_density: 'low',
               overlap_probability: 0,
               scoring_window_ms: 2000,
-              spectrogram_mode: 'full',
+              spectrogram_mode: settings.spectrogram_mode as LevelConfig['spectrogram_mode'],
             };
             setLevel(drillLevel);
             setSelectedSpecies(buildSpeciesInfo(drillSpecies, clipsData));

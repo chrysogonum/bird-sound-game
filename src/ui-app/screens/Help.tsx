@@ -393,7 +393,7 @@ function Help() {
           />
           <PackInfo
             name="Western Birds"
-            description="21 common species from western North America: Steller's Jay, California Scrub-Jay, Oak Titmouse, Black-capped Chickadee, White-crowned Sparrow, Common Grackle, Dark-eyed Junco, Red-winged Blackbird, and more."
+            description="26 common species from western North America: Steller's Jay, California Scrub-Jay, Oak Titmouse, Black-capped Chickadee, White-crowned Sparrow, Killdeer, Red-breasted Nuthatch, and more."
           />
           <PackInfo
             name="Woodpeckers"
@@ -804,9 +804,9 @@ function Help() {
             <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)', opacity: 0.6 }}>🎯 Recent Updates</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
               <div>🌏 <strong>Worldwide Bird Packs!</strong> – ChipNotes goes global! Starting with New Zealand, home to some of the world's most unusual and iconic birds. 42 native NZ species across 4 regional packs.</div>
-              <div>🎉 <strong>100+ Species!</strong> – Over 100 North American species with curated audio clips and spectrograms</div>
+              <div>🎉 <strong>120 Species!</strong> – 120 North American species with curated audio clips and spectrograms</div>
               <div>🔄 <strong>Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</div>
-              <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 21, Eastern to 60, and Woodpeckers to 9</div>
+              <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 26, Eastern to 60, and Woodpeckers to 9</div>
               <div>🐦 <strong>Taxonomic Sorting</strong> – Play birds in evolutionary order, see scientific names</div>
               <div>🎨 <strong>Custom Pack Builder</strong> – Build and save up to 10 custom packs from any species</div>
             </div>
@@ -821,6 +821,7 @@ function Help() {
           <VersionEntry version="4.13" date="January 31, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Eastern Birds Expansion:</strong> Eastern Birds pack expanded from 46 to 60 species with 14 new birds: Wood Thrush, Killdeer, Baltimore Oriole, Northern House Wren, European Starling, Yellow-billed Cuckoo, Chimney Swift, Scarlet Tanager, Veery, Summer Tanager, Blue-gray Gnatcatcher, Great Blue Heron, Green Heron, and Red-breasted Nuthatch. 80 new curated audio clips with spectrograms and icons.</li>
+              <li><strong>Western Birds Expansion:</strong> Western Birds pack expanded from 21 to 26 species with Killdeer, European Starling, Northern House Wren, Red-breasted Nuthatch, and Great Blue Heron.</li>
               <li><strong>Clip Editor Enhancement:</strong> clip_editor.py now auto-populates recordist and vocalization type from the Xeno-Canto API, eliminating manual data entry during clip extraction.</li>
             </ul>
           </VersionEntry>
