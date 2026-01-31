@@ -389,7 +389,7 @@ function Help() {
           />
           <PackInfo
             name="Eastern Birds"
-            description="46 species from the eastern US. 9 birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
+            description="60 species from the eastern US. 9 birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
           />
           <PackInfo
             name="Western Birds"
@@ -806,7 +806,7 @@ function Help() {
               <div>🌏 <strong>Worldwide Bird Packs!</strong> – ChipNotes goes global! Starting with New Zealand, home to some of the world's most unusual and iconic birds. 42 native NZ species across 4 regional packs.</div>
               <div>🎉 <strong>100+ Species!</strong> – Over 100 North American species with curated audio clips and spectrograms</div>
               <div>🔄 <strong>Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</div>
-              <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 21, Eastern to 46, and Woodpeckers to 9</div>
+              <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 21, Eastern to 60, and Woodpeckers to 9</div>
               <div>🐦 <strong>Taxonomic Sorting</strong> – Play birds in evolutionary order, see scientific names</div>
               <div>🎨 <strong>Custom Pack Builder</strong> – Build and save up to 10 custom packs from any species</div>
             </div>
@@ -818,6 +818,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.13" date="January 31, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Eastern Birds Expansion:</strong> Eastern Birds pack expanded from 46 to 60 species with 14 new birds: Wood Thrush, Killdeer, Baltimore Oriole, Northern House Wren, European Starling, Yellow-billed Cuckoo, Chimney Swift, Scarlet Tanager, Veery, Summer Tanager, Blue-gray Gnatcatcher, Great Blue Heron, Green Heron, and Red-breasted Nuthatch. 80 new curated audio clips with spectrograms and icons.</li>
+              <li><strong>Clip Editor Enhancement:</strong> clip_editor.py now auto-populates recordist and vocalization type from the Xeno-Canto API, eliminating manual data entry during clip extraction.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.12" date="January 28, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Meet Birders Where They're At:</strong> North American birds can now be displayed with common names instead of 4-letter codes—toggle on the Ready to Play screen. Whether you're fluent in banding codes or prefer "Northern Cardinal," ChipNotes adapts to you.</li>
