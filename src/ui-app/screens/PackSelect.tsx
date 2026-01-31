@@ -67,7 +67,7 @@ const PACKS: Pack[] = [
     name: 'Eastern Birds',
     speciesCount: 60,
     isUnlocked: true,
-    description: 'Ready for more feathered friends? 9 random per round.',
+    description: 'Ready for more feathered friends? 9 random\nper round.',
     region: 'na',
   },
   {
