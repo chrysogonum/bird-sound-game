@@ -201,7 +201,7 @@ class ClipEditorHandler(http.server.BaseHTTPRequestHandler):
             self.send_error(500, str(e))
 
     def load_xc_recording(self, xc_id):
-        """Download and return info for an XC recording"""
+        """Download and return info for an XC recording, including metadata from XC API"""
         if not xc_id:
             self.send_error(400, "Missing XC ID")
             return
@@ -218,6 +218,36 @@ class ClipEditorHandler(http.server.BaseHTTPRequestHandler):
                 'xc_id': xc_id,
                 'duration': info.duration,
             }
+
+            # Query XC API for metadata (recordist, vocalization type)
+            try:
+                import urllib.request
+                api_key = os.environ.get('XENO_CANTO_API_KEY', '')
+                api_url = f"https://xeno-canto.org/api/3/recordings?query=nr:{xc_id}&key={api_key}"
+                req = urllib.request.Request(api_url, headers={'User-Agent': 'ChipNotes/1.0'})
+                with urllib.request.urlopen(req, timeout=10) as resp:
+                    api_data = json.loads(resp.read().decode())
+                    if api_data.get('recordings'):
+                        rec = api_data['recordings'][0]
+                        result['recordist'] = rec.get('rec', '')
+                        # Map XC type field to our vocalization types
+                        xc_type = rec.get('type', '').lower()
+                        if 'song' in xc_type:
+                            result['vocalization_type'] = 'song'
+                        elif 'alarm' in xc_type:
+                            result['vocalization_type'] = 'alarm call'
+                        elif 'flight' in xc_type:
+                            result['vocalization_type'] = 'flight call'
+                        elif 'call' in xc_type:
+                            result['vocalization_type'] = 'call'
+                        elif 'drum' in xc_type:
+                            result['vocalization_type'] = 'drum'
+                        else:
+                            result['vocalization_type'] = 'song'
+                        result['common_name'] = rec.get('en', '')
+            except Exception as e:
+                print(f"Warning: Could not fetch XC metadata for {xc_id}: {e}")
+
             self.send_json(result)
         except Exception as e:
             self.send_json({'success': False, 'error': str(e)})
@@ -1113,7 +1143,16 @@ def generate_html() -> str:
                         document.getElementById('btnReplace').disabled = true;
                         renderClipsList();
                         loadSource(result.source_path, result.xc_id, null);
-                        showStatus('Loaded XC' + xcId + ' (' + result.duration.toFixed(1) + 's)', 'success');
+                        // Auto-fill metadata from XC API
+                        if (result.recordist) {
+                            document.getElementById('recordist').value = result.recordist;
+                        }
+                        if (result.vocalization_type) {
+                            document.getElementById('vocType').value = result.vocalization_type;
+                        }
+                        let statusMsg = 'Loaded XC' + xcId + ' (' + result.duration.toFixed(1) + 's)';
+                        if (result.recordist) statusMsg += ' — ' + result.recordist;
+                        showStatus(statusMsg, 'success');
                     } else {
                         showStatus('Failed: ' + result.error, 'error');
                     }

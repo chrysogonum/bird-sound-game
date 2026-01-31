@@ -17,51 +17,48 @@ This guide documents the audio ingestion workflows for adding bird species to Ch
 
 ### How It Works
 
-The standard workflow **automatically extracts the loudest 3-second window** from each recording:
+There are two approaches for NA birds:
 
-1. Downloads recordings filtered by quality (A/B rating) and length (3-90 seconds)
-2. Scans the audio using sliding windows (100ms steps)
-3. Calculates RMS energy for each window
-4. Extracts the 3-second section with highest energy (loudest)
-5. Normalizes to -16 LUFS
+**Recommended: Manual Extraction with Clip Editor** — gives precise control over which segments are extracted.
 
-This works well when:
-- The recording has a clear, prominent vocalization
-- Background noise is relatively low
-- The "loudest" part is also the "best" part
+**Alternative: Auto-Extraction with audio_ingest.py** — automatically extracts the loudest 3-second window from each recording (faster but less precise).
 
-It may produce poor results when:
-- Multiple vocalizations compete for loudness
-- Background noise (wind, other birds) is loud
-- The best vocalization isn't the loudest one
+### Tool Decision Guide
 
-**For problematic clips:** Use the review tool to reject them, or use the Manual Selection workflow with the Clip Selector tool for finer control.
+| Tool | When to Use |
+|------|-------------|
+| `clip_editor.py` | **Primary** — manual extraction from XC recordings with waveform UI. Auto-populates recordist and vocalization type from XC API. |
+| `audio_ingest.py` | Bulk auto-extraction (quick additions where manual selection isn't needed) |
+| `augment_species.py` | Adding more clips to species already in game (auto-filters existing/rejected) |
+| `clip_selector.py` | Extracting from local long-form recordings (NZ workflow) |
 
-### When to Use Clip Selector for NA Birds
+### Steps (Clip Editor — Recommended)
 
-You can use the Clip Selector tool with NA sources too! This is useful when:
-- Auto-extraction picked a noisy section
-- You have a long field recording with multiple good vocalizations
-- You want precise control over clip boundaries
+#### 1. Find Good XC Recordings
+Search Xeno-canto for top-rated (quality A/B) recordings for each species.
 
+#### 2. Extract Clips with Clip Editor
 ```bash
-# Download raw files without processing
-# (manually download from Xeno-canto or Cornell)
-# Place in data/raw-candidates/
+# Load a specific XC recording for a species
+python scripts/clip_editor.py --xc 123456 --species RWBL
 
-# Use Clip Selector for manual extraction
-python scripts/clip_selector.py --input data/raw-candidates/ --output data/clips/
+# Or browse/add clips for a species
+python scripts/clip_editor.py --species RWBL
 ```
 
-### Steps
+The clip editor:
+- Downloads the full XC recording
+- Queries XC API to auto-populate recordist and vocalization type
+- Renders waveform in browser (http://localhost:8889)
+- Extracts clips with normalization to -16 LUFS, mono
+- Adds directly to `clips.json` (no merge_candidates step needed)
+
+### Steps (Auto-Extraction — Alternative)
 
 #### 1. Download Audio
 ```bash
-# Xeno-canto (using API key)
-python scripts/audio_ingest.py --species NOCA,BLJA --source xc
-
-# Cornell (requires pre-approval)
-python scripts/cornell_ingest.py --input <cornell_downloads> --output data/clips
+# Xeno-canto auto-extraction
+python scripts/audio_ingest.py --output data/candidates_NOCA --species "Northern Cardinal" --max-per-species 10
 ```
 
 #### 2. Process Audio
@@ -69,7 +66,7 @@ The ingest scripts automatically:
 - Convert to mono WAV
 - Normalize to -16 LUFS
 - Verify duration (0.5-3.0 seconds)
-- Output to `data/clips/`
+- Output to candidates directory
 
 #### 3. Update Clip Metadata
 ```bash
@@ -463,4 +460,4 @@ data/backups/{YYYYMMDD}/{clip_id}.png
 
 ---
 
-*Last updated: January 2026 (v4.09 - Added clip_editor.py)*
+*Last updated: January 2026 (v4.10 - clip_editor.py as primary tool, XC API auto-metadata)*

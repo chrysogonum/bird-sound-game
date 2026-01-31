@@ -8,6 +8,12 @@ Use this base prompt for consistent icons:
 Stylized icon of a [BIRD NAME], simple flat design, circular frame, vibrant colors, white background, game asset style, clean vector look, centered composition, no text
 ```
 
+**Photo Reference (Optional):** When generating icons, you may provide a reference
+photograph of the bird. Use the photo as a guide for the bird's posture, pose, and
+proportions — incorporate these details to make the icon as realistic as possible
+while maintaining the stylized game-asset aesthetic. The photo should inform body
+shape, head angle, and perching position, not override the flat-design art style.
+
 ## Recommended Tools
 - **ChatGPT/DALL-E 3** - Good quality, easy to use
 - **Midjourney** - Best quality, more setup
@@ -395,4 +401,30 @@ These 3 Chatham Islands subspecies have documented vocal differences from their 
 chafan1: Stylized icon of a Chatham Islands Fantail, simple flat design, circular frame, small gray-brown bird with distinctive fan-shaped tail spread wide, darker plumage than mainland fantail, white background, game asset style, clean vector look, centered composition, no text
 chatom1: Stylized icon of a Chatham Islands Tomtit, simple flat design, circular frame, small compact bird with black head and back, white breast, larger and darker than mainland tomtit, white background, game asset style, clean vector look, centered composition, no text
 chatui1: Stylized icon of a Chatham Islands Tūī, simple flat design, circular frame, iridescent dark bird with white throat tuft (poi), larger than mainland tūī with longer throat tufts, white background, game asset style, clean vector look, centered composition, no text
+```
+
+---
+
+## Eastern Expansion (7 new species)
+
+| Code | Name | Prompt |
+|------|------|--------|
+| WOTH | Wood Thrush | Stylized icon of a Wood Thrush, simple flat design, circular frame, warm brown bird with bold dark spots on white breast and rufous back, white background, game asset style, clean vector look, centered composition, no text |
+| KILL | Killdeer | Stylized icon of a Killdeer, simple flat design, circular frame, brown shorebird with two bold black breast bands and orange-rufous rump, white background, game asset style, clean vector look, centered composition, no text |
+| BAOR | Baltimore Oriole | Stylized icon of a Baltimore Oriole, simple flat design, circular frame, brilliant orange and black bird with white wing bar, white background, game asset style, clean vector look, centered composition, no text |
+| YBCU | Yellow-billed Cuckoo | Stylized icon of a Yellow-billed Cuckoo, simple flat design, circular frame, slender brown bird with white underparts, yellow lower mandible, and rufous wing patches, white background, game asset style, clean vector look, centered composition, no text |
+| GBHE | Great Blue Heron | Stylized icon of a Great Blue Heron, simple flat design, circular frame, tall blue-gray wading bird with long neck, dagger bill, and black head plumes, white background, game asset style, clean vector look, centered composition, no text |
+| GRHE | Green Heron | Stylized icon of a Green Heron, simple flat design, circular frame, small stocky heron with dark green back, chestnut neck, and short yellow legs, white background, game asset style, clean vector look, centered composition, no text |
+| RBNU | Red-breasted Nuthatch | Stylized icon of a Red-breasted Nuthatch, simple flat design, circular frame, small blue-gray bird with rusty breast, black eye stripe, and white eyebrow, white background, game asset style, clean vector look, centered composition, no text |
+
+### Quick Copy - Eastern Expansion
+
+```
+WOTH: Stylized icon of a Wood Thrush, simple flat design, circular frame, warm brown bird with bold dark spots on white breast and rufous back, white background, game asset style, clean vector look, centered composition, no text
+KILL: Stylized icon of a Killdeer, simple flat design, circular frame, brown shorebird with two bold black breast bands and orange-rufous rump, white background, game asset style, clean vector look, centered composition, no text
+BAOR: Stylized icon of a Baltimore Oriole, simple flat design, circular frame, brilliant orange and black bird with white wing bar, white background, game asset style, clean vector look, centered composition, no text
+YBCU: Stylized icon of a Yellow-billed Cuckoo, simple flat design, circular frame, slender brown bird with white underparts, yellow lower mandible, and rufous wing patches, white background, game asset style, clean vector look, centered composition, no text
+GBHE: Stylized icon of a Great Blue Heron, simple flat design, circular frame, tall blue-gray wading bird with long neck, dagger bill, and black head plumes, white background, game asset style, clean vector look, centered composition, no text
+GRHE: Stylized icon of a Green Heron, simple flat design, circular frame, small stocky heron with dark green back, chestnut neck, and short yellow legs, white background, game asset style, clean vector look, centered composition, no text
+RBNU: Stylized icon of a Red-breasted Nuthatch, simple flat design, circular frame, small blue-gray bird with rusty breast, black eye stripe, and white eyebrow, white background, game asset style, clean vector look, centered composition, no text
 ```
