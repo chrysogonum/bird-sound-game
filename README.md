@@ -39,8 +39,8 @@ Each round is 30 seconds. Use headphones for the best experience!
 |------|---------|-------------|
 | **Backyard Birds** | 6 | Start here — Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, Robin |
 | **Grassland & Open Country** | 9 | Meadowlarks, Dickcissels, Indigo Buntings — songs of prairies and field edges |
-| **Eastern Birds** | 46 | Comprehensive eastern US species, 9 random per round |
-| **Western Birds** | 21 | Steller's Jay, Western Scrub-Jay, Oak Titmouse, and more from the Pacific coast to the Rockies |
+| **Eastern Birds** | 60 | Comprehensive eastern US species, 9 random per round |
+| **Western Birds** | 26 | Steller's Jay, Western Scrub-Jay, Oak Titmouse, Killdeer, and more from the Pacific coast to the Rockies |
 | **Woodpeckers** | 9 | Drums, calls, and rattles from Downy to Pileated (includes Acorn & Lewis's!) |
 | **Sparrows** | 9 | Nine sparrow species with distinctive patterns |
 | **Warbler Academy** | 34 | High-pitched songs of spring migration (experts only!) |
@@ -55,7 +55,7 @@ Each round is 30 seconds. Use headphones for the best experience!
 
 NZ birds display their **Māori names** (e.g., Tūī, Ruru, Kererū). Subspecies are distinguished with abbreviations: (NI) North Island, (SI) South Island, (Ch.) Chatham Islands.
 
-**Custom Packs:** Build your own training session from 148 species — drill a nemesis bird, compare confusing species head-to-head, or create regional lists. Filter by pack, search by name, and save up to 10 custom packs.
+**Custom Packs:** Build your own training session from 163 species — drill a nemesis bird, compare confusing species head-to-head, or create regional lists. Filter by pack, search by name, and save up to 10 custom packs.
 
 ## Difficulty Levels
 
@@ -72,11 +72,11 @@ Each pack has 6 levels that progressively build your skills:
 
 ## Features
 
-- **148 species** with **686 curated clips** from Xeno-canto, Cornell Macaulay Library, and NZ Department of Conservation
+- **163 species** with **924 curated clips** from Xeno-canto, Cornell Macaulay Library, and NZ Department of Conservation
 - **Two regions** — North American birds and New Zealand endemic species with Māori names
 - **Left/right stereo training** — spatial audio identification like real birding
 - **Real spectrograms** generated for every clip (400x200px, 500-10000 Hz range)
-- **10 curated packs** — 7 North American + 3 New Zealand, from 6 to 46 species per pack
+- **10 curated packs** — 7 North American + 3 New Zealand, from 6 to 60 species per pack
 - **Training Mode** — Toggle eye icon to show bird labels on tiles while learning
 - **Taxonomic sorting** — Toggle between alphabetical and phylogenetic order with scientific names
 - **Bird Reference** — Preview all sounds in the game, organized by pack, with canonical recordings marked
@@ -90,13 +90,13 @@ Each pack has 6 levels that progressively build your skills:
 
 ## Species Coverage
 
-**148 species** across 10 packs:
+**163 species** across 10 packs:
 
-### North America (106 species)
+### North America (121 species)
 - Backyard birds (cardinals, wrens, jays, chickadees, robins, bluebirds, thrushes)
 - Grassland & open country birds (Eastern Meadowlark, Dickcissel, Indigo Bunting, Barn Swallow, Eastern Kingbird, Common Yellowthroat, Yellow Warbler)
-- Eastern birds (46 species from the eastern US)
-- Western birds (Steller's Jay, Western Scrub-Jay, Black-capped Chickadee, White-crowned Sparrow, and more)
+- Eastern birds (60 species from the eastern US)
+- Western birds (26 species — Steller's Jay, California Scrub-Jay, Killdeer, Red-breasted Nuthatch, and more)
 - Woodpeckers (9 species from Downy to Pileated, including Acorn and Lewis's)
 - Sparrows (9 species including White-throated, White-crowned, Song, Chipping, Field, Savannah)
 - Warblers (34 spring migration species — the ultimate challenge!)
@@ -143,10 +143,10 @@ cd src/ui-app && npm run deploy
 
 New species are added via:
 
-1. **Download** from Xeno-canto API (`scripts/audio_ingest.py`)
-2. **Normalize** to -16 LUFS, trim to 0.5-3 seconds
-3. **Review** using the clip curator tool (`data/review-clips.html`)
-4. **Generate spectrograms** (`scripts/spectrogram_gen.py`)
+1. **Extract clips** from Xeno-canto recordings using the waveform-based clip editor (`scripts/clip_editor.py`) — auto-populates recordist and vocalization type from XC API
+2. **Normalize** to -16 LUFS, mono, 0.5-3 seconds
+3. **Generate spectrograms** (`scripts/spectrogram_gen.py`)
+4. **Review & curate** using the clip review tool (`scripts/review_clips.py`) — mark canonical clips, reject poor quality
 5. **Update** clips.json with canonical/rejected flags
 
 ## Project Structure
@@ -182,4 +182,4 @@ Bird recordings from [Xeno-canto](https://xeno-canto.org) and [Cornell Macaulay 
 
 ---
 
-*Built with [Claude Code](https://claude.ai/code) · v4.01 · January 2026*
+*Built with [Claude Code](https://claude.ai/code) · v4.13 · January 2026*
