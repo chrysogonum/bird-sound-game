@@ -23,7 +23,12 @@
     "WREN",
     "SPTO",
     "WEBL",
-    "OATI"
+    "OATI",
+    "KILL",
+    "EUST",
+    "NHWR",
+    "RBNU",
+    "GBHE"
   ],
   "vocalization_weights": {
     "song": 0.6,
