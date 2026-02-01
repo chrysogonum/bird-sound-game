@@ -70,6 +70,8 @@ function CustomPackBuilder() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const searchInputRef = useRef<HTMLInputElement | null>(null);
   const hasValidatedPacks = useRef(false);  // Track if we've already validated packs
+  const gridScrollRef = useRef<HTMLDivElement | null>(null);  // Preserve scroll position on toggle
+  const screenRef = useRef<HTMLDivElement | null>(null);  // Ref to outer screen container
   const [taxonomicSort, setTaxonomicSort] = useState(() => {
     try {
       return localStorage.getItem('soundfield_taxonomic_sort') === 'true';
@@ -268,33 +270,43 @@ function CustomPackBuilder() {
 
   // Toggle species selection
   const toggleSpecies = useCallback((code: string, filteredCount: number) => {
+    // Save scroll position of both possible scroll containers before state change
+    const gridScroll = gridScrollRef.current?.scrollTop ?? 0;
+    const screenScroll = screenRef.current?.scrollTop ?? 0;
+
     setSelectedCodes((prev) => {
       const isCurrentlySelected = prev.includes(code);
       const isAtMax = prev.length >= MAX_SPECIES;
 
       if (isCurrentlySelected) {
-        // Removing a bird - just remove it
         return prev.filter((c) => c !== code);
       }
 
       if (isAtMax) {
-        // Can't add - at max
         return prev;
       }
 
-      // Adding a new bird
       // Only clear search if there was exactly one match (single-select scenario)
-      // Keep search active if multiple matches (allows selecting multiple from filtered list)
       if (filteredCount === 1) {
         setSearchQuery('');
       }
 
-      // Always refocus input for next entry
+      // Refocus input for next entry (preventScroll to avoid jumping to top)
       setTimeout(() => {
-        searchInputRef.current?.focus();
+        searchInputRef.current?.focus({ preventScroll: true });
       }, 0);
 
       return [...prev, code];
+    });
+
+    // Restore scroll position after React re-render
+    requestAnimationFrame(() => {
+      if (gridScrollRef.current) {
+        gridScrollRef.current.scrollTop = gridScroll;
+      }
+      if (screenRef.current) {
+        screenRef.current.scrollTop = screenScroll;
+      }
     });
   }, []);
 
@@ -619,7 +631,7 @@ function CustomPackBuilder() {
   }
 
   return (
-    <div className="screen" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div ref={screenRef} className="screen" style={{ display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
       {/* Header */}
       <div style={{ flexShrink: 0, marginBottom: '12px' }}>
         <div className="flex-row items-center gap-md">
@@ -942,10 +954,10 @@ function CustomPackBuilder() {
       </div>
 
       {/* Species grid */}
-      <div style={{
+      <div ref={gridScrollRef} style={{
         flex: 1,
         overflowY: 'auto',
-        paddingBottom: selectedCodes.length > 0 ? '80px' : '12px', // Space for sticky button
+        paddingBottom: '80px',
       }}>
         <div style={{
           display: 'grid',
