@@ -818,6 +818,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.14" date="February 1, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Custom Pack Builder Fix:</strong> Fixed scroll jumping to top when selecting birds — the list now stays in place as you tap through species.</li>
+              <li><strong>Drill Level Fix:</strong> Confusion drills now match the difficulty level you were playing at, instead of always defaulting to Level 1.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.13" date="January 31, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Eastern Birds Expansion:</strong> Eastern Birds pack expanded from 46 to 60 species with 14 new birds: Wood Thrush, Killdeer, Baltimore Oriole, Northern House Wren, European Starling, Yellow-billed Cuckoo, Chimney Swift, Scarlet Tanager, Veery, Summer Tanager, Blue-gray Gnatcatcher, Great Blue Heron, Green Heron, and Red-breasted Nuthatch. 80 new curated audio clips with spectrograms and icons.</li>
