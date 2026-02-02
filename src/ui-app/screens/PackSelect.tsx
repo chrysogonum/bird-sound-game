@@ -777,6 +777,23 @@ function PackSelect() {
           </div>
         </div>
 
+        {/* Construction notice */}
+        <div
+          style={{
+            background: 'rgba(255, 200, 50, 0.12)',
+            border: '1px solid rgba(255, 200, 50, 0.3)',
+            borderRadius: '8px',
+            padding: '10px 14px',
+            marginBottom: '16px',
+            fontSize: '13px',
+            color: 'rgba(255, 255, 255, 0.8)',
+            lineHeight: '1.4',
+          }}
+        >
+          <span style={{ marginRight: '6px' }}>🚧</span>
+          Sound library under construction. Sound type labels (song, call, etc.) are being reviewed and corrected — don't rely on them just yet.
+        </div>
+
         <p style={{
           fontSize: '13px',
           color: 'var(--color-text-muted)',

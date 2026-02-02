@@ -818,6 +818,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.15" date="February 1, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Sound Library Notice:</strong> Added construction banner to all Sound Library locations — sound type labels (song, call, etc.) are being reviewed and corrected across all clips.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.14" date="February 1, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Custom Pack Builder Fix:</strong> Fixed scroll jumping to top when selecting birds — the list now stays in place as you tap through species.</li>
