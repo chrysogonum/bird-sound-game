@@ -329,7 +329,8 @@ function PackSelect() {
         borderRadius: '12px',
       }}>
         <ul style={{ margin: 0, paddingLeft: '20px' }}>
-          <li style={{ fontWeight: 600 }}>Use 🎧 or UN-mute 🔊📱</li>
+          <li style={{ fontWeight: 600 }}>Best on a phone/tablet, with 🎧</li>
+          <li>No sound? Check if 📱 is on silent 🔇→🔊</li>
           <li>6 levels—start @ #1, young Grasshopper <img src={`${import.meta.env.BASE_URL}data/icons/SAVS.png`} alt="" style={{ width: '18px', height: '18px', verticalAlign: 'middle', marginLeft: '2px', borderRadius: '3px' }} /></li>
           <li>Try training mode (👁){' '}
             <Link to="/help#training-mode" state={{ fromPackSelect: true }} style={{ color: 'var(--color-accent)' }}>
@@ -340,12 +341,6 @@ function PackSelect() {
             <Link to="/settings" state={{ fromPackSelect: true }} style={{ color: 'var(--color-accent)' }}>
               🧘 ⚙️
             </Link>
-          </li>
-          <li>🔎{' '}
-            <Link to="/help" state={{ fromPackSelect: true, openVersionHistory: true }} style={{ color: 'var(--color-accent)' }}>
-              Version notes
-            </Link>
-            {' '}for recent changes
           </li>
           <li>👇 Check out the full sound library below</li>
         </ul>
