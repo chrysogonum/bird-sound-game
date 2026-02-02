@@ -818,6 +818,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.16" date="February 2, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Pack Select Tips Refresh:</strong> Updated tip bullets with clearer guidance on device and audio setup — headphones recommended, and how to fix missing sound on mobile.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.15" date="February 1, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Sound Library Notice:</strong> Added construction banner to all Sound Library locations — sound type labels (song, call, etc.) are being reviewed and corrected across all clips.</li>
