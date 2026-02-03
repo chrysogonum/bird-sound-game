@@ -6,11 +6,31 @@
 // Derive base URL from service worker's location (e.g., /bird-sound-game/)
 const BASE_URL = self.location.pathname.replace(/sw\.js$/, '');
 
-const CACHE_NAME = 'chipnotes-v1';
+const CACHE_NAME = 'chipnotes-v2';
 const STATIC_ASSETS = [
   BASE_URL,
   `${BASE_URL}index.html`,
   `${BASE_URL}manifest.json`,
+  // Core data files needed for offline play
+  `${BASE_URL}data/clips.json`,
+  `${BASE_URL}data/species.json`,
+  `${BASE_URL}data/levels.json`,
+  `${BASE_URL}data/taxonomic_order.json`,
+  `${BASE_URL}data/nz_subspecies_merge.json`,
+  `${BASE_URL}data/nz_display_codes.json`,
+  // Pack definitions
+  `${BASE_URL}data/packs/starter_birds.json`,
+  `${BASE_URL}data/packs/grassland_birds.json`,
+  `${BASE_URL}data/packs/sparrows.json`,
+  `${BASE_URL}data/packs/woodpeckers.json`,
+  `${BASE_URL}data/packs/spring_warblers.json`,
+  `${BASE_URL}data/packs/western_birds.json`,
+  `${BASE_URL}data/packs/expanded_backyard.json`,
+  `${BASE_URL}data/packs/common_se_birds.json`,
+  `${BASE_URL}data/packs/nz_common.json`,
+  `${BASE_URL}data/packs/nz_north_island.json`,
+  `${BASE_URL}data/packs/nz_south_island.json`,
+  `${BASE_URL}data/packs/nz_all_birds.json`,
 ];
 
 // Install event - cache static assets
@@ -54,8 +74,10 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // For audio files, use cache-first strategy
-  if (url.pathname.startsWith(`${BASE_URL}data/clips/`) || url.pathname.startsWith(`${BASE_URL}data/spectrograms/`)) {
+  // For audio, spectrograms, and icons, use cache-first strategy
+  if (url.pathname.startsWith(`${BASE_URL}data/clips/`) ||
+      url.pathname.startsWith(`${BASE_URL}data/spectrograms/`) ||
+      url.pathname.startsWith(`${BASE_URL}data/icons/`)) {
     event.respondWith(
       caches.open(CACHE_NAME).then((cache) => {
         return cache.match(request).then((cached) => {
