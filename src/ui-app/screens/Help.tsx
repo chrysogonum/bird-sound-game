@@ -818,6 +818,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.17" date="February 3, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>NZ Custom Pack Builder Fix:</strong> Added North Island and South Island to the pack filter options — previously only showed All NZ Birds and Garden & Bush.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.16" date="February 2, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Pack Select Tips Refresh:</strong> Updated tip bullets with clearer guidance on device and audio setup — headphones recommended, and how to fix missing sound on mobile.</li>
