@@ -1,6 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { trackExternalLinkClick } from '../utils/analytics';
+import {
+  isOfflineSupported,
+  getPackStatuses,
+  buildPackManifest,
+  downloadPack,
+  resumePack,
+  clearPack,
+  clearAllPacks,
+  verifyAllPacks,
+  getStorageEstimate,
+  formatBytes,
+  AVAILABLE_PACKS,
+  PackStatus,
+  PackManifest,
+} from '../utils/offlineManager';
 
 type SpectrogramMode = 'full' | 'fading' | 'none';
 
@@ -32,6 +47,140 @@ function Settings() {
     const consent = localStorage.getItem(STORAGE_KEYS.COOKIE_CONSENT);
     return consent === 'accepted';
   });
+
+  // Offline mode state
+  const [offlineSupported] = useState(() => isOfflineSupported());
+  const [packManifests, setPackManifests] = useState<Record<string, PackManifest>>({});
+  const [packStatuses, setPackStatuses] = useState<Record<string, PackStatus>>({});
+  const [downloadProgress, setDownloadProgress] = useState<Record<string, { completed: number; total: number }>>({});
+  const [activeDownload, setActiveDownload] = useState<string | null>(null);
+  const [storageInfo, setStorageInfo] = useState<{ used: number; available: number } | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
+
+  // Load offline pack data on mount
+  useEffect(() => {
+    if (!offlineSupported) return;
+
+    // Load pack manifests
+    const loadManifests = async () => {
+      const manifests: Record<string, PackManifest> = {};
+      for (const packId of AVAILABLE_PACKS) {
+        try {
+          const manifest = await buildPackManifest(packId);
+          manifests[packId] = manifest;
+        } catch (e) {
+          console.error(`Failed to load manifest for ${packId}:`, e);
+        }
+      }
+      setPackManifests(manifests);
+    };
+
+    // Load statuses and verify cache
+    const loadStatuses = async () => {
+      await verifyAllPacks();
+      const state = getPackStatuses();
+      const statuses: Record<string, PackStatus> = {};
+      for (const packId of AVAILABLE_PACKS) {
+        statuses[packId] = state.packs[packId]?.status || 'not_downloaded';
+      }
+      setPackStatuses(statuses);
+    };
+
+    // Load storage info
+    const loadStorage = async () => {
+      const info = await getStorageEstimate();
+      setStorageInfo(info);
+    };
+
+    loadManifests();
+    loadStatuses();
+    loadStorage();
+  }, [offlineSupported]);
+
+  // Handle download/resume
+  const handleDownload = useCallback(async (packId: string, isResume: boolean) => {
+    if (activeDownload) return;
+
+    setActiveDownload(packId);
+    setPackStatuses(prev => ({ ...prev, [packId]: 'downloading' }));
+
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+
+    const onProgress = (completed: number, total: number) => {
+      setDownloadProgress(prev => ({ ...prev, [packId]: { completed, total } }));
+    };
+
+    try {
+      if (isResume) {
+        await resumePack(packId, onProgress, controller.signal);
+      } else {
+        await downloadPack(packId, onProgress, controller.signal);
+      }
+      setPackStatuses(prev => ({ ...prev, [packId]: 'downloaded' }));
+    } catch (e) {
+      if ((e as Error).name !== 'AbortError') {
+        console.error(`Download failed for ${packId}:`, e);
+      }
+      // Refresh statuses from storage
+      const state = getPackStatuses();
+      setPackStatuses(prev => ({
+        ...prev,
+        [packId]: state.packs[packId]?.status || 'partial',
+      }));
+    } finally {
+      setActiveDownload(null);
+      abortControllerRef.current = null;
+      setDownloadProgress(prev => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { [packId]: _removed, ...rest } = prev;
+        return rest;
+      });
+      // Refresh storage info
+      const info = await getStorageEstimate();
+      setStorageInfo(info);
+    }
+  }, [activeDownload]);
+
+  // Handle cancel download
+  const handleCancelDownload = useCallback(() => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+  }, []);
+
+  // Handle clear pack
+  const handleClearPack = useCallback(async (packId: string) => {
+    try {
+      await clearPack(packId);
+      setPackStatuses(prev => ({ ...prev, [packId]: 'not_downloaded' }));
+      const info = await getStorageEstimate();
+      setStorageInfo(info);
+    } catch (e) {
+      console.error(`Failed to clear pack ${packId}:`, e);
+    }
+  }, []);
+
+  // Handle clear all
+  const handleClearAllPacks = useCallback(async () => {
+    const confirmed = confirm(
+      'This will remove all downloaded packs. You can re-download them anytime. Continue?'
+    );
+    if (!confirmed) return;
+
+    try {
+      await clearAllPacks();
+      const statuses: Record<string, PackStatus> = {};
+      for (const packId of AVAILABLE_PACKS) {
+        statuses[packId] = 'not_downloaded';
+      }
+      setPackStatuses(statuses);
+      const info = await getStorageEstimate();
+      setStorageInfo(info);
+    } catch (e) {
+      console.error('Failed to clear all packs:', e);
+    }
+  }, []);
 
   // Save to localStorage when changed
   useEffect(() => {
@@ -160,6 +309,150 @@ function Settings() {
               {continuousPlay ? 'ON' : 'OFF'}
             </button>
           </div>
+        </div>
+
+        {/* Offline Mode */}
+        <div className="card">
+          <h3 style={{ marginBottom: '8px' }}>Offline Mode</h3>
+          <div className="text-muted" style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '12px' }}>
+            Download packs to play without internet. Great for flights!
+          </div>
+
+          {!offlineSupported ? (
+            <div style={{ color: 'var(--color-error)', fontSize: '13px' }}>
+              Offline mode is not supported in this browser.
+            </div>
+          ) : (
+            <>
+              <div className="text-muted" style={{ fontSize: '12px', marginBottom: '12px', fontStyle: 'italic' }}>
+                Note: Packs may be cleared by your browser if storage runs low.
+              </div>
+
+              {storageInfo && (
+                <div className="text-muted" style={{ fontSize: '13px', marginBottom: '16px' }}>
+                  Storage: {formatBytes(storageInfo.used)} used / ~{formatBytes(storageInfo.available)} available
+                </div>
+              )}
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {AVAILABLE_PACKS.map((packId) => {
+                  const manifest = packManifests[packId];
+                  const status = packStatuses[packId] || 'not_downloaded';
+                  const isDownloading = activeDownload === packId;
+
+                  return (
+                    <div
+                      key={packId}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '8px',
+                        backgroundColor: 'var(--color-surface)',
+                        borderRadius: '6px',
+                      }}
+                    >
+                      {/* Status indicator */}
+                      <span style={{ fontSize: '14px', width: '20px' }}>
+                        {status === 'downloaded' && '✓'}
+                        {status === 'partial' && '◐'}
+                        {status === 'downloading' && '⏳'}
+                        {status === 'not_downloaded' && '○'}
+                      </span>
+
+                      {/* Pack name and size */}
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <div style={{ fontSize: '14px', fontWeight: 500 }}>
+                          {manifest?.displayName || packId}
+                        </div>
+                        <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
+                          ~{manifest?.estimatedSizeMB || '?'} MB
+                        </div>
+                      </div>
+
+                      {/* Action button */}
+                      {isDownloading ? (
+                        <button
+                          className="btn-secondary"
+                          onClick={handleCancelDownload}
+                          style={{ fontSize: '12px', padding: '4px 8px' }}
+                        >
+                          Cancel
+                        </button>
+                      ) : status === 'downloaded' ? (
+                        <button
+                          className="btn-secondary"
+                          onClick={() => handleClearPack(packId)}
+                          style={{ fontSize: '12px', padding: '4px 8px' }}
+                        >
+                          Remove
+                        </button>
+                      ) : status === 'partial' ? (
+                        <button
+                          className="btn-secondary"
+                          onClick={() => handleDownload(packId, true)}
+                          disabled={activeDownload !== null}
+                          style={{ fontSize: '12px', padding: '4px 8px' }}
+                        >
+                          Resume
+                        </button>
+                      ) : (
+                        <button
+                          className="btn-secondary"
+                          onClick={() => handleDownload(packId, false)}
+                          disabled={activeDownload !== null}
+                          style={{ fontSize: '12px', padding: '4px 8px' }}
+                        >
+                          Download
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Progress bar for active download */}
+              {activeDownload && downloadProgress[activeDownload] && (
+                <div style={{ marginTop: '12px' }}>
+                  <div
+                    style={{
+                      height: '8px',
+                      backgroundColor: 'var(--color-surface)',
+                      borderRadius: '4px',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <div
+                      style={{
+                        height: '100%',
+                        width: `${(downloadProgress[activeDownload].completed / downloadProgress[activeDownload].total) * 100}%`,
+                        backgroundColor: 'var(--color-accent)',
+                        transition: 'width 0.2s ease-out',
+                      }}
+                    />
+                  </div>
+                  <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '4px', textAlign: 'center' }}>
+                    {downloadProgress[activeDownload].completed} / {downloadProgress[activeDownload].total} files
+                  </div>
+                </div>
+              )}
+
+              {/* Clear all button */}
+              {Object.values(packStatuses).some(s => s === 'downloaded' || s === 'partial') && (
+                <button
+                  className="btn-secondary"
+                  onClick={handleClearAllPacks}
+                  style={{
+                    marginTop: '16px',
+                    width: '100%',
+                    fontSize: '13px',
+                  }}
+                >
+                  Clear All Downloaded Packs
+                </button>
+              )}
+            </>
+          )}
         </div>
 
         {/* Privacy & Analytics */}

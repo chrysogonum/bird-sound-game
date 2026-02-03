@@ -37,6 +37,7 @@ function Help() {
     'The Bird Gallery',
     'The Sound Library',
     'The Levels',
+    'Offline Play',
     'Taxonomic Sorting',
     'The 4-Letter Codes',
     'About & Credits',
@@ -218,6 +219,29 @@ function Help() {
           </p>
           <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
             <strong>Mobile tip:</strong> For fullscreen play on iOS, use Safari. On Android Chrome, tap ⋮ → "Add to Home screen" and launch from the icon.
+          </p>
+          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
+            <strong>Offline tip:</strong> Playing on a flight?{' '}
+            <button
+              onClick={() => {
+                setExpandedSections(prev => new Set([...prev, 'Offline Play']));
+                setTimeout(() => {
+                  document.getElementById('offline-play')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-accent)',
+                fontSize: '14px',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                padding: 0,
+              }}
+            >
+              See Offline Play
+            </button>{' '}
+            to download packs ahead of time.
           </p>
         </Section>
 
@@ -550,6 +574,37 @@ function Help() {
           <LevelInfo level={6} title="Master Birder" description="Everything at once. You're a pro now." />
         </Section>
 
+        {/* Offline Play */}
+        <div id="offline-play">
+        <Section
+          title="Offline Play"
+          isExpanded={expandedSections.has('Offline Play')}
+          onToggle={() => toggleSection('Offline Play')}
+        >
+          <p style={{ marginBottom: '12px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
+            ChipNotes works great on flights and in areas with no signal — you just need to prepare ahead of time.
+          </p>
+
+          <h4 style={{ margin: '16px 0 8px 0', fontSize: '15px' }}>How It Works</h4>
+          <p style={{ marginBottom: '12px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
+            When you play normally, audio clips and spectrograms are downloaded from the server as needed. The app automatically saves them to your device's cache, so clips you've already heard load instantly next time.
+          </p>
+
+          <h4 style={{ margin: '16px 0 8px 0', fontSize: '15px' }}>Preparing for Offline</h4>
+          <p style={{ marginBottom: '12px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
+            Go to <strong>Settings → Offline Mode</strong> and download the packs you want. This pre-fetches all audio and spectrograms so the entire pack works without internet. Pack sizes range from ~15 MB to ~180 MB depending on species count.
+          </p>
+
+          <h4 style={{ margin: '16px 0 8px 0', fontSize: '15px' }}>Good to Know</h4>
+          <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+            <li style={{ marginBottom: '6px' }}>Downloads can be paused and resumed if interrupted</li>
+            <li style={{ marginBottom: '6px' }}>Your browser may clear cached data if storage runs low — the app will show "partial" status if this happens</li>
+            <li style={{ marginBottom: '6px' }}>Clips you've played before are already cached, even without using the download feature</li>
+            <li>Offline mode requires a modern browser (Chrome, Safari, Firefox, Edge)</li>
+          </ul>
+        </Section>
+        </div>
+
         {/* Taxonomic Sorting */}
         <Section
           title="Taxonomic Sorting"
@@ -818,6 +873,14 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.18" date="February 3, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Offline Mode:</strong> New Settings section lets you download individual packs for offline play — perfect for flights or areas with no signal. Downloads include all audio clips and spectrograms for selected packs. Resume interrupted downloads, verify cache status, and clear storage when needed.</li>
+              <li><strong>Offline Play Guide:</strong> New Help section explaining how caching works and how to prepare for offline use.</li>
+              <li><strong>Service Worker Re-enabled:</strong> PWA caching restored for better offline support and faster load times on repeat visits.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.17" date="February 3, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>NZ Custom Pack Builder Fix:</strong> Added North Island and South Island to the pack filter options — previously only showed All NZ Birds and Garden & Bush.</li>
