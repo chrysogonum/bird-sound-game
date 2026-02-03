@@ -873,6 +873,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.19" date="February 3, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Offline Mode Fix:</strong> Core data files (levels, species, packs) and bird icons now pre-cache on first app load, so the full game works offline — not just the audio and spectrograms.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.18" date="February 3, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Offline Mode:</strong> New Settings section lets you download individual packs for offline play — perfect for flights or areas with no signal. Downloads include all audio clips and spectrograms for selected packs. Resume interrupted downloads, verify cache status, and clear storage when needed.</li>

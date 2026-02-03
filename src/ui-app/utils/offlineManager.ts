@@ -21,7 +21,7 @@ export interface PackConfig {
 
 export interface PackAsset {
   url: string;
-  type: 'audio' | 'spectrogram';
+  type: 'audio' | 'spectrogram' | 'icon';
 }
 
 export interface PackManifest {
@@ -51,7 +51,7 @@ export interface OfflinePacksState {
 export type ProgressCallback = (completed: number, total: number) => void;
 
 // Constants
-const CACHE_NAME = 'chipnotes-v1';
+const CACHE_NAME = 'chipnotes-v2';
 const STORAGE_KEY = 'chipnotes_offline_packs';
 const CONCURRENCY = 4;
 const THROTTLE_MS = 250;
@@ -124,6 +124,13 @@ export async function buildPackManifest(packId: string): Promise<PackManifest> {
   const packClips = clips.filter(c => packSpecies.has(c.species_code) && !c.rejected);
 
   const assets: PackAsset[] = [];
+
+  // Add icons for each species in the pack
+  for (const speciesCode of packSpecies) {
+    assets.push({ url: resolveAssetUrl(`data/icons/${speciesCode}.png`), type: 'icon' });
+  }
+
+  // Add audio and spectrograms for each clip
   for (const clip of packClips) {
     assets.push({ url: resolveAssetUrl(clip.file_path), type: 'audio' });
     if (clip.spectrogram_path) {
