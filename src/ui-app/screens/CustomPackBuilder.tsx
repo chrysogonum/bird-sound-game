@@ -100,7 +100,8 @@ function CustomPackBuilder() {
       ? [
           'nz_all_birds',
           'nz_common',
-          'nz_rare',
+          'nz_north_island',
+          'nz_south_island',
         ]
       : [
           'starter_birds',
