@@ -3,6 +3,8 @@
  * Handles pack downloads, verification, and cache management for offline play.
  */
 
+import * as Sentry from '@sentry/react';
+
 // Types
 export interface Clip {
   clip_id: string;
@@ -295,6 +297,11 @@ export async function downloadPack(
       }
       // Log but continue on individual file failures
       console.warn(`Failed to download ${asset.url}:`, e);
+      Sentry.addBreadcrumb({
+        category: 'offline',
+        message: `Download failed: ${asset.url}`,
+        level: 'warning',
+      });
     }
 
     completed++;
@@ -387,6 +394,11 @@ export async function resumePack(
         throw e;
       }
       console.warn(`Failed to download ${asset.url}:`, e);
+      Sentry.addBreadcrumb({
+        category: 'offline',
+        message: `Resume download failed: ${asset.url}`,
+        level: 'warning',
+      });
     }
 
     completed++;

@@ -873,6 +873,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.20" date="February 5, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Error Tracking:</strong> Added Sentry error monitoring to automatically capture and report crashes in production — no more silent white screens. Includes a friendly error fallback UI with a "Back to Menu" button.</li>
+              <li><strong>Test Coverage:</strong> Added offline manager test suite (21 new tests) and coverage threshold enforcement to catch regressions early.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.19" date="February 3, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Offline Mode Fix:</strong> Core data files (levels, species, packs) and bird icons now pre-cache on first app load, so the full game works offline — not just the audio and spectrograms.</li>
