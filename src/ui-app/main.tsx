@@ -2,7 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import { initSentry } from './utils/sentry';
+import { AppErrorBoundary } from './components/ErrorBoundary';
 import './styles/global.css';
+
+initSentry();
 
 // Register service worker for offline support
 if ('serviceWorker' in navigator) {
@@ -20,8 +24,10 @@ if ('serviceWorker' in navigator) {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <App />
-    </BrowserRouter>
+    <AppErrorBoundary>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <App />
+      </BrowserRouter>
+    </AppErrorBoundary>
   </React.StrictMode>
 );

@@ -5,6 +5,7 @@
  */
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import * as Sentry from '@sentry/react';
 import type { Channel } from '@engine/audio/types';
 import type { GameEvent, LevelConfig, RoundState } from '@engine/game/types';
 import type { ScoreBreakdown, FeedbackType } from '@engine/scoring/types';
@@ -546,6 +547,11 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       console.error(`❌ DECODE FAILED for ${filePath}:`, decodeError);
       console.error('  This file cannot be played in Web Audio API (gameplay)');
       console.error('  File size:', arrayBuffer.byteLength, 'bytes');
+      Sentry.addBreadcrumb({
+        category: 'audio',
+        message: `Decode failed: ${filePath} (${arrayBuffer.byteLength} bytes)`,
+        level: 'error',
+      });
       throw new Error(`Cannot decode audio file: ${filePath} - ${decodeError}`);
     }
   }, []);

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@pixi/react": "^7.1.2",
+    "@sentry/react": "^10.38.0",
     "pixi.js": "^7.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
