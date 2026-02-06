@@ -42,7 +42,7 @@ interface Pack {
   speciesCount: number;
   isUnlocked: boolean;
   description: string;
-  region?: 'na' | 'nz';
+  region?: 'na' | 'nz' | 'eu';
 }
 
 const PACKS: Pack[] = [
@@ -176,7 +176,8 @@ function PackSelect() {
   useEffect(() => {
     const packIds = [
       'starter_birds', 'grassland_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds',
-      'nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'
+      'nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island',
+      'eu_warblers'
     ];
 
     Promise.all(
@@ -611,62 +612,135 @@ function PackSelect() {
 
       </div>
 
-      {/* New Zealand Birds - Link to separate page */}
-      <button
-        onClick={() => navigate('/nz-packs')}
-        style={{
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '12px',
-          marginBottom: '32px',
-          padding: '16px 20px',
-          background: 'linear-gradient(135deg, #2a7a6a 0%, #1a5a4a 100%)',
-          borderRadius: '16px',
-          border: '2px solid rgba(100, 200, 180, 0.5)',
-          cursor: 'pointer',
-          transition: 'all 0.2s',
-          textAlign: 'left',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'translateY(-2px)';
-          e.currentTarget.style.boxShadow = '0 6px 20px rgba(100, 200, 180, 0.3)';
-          e.currentTarget.style.borderColor = 'rgba(100, 200, 180, 0.8)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'translateY(0)';
-          e.currentTarget.style.boxShadow = 'none';
-          e.currentTarget.style.borderColor = 'rgba(100, 200, 180, 0.5)';
-        }}
-      >
-        {/* Decorative bird icon - right side */}
-        <img
-          src={`${import.meta.env.BASE_URL}data/icons/yeepen1.png`}
-          alt=""
-          style={{
-            position: 'absolute',
-            right: '-10px',
-            bottom: '-10px',
-            width: '80px',
-            height: '80px',
-            opacity: 0.75,
-            filter: 'brightness(1.2)',
-            transform: 'rotate(-15deg)',
-            objectFit: 'cover',
-          }}
-        />
-        <span style={{ fontSize: '32px', position: 'relative', zIndex: 1 }}>🇳🇿</span>
-        <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
-          <h3 style={{ margin: 0, fontSize: '18px', color: '#a8d5a2', fontWeight: 700 }}>
-            New Zealand Birds <span style={{ fontSize: '16px' }}>→</span>
-          </h3>
-          <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-muted)' }}>
-            37 native species from<br />Aotearoa New Zealand • 4 packs
-          </p>
+      {/* World Packs Section */}
+      <div style={{ marginBottom: '32px' }}>
+        <div style={{
+          fontSize: '13px',
+          color: 'var(--color-text-muted)',
+          fontWeight: 600,
+          textTransform: 'uppercase',
+          letterSpacing: '1px',
+          marginBottom: '12px',
+          paddingLeft: '4px',
+        }}>
+          World Packs
         </div>
-      </button>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {/* New Zealand Birds */}
+          <button
+            onClick={() => navigate('/nz-packs')}
+            style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '16px 20px',
+              background: 'linear-gradient(135deg, #2a7a6a 0%, #1a5a4a 100%)',
+              borderRadius: '16px',
+              border: '2px solid rgba(100, 200, 180, 0.5)',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              textAlign: 'left',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(100, 200, 180, 0.3)';
+              e.currentTarget.style.borderColor = 'rgba(100, 200, 180, 0.8)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+              e.currentTarget.style.borderColor = 'rgba(100, 200, 180, 0.5)';
+            }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}data/icons/yeepen1.png`}
+              alt=""
+              style={{
+                position: 'absolute',
+                right: '-10px',
+                bottom: '-10px',
+                width: '80px',
+                height: '80px',
+                opacity: 0.75,
+                filter: 'brightness(1.2)',
+                transform: 'rotate(-15deg)',
+                objectFit: 'cover',
+              }}
+            />
+            <span style={{ fontSize: '32px', position: 'relative', zIndex: 1 }}>🇳🇿</span>
+            <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
+              <h3 style={{ margin: 0, fontSize: '18px', color: '#a8d5a2', fontWeight: 700 }}>
+                New Zealand Birds <span style={{ fontSize: '16px' }}>→</span>
+              </h3>
+              <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-muted)' }}>
+                37 native species from<br />Aotearoa New Zealand • 4 packs
+              </p>
+            </div>
+          </button>
+
+          {/* European Warblers & Skulkers */}
+          <button
+            onClick={() => {
+              trackPackSelect('eu_warblers', 'European Warblers & Skulkers');
+              navigate('/level-select?pack=eu_warblers');
+            }}
+            style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '16px 20px',
+              background: 'linear-gradient(135deg, #5a6b2d 0%, #3a4a1a 100%)',
+              borderRadius: '16px',
+              border: '2px solid rgba(160, 180, 80, 0.5)',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              textAlign: 'left',
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(160, 180, 80, 0.3)';
+              e.currentTarget.style.borderColor = 'rgba(160, 180, 80, 0.8)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = 'none';
+              e.currentTarget.style.borderColor = 'rgba(160, 180, 80, 0.5)';
+            }}
+          >
+            <img
+              src={`${import.meta.env.BASE_URL}data/icons/EURO.png`}
+              alt=""
+              style={{
+                position: 'absolute',
+                right: '-10px',
+                bottom: '-10px',
+                width: '80px',
+                height: '80px',
+                opacity: 0.75,
+                filter: 'brightness(1.2)',
+                transform: 'rotate(-15deg)',
+                objectFit: 'cover',
+              }}
+            />
+            <span style={{ fontSize: '32px', position: 'relative', zIndex: 1 }}>🇪🇺</span>
+            <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
+              <h3 style={{ margin: 0, fontSize: '18px', color: '#c8d8a2', fontWeight: 700 }}>
+                EU Warblers & Skulkers <span style={{ fontSize: '16px' }}>→</span>
+              </h3>
+              <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-muted)' }}>
+                41 European species — birds that<br />MUST be identified by ear
+              </p>
+            </div>
+          </button>
+        </div>
+      </div>
 
       {/* Sound Library Section */}
       <div id="bird-reference" style={{ marginTop: '16px', scrollMarginTop: '20px' }}>

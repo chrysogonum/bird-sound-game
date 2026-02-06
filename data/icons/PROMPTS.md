@@ -428,3 +428,124 @@ GBHE: Stylized icon of a Great Blue Heron, simple flat design, circular frame, t
 GRHE: Stylized icon of a Green Heron, simple flat design, circular frame, small stocky heron with dark green back, chestnut neck, and short yellow legs, white background, game asset style, clean vector look, centered composition, no text
 RBNU: Stylized icon of a Red-breasted Nuthatch, simple flat design, circular frame, small blue-gray bird with rusty breast, black eye stripe, and white eyebrow, white background, game asset style, clean vector look, centered composition, no text
 ```
+
+---
+
+## European Warblers & Skulkers (41)
+
+### AOS Vagrant Species (17 — already have 4-letter codes)
+| Code | Name | Prompt |
+|------|------|--------|
+| SEWA | Sedge Warbler | Stylized icon of a Sedge Warbler, simple flat design, circular frame, streaky brown warbler with bold cream supercilium and streaked crown, white background, game asset style, clean vector look, centered composition, no text |
+| RIWA | River Warbler | Stylized icon of a River Warbler, simple flat design, circular frame, plain olive-brown warbler with faintly streaked breast and short rounded tail, white background, game asset style, clean vector look, centered composition, no text |
+| CCHI | Common Chiffchaff | Stylized icon of a Common Chiffchaff, simple flat design, circular frame, small olive-green leaf warbler with dark legs and pale supercilium, white background, game asset style, clean vector look, centered composition, no text |
+| WILW | Willow Warbler | Stylized icon of a Willow Warbler, simple flat design, circular frame, slim olive-green warbler with yellowish underparts and pale supercilium, white background, game asset style, clean vector look, centered composition, no text |
+| WOWA | Wood Warbler | Stylized icon of a Wood Warbler, simple flat design, circular frame, bright yellow-green warbler with bright yellow supercilium and pure white belly, white background, game asset style, clean vector look, centered composition, no text |
+| EUBC | Eurasian Blackcap | Stylized icon of a Eurasian Blackcap, simple flat design, circular frame, gray warbler with distinctive black cap on male, white background, game asset style, clean vector look, centered composition, no text |
+| LEWH | Lesser Whitethroat | Stylized icon of a Lesser Whitethroat, simple flat design, circular frame, gray-brown warbler with dark ear coverts and white throat, white background, game asset style, clean vector look, centered composition, no text |
+| ICWA | Icterine Warbler | Stylized icon of an Icterine Warbler, simple flat design, circular frame, large yellowish-green warbler with peaked crown and pale wing panel, white background, game asset style, clean vector look, centered composition, no text |
+| BLUE | Bluethroat | Stylized icon of a Bluethroat, simple flat design, circular frame, small brown bird with brilliant blue throat patch bordered by black and rufous bands, white background, game asset style, clean vector look, centered composition, no text |
+| SPFL | Spotted Flycatcher | Stylized icon of a Spotted Flycatcher, simple flat design, circular frame, plain gray-brown bird with streaked crown and breast sitting upright on perch, white background, game asset style, clean vector look, centered composition, no text |
+| EUBB | Eurasian Blackbird | Stylized icon of a Eurasian Blackbird, simple flat design, circular frame, all-black bird with bright orange-yellow bill and eye ring, white background, game asset style, clean vector look, centered composition, no text |
+| SOTH | Song Thrush | Stylized icon of a Song Thrush, simple flat design, circular frame, warm brown thrush with neat rows of dark spots on cream breast, white background, game asset style, clean vector look, centered composition, no text |
+| MITH | Mistle Thrush | Stylized icon of a Mistle Thrush, simple flat design, circular frame, large gray-brown thrush with bold round spots on white breast, white background, game asset style, clean vector look, centered composition, no text |
+| FIEL | Fieldfare | Stylized icon of a Fieldfare, simple flat design, circular frame, large thrush with gray head and rump, chestnut back, and spotted breast, white background, game asset style, clean vector look, centered composition, no text |
+| EUSK | Eurasian Skylark | Stylized icon of a Eurasian Skylark, simple flat design, circular frame, streaky brown lark with small crest and white outer tail feathers, white background, game asset style, clean vector look, centered composition, no text |
+| EURO | European Robin | Stylized icon of a European Robin, simple flat design, circular frame, small round bird with bright orange-red breast and face, olive-brown upperparts, white background, game asset style, clean vector look, centered composition, no text |
+| CCRA | Common Crane | Stylized icon of a Common Crane, simple flat design, circular frame, tall gray crane with black and white head pattern and red crown patch, white background, game asset style, clean vector look, centered composition, no text |
+
+### eBird-coded Species (24 — not in AOS taxonomy)
+
+#### Reed & Grasshopper Warblers
+| Code | Name | Prompt |
+|------|------|--------|
+| eurwar1 | Common Reed Warbler | Stylized icon of a Common Reed Warbler, simple flat design, circular frame, plain warm brown warbler with pale supercilium clinging to reed stem, white background, game asset style, clean vector look, centered composition, no text |
+| marwar3 | Marsh Warbler | Stylized icon of a Marsh Warbler, simple flat design, circular frame, plain olive-brown warbler with pale underparts and rounded head, white background, game asset style, clean vector look, centered composition, no text |
+| grrwar1 | Great Reed Warbler | Stylized icon of a Great Reed Warbler, simple flat design, circular frame, large brown warbler with strong bill and bold supercilium perched on reed, white background, game asset style, clean vector look, centered composition, no text |
+| cogwar1 | Common Grasshopper Warbler | Stylized icon of a Common Grasshopper Warbler, simple flat design, circular frame, heavily streaked olive-brown warbler with rounded tail skulking in grass, white background, game asset style, clean vector look, centered composition, no text |
+| savwar1 | Savi's Warbler | Stylized icon of a Savi's Warbler, simple flat design, circular frame, plain warm rufous-brown warbler with rounded tail and faint supercilium, white background, game asset style, clean vector look, centered composition, no text |
+
+#### Leaf & Sylvia Warblers
+| Code | Name | Prompt |
+|------|------|--------|
+| webwar1 | Western Bonelli's Warbler | Stylized icon of a Western Bonelli's Warbler, simple flat design, circular frame, pale grayish-green leaf warbler with silky white underparts and yellowish rump, white background, game asset style, clean vector look, centered composition, no text |
+| garwar1 | Garden Warbler | Stylized icon of a Garden Warbler, simple flat design, circular frame, plain olive-brown warbler with round head and gentle expression, white background, game asset style, clean vector look, centered composition, no text |
+| grewhi1 | Common Whitethroat | Stylized icon of a Common Whitethroat, simple flat design, circular frame, gray-headed warbler with white throat, rufous wings, and pink-tinged breast, white background, game asset style, clean vector look, centered composition, no text |
+| barwar1 | Barred Warbler | Stylized icon of a Barred Warbler, simple flat design, circular frame, large gray warbler with crescentic barring on underparts and yellow eye, white background, game asset style, clean vector look, centered composition, no text |
+| darwar1 | Dartford Warbler | Stylized icon of a Dartford Warbler, simple flat design, circular frame, small dark warbler with wine-red underparts, gray upperparts, red eye ring, and long cocked tail, white background, game asset style, clean vector look, centered composition, no text |
+
+#### Nightingales & Cetti's Warbler
+| Code | Name | Prompt |
+|------|------|--------|
+| comnig1 | Common Nightingale | Stylized icon of a Common Nightingale, simple flat design, circular frame, plain warm brown bird with rufous tail and large dark eye, white background, game asset style, clean vector look, centered composition, no text |
+| thrnig1 | Thrush Nightingale | Stylized icon of a Thrush Nightingale, simple flat design, circular frame, plain grayish-brown bird with faintly mottled breast and rufous tail, white background, game asset style, clean vector look, centered composition, no text |
+| cetwar1 | Cetti's Warbler | Stylized icon of a Cetti's Warbler, simple flat design, circular frame, dark rufous-brown warbler with rounded body and short cocked tail, white background, game asset style, clean vector look, centered composition, no text |
+
+#### Flycatchers
+| Code | Name | Prompt |
+|------|------|--------|
+| eupfly1 | European Pied Flycatcher | Stylized icon of a European Pied Flycatcher, simple flat design, circular frame, bold black and white male flycatcher with white forehead patch and wing patch, white background, game asset style, clean vector look, centered composition, no text |
+| colfly1 | Collared Flycatcher | Stylized icon of a Collared Flycatcher, simple flat design, circular frame, black and white flycatcher with broad white collar, forehead patch, and wing patch, white background, game asset style, clean vector look, centered composition, no text |
+
+#### Treecreepers & Kinglets
+| Code | Name | Prompt |
+|------|------|--------|
+| eurtre1 | Eurasian Treecreeper | Stylized icon of a Eurasian Treecreeper, simple flat design, circular frame, small streaky brown bird with curved bill climbing up tree bark, white underparts, white background, game asset style, clean vector look, centered composition, no text |
+| shttre1 | Short-toed Treecreeper | Stylized icon of a Short-toed Treecreeper, simple flat design, circular frame, small brown streaked bird with curved bill and brownish flanks climbing bark, white background, game asset style, clean vector look, centered composition, no text |
+| goldcr1 | Goldcrest | Stylized icon of a Goldcrest, simple flat design, circular frame, tiny olive-green bird with bold black-bordered golden crown stripe and large dark eye, white background, game asset style, clean vector look, centered composition, no text |
+| firecr1 | Common Firecrest | Stylized icon of a Common Firecrest, simple flat design, circular frame, tiny bright olive-green bird with orange crown stripe, bold black eye stripe, and white supercilium, white background, game asset style, clean vector look, centered composition, no text |
+
+#### Larks, Accentors, Wrens & Others
+| Code | Name | Prompt |
+|------|------|--------|
+| woolar1 | Woodlark | Stylized icon of a Woodlark, simple flat design, circular frame, streaky brown lark with short crest, bold supercilium, and black-and-white wing patch, white background, game asset style, clean vector look, centered composition, no text |
+| dunnoc1 | Dunnock | Stylized icon of a Dunnock, simple flat design, circular frame, small brown streaked bird with gray head and breast and thin bill, white background, game asset style, clean vector look, centered composition, no text |
+| winwre4 | Eurasian Wren | Stylized icon of a Eurasian Wren, simple flat design, circular frame, tiny rufous-brown bird with short cocked tail and barred plumage, white background, game asset style, clean vector look, centered composition, no text |
+| eurjay1 | Eurasian Jay | Stylized icon of a Eurasian Jay, simple flat design, circular frame, pinkish-brown bird with black mustache, blue-and-black wing patch, and streaked crown, white background, game asset style, clean vector look, centered composition, no text |
+| blawoo1 | Black Woodpecker | Stylized icon of a Black Woodpecker, simple flat design, circular frame, large all-black woodpecker with bright red crown and pale eye, white background, game asset style, clean vector look, centered composition, no text |
+
+### Quick Copy - European Warblers & Skulkers (41 species)
+
+```
+SEWA: Stylized icon of a Sedge Warbler, simple flat design, circular frame, streaky brown warbler with bold cream supercilium and streaked crown, white background, game asset style, clean vector look, centered composition, no text
+RIWA: Stylized icon of a River Warbler, simple flat design, circular frame, plain olive-brown warbler with faintly streaked breast and short rounded tail, white background, game asset style, clean vector look, centered composition, no text
+CCHI: Stylized icon of a Common Chiffchaff, simple flat design, circular frame, small olive-green leaf warbler with dark legs and pale supercilium, white background, game asset style, clean vector look, centered composition, no text
+WILW: Stylized icon of a Willow Warbler, simple flat design, circular frame, slim olive-green warbler with yellowish underparts and pale supercilium, white background, game asset style, clean vector look, centered composition, no text
+WOWA: Stylized icon of a Wood Warbler, simple flat design, circular frame, bright yellow-green warbler with bright yellow supercilium and pure white belly, white background, game asset style, clean vector look, centered composition, no text
+EUBC: Stylized icon of a Eurasian Blackcap, simple flat design, circular frame, gray warbler with distinctive black cap on male, white background, game asset style, clean vector look, centered composition, no text
+LEWH: Stylized icon of a Lesser Whitethroat, simple flat design, circular frame, gray-brown warbler with dark ear coverts and white throat, white background, game asset style, clean vector look, centered composition, no text
+ICWA: Stylized icon of an Icterine Warbler, simple flat design, circular frame, large yellowish-green warbler with peaked crown and pale wing panel, white background, game asset style, clean vector look, centered composition, no text
+BLUE: Stylized icon of a Bluethroat, simple flat design, circular frame, small brown bird with brilliant blue throat patch bordered by black and rufous bands, white background, game asset style, clean vector look, centered composition, no text
+SPFL: Stylized icon of a Spotted Flycatcher, simple flat design, circular frame, plain gray-brown bird with streaked crown and breast sitting upright on perch, white background, game asset style, clean vector look, centered composition, no text
+EUBB: Stylized icon of a Eurasian Blackbird, simple flat design, circular frame, all-black bird with bright orange-yellow bill and eye ring, white background, game asset style, clean vector look, centered composition, no text
+SOTH: Stylized icon of a Song Thrush, simple flat design, circular frame, warm brown thrush with neat rows of dark spots on cream breast, white background, game asset style, clean vector look, centered composition, no text
+MITH: Stylized icon of a Mistle Thrush, simple flat design, circular frame, large gray-brown thrush with bold round spots on white breast, white background, game asset style, clean vector look, centered composition, no text
+FIEL: Stylized icon of a Fieldfare, simple flat design, circular frame, large thrush with gray head and rump, chestnut back, and spotted breast, white background, game asset style, clean vector look, centered composition, no text
+EUSK: Stylized icon of a Eurasian Skylark, simple flat design, circular frame, streaky brown lark with small crest and white outer tail feathers, white background, game asset style, clean vector look, centered composition, no text
+EURO: Stylized icon of a European Robin, simple flat design, circular frame, small round bird with bright orange-red breast and face, olive-brown upperparts, white background, game asset style, clean vector look, centered composition, no text
+CCRA: Stylized icon of a Common Crane, simple flat design, circular frame, tall gray crane with black and white head pattern and red crown patch, white background, game asset style, clean vector look, centered composition, no text
+eurwar1: Stylized icon of a Common Reed Warbler, simple flat design, circular frame, plain warm brown warbler with pale supercilium clinging to reed stem, white background, game asset style, clean vector look, centered composition, no text
+marwar3: Stylized icon of a Marsh Warbler, simple flat design, circular frame, plain olive-brown warbler with pale underparts and rounded head, white background, game asset style, clean vector look, centered composition, no text
+grrwar1: Stylized icon of a Great Reed Warbler, simple flat design, circular frame, large brown warbler with strong bill and bold supercilium perched on reed, white background, game asset style, clean vector look, centered composition, no text
+cogwar1: Stylized icon of a Common Grasshopper Warbler, simple flat design, circular frame, heavily streaked olive-brown warbler with rounded tail skulking in grass, white background, game asset style, clean vector look, centered composition, no text
+savwar1: Stylized icon of a Savi's Warbler, simple flat design, circular frame, plain warm rufous-brown warbler with rounded tail and faint supercilium, white background, game asset style, clean vector look, centered composition, no text
+webwar1: Stylized icon of a Western Bonelli's Warbler, simple flat design, circular frame, pale grayish-green leaf warbler with silky white underparts and yellowish rump, white background, game asset style, clean vector look, centered composition, no text
+garwar1: Stylized icon of a Garden Warbler, simple flat design, circular frame, plain olive-brown warbler with round head and gentle expression, white background, game asset style, clean vector look, centered composition, no text
+grewhi1: Stylized icon of a Common Whitethroat, simple flat design, circular frame, gray-headed warbler with white throat, rufous wings, and pink-tinged breast, white background, game asset style, clean vector look, centered composition, no text
+barwar1: Stylized icon of a Barred Warbler, simple flat design, circular frame, large gray warbler with crescentic barring on underparts and yellow eye, white background, game asset style, clean vector look, centered composition, no text
+darwar1: Stylized icon of a Dartford Warbler, simple flat design, circular frame, small dark warbler with wine-red underparts, gray upperparts, red eye ring, and long cocked tail, white background, game asset style, clean vector look, centered composition, no text
+comnig1: Stylized icon of a Common Nightingale, simple flat design, circular frame, plain warm brown bird with rufous tail and large dark eye, white background, game asset style, clean vector look, centered composition, no text
+thrnig1: Stylized icon of a Thrush Nightingale, simple flat design, circular frame, plain grayish-brown bird with faintly mottled breast and rufous tail, white background, game asset style, clean vector look, centered composition, no text
+cetwar1: Stylized icon of a Cetti's Warbler, simple flat design, circular frame, dark rufous-brown warbler with rounded body and short cocked tail, white background, game asset style, clean vector look, centered composition, no text
+eupfly1: Stylized icon of a European Pied Flycatcher, simple flat design, circular frame, bold black and white male flycatcher with white forehead patch and wing patch, white background, game asset style, clean vector look, centered composition, no text
+colfly1: Stylized icon of a Collared Flycatcher, simple flat design, circular frame, black and white flycatcher with broad white collar, forehead patch, and wing patch, white background, game asset style, clean vector look, centered composition, no text
+eurtre1: Stylized icon of a Eurasian Treecreeper, simple flat design, circular frame, small streaky brown bird with curved bill climbing up tree bark, white underparts, white background, game asset style, clean vector look, centered composition, no text
+shttre1: Stylized icon of a Short-toed Treecreeper, simple flat design, circular frame, small brown streaked bird with curved bill and brownish flanks climbing bark, white background, game asset style, clean vector look, centered composition, no text
+goldcr1: Stylized icon of a Goldcrest, simple flat design, circular frame, tiny olive-green bird with bold black-bordered golden crown stripe and large dark eye, white background, game asset style, clean vector look, centered composition, no text
+firecr1: Stylized icon of a Common Firecrest, simple flat design, circular frame, tiny bright olive-green bird with orange crown stripe, bold black eye stripe, and white supercilium, white background, game asset style, clean vector look, centered composition, no text
+woolar1: Stylized icon of a Woodlark, simple flat design, circular frame, streaky brown lark with short crest, bold supercilium, and black-and-white wing patch, white background, game asset style, clean vector look, centered composition, no text
+dunnoc1: Stylized icon of a Dunnock, simple flat design, circular frame, small brown streaked bird with gray head and breast and thin bill, white background, game asset style, clean vector look, centered composition, no text
+winwre4: Stylized icon of a Eurasian Wren, simple flat design, circular frame, tiny rufous-brown bird with short cocked tail and barred plumage, white background, game asset style, clean vector look, centered composition, no text
+eurjay1: Stylized icon of a Eurasian Jay, simple flat design, circular frame, pinkish-brown bird with black mustache, blue-and-black wing patch, and streaked crown, white background, game asset style, clean vector look, centered composition, no text
+blawoo1: Stylized icon of a Black Woodpecker, simple flat design, circular frame, large all-black woodpecker with bright red crown and pale eye, white background, game asset style, clean vector look, centered composition, no text
+```

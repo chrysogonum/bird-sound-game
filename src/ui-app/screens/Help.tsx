@@ -432,10 +432,14 @@ function Help() {
             description="For experts! 34 wood-warbler species with their high-pitched, buzzy songs. 9 warblers are selected randomly—shuffle for a new set anytime."
           />
 
+          {/* World Packs */}
+          <div style={{ marginTop: '20px', marginBottom: '8px', fontSize: '13px', fontWeight: 600, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+            World Packs
+          </div>
+
           {/* New Zealand Birds */}
           <div style={{
-            marginTop: '20px',
-            marginBottom: '16px',
+            marginBottom: '12px',
             padding: '12px 16px',
             background: 'rgba(45, 122, 122, 0.15)',
             borderRadius: '8px',
@@ -445,6 +449,22 @@ function Help() {
               <span style={{ fontSize: '16px', flexShrink: 0 }}>🥝</span>
               <div>
                 <strong>New Zealand Birds:</strong> ChipNotes goes global, starting with New Zealand—home to some of the world's most unusual and iconic birds, species found nowhere else. 42 native species across 4 packs: "All NZ Birds" (complete collection), "Garden & Bush" (9 common species), "North Island" (21 species), and "South Island" (22 species). Birds display their Māori names during gameplay. Regional packs play region-specific recordings for subspecies like Toutouwai (NZ Robin).
+              </div>
+            </div>
+          </div>
+
+          {/* European Warblers & Skulkers */}
+          <div style={{
+            marginBottom: '16px',
+            padding: '12px 16px',
+            background: 'rgba(90, 107, 45, 0.15)',
+            borderRadius: '8px',
+            borderLeft: '3px solid #5a6b2d',
+          }}>
+            <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
+              <span style={{ fontSize: '16px', flexShrink: 0 }}>🇪🇺</span>
+              <div>
+                <strong>European Warblers & Skulkers:</strong> 41 species of European warblers, skulkers, and secretive songbirds. From Nightingales to Treecreepers — the birds that MUST be identified by ear. Includes reed warblers, leaf warblers, Sylvia warblers, nightingales, flycatchers, treecreepers, kinglets, and more.
               </div>
             </div>
           </div>
@@ -873,6 +893,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.21" date="February 5, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>European Warblers & Skulkers:</strong> New world pack with 41 European species — reed warblers, leaf warblers, nightingales, flycatchers, treecreepers, kinglets, and more. Birds that MUST be identified by ear.</li>
+              <li><strong>World Packs Section:</strong> Pack select now groups NZ and EU packs under a "World Packs" header.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.20" date="February 5, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Error Tracking:</strong> Added Sentry error monitoring to automatically capture and report crashes in production — no more silent white screens. Includes a friendly error fallback UI with a "Back to Menu" button.</li>
