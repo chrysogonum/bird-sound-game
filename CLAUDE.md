@@ -10,7 +10,7 @@ ChipNotes! is a rhythm-game–style audio training application that teaches play
 
 ## Project Status
 
-**Current Version:** v4.01 (January 2026)
+**Current Version:** v4.20 (February 2026)
 **Status:** Production - Shipped and live at [chipnotes.app](https://chipnotes.app)
 **Phase:** All 20 phases (A-T) complete. Post-launch iteration and refinement.
 
@@ -63,6 +63,7 @@ npm run dev -- --host  # Exposes dev server on local network
 
 - Update version in `src/ui-app/screens/MainMenu.tsx` (footer)
 - Add version history entry in `src/ui-app/screens/Help.tsx`
+- Update Sentry release in `src/ui-app/utils/sentry.ts`
 - Follow semantic versioning: v3.27 → v3.28 (for minor changes/fixes)
 - Commit source changes to `main` branch, then deploy separately
 
@@ -71,10 +72,11 @@ npm run dev -- --host  # Exposes dev server on local network
 1. Make code changes and test locally
 2. Update version number in MainMenu.tsx
 3. Add version history entry in Help.tsx
-4. Commit changes to `main` branch: `git add . && git commit && git push`
-5. Deploy to production: `cd src/ui-app && npm run deploy`
-6. Tag the release: `git tag v4.XX && git push --tags`
-7. Wait 1-2 minutes, verify at chipnotes.app
+4. Update Sentry release in `src/ui-app/utils/sentry.ts`
+5. Commit changes to `main` branch: `git add . && git commit && git push`
+6. Deploy to production: `cd src/ui-app && npm run deploy`
+7. Tag the release: `git tag v4.XX && git push --tags`
+8. Wait 1-2 minutes, verify at chipnotes.app
 
 ## Google Analytics
 
@@ -96,6 +98,23 @@ python3 scripts/ga_query.py retention   # New vs returning users
 ```
 
 OAuth token is cached in `ga_token.json` (gitignored). If it expires, the script will open a browser to re-authenticate.
+
+## Sentry Error Monitoring
+
+ChipNotes uses Sentry for production error tracking. Dashboard: [peter-repetti.sentry.io](https://peter-repetti.sentry.io)
+
+**Key files:**
+- `src/ui-app/utils/sentry.ts` — SDK initialization (DSN, release tag, filters)
+- `src/ui-app/components/ErrorBoundary.tsx` — React error boundary with fallback UI
+- `src/ui-app/main.tsx` — `initSentry()` called before React render, app wrapped in `<AppErrorBoundary>`
+
+**Behavior:**
+- **Disabled in dev** — `import.meta.env.DEV` guard prevents any Sentry traffic locally
+- **Active in production** — 100% error sample rate, no performance tracing
+- **Browser extension errors filtered** — `beforeSend` drops chrome-extension/moz-extension frames
+- **Breadcrumbs** at key error sites: audio decode failures (`useGameEngine.ts`), download failures (`offlineManager.ts`)
+
+**When bumping versions:** Update the `release` string in `src/ui-app/utils/sentry.ts` to match the new version (e.g., `'chipnotes@4.21'`).
 
 ## Phase-Based Development (Ralph Loops)
 
@@ -342,6 +361,29 @@ When displaying spectrograms in ANY UI (review tools, game UI, etc.):
 # ALWAYS use the official script - never inline matplotlib code
 python3 scripts/spectrogram_gen.py --input data/clips --output data/spectrograms
 ```
+## Xeno-canto API
+
+ChipNotes uses the Xeno-canto API v3 for downloading bird recordings. **An API key is required.**
+
+**API Key Location:** Environment variable `XENO_CANTO_API_KEY` in `~/.zshrc`
+
+**Usage:**
+```bash
+# The key is automatically loaded by scripts that need it
+source ~/.zshrc
+python3 scripts/audio_ingest.py --species "Northern Cardinal" --output data/candidates_NOCA
+
+# To verify key is set:
+echo $XENO_CANTO_API_KEY
+```
+
+**If key is missing:** Log in at https://xeno-canto.org/account to retrieve your API key, then add to ~/.zshrc:
+```bash
+export XENO_CANTO_API_KEY='your-key-here'
+```
+
+**Licensing documentation:** See `docs/Xeno-canto_Licensing.md` for license audit results and compliance notes.
+
 ## ⚠️ DEPLOYMENT REQUIRES EXPLICIT APPROVAL
 
 **NEVER run `npm run deploy` without explicit user approval.**
