@@ -1,24 +1,25 @@
 #!/usr/bin/env python3
 """
-🎨 Clip Studio - Unified Audio Clip Workflow Tool for ChipNotes!
+Clip Studio - Unified Audio Clip Workflow Tool for ChipNotes!
 
 The ONE tool for the complete clip curation workflow:
-  1. Search & Download from Xeno-Canto
-  2. Extract clips with waveform editor
-  3. Review & curate metadata
-  4. Mark canonical clips (1 per species)
-  5. Delete rejected clips
-  6. Git integration with automatic commits
+  1. Browse species by pack with filtering
+  2. Search & Download from Xeno-Canto
+  3. Extract clips with waveform editor
+  4. Review & curate metadata (batched edits)
+  5. Mark canonical clips (1 per species, enforced)
+  6. Delete rejected clips
+  7. Git integration with automatic commits
 
 Usage:
     # Batch mode (recommended)
     python3 scripts/clip_studio.py --batch
 
-    # Single species mode
-    python3 scripts/clip_studio.py --species WOWA
-
     # With pack filter
     python3 scripts/clip_studio.py --batch --pack eu_warblers
+
+    # Custom port
+    python3 scripts/clip_studio.py --batch --port 9000
 """
 
 import argparse
@@ -56,19 +57,465 @@ OUTPUT_SAMPLE_RATE = 44100
 MIN_DURATION = 0.5
 MAX_DURATION = 3.0
 
-# Vocalization types
+# Vocalization types (Cornell taxonomy)
 VOCALIZATION_TYPES = [
     "song", "call", "flight call", "alarm call", "chip",
     "drum", "wing sound", "rattle", "trill", "duet",
     "juvenile", "other"
 ]
 
+CLIPS_JSON_PATH = PROJECT_ROOT / "data" / "clips.json"
+REJECTED_XC_IDS_PATH = PROJECT_ROOT / "data" / "rejected_xc_ids.json"
+
+
+# ═══════════════════════════════════════════════════════════════════
+# DATA LOADING
+# ═══════════════════════════════════════════════════════════════════
+
+def load_clips() -> List[Dict]:
+    """Load clips from clips.json"""
+    if CLIPS_JSON_PATH.exists():
+        with open(CLIPS_JSON_PATH, 'r') as f:
+            return json.load(f)
+    return []
+
+
+def load_species_data() -> Dict:
+    """Load species data from species.json, keyed by species_code"""
+    species_path = PROJECT_ROOT / "data" / "species.json"
+    if species_path.exists():
+        with open(species_path, 'r') as f:
+            return {s['species_code']: s for s in json.load(f)}
+    return {}
+
+
+def load_packs() -> Dict[str, List[Dict]]:
+    """Load all pack definitions grouped by region"""
+    packs_dir = PROJECT_ROOT / 'data' / 'packs'
+    packs_by_region = {}
+
+    if packs_dir.exists():
+        for pack_file in sorted(packs_dir.glob('*.json')):
+            with open(pack_file, 'r') as f:
+                pack = json.load(f)
+                region = pack.get('region', 'na')
+                packs_by_region.setdefault(region, []).append({
+                    'id': pack.get('pack_id'),
+                    'name': pack.get('display_name') or pack.get('pack_name') or pack.get('pack_id'),
+                    'region': region,
+                    'species': pack.get('species', []),
+                    'species_count': len(pack.get('species', []))
+                })
+
+    return packs_by_region
+
+
+def load_candidates_for_species(species_code: str) -> List[Dict]:
+    """Load candidate sources for a species from ingest manifests"""
+    candidates = []
+    candidate_dirs = list((PROJECT_ROOT / 'data').glob('candidates_*'))
+
+    for cdir in candidate_dirs:
+        manifest = cdir / '.ingest_manifest.json'
+        if not manifest.exists():
+            continue
+
+        with open(manifest, 'r') as f:
+            manifest_data = json.load(f)
+            for item in manifest_data:
+                if item.get('species_code') == species_code:
+                    xc_id = item.get('xc_id')
+                    audio_file = None
+                    for ext in ['.mp3', '.wav']:
+                        matches = list(cdir.glob(f'XC{xc_id}*{ext}'))
+                        if matches:
+                            audio_file = str(matches[0])
+                            break
+
+                    if audio_file:
+                        candidates.append({
+                            'xc_id': xc_id,
+                            'path': audio_file,
+                            'recordist': item.get('recordist', 'Unknown'),
+                            'vocalization_type': item.get('type', 'song'),
+                            'license': item.get('license', 'unknown')
+                        })
+
+    return candidates
+
+
+def count_candidates_per_species() -> Dict[str, int]:
+    """Count candidate sources per species (cached per request)"""
+    counts = {}
+    candidate_dirs = list((PROJECT_ROOT / 'data').glob('candidates_*'))
+
+    for cdir in candidate_dirs:
+        manifest = cdir / '.ingest_manifest.json'
+        if not manifest.exists():
+            continue
+
+        with open(manifest, 'r') as f:
+            manifest_data = json.load(f)
+            for item in manifest_data:
+                code = item.get('species_code', '')
+                counts[code] = counts.get(code, 0) + 1
+
+    return counts
+
+
+# ═══════════════════════════════════════════════════════════════════
+# AUDIO PROCESSING (from clip_editor.py — proven logic)
+# ═══════════════════════════════════════════════════════════════════
+
+def extract_clip(source_path: Path, start_time: float, duration: float,
+                 species_code: str, xc_id: str = None,
+                 vocalization_type: str = 'song', recordist: str = 'Unknown') -> dict:
+    """Extract a clip segment from source recording.
+
+    Saves immediately to clips.json (extraction is not batched).
+    """
+    if duration < MIN_DURATION or duration > MAX_DURATION:
+        raise ValueError(f"Duration must be {MIN_DURATION}-{MAX_DURATION}s, got {duration}")
+
+    # Load audio
+    audio, sr = sf.read(str(source_path))
+    if len(audio.shape) > 1:
+        audio = np.mean(audio, axis=1)
+
+    # Extract segment
+    start_sample = int(start_time * sr)
+    end_sample = int((start_time + duration) * sr)
+
+    if start_sample < 0 or end_sample > len(audio):
+        raise ValueError(f"Selection out of bounds: {start_time}-{start_time+duration}s "
+                         f"(source is {len(audio)/sr:.1f}s)")
+
+    segment = audio[start_sample:end_sample]
+
+    # Resample using librosa (NEVER use np.interp — causes metallic artifacts)
+    if sr != OUTPUT_SAMPLE_RATE:
+        import librosa
+        segment = librosa.resample(segment, orig_sr=sr, target_sr=OUTPUT_SAMPLE_RATE)
+        sr = OUTPUT_SAMPLE_RATE
+
+    # Normalize loudness to -16 LUFS
+    meter = pyln.Meter(sr)
+    loudness = meter.integrated_loudness(segment)
+    if not np.isinf(loudness) and not np.isnan(loudness):
+        segment = pyln.normalize.loudness(segment, loudness, TARGET_LUFS)
+        segment = np.clip(segment, -1.0, 1.0)
+
+    # Load existing clips
+    clips = load_clips()
+
+    # Generate clip ID
+    if xc_id:
+        prefix = f"{species_code.upper()}_{xc_id}_"
+    else:
+        prefix = f"{species_code.upper()}_clip_"
+
+    existing_nums = [int(c['clip_id'][len(prefix):])
+                     for c in clips
+                     if c['clip_id'].startswith(prefix)
+                     and c['clip_id'][len(prefix):].isdigit()]
+    next_num = max(existing_nums, default=0) + 1
+    clip_id = f"{prefix}{next_num}"
+
+    # Save audio file
+    output_filename = f"{clip_id}.wav"
+    output_path = PROJECT_ROOT / 'data' / 'clips' / output_filename
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    sf.write(str(output_path), segment, sr, subtype='PCM_16')
+
+    # Generate spectrogram (locked settings)
+    spectrogram_path = PROJECT_ROOT / 'data' / 'spectrograms' / f"{clip_id}.png"
+    spectrogram_path.parent.mkdir(parents=True, exist_ok=True)
+    generate_spectrogram(segment, sr, str(spectrogram_path))
+
+    # Measure final loudness
+    final_loudness = meter.integrated_loudness(segment)
+    duration_ms = int(len(segment) / sr * 1000)
+
+    # Look up common name
+    species_data = load_species_data()
+    common_name = species_data.get(species_code.upper(), {}).get('common_name', species_code.upper())
+
+    # Build clip metadata
+    clip_data = {
+        'clip_id': clip_id,
+        'species_code': species_code.upper(),
+        'common_name': common_name,
+        'vocalization_type': vocalization_type,
+        'duration_ms': duration_ms,
+        'quality_score': 5,
+        'loudness_lufs': round(final_loudness, 1),
+        'source': 'xenocanto' if xc_id else 'unknown',
+        'source_id': f"XC{xc_id}" if xc_id else None,
+        'source_url': f"https://xeno-canto.org/{xc_id}" if xc_id else None,
+        'recordist': recordist,
+        'file_path': f"data/clips/{output_filename}",
+        'spectrogram_path': f"data/spectrograms/{clip_id}.png",
+        'canonical': False,
+        'rejected': False,
+    }
+
+    clips.append(clip_data)
+
+    # Save clips.json immediately
+    with open(CLIPS_JSON_PATH, 'w') as f:
+        json.dump(clips, f, indent=2)
+
+    return {
+        'success': True,
+        'clip_id': clip_id,
+        'clip': clip_data,
+        'file_path': f"data/clips/{output_filename}",
+        'spectrogram_path': f"data/spectrograms/{clip_id}.png",
+        'duration_ms': duration_ms,
+        'loudness_lufs': round(final_loudness, 1),
+    }
+
+
+def generate_spectrogram(audio: np.ndarray, sr: int, output_path: str):
+    """Generate spectrogram matching game style (locked settings)."""
+    try:
+        import matplotlib
+        matplotlib.use('Agg')
+        import matplotlib.pyplot as plt
+        import librosa
+        import librosa.display
+
+        # LOCKED SETTINGS — DO NOT MODIFY
+        n_fft = 1024
+        hop_length = 256
+        fmin = 500
+        fmax = 10000
+
+        S = librosa.feature.melspectrogram(
+            y=audio, sr=sr, n_fft=n_fft, hop_length=hop_length,
+            fmin=fmin, fmax=fmax, n_mels=128
+        )
+        S_db = librosa.power_to_db(S, ref=np.max)
+
+        vmin = np.percentile(S_db, 5)
+        vmax = np.percentile(S_db, 95)
+
+        # 400x200px output (2:1 aspect ratio)
+        fig, ax = plt.subplots(figsize=(4, 2), dpi=100)
+        librosa.display.specshow(
+            S_db, sr=sr, hop_length=hop_length,
+            fmin=fmin, fmax=fmax, ax=ax, cmap='magma',
+            vmin=vmin, vmax=vmax
+        )
+        ax.axis('off')
+        plt.tight_layout(pad=0)
+        plt.savefig(output_path, bbox_inches='tight', pad_inches=0,
+                     facecolor='black', edgecolor='none', dpi=100)
+        plt.close()
+    except Exception as e:
+        print(f"Warning: Could not generate spectrogram: {e}")
+
+
+def download_xc_recording(xc_id: str, output_dir: Path) -> Path:
+    """Download a recording from Xeno-Canto"""
+    import urllib.request
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / f"XC{xc_id}_full.mp3"
+
+    if output_path.exists():
+        return output_path
+
+    url = f"https://xeno-canto.org/{xc_id}/download"
+    print(f"Downloading XC{xc_id}...")
+
+    try:
+        urllib.request.urlretrieve(url, str(output_path))
+        print(f"Downloaded: {output_path}")
+        return output_path
+    except Exception as e:
+        raise ValueError(f"Failed to download XC{xc_id}: {e}")
+
+
+# ═══════════════════════════════════════════════════════════════════
+# SAVE CHANGES (from review_clips.py — proven batch save logic)
+# ═══════════════════════════════════════════════════════════════════
+
+def save_changes(changes: Dict) -> Dict:
+    """Save batched metadata changes to clips.json, delete rejected files, git commit.
+
+    Expected format:
+    {
+        "modifications": {
+            "CLIP_ID": {
+                "canonical": true/false,
+                "quality_score": 1-5,
+                "vocalization_type": "song",
+                "recordist": "Name"
+            }
+        },
+        "deletions": ["CLIP_ID1", "CLIP_ID2"]
+    }
+    """
+    # 1. Backup clips.json
+    backup_path = CLIPS_JSON_PATH.with_suffix('.json.backup')
+    shutil.copy(CLIPS_JSON_PATH, backup_path)
+    print(f"Backup created: {backup_path}")
+
+    # 2. Load current clips
+    clips = load_clips()
+    clips_by_id = {clip['clip_id']: clip for clip in clips}
+
+    # 3. Track changes for commit message
+    stats = {
+        'canonical_changes': 0,
+        'rejections': 0,
+        'quality_changes': 0,
+        'vocalization_changes': 0,
+        'recordist_changes': 0,
+        'files_deleted': 0,
+    }
+
+    # 4. Apply modifications
+    modified = changes.get('modifications', {})
+    for clip_id, updates in modified.items():
+        if clip_id not in clips_by_id:
+            continue
+
+        clip = clips_by_id[clip_id]
+
+        if 'canonical' in updates and updates['canonical'] != clip.get('canonical', False):
+            stats['canonical_changes'] += 1
+            clip['canonical'] = updates['canonical']
+
+        if 'quality_score' in updates and updates['quality_score'] != clip.get('quality_score'):
+            stats['quality_changes'] += 1
+            clip['quality_score'] = updates['quality_score']
+
+        if 'vocalization_type' in updates and updates['vocalization_type'] != clip.get('vocalization_type'):
+            stats['vocalization_changes'] += 1
+            clip['vocalization_type'] = updates['vocalization_type']
+
+        if 'recordist' in updates and updates['recordist'] != clip.get('recordist'):
+            stats['recordist_changes'] += 1
+            clip['recordist'] = updates['recordist']
+
+    # 5. Process deletions
+    deletions = set(changes.get('deletions', []))
+    for clip_id in deletions:
+        if clip_id in clips_by_id:
+            clip = clips_by_id[clip_id]
+            clip['rejected'] = True
+            clip['canonical'] = False
+            stats['rejections'] += 1
+
+    # 6. Validate canonical uniqueness (exactly 1 per species max)
+    species_canonicals = {}
+    for clip in clips:
+        if clip.get('canonical') and not clip.get('rejected'):
+            species = clip['species_code']
+            if species in species_canonicals:
+                raise ValueError(
+                    f"Multiple canonicals for {species}: "
+                    f"{species_canonicals[species]} and {clip['clip_id']}"
+                )
+            species_canonicals[species] = clip['clip_id']
+
+    # 7. Log rejected XC IDs
+    rejected_xc_ids = {}
+    for clip in clips:
+        if clip.get('rejected') and clip.get('source_id'):
+            xc_match = re.match(r'XC(\d+)', clip['source_id'])
+            if xc_match:
+                species = clip['species_code']
+                rejected_xc_ids.setdefault(species, []).append(xc_match.group(1))
+
+    if rejected_xc_ids:
+        if REJECTED_XC_IDS_PATH.exists():
+            with open(REJECTED_XC_IDS_PATH, 'r') as f:
+                rejection_log = json.load(f)
+        else:
+            rejection_log = {}
+
+        for species, xc_ids in rejected_xc_ids.items():
+            if species not in rejection_log:
+                rejection_log[species] = []
+            rejection_log[species].extend(xc_ids)
+            rejection_log[species] = sorted(list(set(rejection_log[species])))
+
+        with open(REJECTED_XC_IDS_PATH, 'w') as f:
+            json.dump(rejection_log, f, indent=2, sort_keys=True)
+        print(f"Logged {sum(len(v) for v in rejected_xc_ids.values())} rejected XC IDs")
+
+    # 8. Delete rejected files from disk
+    for clip in clips:
+        if clip.get('rejected'):
+            for path_key in ['file_path', 'spectrogram_path']:
+                path = clip.get(path_key)
+                if path:
+                    full_path = PROJECT_ROOT / path
+                    if full_path.exists():
+                        full_path.unlink()
+                        stats['files_deleted'] += 1
+                        print(f"Deleted: {path}")
+
+    # 9. Remove rejected clips from array
+    clips = [c for c in clips if not c.get('rejected', False)]
+
+    # 10. Save updated clips.json
+    with open(CLIPS_JSON_PATH, 'w') as f:
+        json.dump(clips, f, indent=2)
+    print(f"Saved {len(clips)} clips to {CLIPS_JSON_PATH}")
+
+    # 11. Git commit
+    commit_parts = []
+    if stats['canonical_changes']:
+        commit_parts.append(f"{stats['canonical_changes']} canonical updates")
+    if stats['rejections']:
+        commit_parts.append(f"{stats['rejections']} clips rejected")
+    if stats['quality_changes']:
+        commit_parts.append(f"{stats['quality_changes']} quality changes")
+    if stats['vocalization_changes']:
+        commit_parts.append(f"{stats['vocalization_changes']} vocalization type changes")
+    if stats['recordist_changes']:
+        commit_parts.append(f"{stats['recordist_changes']} recordist updates")
+
+    if commit_parts:
+        commit_msg = "Clip Studio: " + ", ".join(commit_parts)
+    else:
+        commit_msg = "Clip Studio: save changes"
+
+    try:
+        os.chdir(PROJECT_ROOT)
+        # Stage clips.json and any deleted/added files
+        subprocess.run(['git', 'add', 'data/clips.json'], check=True)
+        if REJECTED_XC_IDS_PATH.exists():
+            subprocess.run(['git', 'add', str(REJECTED_XC_IDS_PATH)], check=True)
+        # Stage deleted audio/spectrogram files
+        subprocess.run(['git', 'add', '-u', 'data/clips/', 'data/spectrograms/'],
+                       check=True, capture_output=True)
+        subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
+        print(f"Git commit: {commit_msg}")
+        stats['git_committed'] = True
+    except subprocess.CalledProcessError as e:
+        print(f"Git commit failed: {e}")
+        stats['git_committed'] = False
+
+    return {
+        'success': True,
+        'stats': stats,
+        'clips_remaining': len(clips),
+    }
+
+
+# ═══════════════════════════════════════════════════════════════════
+# HTTP SERVER
+# ═══════════════════════════════════════════════════════════════════
 
 class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
     """HTTP handler for unified clip studio"""
 
-    # Class-level state
-    filter_pack = None  # Optional pack filter
+    filter_pack = None  # Optional initial pack filter
 
     def log_message(self, format, *args):
         pass
@@ -81,27 +528,40 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
         if path == '/':
             self.send_html()
         elif path == '/api/init':
-            self.send_init_state()
-        elif path == '/api/packs':
-            self.send_packs()
+            self.handle_init(query)
         elif path == '/api/species':
-            self.send_species_list()
+            self.handle_species(query)
         elif path == '/api/clips':
-            species_code = query.get('species', [None])[0]
-            self.send_clips(species_code)
+            self.handle_clips(query)
         elif path == '/api/candidates':
-            species_code = query.get('species', [None])[0]
-            self.send_candidates(species_code)
+            self.handle_candidates(query)
         elif path == '/api/waveform':
-            source = query.get('source', [None])[0]
-            self.send_waveform(source)
+            self.handle_waveform(query)
         elif path == '/api/load-xc':
-            xc_id = query.get('id', [None])[0]
-            self.load_xc_recording(xc_id)
+            self.handle_load_xc(query)
         elif path.startswith('/audio/'):
             self.serve_audio(path[7:])
         elif path.startswith('/data/'):
             self.serve_file(path[1:])
+        else:
+            self.send_error(404)
+
+    def do_HEAD(self):
+        """Handle HEAD requests for audio range support"""
+        if self.path.startswith('/data/'):
+            file_path = PROJECT_ROOT / self.path[1:]
+            if not file_path.exists():
+                self.send_error(404)
+                return
+            self.send_response(200)
+            if file_path.suffix == '.wav':
+                self.send_header('Content-Type', 'audio/wav')
+                self.send_header('Accept-Ranges', 'bytes')
+            elif file_path.suffix == '.png':
+                self.send_header('Content-Type', 'image/png')
+            self.send_header('Content-Length', str(file_path.stat().st_size))
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
         else:
             self.send_error(404)
 
@@ -111,174 +571,122 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
 
         if self.path == '/api/extract':
             self.handle_extract(post_data)
-        elif self.path == '/api/update-clip':
-            self.handle_update_clip(post_data)
-        elif self.path == '/api/delete-clip':
-            self.handle_delete_clip(post_data)
         elif self.path == '/api/save-changes':
             self.handle_save_changes(post_data)
         else:
             self.send_error(404)
 
+    # ── GET handlers ──────────────────────────────────────────────
+
     def send_html(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
+        self.send_header('Cache-Control', 'no-cache')
         self.end_headers()
-        self.wfile.write(generate_batch_html().encode())
+        self.wfile.write(generate_html().encode())
 
-    def send_init_state(self):
-        """Send initial state (packs, species counts)"""
-        state = {
-            'filter_pack': self.filter_pack,
-        }
-        self.send_json(state)
+    def handle_init(self, query):
+        """Send initial state: packs, species counts, canonical count"""
+        packs = load_packs()
+        clips = load_clips()
 
-    def send_packs(self):
-        """Send all pack definitions grouped by region"""
-        packs_dir = PROJECT_ROOT / 'data' / 'packs'
-        packs_by_region = {'na': [], 'nz': [], 'eu': []}
-
-        if packs_dir.exists():
-            for pack_file in packs_dir.glob('*.json'):
-                with open(pack_file, 'r') as f:
-                    pack = json.load(f)
-                    region = pack.get('region', 'na')
-                    packs_by_region.setdefault(region, []).append({
-                        'id': pack.get('pack_id'),
-                        'name': pack.get('pack_name'),
-                        'region': region,
-                        'species_count': len(pack.get('species', []))
-                    })
-
-        self.send_json(packs_by_region)
-
-    def send_species_list(self):
-        """Send species list with clip counts (filtered by pack if set)"""
-        # Load all clips
-        clips_json = PROJECT_ROOT / 'data' / 'clips.json'
-        if clips_json.exists():
-            with open(clips_json, 'r') as f:
-                all_clips = json.load(f)
-        else:
-            all_clips = []
-
-        # Count clips per species
         clip_counts = {}
-        for clip in all_clips:
+        canonical_count = 0
+        for clip in clips:
             if not clip.get('rejected', False):
                 code = clip['species_code']
                 clip_counts[code] = clip_counts.get(code, 0) + 1
+                if clip.get('canonical'):
+                    canonical_count += 1
+
+        self.send_json({
+            'packs': packs,
+            'total_clips': sum(clip_counts.values()),
+            'total_canonical': canonical_count,
+            'clip_counts': clip_counts,
+            'filter_pack': self.filter_pack,
+        })
+
+    def handle_species(self, query):
+        """Send species list filtered by pack"""
+        pack_id = query.get('pack', [None])[0]
+
+        # Determine which species to include
+        pack_species = None
+        if pack_id:
+            packs = load_packs()
+            for region_packs in packs.values():
+                for pack in region_packs:
+                    if pack['id'] == pack_id:
+                        pack_species = set(pack['species'])
+                        break
 
         # Load species data
-        species_json = PROJECT_ROOT / 'data' / 'species.json'
-        if species_json.exists():
-            with open(species_json, 'r') as f:
+        species_path = PROJECT_ROOT / 'data' / 'species.json'
+        if species_path.exists():
+            with open(species_path, 'r') as f:
                 all_species = json.load(f)
         else:
             all_species = []
 
-        # Filter by pack if set
-        pack_species = None
-        if self.filter_pack:
-            pack_file = PROJECT_ROOT / 'data' / 'packs' / f'{self.filter_pack}.json'
-            if pack_file.exists():
-                with open(pack_file, 'r') as f:
-                    pack_data = json.load(f)
-                    pack_species = set(pack_data.get('species', []))
+        # Load clip counts
+        clips = load_clips()
+        clip_counts = {}
+        for clip in clips:
+            if not clip.get('rejected', False):
+                code = clip['species_code']
+                clip_counts[code] = clip_counts.get(code, 0) + 1
 
-        # Build response
+        # Load candidate counts
+        candidate_counts = count_candidates_per_species()
+
+        # Build result
         result = []
         for sp in all_species:
             code = sp['species_code']
             if pack_species and code not in pack_species:
                 continue
 
-            # Count candidates
-            candidate_count = 0
-            candidate_dirs = list((PROJECT_ROOT / 'data').glob('candidates_*'))
-            for cdir in candidate_dirs:
-                manifest = cdir / '.ingest_manifest.json'
-                if manifest.exists():
-                    with open(manifest, 'r') as f:
-                        manifest_data = json.load(f)
-                        for item in manifest_data:
-                            if item.get('species_code') == code:
-                                candidate_count += 1
-
             result.append({
                 'species_code': code,
                 'common_name': sp.get('common_name'),
                 'scientific_name': sp.get('scientific_name'),
                 'clip_count': clip_counts.get(code, 0),
-                'candidate_count': candidate_count
+                'candidate_count': candidate_counts.get(code, 0),
             })
 
-        # Sort: species with 0 clips first, then by species code
+        # Sort: 0-clip species first, then alphabetically
         result.sort(key=lambda x: (x['clip_count'], x['species_code']))
 
         self.send_json(result)
 
-    def send_clips(self, species_code):
-        """Send all clips for a species"""
+    def handle_clips(self, query):
+        """Send clips for a species"""
+        species_code = query.get('species', [None])[0]
         if not species_code:
             self.send_json([])
             return
 
-        clips_json = PROJECT_ROOT / 'data' / 'clips.json'
-        if not clips_json.exists():
-            self.send_json([])
-            return
-
-        with open(clips_json, 'r') as f:
-            all_clips = json.load(f)
-
-        species_clips = [c for c in all_clips
-                        if c['species_code'] == species_code.upper()
-                        and not c.get('rejected', False)]
+        clips = load_clips()
+        species_clips = [c for c in clips
+                         if c['species_code'] == species_code
+                         and not c.get('rejected', False)]
 
         self.send_json(species_clips)
 
-    def send_candidates(self, species_code):
+    def handle_candidates(self, query):
         """Send candidate sources for a species"""
+        species_code = query.get('species', [None])[0]
         if not species_code:
             self.send_json([])
             return
 
-        candidates = []
-        candidate_dirs = list((PROJECT_ROOT / 'data').glob('candidates_*'))
-
-        for cdir in candidate_dirs:
-            manifest = cdir / '.ingest_manifest.json'
-            if not manifest.exists():
-                continue
-
-            with open(manifest, 'r') as f:
-                manifest_data = json.load(f)
-                for item in manifest_data:
-                    if item.get('species_code') == species_code.upper():
-                        # Find the audio file
-                        xc_id = item.get('xc_id')
-                        audio_file = None
-                        for ext in ['.mp3', '.wav']:
-                            pattern = f'XC{xc_id}*{ext}'
-                            matches = list(cdir.glob(pattern))
-                            if matches:
-                                audio_file = str(matches[0])
-                                break
-
-                        if audio_file:
-                            candidates.append({
-                                'xc_id': xc_id,
-                                'path': audio_file,
-                                'recordist': item.get('recordist', 'Unknown'),
-                                'vocalization_type': item.get('type', 'song'),
-                                'license': item.get('license', 'unknown')
-                            })
-
+        candidates = load_candidates_for_species(species_code)
         self.send_json(candidates)
 
-    def send_waveform(self, source):
-        """Generate waveform data for a source file"""
+    def handle_waveform(self, query):
+        """Generate and send waveform data for visualization"""
+        source = query.get('source', [None])[0]
         if not source:
             self.send_error(400, "Missing source")
             return
@@ -313,13 +721,14 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 'duration': len(audio) / sr,
                 'mins': mins,
                 'maxs': maxs,
-                'source_path': str(source_path)
+                'source_path': str(source_path),
             })
         except Exception as e:
             self.send_error(500, str(e))
 
-    def load_xc_recording(self, xc_id):
+    def handle_load_xc(self, query):
         """Download XC recording and return metadata"""
+        xc_id = query.get('id', [None])[0]
         if not xc_id:
             self.send_error(400, "Missing XC ID")
             return
@@ -332,7 +741,7 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 'success': True,
                 'source_path': str(source_path),
                 'xc_id': xc_id,
-                'duration': info.duration
+                'duration': info.duration,
             }
 
             # Fetch metadata from XC API
@@ -346,6 +755,8 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                     if api_data.get('recordings'):
                         rec = api_data['recordings'][0]
                         result['recordist'] = rec.get('rec', '')
+                        result['common_name'] = rec.get('en', '')
+                        # Map XC type to our vocalization types
                         xc_type = rec.get('type', '').lower()
                         if 'song' in xc_type:
                             result['vocalization_type'] = 'song'
@@ -359,15 +770,53 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                             result['vocalization_type'] = 'drum'
                         else:
                             result['vocalization_type'] = 'song'
+                        # License info
+                        result['license'] = rec.get('lic', '')
             except Exception as e:
-                print(f"Warning: Could not fetch XC metadata: {e}")
+                print(f"Warning: Could not fetch XC metadata for {xc_id}: {e}")
 
             self.send_json(result)
         except Exception as e:
             self.send_json({'success': False, 'error': str(e)})
 
+    # ── POST handlers ─────────────────────────────────────────────
+
+    def handle_extract(self, post_data):
+        """Extract a new clip (saves immediately)"""
+        params = json.loads(post_data.decode())
+
+        try:
+            result = extract_clip(
+                source_path=Path(params['source_path']),
+                start_time=params['start_time'],
+                duration=params['duration'],
+                species_code=params['species_code'],
+                xc_id=params.get('xc_id'),
+                vocalization_type=params.get('vocalization_type', 'song'),
+                recordist=params.get('recordist', 'Unknown'),
+            )
+            self.send_json(result)
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            self.send_json({'success': False, 'error': str(e)})
+
+    def handle_save_changes(self, post_data):
+        """Save batched changes (modifications + deletions) with git commit"""
+        params = json.loads(post_data.decode())
+
+        try:
+            result = save_changes(params)
+            self.send_json(result)
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            self.send_json({'success': False, 'error': str(e)})
+
+    # ── File serving ──────────────────────────────────────────────
+
     def serve_audio(self, source_path):
-        """Serve audio file"""
+        """Serve audio file from absolute or relative path"""
         source_path = unquote(source_path)
 
         if source_path.startswith('/'):
@@ -378,7 +827,7 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 file_path = PROJECT_ROOT / source_path
 
         if not file_path.exists():
-            self.send_error(404)
+            self.send_error(404, f"Audio not found: {source_path}")
             return
 
         self.send_response(200)
@@ -390,380 +839,90 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
 
         self.send_header('Content-Length', str(file_path.stat().st_size))
         self.send_header('Accept-Ranges', 'bytes')
+        self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
 
         with open(file_path, 'rb') as f:
             self.wfile.write(f.read())
 
     def serve_file(self, relative_path):
-        """Serve files from data directory"""
+        """Serve files from data directory with range request support"""
         file_path = PROJECT_ROOT / relative_path
+
         if not file_path.exists():
             self.send_error(404)
             return
 
-        self.send_response(200)
-        if file_path.suffix == '.wav':
-            self.send_header('Content-type', 'audio/wav')
-        elif file_path.suffix == '.png':
-            self.send_header('Content-type', 'image/png')
-        elif file_path.suffix == '.json':
-            self.send_header('Content-type', 'application/json')
+        file_size = file_path.stat().st_size
+        range_header = self.headers.get('Range')
 
-        self.send_header('Content-Length', str(file_path.stat().st_size))
-        self.end_headers()
+        # Handle range requests for audio
+        if range_header and file_path.suffix == '.wav':
+            range_match = range_header.replace('bytes=', '').split('-')
+            start = int(range_match[0]) if range_match[0] else 0
+            end = int(range_match[1]) if range_match[1] else file_size - 1
 
-        with open(file_path, 'rb') as f:
-            self.wfile.write(f.read())
+            if start >= file_size:
+                self.send_error(416)
+                return
 
-    def handle_extract(self, post_data):
-        """Extract a new clip"""
-        params = json.loads(post_data.decode())
+            end = min(end, file_size - 1)
+            length = end - start + 1
 
-        try:
-            result = extract_clip(
-                source_path=Path(params['source_path']),
-                start_time=params['start_time'],
-                duration=params['duration'],
-                species_code=params['species_code'],
-                xc_id=params.get('xc_id'),
-                vocalization_type=params.get('vocalization_type', 'song'),
-                recordist=params.get('recordist', 'Unknown')
-            )
-            self.send_json(result)
-        except Exception as e:
-            import traceback
-            traceback.print_exc()
-            self.send_json({'success': False, 'error': str(e)})
+            self.send_response(206)
+            self.send_header('Content-Type', 'audio/wav')
+            self.send_header('Content-Range', f'bytes {start}-{end}/{file_size}')
+            self.send_header('Content-Length', str(length))
+            self.send_header('Accept-Ranges', 'bytes')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
 
-    def handle_update_clip(self, post_data):
-        """Update clip metadata in memory"""
-        params = json.loads(post_data.decode())
-        clip_id = params.get('clip_id')
-        updates = params.get('updates', {})
+            with open(file_path, 'rb') as f:
+                f.seek(start)
+                self.wfile.write(f.read(length))
+        else:
+            self.send_response(200)
 
-        # Load clips
-        clips_json = PROJECT_ROOT / 'data' / 'clips.json'
-        with open(clips_json, 'r') as f:
-            clips = json.load(f)
+            if file_path.suffix == '.wav':
+                self.send_header('Content-Type', 'audio/wav')
+                self.send_header('Accept-Ranges', 'bytes')
+            elif file_path.suffix == '.png':
+                self.send_header('Content-Type', 'image/png')
+            elif file_path.suffix == '.json':
+                self.send_header('Content-Type', 'application/json')
 
-        # Find and update clip
-        for clip in clips:
-            if clip['clip_id'] == clip_id:
-                for key, value in updates.items():
-                    clip[key] = value
-                break
+            self.send_header('Content-Length', str(file_size))
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
 
-        # Save immediately (no batching for simplicity)
-        with open(clips_json, 'w') as f:
-            json.dump(clips, f, indent=2)
-
-        self.send_json({'success': True})
-
-    def handle_delete_clip(self, post_data):
-        """Mark clip for deletion"""
-        params = json.loads(post_data.decode())
-        clip_id = params.get('clip_id')
-
-        # Load clips
-        clips_json = PROJECT_ROOT / 'data' / 'clips.json'
-        with open(clips_json, 'r') as f:
-            clips = json.load(f)
-
-        # Mark as rejected
-        for clip in clips:
-            if clip['clip_id'] == clip_id:
-                clip['rejected'] = True
-                clip['canonical'] = False
-                break
-
-        # Save
-        with open(clips_json, 'w') as f:
-            json.dump(clips, f, indent=2)
-
-        self.send_json({'success': True})
-
-    def handle_save_changes(self, post_data):
-        """Save all changes with git commit"""
-        params = json.loads(post_data.decode())
-
-        try:
-            result = save_changes(params)
-            self.send_json(result)
-        except Exception as e:
-            import traceback
-            traceback.print_exc()
-            self.send_json({'success': False, 'error': str(e)})
+            with open(file_path, 'rb') as f:
+                self.wfile.write(f.read())
 
     def send_json(self, data):
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
+        self.send_header('Cache-Control', 'no-cache')
         self.end_headers()
         self.wfile.write(json.dumps(data).encode())
 
 
-def extract_clip(source_path: Path, start_time: float, duration: float,
-                 species_code: str, xc_id: str = None,
-                 vocalization_type: str = 'song', recordist: str = 'Unknown') -> dict:
-    """Extract a clip segment from source recording"""
+# ═══════════════════════════════════════════════════════════════════
+# HTML UI
+# ═══════════════════════════════════════════════════════════════════
 
-    if duration < MIN_DURATION or duration > MAX_DURATION:
-        raise ValueError(f"Duration must be {MIN_DURATION}-{MAX_DURATION}s")
+def generate_html() -> str:
+    """Generate the unified 3-panel Clip Studio UI"""
 
-    # Load audio
-    audio, sr = sf.read(str(source_path))
-    if len(audio.shape) > 1:
-        audio = np.mean(audio, axis=1)
+    voc_type_options = ''.join(
+        f'<option value="{vt}">{vt}</option>' for vt in VOCALIZATION_TYPES
+    )
 
-    # Extract segment
-    start_sample = int(start_time * sr)
-    end_sample = int((start_time + duration) * sr)
-
-    if start_sample < 0 or end_sample > len(audio):
-        raise ValueError(f"Selection out of bounds")
-
-    segment = audio[start_sample:end_sample]
-
-    # Resample using librosa for quality
-    if sr != OUTPUT_SAMPLE_RATE:
-        try:
-            import librosa
-            segment = librosa.resample(segment, orig_sr=sr, target_sr=OUTPUT_SAMPLE_RATE)
-            sr = OUTPUT_SAMPLE_RATE
-        except ImportError:
-            # Fallback to simple resampling
-            duration_sec = len(segment) / sr
-            new_length = int(duration_sec * OUTPUT_SAMPLE_RATE)
-            indices = np.linspace(0, len(segment) - 1, new_length)
-            segment = np.interp(indices, np.arange(len(segment)), segment)
-            sr = OUTPUT_SAMPLE_RATE
-
-    # Normalize loudness
-    meter = pyln.Meter(sr)
-    loudness = meter.integrated_loudness(segment)
-    if not np.isinf(loudness) and not np.isnan(loudness):
-        segment = pyln.normalize.loudness(segment, loudness, TARGET_LUFS)
-        segment = np.clip(segment, -1.0, 1.0)
-
-    # Load clips.json
-    clips_json = PROJECT_ROOT / 'data' / 'clips.json'
-    if clips_json.exists():
-        with open(clips_json, 'r') as f:
-            clips = json.load(f)
-    else:
-        clips = []
-
-    # Generate clip ID
-    if xc_id:
-        prefix = f"{species_code.upper()}_{xc_id}_"
-        existing_nums = [int(c['clip_id'][len(prefix):])
-                        for c in clips
-                        if c['clip_id'].startswith(prefix)
-                        and c['clip_id'][len(prefix):].isdigit()]
-        next_num = max(existing_nums, default=0) + 1
-        clip_id = f"{prefix}{next_num}"
-    else:
-        prefix = f"{species_code.upper()}_clip_"
-        existing_nums = [int(c['clip_id'][len(prefix):])
-                        for c in clips
-                        if c['clip_id'].startswith(prefix)
-                        and c['clip_id'][len(prefix):].isdigit()]
-        next_num = max(existing_nums, default=0) + 1
-        clip_id = f"{prefix}{next_num}"
-
-    # Save audio
-    output_filename = f"{clip_id}.wav"
-    output_path = PROJECT_ROOT / 'data' / 'clips' / output_filename
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    sf.write(str(output_path), segment, sr, subtype='PCM_16')
-
-    # Generate spectrogram
-    spectrogram_path = PROJECT_ROOT / 'data' / 'spectrograms' / f"{clip_id}.png"
-    spectrogram_path.parent.mkdir(parents=True, exist_ok=True)
-    generate_spectrogram(segment, sr, str(spectrogram_path))
-
-    # Measure final loudness
-    final_loudness = meter.integrated_loudness(segment)
-    duration_ms = int(len(segment) / sr * 1000)
-
-    # Load species data
-    species_json = PROJECT_ROOT / 'data' / 'species.json'
-    if species_json.exists():
-        with open(species_json, 'r') as f:
-            species_data = {s['species_code']: s for s in json.load(f)}
-    else:
-        species_data = {}
-
-    common_name = species_data.get(species_code.upper(), {}).get('common_name', species_code.upper())
-
-    # Create clip metadata
-    clip_data = {
-        'clip_id': clip_id,
-        'species_code': species_code.upper(),
-        'common_name': common_name,
-        'vocalization_type': vocalization_type,
-        'duration_ms': duration_ms,
-        'quality_score': 5,
-        'loudness_lufs': round(final_loudness, 1),
-        'source': 'xenocanto' if xc_id else 'unknown',
-        'source_id': f"XC{xc_id}" if xc_id else None,
-        'source_url': f"https://xeno-canto.org/{xc_id}" if xc_id else None,
-        'recordist': recordist,
-        'file_path': f"data/clips/{output_filename}",
-        'spectrogram_path': f"data/spectrograms/{clip_id}.png",
-        'canonical': False,
-        'rejected': False
-    }
-
-    clips.append(clip_data)
-
-    # Save clips.json
-    with open(clips_json, 'w') as f:
-        json.dump(clips, f, indent=2)
-
-    return {
-        'success': True,
-        'clip_id': clip_id,
-        'file_path': f"data/clips/{output_filename}",
-        'spectrogram_path': f"data/spectrograms/{clip_id}.png",
-        'duration_ms': duration_ms
-    }
-
-
-def generate_spectrogram(audio: np.ndarray, sr: int, output_path: str):
-    """Generate spectrogram matching game style"""
-    try:
-        import matplotlib
-        matplotlib.use('Agg')
-        import matplotlib.pyplot as plt
-        import librosa
-        import librosa.display
-
-        S = librosa.feature.melspectrogram(
-            y=audio, sr=sr, n_fft=1024, hop_length=256,
-            fmin=500, fmax=10000, n_mels=128
-        )
-        S_db = librosa.power_to_db(S, ref=np.max)
-
-        vmin = np.percentile(S_db, 5)
-        vmax = np.percentile(S_db, 95)
-
-        fig, ax = plt.subplots(figsize=(4, 2), dpi=100)
-        librosa.display.specshow(
-            S_db, sr=sr, hop_length=256,
-            fmin=500, fmax=10000, ax=ax, cmap='magma',
-            vmin=vmin, vmax=vmax
-        )
-        ax.axis('off')
-        plt.tight_layout(pad=0)
-        plt.savefig(output_path, bbox_inches='tight', pad_inches=0,
-                   facecolor='black', edgecolor='none', dpi=100)
-        plt.close()
-    except Exception as e:
-        print(f"Warning: Could not generate spectrogram: {e}")
-
-
-def download_xc_recording(xc_id: str, output_dir: Path) -> Path:
-    """Download XC recording"""
-    import urllib.request
-
-    output_dir.mkdir(parents=True, exist_ok=True)
-    output_path = output_dir / f"XC{xc_id}_full.mp3"
-
-    if output_path.exists():
-        return output_path
-
-    url = f"https://xeno-canto.org/{xc_id}/download"
-    print(f"Downloading XC{xc_id}...")
-
-    try:
-        urllib.request.urlretrieve(url, str(output_path))
-        print(f"Downloaded: {output_path}")
-        return output_path
-    except Exception as e:
-        raise ValueError(f"Failed to download XC{xc_id}: {e}")
-
-
-def save_changes(params: dict) -> dict:
-    """Save changes and create git commit"""
-    clips_json = PROJECT_ROOT / 'data' / 'clips.json'
-
-    # Backup
-    backup_path = clips_json.with_suffix('.json.backup')
-    shutil.copy(clips_json, backup_path)
-
-    # Load clips
-    with open(clips_json, 'r') as f:
-        clips = json.load(f)
-
-    # Track stats
-    stats = {
-        'canonical_changes': 0,
-        'rejections': 0,
-        'quality_changes': 0,
-        'files_deleted': 0
-    }
-
-    # Process rejections
-    rejected_clips = [c for c in clips if c.get('rejected', False)]
-    stats['rejections'] = len(rejected_clips)
-
-    # Delete files
-    for clip in rejected_clips:
-        for path_key in ['file_path', 'spectrogram_path']:
-            path = clip.get(path_key)
-            if path:
-                full_path = PROJECT_ROOT / path
-                if full_path.exists():
-                    full_path.unlink()
-                    stats['files_deleted'] += 1
-
-    # Remove rejected clips
-    clips = [c for c in clips if not c.get('rejected', False)]
-
-    # Validate canonical uniqueness
-    species_canonicals = {}
-    for clip in clips:
-        if clip.get('canonical'):
-            species = clip['species_code']
-            if species in species_canonicals:
-                raise ValueError(
-                    f"Multiple canonicals for {species}: "
-                    f"{species_canonicals[species]} and {clip['clip_id']}"
-                )
-            species_canonicals[species] = clip['clip_id']
-
-    stats['canonical_changes'] = len(species_canonicals)
-
-    # Save
-    with open(clips_json, 'w') as f:
-        json.dump(clips, f, indent=2)
-
-    # Git commit
-    commit_msg = f"Clip Studio: {stats['rejections']} clips rejected, {stats['files_deleted']} files deleted"
-    try:
-        os.chdir(PROJECT_ROOT)
-        subprocess.run(['git', 'add', 'data/clips.json'], check=True)
-        subprocess.run(['git', 'commit', '-m', commit_msg], check=True)
-        stats['git_committed'] = True
-    except subprocess.CalledProcessError:
-        stats['git_committed'] = False
-
-    return {
-        'success': True,
-        'stats': stats,
-        'clips_remaining': len(clips)
-    }
-
-
-def generate_batch_html() -> str:
-    """Generate unified Clip Studio HTML"""
-    return '''<\!DOCTYPE html>
+    return '''<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Clip Studio</title>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Clip Studio - ChipNotes!</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #0d0d0d;
@@ -773,7 +932,12 @@ def generate_batch_html() -> str:
             --teal: #4db6ac;
             --teal-dark: #3d9b91;
             --teal-hover: #5dc6bc;
+            --teal-bg: rgba(77, 182, 172, 0.12);
             --gold: #ffd700;
+            --gold-bg: rgba(255, 215, 0, 0.1);
+            --red: #ff4444;
+            --red-bg: rgba(255, 68, 68, 0.1);
+            --green: #66bb6a;
             --text-primary: #e0e0e0;
             --text-secondary: #999;
             --text-dim: #666;
@@ -782,7 +946,7 @@ def generate_batch_html() -> str:
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-primary);
@@ -791,26 +955,26 @@ def generate_batch_html() -> str:
             font-size: 13px;
         }
 
-        /* Top Header Bar */
+        /* ── Top Bar ────────────────────────────────────── */
         .top-bar {
-            height: 60px;
+            height: 56px;
             background: var(--bg-secondary);
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 30px;
+            padding: 0 24px;
         }
 
         .studio-title {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             letter-spacing: -0.02em;
         }
 
-        .stats {
+        .stats-bar {
             display: flex;
-            gap: 30px;
+            gap: 28px;
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px;
             text-transform: uppercase;
@@ -820,27 +984,28 @@ def generate_batch_html() -> str:
 
         .stat-value {
             color: var(--teal);
-            margin-left: 8px;
+            margin-left: 6px;
             font-weight: 600;
         }
 
-        /* Main Layout */
+        /* ── Main Layout ────────────────────────────────── */
         .studio {
             display: flex;
-            height: calc(100vh - 60px);
+            height: calc(100vh - 56px);
         }
 
-        /* Left Panel */
+        /* ── Left Panel ─────────────────────────────────── */
         .left-panel {
-            width: 320px;
+            width: 300px;
+            min-width: 300px;
             background: var(--bg-secondary);
             border-right: 1px solid var(--border);
             display: flex;
             flex-direction: column;
         }
 
-        .panel-section-header {
-            padding: 20px 20px 12px;
+        .section-label {
+            padding: 16px 16px 8px;
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -849,91 +1014,84 @@ def generate_batch_html() -> str:
         }
 
         /* Pack Filter */
-        .pack-groups {
-            padding: 0 12px;
-        }
+        .pack-tree { padding: 0 8px; }
 
-        .pack-group {
+        .pack-all {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 500;
             margin-bottom: 4px;
+            border-left: 2px solid transparent;
+            transition: all 0.15s;
+        }
+        .pack-all:hover { background: var(--bg-tertiary); }
+        .pack-all.active {
+            background: var(--teal-bg);
+            border-left-color: var(--teal);
+            color: var(--teal);
         }
 
-        .pack-group-header {
+        .pack-group { margin-bottom: 2px; }
+
+        .pack-group-hdr {
             display: flex;
             align-items: center;
-            padding: 8px 12px;
+            padding: 7px 12px;
             cursor: pointer;
             border-radius: 4px;
             transition: background 0.15s;
             user-select: none;
         }
-
-        .pack-group-header:hover {
-            background: var(--bg-tertiary);
-        }
+        .pack-group-hdr:hover { background: var(--bg-tertiary); }
 
         .pack-arrow {
-            width: 12px;
+            width: 16px;
             font-size: 10px;
             color: var(--text-secondary);
             transition: transform 0.2s;
         }
+        .pack-group.open .pack-arrow { transform: rotate(90deg); }
 
-        .pack-group.expanded .pack-arrow {
-            transform: rotate(90deg);
-        }
+        .pack-group-name { flex: 1; font-weight: 500; }
 
-        .pack-group-name {
-            flex: 1;
-            font-weight: 500;
-        }
-
-        .pack-count {
+        .pack-group-count {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px;
             color: var(--text-dim);
         }
 
-        .pack-items {
-            display: none;
-            padding-left: 24px;
-        }
+        .pack-children { display: none; padding-left: 20px; }
+        .pack-group.open .pack-children { display: block; }
 
-        .pack-group.expanded .pack-items {
-            display: block;
-        }
-
-        .pack-item {
-            padding: 8px 12px;
+        .pack-child {
+            padding: 6px 12px;
             cursor: pointer;
             border-radius: 4px;
-            margin-bottom: 2px;
+            margin-bottom: 1px;
             transition: all 0.15s;
             border-left: 2px solid transparent;
+            font-size: 12px;
         }
-
-        .pack-item:hover {
-            background: var(--bg-tertiary);
-        }
-
-        .pack-item.active {
-            background: rgba(77, 182, 172, 0.15);
+        .pack-child:hover { background: var(--bg-tertiary); }
+        .pack-child.active {
+            background: var(--teal-bg);
             border-left-color: var(--teal);
             color: var(--teal);
         }
-
-        .pack-item.all-birds {
-            font-weight: 500;
-            margin-bottom: 12px;
+        .pack-child-count {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            color: var(--text-dim);
+            margin-left: 6px;
         }
 
-        /* Search Box */
-        .search-box {
-            padding: 12px 20px 20px;
-        }
+        /* Search */
+        .search-wrap { padding: 8px 16px 12px; }
 
         .search-input {
             width: 100%;
-            padding: 10px 12px;
+            padding: 9px 12px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border-subtle);
             border-radius: 4px;
@@ -942,140 +1100,185 @@ def generate_batch_html() -> str:
             font-family: inherit;
             transition: all 0.2s;
         }
-
         .search-input:focus {
             outline: none;
             border-color: var(--teal);
             background: var(--bg-elevated);
         }
-
-        .search-input::placeholder {
-            color: var(--text-dim);
-        }
+        .search-input::placeholder { color: var(--text-dim); }
 
         /* Species List */
         .species-list {
             flex: 1;
             overflow-y: auto;
-            padding: 0 12px 20px;
+            padding: 0 8px 16px;
         }
 
-        .species-item {
+        .sp-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding: 10px 12px;
+            gap: 8px;
+            padding: 9px 10px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border-subtle);
             border-radius: 4px;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             cursor: pointer;
             transition: all 0.15s;
         }
-
-        .species-item:hover {
+        .sp-item:hover {
             background: var(--bg-elevated);
             border-color: var(--border);
         }
-
-        .species-item.active {
-            background: rgba(77, 182, 172, 0.12);
+        .sp-item.active {
+            background: var(--teal-bg);
             border-color: var(--teal);
         }
+        .sp-item.no-clips .sp-code { color: var(--red); }
 
-        .species-checkbox {
-            width: 14px;
-            height: 14px;
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
+        .sp-info { flex: 1; min-width: 0; }
 
-        .species-item.active .species-checkbox {
-            background: var(--teal);
-            border-color: var(--teal);
-        }
-
-        .species-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .species-code {
+        .sp-code {
             font-family: 'IBM Plex Mono', monospace;
             font-weight: 600;
             font-size: 12px;
         }
 
-        .species-name {
+        .sp-name {
             font-size: 11px;
             color: var(--text-secondary);
-            margin-top: 2px;
+            margin-top: 1px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .species-counts {
+        .sp-counts {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px;
             color: var(--text-dim);
             flex-shrink: 0;
+            text-align: right;
         }
+        .sp-counts .clips-n { color: var(--teal); }
+        .sp-counts .cand-n { color: var(--text-dim); }
 
-        /* Center Panel */
+        /* ── Center Panel ───────────────────────────────── */
         .center-panel {
             flex: 1;
             display: flex;
             flex-direction: column;
             background: var(--bg-primary);
+            min-width: 0;
         }
 
         .species-header {
-            padding: 30px 40px;
+            padding: 24px 32px;
             border-bottom: 1px solid var(--border);
             background: var(--bg-secondary);
         }
 
         .species-header h2 {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
-        .species-scientific {
+        .species-sci {
             font-style: italic;
             color: var(--text-secondary);
             font-size: 14px;
         }
 
-        .sources-message {
-            padding: 40px;
-            text-align: center;
+        /* Source chips */
+        .source-bar {
+            padding: 16px 32px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .source-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            font-weight: 600;
+            margin-right: 4px;
+        }
+
+        .source-chip {
+            padding: 5px 12px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--text-primary);
+            transition: all 0.15s;
+        }
+        .source-chip:hover {
+            border-color: var(--teal);
+            background: var(--bg-elevated);
+        }
+        .source-chip.active {
+            border-color: var(--teal);
+            background: var(--teal-bg);
+            color: var(--teal);
+        }
+
+        .xc-load-area {
+            margin-left: auto;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .xc-input {
+            width: 110px;
+            padding: 5px 10px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+        }
+        .xc-input:focus { outline: none; border-color: var(--teal); }
+
+        /* Placeholder */
+        .center-placeholder {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--text-dim);
             font-size: 14px;
         }
 
+        /* Waveform area */
         .waveform-area {
             flex: 1;
             overflow-y: auto;
-            padding: 30px 40px;
+            padding: 24px 32px;
         }
 
-        .waveform-container {
-            max-width: 900px;
-        }
+        .waveform-container { max-width: 900px; }
 
         #waveform {
             width: 100%;
-            height: 180px;
+            height: 160px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 6px;
             position: relative;
             cursor: crosshair;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         #waveformCanvas {
@@ -1094,39 +1297,37 @@ def generate_batch_html() -> str:
             pointer-events: none;
         }
 
-        /* Playback Controls */
-        .playback-controls {
+        .playhead {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--red);
+            pointer-events: none;
+        }
+
+        /* Controls row */
+        .controls-row {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .btn {
-            padding: 10px 20px;
+            padding: 8px 16px;
             background: var(--bg-elevated);
             color: var(--text-primary);
             border: 1px solid var(--border);
             border-radius: 4px;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             font-family: inherit;
             transition: all 0.15s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
-
-        .btn:hover {
-            background: var(--bg-tertiary);
-            border-color: var(--teal);
-        }
-
-        .btn:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
+        .btn:hover { background: var(--bg-tertiary); border-color: var(--teal); }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
         .btn-primary {
             background: var(--teal);
@@ -1134,11 +1335,7 @@ def generate_batch_html() -> str:
             color: #000;
             font-weight: 600;
         }
-
-        .btn-primary:hover {
-            background: var(--teal-hover);
-            border-color: var(--teal-hover);
-        }
+        .btn-primary:hover { background: var(--teal-hover); border-color: var(--teal-hover); }
 
         .time-display {
             font-family: 'IBM Plex Mono', monospace;
@@ -1147,29 +1344,25 @@ def generate_batch_html() -> str:
             margin-left: auto;
         }
 
-        /* Extract Form */
+        /* Extract form */
         .extract-form {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 6px;
-            padding: 24px;
+            padding: 20px;
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 16px;
+            margin-bottom: 16px;
         }
 
-        .form-field {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
+        .form-field { display: flex; flex-direction: column; gap: 6px; }
 
         .form-label {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             color: var(--text-dim);
@@ -1183,34 +1376,29 @@ def generate_batch_html() -> str:
             font-weight: 500;
         }
 
-        .form-input,
-        .form-select {
+        .form-input, .form-select {
             width: 100%;
-            padding: 10px 12px;
+            padding: 8px 10px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border-subtle);
             border-radius: 4px;
             color: var(--text-primary);
             font-size: 13px;
             font-family: inherit;
-            transition: all 0.2s;
         }
-
-        .form-input:focus,
-        .form-select:focus {
+        .form-input:focus, .form-select:focus {
             outline: none;
             border-color: var(--teal);
-            background: var(--bg-elevated);
         }
 
-        .duration-controls {
+        .dur-controls {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
-        .duration-btn {
-            padding: 8px 12px;
+        .dur-btn {
+            padding: 6px 12px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
             border-radius: 4px;
@@ -1218,24 +1406,30 @@ def generate_batch_html() -> str:
             color: var(--text-primary);
             font-size: 14px;
             font-weight: 600;
-            transition: all 0.15s;
         }
+        .dur-btn:hover { background: var(--bg-elevated); border-color: var(--teal); }
 
-        .duration-btn:hover {
-            background: var(--bg-elevated);
-            border-color: var(--teal);
-        }
-
-        .duration-display {
+        .dur-display {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 16px;
-            min-width: 50px;
+            font-size: 15px;
+            min-width: 45px;
             text-align: center;
         }
 
-        /* Right Panel */
+        .status-msg {
+            padding: 10px 14px;
+            border-radius: 4px;
+            margin-top: 12px;
+            font-size: 12px;
+        }
+        .status-msg.success { background: rgba(102,187,106,0.15); border: 1px solid rgba(102,187,106,0.3); color: var(--green); }
+        .status-msg.error { background: var(--red-bg); border: 1px solid rgba(255,68,68,0.3); color: var(--red); }
+        .status-msg.info { background: var(--teal-bg); border: 1px solid rgba(77,182,172,0.3); color: var(--teal); }
+
+        /* ── Right Panel ────────────────────────────────── */
         .right-panel {
-            width: 380px;
+            width: 370px;
+            min-width: 370px;
             background: var(--bg-secondary);
             border-left: 1px solid var(--border);
             display: flex;
@@ -1243,7 +1437,7 @@ def generate_batch_html() -> str:
         }
 
         .clips-header {
-            padding: 20px 24px;
+            padding: 16px 20px;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
@@ -1251,14 +1445,14 @@ def generate_batch_html() -> str:
         }
 
         .clips-title {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
 
-        .btn-save-all {
-            padding: 8px 16px;
+        .btn-save {
+            padding: 7px 14px;
             background: var(--teal);
             color: #000;
             border: none;
@@ -1268,19 +1462,31 @@ def generate_batch_html() -> str:
             font-weight: 600;
             font-family: inherit;
             transition: all 0.15s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
         }
+        .btn-save:hover { background: var(--teal-hover); }
+        .btn-save:disabled { opacity: 0.4; cursor: not-allowed; }
 
-        .btn-save-all:hover {
-            background: var(--teal-hover);
+        .unsaved-badge {
+            background: var(--gold);
+            color: #000;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 8px;
         }
 
         .clips-list {
             flex: 1;
             overflow-y: auto;
-            padding: 16px;
+            padding: 12px;
+        }
+
+        .clips-empty {
+            padding: 60px 24px;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 13px;
         }
 
         /* Clip Cards */
@@ -1288,714 +1494,955 @@ def generate_batch_html() -> str:
             background: var(--bg-tertiary);
             border: 2px solid var(--border);
             border-radius: 6px;
-            padding: 16px;
-            margin-bottom: 12px;
+            padding: 14px;
+            margin-bottom: 10px;
             transition: all 0.2s;
-        }
-
-        .clip-card:hover {
-            border-color: var(--teal);
-        }
-
-        .clip-card.canonical {
-            border-color: var(--gold);
             position: relative;
+        }
+        .clip-card:hover { border-color: #444; }
+        .clip-card.canonical { border-color: var(--gold); }
+        .clip-card.modified { box-shadow: 0 0 0 1px rgba(66,165,245,0.4); }
+        .clip-card.deleted {
+            opacity: 0.35;
+            pointer-events: none;
         }
 
         .canonical-badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            padding: 4px 10px;
+            top: 10px;
+            right: 10px;
+            padding: 3px 8px;
             background: var(--gold);
             color: #000;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             border-radius: 3px;
         }
 
-        .clip-spectrogram {
+        /* CRITICAL: height: auto + object-fit: contain — never crop spectrograms */
+        .clip-spec {
             width: 100%;
             height: auto;
+            object-fit: contain;
             border-radius: 4px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             background: var(--bg-primary);
+            display: block;
         }
 
-        .clip-metadata {
-            margin-bottom: 12px;
+        .clip-id {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--teal);
+            margin-bottom: 8px;
+            word-break: break-all;
         }
 
-        .clip-row {
+        .clip-meta-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 6px;
-            font-size: 12px;
+            margin-bottom: 5px;
+            font-size: 11px;
         }
 
-        .clip-label {
+        .clip-meta-label {
             color: var(--text-dim);
             text-transform: uppercase;
-            font-size: 10px;
+            font-size: 9px;
             letter-spacing: 0.08em;
             font-weight: 600;
         }
 
-        .clip-value {
+        .clip-meta-value {
             font-family: 'IBM Plex Mono', monospace;
             color: var(--text-primary);
+            font-size: 11px;
         }
 
+        /* Editable fields in clip cards */
+        .clip-edit-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .clip-edit-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+            font-weight: 600;
+            min-width: 50px;
+        }
+
+        .clip-edit-select, .clip-edit-input {
+            flex: 1;
+            padding: 4px 6px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 3px;
+            color: var(--text-primary);
+            font-size: 11px;
+            font-family: inherit;
+        }
+        .clip-edit-select:focus, .clip-edit-input:focus {
+            outline: none;
+            border-color: var(--teal);
+        }
+
+        /* Quality stars */
         .quality-stars {
             display: flex;
-            gap: 2px;
+            gap: 1px;
         }
 
         .star {
-            color: var(--text-dim);
+            cursor: pointer;
             font-size: 14px;
+            color: var(--text-dim);
+            transition: color 0.1s;
         }
+        .star.filled { color: var(--gold); }
+        .star:hover { color: var(--gold); }
 
-        .star.filled {
-            color: var(--gold);
-        }
-
-        /* Clip Actions */
+        /* Clip action buttons */
         .clip-actions {
             display: flex;
-            gap: 8px;
+            gap: 6px;
+            margin-top: 10px;
         }
 
-        .clip-action-btn {
+        .clip-act {
             flex: 1;
-            padding: 10px;
+            padding: 8px;
             background: var(--bg-elevated);
             border: 1px solid var(--border);
             border-radius: 4px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             transition: all 0.15s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            text-align: center;
         }
-
-        .clip-action-btn:hover {
-            border-color: var(--teal);
-            transform: translateY(-1px);
-        }
-
-        .clip-action-btn.star-btn:hover {
-            border-color: var(--gold);
-        }
-
-        .clip-action-btn.delete-btn:hover {
-            border-color: #ff4444;
-        }
+        .clip-act:hover { border-color: var(--teal); transform: translateY(-1px); }
+        .clip-act.canon-btn:hover { border-color: var(--gold); }
+        .clip-act.canon-btn.is-canon { background: var(--gold-bg); border-color: var(--gold); }
+        .clip-act.del-btn:hover { border-color: var(--red); }
 
         /* Scrollbars */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--border-subtle);
-        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #444; }
     </style>
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="studio-title">Clip Studio</div>
-        <div class="stats">
-            <div>CLIPS: <span class="stat-value" id="totalClips">0</span></div>
-            <div>CANONICAL: <span class="stat-value" id="totalCanonical">0</span></div>
-            <div>SPECIES: <span class="stat-value" id="totalSpecies">0</span></div>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="studio-title">Clip Studio</div>
+    <div class="stats-bar">
+        <div>CLIPS: <span class="stat-value" id="statClips">0</span></div>
+        <div>CANONICAL: <span class="stat-value" id="statCanonical">0</span></div>
+        <div>SPECIES: <span class="stat-value" id="statSpecies">0</span></div>
+    </div>
+</div>
+
+<div class="studio">
+
+    <!-- Left Panel -->
+    <div class="left-panel">
+        <div class="section-label">PACK FILTER</div>
+        <div class="pack-tree" id="packTree"></div>
+
+        <div class="section-label" style="margin-top: 12px;">SPECIES</div>
+        <div class="search-wrap">
+            <input type="text" class="search-input" id="searchInput"
+                   placeholder="Search species..." oninput="renderSpeciesList()">
         </div>
+        <div class="species-list" id="speciesList"></div>
     </div>
 
-    <div class="studio">
-        <!-- Left Panel -->
-        <div class="left-panel">
-            <div class="panel-section-header">PACK FILTER</div>
-            
-            <div class="pack-groups" id="packGroups">
-                <!-- Pack groups will be rendered here -->
-            </div>
+    <!-- Center Panel -->
+    <div class="center-panel">
+        <div class="species-header" id="speciesHeader" style="display:none;">
+            <h2 id="speciesTitle"></h2>
+            <div class="species-sci" id="speciesSci"></div>
+        </div>
 
-            <div class="panel-section-header" style="margin-top: 20px;">SPECIES</div>
-            
-            <div class="search-box">
-                <input type="text" class="search-input" id="searchInput" placeholder="Search species...">
-            </div>
-
-            <div class="species-list" id="speciesList">
-                <!-- Species will be rendered here -->
+        <div class="source-bar" id="sourceBar" style="display:none;">
+            <span class="source-label">Sources</span>
+            <div id="sourceChips"></div>
+            <div class="xc-load-area">
+                <input type="text" class="xc-input" id="xcInput" placeholder="XC ID">
+                <button class="btn" onclick="loadXC()">Load XC</button>
             </div>
         </div>
 
-        <!-- Center Panel -->
-        <div class="center-panel">
-            <div class="species-header">
-                <h2 id="speciesTitle">Select a species</h2>
-                <div class="species-scientific" id="speciesScientific"></div>
-            </div>
+        <div class="center-placeholder" id="centerPlaceholder">
+            Select a species to begin
+        </div>
 
-            <div class="sources-message" id="sourcesMessage">
-                No source recordings
-            </div>
+        <div class="waveform-area" id="waveformArea" style="display:none;">
+            <div class="waveform-container">
+                <div id="waveform">
+                    <canvas id="waveformCanvas"></canvas>
+                    <div class="selection-overlay" id="selection" style="display:none;"></div>
+                    <div class="playhead" id="playhead" style="display:none;"></div>
+                </div>
 
-            <div class="waveform-area" id="waveformArea" style="display: none;">
-                <div class="waveform-container">
-                    <div id="waveform">
-                        <canvas id="waveformCanvas"></canvas>
-                        <div class="selection-overlay" id="selection" style="display:none;"></div>
-                    </div>
+                <div class="controls-row">
+                    <button class="btn" onclick="playFull()">&#9654; Play Full</button>
+                    <button class="btn" onclick="playSelection()">&#9654; Selection</button>
+                    <button class="btn" onclick="stopAudio()">&#9632; Stop</button>
+                    <div class="time-display" id="timeDisplay">0:00 - 0:00</div>
+                </div>
 
-                    <div class="playback-controls">
-                        <button class="btn" onclick="playFull()">▶ Play Full</button>
-                        <button class="btn" onclick="playSelection()">▶ Play Selection</button>
-                        <button class="btn" onclick="stopAudio()">■ Stop</button>
-                        <div class="time-display" id="timeDisplay">0:00 - 0:00</div>
-                    </div>
-
-                    <div class="extract-form">
-                        <div class="form-grid">
-                            <div class="form-field">
-                                <label class="form-label">Start Time</label>
-                                <div class="form-value" id="startTimeDisplay">0.0s</div>
-                            </div>
-                            <div class="form-field">
-                                <label class="form-label">Duration (Seconds)</label>
-                                <div class="duration-controls">
-                                    <button class="duration-btn" onclick="adjustDuration(-0.1)">−</button>
-                                    <div class="duration-display" id="durationDisplay">2.0</div>
-                                    <button class="duration-btn" onclick="adjustDuration(0.1)">+</button>
-                                </div>
-                            </div>
-                            <div class="form-field">
-                                <label class="form-label">Vocalization Type</label>
-                                <select class="form-select" id="vocType">''' + ''.join(f'<option value="{vt}">{vt}</option>' for vt in VOCALIZATION_TYPES) + '''</select>
-                            </div>
-                            <div class="form-field">
-                                <label class="form-label">Recordist</label>
-                                <input type="text" class="form-input" id="recordist" placeholder="Unknown">
+                <div class="extract-form">
+                    <div class="form-grid">
+                        <div class="form-field">
+                            <label class="form-label">Start Time</label>
+                            <div class="form-value" id="startTimeDisplay">0.0s</div>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Duration</label>
+                            <div class="dur-controls">
+                                <button class="dur-btn" onclick="adjustDuration(-0.1)">&minus;</button>
+                                <div class="dur-display" id="durationDisplay">2.0</div>
+                                <button class="dur-btn" onclick="adjustDuration(0.1)">+</button>
                             </div>
                         </div>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="extractClip()">
-                            🎯 Extract Clip
-                        </button>
+                        <div class="form-field">
+                            <label class="form-label">Vocalization Type</label>
+                            <select class="form-select" id="vocType">''' + voc_type_options + '''</select>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Recordist</label>
+                            <input type="text" class="form-input" id="recordist" placeholder="Unknown">
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right Panel -->
-        <div class="right-panel">
-            <div class="clips-header">
-                <div class="clips-title" id="clipsTitle">EXTRACTED (0)</div>
-                <button class="btn-save-all" onclick="saveAllChanges()">💾 Save All</button>
-            </div>
-            <div class="clips-list" id="clipsList">
-                <div style="padding: 60px 30px; text-align: center; color: var(--text-dim);">
-                    Select a species to view clips
+                    <button class="btn btn-primary" style="width:100%;" onclick="extractClip()">
+                        Extract Clip
+                    </button>
+                    <div id="statusArea"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // State management
-        const state = {
-            packs: {},
-            species: [],
-            selectedSpecies: null,
-            selectedSource: null,
-            waveformData: null,
-            startTime: 0,
-            duration: 2.0,
-            clips: [],
-            expandedGroups: new Set()
-        };
+    <!-- Right Panel -->
+    <div class="right-panel">
+        <div class="clips-header">
+            <div>
+                <span class="clips-title" id="clipsTitle">EXTRACTED (0)</span>
+                <span class="unsaved-badge" id="unsavedBadge" style="display:none;">UNSAVED</span>
+            </div>
+            <button class="btn-save" id="btnSave" onclick="saveAllChanges()">Save All</button>
+        </div>
+        <div class="clips-list" id="clipsList">
+            <div class="clips-empty">Select a species to view clips</div>
+        </div>
+    </div>
 
-        let audio = null;
+</div>
 
-        // Initialize
-        Promise.all([
-            fetch('/api/packs').then(r => r.json()),
-            fetch('/api/species').then(r => r.json())
-        ]).then(([packs, species]) => {
-            state.packs = packs;
-            state.species = species;
-            renderPackGroups();
+<script>
+// ═══════════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════════
+
+const S = {
+    packs: {},
+    selectedPack: null,
+    species: [],
+    selectedSpecies: null,
+    clips: [],              // from server (current species)
+    candidates: [],
+    selectedSource: null,
+    waveformData: null,
+    startTime: 0,
+    duration: 2.0,
+    // Batched edits (not saved until Save All)
+    modifications: {},      // clip_id -> {field: newValue}
+    deletions: new Set(),   // clip_ids marked for deletion
+    // Stats
+    totalClips: 0,
+    totalCanonical: 0,
+};
+
+let audio = null;
+let isPlaying = false;
+let animFrame = null;
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+
+fetch('/api/init')
+    .then(r => r.json())
+    .then(data => {
+        S.packs = data.packs;
+        S.totalClips = data.total_clips;
+        S.totalCanonical = data.total_canonical;
+        S.selectedPack = data.filter_pack;
+        renderPackTree();
+        updateStatsDisplay();
+        // Load species list
+        loadSpeciesList(S.selectedPack);
+    });
+
+function loadSpeciesList(packId) {
+    const url = '/api/species' + (packId ? '?pack=' + packId : '');
+    fetch(url)
+        .then(r => r.json())
+        .then(species => {
+            S.species = species;
             renderSpeciesList();
-            updateStats();
+            document.getElementById('statSpecies').textContent = species.length;
+        });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// LEFT PANEL: Pack Tree
+// ═══════════════════════════════════════════════════════════════
+
+function renderPackTree() {
+    const c = document.getElementById('packTree');
+    c.innerHTML = '';
+
+    // All Birds
+    const all = document.createElement('div');
+    all.className = 'pack-all' + (!S.selectedPack ? ' active' : '');
+    all.textContent = 'All Birds';
+    all.onclick = () => { S.selectedPack = null; renderPackTree(); loadSpeciesList(null); };
+    c.appendChild(all);
+
+    const regions = [
+        ['eu', 'European Packs'],
+        ['nz', 'New Zealand Packs'],
+        ['na', 'North American Packs'],
+    ];
+
+    for (const [region, label] of regions) {
+        const packs = S.packs[region] || [];
+        if (!packs.length) continue;
+
+        const group = document.createElement('div');
+        group.className = 'pack-group';
+
+        const hdr = document.createElement('div');
+        hdr.className = 'pack-group-hdr';
+        hdr.innerHTML = '<span class="pack-arrow">&#9654;</span>' +
+            '<span class="pack-group-name">' + label + '</span>' +
+            '<span class="pack-group-count">' + packs.length + '</span>';
+        hdr.onclick = () => group.classList.toggle('open');
+
+        const children = document.createElement('div');
+        children.className = 'pack-children';
+
+        packs.forEach(pack => {
+            const item = document.createElement('div');
+            item.className = 'pack-child' + (S.selectedPack === pack.id ? ' active' : '');
+            item.innerHTML = pack.name + '<span class="pack-child-count">' + pack.species_count + '</span>';
+            item.onclick = (e) => {
+                e.stopPropagation();
+                S.selectedPack = pack.id;
+                renderPackTree();
+                loadSpeciesList(pack.id);
+            };
+            children.appendChild(item);
         });
 
-        function renderPackGroups() {
-            const container = document.getElementById('packGroups');
-            container.innerHTML = '';
-
-            // All Birds option
-            const allBirds = document.createElement('div');
-            allBirds.className = 'pack-item all-birds active';
-            allBirds.textContent = 'All Birds';
-            allBirds.dataset.count = 'All';
-            allBirds.onclick = () => selectPack(null);
-            container.appendChild(allBirds);
-
-            // Regional groups
-            const regions = {
-                'eu': 'European Packs',
-                'nz': 'New Zealand Packs',
-                'na': 'North American Packs'
-            };
-
-            for (const [region, label] of Object.entries(regions)) {
-                const packs = state.packs[region] || [];
-                if (packs.length === 0) continue;
-
-                const group = document.createElement('div');
-                group.className = 'pack-group';
-                
-                const header = document.createElement('div');
-                header.className = 'pack-group-header';
-                header.innerHTML = `
-                    <span class="pack-arrow">▶</span>
-                    <span class="pack-group-name">${label}</span>
-                    <span class="pack-count">${packs.length}</span>
-                `;
-                header.onclick = () => toggleGroup(region);
-                
-                const items = document.createElement('div');
-                items.className = 'pack-items';
-                
-                packs.forEach(pack => {
-                    const item = document.createElement('div');
-                    item.className = 'pack-item';
-                    item.innerHTML = `${pack.name} <span style="color: var(--text-dim); font-size: 11px;">${pack.species_count}</span>`;
-                    item.onclick = () => selectPack(pack.id);
-                    items.appendChild(item);
-                });
-                
-                group.appendChild(header);
-                group.appendChild(items);
-                container.appendChild(group);
-            }
+        // Auto-expand group if it contains the selected pack
+        if (packs.some(p => p.id === S.selectedPack)) {
+            group.classList.add('open');
         }
 
-        function toggleGroup(region) {
-            const groups = document.querySelectorAll('.pack-group');
-            groups.forEach(g => {
-                const header = g.querySelector('.pack-group-header .pack-group-name');
-                if (header.textContent.toLowerCase().includes(region)) {
-                    g.classList.toggle('expanded');
-                }
-            });
+        group.appendChild(hdr);
+        group.appendChild(children);
+        c.appendChild(group);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// LEFT PANEL: Species List
+// ═══════════════════════════════════════════════════════════════
+
+function renderSpeciesList() {
+    const container = document.getElementById('speciesList');
+    const search = document.getElementById('searchInput').value.toLowerCase();
+
+    const filtered = S.species.filter(sp =>
+        sp.species_code.toLowerCase().includes(search) ||
+        (sp.common_name && sp.common_name.toLowerCase().includes(search))
+    );
+
+    container.innerHTML = filtered.map(sp => {
+        const isActive = S.selectedSpecies && S.selectedSpecies.species_code === sp.species_code;
+        const noClips = sp.clip_count === 0;
+        const spJson = JSON.stringify(sp).replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+        return '<div class="sp-item' + (isActive ? ' active' : '') + (noClips ? ' no-clips' : '') + '"' +
+            ' onclick="selectSpecies(' + spJson + ')">' +
+            '<div class="sp-info">' +
+            '<div class="sp-code">' + sp.species_code + '</div>' +
+            '<div class="sp-name">' + (sp.common_name || '') + '</div>' +
+            '</div>' +
+            '<div class="sp-counts">' +
+            '<span class="clips-n">' + sp.clip_count + '</span>' +
+            '/<span class="cand-n">' + sp.candidate_count + '</span>' +
+            '</div></div>';
+    }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CENTER PANEL: Species Selection
+// ═══════════════════════════════════════════════════════════════
+
+function selectSpecies(species) {
+    // Check for unsaved changes
+    if (hasUnsavedChanges() && !confirm('You have unsaved changes. Discard them?')) {
+        return;
+    }
+
+    S.selectedSpecies = species;
+    S.modifications = {};
+    S.deletions = new Set();
+    renderSpeciesList();
+    updateUnsavedBadge();
+
+    // Show header
+    document.getElementById('speciesHeader').style.display = '';
+    document.getElementById('speciesTitle').textContent = species.common_name || species.species_code;
+    document.getElementById('speciesSci').textContent = species.scientific_name || '';
+
+    // Load clips and candidates in parallel
+    Promise.all([
+        fetch('/api/clips?species=' + species.species_code).then(r => r.json()),
+        fetch('/api/candidates?species=' + species.species_code).then(r => r.json()),
+    ]).then(([clips, candidates]) => {
+        S.clips = clips;
+        S.candidates = candidates;
+        renderClips();
+        renderSourceBar(candidates);
+
+        // Auto-load first candidate if available
+        if (candidates.length > 0) {
+            loadCandidate(candidates[0]);
+        } else {
+            document.getElementById('centerPlaceholder').style.display = 'flex';
+            document.getElementById('centerPlaceholder').textContent = 'No source recordings — enter an XC ID above';
+            document.getElementById('waveformArea').style.display = 'none';
         }
+    });
+}
 
-        function selectPack(packId) {
-            document.querySelectorAll('.pack-item').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            fetch('/api/species' + (packId ? '?pack=' + packId : ''))
-                .then(r => r.json())
-                .then(species => {
-                    state.species = species;
-                    renderSpeciesList();
-                    updateStats();
-                });
-        }
+function renderSourceBar(candidates) {
+    const bar = document.getElementById('sourceBar');
+    bar.style.display = '';
 
-        function renderSpeciesList() {
-            const container = document.getElementById('speciesList');
-            const search = document.getElementById('searchInput').value.toLowerCase();
-            
-            const filtered = state.species.filter(sp => 
-                sp.species_code.toLowerCase().includes(search) ||
-                (sp.common_name && sp.common_name.toLowerCase().includes(search))
-            );
-            
-            container.innerHTML = filtered.map(sp => `
-                <div class="species-item ${state.selectedSpecies?.species_code === sp.species_code ? 'active' : ''}"
-                     onclick='selectSpecies(${JSON.stringify(sp)})'>
-                    <div class="species-checkbox"></div>
-                    <div class="species-info">
-                        <div class="species-code">${sp.species_code}</div>
-                        <div class="species-name">${sp.common_name || ''}</div>
-                    </div>
-                    <div class="species-counts">${sp.clip_count}/${sp.candidate_count}</div>
-                </div>
-            `).join('');
-        }
+    const chips = document.getElementById('sourceChips');
+    if (candidates.length === 0) {
+        chips.innerHTML = '<span style="color:var(--text-dim);font-size:12px;">None available</span>';
+    } else {
+        chips.innerHTML = candidates.map((c, i) =>
+            '<span class="source-chip' + (i === 0 ? ' active' : '') + '"' +
+            ' data-idx="' + i + '"' +
+            ' onclick="loadCandidateByIndex(' + i + ')">' +
+            'XC' + c.xc_id +
+            '</span>'
+        ).join('');
+    }
+}
 
-        function selectSpecies(species) {
-            state.selectedSpecies = species;
-            renderSpeciesList();
-            
-            document.getElementById('speciesTitle').textContent = 
-                `${species.common_name || species.species_code}`;
-            document.getElementById('speciesScientific').textContent = 
-                species.scientific_name || '';
-            
-            Promise.all([
-                fetch(`/api/clips?species=${species.species_code}`).then(r => r.json()),
-                fetch(`/api/candidates?species=${species.species_code}`).then(r => r.json())
-            ]).then(([clips, candidates]) => {
-                state.clips = clips;
-                renderClips();
-                
-                if (candidates.length > 0) {
-                    loadSource(candidates[0]);
-                } else {
-                    document.getElementById('sourcesMessage').style.display = 'block';
-                    document.getElementById('waveformArea').style.display = 'none';
-                }
-            });
-        }
+function loadCandidateByIndex(idx) {
+    const c = S.candidates[idx];
+    if (!c) return;
 
-        function loadSource(candidate) {
-            document.getElementById('sourcesMessage').style.display = 'none';
-            document.getElementById('waveformArea').style.display = 'block';
-            
-            document.getElementById('recordist').value = candidate.recordist || '';
-            document.getElementById('vocType').value = candidate.vocalization_type || 'song';
-            
-            fetch('/api/waveform?source=' + encodeURIComponent(candidate.path))
-                .then(r => r.json())
-                .then(data => {
-                    state.waveformData = data;
-                    state.selectedSource = {
-                        path: candidate.path,
-                        xc_id: candidate.xc_id
-                    };
-                    drawWaveform();
-                    updateSelectionUI();
-                });
-        }
+    // Update active chip
+    document.querySelectorAll('.source-chip').forEach(el => el.classList.remove('active'));
+    const chip = document.querySelector('.source-chip[data-idx="' + idx + '"]');
+    if (chip) chip.classList.add('active');
 
-        function drawWaveform() {
-            if (!state.waveformData) return;
+    loadCandidate(c);
+}
 
-            const canvas = document.getElementById('waveformCanvas');
-            const ctx = canvas.getContext('2d');
-            const rect = canvas.getBoundingClientRect();
+function loadCandidate(candidate) {
+    document.getElementById('centerPlaceholder').style.display = 'none';
+    document.getElementById('waveformArea').style.display = '';
 
-            canvas.width = rect.width * window.devicePixelRatio;
-            canvas.height = rect.height * window.devicePixelRatio;
-            ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    document.getElementById('recordist').value = candidate.recordist || '';
+    document.getElementById('vocType').value = candidate.vocalization_type || 'song';
 
-            const width = rect.width;
-            const height = rect.height;
-            const midY = height / 2;
+    S.selectedSource = {
+        path: candidate.path,
+        xc_id: candidate.xc_id,
+    };
 
-            ctx.fillStyle = '#1a1a1a';
-            ctx.fillRect(0, 0, width, height);
-
-            ctx.strokeStyle = '#4db6ac';
-            ctx.lineWidth = 1.5;
-
-            const mins = state.waveformData.mins;
-            const maxs = state.waveformData.maxs;
-            const step = width / mins.length;
-
-            ctx.beginPath();
-            for (let i = 0; i < mins.length; i++) {
-                const x = i * step;
-                const minY = midY + (mins[i] * midY * 0.85);
-                const maxY = midY + (maxs[i] * midY * 0.85);
-                ctx.moveTo(x, minY);
-                ctx.lineTo(x, maxY);
-            }
-            ctx.stroke();
-        }
-
-        document.getElementById('waveform').addEventListener('click', function(e) {
-            if (!state.waveformData) return;
-
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const ratio = x / rect.width;
-
-            state.startTime = ratio * state.waveformData.duration;
-
-            if (state.startTime + state.duration > state.waveformData.duration) {
-                state.startTime = Math.max(0, state.waveformData.duration - state.duration);
-            }
-
+    fetch('/api/waveform?source=' + encodeURIComponent(candidate.path))
+        .then(r => r.json())
+        .then(data => {
+            S.waveformData = data;
+            S.startTime = 0;
+            drawWaveform();
             updateSelectionUI();
         });
+}
 
-        function adjustDuration(delta) {
-            state.duration = Math.max(0.5, Math.min(3.0, state.duration + delta));
-            updateSelectionUI();
-        }
+function loadXC() {
+    const xcId = document.getElementById('xcInput').value.trim();
+    if (!xcId) return;
 
-        function updateSelectionUI() {
-            const selection = document.getElementById('selection');
+    showStatus('Downloading XC' + xcId + '...', 'info');
 
-            if (!state.waveformData) {
-                selection.style.display = 'none';
-                return;
+    fetch('/api/load-xc?id=' + xcId)
+        .then(r => r.json())
+        .then(result => {
+            if (result.success) {
+                S.selectedSource = {
+                    path: result.source_path,
+                    xc_id: result.xc_id,
+                };
+
+                if (result.recordist) document.getElementById('recordist').value = result.recordist;
+                if (result.vocalization_type) document.getElementById('vocType').value = result.vocalization_type;
+
+                document.getElementById('centerPlaceholder').style.display = 'none';
+                document.getElementById('waveformArea').style.display = '';
+
+                fetch('/api/waveform?source=' + encodeURIComponent(result.source_path))
+                    .then(r => r.json())
+                    .then(data => {
+                        S.waveformData = data;
+                        S.startTime = 0;
+                        drawWaveform();
+                        updateSelectionUI();
+                        showStatus('Loaded XC' + xcId + ' (' + result.duration.toFixed(1) + 's)' +
+                            (result.recordist ? ' — ' + result.recordist : ''), 'success');
+                    });
+            } else {
+                showStatus('Failed: ' + result.error, 'error');
             }
+        });
+}
 
-            const totalDuration = state.waveformData.duration;
-            const startPercent = (state.startTime / totalDuration) * 100;
-            const widthPercent = (state.duration / totalDuration) * 100;
+// ═══════════════════════════════════════════════════════════════
+// CENTER PANEL: Waveform
+// ═══════════════════════════════════════════════════════════════
 
-            selection.style.display = 'block';
-            selection.style.left = startPercent + '%';
-            selection.style.width = widthPercent + '%';
+function drawWaveform() {
+    if (!S.waveformData) return;
 
-            document.getElementById('startTimeDisplay').textContent = state.startTime.toFixed(1) + 's';
-            document.getElementById('durationDisplay').textContent = state.duration.toFixed(1);
-            document.getElementById('timeDisplay').textContent =
-                formatTime(state.startTime) + ' - ' + formatTime(state.startTime + state.duration);
-        }
+    const canvas = document.getElementById('waveformCanvas');
+    const ctx = canvas.getContext('2d');
+    const rect = canvas.getBoundingClientRect();
 
-        function playFull() {
-            if (!state.selectedSource) return;
+    canvas.width = rect.width * devicePixelRatio;
+    canvas.height = rect.height * devicePixelRatio;
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+
+    const w = rect.width, h = rect.height, mid = h / 2;
+
+    ctx.fillStyle = '#1a1a1a';
+    ctx.fillRect(0, 0, w, h);
+
+    // Draw waveform
+    ctx.strokeStyle = '#4db6ac';
+    ctx.lineWidth = 1.5;
+    const mins = S.waveformData.mins;
+    const maxs = S.waveformData.maxs;
+    const step = w / mins.length;
+
+    ctx.beginPath();
+    for (let i = 0; i < mins.length; i++) {
+        const x = i * step;
+        ctx.moveTo(x, mid + mins[i] * mid * 0.85);
+        ctx.lineTo(x, mid + maxs[i] * mid * 0.85);
+    }
+    ctx.stroke();
+
+    // Time markers
+    ctx.fillStyle = '#555';
+    ctx.font = '10px "IBM Plex Mono", monospace';
+    const dur = S.waveformData.duration;
+    const interval = dur > 30 ? 10 : dur > 10 ? 5 : 1;
+    for (let t = 0; t <= dur; t += interval) {
+        const x = (t / dur) * w;
+        ctx.fillRect(x, 0, 1, 4);
+        ctx.fillText(t + 's', x + 2, 12);
+    }
+}
+
+document.getElementById('waveform').addEventListener('click', function(e) {
+    if (!S.waveformData) return;
+    const rect = this.getBoundingClientRect();
+    const ratio = (e.clientX - rect.left) / rect.width;
+
+    S.startTime = ratio * S.waveformData.duration;
+    if (S.startTime + S.duration > S.waveformData.duration) {
+        S.startTime = Math.max(0, S.waveformData.duration - S.duration);
+    }
+    updateSelectionUI();
+});
+
+function adjustDuration(delta) {
+    S.duration = Math.max(0.5, Math.min(3.0, +(S.duration + delta).toFixed(1)));
+    if (S.waveformData && S.startTime + S.duration > S.waveformData.duration) {
+        S.startTime = Math.max(0, S.waveformData.duration - S.duration);
+    }
+    updateSelectionUI();
+}
+
+function updateSelectionUI() {
+    const sel = document.getElementById('selection');
+    if (!S.waveformData) { sel.style.display = 'none'; return; }
+
+    const dur = S.waveformData.duration;
+    sel.style.display = 'block';
+    sel.style.left = (S.startTime / dur * 100) + '%';
+    sel.style.width = (S.duration / dur * 100) + '%';
+
+    document.getElementById('startTimeDisplay').textContent = S.startTime.toFixed(1) + 's';
+    document.getElementById('durationDisplay').textContent = S.duration.toFixed(1);
+    document.getElementById('timeDisplay').textContent =
+        fmtTime(S.startTime) + ' - ' + fmtTime(S.startTime + S.duration) + ' / ' + fmtTime(dur);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// PLAYBACK
+// ═══════════════════════════════════════════════════════════════
+
+function playFull() {
+    if (!S.selectedSource) return;
+    stopAudio();
+    audio = new Audio('/audio/' + encodeURIComponent(S.selectedSource.path));
+    audio.play();
+    isPlaying = true;
+    updatePlayhead();
+    audio.onended = () => { isPlaying = false; };
+}
+
+function playSelection() {
+    if (!S.selectedSource) return;
+    stopAudio();
+    audio = new Audio('/audio/' + encodeURIComponent(S.selectedSource.path));
+    audio.currentTime = S.startTime;
+    audio.play();
+    isPlaying = true;
+    updatePlayhead();
+
+    const endTime = S.startTime + S.duration;
+    const checkEnd = () => {
+        if (audio && audio.currentTime >= endTime) {
             stopAudio();
-            audio = new Audio('/audio/' + encodeURIComponent(state.selectedSource.path));
-            audio.play();
-        }
-
-        function playSelection() {
-            if (!state.selectedSource) return;
-            stopAudio();
-            audio = new Audio('/audio/' + encodeURIComponent(state.selectedSource.path));
-            audio.currentTime = state.startTime;
-            audio.play();
-
-            const checkEnd = () => {
-                if (audio && audio.currentTime >= state.startTime + state.duration) {
-                    stopAudio();
-                } else if (audio) {
-                    requestAnimationFrame(checkEnd);
-                }
-            };
+        } else if (isPlaying) {
             requestAnimationFrame(checkEnd);
         }
+    };
+    requestAnimationFrame(checkEnd);
+}
 
-        function stopAudio() {
-            if (audio) {
-                audio.pause();
-                audio = null;
-            }
-        }
+function playClipAudio(path) {
+    stopAudio();
+    audio = new Audio('/' + path);
+    audio.play();
+}
 
-        function extractClip() {
-            if (!state.selectedSource || !state.selectedSpecies) return;
+function stopAudio() {
+    if (audio) { audio.pause(); audio = null; }
+    isPlaying = false;
+    document.getElementById('playhead').style.display = 'none';
+    if (animFrame) cancelAnimationFrame(animFrame);
+}
 
-            const params = {
-                source_path: state.selectedSource.path,
-                start_time: state.startTime,
-                duration: state.duration,
-                species_code: state.selectedSpecies.species_code,
-                xc_id: state.selectedSource.xc_id,
-                vocalization_type: document.getElementById('vocType').value,
-                recordist: document.getElementById('recordist').value || 'Unknown'
-            };
+function updatePlayhead() {
+    if (!isPlaying || !audio || !S.waveformData) return;
+    const ph = document.getElementById('playhead');
+    ph.style.display = 'block';
+    ph.style.left = (audio.currentTime / S.waveformData.duration * 100) + '%';
+    animFrame = requestAnimationFrame(updatePlayhead);
+}
 
-            fetch('/api/extract', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(params)
-            })
-            .then(r => r.json())
-            .then(result => {
-                if (result.success) {
-                    fetch(`/api/clips?species=${state.selectedSpecies.species_code}`)
-                        .then(r => r.json())
-                        .then(clips => {
-                            state.clips = clips;
-                            renderClips();
-                            updateStats();
-                        });
-                }
-            });
-        }
+// ═══════════════════════════════════════════════════════════════
+// EXTRACTION
+// ═══════════════════════════════════════════════════════════════
 
-        function renderClips() {
-            const container = document.getElementById('clipsList');
-            document.getElementById('clipsTitle').textContent = `EXTRACTED (${state.clips.length})`;
+function extractClip() {
+    if (!S.selectedSource || !S.selectedSpecies) return;
 
-            if (state.clips.length === 0) {
-                container.innerHTML = '<div style="padding: 60px 30px; text-align: center; color: var(--text-dim);">No clips extracted yet</div>';
-                return;
-            }
+    showStatus('Extracting...', 'info');
 
-            container.innerHTML = state.clips.map(clip => `
-                <div class="clip-card ${clip.canonical ? 'canonical' : ''}">
-                    ${clip.canonical ? '<div class="canonical-badge">CANONICAL</div>' : ''}
-                    <img src="/${clip.spectrogram_path}" class="clip-spectrogram" onerror="this.style.display='none'">
-                    <div class="clip-metadata">
-                        <div class="clip-row">
-                            <span class="clip-label">Clip ID</span>
-                            <span class="clip-value">${clip.clip_id}</span>
-                        </div>
-                        <div class="clip-row">
-                            <span class="clip-label">Duration</span>
-                            <span class="clip-value">${(clip.duration_ms/1000).toFixed(1)}s</span>
-                        </div>
-                        <div class="clip-row">
-                            <span class="clip-label">Type</span>
-                            <span class="clip-value">${clip.vocalization_type || 'song'}</span>
-                        </div>
-                        <div class="clip-row">
-                            <span class="clip-label">Quality</span>
-                            <div class="quality-stars">
-                                ${[1,2,3,4,5].map(i => `<span class="star ${i <= (clip.quality_score || 5) ? 'filled' : ''}">★</span>`).join('')}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clip-actions">
-                        <button class="clip-action-btn star-btn" onclick="toggleCanonical('${clip.clip_id}')" title="Mark canonical">⭐</button>
-                        <button class="clip-action-btn" onclick="playClipAudio('${clip.file_path}')" title="Play">▶</button>
-                        <button class="clip-action-btn delete-btn" onclick="deleteClip('${clip.clip_id}')" title="Delete">🗑️</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function playClipAudio(path) {
-            stopAudio();
-            audio = new Audio('/' + path);
-            audio.play();
-        }
-
-        function toggleCanonical(clipId) {
-            state.clips.forEach(clip => {
-                if (clip.clip_id !== clipId) {
-                    updateClip(clip.clip_id, 'canonical', false);
-                }
-            });
-
-            const clip = state.clips.find(c => c.clip_id === clipId);
-            const newValue = !clip.canonical;
-            updateClip(clipId, 'canonical', newValue);
-
-            setTimeout(() => {
-                fetch(`/api/clips?species=${state.selectedSpecies.species_code}`)
-                    .then(r => r.json())
-                    .then(clips => {
-                        state.clips = clips;
-                        renderClips();
-                        updateStats();
-                    });
-            }, 100);
-        }
-
-        function updateClip(clipId, field, value) {
-            fetch('/api/update-clip', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    clip_id: clipId,
-                    updates: {[field]: value}
-                })
-            });
-        }
-
-        function deleteClip(clipId) {
-            if (!confirm('Delete this clip permanently?')) return;
-
-            fetch('/api/delete-clip', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({clip_id: clipId})
-            })
-            .then(() => {
-                fetch(`/api/clips?species=${state.selectedSpecies.species_code}`)
-                    .then(r => r.json())
-                    .then(clips => {
-                        state.clips = clips;
-                        renderClips();
-                        updateStats();
-                    });
-            });
-        }
-
-        function saveAllChanges() {
-            if (!confirm('Save all changes and commit to git?')) return;
-
-            fetch('/api/save-changes', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({})
-            })
-            .then(r => r.json())
-            .then(result => {
-                if (result.success) {
-                    alert(`Saved! ${result.stats.rejections} clips deleted`);
-                    updateStats();
-                }
-            });
-        }
-
-        function updateStats() {
-            fetch('/api/species')
+    fetch('/api/extract', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+            source_path: S.selectedSource.path,
+            start_time: S.startTime,
+            duration: S.duration,
+            species_code: S.selectedSpecies.species_code,
+            xc_id: S.selectedSource.xc_id,
+            vocalization_type: document.getElementById('vocType').value,
+            recordist: document.getElementById('recordist').value || 'Unknown',
+        })
+    })
+    .then(r => r.json())
+    .then(result => {
+        if (result.success) {
+            showStatus('Created: ' + result.clip_id + ' (' + result.duration_ms + 'ms)', 'success');
+            // Reload clips
+            fetch('/api/clips?species=' + S.selectedSpecies.species_code)
                 .then(r => r.json())
-                .then(species => {
-                    const totalClips = species.reduce((sum, sp) => sum + sp.clip_count, 0);
-                    document.getElementById('totalClips').textContent = totalClips;
-                    document.getElementById('totalSpecies').textContent = species.length;
-                    
-                    // Count canonicals
-                    fetch('/api/clips?species=all')
-                        .then(r => r.json())
-                        .then(allClips => {
-                            const canonicals = allClips.filter(c => c.canonical).length;
-                            document.getElementById('totalCanonical').textContent = canonicals;
-                        })
-                        .catch(() => {
-                            // Fallback if all clips endpoint doesn't exist
-                            document.getElementById('totalCanonical').textContent = '?';
-                        });
+                .then(clips => {
+                    S.clips = clips;
+                    renderClips();
+                    refreshStats();
                 });
+        } else {
+            showStatus('Error: ' + result.error, 'error');
         }
+    });
+}
 
-        function formatTime(seconds) {
-            if (!seconds && seconds !== 0) return '0:00';
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return mins + ':' + secs.toString().padStart(2, '0');
+// ═══════════════════════════════════════════════════════════════
+// RIGHT PANEL: Clip Cards
+// ═══════════════════════════════════════════════════════════════
+
+function renderClips() {
+    const container = document.getElementById('clipsList');
+    const count = S.clips.filter(c => !S.deletions.has(c.clip_id)).length;
+    document.getElementById('clipsTitle').textContent = 'EXTRACTED (' + count + ')';
+
+    if (S.clips.length === 0) {
+        container.innerHTML = '<div class="clips-empty">No clips extracted yet</div>';
+        return;
+    }
+
+    container.innerHTML = S.clips.map(clip => {
+        const id = clip.clip_id;
+        const mods = S.modifications[id] || {};
+        const isDeleted = S.deletions.has(id);
+        const isCanonical = 'canonical' in mods ? mods.canonical : clip.canonical;
+        const isModified = id in S.modifications || isDeleted;
+        const vocType = mods.vocalization_type || clip.vocalization_type || 'song';
+        const quality = mods.quality_score != null ? mods.quality_score : (clip.quality_score || 5);
+        const recordist = mods.recordist != null ? mods.recordist : (clip.recordist || '');
+
+        const vocOptions = ''' + json.dumps(VOCALIZATION_TYPES) + '''.map(vt =>
+            '<option value="' + vt + '"' + (vt === vocType ? ' selected' : '') + '>' + vt + '</option>'
+        ).join('');
+
+        const stars = [1,2,3,4,5].map(i =>
+            '<span class="star' + (i <= quality ? ' filled' : '') + '"' +
+            ' onclick="setQuality(\\'' + id + '\\',' + i + ')">&#9733;</span>'
+        ).join('');
+
+        return '<div class="clip-card' +
+            (isCanonical ? ' canonical' : '') +
+            (isModified ? ' modified' : '') +
+            (isDeleted ? ' deleted' : '') + '"' +
+            ' data-clip-id="' + id + '">' +
+            (isCanonical ? '<div class="canonical-badge">CANONICAL</div>' : '') +
+            '<img src="/' + clip.spectrogram_path + '" class="clip-spec"' +
+            ' onerror="this.style.display=\\'none\\'">' +
+            '<div class="clip-id">' + id + '</div>' +
+            '<div class="clip-meta-row">' +
+            '<span class="clip-meta-label">Duration</span>' +
+            '<span class="clip-meta-value">' + (clip.duration_ms/1000).toFixed(1) + 's</span></div>' +
+            '<div class="clip-edit-row">' +
+            '<span class="clip-edit-label">Type</span>' +
+            '<select class="clip-edit-select" onchange="setMod(\\'' + id + '\\',\\'vocalization_type\\',this.value)">' +
+            vocOptions + '</select></div>' +
+            '<div class="clip-edit-row">' +
+            '<span class="clip-edit-label">Quality</span>' +
+            '<div class="quality-stars">' + stars + '</div></div>' +
+            '<div class="clip-edit-row">' +
+            '<span class="clip-edit-label">By</span>' +
+            '<input class="clip-edit-input" value="' + escHtml(recordist) + '"' +
+            ' onchange="setMod(\\'' + id + '\\',\\'recordist\\',this.value)"></div>' +
+            '<div class="clip-actions">' +
+            '<button class="clip-act canon-btn' + (isCanonical ? ' is-canon' : '') + '"' +
+            ' onclick="toggleCanonical(\\'' + id + '\\')" title="Canonical">&#11088;</button>' +
+            '<button class="clip-act" onclick="playClipAudio(\\'' + clip.file_path + '\\')" title="Play">&#9654;</button>' +
+            '<button class="clip-act del-btn" onclick="markDelete(\\'' + id + '\\')" title="Delete">&#128465;</button>' +
+            '</div></div>';
+    }).join('');
+}
+
+function setMod(clipId, field, value) {
+    if (!S.modifications[clipId]) S.modifications[clipId] = {};
+    S.modifications[clipId][field] = value;
+    updateUnsavedBadge();
+    // Don't re-render entire list for inline edits
+    const card = document.querySelector('[data-clip-id="' + clipId + '"]');
+    if (card && !card.classList.contains('modified')) card.classList.add('modified');
+}
+
+function setQuality(clipId, score) {
+    setMod(clipId, 'quality_score', score);
+    renderClips();
+}
+
+function toggleCanonical(clipId) {
+    // Clear all canonicals for this species (in modifications)
+    S.clips.forEach(clip => {
+        if (clip.clip_id !== clipId) {
+            if (!S.modifications[clip.clip_id]) S.modifications[clip.clip_id] = {};
+            S.modifications[clip.clip_id].canonical = false;
         }
+    });
 
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', () => {
-            renderSpeciesList();
-        });
+    // Toggle this one
+    if (!S.modifications[clipId]) S.modifications[clipId] = {};
+    const clip = S.clips.find(c => c.clip_id === clipId);
+    const currentVal = S.modifications[clipId].canonical != null
+        ? S.modifications[clipId].canonical
+        : (clip ? clip.canonical : false);
+    S.modifications[clipId].canonical = !currentVal;
 
-        window.addEventListener('resize', () => {
-            if (state.waveformData) {
-                drawWaveform();
-                updateSelectionUI();
+    updateUnsavedBadge();
+    renderClips();
+}
+
+function markDelete(clipId) {
+    if (!confirm('Mark this clip for deletion? (Applied on Save All)')) return;
+    S.deletions.add(clipId);
+    // Also clear canonical if set
+    if (!S.modifications[clipId]) S.modifications[clipId] = {};
+    S.modifications[clipId].canonical = false;
+    updateUnsavedBadge();
+    renderClips();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SAVE ALL
+// ═══════════════════════════════════════════════════════════════
+
+function hasUnsavedChanges() {
+    return Object.keys(S.modifications).length > 0 || S.deletions.size > 0;
+}
+
+function updateUnsavedBadge() {
+    const badge = document.getElementById('unsavedBadge');
+    badge.style.display = hasUnsavedChanges() ? '' : 'none';
+}
+
+function saveAllChanges() {
+    if (!hasUnsavedChanges()) {
+        alert('No changes to save.');
+        return;
+    }
+
+    const modCount = Object.keys(S.modifications).length;
+    const delCount = S.deletions.size;
+
+    if (!confirm('Save changes?\\n\\n' + modCount + ' clips modified\\n' + delCount + ' clips to delete\\n\\nThis will commit to git.')) {
+        return;
+    }
+
+    const payload = {
+        modifications: S.modifications,
+        deletions: Array.from(S.deletions),
+    };
+
+    fetch('/api/save-changes', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload),
+    })
+    .then(r => r.json())
+    .then(result => {
+        if (result.success) {
+            alert('Saved!\\n\\n' +
+                'Canonical changes: ' + result.stats.canonical_changes + '\\n' +
+                'Rejections: ' + result.stats.rejections + '\\n' +
+                'Quality changes: ' + result.stats.quality_changes + '\\n' +
+                'Files deleted: ' + result.stats.files_deleted + '\\n' +
+                'Git committed: ' + (result.stats.git_committed ? 'Yes' : 'No'));
+
+            // Reset state and reload
+            S.modifications = {};
+            S.deletions = new Set();
+            updateUnsavedBadge();
+
+            // Reload clips for current species
+            if (S.selectedSpecies) {
+                fetch('/api/clips?species=' + S.selectedSpecies.species_code)
+                    .then(r => r.json())
+                    .then(clips => {
+                        S.clips = clips;
+                        renderClips();
+                        refreshStats();
+                    });
             }
-        });
-    </script>
-</body>
-</html>
-'''
+        } else {
+            alert('Save failed: ' + (result.error || 'Unknown error'));
+        }
+    })
+    .catch(err => alert('Save failed: ' + err.message));
+}
 
+// ═══════════════════════════════════════════════════════════════
+// UTILITIES
+// ═══════════════════════════════════════════════════════════════
+
+function refreshStats() {
+    fetch('/api/init')
+        .then(r => r.json())
+        .then(data => {
+            S.totalClips = data.total_clips;
+            S.totalCanonical = data.total_canonical;
+            updateStatsDisplay();
+        });
+}
+
+function updateStatsDisplay() {
+    document.getElementById('statClips').textContent = S.totalClips;
+    document.getElementById('statCanonical').textContent = S.totalCanonical;
+}
+
+function showStatus(msg, type) {
+    const area = document.getElementById('statusArea');
+    area.innerHTML = '<div class="status-msg ' + type + '">' + msg + '</div>';
+    if (type !== 'error') setTimeout(() => { area.innerHTML = ''; }, 5000);
+}
+
+function fmtTime(s) {
+    if (!s && s !== 0) return '0:00';
+    return Math.floor(s/60) + ':' + Math.floor(s%60).toString().padStart(2,'0');
+}
+
+function escHtml(s) {
+    return (s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// Resize handler
+window.addEventListener('resize', () => {
+    if (S.waveformData) { drawWaveform(); updateSelectionUI(); }
+});
+
+// Warn on unload with unsaved changes
+window.addEventListener('beforeunload', (e) => {
+    if (hasUnsavedChanges()) {
+        e.preventDefault();
+        e.returnValue = '';
+    }
+});
+</script>
+
+</body>
+</html>'''
+
+
+# ═══════════════════════════════════════════════════════════════════
+# MAIN
+# ═══════════════════════════════════════════════════════════════════
 
 def main():
     parser = argparse.ArgumentParser(description='Clip Studio - Unified Audio Workflow')
     parser.add_argument('--batch', action='store_true', help='Launch batch mode UI')
-    parser.add_argument('--species', help='Single species mode')
-    parser.add_argument('--pack', help='Filter by pack ID')
+    parser.add_argument('--species', help='Single species mode (not yet implemented)')
+    parser.add_argument('--pack', help='Initial pack filter')
     parser.add_argument('--port', type=int, default=PORT, help='Server port')
 
     args = parser.parse_args()
@@ -2003,24 +2450,24 @@ def main():
     if args.pack:
         ClipStudioHandler.filter_pack = args.pack
 
-    # Start server
     socketserver.TCPServer.allow_reuse_address = True
 
     with socketserver.TCPServer(("", args.port), ClipStudioHandler) as httpd:
         print("=" * 60)
-        print("🎨 Clip Studio - ChipNotes!")
+        print("Clip Studio - ChipNotes!")
         print("=" * 60)
         if args.pack:
             print(f"Pack Filter: {args.pack}")
         print(f"\nServer: http://localhost:{args.port}")
-        print("\nFeatures:")
-        print("  ✅ Search & download from Xeno-Canto")
-        print("  ✅ Extract clips with waveform editor")
-        print("  ✅ Review & curate metadata")
-        print("  ✅ Mark canonical clips (1 per species)")
-        print("  ✅ Delete rejected clips")
-        print("  ✅ Git integration with automatic commits")
-        print("\nPress Ctrl+C to stop.")
+        print(f"\nFeatures:")
+        print(f"  - Browse species by pack (EU/NZ/NA)")
+        print(f"  - Search & download from Xeno-Canto")
+        print(f"  - Extract clips with waveform editor")
+        print(f"  - Review & curate metadata (batched)")
+        print(f"  - Mark canonical clips (1 per species)")
+        print(f"  - Delete rejected clips")
+        print(f"  - Git commits on Save All")
+        print(f"\nPress Ctrl+C to stop.")
         print("=" * 60)
 
         def open_browser():
