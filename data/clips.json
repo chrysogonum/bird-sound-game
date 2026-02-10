@@ -132,7 +132,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "AGOL_b6b723b8",
@@ -148,7 +149,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "AGOL_69697c3e",
@@ -164,7 +166,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "AGOL_6cdfcf0b",
@@ -180,7 +183,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "AMCR_e2208b21",
@@ -417,7 +421,8 @@
     "recordist": "Peter Repetti",
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "BAOW_c7d30b9d",
@@ -426,14 +431,15 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "quality_score": 4,
-    "source": "xenocanto",
+    "source": "user_recording",
     "source_id": "BAOW_a04d9a56",
     "file_path": "data/clips/BAOW_a04d9a56.wav",
     "spectrogram_path": "data/spectrograms/BAOW_a04d9a56.png",
     "recordist": "Bob Planqu\u00e9",
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "BAOW_f8f5a920",
@@ -442,14 +448,15 @@
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
-    "source": "xenocanto",
+    "source": "user_recording",
     "source_id": "BAOW_cd219511",
     "file_path": "data/clips/BAOW_cd219511.wav",
     "spectrogram_path": "data/spectrograms/BAOW_cd219511.png",
     "recordist": "Peter Boesman",
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "BAOW_67b3fcd5",
@@ -458,14 +465,15 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "quality_score": 4,
-    "source": "xenocanto",
+    "source": "user_recording",
     "source_id": "BAOW_ecde4ff0",
     "file_path": "data/clips/BAOW_ecde4ff0.wav",
     "spectrogram_path": "data/spectrograms/BAOW_ecde4ff0.png",
     "recordist": "Bob Planqu\u00e9",
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "BAOW_244b4d82",
@@ -474,14 +482,15 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "quality_score": 4,
-    "source": "xenocanto",
+    "source": "user_recording",
     "source_id": "BAOW_f5f22f40",
     "file_path": "data/clips/BAOW_f5f22f40.wav",
     "spectrogram_path": "data/spectrograms/BAOW_f5f22f40.png",
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "BAWW_a7c36fd6",
@@ -650,7 +659,8 @@
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "BCCH_102b026b",
@@ -666,7 +676,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "BCCH_a3abd640",
@@ -682,7 +693,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "BCCH_f366d009",
@@ -698,7 +710,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "BEKI_5b6528ee",
@@ -1557,14 +1570,15 @@
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
-    "source": "xenocanto",
+    "source": "macaulay",
     "source_id": "CAFI_9696235e",
     "file_path": "data/clips/CAFI_9696235e.wav",
     "spectrogram_path": "data/spectrograms/CAFI_9696235e.png",
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "CAFI_db8049cb",
@@ -1580,7 +1594,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "CAFI_e98e2a89",
@@ -1596,7 +1611,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "CAFI_9e5461e9",
@@ -1612,7 +1628,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "CARW_b1f87e9c",
@@ -1696,7 +1713,8 @@
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "CASJ_1427a261",
@@ -1712,7 +1730,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "CASJ_c7802d92",
@@ -1728,7 +1747,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "CAWA_34da3dad",
@@ -2451,14 +2471,15 @@
     "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 4,
-    "source": "xenocanto",
+    "source": "user_recording",
     "source_id": "DEJU_demo_song",
     "file_path": "data/clips/DEJU_demo_song.wav",
     "spectrogram_path": "data/spectrograms/DEJU_demo_song.png",
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "DOWO_862547b9",
@@ -2508,7 +2529,8 @@
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "DOWO_835d877b",
@@ -2524,7 +2546,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "DOWO_df297daf",
@@ -2540,7 +2563,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "EABL_c73b7746",
@@ -2760,7 +2784,8 @@
     "recordist": "Peter Repetti",
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "EATO_672abf90",
@@ -2776,7 +2801,8 @@
     "recordist": "Peter Repetti",
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "EATO_f04ab10d",
@@ -2792,7 +2818,8 @@
     "recordist": "Peter Repetti",
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "EATO_b5314a82",
@@ -2808,7 +2835,8 @@
     "recordist": "Peter Repetti",
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "EATO_00840654",
@@ -2824,7 +2852,8 @@
     "recordist": "Peter Repetti",
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Original recording - Peter Repetti"
   },
   {
     "clip_id": "EVGR_75e1b942",
@@ -2840,7 +2869,8 @@
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "EVGR_68533f20",
@@ -2856,7 +2886,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "EVGR_8eb02265",
@@ -2872,7 +2903,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "FICR_652fa7cb",
@@ -3670,7 +3702,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "HOFI_bde05004",
@@ -3686,7 +3719,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "HOFI_52e76bfd",
@@ -3702,7 +3736,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "KEWA_83a4a079",
@@ -4058,7 +4093,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "MODO_c738f39b",
@@ -4074,7 +4110,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "MOWA_2782b283",
@@ -4396,7 +4433,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "NOFL_0e9d33a7",
@@ -4412,7 +4450,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "NOFL_51c096f6",
@@ -4428,7 +4467,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "NOFL_0c241ce7",
@@ -4444,7 +4484,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "NOMO_ba85aedd",
@@ -4919,7 +4960,8 @@
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "PISI_60462f16",
@@ -4935,7 +4977,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "PISI_40e3b38a",
@@ -4951,7 +4994,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "PIWA_9c4ccd33",
@@ -5970,7 +6014,8 @@
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "RWBL_5d8d7b7d",
@@ -5986,7 +6031,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "RWBL_b27ff056",
@@ -6002,7 +6048,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "SAVS_ea19bbf4",
@@ -6324,7 +6371,8 @@
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "STJA_3aa9d58d",
@@ -6340,7 +6388,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "STJA_decd169b",
@@ -6356,7 +6405,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "STJA_da28c988",
@@ -6372,7 +6422,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "STJA_533a3bfb",
@@ -6381,14 +6432,15 @@
     "vocalization_type": "call",
     "duration_ms": 2000,
     "quality_score": 4,
-    "source": "xenocanto",
+    "source": "macaulay",
     "source_id": "STJA_e4cea032",
     "file_path": "data/clips/STJA_e4cea032.wav",
     "spectrogram_path": "data/spectrograms/STJA_e4cea032.png",
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "SWSP_8f49a086",
@@ -6710,7 +6762,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WBNU_ea446673",
@@ -6726,7 +6779,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WBNU_0258317d",
@@ -6742,7 +6796,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WBNU_08e58428",
@@ -6758,7 +6813,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WCSP_d70d16cd",
@@ -6767,14 +6823,15 @@
     "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
-    "source": "xenocanto",
+    "source": "macaulay",
     "source_id": "WCSP_411a953b",
     "file_path": "data/clips/WCSP_411a953b.wav",
     "spectrogram_path": "data/spectrograms/WCSP_411a953b.png",
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WCSP_bdc72e04",
@@ -6790,7 +6847,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WCSP_d59641de",
@@ -6806,7 +6864,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WCSP_c64ec33f",
@@ -6822,7 +6881,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WCSP_2f95a5e8",
@@ -6838,7 +6898,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": null
+    "source_url": null,
+    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "WEVI_3b1aaeed",
@@ -8734,7 +8795,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezbel1_doc_001"
+    "source_id": "nezbel1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezbel1_doc_002",
@@ -8754,7 +8816,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezbel1_doc_002"
+    "source_id": "nezbel1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezbel1_doc_003",
@@ -8774,7 +8837,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezbel1_doc_003"
+    "source_id": "nezbel1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kea1_doc_001",
@@ -8794,7 +8858,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kea1_doc_001"
+    "source_id": "kea1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kea1_doc_002",
@@ -8814,7 +8879,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kea1_doc_002"
+    "source_id": "kea1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kea1_doc_003",
@@ -8834,7 +8900,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kea1_doc_003"
+    "source_id": "kea1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kokako3_doc_001",
@@ -8854,7 +8921,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kokako3_doc_001"
+    "source_id": "kokako3_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kokako3_doc_002",
@@ -8874,7 +8942,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kokako3_doc_002"
+    "source_id": "kokako3_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kokako3_doc_003",
@@ -8894,7 +8963,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kokako3_doc_003"
+    "source_id": "kokako3_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "morepo2_doc_001",
@@ -8914,7 +8984,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "morepo2_doc_001"
+    "source_id": "morepo2_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "tui1_doc_001",
@@ -8934,7 +9005,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "tui1_doc_001"
+    "source_id": "tui1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "tui1_doc_002",
@@ -8954,7 +9026,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "tui1_doc_002"
+    "source_id": "tui1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "tui1_doc_003",
@@ -8974,7 +9047,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "tui1_doc_003"
+    "source_id": "tui1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "tui1_doc_004",
@@ -8994,7 +9068,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "tui1_doc_004"
+    "source_id": "tui1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "auitea1_doc_001",
@@ -9012,7 +9087,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Anas aucklandica"
+    "scientific_name": "Anas aucklandica",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "auitea1_doc_002",
@@ -9030,7 +9106,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Anas aucklandica"
+    "scientific_name": "Anas aucklandica",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "ausbit1_doc_001",
@@ -9048,7 +9125,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Botaurus poiciloptilus"
+    "scientific_name": "Botaurus poiciloptilus",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "ausbit1_doc_002",
@@ -9066,7 +9144,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Botaurus poiciloptilus"
+    "scientific_name": "Botaurus poiciloptilus",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "ausbit1_doc_003",
@@ -9084,7 +9163,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Botaurus poiciloptilus"
+    "scientific_name": "Botaurus poiciloptilus",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezbel1_doc_004",
@@ -9102,7 +9182,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Anthornis melanura"
+    "scientific_name": "Anthornis melanura",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezbel1_doc_005",
@@ -9120,7 +9201,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Anthornis melanura"
+    "scientific_name": "Anthornis melanura",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "blasti1_doc_001",
@@ -9138,7 +9220,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Himantopus novaezelandiae"
+    "scientific_name": "Himantopus novaezelandiae",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "blasti1_doc_002",
@@ -9156,7 +9239,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Himantopus novaezelandiae"
+    "scientific_name": "Himantopus novaezelandiae",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "blasti1_doc_003",
@@ -9174,7 +9258,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Himantopus novaezelandiae"
+    "scientific_name": "Himantopus novaezelandiae",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "bluduc1_doc_001",
@@ -9192,7 +9277,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Hymenolaimus malacorhynchos"
+    "scientific_name": "Hymenolaimus malacorhynchos",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "bluduc1_doc_002",
@@ -9210,7 +9296,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Hymenolaimus malacorhynchos"
+    "scientific_name": "Hymenolaimus malacorhynchos",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "bluduc1_doc_003",
@@ -9228,7 +9315,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Hymenolaimus malacorhynchos"
+    "scientific_name": "Hymenolaimus malacorhynchos",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "weka1_doc_001",
@@ -9246,7 +9334,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Gallirallus australis"
+    "scientific_name": "Gallirallus australis",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "weka1_doc_002",
@@ -9264,7 +9353,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Gallirallus australis"
+    "scientific_name": "Gallirallus australis",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "weka1_doc_003",
@@ -9282,7 +9372,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Gallirallus australis"
+    "scientific_name": "Gallirallus australis",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chafan1_doc_001",
@@ -9300,7 +9391,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Rhipidura fuliginosa penita"
+    "scientific_name": "Rhipidura fuliginosa penita",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chafan1_doc_002",
@@ -9318,7 +9410,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Rhipidura fuliginosa penita"
+    "scientific_name": "Rhipidura fuliginosa penita",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chafan1_doc_003",
@@ -9336,7 +9429,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Rhipidura fuliginosa penita"
+    "scientific_name": "Rhipidura fuliginosa penita",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chaoys1_doc_001",
@@ -9354,7 +9448,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Haematopus chathamensis"
+    "scientific_name": "Haematopus chathamensis",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chaoys1_doc_002",
@@ -9372,7 +9467,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Haematopus chathamensis"
+    "scientific_name": "Haematopus chathamensis",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chaoys1_doc_003",
@@ -9390,7 +9486,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "scientific_name": "Haematopus chathamensis"
+    "scientific_name": "Haematopus chathamensis",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezpig3_doc_001",
@@ -9410,7 +9507,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezpig3_doc_001"
+    "source_id": "nezpig3_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezpig3_doc_002",
@@ -9430,7 +9528,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezpig3_doc_002"
+    "source_id": "nezpig3_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chatom1_doc_001",
@@ -9450,7 +9549,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "chatom1_doc_001"
+    "source_id": "chatom1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chatom1_doc_002",
@@ -9470,7 +9570,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "chatom1_doc_002"
+    "source_id": "chatom1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chatom1_doc_003",
@@ -9490,7 +9591,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "chatom1_doc_003"
+    "source_id": "chatom1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chatom1_doc_004",
@@ -9510,7 +9612,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "chatom1_doc_004"
+    "source_id": "chatom1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chatui1_doc_001",
@@ -9530,7 +9633,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "chatui1_doc_001"
+    "source_id": "chatui1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chatui1_doc_002",
@@ -9550,7 +9654,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "chatui1_doc_002"
+    "source_id": "chatui1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "chatui1_doc_003",
@@ -9570,7 +9675,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "chatui1_doc_003"
+    "source_id": "chatui1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfan1_doc_001",
@@ -9590,7 +9696,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfan1_doc_001"
+    "source_id": "nezfan1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfan1_doc_003",
@@ -9610,7 +9717,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfan1_doc_003"
+    "source_id": "nezfan1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfan1_doc_005",
@@ -9630,7 +9738,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfan1_doc_005"
+    "source_id": "nezfan1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfan1_doc_006",
@@ -9650,7 +9759,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfan1_doc_006"
+    "source_id": "nezfan1_doc_006",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nibkiw1_doc_001",
@@ -9670,7 +9780,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nibkiw1_doc_001"
+    "source_id": "nibkiw1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nibkiw1_doc_002",
@@ -9690,7 +9801,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nibkiw1_doc_002"
+    "source_id": "nibkiw1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nibkiw1_doc_003",
@@ -9710,7 +9822,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nibkiw1_doc_003"
+    "source_id": "nibkiw1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "gryger1_doc_001",
@@ -9730,7 +9843,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "gryger1_doc_001"
+    "source_id": "gryger1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "gryger1_doc_002",
@@ -9750,7 +9864,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "gryger1_doc_002"
+    "source_id": "gryger1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "gryger1_doc_003",
@@ -9770,7 +9885,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "gryger1_doc_003"
+    "source_id": "gryger1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "hutshe1_doc_001",
@@ -9790,7 +9906,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "hutshe1_doc_001"
+    "source_id": "hutshe1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "hutshe1_doc_002",
@@ -9810,7 +9927,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "hutshe1_doc_002"
+    "source_id": "hutshe1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "hutshe1_doc_003",
@@ -9830,7 +9948,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "hutshe1_doc_003"
+    "source_id": "hutshe1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kakapo2_doc_001",
@@ -9850,7 +9969,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kakapo2_doc_001"
+    "source_id": "kakapo2_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kakapo2_doc_002",
@@ -9870,7 +9990,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kakapo2_doc_002"
+    "source_id": "kakapo2_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kakapo2_doc_003",
@@ -9890,7 +10011,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kakapo2_doc_003"
+    "source_id": "kakapo2_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kakapo2_doc_005",
@@ -9910,7 +10032,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kakapo2_doc_005"
+    "source_id": "kakapo2_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kakapo2_doc_006",
@@ -9930,7 +10053,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kakapo2_doc_006"
+    "source_id": "kakapo2_doc_006",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kakapo2_doc_007",
@@ -9950,7 +10074,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kakapo2_doc_007"
+    "source_id": "kakapo2_doc_007",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kea1_doc_004",
@@ -9970,7 +10095,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kea1_doc_004"
+    "source_id": "kea1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kea1_doc_005",
@@ -9990,7 +10116,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kea1_doc_005"
+    "source_id": "kea1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kea1_doc_006",
@@ -10010,7 +10137,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kea1_doc_006"
+    "source_id": "kea1_doc_006",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kokako3_doc_004",
@@ -10030,7 +10158,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kokako3_doc_004"
+    "source_id": "kokako3_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kokako3_doc_006",
@@ -10050,7 +10179,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kokako3_doc_006"
+    "source_id": "kokako3_doc_006",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "kokako3_doc_007",
@@ -10070,7 +10200,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "kokako3_doc_007"
+    "source_id": "kokako3_doc_007",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nibkiw1_doc_004",
@@ -10090,7 +10221,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nibkiw1_doc_004"
+    "source_id": "nibkiw1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nibkiw1_doc_005",
@@ -10110,7 +10242,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nibkiw1_doc_005"
+    "source_id": "nibkiw1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nibkiw1_doc_006",
@@ -10130,7 +10263,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nibkiw1_doc_006"
+    "source_id": "nibkiw1_doc_006",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezkak1_doc_001",
@@ -10150,7 +10284,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezkak1_doc_001"
+    "source_id": "nezkak1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezkak1_doc_002",
@@ -10170,7 +10305,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezkak1_doc_002"
+    "source_id": "nezkak1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezkak1_doc_003",
@@ -10190,7 +10326,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezkak1_doc_003"
+    "source_id": "nezkak1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezrob2_doc_001",
@@ -10210,7 +10347,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezrob2_doc_001"
+    "source_id": "nezrob2_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezrob2_doc_002",
@@ -10230,7 +10368,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezrob2_doc_002"
+    "source_id": "nezrob2_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezrob2_doc_003",
@@ -10250,7 +10389,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezrob2_doc_003"
+    "source_id": "nezrob2_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "saddle2_doc_001",
@@ -10270,7 +10410,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "saddle2_doc_001"
+    "source_id": "saddle2_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "saddle2_doc_002",
@@ -10290,7 +10431,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "saddle2_doc_002"
+    "source_id": "saddle2_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "saddle2_doc_003",
@@ -10310,7 +10452,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "saddle2_doc_003"
+    "source_id": "saddle2_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "tomtit1_doc_001",
@@ -10330,7 +10473,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "tomtit1_doc_001"
+    "source_id": "tomtit1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "weka1_doc_005",
@@ -10350,7 +10494,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "weka1_doc_005"
+    "source_id": "weka1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "rebdot1_doc_001",
@@ -10370,7 +10515,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "rebdot1_doc_001"
+    "source_id": "rebdot1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "rebdot1_doc_002",
@@ -10390,7 +10536,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "rebdot1_doc_002"
+    "source_id": "rebdot1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "rebdot1_doc_003",
@@ -10410,7 +10557,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "rebdot1_doc_003"
+    "source_id": "rebdot1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfal1_doc_001",
@@ -10430,7 +10578,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfal1_doc_001"
+    "source_id": "nezfal1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfal1_doc_002",
@@ -10450,7 +10599,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfal1_doc_002"
+    "source_id": "nezfal1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfal1_doc_003",
@@ -10470,7 +10620,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfal1_doc_003"
+    "source_id": "nezfal1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfal1_doc_004",
@@ -10490,7 +10641,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfal1_doc_004"
+    "source_id": "nezfal1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezpig2_doc_001",
@@ -10510,7 +10662,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezpig2_doc_001"
+    "source_id": "nezpig2_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezpig2_doc_002",
@@ -10530,7 +10683,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezpig2_doc_002"
+    "source_id": "nezpig2_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "malpar2_doc_002",
@@ -10550,7 +10704,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "malpar2_doc_002"
+    "source_id": "malpar2_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "malpar2_doc_003",
@@ -10570,7 +10725,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "malpar2_doc_003"
+    "source_id": "malpar2_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "malpar2_doc_004",
@@ -10590,7 +10746,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "malpar2_doc_004"
+    "source_id": "malpar2_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "parshe1_doc_001",
@@ -10610,7 +10767,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "parshe1_doc_001"
+    "source_id": "parshe1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "parshe1_doc_002",
@@ -10630,7 +10788,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "parshe1_doc_002"
+    "source_id": "parshe1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "parshe1_doc_003",
@@ -10650,7 +10809,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "parshe1_doc_003"
+    "source_id": "parshe1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "parshe1_doc_004",
@@ -10670,7 +10830,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "parshe1_doc_004"
+    "source_id": "parshe1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "refpar4_doc_001",
@@ -10690,7 +10851,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "refpar4_doc_001"
+    "source_id": "refpar4_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "refpar4_doc_003",
@@ -10710,7 +10872,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "refpar4_doc_003"
+    "source_id": "refpar4_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "refpar4_doc_004",
@@ -10730,7 +10893,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "refpar4_doc_004"
+    "source_id": "refpar4_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "soiwre1_doc_001",
@@ -10750,7 +10914,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "soiwre1_doc_001"
+    "source_id": "soiwre1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "soiwre1_doc_002",
@@ -10770,7 +10935,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "soiwre1_doc_002"
+    "source_id": "soiwre1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "soiwre1_doc_003",
@@ -10790,7 +10956,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "soiwre1_doc_003"
+    "source_id": "soiwre1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "silver3_doc_001",
@@ -10810,7 +10977,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "silver3_doc_001"
+    "source_id": "silver3_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "silver3_doc_002",
@@ -10830,7 +10998,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "silver3_doc_002"
+    "source_id": "silver3_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "silver3_doc_003",
@@ -10850,7 +11019,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "silver3_doc_003"
+    "source_id": "silver3_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfan1_doc_007",
@@ -10870,7 +11040,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfan1_doc_007"
+    "source_id": "nezfan1_doc_007",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfan1_doc_008",
@@ -10890,7 +11061,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfan1_doc_008"
+    "source_id": "nezfan1_doc_008",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezfan1_doc_009",
@@ -10910,7 +11082,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezfan1_doc_009"
+    "source_id": "nezfan1_doc_009",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezkak1_doc_004",
@@ -10930,7 +11103,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezkak1_doc_004"
+    "source_id": "nezkak1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezkak1_doc_005",
@@ -10950,7 +11124,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezkak1_doc_005"
+    "source_id": "nezkak1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezkak1_doc_006",
@@ -10970,7 +11145,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezkak1_doc_006"
+    "source_id": "nezkak1_doc_006",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezrob3_doc_001",
@@ -10990,7 +11166,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezrob3_doc_001"
+    "source_id": "nezrob3_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezrob3_doc_002",
@@ -11010,7 +11187,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezrob3_doc_002"
+    "source_id": "nezrob3_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "nezrob3_doc_003",
@@ -11030,7 +11208,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "nezrob3_doc_003"
+    "source_id": "nezrob3_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "saddle3_doc_001",
@@ -11050,7 +11229,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "saddle3_doc_001"
+    "source_id": "saddle3_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "saddle3_doc_002",
@@ -11070,7 +11250,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "saddle3_doc_002"
+    "source_id": "saddle3_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "saddle3_doc_003",
@@ -11090,7 +11271,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "saddle3_doc_003"
+    "source_id": "saddle3_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "saddle3_doc_004",
@@ -11110,7 +11292,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "saddle3_doc_004"
+    "source_id": "saddle3_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "tomtit1_doc_005",
@@ -11130,7 +11313,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "tomtit1_doc_005"
+    "source_id": "tomtit1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "grcgre1_doc_001",
@@ -11150,7 +11334,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "grcgre1_doc_001"
+    "source_id": "grcgre1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "grcgre1_doc_002",
@@ -11170,7 +11355,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "grcgre1_doc_002"
+    "source_id": "grcgre1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "grcgre1_doc_003",
@@ -11190,7 +11376,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "grcgre1_doc_003"
+    "source_id": "grcgre1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "stitch1_doc_001",
@@ -11210,7 +11397,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "stitch1_doc_001"
+    "source_id": "stitch1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "stitch1_doc_002",
@@ -11230,7 +11418,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "stitch1_doc_002"
+    "source_id": "stitch1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "stitch1_doc_003",
@@ -11250,7 +11439,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "stitch1_doc_003"
+    "source_id": "stitch1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "takahe3_doc_001",
@@ -11270,7 +11460,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "takahe3_doc_001"
+    "source_id": "takahe3_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "takahe3_doc_002",
@@ -11290,7 +11481,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "takahe3_doc_002"
+    "source_id": "takahe3_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "takahe3_doc_004",
@@ -11310,7 +11502,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "takahe3_doc_004"
+    "source_id": "takahe3_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "tui1_doc_005",
@@ -11330,7 +11523,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "tui1_doc_005"
+    "source_id": "tui1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "tui1_doc_006",
@@ -11350,7 +11544,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "tui1_doc_006"
+    "source_id": "tui1_doc_006",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "weka1_doc_007",
@@ -11370,7 +11565,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "weka1_doc_007"
+    "source_id": "weka1_doc_007",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "wespet1_doc_001",
@@ -11390,7 +11586,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "wespet1_doc_001"
+    "source_id": "wespet1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "wespet1_doc_002",
@@ -11410,7 +11607,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "wespet1_doc_002"
+    "source_id": "wespet1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "wespet1_doc_003",
@@ -11430,7 +11628,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "wespet1_doc_003"
+    "source_id": "wespet1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "wespet1_doc_004",
@@ -11450,7 +11649,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "wespet1_doc_004"
+    "source_id": "wespet1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "greegr_doc_001",
@@ -11470,7 +11670,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "greegr_doc_001"
+    "source_id": "greegr_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "greegr_doc_002",
@@ -11490,7 +11691,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "greegr_doc_002"
+    "source_id": "greegr_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "greegr_doc_003",
@@ -11510,7 +11712,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "greegr_doc_003"
+    "source_id": "greegr_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "whiteh1_doc_001",
@@ -11530,7 +11733,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "whiteh1_doc_001"
+    "source_id": "whiteh1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "whiteh1_doc_002",
@@ -11550,7 +11754,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "whiteh1_doc_002"
+    "source_id": "whiteh1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "whiteh1_doc_003",
@@ -11570,7 +11775,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "whiteh1_doc_003"
+    "source_id": "whiteh1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "whiteh1_doc_004",
@@ -11590,7 +11796,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "whiteh1_doc_004"
+    "source_id": "whiteh1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "whiteh1_doc_005",
@@ -11610,7 +11817,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "whiteh1_doc_005"
+    "source_id": "whiteh1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "yeepen1_doc_001",
@@ -11630,7 +11838,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "yeepen1_doc_001"
+    "source_id": "yeepen1_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "yeepen1_doc_002",
@@ -11650,7 +11859,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "yeepen1_doc_002"
+    "source_id": "yeepen1_doc_002",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "yeepen1_doc_003",
@@ -11670,7 +11880,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "yeepen1_doc_003"
+    "source_id": "yeepen1_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "yeepen1_doc_004",
@@ -11690,7 +11901,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "yeepen1_doc_004"
+    "source_id": "yeepen1_doc_004",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "yeepen1_doc_005",
@@ -11710,7 +11922,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "yeepen1_doc_005"
+    "source_id": "yeepen1_doc_005",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "yellow3_doc_001",
@@ -11730,7 +11943,8 @@
     "canonical": true,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "yellow3_doc_001"
+    "source_id": "yellow3_doc_001",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "yellow3_doc_003",
@@ -11750,7 +11964,8 @@
     "canonical": false,
     "rejected": false,
     "recordist": "DOC NZ (Crown Copyright)",
-    "source_id": "yellow3_doc_003"
+    "source_id": "yellow3_doc_003",
+    "license": "Crown Copyright (NZ DOC) - Free with attribution"
   },
   {
     "clip_id": "EAME_906697_1",
@@ -13171,7 +13386,8 @@
     "file_path": "data/clips/carcro1_1053150_1.wav",
     "spectrogram_path": "data/spectrograms/carcro1_1053150_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "carcro1_1006239_1",
@@ -13188,7 +13404,8 @@
     "file_path": "data/clips/carcro1_1006239_1.wav",
     "spectrogram_path": "data/spectrograms/carcro1_1006239_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "carcro1_943486_1",
@@ -13205,7 +13422,8 @@
     "file_path": "data/clips/carcro1_943486_1.wav",
     "spectrogram_path": "data/spectrograms/carcro1_943486_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "carcro1_879586_1",
@@ -13222,7 +13440,8 @@
     "file_path": "data/clips/carcro1_879586_1.wav",
     "spectrogram_path": "data/spectrograms/carcro1_879586_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "carcro1_845011_1",
@@ -13239,7 +13458,8 @@
     "file_path": "data/clips/carcro1_845011_1.wav",
     "spectrogram_path": "data/spectrograms/carcro1_845011_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCRA_1075364_1",
@@ -13256,7 +13476,8 @@
     "file_path": "data/clips/CCRA_1075364_1.wav",
     "spectrogram_path": "data/spectrograms/CCRA_1075364_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCRA_1070963_1",
@@ -13273,7 +13494,8 @@
     "file_path": "data/clips/CCRA_1070963_1.wav",
     "spectrogram_path": "data/spectrograms/CCRA_1070963_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCRA_1070669_1",
@@ -13290,7 +13512,8 @@
     "file_path": "data/clips/CCRA_1070669_1.wav",
     "spectrogram_path": "data/spectrograms/CCRA_1070669_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCRA_1070652_1",
@@ -13307,7 +13530,8 @@
     "file_path": "data/clips/CCRA_1070652_1.wav",
     "spectrogram_path": "data/spectrograms/CCRA_1070652_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCRA_1042982_1",
@@ -13324,6 +13548,151 @@
     "file_path": "data/clips/CCRA_1042982_1.wav",
     "spectrogram_path": "data/spectrograms/CCRA_1042982_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  {
+    "clip_id": "woolar1_911886_1",
+    "species_code": "woolar1",
+    "common_name": "Woodlark",
+    "vocalization_type": "song",
+    "duration_ms": 1400,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC911886",
+    "source_url": "https://xeno-canto.org/911886",
+    "recordist": "Lars Edenius",
+    "file_path": "data/clips/woolar1_911886_1.wav",
+    "spectrogram_path": "data/spectrograms/woolar1_911886_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "woolar1_911886_2",
+    "species_code": "woolar1",
+    "common_name": "Woodlark",
+    "vocalization_type": "song",
+    "duration_ms": 1400,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC911886",
+    "source_url": "https://xeno-canto.org/911886",
+    "recordist": "Lars Edenius",
+    "file_path": "data/clips/woolar1_911886_2.wav",
+    "spectrogram_path": "data/spectrograms/woolar1_911886_2.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "woolar1_911886_3",
+    "species_code": "woolar1",
+    "common_name": "Woodlark",
+    "vocalization_type": "song",
+    "duration_ms": 2200,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC911886",
+    "source_url": "https://xeno-canto.org/911886",
+    "recordist": "Lars Edenius",
+    "file_path": "data/clips/woolar1_911886_3.wav",
+    "spectrogram_path": "data/spectrograms/woolar1_911886_3.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "woolar1_1051220_1",
+    "species_code": "woolar1",
+    "common_name": "Woodlark",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1051220",
+    "source_url": "https://xeno-canto.org/1051220",
+    "recordist": "Geoff Carey",
+    "file_path": "data/clips/woolar1_1051220_1.wav",
+    "spectrogram_path": "data/spectrograms/woolar1_1051220_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "woolar1_995007_1",
+    "species_code": "woolar1",
+    "common_name": "Woodlark",
+    "vocalization_type": "song",
+    "duration_ms": 2400,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC995007",
+    "source_url": "https://xeno-canto.org/995007",
+    "recordist": "David Pennington",
+    "file_path": "data/clips/woolar1_995007_1.wav",
+    "spectrogram_path": "data/spectrograms/woolar1_995007_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "woolar1_994642_1",
+    "species_code": "woolar1",
+    "common_name": "Woodlark",
+    "vocalization_type": "song",
+    "duration_ms": 2100,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC994642",
+    "source_url": "https://xeno-canto.org/994642",
+    "recordist": "Johan S\u00f6dercrantz",
+    "file_path": "data/clips/woolar1_994642_1.wav",
+    "spectrogram_path": "data/spectrograms/woolar1_994642_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "woolar1_801434_1",
+    "species_code": "woolar1",
+    "common_name": "Woodlark",
+    "vocalization_type": "call",
+    "duration_ms": 600,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC801434",
+    "source_url": "https://xeno-canto.org/801434",
+    "recordist": "Dominique Guillerme",
+    "file_path": "data/clips/woolar1_801434_1.wav",
+    "spectrogram_path": "data/spectrograms/woolar1_801434_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "woolar1_801434_2",
+    "species_code": "woolar1",
+    "common_name": "Woodlark",
+    "vocalization_type": "call",
+    "duration_ms": 700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC801434",
+    "source_url": "https://xeno-canto.org/801434",
+    "recordist": "Dominique Guillerme",
+    "file_path": "data/clips/woolar1_801434_2.wav",
+    "spectrogram_path": "data/spectrograms/woolar1_801434_2.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
