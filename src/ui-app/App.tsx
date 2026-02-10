@@ -13,6 +13,8 @@ import Help from './screens/Help';
 import Privacy from './screens/Privacy';
 import NZPackSelect from './screens/NZPackSelect';
 import EUPackSelect from './screens/EUPackSelect';
+import NAPackSelect from './screens/NAPackSelect';
+import PackDetail from './screens/PackDetail';
 import CookieConsent from './components/CookieConsent';
 
 // Tablet scaling: use CSS zoom to make everything larger
@@ -59,8 +61,10 @@ function App() {
       <Routes>
         <Route path="/" element={<MainMenu />} />
         <Route path="/pack-select" element={<PackSelect />} />
+        <Route path="/na-packs" element={<NAPackSelect />} />
         <Route path="/nz-packs" element={<NZPackSelect />} />
         <Route path="/eu-packs" element={<EUPackSelect />} />
+        <Route path="/pack-detail" element={<PackDetail />} />
         <Route path="/level-select" element={<LevelSelect />} />
         <Route path="/preview" element={<PreRoundPreview />} />
         <Route path="/custom-pack" element={<CustomPackBuilder />} />

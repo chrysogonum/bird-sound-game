@@ -55,13 +55,12 @@ const SPECIES_COLORS = [
 function CustomPackBuilder() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const region = searchParams.get('region'); // 'nz' for New Zealand birds only
-  const isNZMode = region === 'nz';
+  const region = searchParams.get('region') as 'na' | 'nz' | 'eu' | null;
 
-  // Region-specific accent colors (teal for NZ, muted orange for NA)
-  const accentColor = isNZMode ? '#4db6ac' : 'var(--color-accent)';
-  const accentColorMuted = isNZMode ? 'rgba(45, 122, 122, 0.7)' : 'rgba(245, 166, 35, 0.6)';
-  const accentColorBorder = isNZMode ? 'rgba(45, 122, 122, 0.5)' : 'rgba(255, 152, 0, 0.3)';
+  // Region-specific accent colors
+  const accentColor = region === 'nz' ? '#4db6ac' : region === 'eu' ? '#a0b450' : 'var(--color-accent)';
+  const accentColorMuted = region === 'nz' ? 'rgba(45, 122, 122, 0.7)' : region === 'eu' ? 'rgba(160, 180, 80, 0.6)' : 'rgba(245, 166, 35, 0.6)';
+  const accentColorBorder = region === 'nz' ? 'rgba(45, 122, 122, 0.5)' : region === 'eu' ? 'rgba(160, 180, 80, 0.4)' : 'rgba(255, 152, 0, 0.3)';
   const [allSpecies, setAllSpecies] = useState<SpeciesInfo[]>([]);
   const [selectedCodes, setSelectedCodes] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -96,22 +95,20 @@ function CustomPackBuilder() {
   // Load all species from clips.json, taxonomic order, scientific names, and packs
   useEffect(() => {
     // Load pack definitions based on region
-    const packFiles = isNZMode
-      ? [
-          'nz_all_birds',
-          'nz_common',
-          'nz_north_island',
-          'nz_south_island',
-        ]
-      : [
-          'starter_birds',
-          'grassland_birds',
-          'expanded_backyard',
-          'sparrows',
-          'woodpeckers',
-          'spring_warblers',
-          'western_birds',
-        ];
+    const naPackFiles = ['starter_birds', 'grassland_birds', 'expanded_backyard', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds'];
+    const nzPackFiles = ['nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'];
+    const euPackFiles = ['eu_warblers', 'eu_raptors', 'eu_woodland', 'eu_all_birds'];
+
+    const packFiles = region === 'nz' ? nzPackFiles
+      : region === 'eu' ? euPackFiles
+      : region === 'na' ? naPackFiles
+      : [...naPackFiles, ...nzPackFiles, ...euPackFiles]; // global: all packs
+
+    // For region filtering, load the "all" pack for that region
+    const regionAllPackFile = region === 'nz' ? 'nz_all_birds'
+      : region === 'eu' ? 'eu_all_birds'
+      : region === 'na' ? 'na_all_birds'
+      : null; // global: no filtering
 
     const packPromises = packFiles.map(packId =>
       fetch(`${import.meta.env.BASE_URL}data/packs/${packId}.json`)
@@ -122,17 +119,28 @@ function CustomPackBuilder() {
         })
     );
 
+    // Load region "all" pack for species filtering (if region-scoped)
+    const regionAllPromise = regionAllPackFile
+      ? fetch(`${import.meta.env.BASE_URL}data/packs/${regionAllPackFile}.json`).then(r => r.json()).catch(() => null)
+      : Promise.resolve(null);
+
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/clips.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(r => r.json()),
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(r => r.json()),
       Promise.all(packPromises),
+      regionAllPromise,
     ])
-      .then(([allClips, taxonomicData, speciesData, packsData]: [ClipData[], Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>, any[]]) => {
-        // Filter clips by region if needed (NZ uses source === 'doc')
-        const clips = isNZMode
-          ? allClips.filter(c => c.source === 'doc')
-          : allClips.filter(c => c.source !== 'doc'); // NA excludes NZ clips
+      .then(([allClips, taxonomicData, speciesData, packsData, regionAllPack]: [ClipData[], Record<string, number>, Array<{species_code: string; common_name: string; scientific_name: string}>, any[], any]) => {
+        // Filter clips by region pack membership
+        let clips: ClipData[];
+        if (regionAllPack && regionAllPack.species) {
+          const regionSpeciesSet = new Set<string>(regionAllPack.species);
+          clips = allClips.filter(c => regionSpeciesSet.has(c.species_code));
+        } else {
+          // Global mode: all clips
+          clips = allClips;
+        }
 
         // Build available packs list
         const packs = packsData
@@ -228,7 +236,7 @@ function CustomPackBuilder() {
     } catch (e) {
       console.error('Failed to load saved packs:', e);
     }
-  }, [isNZMode]);
+  }, [region]);
 
   // Validate saved packs after species data loads (runs only once)
   useEffect(() => {
@@ -360,11 +368,7 @@ function CustomPackBuilder() {
     localStorage.setItem(CUSTOM_PACK_KEY, JSON.stringify(selectedCodes));
 
     // Save the region so we can navigate back correctly
-    if (isNZMode) {
-      localStorage.setItem(CUSTOM_PACK_REGION_KEY, 'nz');
-    } else {
-      localStorage.removeItem(CUSTOM_PACK_REGION_KEY);
-    }
+    localStorage.setItem(CUSTOM_PACK_REGION_KEY, region || 'all');
 
     // Mark as temporary so it gets cleared on return
     sessionStorage.setItem('customPackWasTemporary', 'true');
@@ -511,11 +515,7 @@ function CustomPackBuilder() {
       // Save to localStorage for the game session
       localStorage.setItem(CUSTOM_PACK_KEY, JSON.stringify(selectedCodes));
       // Save the region so we can navigate back correctly
-      if (isNZMode) {
-        localStorage.setItem(CUSTOM_PACK_REGION_KEY, 'nz');
-      } else {
-        localStorage.removeItem(CUSTOM_PACK_REGION_KEY);
-      }
+      localStorage.setItem(CUSTOM_PACK_REGION_KEY, region || 'all');
       // DON'T mark as temporary - it's been saved
       // Track and navigate
       trackCustomPackCreate(selectedCodes.length);
@@ -636,11 +636,11 @@ function CustomPackBuilder() {
       {/* Header */}
       <div style={{ flexShrink: 0, marginBottom: '12px' }}>
         <div className="flex-row items-center gap-md">
-          <button className="btn-icon" onClick={() => navigate(isNZMode ? '/nz-packs' : '/pack-select')} aria-label="Back" style={{ color: accentColor, opacity: 0.7 }}>
+          <button className="btn-icon" onClick={() => navigate(region === 'nz' ? '/nz-packs' : region === 'eu' ? '/eu-packs' : region === 'na' ? '/na-packs' : '/pack-select')} aria-label="Back" style={{ color: accentColor, opacity: 0.7 }}>
             <BackIcon />
           </button>
           <div>
-            <h2 style={{ margin: 0, fontSize: '18px' }}>{isNZMode ? 'Custom NZ Pack' : 'Custom Pack Builder'}</h2>
+            <h2 style={{ margin: 0, fontSize: '18px' }}>{region === 'nz' ? 'Custom NZ Pack' : region === 'eu' ? 'Custom EU Pack' : !region ? 'Custom Pack — All Regions' : 'Custom Pack Builder'}</h2>
             <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
               {loadedPackId ? (
                 <span>
@@ -772,7 +772,7 @@ function CustomPackBuilder() {
             onClick={() => setSelectedPackFilter(null)}
             style={{
               padding: '6px 12px',
-              background: selectedPackFilter === null ? (isNZMode ? 'rgba(45, 122, 122, 0.2)' : 'rgba(255, 152, 0, 0.2)') : 'var(--color-surface)',
+              background: selectedPackFilter === null ? (region === 'nz' ? 'rgba(45, 122, 122, 0.2)' : region === 'eu' ? 'rgba(160, 180, 80, 0.2)' : 'rgba(255, 152, 0, 0.2)') : 'var(--color-surface)',
               border: selectedPackFilter === null ? `2px solid ${accentColor}` : '1px solid var(--color-text-muted)',
               borderRadius: '16px',
               cursor: 'pointer',
@@ -799,7 +799,7 @@ function CustomPackBuilder() {
                 onClick={() => setSelectedPackFilter(pack.id)}
                 style={{
                   padding: '6px 12px',
-                  background: selectedPackFilter === pack.id ? (isNZMode ? 'rgba(45, 122, 122, 0.2)' : 'rgba(255, 152, 0, 0.2)') : 'var(--color-surface)',
+                  background: selectedPackFilter === pack.id ? (region === 'nz' ? 'rgba(45, 122, 122, 0.2)' : region === 'eu' ? 'rgba(160, 180, 80, 0.2)' : 'rgba(255, 152, 0, 0.2)') : 'var(--color-surface)',
                   border: selectedPackFilter === pack.id ? `2px solid ${accentColor}` : '1px solid var(--color-text-muted)',
                   borderRadius: '16px',
                   cursor: 'pointer',
@@ -870,7 +870,7 @@ function CustomPackBuilder() {
           onClick={handleTaxonomicSortToggle}
           style={{
             padding: '10px 14px',
-            background: taxonomicSort ? (isNZMode ? 'rgba(45, 122, 122, 0.15)' : 'rgba(255, 152, 0, 0.15)') : 'var(--color-surface)',
+            background: taxonomicSort ? (region === 'nz' ? 'rgba(45, 122, 122, 0.15)' : region === 'eu' ? 'rgba(160, 180, 80, 0.15)' : 'rgba(255, 152, 0, 0.15)') : 'var(--color-surface)',
             border: taxonomicSort ? `1px solid ${accentColorMuted}` : '1px solid var(--color-text-muted)',
             borderRadius: '8px',
             cursor: 'pointer',
@@ -1006,8 +1006,8 @@ function CustomPackBuilder() {
                       height: '36px',
                       borderRadius: '50%',
                       background: playingCode === species.code
-                        ? (isNZMode ? 'rgba(45, 122, 122, 0.3)' : 'rgba(255, 152, 0, 0.3)')
-                        : (isNZMode ? 'rgba(45, 122, 122, 0.1)' : 'rgba(255, 152, 0, 0.1)'),
+                        ? (region === 'nz' ? 'rgba(45, 122, 122, 0.3)' : region === 'eu' ? 'rgba(160, 180, 80, 0.3)' : 'rgba(255, 152, 0, 0.3)')
+                        : (region === 'nz' ? 'rgba(45, 122, 122, 0.1)' : region === 'eu' ? 'rgba(160, 180, 80, 0.1)' : 'rgba(255, 152, 0, 0.1)'),
                       border: `2px solid ${playingCode === species.code ? accentColor : accentColorBorder}`,
                       display: 'flex',
                       alignItems: 'center',
@@ -1078,9 +1078,12 @@ function CustomPackBuilder() {
                     fontSize: '10px',
                     color: 'rgba(255, 255, 255, 0.7)',
                     marginTop: '2px',
-                    fontWeight: 600,
+                    fontWeight: taxonomicSort ? 400 : 600,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
                   }}>
-                    {species.code}
+                    {taxonomicSort ? species.name : species.code}
                   </div>
                 </div>
               </div>

@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
-import { trackPackSelect, trackNZSortModeChange } from '../utils/analytics';
-import { loadMergeConfig, getRegionLabel, getMergeConfigSync } from '../utils/nzSubspeciesMerge';
-import { useNZSortMode } from '../hooks/useNZSortMode';
+import { trackPackSelect } from '../utils/analytics';
 
 interface Pack {
   id: string;
@@ -36,14 +34,10 @@ interface BirdClip {
   sourceId?: string;
   sourceUrl?: string;
   recordist?: string;
-  regionLabel?: string;  // NI/SI/Ch for merged subspecies clips
 }
 
 interface BirdInfo {
   code: string;
-  displayCode: string;  // Short code for UI display
-  tileName: string;     // Name to show (Māori name or short English)
-  englishName: string;  // English common name for 3-way sort
   name: string;
   scientificName?: string;
   canonicalClipPath: string | null;
@@ -51,41 +45,40 @@ interface BirdInfo {
   allClips: BirdClip[];
 }
 
-// NZ accent color for consistent theming
-const NZ_ACCENT_COLOR = '#4db6ac';
+const EU_ACCENT_COLOR = '#a0b450';
 
-const NZ_PACKS: Pack[] = [
+const EU_PACKS: Pack[] = [
   {
-    id: 'nz_common',
-    name: 'Garden & Bush',
+    id: 'eu_warblers',
+    name: 'Warblers & Skulkers',
+    speciesCount: 35,
+    isUnlocked: true,
+    description: 'Warblers, nightingales, wrens,\nand other secretive songbirds.',
+  },
+  {
+    id: 'eu_raptors',
+    name: 'Raptors',
     speciesCount: 9,
     isUnlocked: true,
-    description: 'The 9 most common birds you\'ll hear\nacross New Zealand.',
+    description: 'Birds of prey —\nbuzzards, kites, and falcons.',
   },
   {
-    id: 'nz_north_island',
-    name: 'North Island',
-    speciesCount: 21,
+    id: 'eu_woodland',
+    name: 'Woodland & Field',
+    speciesCount: 17,
     isUnlocked: true,
-    description: 'Birds of\nTe Ika-a-Maui',
+    description: 'Woodpeckers, corvids,\nthrushes, and more.',
   },
   {
-    id: 'nz_south_island',
-    name: 'South Island',
-    speciesCount: 22,
+    id: 'eu_all_birds',
+    name: 'All European Birds',
+    speciesCount: 61,
     isUnlocked: true,
-    description: 'Birds of\nTe Waipounamu',
-  },
-  {
-    id: 'nz_all_birds',
-    name: 'All NZ Birds',
-    speciesCount: 37,
-    isUnlocked: true,
-    description: 'The complete collection of 37\nNew Zealand native birds.',
+    description: 'The complete collection of 61\nEuropean species.',
   },
 ];
 
-function NZPackSelect() {
+function EUPackSelect() {
   const navigate = useNavigate();
   const location = useLocation();
   const [searchParams] = useSearchParams();
@@ -93,20 +86,15 @@ function NZPackSelect() {
   const [packDisplaySpecies, setPackDisplaySpecies] = useState<Record<string, string[]>>({});
   const [commonNames, setCommonNames] = useState<Record<string, string>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
-  const [nzDisplayCodes, setNzDisplayCodes] = useState<Record<string, { code: string; tileName: string; englishName?: string }>>({});
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
-
-  // NZ 3-way sort mode
-  const [nzSortMode, setNzSortMode] = useNZSortMode();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const soundLibraryRef = useRef<HTMLDivElement | null>(null);
 
   // Scroll to top on mount
   useEffect(() => {
-    // The App wrapper has overflow: auto, so we need to scroll the parent container
     const appContainer = document.querySelector('.screen')?.parentElement;
     if (appContainer) {
       appContainer.scrollTo(0, 0);
@@ -114,12 +102,11 @@ function NZPackSelect() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Handle URL params for auto-expanding packs and scrolling to sound library
+  // Handle URL params for auto-expanding packs
   useEffect(() => {
     const expandPack = searchParams.get('expand') || searchParams.get('expandPack');
     if (expandPack) {
       setExpandedPacks(new Set([expandPack]));
-      // Scroll to sound library section after a brief delay
       setTimeout(() => {
         soundLibraryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
@@ -131,20 +118,37 @@ function NZPackSelect() {
     fetch(`${import.meta.env.BASE_URL}data/clips.json`)
       .then((res) => res.json())
       .then((data: ClipData[]) => {
-        // Filter to only NZ clips (source === 'doc')
-        const nzClips = data.filter(c => c.source === 'doc');
-        setClips(nzClips);
+        // Get all EU species codes from packs
+        const euPackIds = EU_PACKS.map(p => p.id);
+        Promise.all(
+          euPackIds.map(id =>
+            fetch(`${import.meta.env.BASE_URL}data/packs/${id}.json`)
+              .then(res => res.json())
+              .catch(() => null)
+          )
+        ).then(packs => {
+          const euCodes = new Set<string>();
+          packs.forEach(pack => {
+            if (pack?.species) {
+              pack.species.forEach((sp: string | { code: string }) => {
+                const code = typeof sp === 'string' ? sp : sp.code;
+                euCodes.add(code);
+              });
+            }
+          });
+          const euClips = data.filter(c => euCodes.has(c.species_code));
+          setClips(euClips);
+        });
       })
       .catch((err) => console.error('Failed to load clips:', err));
   }, []);
 
-  // Load species names, scientific names, NZ display codes, and taxonomic order
+  // Load species names, scientific names, and taxonomic order
   useEffect(() => {
     Promise.all([
       fetch(`${import.meta.env.BASE_URL}data/species.json`).then(res => res.json()),
-      fetch(`${import.meta.env.BASE_URL}data/nz_display_codes.json`).then(res => res.json()).catch(() => ({ codes: {} })),
       fetch(`${import.meta.env.BASE_URL}data/taxonomic_order.json`).then(res => res.json()).catch(() => ({})),
-    ]).then(([speciesData, nzCodesData, taxOrder]: [Array<{species_code: string; common_name: string; scientific_name?: string}>, { codes: Record<string, { code: string; tileName: string }> }, Record<string, number>]) => {
+    ]).then(([speciesData, taxOrder]: [Array<{species_code: string; common_name: string; scientific_name?: string}>, Record<string, number>]) => {
       const names: Record<string, string> = {};
       const sciNames: Record<string, string> = {};
       speciesData.forEach((sp) => {
@@ -155,28 +159,26 @@ function NZPackSelect() {
       });
       setCommonNames(names);
       setScientificNames(sciNames);
-      setNzDisplayCodes(nzCodesData.codes || {});
       setTaxonomicOrder(taxOrder);
     }).catch((err) => console.error('Failed to load species:', err));
   }, []);
 
-  // Load pack species and subspecies merge config
+  // Load pack species
   useEffect(() => {
-    const packIds = ['nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'];
-
-    Promise.all([
-      ...packIds.map((id) =>
+    const packIds = EU_PACKS.map(p => p.id);
+    Promise.all(
+      packIds.map((id) =>
         fetch(`${import.meta.env.BASE_URL}data/packs/${id}.json`)
           .then((res) => res.json())
           .catch(() => null)
-      ),
-      loadMergeConfig(), // Load subspecies merge config
-    ]).then((results) => {
+      )
+    ).then((results) => {
       const speciesMap: Record<string, string[]> = {};
-      results.slice(0, packIds.length).forEach((pack, i) => {
-        if (pack && pack.species) {
-          // Use display_species for Sound Library if available (deduplicated list)
-          speciesMap[packIds[i]] = pack.display_species || pack.species;
+      results.forEach((pack, i) => {
+        if (pack?.species) {
+          speciesMap[packIds[i]] = pack.display_species || pack.species.map((sp: string | { code: string }) =>
+            typeof sp === 'string' ? sp : sp.code
+          );
         }
       });
       setPackDisplaySpecies(speciesMap);
@@ -191,33 +193,14 @@ function NZPackSelect() {
   const getBirdsForPack = (packId: string): BirdInfo[] => {
     const speciesCodes = packDisplaySpecies[packId] || [];
     const birds = speciesCodes.map((code) => {
-      // For merged subspecies, we need to get clips from all subspecies
-      const mergeConfig = getMergeConfigSync();
-      let relatedCodes = [code];
-
-      // Check if this code is part of a merged species
-      if (mergeConfig) {
-        for (const info of Object.values(mergeConfig.merges)) {
-          if (info.subspecies.includes(code) || info.icon === code) {
-            relatedCodes = info.subspecies;
-            break;
-          }
-        }
-      }
-
-      const speciesClips = clips.filter((c) =>
-        relatedCodes.includes(c.species_code) && !c.rejected
-      );
+      const speciesClips = clips.filter((c) => c.species_code === code && !c.rejected);
       const canonicalClip = speciesClips.find((c) => c.canonical);
       const clip = canonicalClip || speciesClips[0];
 
-      // Build all clips list, canonical first, with region labels
       const allClips: BirdClip[] = speciesClips
         .sort((a, b) => {
-          // Canonical first
           if (a.canonical && !b.canonical) return -1;
           if (!a.canonical && b.canonical) return 1;
-          // Then by clip_id
           return a.clip_id.localeCompare(b.clip_id);
         })
         .map((c) => ({
@@ -229,15 +212,10 @@ function NZPackSelect() {
           sourceId: c.source_id,
           sourceUrl: c.source_url,
           recordist: c.recordist,
-          regionLabel: getRegionLabel(c.species_code), // Add region label for merged subspecies
         }));
 
-      const nzData = nzDisplayCodes[code];
       return {
         code,
-        displayCode: nzData?.code || code,
-        tileName: nzData?.tileName || code,
-        englishName: nzData?.englishName || commonNames[code] || code,
         name: commonNames[code] || code,
         scientificName: scientificNames[code],
         canonicalClipPath: clip ? `${import.meta.env.BASE_URL}${clip.file_path}` : null,
@@ -246,23 +224,15 @@ function NZPackSelect() {
       };
     });
 
-    // Sort based on 3-way sort mode
-    switch (nzSortMode) {
-      case 'english':
-        return birds.sort((a, b) => a.englishName.localeCompare(b.englishName));
-      case 'taxonomic':
-        if (Object.keys(taxonomicOrder).length > 0) {
-          return birds.sort((a, b) => {
-            const orderA = taxonomicOrder[a.code] || 9999;
-            const orderB = taxonomicOrder[b.code] || 9999;
-            return orderA - orderB;
-          });
-        }
-        return birds.sort((a, b) => a.tileName.localeCompare(b.tileName));
-      case 'maori':
-      default:
-        return birds.sort((a, b) => a.tileName.localeCompare(b.tileName));
-    }
+    // Sort by taxonomic order if available, otherwise alphabetically
+    return birds.sort((a, b) => {
+      if (Object.keys(taxonomicOrder).length > 0) {
+        const orderA = taxonomicOrder[a.code] || 9999;
+        const orderB = taxonomicOrder[b.code] || 9999;
+        return orderA - orderB;
+      }
+      return a.name.localeCompare(b.name);
+    });
   };
 
   const playSound = (clipPath: string, code: string) => {
@@ -295,18 +265,18 @@ function NZPackSelect() {
     };
   }, []);
 
-  const nzPackColors: Record<string, string> = {
-    nz_all_birds: 'linear-gradient(135deg, #4a7a6a 0%, #2a5a4a 100%)',
-    nz_common: 'linear-gradient(135deg, #b8a832 0%, #8a7a28 100%)',
-    nz_north_island: 'linear-gradient(135deg, #7a5a3d 0%, #5a4028 100%)',
-    nz_south_island: 'linear-gradient(135deg, #5a6a8a 0%, #3a4a6a 100%)',
+  const euPackColors: Record<string, string> = {
+    eu_warblers: 'linear-gradient(135deg, #5a6b2d 0%, #3a4a1a 100%)',
+    eu_raptors: 'linear-gradient(135deg, #6b4a2d 0%, #4a3018 100%)',
+    eu_woodland: 'linear-gradient(135deg, #3d5a3d 0%, #2a402a 100%)',
+    eu_all_birds: 'linear-gradient(135deg, #4a5a6b 0%, #2d3a4a 100%)',
   };
 
-  const nzPackIcons: Record<string, string> = {
-    nz_all_birds: 'kakapo2',
-    nz_common: 'tui1',
-    nz_north_island: 'kokako3',
-    nz_south_island: 'kea1',
+  const euPackIcons: Record<string, string> = {
+    eu_warblers: 'eurwar1',
+    eu_raptors: 'PEFA',
+    eu_woodland: 'GSWO',
+    eu_all_birds: 'EURO',
   };
 
   return (
@@ -316,18 +286,18 @@ function NZPackSelect() {
           className="btn-icon"
           onClick={() => navigate('/pack-select')}
           aria-label="Back"
-          style={{ color: NZ_ACCENT_COLOR }}
+          style={{ color: EU_ACCENT_COLOR }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
         </button>
-        <h2 style={{ margin: 0, flex: 1, fontSize: '22px' }}>New Zealand Birds</h2>
+        <h2 style={{ margin: 0, flex: 1, fontSize: '22px' }}>European Birds</h2>
         <button
           className="btn-icon"
           onClick={() => navigate('/')}
           aria-label="Home"
-          style={{ color: NZ_ACCENT_COLOR }}
+          style={{ color: EU_ACCENT_COLOR }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -346,13 +316,13 @@ function NZPackSelect() {
         borderRadius: '12px',
       }}>
         <p style={{ margin: 0 }}>
-          37 native species from Aotearoa New Zealand. Audio courtesy of the{' '}
+          61 species from across Europe. Audio courtesy of{' '}
           <a
-            href="https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/"
+            href="https://xeno-canto.org/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#a8d5a2', textDecoration: 'underline' }}
-          >NZ Department of Conservation</a> (Crown Copyright).
+            style={{ color: '#c8d8a2', textDecoration: 'underline' }}
+          >Xeno-canto</a> contributors (CC BY-NC-SA).
         </p>
       </div>
 
@@ -361,13 +331,13 @@ function NZPackSelect() {
         style={{
           marginBottom: '20px',
           background: 'var(--color-surface)',
-          border: '2px solid rgba(45, 122, 122, 0.4)',
+          border: '2px solid rgba(160, 180, 80, 0.4)',
           borderRadius: '16px',
           overflow: 'visible',
         }}
       >
         <div
-          onClick={() => navigate('/custom-pack?region=nz')}
+          onClick={() => navigate('/custom-pack?region=eu')}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -377,7 +347,7 @@ function NZPackSelect() {
             transition: 'all 0.2s',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'rgba(45, 122, 122, 0.15)';
+            e.currentTarget.style.background = 'rgba(160, 180, 80, 0.15)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = 'transparent';
@@ -387,7 +357,7 @@ function NZPackSelect() {
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'rgba(45, 122, 122, 0.5)',
+            background: 'rgba(160, 180, 80, 0.5)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -403,10 +373,10 @@ function NZPackSelect() {
               Create Custom Pack
             </div>
             <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
-              Mix and match your own selection of NZ birds
+              Mix and match your own selection of European birds
             </div>
           </div>
-          <span style={{ fontSize: '20px', color: '#a8d5a2' }}>→</span>
+          <span style={{ fontSize: '20px', color: '#c8d8a2' }}>→</span>
         </div>
       </div>
 
@@ -419,7 +389,7 @@ function NZPackSelect() {
           marginBottom: '32px',
         }}
       >
-        {NZ_PACKS.map((pack) => (
+        {EU_PACKS.map((pack) => (
           <button
             key={pack.id}
             onClick={() => handlePackSelect(pack)}
@@ -427,14 +397,17 @@ function NZPackSelect() {
               position: 'relative',
               overflow: 'hidden',
               textAlign: 'left',
-              padding: '16px',
+              padding: '12px 12px 14px 12px',
               borderRadius: '16px',
               border: 'none',
-              background: nzPackColors[pack.id],
+              background: euPackColors[pack.id],
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
               cursor: 'pointer',
               transition: 'transform 0.2s, box-shadow 0.2s',
-              gridColumn: (pack.id === 'nz_common' || pack.id === 'nz_all_birds') ? '1 / -1' : 'auto',
+              gridColumn: 'auto',
+              display: 'flex',
+              flexDirection: 'column' as const,
+              justifyContent: 'flex-start',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'translateY(-2px)';
@@ -446,7 +419,7 @@ function NZPackSelect() {
             }}
           >
             <img
-              src={`${import.meta.env.BASE_URL}data/icons/${nzPackIcons[pack.id]}.png`}
+              src={`${import.meta.env.BASE_URL}data/icons/${euPackIcons[pack.id]}.png`}
               alt=""
               style={{
                 position: 'absolute',
@@ -475,7 +448,7 @@ function NZPackSelect() {
                   alignItems: 'center',
                   gap: '4px',
                   fontSize: '11px',
-                  color: '#a8d5a2',
+                  color: '#c8d8a2',
                   fontWeight: 600,
                   textTransform: 'uppercase',
                 }}
@@ -484,11 +457,11 @@ function NZPackSelect() {
               </span>
             </div>
 
-            <div style={{ position: 'relative', zIndex: 1, paddingTop: (pack.id === 'nz_common' || pack.id === 'nz_all_birds') ? 0 : '8px', maxWidth: '55%' }}>
+            <div style={{ position: 'relative', zIndex: 1, maxWidth: '70%' }}>
               <div style={{ fontSize: '16px', fontWeight: 700, color: '#f5f0e6', marginBottom: '6px' }}>
                 {pack.name}
               </div>
-              <div style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', marginBottom: '10px' }}>
+              <div style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', marginBottom: '10px', whiteSpace: 'pre-line' }}>
                 {pack.description}
               </div>
               <span style={{ fontSize: '12px', color: 'rgba(245, 240, 230, 0.9)', fontWeight: 600 }}>
@@ -508,101 +481,7 @@ function NZPackSelect() {
             </h3>
             <div style={{ fontSize: '14px', marginTop: '2px' }}>🎧📚</div>
           </div>
-          {/* 3-way sort toggle */}
-          <div style={{
-            display: 'flex',
-            borderRadius: '6px',
-            overflow: 'hidden',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-          }}>
-            <button
-              onClick={() => {
-                setNzSortMode('maori');
-                trackNZSortModeChange('maori', 'sound_library');
-              }}
-              style={{
-                padding: '6px 10px',
-                background: nzSortMode === 'maori' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
-                cursor: 'pointer',
-                fontSize: '11px',
-                color: nzSortMode === 'maori' ? '#4db6ac' : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'maori' ? 600 : 400,
-              }}
-              title="Sort by Maori name"
-            >
-              Te Reo
-            </button>
-            <button
-              onClick={() => {
-                setNzSortMode('english');
-                trackNZSortModeChange('english', 'sound_library');
-              }}
-              style={{
-                padding: '6px 10px',
-                background: nzSortMode === 'english' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
-                cursor: 'pointer',
-                fontSize: '11px',
-                color: nzSortMode === 'english' ? '#4db6ac' : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'english' ? 600 : 400,
-              }}
-              title="Sort by English name"
-            >
-              English
-            </button>
-            <button
-              onClick={() => {
-                setNzSortMode('taxonomic');
-                trackNZSortModeChange('taxonomic', 'sound_library');
-              }}
-              style={{
-                padding: '6px 10px',
-                background: nzSortMode === 'taxonomic' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '11px',
-                color: nzSortMode === 'taxonomic' ? '#4db6ac' : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'taxonomic' ? 600 : 400,
-              }}
-              title="Sort by taxonomic order"
-            >
-              📊 Taxonomy
-            </button>
-          </div>
         </div>
-
-        {/* Construction notice */}
-        <div
-          style={{
-            background: 'rgba(255, 200, 50, 0.12)',
-            border: '1px solid rgba(255, 200, 50, 0.3)',
-            borderRadius: '8px',
-            padding: '10px 14px',
-            marginBottom: '16px',
-            fontSize: '13px',
-            color: 'rgba(255, 255, 255, 0.8)',
-            lineHeight: '1.4',
-          }}
-        >
-          <span style={{ marginRight: '6px' }}>🚧</span>
-          Sound library under construction. Sound type labels (song, call, etc.) are being reviewed and corrected — don't rely on them just yet.
-        </div>
-
-        {/* Subspecies merge note */}
-        <p style={{
-          margin: '0 0 16px 0',
-          fontSize: '12px',
-          color: 'var(--color-text-muted)',
-          fontStyle: 'italic',
-        }}>
-          Regional subspecies are merged for gameplay. Clips show region badges:{' '}
-          <span style={{ background: '#4db6ac', color: '#fff', padding: '1px 4px', borderRadius: '3px', fontSize: '10px' }}>NI</span>{' '}
-          <span style={{ background: '#4db6ac', color: '#fff', padding: '1px 4px', borderRadius: '3px', fontSize: '10px' }}>SI</span>{' '}
-          <span style={{ background: '#4db6ac', color: '#fff', padding: '1px 4px', borderRadius: '3px', fontSize: '10px' }}>Ch</span>
-        </p>
 
         {/* Back to Level Select button */}
         {location.state?.fromLevelSelect && location.state?.packId && (
@@ -610,7 +489,7 @@ function NZPackSelect() {
             <button
               onClick={() => navigate(`/level-select?pack=${location.state.packId}`)}
               style={{
-                background: '#4db6ac',
+                background: EU_ACCENT_COLOR,
                 color: 'var(--color-background)',
                 border: 'none',
                 borderRadius: '8px',
@@ -631,7 +510,7 @@ function NZPackSelect() {
           </div>
         )}
 
-        {NZ_PACKS.map((pack) => {
+        {EU_PACKS.map((pack) => {
           const isExpanded = expandedPacks.has(pack.id);
           const birds = getBirdsForPack(pack.id);
 
@@ -660,8 +539,8 @@ function NZPackSelect() {
                   transition: 'background 0.15s',
                 }}
               >
-                <span style={{ color: '#2d7a7a', opacity: 0.7 }}>{isExpanded ? '▼' : '▶'}</span>
-                <span style={{ fontWeight: 600, color: '#4db6ac', opacity: 0.85 }}>{pack.name}</span>
+                <span style={{ color: '#5a6b2d', opacity: 0.7 }}>{isExpanded ? '▼' : '▶'}</span>
+                <span style={{ fontWeight: 600, color: EU_ACCENT_COLOR, opacity: 0.85 }}>{pack.name}</span>
                 <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
                   {birds.length} species
                 </span>
@@ -669,7 +548,7 @@ function NZPackSelect() {
 
               {isExpanded && (
                 <div style={{ marginTop: '8px' }}>
-                  {/* Ready to Play button - shown when navigating from preview */}
+                  {/* Ready to Play button */}
                   {location.state?.fromPreview && location.state?.pack === pack.id && (
                     <div style={{ marginBottom: '12px', display: 'flex', justifyContent: 'flex-end', paddingRight: '8px' }}>
                       <button
@@ -747,8 +626,8 @@ function NZPackSelect() {
                             }}
                           />
                           <div style={{ flex: 1, minWidth: 0 }}>
-                            <div style={{ fontSize: '13px', fontWeight: 700, color: '#4db6ac' }}>
-                              {nzSortMode === 'english' ? bird.englishName : bird.tileName}
+                            <div style={{ fontSize: '13px', fontWeight: 700, color: EU_ACCENT_COLOR }}>
+                              {bird.name}
                             </div>
                             <div style={{
                               fontSize: '11px',
@@ -756,18 +635,14 @@ function NZPackSelect() {
                               overflow: 'hidden',
                               textOverflow: 'ellipsis',
                               color: 'var(--color-text-muted)',
-                              fontStyle: nzSortMode === 'taxonomic' ? 'italic' : 'normal',
+                              fontStyle: 'italic',
                             }}>
-                              {nzSortMode === 'taxonomic'
-                                ? bird.scientificName
-                                : nzSortMode === 'english'
-                                  ? (bird.tileName !== bird.englishName ? bird.tileName : '')
-                                  : (bird.englishName !== bird.tileName ? bird.englishName : '')}
+                              {bird.scientificName}
                             </div>
                             <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
                               {bird.clipCount} clip{bird.clipCount !== 1 ? 's' : ''}
                               {bird.clipCount > 1 && (
-                                <span style={{ marginLeft: '4px', color: '#2d7a7a', opacity: 0.7 }}>
+                                <span style={{ marginLeft: '4px', color: '#5a6b2d', opacity: 0.7 }}>
                                   {isBirdExpanded ? '▲' : '▼'}
                                 </span>
                               )}
@@ -784,8 +659,8 @@ function NZPackSelect() {
                                 height: '28px',
                                 borderRadius: '50%',
                                 border: 'none',
-                                background: playingClip === bird.code ? '#4db6ac' : 'rgba(77, 182, 172, 0.3)',
-                                color: playingClip === bird.code ? '#000' : '#4db6ac',
+                                background: playingClip === bird.code ? EU_ACCENT_COLOR : 'rgba(160, 180, 80, 0.3)',
+                                color: playingClip === bird.code ? '#000' : EU_ACCENT_COLOR,
                                 cursor: 'pointer',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -828,8 +703,8 @@ function NZPackSelect() {
                                       height: '24px',
                                       borderRadius: '50%',
                                       border: 'none',
-                                      background: playingClip === clip.id ? '#4db6ac' : 'rgba(77, 182, 172, 0.3)',
-                                      color: playingClip === clip.id ? '#000' : '#4db6ac',
+                                      background: playingClip === clip.id ? EU_ACCENT_COLOR : 'rgba(160, 180, 80, 0.3)',
+                                      color: playingClip === clip.id ? '#000' : EU_ACCENT_COLOR,
                                       cursor: 'pointer',
                                       display: 'flex',
                                       alignItems: 'center',
@@ -850,7 +725,7 @@ function NZPackSelect() {
                                         <span style={{
                                           fontSize: '9px',
                                           color: '#000',
-                                          background: '#4db6ac',
+                                          background: EU_ACCENT_COLOR,
                                           padding: '2px 6px',
                                           borderRadius: '4px',
                                           fontWeight: 600,
@@ -870,19 +745,7 @@ function NZPackSelect() {
                                           {clip.vocalizationType}
                                         </span>
                                       )}
-                                      {clip.regionLabel && (
-                                        <span style={{
-                                          fontSize: '9px',
-                                          color: '#fff',
-                                          background: '#4db6ac',
-                                          padding: '2px 6px',
-                                          borderRadius: '4px',
-                                          fontWeight: 600,
-                                        }}>
-                                          {clip.regionLabel}
-                                        </span>
-                                      )}
-                                      {clip.source === 'doc' && (
+                                      {(clip.source || clip.recordist) && (
                                         <span style={{
                                           fontSize: '9px',
                                           color: 'var(--color-text-muted)',
@@ -890,7 +753,16 @@ function NZPackSelect() {
                                           padding: '2px 6px',
                                           borderRadius: '4px',
                                         }}>
-                                          DOC NZ
+                                          {clip.sourceUrl ? (
+                                            <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: EU_ACCENT_COLOR, textDecoration: 'underline' }}>
+                                              {clip.sourceId}{clip.recordist ? ` • ${clip.recordist}` : ''}
+                                            </a>
+                                          ) : (
+                                            <>
+                                              {clip.sourceId || clip.source}
+                                              {clip.recordist && ` • ${clip.recordist}`}
+                                            </>
+                                          )}
                                         </span>
                                       )}
                                     </div>
@@ -914,4 +786,4 @@ function NZPackSelect() {
   );
 }
 
-export default NZPackSelect;
+export default EUPackSelect;

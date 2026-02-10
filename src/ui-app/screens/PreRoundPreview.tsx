@@ -45,16 +45,26 @@ const PACK_NAMES: Record<string, string> = {
   western_birds: 'Western Birds',
   custom: 'Custom Pack',
   drill: 'Confusion Drill',
+  na_all_birds: 'All North America',
   // NZ packs
   nz_all_birds: 'All NZ Birds',
   nz_common: 'Garden & Bush',
   nz_north_island: 'North Island',
   nz_south_island: 'South Island',
+  // EU packs
+  eu_warblers: 'Warblers & Skulkers',
+  eu_raptors: 'Raptors',
+  eu_woodland: 'Woodland & Field',
+  eu_all_birds: 'All European Birds',
 };
 
 // NZ pack IDs and theme color
 const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'];
 const NZ_ACCENT_COLOR = '#4db6ac';  // Muted teal for NZ
+
+// EU pack IDs and theme color
+const EU_PACK_IDS = ['eu_warblers', 'eu_raptors', 'eu_woodland', 'eu_all_birds'];
+const EU_ACCENT_COLOR = '#a0b450';  // Olive for EU
 
 // Level titles for custom pack
 const LEVEL_TITLES: Record<number, string> = {
@@ -145,7 +155,9 @@ function PreRoundPreview() {
   // Determine if this is an NZ pack for theming
   const isNZPack = NZ_PACK_IDS.includes(packId) ||
     (packId === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'nz');
-  const accentColor = isNZPack ? NZ_ACCENT_COLOR : 'var(--color-accent)';
+  const isEUPack = EU_PACK_IDS.includes(packId) ||
+    (packId === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'eu');
+  const accentColor = isNZPack ? NZ_ACCENT_COLOR : isEUPack ? EU_ACCENT_COLOR : 'var(--color-accent)';
 
   const [level, setLevel] = useState<LevelConfig | null>(null);
   const [clips, setClips] = useState<ClipData[]>([]);
@@ -216,24 +228,15 @@ function PreRoundPreview() {
     let resorted: SelectedSpecies[];
 
     if (isNZPack) {
-      // NZ packs use 3-way sort mode
-      switch (nzSortMode) {
-        case 'english':
-          resorted = [...selectedSpecies].sort((a, b) => a.englishName.localeCompare(b.englishName));
-          break;
-        case 'taxonomic':
-          if (Object.keys(taxonomicOrder).length === 0) return;
-          resorted = [...selectedSpecies].sort((a, b) => {
+      // NZ packs: taxonomicSort controls sort order, nzSortMode controls display
+      if (taxonomicSort && Object.keys(taxonomicOrder).length === 0) return;
+      resorted = taxonomicSort
+        ? [...selectedSpecies].sort((a, b) => {
             const orderA = taxonomicOrder[a.code] || 9999;
             const orderB = taxonomicOrder[b.code] || 9999;
             return orderA - orderB;
-          });
-          break;
-        case 'maori':
-        default:
-          resorted = [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
-          break;
-      }
+          })
+        : [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
     } else {
       // NA packs use 2-way toggle
       if (taxonomicSort && Object.keys(taxonomicOrder).length === 0) return;
@@ -313,9 +316,11 @@ function PreRoundPreview() {
       if (isNZPack) {
         tileName = nzData?.tileName || iconCode;
       } else {
-        // NA birds: show 4-letter code or common name based on user preference
+        // NA birds: show 4-letter code, common name, or Latin based on user preference
         tileName = naDisplayMode === 'name'
           ? (commonNames[iconCode] || iconCode)
+          : naDisplayMode === 'latin'
+          ? (scientificNames[iconCode] || commonNames[iconCode] || iconCode)
           : iconCode;
       }
 
@@ -334,23 +339,14 @@ function PreRoundPreview() {
     // Sort based on current preference
     let sorted: SelectedSpecies[];
     if (isNZPack) {
-      // NZ packs use 3-way sort mode
-      switch (nzSortMode) {
-        case 'english':
-          sorted = unsorted.sort((a, b) => a.englishName.localeCompare(b.englishName));
-          break;
-        case 'taxonomic':
-          sorted = unsorted.sort((a, b) => {
+      // NZ packs: taxonomicSort controls sort order, nzSortMode controls display
+      sorted = taxonomicSort && Object.keys(taxonomicOrder).length > 0
+        ? unsorted.sort((a, b) => {
             const orderA = taxonomicOrder[a.code] || 9999;
             const orderB = taxonomicOrder[b.code] || 9999;
             return orderA - orderB;
-          });
-          break;
-        case 'maori':
-        default:
-          sorted = unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
-          break;
-      }
+          })
+        : unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
     } else {
       // NA packs use 2-way toggle (alphabetic/taxonomic)
       // Always sort by 4-letter code alphabetically (not tileName, which may be common name)
@@ -839,72 +835,55 @@ function PreRoundPreview() {
           <span style={{ fontSize: '11px' }}>Training</span>
         </button>
         {isNZPack ? (
-          /* NZ 3-way sort toggle */
+          /* NZ display mode + taxonomic sort toggles */
           <div style={{
-            flex: 1,
             display: 'flex',
-            borderRadius: '6px',
-            overflow: 'hidden',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
+            gap: '6px',
+            flex: 1,
           }}>
+            {/* Display mode toggle: Te Reo → English → Latin */}
             <button
               onClick={() => {
-                setNzSortMode('maori');
-                trackNZSortModeChange('maori', 'preview_screen');
+                const next = nzSortMode === 'maori' ? 'english' : nzSortMode === 'english' ? 'taxonomic' : 'maori';
+                setNzSortMode(next);
+                trackNZSortModeChange(next, 'preview_screen');
               }}
               style={{
                 flex: 1,
-                padding: '6px 4px',
-                background: nzSortMode === 'maori' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
+                padding: '6px 8px',
+                background: 'rgba(77, 182, 172, 0.25)',
+                border: `2px solid ${NZ_ACCENT_COLOR}`,
+                borderRadius: '6px',
                 cursor: 'pointer',
-                fontSize: '12px',
-                color: nzSortMode === 'maori' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'maori' ? 600 : 400,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4px',
               }}
-              title="Sort by Maori name"
+              title={nzSortMode === 'maori' ? 'Show English names' : nzSortMode === 'english' ? 'Show Latin names' : 'Show Te Reo names'}
             >
-              Te Reo
+              <span style={{ fontSize: '11px', fontWeight: 600, fontStyle: nzSortMode === 'taxonomic' ? 'italic' : 'normal', color: NZ_ACCENT_COLOR }}>
+                {nzSortMode === 'maori' ? 'Te Reo' : nzSortMode === 'english' ? 'English' : 'Latin'}
+              </span>
             </button>
+            {/* Taxonomic sort toggle */}
             <button
-              onClick={() => {
-                setNzSortMode('english');
-                trackNZSortModeChange('english', 'preview_screen');
-              }}
+              onClick={handleTaxonomicSortToggle}
               style={{
                 flex: 1,
-                padding: '6px 4px',
-                background: nzSortMode === 'english' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
+                padding: '6px 8px',
+                background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+                border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
+                borderRadius: '6px',
                 cursor: 'pointer',
-                fontSize: '12px',
-                color: nzSortMode === 'english' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'english' ? 600 : 400,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4px',
               }}
-              title="Sort by English name"
+              title={taxonomicSort ? 'Sort alphabetically' : 'Sort by taxonomy'}
             >
-              English
-            </button>
-            <button
-              onClick={() => {
-                setNzSortMode('taxonomic');
-                trackNZSortModeChange('taxonomic', 'preview_screen');
-              }}
-              style={{
-                flex: 1,
-                padding: '6px 4px',
-                background: nzSortMode === 'taxonomic' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '12px',
-                color: nzSortMode === 'taxonomic' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'taxonomic' ? 600 : 400,
-              }}
-              title="Sort by taxonomic order"
-            >
-              📊
+              <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
             </button>
           </div>
         ) : (
@@ -914,14 +893,17 @@ function PreRoundPreview() {
             gap: '6px',
             flex: 1,
           }}>
-            {/* Display mode toggle: 4-letter code vs common name */}
+            {/* Display mode toggle: 4-letter code → common name → Latin */}
             <button
-              onClick={() => setNaDisplayMode(naDisplayMode === 'code' ? 'name' : 'code')}
+              onClick={() => {
+                const next = naDisplayMode === 'code' ? 'name' : naDisplayMode === 'name' ? 'latin' : 'code';
+                setNaDisplayMode(next);
+              }}
               style={{
                 flex: 1,
                 padding: '6px 8px',
-                background: naDisplayMode === 'name' ? 'rgba(255, 152, 0, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-                border: naDisplayMode === 'name' ? '2px solid var(--color-accent)' : '1px solid rgba(255, 255, 255, 0.15)',
+                background: naDisplayMode !== 'code' ? 'rgba(255, 152, 0, 0.25)' : 'rgba(255, 255, 255, 0.05)',
+                border: naDisplayMode !== 'code' ? '2px solid var(--color-accent)' : '1px solid rgba(255, 255, 255, 0.15)',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 display: 'flex',
@@ -929,10 +911,10 @@ function PreRoundPreview() {
                 justifyContent: 'center',
                 gap: '4px',
               }}
-              title={naDisplayMode === 'code' ? 'Show common names' : 'Show 4-letter codes'}
+              title={naDisplayMode === 'code' ? 'Show common names' : naDisplayMode === 'name' ? 'Show Latin names' : 'Show 4-letter codes'}
             >
-              <span style={{ fontSize: '11px', fontWeight: naDisplayMode === 'name' ? 600 : 400 }}>
-                {naDisplayMode === 'name' ? 'Names' : 'NOCA'}
+              <span style={{ fontSize: '11px', fontWeight: naDisplayMode !== 'code' ? 600 : 400, fontStyle: naDisplayMode === 'latin' ? 'italic' : 'normal' }}>
+                {naDisplayMode === 'name' ? 'Names' : naDisplayMode === 'latin' ? 'Latin' : 'NOCA'}
               </span>
             </button>
             {/* Taxonomic sort toggle */}
@@ -989,22 +971,21 @@ function PreRoundPreview() {
         </div>
       )}
 
-      {/* Tip Box - Study the Grid */}
-      {/* Tip box */}
+      {/* Status line showing current settings */}
       <div style={{
-        background: 'rgba(100, 181, 246, 0.1)',
-        border: '1px solid rgba(100, 181, 246, 0.3)',
-        borderRadius: '8px',
-        padding: '10px 12px',
+        fontSize: '11px',
+        color: 'var(--color-text-muted)',
+        textAlign: 'center',
       }}>
-        <div style={{
-          fontSize: '12px',
-          color: 'var(--color-text)',
-          lineHeight: 1.4,
-          textAlign: 'center',
-        }}>
-          <strong>💡 Study the grid:</strong> Each bird keeps its position during play. Tap to hear, hold for a closer look. Use 🔀 to shuffle.
-        </div>
+        {isNZPack ? (
+          <>
+            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {nzSortMode === 'maori' ? 'Te Reo' : nzSortMode === 'english' ? 'English' : 'Latin'} • Sort: {taxonomicSort ? 'Taxonomic' : 'A-Z'}
+          </>
+        ) : (
+          <>
+            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {naDisplayMode === 'name' ? 'Common names' : naDisplayMode === 'latin' ? 'Latin names' : '4-letter codes'} • Sort: {taxonomicSort ? 'Taxonomic' : 'A-Z'}
+          </>
+        )}
       </div>
 
       {/* Species grid - MAIN FOCUS */}
@@ -1095,11 +1076,11 @@ function PreRoundPreview() {
                       </>
                     );
                   } else {
-                    // NA birds: code or common name based on display mode
+                    // NA birds: code, common name, or Latin based on display mode
                     // (taxonomic sort only changes order, not display)
                     return (
-                      <div style={{ fontWeight: 600 }}>
-                        {naDisplayMode === 'name' ? species.name : species.code}
+                      <div style={{ fontWeight: 600, fontStyle: naDisplayMode === 'latin' ? 'italic' : 'normal' }}>
+                        {naDisplayMode === 'name' ? species.name : naDisplayMode === 'latin' ? (species.scientificName || species.name) : species.code}
                       </div>
                     );
                   }
@@ -1110,22 +1091,22 @@ function PreRoundPreview() {
         </div>
       </div>
 
-      {/* Status line showing current settings */}
+      {/* Tip box */}
       <div style={{
-        fontSize: '11px',
-        color: 'var(--color-text-muted)',
-        textAlign: 'center',
-        marginBottom: '8px',
+        background: 'rgba(100, 181, 246, 0.1)',
+        border: '1px solid rgba(100, 181, 246, 0.3)',
+        borderRadius: '8px',
+        padding: '10px 12px',
+        marginBottom: '4px',
       }}>
-        {isNZPack ? (
-          <>
-            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {nzSortMode === 'maori' ? 'Te Reo' : nzSortMode === 'english' ? 'English' : 'Taxonomic'} • Sort: {nzSortMode === 'taxonomic' ? 'Taxonomic' : 'A-Z'}
-          </>
-        ) : (
-          <>
-            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {naDisplayMode === 'name' ? 'Common names' : '4-letter codes'} • Sort: {taxonomicSort ? 'Taxonomic' : 'A-Z'}
-          </>
-        )}
+        <div style={{
+          fontSize: '12px',
+          color: 'var(--color-text)',
+          lineHeight: 1.4,
+          textAlign: 'center',
+        }}>
+          <strong>💡 Study the grid:</strong> Each bird keeps its position during play. Tap to hear, hold for a closer look. Use 🔀 to shuffle.
+        </div>
       </div>
 
       {/* Ready button - bottom */}

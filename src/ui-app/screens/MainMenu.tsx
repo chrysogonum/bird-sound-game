@@ -163,27 +163,28 @@ function MainMenu() {
           onClick={() => navigate('/pack-select')}
           style={{
             marginTop: '16px',
-            padding: '18px 64px',
-            fontSize: '20px',
+            padding: '16px 72px',
+            fontSize: '19px',
             fontWeight: 700,
-            background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
-            color: 'white',
+            letterSpacing: '1px',
+            background: 'linear-gradient(135deg, #FFD54F 0%, #FF8A65 50%, #E57373 100%)',
+            color: '#1a1a2e',
             border: 'none',
-            borderRadius: '16px',
+            borderRadius: '28px',
             cursor: 'pointer',
-            boxShadow: '0 4px 16px rgba(45, 90, 39, 0.4)',
+            boxShadow: '0 4px 20px rgba(255, 138, 101, 0.35)',
             transition: 'transform 0.2s, box-shadow 0.2s',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(45, 90, 39, 0.5)';
+            e.currentTarget.style.boxShadow = '0 8px 28px rgba(255, 138, 101, 0.45)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(45, 90, 39, 0.4)';
+            e.currentTarget.style.boxShadow = '0 4px 20px rgba(255, 138, 101, 0.35)';
           }}
         >
-          Play
+          PLAY
         </button>
 
         {/* How it works - visual gameplay preview */}
@@ -222,8 +223,8 @@ function MainMenu() {
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', opacity: 0.5, fontSize: '24px', marginTop: '-16px' }}>
-              →
+            <div style={{ color: 'var(--color-text-muted)', opacity: 0.3, fontSize: '18px', marginTop: '-16px' }}>
+              ›
             </div>
 
             {/* Step 2: Bird options */}
@@ -241,8 +242,8 @@ function MainMenu() {
                       height: '28px',
                       borderRadius: '6px',
                       overflow: 'hidden',
-                      border: i === 0 ? '2px solid var(--color-accent)' : '2px solid transparent',
-                      boxShadow: i === 0 ? '0 0 8px rgba(255, 152, 0, 0.4)' : 'none',
+                      border: i === 0 ? '2px solid #FF8A65' : '2px solid transparent',
+                      boxShadow: i === 0 ? '0 0 8px rgba(255, 138, 101, 0.3)' : 'none',
                     }}
                   >
                     <img
@@ -259,8 +260,8 @@ function MainMenu() {
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', opacity: 0.5, fontSize: '24px', marginTop: '-16px' }}>
-              →
+            <div style={{ color: 'var(--color-text-muted)', opacity: 0.3, fontSize: '18px', marginTop: '-16px' }}>
+              ›
             </div>
 
             {/* Step 3: Learning outcome */}
@@ -275,10 +276,10 @@ function MainMenu() {
                 justifyContent: 'center',
                 boxShadow: '0 2px 8px rgba(0, 0, 0, 0.4)',
               }}>
-                <div style={{ fontSize: '32px' }}>🧠</div>
+                <div style={{ fontSize: '28px' }}>🎯</div>
               </div>
               <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
-                Train
+                Learn
               </div>
             </div>
           </div>
@@ -384,7 +385,7 @@ function MainMenu() {
         onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
         aria-label="View version history"
       >
-        v4.22
+        v5.0
       </button>
     </div>
   );

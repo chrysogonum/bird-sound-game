@@ -41,10 +41,20 @@ const PACK_NAMES: Record<string, string> = {
   nz_common: 'Garden & Bush',
   nz_north_island: 'North Island',
   nz_south_island: 'South Island',
+  // NA all
+  na_all_birds: 'All North America',
+  // EU packs
+  eu_warblers: 'Warblers & Skulkers',
+  eu_raptors: 'Raptors',
+  eu_woodland: 'Woodland & Field',
+  eu_all_birds: 'All European Birds',
 };
 
 // NZ pack IDs for routing
 const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'];
+
+// EU pack IDs for theming
+const EU_PACK_IDS = ['eu_warblers', 'eu_raptors', 'eu_woodland', 'eu_all_birds'];
 
 // Key for tracking custom pack region
 const CUSTOM_PACK_REGION_KEY = 'soundfield_custom_pack_region';
@@ -178,6 +188,7 @@ function getLevelDifficulty(level: LevelConfig): { label: string; color: string 
 
 // Theme colors by region
 const NZ_ACCENT_COLOR = '#4db6ac';  // Muted teal for NZ
+const EU_ACCENT_COLOR = '#a0b450';  // Olive for EU
 
 function LevelSelect() {
   const navigate = useNavigate();
@@ -193,10 +204,11 @@ function LevelSelect() {
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Determine if this is an NZ pack for theming
-  const isNZPack = NZ_PACK_IDS.includes(packId) ||
-    (packId === 'custom' && localStorage.getItem(CUSTOM_PACK_REGION_KEY) === 'nz');
-  const accentColor = isNZPack ? NZ_ACCENT_COLOR : 'var(--color-accent)';
+  // Determine pack region for theming
+  const customRegion = packId === 'custom' ? localStorage.getItem(CUSTOM_PACK_REGION_KEY) : null;
+  const isNZPack = NZ_PACK_IDS.includes(packId) || customRegion === 'nz';
+  const isEUPack = EU_PACK_IDS.includes(packId) || customRegion === 'eu';
+  const accentColor = isNZPack ? NZ_ACCENT_COLOR : isEUPack ? EU_ACCENT_COLOR : 'var(--color-accent)';
 
   // Load levels for this pack
   useEffect(() => {
@@ -214,11 +226,11 @@ function LevelSelect() {
         }
         // No custom pack saved - redirect to builder
         const customPackRegion = localStorage.getItem(CUSTOM_PACK_REGION_KEY);
-        navigate(customPackRegion === 'nz' ? '/custom-pack?region=nz' : '/custom-pack', { replace: true });
+        navigate(customPackRegion ? `/custom-pack?region=${customPackRegion}` : '/custom-pack', { replace: true });
       } catch (e) {
         console.error('Failed to load custom pack:', e);
         const customPackRegion = localStorage.getItem(CUSTOM_PACK_REGION_KEY);
-        navigate(customPackRegion === 'nz' ? '/custom-pack?region=nz' : '/custom-pack', { replace: true });
+        navigate(customPackRegion ? `/custom-pack?region=${customPackRegion}` : '/custom-pack', { replace: true });
       }
       return;
     }
@@ -381,13 +393,10 @@ function LevelSelect() {
       <div className="flex-row items-center gap-md" style={{ marginBottom: '8px' }}>
         <button className="btn-icon" onClick={() => {
           if (packId === 'custom') {
-            // Check if custom pack was NZ region
             const customPackRegion = localStorage.getItem(CUSTOM_PACK_REGION_KEY);
-            navigate(customPackRegion === 'nz' ? '/custom-pack?region=nz' : '/custom-pack');
-          } else if (NZ_PACK_IDS.includes(packId)) {
-            navigate('/nz-packs');
+            navigate(customPackRegion && customPackRegion !== 'all' ? `/custom-pack?region=${customPackRegion}` : '/custom-pack');
           } else {
-            navigate('/pack-select');
+            navigate(`/pack-detail?pack=${packId}`);
           }
         }} aria-label="Back" style={{ color: accentColor, opacity: 0.6 }}>
           <BackIcon />
