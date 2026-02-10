@@ -17168,5 +17168,41 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "SPFL_1038340_1",
+    "species_code": "SPFL",
+    "common_name": "Spotted Flycatcher",
+    "vocalization_type": "alarm call, call",
+    "duration_ms": 1000,
+    "quality_score": 5,
+    "loudness_lufs": -16.7,
+    "source": "xenocanto",
+    "source_id": "XC1038340",
+    "source_url": "https://xeno-canto.org/1038340",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
+    "file_path": "data/clips/SPFL_1038340_1.wav",
+    "spectrogram_path": "data/spectrograms/SPFL_1038340_1.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "SPFL_993955_1",
+    "species_code": "SPFL",
+    "common_name": "Spotted Flycatcher",
+    "vocalization_type": "song",
+    "duration_ms": 2100,
+    "quality_score": 5,
+    "loudness_lufs": -16.5,
+    "source": "xenocanto",
+    "source_id": "XC993955",
+    "source_url": "https://xeno-canto.org/993955",
+    "recordist": "Olivier SWIFT",
+    "file_path": "data/clips/SPFL_993955_1.wav",
+    "spectrogram_path": "data/spectrograms/SPFL_993955_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
