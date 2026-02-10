@@ -13709,7 +13709,7 @@
     "recordist": "Ray Tsu \u8bf8\u4ec1",
     "file_path": "data/clips/BLAK_993943_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_993943_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
