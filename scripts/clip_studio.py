@@ -1709,6 +1709,9 @@ def generate_html() -> str:
                                 <div class="dur-display" id="durationDisplay">2.0</div>
                                 <button class="dur-btn" onclick="adjustDuration(0.1)">+</button>
                             </div>
+                            <input type="range" id="durationSlider" min="0.5" max="3.0" step="0.1" value="2.0"
+                                   oninput="setDuration(parseFloat(this.value))"
+                                   style="width:100%;margin-top:4px;accent-color:var(--teal);">
                         </div>
                         <div class="form-field">
                             <label class="form-label">Vocalization Type</label>
@@ -2133,12 +2136,16 @@ document.getElementById('waveform').addEventListener('click', function(e) {
     updateSelectionUI();
 });
 
-function adjustDuration(delta) {
-    S.duration = Math.max(0.5, Math.min(3.0, +(S.duration + delta).toFixed(1)));
+function setDuration(val) {
+    S.duration = Math.max(0.5, Math.min(3.0, +val.toFixed(1)));
     if (S.waveformData && S.startTime + S.duration > S.waveformData.duration) {
         S.startTime = Math.max(0, S.waveformData.duration - S.duration);
     }
     updateSelectionUI();
+}
+
+function adjustDuration(delta) {
+    setDuration(S.duration + delta);
 }
 
 function updateSelectionUI() {
@@ -2152,6 +2159,7 @@ function updateSelectionUI() {
 
     document.getElementById('startTimeDisplay').textContent = S.startTime.toFixed(1) + 's';
     document.getElementById('durationDisplay').textContent = S.duration.toFixed(1);
+    document.getElementById('durationSlider').value = S.duration;
     document.getElementById('timeDisplay').textContent =
         fmtTime(S.startTime) + ' - ' + fmtTime(S.startTime + S.duration) + ' / ' + fmtTime(dur);
 }
