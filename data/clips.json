@@ -13730,5 +13730,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BLAK_1075223_2",
+    "species_code": "BLAK",
+    "common_name": "Black Kite",
+    "vocalization_type": "call",
+    "duration_ms": 1500,
+    "quality_score": 5,
+    "loudness_lufs": -25.7,
+    "source": "xenocanto",
+    "source_id": "XC1075223",
+    "source_url": "https://xeno-canto.org/1075223",
+    "recordist": "Jonathan Onongo",
+    "file_path": "data/clips/BLAK_1075223_2.wav",
+    "spectrogram_path": "data/spectrograms/BLAK_1075223_2.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
