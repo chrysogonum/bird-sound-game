@@ -16391,7 +16391,7 @@
     "recordist": "Lars Edenius",
     "file_path": "data/clips/MITH_991459_1.wav",
     "spectrogram_path": "data/spectrograms/MITH_991459_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
