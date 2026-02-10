@@ -173,7 +173,8 @@ def count_candidates_per_species() -> Dict[str, int]:
 
 def extract_clip(source_path: Path, start_time: float, duration: float,
                  species_code: str, xc_id: str = None,
-                 vocalization_type: str = 'song', recordist: str = 'Unknown') -> dict:
+                 vocalization_type: str = 'song', recordist: str = 'Unknown',
+                 license: str = '') -> dict:
     """Extract a clip segment from source recording.
 
     Saves immediately to clips.json (extraction is not batched).
@@ -262,6 +263,7 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
         'spectrogram_path': f"data/spectrograms/{clip_id}.png",
         'canonical': False,
         'rejected': False,
+        'license': license,
     }
 
     clips.append(clip_data)
@@ -787,6 +789,7 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 xc_id=params.get('xc_id'),
                 vocalization_type=params.get('vocalization_type', 'song'),
                 recordist=params.get('recordist', 'Unknown'),
+                license=params.get('license', ''),
             )
             self.send_json(result)
         except Exception as e:
@@ -1166,16 +1169,16 @@ def generate_html() -> str:
         }
 
         .species-header {
-            padding: 24px 32px;
+            padding: 12px 32px;
             border-bottom: 1px solid var(--border);
             background: var(--bg-secondary);
         }
 
         .species-header h2 {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .species-sci {
@@ -1186,7 +1189,7 @@ def generate_html() -> str:
 
         /* Source chips */
         .source-bar {
-            padding: 16px 32px;
+            padding: 8px 32px;
             border-bottom: 1px solid var(--border);
             background: var(--bg-secondary);
             display: flex;
@@ -1258,26 +1261,34 @@ def generate_html() -> str:
         .waveform-area {
             flex: 1;
             overflow-y: auto;
-            padding: 24px 32px;
+            padding: 12px 32px;
         }
 
         .waveform-container { max-width: 900px; }
 
         #waveform {
             width: 100%;
-            height: 160px;
+            height: 130px;
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 6px;
             position: relative;
             cursor: crosshair;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        #waveformInner {
+            position: relative;
+            height: 100%;
+            min-width: 100%;
         }
 
         #waveformCanvas {
-            width: 100%;
             height: 100%;
             border-radius: 6px;
+            display: block;
         }
 
         .selection-overlay {
@@ -1304,7 +1315,7 @@ def generate_html() -> str:
             display: flex;
             gap: 10px;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 8px;
         }
 
         .btn {
@@ -1342,17 +1353,17 @@ def generate_html() -> str:
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 6px;
-            padding: 20px;
+            padding: 12px 16px;
         }
 
         .form-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
         }
 
-        .form-field { display: flex; flex-direction: column; gap: 6px; }
+        .form-field { display: flex; flex-direction: column; gap: 4px; }
 
         .form-label {
             font-size: 10px;
@@ -1684,16 +1695,21 @@ def generate_html() -> str:
         <div class="waveform-area" id="waveformArea" style="display:none;">
             <div class="waveform-container">
                 <div id="waveform">
-                    <canvas id="waveformCanvas"></canvas>
-                    <div class="selection-overlay" id="selection" style="display:none;"></div>
-                    <div class="playhead" id="playhead" style="display:none;"></div>
+                    <div id="waveformInner">
+                        <canvas id="waveformCanvas"></canvas>
+                        <div class="selection-overlay" id="selection" style="display:none;"></div>
+                        <div class="playhead" id="playhead" style="display:none;"></div>
+                    </div>
                 </div>
 
                 <div class="controls-row">
-                    <button class="btn" onclick="playFull()">&#9654; Play Full</button>
-                    <button class="btn" onclick="playSelection()">&#9654; Selection</button>
-                    <button class="btn" onclick="stopAudio()">&#9632; Stop</button>
+                    <button class="btn" id="btnFull" onclick="toggleFull()">&#9654; Full</button>
+                    <button class="btn" id="btnSel" onclick="toggleSelection()">&#9654; Selection</button>
                     <div class="time-display" id="timeDisplay">0:00 - 0:00</div>
+                    <span style="color:var(--text-dim);font-size:10px;margin-left:auto;">Zoom</span>
+                    <input type="range" id="zoomSlider" min="1" max="10" step="0.5" value="1"
+                           oninput="setZoom(parseFloat(this.value))"
+                           style="width:100px;accent-color:var(--teal);">
                 </div>
 
                 <div class="extract-form">
@@ -1704,26 +1720,28 @@ def generate_html() -> str:
                         </div>
                         <div class="form-field">
                             <label class="form-label">Duration</label>
-                            <div class="dur-controls">
+                            <div style="display:flex;align-items:center;gap:6px;">
                                 <button class="dur-btn" onclick="adjustDuration(-0.1)">&minus;</button>
                                 <div class="dur-display" id="durationDisplay">2.0</div>
                                 <button class="dur-btn" onclick="adjustDuration(0.1)">+</button>
                             </div>
-                            <input type="range" id="durationSlider" min="0.5" max="3.0" step="0.1" value="2.0"
-                                   oninput="setDuration(parseFloat(this.value))"
-                                   style="width:100%;margin-top:4px;accent-color:var(--teal);">
                         </div>
                         <div class="form-field">
                             <label class="form-label">Vocalization Type</label>
                             <select class="form-select" id="vocType">''' + voc_type_options + '''</select>
                         </div>
-                        <div class="form-field">
-                            <label class="form-label">Recordist</label>
-                            <input type="text" class="form-input" id="recordist" placeholder="Unknown">
+                        <div class="form-field" style="grid-column:1/-1;">
+                            <input type="range" id="durationSlider" min="0.5" max="3.0" step="0.1" value="2.0"
+                                   oninput="setDuration(parseFloat(this.value))"
+                                   style="width:100%;accent-color:var(--teal);">
                         </div>
                         <div class="form-field">
                             <label class="form-label">License</label>
                             <span id="licenseDisplay" style="font-size:11px;color:var(--text-dim);">—</span>
+                        </div>
+                        <div class="form-field" style="grid-column:3;">
+                            <label class="form-label">Recordist</label>
+                            <input type="text" class="form-input" id="recordist" placeholder="Unknown">
                         </div>
                     </div>
                     <button class="btn btn-primary" style="width:100%;" onclick="extractClip()">
@@ -1767,6 +1785,7 @@ const S = {
     waveformData: null,
     startTime: 0,
     duration: 2.0,
+    zoom: 1,
     // Batched edits (not saved until Save All)
     modifications: {},      // clip_id -> {field: newValue}
     deletions: new Set(),   // clip_ids marked for deletion
@@ -2035,6 +2054,11 @@ function loadCandidate(candidate) {
         .then(data => {
             S.waveformData = data;
             S.startTime = 0;
+            // Auto-zoom: aim for ~30px per second, capped at 1-10x
+            var containerW = document.getElementById('waveform').clientWidth;
+            var idealZoom = (data.duration * 30) / containerW;
+            S.zoom = Math.max(1, Math.min(10, idealZoom));
+            document.getElementById('zoomSlider').value = S.zoom;
             drawWaveform();
             updateSelectionUI();
         });
@@ -2066,6 +2090,10 @@ function loadXC() {
                     .then(data => {
                         S.waveformData = data;
                         S.startTime = 0;
+                        var containerW = document.getElementById('waveform').clientWidth;
+                        var idealZoom = (data.duration * 30) / containerW;
+                        S.zoom = Math.max(1, Math.min(10, idealZoom));
+                        document.getElementById('zoomSlider').value = S.zoom;
                         drawWaveform();
                         updateSelectionUI();
                         showStatus('Loaded XC' + xcId + ' (' + result.duration.toFixed(1) + 's)' +
@@ -2084,15 +2112,23 @@ function loadXC() {
 function drawWaveform() {
     if (!S.waveformData) return;
 
+    const container = document.getElementById('waveform');
+    const inner = document.getElementById('waveformInner');
     const canvas = document.getElementById('waveformCanvas');
     const ctx = canvas.getContext('2d');
-    const rect = canvas.getBoundingClientRect();
 
-    canvas.width = rect.width * devicePixelRatio;
-    canvas.height = rect.height * devicePixelRatio;
+    const containerW = container.clientWidth;
+    const w = containerW * S.zoom;
+    const h = container.clientHeight;
+
+    // Size the inner div and canvas
+    inner.style.width = w + 'px';
+    canvas.style.width = w + 'px';
+    canvas.width = w * devicePixelRatio;
+    canvas.height = h * devicePixelRatio;
     ctx.scale(devicePixelRatio, devicePixelRatio);
 
-    const w = rect.width, h = rect.height, mid = h / 2;
+    const mid = h / 2;
 
     ctx.fillStyle = '#1a1a1a';
     ctx.fillRect(0, 0, w, h);
@@ -2116,7 +2152,7 @@ function drawWaveform() {
     ctx.fillStyle = '#555';
     ctx.font = '10px "IBM Plex Mono", monospace';
     const dur = S.waveformData.duration;
-    const interval = dur > 30 ? 10 : dur > 10 ? 5 : 1;
+    const interval = dur > 60 ? 10 : dur > 20 ? 5 : dur > 5 ? 1 : 0.5;
     for (let t = 0; t <= dur; t += interval) {
         const x = (t / dur) * w;
         ctx.fillRect(x, 0, 1, 4);
@@ -2124,10 +2160,28 @@ function drawWaveform() {
     }
 }
 
+function setZoom(val) {
+    S.zoom = val;
+    drawWaveform();
+    updateSelectionUI();
+    // Scroll to keep selection visible
+    const container = document.getElementById('waveform');
+    if (S.waveformData) {
+        const selLeft = (S.startTime / S.waveformData.duration) * container.clientWidth * S.zoom;
+        const visLeft = container.scrollLeft;
+        const visRight = visLeft + container.clientWidth;
+        if (selLeft < visLeft || selLeft > visRight) {
+            container.scrollLeft = selLeft - container.clientWidth * 0.3;
+        }
+    }
+}
+
 document.getElementById('waveform').addEventListener('click', function(e) {
     if (!S.waveformData) return;
     const rect = this.getBoundingClientRect();
-    const ratio = (e.clientX - rect.left) / rect.width;
+    const clickX = e.clientX - rect.left + this.scrollLeft;
+    const totalW = this.clientWidth * S.zoom;
+    const ratio = clickX / totalW;
 
     S.startTime = ratio * S.waveformData.duration;
     if (S.startTime + S.duration > S.waveformData.duration) {
@@ -2168,19 +2222,40 @@ function updateSelectionUI() {
 // PLAYBACK
 // ═══════════════════════════════════════════════════════════════
 
-function playFull() {
+var centerPlayMode = null; // 'full' or 'selection'
+
+function updateCenterButtons() {
+    var btnFull = document.getElementById('btnFull');
+    var btnSel = document.getElementById('btnSel');
+    btnFull.innerHTML = (centerPlayMode === 'full') ? '&#9632; Full' : '&#9654; Full';
+    btnSel.innerHTML = (centerPlayMode === 'selection') ? '&#9632; Selection' : '&#9654; Selection';
+}
+
+function toggleFull() {
     if (!S.selectedSource) return;
+    if (centerPlayMode === 'full') {
+        stopAudio();
+        return;
+    }
     stopAudio();
+    centerPlayMode = 'full';
+    updateCenterButtons();
     audio = new Audio('/audio/' + encodeURIComponent(S.selectedSource.path));
     audio.play();
     isPlaying = true;
     updatePlayhead();
-    audio.onended = () => { isPlaying = false; };
+    audio.onended = () => { stopAudio(); };
 }
 
-function playSelection() {
+function toggleSelection() {
     if (!S.selectedSource) return;
+    if (centerPlayMode === 'selection') {
+        stopAudio();
+        return;
+    }
     stopAudio();
+    centerPlayMode = 'selection';
+    updateCenterButtons();
     audio = new Audio('/audio/' + encodeURIComponent(S.selectedSource.path));
     audio.currentTime = S.startTime;
     audio.play();
@@ -2239,9 +2314,11 @@ function stopAudio() {
     if (audio) { audio.pause(); audio = null; }
     isPlaying = false;
     playingClipPath = null;
+    centerPlayMode = null;
     document.getElementById('playhead').style.display = 'none';
     if (animFrame) cancelAnimationFrame(animFrame);
     updatePlayButtons();
+    updateCenterButtons();
 }
 
 function updatePlayhead() {
@@ -2272,6 +2349,7 @@ function extractClip() {
             xc_id: S.selectedSource.xc_id,
             vocalization_type: document.getElementById('vocType').value,
             recordist: document.getElementById('recordist').value || 'Unknown',
+            license: document.getElementById('licenseDisplay').textContent || '',
         })
     })
     .then(r => r.json())
@@ -2334,9 +2412,10 @@ function renderClips() {
             '<img src="/' + clip.spectrogram_path + '" class="clip-spec"' +
             ' onerror="this.style.display=\\'none\\'">' +
             '<div class="clip-id">' + id + '</div>' +
-            '<div class="clip-meta-row">' +
-            '<span class="clip-meta-label">Duration</span>' +
-            '<span class="clip-meta-value">' + (clip.duration_ms/1000).toFixed(1) + 's</span></div>' +
+            '<div class="clip-edit-row">' +
+            '<span class="clip-edit-label">Duration</span>' +
+            '<span style="font-size:11px;">' + (clip.duration_ms/1000).toFixed(1) + 's</span></div>' +
+            (clip.source_id ? '<div class="clip-edit-row"><span class="clip-edit-label">Source</span><span style="font-size:11px;">' + escHtml(clip.source_id) + '</span></div>' : '') +
             '<div class="clip-edit-row">' +
             '<span class="clip-edit-label">Type</span>' +
             '<select class="clip-edit-select" onchange="setMod(\\'' + id + '\\',\\'vocalization_type\\',this.value)">' +
@@ -2348,6 +2427,18 @@ function renderClips() {
             '<span class="clip-edit-label">By</span>' +
             '<input class="clip-edit-input" value="' + escHtml(recordist) + '"' +
             ' onchange="setMod(\\'' + id + '\\',\\'recordist\\',this.value)"></div>' +
+            (function() {
+                var lic = (clip.license || '').toLowerCase();
+                if (lic.includes('by-nc-nd')) return '<div class="clip-edit-row"><span class="clip-edit-label">Lic</span><span style="color:#ff5252;font-size:11px;">NC-ND ⚠</span></div>';
+                if (lic.includes('by-nc-sa')) return '<div class="clip-edit-row"><span class="clip-edit-label">Lic</span><span style="color:#81c784;font-size:11px;">NC-SA</span></div>';
+                if (lic.includes('by-sa')) return '<div class="clip-edit-row"><span class="clip-edit-label">Lic</span><span style="color:#4db6ac;font-size:11px;">BY-SA</span></div>';
+                if (lic.includes('publicdomain') || lic.includes('zero')) return '<div class="clip-edit-row"><span class="clip-edit-label">Lic</span><span style="color:#4db6ac;font-size:11px;">CC0</span></div>';
+                if (lic.includes('crown')) return '<div class="clip-edit-row"><span class="clip-edit-label">Lic</span><span style="color:#81c784;font-size:11px;">DOC</span></div>';
+                if (lic.includes('macaulay')) return '<div class="clip-edit-row"><span class="clip-edit-label">Lic</span><span style="color:#ffa726;font-size:11px;">ML</span></div>';
+                if (lic.includes('peter') || lic.includes('original')) return '<div class="clip-edit-row"><span class="clip-edit-label">Lic</span><span style="color:#4db6ac;font-size:11px;">Own</span></div>';
+                if (lic) return '<div class="clip-edit-row"><span class="clip-edit-label">Lic</span><span style="color:var(--text-dim);font-size:11px;">Other</span></div>';
+                return '';
+            })() +
             '<div class="clip-actions">' +
             '<button class="clip-act canon-btn' + (isCanonical ? ' is-canon' : '') + '"' +
             ' onclick="toggleCanonical(\\'' + id + '\\')" title="Canonical">&#11088;</button>' +
