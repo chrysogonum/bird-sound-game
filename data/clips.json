@@ -13694,5 +13694,41 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BLAK_1075223_1",
+    "species_code": "BLAK",
+    "common_name": "Black Kite",
+    "vocalization_type": "call",
+    "duration_ms": 2100,
+    "quality_score": 5,
+    "loudness_lufs": -16.1,
+    "source": "xenocanto",
+    "source_id": "XC1075223",
+    "source_url": "https://xeno-canto.org/1075223",
+    "recordist": "Jonathan Onongo",
+    "file_path": "data/clips/BLAK_1075223_1.wav",
+    "spectrogram_path": "data/spectrograms/BLAK_1075223_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BLAK_993943_1",
+    "species_code": "BLAK",
+    "common_name": "Black Kite",
+    "vocalization_type": "call",
+    "duration_ms": 1500,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC993943",
+    "source_url": "https://xeno-canto.org/993943",
+    "recordist": "Ray Tsu \u8bf8\u4ec1",
+    "file_path": "data/clips/BLAK_993943_1.wav",
+    "spectrogram_path": "data/spectrograms/BLAK_993943_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
