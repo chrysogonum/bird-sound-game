@@ -3384,6 +3384,9 @@ def generate_batch_html() -> str:
                 const isModified = state.pendingChanges.modified[clip.clip_id];
                 const isRejected = state.pendingChanges.deleted.includes(clip.clip_id) || clip.rejected;
                 const isCanonical = clip.canonical;
+                const hasNDLicense = clip.license && clip.license.toLowerCase().includes('nd');
+                const licenseStyle = hasNDLicense ? 'color: #ff6b6b; font-weight: bold;' : '';
+                const licenseWarning = hasNDLicense ? ' ⚠️' : '';
 
                 return `
                     <div class="clip-card ${isCanonical ? 'canonical' : ''} ${isModified ? 'modified' : ''} ${isRejected ? 'rejected' : ''}"
@@ -3436,7 +3439,7 @@ def generate_batch_html() -> str:
                             </div>
                             <div class="metadata-row">
                                 <span class="metadata-label">License</span>
-                                <span class="metadata-value" style="font-size: 11px; ${clip.license && clip.license.toLowerCase().includes('nd') ? 'color: #ff6b6b; font-weight: bold;' : ''}">${clip.license || 'Unknown'}${clip.license && clip.license.toLowerCase().includes('nd') ? ' ⚠️' : ''}</span>
+                                <span class="metadata-value" style="font-size: 11px; ${licenseStyle}">${clip.license || 'Unknown'}${licenseWarning}</span>
                             </div>
                         </div>
 
