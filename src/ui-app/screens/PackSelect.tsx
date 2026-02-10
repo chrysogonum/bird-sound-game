@@ -35,7 +35,7 @@ const REGIONS = [
     accentColor: '#4db6ac',
     titleColor: '#a8d8cc',
     icon: 'yeepen1',
-    preview: ['tui1', 'belkin1', 'kereru1', 'fantai3', 'morpor1'],
+    preview: ['tui1', 'nezbel1', 'nezfan1', 'morepo2', 'weka1'],
   },
 ];
 
@@ -88,8 +88,8 @@ function PackSelect() {
               width: '100%',
               display: 'flex',
               flexDirection: 'column',
-              gap: '12px',
-              padding: '20px',
+              gap: '6px',
+              padding: '14px 20px',
               background: region.bg,
               borderRadius: '14px',
               border: 'none',
@@ -128,7 +128,7 @@ function PackSelect() {
                   {region.summary}
                 </div>
               </div>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={region.accentColor} strokeWidth="2" style={{ opacity: 0.5, flexShrink: 0 }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={region.accentColor} strokeWidth="3" style={{ opacity: 1, flexShrink: 0 }}>
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </div>
@@ -149,7 +149,7 @@ function PackSelect() {
                     borderRadius: '50%',
                     objectFit: 'cover',
                     border: '2px solid rgba(0,0,0,0.4)',
-                    marginLeft: i === 0 ? 0 : '-10px',
+                    marginLeft: i === 0 ? 0 : '-4px',
                   }}
                 />
               ))}
