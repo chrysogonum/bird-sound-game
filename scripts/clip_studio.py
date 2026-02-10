@@ -124,10 +124,14 @@ def load_candidates_for_species(species_code: str) -> List[Dict]:
             manifest_data = json.load(f)
             for item in manifest_data:
                 if item.get('species_code') == species_code:
-                    xc_id = item.get('xc_id')
+                    xc_id = item.get('xc_id') or (item.get('source_id', '').replace('XC', '') or None)
+                    if not xc_id:
+                        continue
                     audio_file = None
                     for ext in ['.mp3', '.wav']:
                         matches = list(cdir.glob(f'XC{xc_id}*{ext}'))
+                        if not matches:
+                            matches = list(cdir.glob(f'*{xc_id}*{ext}'))
                         if matches:
                             audio_file = str(matches[0])
                             break
@@ -137,7 +141,7 @@ def load_candidates_for_species(species_code: str) -> List[Dict]:
                             'xc_id': xc_id,
                             'path': audio_file,
                             'recordist': item.get('recordist', 'Unknown'),
-                            'vocalization_type': item.get('type', 'song'),
+                            'vocalization_type': item.get('vocalization_type') or item.get('type', 'song'),
                             'license': item.get('license', 'unknown')
                         })
 
@@ -208,11 +212,11 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
     # Load existing clips
     clips = load_clips()
 
-    # Generate clip ID
+    # Generate clip ID — preserve original case for eBird codes (lowercase like carcro1)
     if xc_id:
-        prefix = f"{species_code.upper()}_{xc_id}_"
+        prefix = f"{species_code}_{xc_id}_"
     else:
-        prefix = f"{species_code.upper()}_clip_"
+        prefix = f"{species_code}_clip_"
 
     existing_nums = [int(c['clip_id'][len(prefix):])
                      for c in clips
@@ -238,12 +242,13 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
 
     # Look up common name
     species_data = load_species_data()
-    common_name = species_data.get(species_code.upper(), {}).get('common_name', species_code.upper())
+    common_name = (species_data.get(species_code, {}).get('common_name') or
+                   species_data.get(species_code.upper(), {}).get('common_name', species_code))
 
     # Build clip metadata
     clip_data = {
         'clip_id': clip_id,
-        'species_code': species_code.upper(),
+        'species_code': species_code,
         'common_name': common_name,
         'vocalization_type': vocalization_type,
         'duration_ms': duration_ms,
@@ -756,20 +761,8 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                         rec = api_data['recordings'][0]
                         result['recordist'] = rec.get('rec', '')
                         result['common_name'] = rec.get('en', '')
-                        # Map XC type to our vocalization types
-                        xc_type = rec.get('type', '').lower()
-                        if 'song' in xc_type:
-                            result['vocalization_type'] = 'song'
-                        elif 'alarm' in xc_type:
-                            result['vocalization_type'] = 'alarm call'
-                        elif 'flight' in xc_type:
-                            result['vocalization_type'] = 'flight call'
-                        elif 'call' in xc_type:
-                            result['vocalization_type'] = 'call'
-                        elif 'drum' in xc_type:
-                            result['vocalization_type'] = 'drum'
-                        else:
-                            result['vocalization_type'] = 'song'
+                        # Preserve XC vocalization type as-is
+                        result['vocalization_type'] = rec.get('type', 'call')
                         # License info
                         result['license'] = rec.get('lic', '')
             except Exception as e:
@@ -1091,7 +1084,7 @@ def generate_html() -> str:
 
         .search-input {
             width: 100%;
-            padding: 9px 12px;
+            padding: 9px 32px 9px 12px;
             background: var(--bg-tertiary);
             border: 1px solid var(--border-subtle);
             border-radius: 4px;
@@ -1659,9 +1652,11 @@ def generate_html() -> str:
         <div class="pack-tree" id="packTree"></div>
 
         <div class="section-label" style="margin-top: 12px;">SPECIES</div>
-        <div class="search-wrap">
+        <div class="search-wrap" style="position:relative;">
             <input type="text" class="search-input" id="searchInput"
                    placeholder="Search species..." oninput="renderSpeciesList()">
+            <span id="searchClear" onclick="document.getElementById('searchInput').value='';renderSpeciesList();"
+                  style="position:absolute;right:12px;top:50%;transform:translateY(-50%);cursor:pointer;color:var(--text-dim);font-size:20px;line-height:1;padding:2px 4px;display:none;">&times;</span>
         </div>
         <div class="species-list" id="speciesList"></div>
     </div>
@@ -1675,7 +1670,7 @@ def generate_html() -> str:
 
         <div class="source-bar" id="sourceBar" style="display:none;">
             <span class="source-label">Sources</span>
-            <div id="sourceChips"></div>
+            <div id="sourceChips" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
             <div class="xc-load-area">
                 <input type="text" class="xc-input" id="xcInput" placeholder="XC ID">
                 <button class="btn" onclick="loadXC()">Load XC</button>
@@ -1722,6 +1717,10 @@ def generate_html() -> str:
                         <div class="form-field">
                             <label class="form-label">Recordist</label>
                             <input type="text" class="form-input" id="recordist" placeholder="Unknown">
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">License</label>
+                            <span id="licenseDisplay" style="font-size:11px;color:var(--text-dim);">—</span>
                         </div>
                     </div>
                     <button class="btn btn-primary" style="width:100%;" onclick="extractClip()">
@@ -1877,6 +1876,7 @@ function renderPackTree() {
 function renderSpeciesList() {
     const container = document.getElementById('speciesList');
     const search = document.getElementById('searchInput').value.toLowerCase();
+    document.getElementById('searchClear').style.display = search ? '' : 'none';
 
     const filtered = S.species.filter(sp =>
         sp.species_code.toLowerCase().includes(search) ||
@@ -1950,13 +1950,26 @@ function renderSourceBar(candidates) {
     if (candidates.length === 0) {
         chips.innerHTML = '<span style="color:var(--text-dim);font-size:12px;">None available</span>';
     } else {
-        chips.innerHTML = candidates.map((c, i) =>
-            '<span class="source-chip' + (i === 0 ? ' active' : '') + '"' +
-            ' data-idx="' + i + '"' +
-            ' onclick="loadCandidateByIndex(' + i + ')">' +
-            'XC' + c.xc_id +
-            '</span>'
-        ).join('');
+        chips.innerHTML = candidates.map((c, i) => {
+            let licBadge = '';
+            const lic = (c.license || '').toLowerCase();
+            if (lic.includes('by-nc-nd')) {
+                licBadge = ' <span style="color:#ff5252;font-size:9px;" title="BY-NC-ND (restrictive)">ND</span>';
+            } else if (lic.includes('by-nc-sa')) {
+                licBadge = ' <span style="color:#81c784;font-size:9px;" title="BY-NC-SA">SA</span>';
+            } else if (lic.includes('by-sa')) {
+                licBadge = ' <span style="color:#4db6ac;font-size:9px;" title="BY-SA">SA</span>';
+            } else if (lic && lic !== 'unknown') {
+                licBadge = ' <span style="color:#ffa726;font-size:9px;" title="' + c.license + '">?</span>';
+            }
+            return '<span class="source-chip' + (i === 0 ? ' active' : '') + '"' +
+                ' data-idx="' + i + '"' +
+                ' onclick="loadCandidateByIndex(' + i + ')">' +
+                'XC' + c.xc_id +
+                ' <span style="color:var(--text-dim);font-size:9px;">' + (c.vocalization_type || '') + '</span>' +
+                licBadge +
+                '</span>';
+        }).join('');
     }
 }
 
@@ -1972,12 +1985,42 @@ function loadCandidateByIndex(idx) {
     loadCandidate(c);
 }
 
+function setVocType(xcType) {
+    // Set vocalization type dropdown, adding the XC type as an option if needed
+    const sel = document.getElementById('vocType');
+    const val = (xcType || 'call').toLowerCase();
+    // Check if option exists
+    const exists = Array.from(sel.options).some(o => o.value === val);
+    if (!exists) {
+        const opt = document.createElement('option');
+        opt.value = val;
+        opt.textContent = val;
+        sel.appendChild(opt);
+    }
+    sel.value = val;
+}
+
 function loadCandidate(candidate) {
     document.getElementById('centerPlaceholder').style.display = 'none';
     document.getElementById('waveformArea').style.display = '';
 
     document.getElementById('recordist').value = candidate.recordist || '';
-    document.getElementById('vocType').value = candidate.vocalization_type || 'song';
+    setVocType(candidate.vocalization_type);
+
+    // Show license
+    const licEl = document.getElementById('licenseDisplay');
+    const lic = (candidate.license || '').toLowerCase();
+    if (lic.includes('by-nc-nd')) {
+        licEl.innerHTML = '<span style="color:#ff5252;">CC BY-NC-ND 4.0 ⚠️</span>';
+    } else if (lic.includes('by-nc-sa')) {
+        licEl.innerHTML = '<span style="color:#81c784;">CC BY-NC-SA 4.0 ✓</span>';
+    } else if (lic.includes('by-sa')) {
+        licEl.innerHTML = '<span style="color:#4db6ac;">CC BY-SA 4.0 ✓</span>';
+    } else if (lic && lic !== 'unknown') {
+        licEl.innerHTML = '<span style="color:#ffa726;">' + candidate.license + '</span>';
+    } else {
+        licEl.innerHTML = '<span style="color:var(--text-dim);">Unknown</span>';
+    }
 
     S.selectedSource = {
         path: candidate.path,
@@ -2010,7 +2053,7 @@ function loadXC() {
                 };
 
                 if (result.recordist) document.getElementById('recordist').value = result.recordist;
-                if (result.vocalization_type) document.getElementById('vocType').value = result.vocalization_type;
+                if (result.vocalization_type) setVocType(result.vocalization_type);
 
                 document.getElementById('centerPlaceholder').style.display = 'none';
                 document.getElementById('waveformArea').style.display = '';

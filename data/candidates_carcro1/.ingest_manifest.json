@@ -6,10 +6,11 @@
     "source": "xenocanto",
     "source_id": "XC530807",
     "recordist": "Jarek Matusiak",
-    "vocalization_type": "begging call",
+    "vocalization_type": "begging call, song",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
-    "quality": "A"
+    "quality": "A",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/candidates_carcro1/carcro1_1053150.wav",
@@ -21,7 +22,8 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
-    "quality": "A"
+    "quality": "A",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/candidates_carcro1/carcro1_1039715.wav",
@@ -33,7 +35,8 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
-    "quality": "A"
+    "quality": "A",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/candidates_carcro1/carcro1_1006239.wav",
@@ -45,7 +48,8 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
-    "quality": "A"
+    "quality": "A",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/candidates_carcro1/carcro1_943486.wav",
@@ -57,7 +61,8 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
-    "quality": "A"
+    "quality": "A",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/candidates_carcro1/carcro1_879586.wav",
@@ -69,7 +74,8 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
-    "quality": "A"
+    "quality": "A",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/candidates_carcro1/carcro1_845011.wav",
@@ -81,6 +87,7 @@
     "vocalization_type": "call",
     "duration_ms": 3000,
     "loudness_lufs": -16.0,
-    "quality": "A"
+    "quality": "A",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   }
 ]
