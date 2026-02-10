@@ -1138,19 +1138,19 @@ def generate_html() -> str:
 
         .sp-info { flex: 1; min-width: 0; }
 
-        .sp-code {
-            font-family: 'IBM Plex Mono', monospace;
-            font-weight: 600;
-            font-size: 12px;
-        }
-
         .sp-name {
-            font-size: 11px;
-            color: var(--text-secondary);
-            margin-top: 1px;
+            font-weight: 500;
+            font-size: 12px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        .sp-code {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            color: var(--text-secondary);
+            margin-top: 1px;
         }
 
         .sp-counts {
@@ -1521,13 +1521,13 @@ def generate_html() -> str:
             border-radius: 3px;
         }
 
-        /* CRITICAL: height: auto + object-fit: contain — never crop spectrograms */
+        /* CRITICAL: object-fit: contain — never crop spectrograms */
         .clip-spec {
             width: 100%;
-            height: auto;
+            max-height: 80px;
             object-fit: contain;
             border-radius: 4px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             background: var(--bg-primary);
             display: block;
         }
@@ -1627,6 +1627,7 @@ def generate_html() -> str:
             text-align: center;
         }
         .clip-act:hover { border-color: var(--teal); transform: translateY(-1px); }
+        .clip-act.play-btn { color: var(--teal); }
         .clip-act.canon-btn:hover { border-color: var(--gold); }
         .clip-act.canon-btn.is-canon { background: var(--gold-bg); border-color: var(--gold); }
         .clip-act.del-btn:hover { border-color: var(--red); }
@@ -1739,7 +1740,7 @@ def generate_html() -> str:
                 <span class="clips-title" id="clipsTitle">EXTRACTED (0)</span>
                 <span class="unsaved-badge" id="unsavedBadge" style="display:none;">UNSAVED</span>
             </div>
-            <button class="btn-save" id="btnSave" onclick="saveAllChanges()">Save All</button>
+            <button class="btn-save" id="btnSave" onclick="saveAllChanges()">💾 Save All</button>
         </div>
         <div class="clips-list" id="clipsList">
             <div class="clips-empty">Select a species to view clips</div>
@@ -1801,6 +1802,9 @@ function loadSpeciesList(packId) {
             S.species = species;
             renderSpeciesList();
             document.getElementById('statSpecies').textContent = species.length;
+            // Update clip/canonical counts from species data
+            const totalClips = species.reduce((sum, sp) => sum + sp.clip_count, 0);
+            document.getElementById('statClips').textContent = totalClips;
         });
 }
 
@@ -1886,8 +1890,8 @@ function renderSpeciesList() {
         return '<div class="sp-item' + (isActive ? ' active' : '') + (noClips ? ' no-clips' : '') + '"' +
             ' onclick="selectSpecies(' + spJson + ')">' +
             '<div class="sp-info">' +
+            '<div class="sp-name">' + (sp.common_name || sp.species_code) + '</div>' +
             '<div class="sp-code">' + sp.species_code + '</div>' +
-            '<div class="sp-name">' + (sp.common_name || '') + '</div>' +
             '</div>' +
             '<div class="sp-counts">' +
             '<span class="clips-n">' + sp.clip_count + '</span>' +
@@ -2143,17 +2147,50 @@ function playSelection() {
     requestAnimationFrame(checkEnd);
 }
 
+let playingClipPath = null;
+
 function playClipAudio(path) {
+    if (playingClipPath === path) {
+        // Toggle off — stop
+        stopAudio();
+        playingClipPath = null;
+        updatePlayButtons();
+        return;
+    }
     stopAudio();
+    playingClipPath = path;
     audio = new Audio('/' + path);
     audio.play();
+    updatePlayButtons();
+    audio.onended = () => {
+        playingClipPath = null;
+        audio = null;
+        updatePlayButtons();
+    };
+}
+
+function updatePlayButtons() {
+    document.querySelectorAll('.clip-act.play-btn').forEach(btn => {
+        const btnPath = btn.dataset.path;
+        if (btnPath === playingClipPath) {
+            btn.innerHTML = '&#9632;';
+            btn.style.background = 'var(--teal-bg)';
+            btn.style.borderColor = 'var(--teal)';
+        } else {
+            btn.innerHTML = '&#9654;';
+            btn.style.background = '';
+            btn.style.borderColor = '';
+        }
+    });
 }
 
 function stopAudio() {
     if (audio) { audio.pause(); audio = null; }
     isPlaying = false;
+    playingClipPath = null;
     document.getElementById('playhead').style.display = 'none';
     if (animFrame) cancelAnimationFrame(animFrame);
+    updatePlayButtons();
 }
 
 function updatePlayhead() {
@@ -2263,7 +2300,7 @@ function renderClips() {
             '<div class="clip-actions">' +
             '<button class="clip-act canon-btn' + (isCanonical ? ' is-canon' : '') + '"' +
             ' onclick="toggleCanonical(\\'' + id + '\\')" title="Canonical">&#11088;</button>' +
-            '<button class="clip-act" onclick="playClipAudio(\\'' + clip.file_path + '\\')" title="Play">&#9654;</button>' +
+            '<button class="clip-act play-btn" data-path="' + clip.file_path + '" onclick="playClipAudio(\\'' + clip.file_path + '\\')" title="Play">' + (playingClipPath === clip.file_path ? '&#9632;' : '&#9654;') + '</button>' +
             '<button class="clip-act del-btn" onclick="markDelete(\\'' + id + '\\')" title="Delete">&#128465;</button>' +
             '</div></div>';
     }).join('');
