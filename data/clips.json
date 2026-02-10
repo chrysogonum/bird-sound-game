@@ -14036,7 +14036,7 @@
     "recordist": "Johannes Worona",
     "file_path": "data/clips/CARCRO1_1053150_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_1053150_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false
   },
   {
