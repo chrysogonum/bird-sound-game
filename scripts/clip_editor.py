@@ -3385,8 +3385,13 @@ def generate_batch_html() -> str:
                 const isRejected = state.pendingChanges.deleted.includes(clip.clip_id) || clip.rejected;
                 const isCanonical = clip.canonical;
                 const hasNDLicense = clip.license && clip.license.toLowerCase().includes('nd');
-                const licenseStyle = hasNDLicense ? 'color: #ff6b6b; font-weight: bold;' : '';
+                const licenseStyle = hasNDLicense ? 'color: #ff6b6b !important; font-weight: bold;' : '';
                 const licenseWarning = hasNDLicense ? ' ⚠️' : '';
+
+                // Debug logging
+                if (clip.license) {
+                    console.log(`Clip ${clip.clip_id}: license="${clip.license}", hasND=${hasNDLicense}, style="${licenseStyle}"`);
+                }
 
                 return `
                     <div class="clip-card ${isCanonical ? 'canonical' : ''} ${isModified ? 'modified' : ''} ${isRejected ? 'rejected' : ''}"
