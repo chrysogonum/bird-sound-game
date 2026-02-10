@@ -14579,24 +14579,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "CARCRO1_627714_1",
-    "species_code": "CARCRO1",
-    "common_name": "CARCRO1",
-    "vocalization_type": "call",
-    "duration_ms": 2100,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC627714",
-    "source_url": "https://xeno-canto.org/627714",
-    "recordist": "Niels Van Doninck",
-    "file_path": "data/clips/CARCRO1_627714_1.wav",
-    "spectrogram_path": "data/spectrograms/CARCRO1_627714_1.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
-  },
-  {
     "clip_id": "CARCRO1_530807_1",
     "species_code": "CARCRO1",
     "common_name": "CARCRO1",

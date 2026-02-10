@@ -1,0 +1,38 @@
+[
+  {
+    "file_path": "data/candidates_EUBC/EUBC_1078807.wav",
+    "species_name": "Eurasian Blackcap",
+    "species_code": "EUBC",
+    "source": "xenocanto",
+    "source_id": "XC1078807",
+    "recordist": "Tiziano Beretti",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUBC/EUBC_1045422.wav",
+    "species_name": "Eurasian Blackcap",
+    "species_code": "EUBC",
+    "source": "xenocanto",
+    "source_id": "XC1045422",
+    "recordist": "Jacobo Ramil Millarengo",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.3,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUBC/EUBC_1011676.wav",
+    "species_name": "Eurasian Blackcap",
+    "species_code": "EUBC",
+    "source": "xenocanto",
+    "source_id": "XC1011676",
+    "recordist": "Lionel FREDERIC",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.6,
+    "quality": "A"
+  }
+]

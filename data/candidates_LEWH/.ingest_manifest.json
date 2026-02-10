@@ -1,0 +1,50 @@
+[
+  {
+    "file_path": "data/candidates_LEWH/LEWH_1069647.wav",
+    "species_name": "Lesser Whitethroat",
+    "species_code": "LEWH",
+    "source": "xenocanto",
+    "source_id": "XC1069647",
+    "recordist": "Andr\u00e1s Schmidt",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_LEWH/LEWH_1006515.wav",
+    "species_name": "Lesser Whitethroat",
+    "species_code": "LEWH",
+    "source": "xenocanto",
+    "source_id": "XC1006515",
+    "recordist": "Franck Hollander",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_LEWH/LEWH_997438.wav",
+    "species_name": "Lesser Whitethroat",
+    "species_code": "LEWH",
+    "source": "xenocanto",
+    "source_id": "XC997438",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_LEWH/LEWH_997420.wav",
+    "species_name": "Lesser Whitethroat",
+    "species_code": "LEWH",
+    "source": "xenocanto",
+    "source_id": "XC997420",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

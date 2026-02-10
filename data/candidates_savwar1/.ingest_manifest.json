@@ -1,0 +1,50 @@
+[
+  {
+    "file_path": "data/candidates_savwar1/savwar1_997090.wav",
+    "species_name": "Savi's Warbler",
+    "species_code": "savwar1",
+    "source": "xenocanto",
+    "source_id": "XC997090",
+    "recordist": "Martin Fransson",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_savwar1/savwar1_990477.wav",
+    "species_name": "Savi's Warbler",
+    "species_code": "savwar1",
+    "source": "xenocanto",
+    "source_id": "XC990477",
+    "recordist": "Bram Piot",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_savwar1/savwar1_571353.wav",
+    "species_name": "Savi's Warbler",
+    "species_code": "savwar1",
+    "source": "xenocanto",
+    "source_id": "XC571353",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_savwar1/savwar1_571352.wav",
+    "species_name": "Savi's Warbler",
+    "species_code": "savwar1",
+    "source": "xenocanto",
+    "source_id": "XC571352",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

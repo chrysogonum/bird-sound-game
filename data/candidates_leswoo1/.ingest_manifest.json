@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_790447.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC790447",
+    "recordist": "Dag \u00d6sterlund",
+    "vocalization_type": "drumming",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_713650.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC713650",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "drumming",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_711601.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC711601",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_989608.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC989608",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_799400.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC799400",
+    "recordist": "Alan Dalton",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_742967.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC742967",
+    "recordist": "Pontus Wennesj\u00f6",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_732777.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC732777",
+    "recordist": "Santiago Caballero Carrera",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_660652.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC660652",
+    "recordist": "Martin Fransson",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_637338.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC637338",
+    "recordist": "Alan Dalton",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_leswoo1/leswoo1_629644.wav",
+    "species_name": "Lesser Spotted Woodpecker",
+    "species_code": "leswoo1",
+    "source": "xenocanto",
+    "source_id": "XC629644",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

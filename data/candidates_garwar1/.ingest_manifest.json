@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_garwar1/garwar1_1047746.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC1047746",
+    "recordist": "Jack Berteau",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_garwar1/garwar1_1014945.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC1014945",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_garwar1/garwar1_1014944.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC1014944",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_garwar1/garwar1_1014940.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC1014940",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_garwar1/garwar1_1011598.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC1011598",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_garwar1/garwar1_1011597.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC1011597",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_garwar1/garwar1_1009454.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC1009454",
+    "recordist": "D\u00e9lfin Gonzalez",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_garwar1/garwar1_836297.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC836297",
+    "recordist": "Thierry THOMAS",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_garwar1/garwar1_817765.wav",
+    "species_name": "Garden Warbler",
+    "species_code": "garwar1",
+    "source": "xenocanto",
+    "source_id": "XC817765",
+    "recordist": "Dominique Guillerme",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

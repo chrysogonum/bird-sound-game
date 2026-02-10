@@ -1,0 +1,86 @@
+[
+  {
+    "file_path": "data/candidates_eurjay1/eurjay1_1075235.wav",
+    "species_name": "Eurasian Jay",
+    "species_code": "eurjay1",
+    "source": "xenocanto",
+    "source_id": "XC1075235",
+    "recordist": "Lars Lachmann",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurjay1/eurjay1_919063.wav",
+    "species_name": "Eurasian Jay",
+    "species_code": "eurjay1",
+    "source": "xenocanto",
+    "source_id": "XC919063",
+    "recordist": "Uku Paal",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurjay1/eurjay1_789418.wav",
+    "species_name": "Eurasian Jay",
+    "species_code": "eurjay1",
+    "source": "xenocanto",
+    "source_id": "XC789418",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurjay1/eurjay1_1063204.wav",
+    "species_name": "Eurasian Jay",
+    "species_code": "eurjay1",
+    "source": "xenocanto",
+    "source_id": "XC1063204",
+    "recordist": "Jacobo Ramil Millarengo",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurjay1/eurjay1_1049184.wav",
+    "species_name": "Eurasian Jay",
+    "species_code": "eurjay1",
+    "source": "xenocanto",
+    "source_id": "XC1049184",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurjay1/eurjay1_1044936.wav",
+    "species_name": "Eurasian Jay",
+    "species_code": "eurjay1",
+    "source": "xenocanto",
+    "source_id": "XC1044936",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurjay1/eurjay1_1026967.wav",
+    "species_name": "Eurasian Jay",
+    "species_code": "eurjay1",
+    "source": "xenocanto",
+    "source_id": "XC1026967",
+    "recordist": "Uku Paal",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

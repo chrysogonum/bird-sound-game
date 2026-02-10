@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_PEFA/PEFA_985567.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC985567",
+    "recordist": "Gil Lissens",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1073395.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1073395",
+    "recordist": "Jessica Peruzzo",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.7,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1055457.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1055457",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1052542.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1052542",
+    "recordist": "Van Herrewege Alex",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1013457.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1013457",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1013451.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1013451",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.2,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1013447.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1013447",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1013434.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1013434",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1013413.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1013413",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_PEFA/PEFA_1011337.wav",
+    "species_name": "Peregrine Falcon",
+    "species_code": "PEFA",
+    "source": "xenocanto",
+    "source_id": "XC1011337",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

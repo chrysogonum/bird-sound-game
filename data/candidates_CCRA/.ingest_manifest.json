@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_CCRA/CCRA_1072005.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC1072005",
+    "recordist": "Andr\u00e1s Schmidt",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CCRA/CCRA_1072001.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC1072001",
+    "recordist": "Andr\u00e1s Schmidt",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CCRA/CCRA_1018378.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC1018378",
+    "recordist": "Kasper Wieck",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CCRA/CCRA_1006948.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC1006948",
+    "recordist": "Ryan Boswarthick",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CCRA/CCRA_1006946.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC1006946",
+    "recordist": "Ryan Boswarthick",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CCRA/CCRA_909744.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC909744",
+    "recordist": "Johan S\u00f6dercrantz",
+    "vocalization_type": "aberrant",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CCRA/CCRA_909741.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC909741",
+    "recordist": "Johan S\u00f6dercrantz",
+    "vocalization_type": "aberrant",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CCRA/CCRA_741318.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC741318",
+    "recordist": "Tim Korschefsky",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -17.7,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CCRA/CCRA_728592.wav",
+    "species_name": "Corn Crake",
+    "species_code": "CCRA",
+    "source": "xenocanto",
+    "source_id": "XC728592",
+    "recordist": "Maksymilian Paczkowski ",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

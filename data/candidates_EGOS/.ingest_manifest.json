@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_EGOS/EGOS_1075227.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC1075227",
+    "recordist": "Lars Lachmann",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EGOS/EGOS_756188.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC756188",
+    "recordist": "brickegickel",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EGOS/EGOS_756187.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC756187",
+    "recordist": "brickegickel",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EGOS/EGOS_685091.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC685091",
+    "recordist": "W. Agster",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EGOS/EGOS_631753.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC631753",
+    "recordist": "Jarek Matusiak",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EGOS/EGOS_631750.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC631750",
+    "recordist": "Jarek Matusiak",
+    "vocalization_type": "begging call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EGOS/EGOS_631732.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC631732",
+    "recordist": "Jarek Matusiak",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.3,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EGOS/EGOS_627175.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC627175",
+    "recordist": "Jarek Matusiak",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EGOS/EGOS_627173.wav",
+    "species_name": "Eurasian Goshawk",
+    "species_code": "EGOS",
+    "source": "xenocanto",
+    "source_id": "XC627173",
+    "recordist": "Jarek Matusiak",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

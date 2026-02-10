@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_914246.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC914246",
+    "recordist": "FREDERIC Lionel",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "B"
+  },
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_1027226.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC1027226",
+    "recordist": "Mathieu Franzkeit ",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -17.3,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_823272.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC823272",
+    "recordist": "brickegickel",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_817997.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC817997",
+    "recordist": "Alain Malengreau",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_669499.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC669499",
+    "recordist": "Tanguy Lo\u00efs",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_667835.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC667835",
+    "recordist": "Paulo Alves",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_645769.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC645769",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_645768.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC645768",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_euhbuz1/euhbuz1_645767.wav",
+    "species_name": "European Honey-buzzard",
+    "species_code": "euhbuz1",
+    "source": "xenocanto",
+    "source_id": "XC645767",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

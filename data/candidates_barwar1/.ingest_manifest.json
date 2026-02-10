@@ -1,0 +1,38 @@
+[
+  {
+    "file_path": "data/candidates_barwar1/barwar1_1026388.wav",
+    "species_name": "Barred Warbler",
+    "species_code": "barwar1",
+    "source": "xenocanto",
+    "source_id": "XC1026388",
+    "recordist": "Jelle Scharringa",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_barwar1/barwar1_1026387.wav",
+    "species_name": "Barred Warbler",
+    "species_code": "barwar1",
+    "source": "xenocanto",
+    "source_id": "XC1026387",
+    "recordist": "Jelle Scharringa",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_barwar1/barwar1_1001834.wav",
+    "species_name": "Barred Warbler",
+    "species_code": "barwar1",
+    "source": "xenocanto",
+    "source_id": "XC1001834",
+    "recordist": "Shuangqi Liu",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "file_path": "data/candidates_CORA/CORA_1078519.wav",
+    "species_name": "Common Raven",
+    "species_code": "CORA",
+    "source": "xenocanto",
+    "source_id": "XC1078519",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CORA/CORA_1077707.wav",
+    "species_name": "Common Raven",
+    "species_code": "CORA",
+    "source": "xenocanto",
+    "source_id": "XC1077707",
+    "recordist": "Esperanza Poveda",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CORA/CORA_1074019.wav",
+    "species_name": "Common Raven",
+    "species_code": "CORA",
+    "source": "xenocanto",
+    "source_id": "XC1074019",
+    "recordist": "Greg Irving",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CORA/CORA_1070401.wav",
+    "species_name": "Common Raven",
+    "species_code": "CORA",
+    "source": "xenocanto",
+    "source_id": "XC1070401",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CORA/CORA_1059376.wav",
+    "species_name": "Common Raven",
+    "species_code": "CORA",
+    "source": "xenocanto",
+    "source_id": "XC1059376",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CORA/CORA_1054305.wav",
+    "species_name": "Common Raven",
+    "species_code": "CORA",
+    "source": "xenocanto",
+    "source_id": "XC1054305",
+    "recordist": "Dag \u00d6sterlund",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_CORA/CORA_1053960.wav",
+    "species_name": "Common Raven",
+    "species_code": "CORA",
+    "source": "xenocanto",
+    "source_id": "XC1053960",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

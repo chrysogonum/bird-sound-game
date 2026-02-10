@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_EUSK/EUSK_1067544.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC1067544",
+    "recordist": "Pere Josa",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUSK/EUSK_1008315.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC1008315",
+    "recordist": "Paul Kelly",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUSK/EUSK_971992.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC971992",
+    "recordist": "Bram Piot",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUSK/EUSK_911897.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC911897",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUSK/EUSK_911894.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC911894",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUSK/EUSK_904684.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC904684",
+    "recordist": "Martin Billard",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUSK/EUSK_1062867.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC1062867",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUSK/EUSK_1062865.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC1062865",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUSK/EUSK_1035141.wav",
+    "species_name": "Eurasian Skylark",
+    "species_code": "EUSK",
+    "source": "xenocanto",
+    "source_id": "XC1035141",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

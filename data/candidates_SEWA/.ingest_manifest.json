@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_SEWA/SEWA_1077531.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC1077531",
+    "recordist": "Lee Alder",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_1037205.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC1037205",
+    "recordist": "Beatrix Saadi-Varchmin",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_1014935.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC1014935",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_1011600.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC1011600",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_997072.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC997072",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_991150.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC991150",
+    "recordist": "Shaun Micklewright",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_991105.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC991105",
+    "recordist": "No\u00e9 Ferrari",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_1072008.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC1072008",
+    "recordist": "Andr\u00e1s Schmidt",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.9,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_819502.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC819502",
+    "recordist": "Thomas Bergman",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -17.6,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_SEWA/SEWA_817826.wav",
+    "species_name": "Sedge Warbler",
+    "species_code": "SEWA",
+    "source": "xenocanto",
+    "source_id": "XC817826",
+    "recordist": "Simon Elliott",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.2,
+    "quality": "A"
+  }
+]

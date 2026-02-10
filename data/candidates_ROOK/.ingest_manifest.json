@@ -1,0 +1,86 @@
+[
+  {
+    "file_path": "data/candidates_ROOK/ROOK_637820.wav",
+    "species_name": "Rook",
+    "species_code": "ROOK",
+    "source": "xenocanto",
+    "source_id": "XC637820",
+    "recordist": "Irish Wildlife Sounds",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ROOK/ROOK_637817.wav",
+    "species_name": "Rook",
+    "species_code": "ROOK",
+    "source": "xenocanto",
+    "source_id": "XC637817",
+    "recordist": "Irish Wildlife Sounds",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ROOK/ROOK_614528.wav",
+    "species_name": "Rook",
+    "species_code": "ROOK",
+    "source": "xenocanto",
+    "source_id": "XC614528",
+    "recordist": "Jarek Matusiak",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ROOK/ROOK_960647.wav",
+    "species_name": "Rook",
+    "species_code": "ROOK",
+    "source": "xenocanto",
+    "source_id": "XC960647",
+    "recordist": "Shaun Micklewright",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ROOK/ROOK_872926.wav",
+    "species_name": "Rook",
+    "species_code": "ROOK",
+    "source": "xenocanto",
+    "source_id": "XC872926",
+    "recordist": "Hannu Varkki",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ROOK/ROOK_802285.wav",
+    "species_name": "Rook",
+    "species_code": "ROOK",
+    "source": "xenocanto",
+    "source_id": "XC802285",
+    "recordist": "Hannu Varkki",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ROOK/ROOK_777776.wav",
+    "species_name": "Rook",
+    "species_code": "ROOK",
+    "source": "xenocanto",
+    "source_id": "XC777776",
+    "recordist": "Dean McDonnell",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

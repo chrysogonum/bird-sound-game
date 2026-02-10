@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_BLUE/BLUE_1005709.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC1005709",
+    "recordist": "Dag \u00d6sterlund",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_1005157.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC1005157",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_1005155.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC1005155",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_1005154.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC1005154",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_1005152.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC1005152",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_1005151.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC1005151",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_1003240.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC1003240",
+    "recordist": "Susanne Kuijpers",
+    "vocalization_type": "dawn song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_934764.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC934764",
+    "recordist": "Thomas Bergman",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -17.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_741791.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC741791",
+    "recordist": "Thomas Bergman",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_BLUE/BLUE_670926.wav",
+    "species_name": "Bluethroat",
+    "species_code": "BLUE",
+    "source": "xenocanto",
+    "source_id": "XC670926",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -18.0,
+    "quality": "A"
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_WILW/WILW_1014947.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC1014947",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_1012264.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC1012264",
+    "recordist": "Romuald Mikusek",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_1011607.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC1011607",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_1009211.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC1009211",
+    "recordist": "Ulf Elman",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_1000141.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC1000141",
+    "recordist": "David Pennington",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_997389.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC997389",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_989893.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC989893",
+    "recordist": "No\u00e9 Ferrari",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_1047057.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC1047057",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_833638.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC833638",
+    "recordist": "Agris Celmins",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WILW/WILW_820883.wav",
+    "species_name": "Willow Warbler",
+    "species_code": "WILW",
+    "source": "xenocanto",
+    "source_id": "XC820883",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

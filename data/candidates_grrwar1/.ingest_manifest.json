@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_1049412.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC1049412",
+    "recordist": "Fredrik Grahn",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_1004768.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC1004768",
+    "recordist": "Pere Josa",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_1004209.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC1004209",
+    "recordist": "johan lundgren",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_1000239.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC1000239",
+    "recordist": "Susanne Kuijpers",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_1000238.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC1000238",
+    "recordist": "Susanne Kuijpers",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_999281.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC999281",
+    "recordist": "Maarten Sluijter",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_993523.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC993523",
+    "recordist": "Jacek Mucha",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_800528.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC800528",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -18.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grrwar1/grrwar1_800527.wav",
+    "species_name": "Great Reed Warbler",
+    "species_code": "grrwar1",
+    "source": "xenocanto",
+    "source_id": "XC800527",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.7,
+    "quality": "A"
+  }
+]

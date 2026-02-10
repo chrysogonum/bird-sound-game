@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_1071998.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC1071998",
+    "recordist": "Andr\u00e1s Schmidt",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_1028992.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC1028992",
+    "recordist": "Paulo Alves",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_999357.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC999357",
+    "recordist": "Lars Mogensen",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_994404.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC994404",
+    "recordist": "Stephan B\u00f6rnecke",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_903173.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC903173",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_900844.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC900844",
+    "recordist": "Martin Billard",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_579798.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC579798",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_571147.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC571147",
+    "recordist": "Jarek Matusiak",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.2,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_cogwar1/cogwar1_563353.wav",
+    "species_name": "Common Grasshopper Warbler",
+    "species_code": "cogwar1",
+    "source": "xenocanto",
+    "source_id": "XC563353",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

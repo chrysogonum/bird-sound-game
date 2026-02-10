@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_ESPA/ESPA_721201.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC721201",
+    "recordist": "Franz Lindinger",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1071299.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1071299",
+    "recordist": "Denis Dujardin",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1053258.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1053258",
+    "recordist": "Denis Dujardin",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1041153.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1041153",
+    "recordist": "Sonoth\u00e8que ADVL",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1034341.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1034341",
+    "recordist": "Uku Paal",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -17.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1034340.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1034340",
+    "recordist": "Uku Paal",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1030997.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1030997",
+    "recordist": "Andreas Richter",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -20.7,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1024301.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1024301",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1024300.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1024300",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ESPA/ESPA_1015208.wav",
+    "species_name": "Eurasian Sparrowhawk",
+    "species_code": "ESPA",
+    "source": "xenocanto",
+    "source_id": "XC1015208",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

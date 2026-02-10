@@ -1,0 +1,74 @@
+[
+  {
+    "file_path": "data/candidates_EUJA/EUJA_1075128.wav",
+    "species_name": "Eurasian Jackdaw",
+    "species_code": "EUJA",
+    "source": "xenocanto",
+    "source_id": "XC1075128",
+    "recordist": "Thierry THOMAS",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUJA/EUJA_1052519.wav",
+    "species_name": "Eurasian Jackdaw",
+    "species_code": "EUJA",
+    "source": "xenocanto",
+    "source_id": "XC1052519",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.4,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUJA/EUJA_1045811.wav",
+    "species_name": "Eurasian Jackdaw",
+    "species_code": "EUJA",
+    "source": "xenocanto",
+    "source_id": "XC1045811",
+    "recordist": "Mark Plummer",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUJA/EUJA_1004412.wav",
+    "species_name": "Eurasian Jackdaw",
+    "species_code": "EUJA",
+    "source": "xenocanto",
+    "source_id": "XC1004412",
+    "recordist": "Esperanza Poveda",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUJA/EUJA_959254.wav",
+    "species_name": "Eurasian Jackdaw",
+    "species_code": "EUJA",
+    "source": "xenocanto",
+    "source_id": "XC959254",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUJA/EUJA_904573.wav",
+    "species_name": "Eurasian Jackdaw",
+    "species_code": "EUJA",
+    "source": "xenocanto",
+    "source_id": "XC904573",
+    "recordist": "Martin Billard",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

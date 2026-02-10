@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_1009420.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC1009420",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_1009419.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC1009419",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_1008621.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC1008621",
+    "recordist": "Dag \u00d6sterlund",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_1007381.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC1007381",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_1002277.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC1002277",
+    "recordist": "Mark Newsome",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_994901.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC994901",
+    "recordist": "No\u00e9 Ferrari",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_994897.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC994897",
+    "recordist": "No\u00e9 Ferrari",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_1009422.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC1009422",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.2,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurwar1/eurwar1_1009421.wav",
+    "species_name": "Eurasian Reed Warbler",
+    "species_code": "eurwar1",
+    "source": "xenocanto",
+    "source_id": "XC1009421",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  }
+]

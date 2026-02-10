@@ -1,0 +1,98 @@
+[
+  {
+    "file_path": "data/candidates_grewhi1/grewhi1_1007554.wav",
+    "species_name": "Common Whitethroat",
+    "species_code": "grewhi1",
+    "source": "xenocanto",
+    "source_id": "XC1007554",
+    "recordist": "Tobias Nyk\u00e4nen",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.6,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grewhi1/grewhi1_1007305.wav",
+    "species_name": "Common Whitethroat",
+    "species_code": "grewhi1",
+    "source": "xenocanto",
+    "source_id": "XC1007305",
+    "recordist": "Luca Fabbriccini",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grewhi1/grewhi1_1007225.wav",
+    "species_name": "Common Whitethroat",
+    "species_code": "grewhi1",
+    "source": "xenocanto",
+    "source_id": "XC1007225",
+    "recordist": "Lionel FREDERIC",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grewhi1/grewhi1_995016.wav",
+    "species_name": "Common Whitethroat",
+    "species_code": "grewhi1",
+    "source": "xenocanto",
+    "source_id": "XC995016",
+    "recordist": "Gr\u00e9goire Chauvot",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grewhi1/grewhi1_994907.wav",
+    "species_name": "Common Whitethroat",
+    "species_code": "grewhi1",
+    "source": "xenocanto",
+    "source_id": "XC994907",
+    "recordist": "No\u00e9 Ferrari",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grewhi1/grewhi1_992199.wav",
+    "species_name": "Common Whitethroat",
+    "species_code": "grewhi1",
+    "source": "xenocanto",
+    "source_id": "XC992199",
+    "recordist": "David Bissett",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grewhi1/grewhi1_931937.wav",
+    "species_name": "Common Whitethroat",
+    "species_code": "grewhi1",
+    "source": "xenocanto",
+    "source_id": "XC931937",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_grewhi1/grewhi1_900958.wav",
+    "species_name": "Common Whitethroat",
+    "species_code": "grewhi1",
+    "source": "xenocanto",
+    "source_id": "XC900958",
+    "recordist": "Martin Billard",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "file_path": "data/candidates_woolar1/woolar1_995007.wav",
+    "species_name": "Woodlark",
+    "species_code": "woolar1",
+    "source": "xenocanto",
+    "source_id": "XC995007",
+    "recordist": "David Pennington",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_woolar1/woolar1_911886.wav",
+    "species_name": "Woodlark",
+    "species_code": "woolar1",
+    "source": "xenocanto",
+    "source_id": "XC911886",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_woolar1/woolar1_906748.wav",
+    "species_name": "Woodlark",
+    "species_code": "woolar1",
+    "source": "xenocanto",
+    "source_id": "XC906748",
+    "recordist": "Mats Rellmar",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_woolar1/woolar1_1065796.wav",
+    "species_name": "Woodlark",
+    "species_code": "woolar1",
+    "source": "xenocanto",
+    "source_id": "XC1065796",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -18.3,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_woolar1/woolar1_862877.wav",
+    "species_name": "Woodlark",
+    "species_code": "woolar1",
+    "source": "xenocanto",
+    "source_id": "XC862877",
+    "recordist": "Marcin So\u0142owiej",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_woolar1/woolar1_801434.wav",
+    "species_name": "Woodlark",
+    "species_code": "woolar1",
+    "source": "xenocanto",
+    "source_id": "XC801434",
+    "recordist": "Dominique Guillerme",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

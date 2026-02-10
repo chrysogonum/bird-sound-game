@@ -1,0 +1,50 @@
+[
+  {
+    "file_path": "data/candidates_shttre1/shttre1_1076764.wav",
+    "species_name": "Short-toed Treecreeper",
+    "species_code": "shttre1",
+    "source": "xenocanto",
+    "source_id": "XC1076764",
+    "recordist": "Lars Lachmann",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_shttre1/shttre1_1069562.wav",
+    "species_name": "Short-toed Treecreeper",
+    "species_code": "shttre1",
+    "source": "xenocanto",
+    "source_id": "XC1069562",
+    "recordist": "Jorge Leit\u00e3o",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_shttre1/shttre1_1068696.wav",
+    "species_name": "Short-toed Treecreeper",
+    "species_code": "shttre1",
+    "source": "xenocanto",
+    "source_id": "XC1068696",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_shttre1/shttre1_1076766.wav",
+    "species_name": "Short-toed Treecreeper",
+    "species_code": "shttre1",
+    "source": "xenocanto",
+    "source_id": "XC1076766",
+    "recordist": "Lars Lachmann",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

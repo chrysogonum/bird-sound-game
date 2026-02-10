@@ -1,0 +1,98 @@
+[
+  {
+    "file_path": "data/candidates_redkit1/redkit1_879251.wav",
+    "species_name": "Red Kite",
+    "species_code": "redkit1",
+    "source": "xenocanto",
+    "source_id": "XC879251",
+    "recordist": "Olivier SWIFT",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_redkit1/redkit1_1048731.wav",
+    "species_name": "Red Kite",
+    "species_code": "redkit1",
+    "source": "xenocanto",
+    "source_id": "XC1048731",
+    "recordist": "Andrew Harrop",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_redkit1/redkit1_1025686.wav",
+    "species_name": "Red Kite",
+    "species_code": "redkit1",
+    "source": "xenocanto",
+    "source_id": "XC1025686",
+    "recordist": "Branislav Oblu\u010dar",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_redkit1/redkit1_1016419.wav",
+    "species_name": "Red Kite",
+    "species_code": "redkit1",
+    "source": "xenocanto",
+    "source_id": "XC1016419",
+    "recordist": "Arjun Dutta",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_redkit1/redkit1_1015811.wav",
+    "species_name": "Red Kite",
+    "species_code": "redkit1",
+    "source": "xenocanto",
+    "source_id": "XC1015811",
+    "recordist": "Arjun Dutta",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_redkit1/redkit1_1005822.wav",
+    "species_name": "Red Kite",
+    "species_code": "redkit1",
+    "source": "xenocanto",
+    "source_id": "XC1005822",
+    "recordist": "Dennis Riederer",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_redkit1/redkit1_965126.wav",
+    "species_name": "Red Kite",
+    "species_code": "redkit1",
+    "source": "xenocanto",
+    "source_id": "XC965126",
+    "recordist": "Vladim\u00edr Nem\u010dek",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_redkit1/redkit1_938009.wav",
+    "species_name": "Red Kite",
+    "species_code": "redkit1",
+    "source": "xenocanto",
+    "source_id": "XC938009",
+    "recordist": "Thomas SIGNEAU",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

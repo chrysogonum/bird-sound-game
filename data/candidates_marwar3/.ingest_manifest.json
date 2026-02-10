@@ -1,0 +1,98 @@
+[
+  {
+    "file_path": "data/candidates_marwar3/marwar3_1025963.wav",
+    "species_name": "Marsh Warbler",
+    "species_code": "marwar3",
+    "source": "xenocanto",
+    "source_id": "XC1025963",
+    "recordist": "Magnus Wadstein",
+    "vocalization_type": "imitation",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_marwar3/marwar3_1008622.wav",
+    "species_name": "Marsh Warbler",
+    "species_code": "marwar3",
+    "source": "xenocanto",
+    "source_id": "XC1008622",
+    "recordist": "Dag \u00d6sterlund",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_marwar3/marwar3_1006089.wav",
+    "species_name": "Marsh Warbler",
+    "species_code": "marwar3",
+    "source": "xenocanto",
+    "source_id": "XC1006089",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_marwar3/marwar3_1005744.wav",
+    "species_name": "Marsh Warbler",
+    "species_code": "marwar3",
+    "source": "xenocanto",
+    "source_id": "XC1005744",
+    "recordist": "Azens",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_marwar3/marwar3_919265.wav",
+    "species_name": "Marsh Warbler",
+    "species_code": "marwar3",
+    "source": "xenocanto",
+    "source_id": "XC919265",
+    "recordist": "Martin Billard",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_marwar3/marwar3_913314.wav",
+    "species_name": "Marsh Warbler",
+    "species_code": "marwar3",
+    "source": "xenocanto",
+    "source_id": "XC913314",
+    "recordist": "Bj\u00f8rn Penk",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_marwar3/marwar3_923586.wav",
+    "species_name": "Marsh Warbler",
+    "species_code": "marwar3",
+    "source": "xenocanto",
+    "source_id": "XC923586",
+    "recordist": "Grzegorz Lorek",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_marwar3/marwar3_923585.wav",
+    "species_name": "Marsh Warbler",
+    "species_code": "marwar3",
+    "source": "xenocanto",
+    "source_id": "XC923585",
+    "recordist": "Grzegorz Lorek",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -17.4,
+    "quality": "A"
+  }
+]

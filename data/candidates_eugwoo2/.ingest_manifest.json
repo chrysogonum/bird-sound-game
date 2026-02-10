@@ -1,0 +1,62 @@
+[
+  {
+    "file_path": "data/candidates_eugwoo2/eugwoo2_976587.wav",
+    "species_name": "Eurasian Green Woodpecker",
+    "species_code": "eugwoo2",
+    "source": "xenocanto",
+    "source_id": "XC976587",
+    "recordist": "Anders Westman",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eugwoo2/eugwoo2_882026.wav",
+    "species_name": "Eurasian Green Woodpecker",
+    "species_code": "eugwoo2",
+    "source": "xenocanto",
+    "source_id": "XC882026",
+    "recordist": "Jean Pierre Sciolla",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eugwoo2/eugwoo2_927450.wav",
+    "species_name": "Eurasian Green Woodpecker",
+    "species_code": "eugwoo2",
+    "source": "xenocanto",
+    "source_id": "XC927450",
+    "recordist": "Martin Billard",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eugwoo2/eugwoo2_927449.wav",
+    "species_name": "Eurasian Green Woodpecker",
+    "species_code": "eugwoo2",
+    "source": "xenocanto",
+    "source_id": "XC927449",
+    "recordist": "Martin Billard",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eugwoo2/eugwoo2_916821.wav",
+    "species_name": "Eurasian Green Woodpecker",
+    "species_code": "eugwoo2",
+    "source": "xenocanto",
+    "source_id": "XC916821",
+    "recordist": "Lennart Jeppsson",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

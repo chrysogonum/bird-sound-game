@@ -1,0 +1,50 @@
+[
+  {
+    "file_path": "data/candidates_EUBB/EUBB_1073333.wav",
+    "species_name": "Eurasian Blackbird",
+    "species_code": "EUBB",
+    "source": "xenocanto",
+    "source_id": "XC1073333",
+    "recordist": "Morgan Demus",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUBB/EUBB_1067617.wav",
+    "species_name": "Eurasian Blackbird",
+    "species_code": "EUBB",
+    "source": "xenocanto",
+    "source_id": "XC1067617",
+    "recordist": "Amselforscher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUBB/EUBB_1066172.wav",
+    "species_name": "Eurasian Blackbird",
+    "species_code": "EUBB",
+    "source": "xenocanto",
+    "source_id": "XC1066172",
+    "recordist": "Amselforscher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUBB/EUBB_1066167.wav",
+    "species_name": "Eurasian Blackbird",
+    "species_code": "EUBB",
+    "source": "xenocanto",
+    "source_id": "XC1066167",
+    "recordist": "Amselforscher",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

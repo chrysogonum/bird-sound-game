@@ -1,0 +1,98 @@
+[
+  {
+    "file_path": "data/candidates_GSWO/GSWO_1061195.wav",
+    "species_name": "Great Spotted Woodpecker",
+    "species_code": "GSWO",
+    "source": "xenocanto",
+    "source_id": "XC1061195",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -Infinity,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_GSWO/GSWO_1061167.wav",
+    "species_name": "Great Spotted Woodpecker",
+    "species_code": "GSWO",
+    "source": "xenocanto",
+    "source_id": "XC1061167",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.2,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_GSWO/GSWO_1061151.wav",
+    "species_name": "Great Spotted Woodpecker",
+    "species_code": "GSWO",
+    "source": "xenocanto",
+    "source_id": "XC1061151",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.9,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_GSWO/GSWO_1061170.wav",
+    "species_name": "Great Spotted Woodpecker",
+    "species_code": "GSWO",
+    "source": "xenocanto",
+    "source_id": "XC1061170",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.6,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_GSWO/GSWO_1053218.wav",
+    "species_name": "Great Spotted Woodpecker",
+    "species_code": "GSWO",
+    "source": "xenocanto",
+    "source_id": "XC1053218",
+    "recordist": "Lennart Jeppsson",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_GSWO/GSWO_1019733.wav",
+    "species_name": "Great Spotted Woodpecker",
+    "species_code": "GSWO",
+    "source": "xenocanto",
+    "source_id": "XC1019733",
+    "recordist": "He Wenjin/\u6587\u8fdb",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_GSWO/GSWO_1006394.wav",
+    "species_name": "Great Spotted Woodpecker",
+    "species_code": "GSWO",
+    "source": "xenocanto",
+    "source_id": "XC1006394",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.2,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_GSWO/GSWO_979809.wav",
+    "species_name": "Great Spotted Woodpecker",
+    "species_code": "GSWO",
+    "source": "xenocanto",
+    "source_id": "XC979809",
+    "recordist": "Petter Westberg",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

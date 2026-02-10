@@ -1,0 +1,98 @@
+[
+  {
+    "file_path": "data/candidates_EURO/EURO_1075203.wav",
+    "species_name": "European Robin",
+    "species_code": "EURO",
+    "source": "xenocanto",
+    "source_id": "XC1075203",
+    "recordist": "Pablo Guillemaud",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EURO/EURO_1072480.wav",
+    "species_name": "European Robin",
+    "species_code": "EURO",
+    "source": "xenocanto",
+    "source_id": "XC1072480",
+    "recordist": "Pablo Guillemaud",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EURO/EURO_1062223.wav",
+    "species_name": "European Robin",
+    "species_code": "EURO",
+    "source": "xenocanto",
+    "source_id": "XC1062223",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EURO/EURO_1059770.wav",
+    "species_name": "European Robin",
+    "species_code": "EURO",
+    "source": "xenocanto",
+    "source_id": "XC1059770",
+    "recordist": "Marcin So\u0142owiej",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EURO/EURO_1055775.wav",
+    "species_name": "European Robin",
+    "species_code": "EURO",
+    "source": "xenocanto",
+    "source_id": "XC1055775",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "imitation",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EURO/EURO_1045694.wav",
+    "species_name": "European Robin",
+    "species_code": "EURO",
+    "source": "xenocanto",
+    "source_id": "XC1045694",
+    "recordist": "Stef van Zimmeren",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EURO/EURO_1074568.wav",
+    "species_name": "European Robin",
+    "species_code": "EURO",
+    "source": "xenocanto",
+    "source_id": "XC1074568",
+    "recordist": "Laura Martin",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.6,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EURO/EURO_1065556.wav",
+    "species_name": "European Robin",
+    "species_code": "EURO",
+    "source": "xenocanto",
+    "source_id": "XC1065556",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  }
+]

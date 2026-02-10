@@ -1,0 +1,98 @@
+[
+  {
+    "file_path": "data/candidates_blawoo1/blawoo1_834230.wav",
+    "species_name": "Black Woodpecker",
+    "species_code": "blawoo1",
+    "source": "xenocanto",
+    "source_id": "XC834230",
+    "recordist": "Barbara Froehlich-Schmitt",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_blawoo1/blawoo1_830598.wav",
+    "species_name": "Black Woodpecker",
+    "species_code": "blawoo1",
+    "source": "xenocanto",
+    "source_id": "XC830598",
+    "recordist": "Jack Berteau",
+    "vocalization_type": "drumming",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_blawoo1/blawoo1_1067908.wav",
+    "species_name": "Black Woodpecker",
+    "species_code": "blawoo1",
+    "source": "xenocanto",
+    "source_id": "XC1067908",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.3,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_blawoo1/blawoo1_1044011.wav",
+    "species_name": "Black Woodpecker",
+    "species_code": "blawoo1",
+    "source": "xenocanto",
+    "source_id": "XC1044011",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_blawoo1/blawoo1_1010668.wav",
+    "species_name": "Black Woodpecker",
+    "species_code": "blawoo1",
+    "source": "xenocanto",
+    "source_id": "XC1010668",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_blawoo1/blawoo1_1010667.wav",
+    "species_name": "Black Woodpecker",
+    "species_code": "blawoo1",
+    "source": "xenocanto",
+    "source_id": "XC1010667",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.1,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_blawoo1/blawoo1_979267.wav",
+    "species_name": "Black Woodpecker",
+    "species_code": "blawoo1",
+    "source": "xenocanto",
+    "source_id": "XC979267",
+    "recordist": "Dag \u00d6sterlund",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_blawoo1/blawoo1_937534.wav",
+    "species_name": "Black Woodpecker",
+    "species_code": "blawoo1",
+    "source": "xenocanto",
+    "source_id": "XC937534",
+    "recordist": "Uku Paal",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

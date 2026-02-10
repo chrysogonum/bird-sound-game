@@ -1,0 +1,86 @@
+[
+  {
+    "file_path": "data/candidates_firecr1/firecr1_1066627.wav",
+    "species_name": "Common Firecrest",
+    "species_code": "firecr1",
+    "source": "xenocanto",
+    "source_id": "XC1066627",
+    "recordist": "Adrien Peillon",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -18.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_firecr1/firecr1_1064193.wav",
+    "species_name": "Common Firecrest",
+    "species_code": "firecr1",
+    "source": "xenocanto",
+    "source_id": "XC1064193",
+    "recordist": "Denis Dujardin",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_firecr1/firecr1_1051373.wav",
+    "species_name": "Common Firecrest",
+    "species_code": "firecr1",
+    "source": "xenocanto",
+    "source_id": "XC1051373",
+    "recordist": "Lars Lachmann",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_firecr1/firecr1_1051368.wav",
+    "species_name": "Common Firecrest",
+    "species_code": "firecr1",
+    "source": "xenocanto",
+    "source_id": "XC1051368",
+    "recordist": "Lars Lachmann",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_firecr1/firecr1_1032044.wav",
+    "species_name": "Common Firecrest",
+    "species_code": "firecr1",
+    "source": "xenocanto",
+    "source_id": "XC1032044",
+    "recordist": "bert de bruin",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_firecr1/firecr1_1020708.wav",
+    "species_name": "Common Firecrest",
+    "species_code": "firecr1",
+    "source": "xenocanto",
+    "source_id": "XC1020708",
+    "recordist": "\u00c9tienne Leroy",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_firecr1/firecr1_1070177.wav",
+    "species_name": "Common Firecrest",
+    "species_code": "firecr1",
+    "source": "xenocanto",
+    "source_id": "XC1070177",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

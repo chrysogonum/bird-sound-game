@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_MITH/MITH_990277.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC990277",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_MITH/MITH_986909.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC986909",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_MITH/MITH_972391.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC972391",
+    "recordist": "Jacobo Ramil Millarengo",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_MITH/MITH_879652.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC879652",
+    "recordist": "Christian Vemmelund Helligs\u00f8",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_MITH/MITH_830504.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC830504",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_MITH/MITH_807826.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC807826",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_MITH/MITH_1045972.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC1045972",
+    "recordist": "Romuald Mikusek",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_MITH/MITH_998224.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC998224",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_MITH/MITH_959266.wav",
+    "species_name": "Mistle Thrush",
+    "species_code": "MITH",
+    "source": "xenocanto",
+    "source_id": "XC959266",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

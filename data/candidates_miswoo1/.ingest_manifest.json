@@ -1,0 +1,122 @@
+[
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1076671.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1076671",
+    "recordist": "Kelle Moreau",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1063577.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1063577",
+    "recordist": "Denis Dujardin",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1040850.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1040850",
+    "recordist": "Jack Berteau",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1076924.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1076924",
+    "recordist": "Lionel FREDERIC",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1072942.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1072942",
+    "recordist": "Xavier Riera",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1072757.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1072757",
+    "recordist": "Andr\u00e1s Schmidt",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1067606.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1067606",
+    "recordist": "Andr\u00e1s Schmidt",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1052493.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1052493",
+    "recordist": "Francesco Sottile",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1040078.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1040078",
+    "recordist": "FRIEDRICH Richard",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_miswoo1/miswoo1_1011675.wav",
+    "species_name": "Middle Spotted Woodpecker",
+    "species_code": "miswoo1",
+    "source": "xenocanto",
+    "source_id": "XC1011675",
+    "recordist": "Lionel FREDERIC",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

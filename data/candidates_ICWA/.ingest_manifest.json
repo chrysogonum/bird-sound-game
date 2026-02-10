@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_ICWA/ICWA_1005634.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC1005634",
+    "recordist": "Uku Paal",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ICWA/ICWA_1005500.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC1005500",
+    "recordist": "Mats Olsson",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ICWA/ICWA_1005496.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC1005496",
+    "recordist": "Mats Olsson",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ICWA/ICWA_1000240.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC1000240",
+    "recordist": "Susanne Kuijpers",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ICWA/ICWA_999616.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC999616",
+    "recordist": "Jorge Leit\u00e3o",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ICWA/ICWA_919457.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC919457",
+    "recordist": "Jan Swart",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ICWA/ICWA_909803.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC909803",
+    "recordist": "Martin Fransson",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ICWA/ICWA_800651.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC800651",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_ICWA/ICWA_800650.wav",
+    "species_name": "Icterine Warbler",
+    "species_code": "ICWA",
+    "source": "xenocanto",
+    "source_id": "XC800650",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

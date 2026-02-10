@@ -1,0 +1,98 @@
+[
+  {
+    "file_path": "data/candidates_thrnig1/thrnig1_1064306.wav",
+    "species_name": "Thrush Nightingale",
+    "species_code": "thrnig1",
+    "source": "xenocanto",
+    "source_id": "XC1064306",
+    "recordist": "Andrzej Gusztyn",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_thrnig1/thrnig1_1017991.wav",
+    "species_name": "Thrush Nightingale",
+    "species_code": "thrnig1",
+    "source": "xenocanto",
+    "source_id": "XC1017991",
+    "recordist": "Aku Kalliom\u00e4ki",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_thrnig1/thrnig1_1002285.wav",
+    "species_name": "Thrush Nightingale",
+    "species_code": "thrnig1",
+    "source": "xenocanto",
+    "source_id": "XC1002285",
+    "recordist": "Bjarne Verhaeghe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_thrnig1/thrnig1_1001826.wav",
+    "species_name": "Thrush Nightingale",
+    "species_code": "thrnig1",
+    "source": "xenocanto",
+    "source_id": "XC1001826",
+    "recordist": "Jan Vanwynsberghe",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_thrnig1/thrnig1_996779.wav",
+    "species_name": "Thrush Nightingale",
+    "species_code": "thrnig1",
+    "source": "xenocanto",
+    "source_id": "XC996779",
+    "recordist": "Mats Olsson",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_thrnig1/thrnig1_933885.wav",
+    "species_name": "Thrush Nightingale",
+    "species_code": "thrnig1",
+    "source": "xenocanto",
+    "source_id": "XC933885",
+    "recordist": "Jonas Bonnedahl",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_thrnig1/thrnig1_917642.wav",
+    "species_name": "Thrush Nightingale",
+    "species_code": "thrnig1",
+    "source": "xenocanto",
+    "source_id": "XC917642",
+    "recordist": "Mikael Calner",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_thrnig1/thrnig1_905731.wav",
+    "species_name": "Thrush Nightingale",
+    "species_code": "thrnig1",
+    "source": "xenocanto",
+    "source_id": "XC905731",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

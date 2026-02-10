@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_EUHO/EUHO_747503.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC747503",
+    "recordist": "Sergio Mazzotti",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUHO/EUHO_933041.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC933041",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUHO/EUHO_798255.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC798255",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUHO/EUHO_798066.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC798066",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUHO/EUHO_796753.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC796753",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUHO/EUHO_796733.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC796733",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUHO/EUHO_796706.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC796706",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUHO/EUHO_796338.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC796338",
+    "recordist": "SonoNatura",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_EUHO/EUHO_722274.wav",
+    "species_name": "Eurasian Hobby",
+    "species_code": "EUHO",
+    "source": "xenocanto",
+    "source_id": "XC722274",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.4,
+    "quality": "A"
+  }
+]

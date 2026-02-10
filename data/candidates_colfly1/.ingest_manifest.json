@@ -1,0 +1,86 @@
+[
+  {
+    "file_path": "data/candidates_colfly1/colfly1_648056.wav",
+    "species_name": "Collared Flycatcher",
+    "species_code": "colfly1",
+    "source": "xenocanto",
+    "source_id": "XC648056",
+    "recordist": "David Nayer",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_colfly1/colfly1_996484.wav",
+    "species_name": "Collared Flycatcher",
+    "species_code": "colfly1",
+    "source": "xenocanto",
+    "source_id": "XC996484",
+    "recordist": "Steen Knarberg",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "B"
+  },
+  {
+    "file_path": "data/candidates_colfly1/colfly1_965842.wav",
+    "species_name": "Collared Flycatcher",
+    "species_code": "colfly1",
+    "source": "xenocanto",
+    "source_id": "XC965842",
+    "recordist": "Paul van Nuys",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_colfly1/colfly1_655679.wav",
+    "species_name": "Collared Flycatcher",
+    "species_code": "colfly1",
+    "source": "xenocanto",
+    "source_id": "XC655679",
+    "recordist": "W. Agster",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_colfly1/colfly1_655675.wav",
+    "species_name": "Collared Flycatcher",
+    "species_code": "colfly1",
+    "source": "xenocanto",
+    "source_id": "XC655675",
+    "recordist": "W. Agster",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_colfly1/colfly1_655674.wav",
+    "species_name": "Collared Flycatcher",
+    "species_code": "colfly1",
+    "source": "xenocanto",
+    "source_id": "XC655674",
+    "recordist": "W. Agster",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_colfly1/colfly1_653223.wav",
+    "species_name": "Collared Flycatcher",
+    "species_code": "colfly1",
+    "source": "xenocanto",
+    "source_id": "XC653223",
+    "recordist": "brickegickel",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

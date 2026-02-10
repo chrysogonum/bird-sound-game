@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_WOWA/WOWA_1000139.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC1000139",
+    "recordist": "Markku Miettinen",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WOWA/WOWA_997268.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC997268",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WOWA/WOWA_993598.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC993598",
+    "recordist": "Jocce Ekstrom",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WOWA/WOWA_911177.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC911177",
+    "recordist": "W. Agster",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WOWA/WOWA_911175.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC911175",
+    "recordist": "W. Agster",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WOWA/WOWA_911174.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC911174",
+    "recordist": "W. Agster",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WOWA/WOWA_911173.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC911173",
+    "recordist": "W. Agster",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WOWA/WOWA_997377.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC997377",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_WOWA/WOWA_909432.wav",
+    "species_name": "Wood Warbler",
+    "species_code": "WOWA",
+    "source": "xenocanto",
+    "source_id": "XC909432",
+    "recordist": "Mats Rellmar",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

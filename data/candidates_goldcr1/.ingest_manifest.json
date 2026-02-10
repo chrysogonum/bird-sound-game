@@ -1,0 +1,62 @@
+[
+  {
+    "file_path": "data/candidates_goldcr1/goldcr1_831497.wav",
+    "species_name": "Goldcrest",
+    "species_code": "goldcr1",
+    "source": "xenocanto",
+    "source_id": "XC831497",
+    "recordist": "Mats Rellmar",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_goldcr1/goldcr1_791898.wav",
+    "species_name": "Goldcrest",
+    "species_code": "goldcr1",
+    "source": "xenocanto",
+    "source_id": "XC791898",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_goldcr1/goldcr1_1064695.wav",
+    "species_name": "Goldcrest",
+    "species_code": "goldcr1",
+    "source": "xenocanto",
+    "source_id": "XC1064695",
+    "recordist": "Julien Birard",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_goldcr1/goldcr1_831504.wav",
+    "species_name": "Goldcrest",
+    "species_code": "goldcr1",
+    "source": "xenocanto",
+    "source_id": "XC831504",
+    "recordist": "Mats Rellmar",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_goldcr1/goldcr1_748682.wav",
+    "species_name": "Goldcrest",
+    "species_code": "goldcr1",
+    "source": "xenocanto",
+    "source_id": "XC748682",
+    "recordist": "Amar L\u00e9a",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.4,
+    "quality": "A"
+  }
+]

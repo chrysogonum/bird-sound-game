@@ -1,0 +1,98 @@
+[
+  {
+    "file_path": "data/candidates_eurmag1/eurmag1_1055714.wav",
+    "species_name": "Eurasian Magpie",
+    "species_code": "eurmag1",
+    "source": "xenocanto",
+    "source_id": "XC1055714",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurmag1/eurmag1_954770.wav",
+    "species_name": "Eurasian Magpie",
+    "species_code": "eurmag1",
+    "source": "xenocanto",
+    "source_id": "XC954770",
+    "recordist": "Jacobo Ramil Millarengo",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurmag1/eurmag1_793066.wav",
+    "species_name": "Eurasian Magpie",
+    "species_code": "eurmag1",
+    "source": "xenocanto",
+    "source_id": "XC793066",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.4,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurmag1/eurmag1_1075379.wav",
+    "species_name": "Eurasian Magpie",
+    "species_code": "eurmag1",
+    "source": "xenocanto",
+    "source_id": "XC1075379",
+    "recordist": "Lars Lachmann",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurmag1/eurmag1_1070764.wav",
+    "species_name": "Eurasian Magpie",
+    "species_code": "eurmag1",
+    "source": "xenocanto",
+    "source_id": "XC1070764",
+    "recordist": "Jelle Scharringa",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurmag1/eurmag1_1059919.wav",
+    "species_name": "Eurasian Magpie",
+    "species_code": "eurmag1",
+    "source": "xenocanto",
+    "source_id": "XC1059919",
+    "recordist": "Mark Plummer",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurmag1/eurmag1_1042768.wav",
+    "species_name": "Eurasian Magpie",
+    "species_code": "eurmag1",
+    "source": "xenocanto",
+    "source_id": "XC1042768",
+    "recordist": "Sonoth\u00e8que ADVL",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurmag1/eurmag1_1039731.wav",
+    "species_name": "Eurasian Magpie",
+    "species_code": "eurmag1",
+    "source": "xenocanto",
+    "source_id": "XC1039731",
+    "recordist": "Johannes Worona",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

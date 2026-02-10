@@ -1,0 +1,86 @@
+[
+  {
+    "file_path": "data/candidates_eurtre1/eurtre1_976546.wav",
+    "species_name": "Eurasian Treecreeper",
+    "species_code": "eurtre1",
+    "source": "xenocanto",
+    "source_id": "XC976546",
+    "recordist": "Markku Miettinen",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurtre1/eurtre1_893580.wav",
+    "species_name": "Eurasian Treecreeper",
+    "species_code": "eurtre1",
+    "source": "xenocanto",
+    "source_id": "XC893580",
+    "recordist": "Henk Schreuders",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurtre1/eurtre1_808139.wav",
+    "species_name": "Eurasian Treecreeper",
+    "species_code": "eurtre1",
+    "source": "xenocanto",
+    "source_id": "XC808139",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurtre1/eurtre1_807845.wav",
+    "species_name": "Eurasian Treecreeper",
+    "species_code": "eurtre1",
+    "source": "xenocanto",
+    "source_id": "XC807845",
+    "recordist": "Jerome Fischer",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurtre1/eurtre1_780619.wav",
+    "species_name": "Eurasian Treecreeper",
+    "species_code": "eurtre1",
+    "source": "xenocanto",
+    "source_id": "XC780619",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurtre1/eurtre1_1061243.wav",
+    "species_name": "Eurasian Treecreeper",
+    "species_code": "eurtre1",
+    "source": "xenocanto",
+    "source_id": "XC1061243",
+    "recordist": "Lars Edenius",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_eurtre1/eurtre1_984243.wav",
+    "species_name": "Eurasian Treecreeper",
+    "species_code": "eurtre1",
+    "source": "xenocanto",
+    "source_id": "XC984243",
+    "recordist": "Mark Plummer",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]

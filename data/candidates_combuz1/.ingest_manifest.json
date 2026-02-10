@@ -1,0 +1,110 @@
+[
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1077055.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1077055",
+    "recordist": "Paul Kelly",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1072717.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1072717",
+    "recordist": "Paul Kelly",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1069780.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1069780",
+    "recordist": "Paul Kelly",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1068855.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1068855",
+    "recordist": "Arjun Dutta",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1067905.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1067905",
+    "recordist": "Beatrix Saadi-Varchmin",
+    "vocalization_type": "alarm call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1067258.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1067258",
+    "recordist": "Andr\u00e1s Schmidt",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1062638.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1062638",
+    "recordist": "Lionel Triboulin",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1062636.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1062636",
+    "recordist": "Lionel Triboulin",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  },
+  {
+    "file_path": "data/candidates_combuz1/combuz1_1052241.wav",
+    "species_name": "Common Buzzard",
+    "species_code": "combuz1",
+    "source": "xenocanto",
+    "source_id": "XC1052241",
+    "recordist": "Jack Berteau",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "loudness_lufs": -16.0,
+    "quality": "A"
+  }
+]
