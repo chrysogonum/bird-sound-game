@@ -1711,8 +1711,8 @@ def generate_html() -> str:
                 </div>
 
                 <div class="controls-row">
-                    <button class="btn" id="btnFull" onclick="toggleFull()">&#9654; Full</button>
                     <button class="btn" id="btnSel" onclick="toggleSelection()">&#9654; Selection</button>
+                    <button class="btn" id="btnFull" onclick="toggleFull()">&#9654; Full</button>
                     <div class="time-display" id="timeDisplay">0:00 - 0:00</div>
                     <span style="color:var(--text-dim);font-size:10px;margin-left:auto;">Zoom</span>
                     <input type="range" id="zoomSlider" min="1" max="5" step="0.5" value="1"
@@ -2525,10 +2525,6 @@ function saveAllChanges() {
     const modCount = Object.keys(S.modifications).length;
     const delCount = S.deletions.size;
 
-    if (!confirm('Save changes?\\n\\n' + modCount + ' clips modified\\n' + delCount + ' clips to delete\\n\\nThis will commit to git.')) {
-        return;
-    }
-
     const payload = {
         modifications: S.modifications,
         deletions: Array.from(S.deletions),
@@ -2542,12 +2538,17 @@ function saveAllChanges() {
     .then(r => r.json())
     .then(result => {
         if (result.success) {
-            alert('Saved!\\n\\n' +
-                'Canonical changes: ' + result.stats.canonical_changes + '\\n' +
-                'Rejections: ' + result.stats.rejections + '\\n' +
-                'Quality changes: ' + result.stats.quality_changes + '\\n' +
-                'Files deleted: ' + result.stats.files_deleted + '\\n' +
-                'Git committed: ' + (result.stats.git_committed ? 'Yes' : 'No'));
+            showStatus('Saved and committed to git.', 'success');
+
+            // Flash the save button green for confirmation
+            var btn = document.getElementById('btnSave');
+            var origText = btn.textContent;
+            btn.textContent = '✅ Saved!';
+            btn.style.background = '#2e7d32';
+            setTimeout(function() {
+                btn.textContent = origText;
+                btn.style.background = '';
+            }, 2000);
 
             // Reset state and reload
             S.modifications = {};

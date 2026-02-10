@@ -51,25 +51,25 @@
     "species_code": "SPFL",
     "species_name": "Spotted Flycatcher",
     "source": "xenocanto",
-    "source_id": "XC1052728",
-    "recordist": "MILLON Xavier",
-    "vocalization_type": "nocturnal flight call",
+    "source_id": "XC1046208",
+    "recordist": "Jorge Leitão",
+    "vocalization_type": "call",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
     "quality": "A",
-    "length": "0:07",
-    "country": "France"
+    "length": "0:35",
+    "country": "Portugal"
   },
   {
     "species_code": "SPFL",
     "species_name": "Spotted Flycatcher",
     "source": "xenocanto",
-    "source_id": "XC1052298",
-    "recordist": "MILLON Xavier",
-    "vocalization_type": "nocturnal flight call",
+    "source_id": "XC1038340",
+    "recordist": "João Tomás",
+    "vocalization_type": "alarm call, call",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
     "quality": "A",
-    "length": "0:06",
-    "country": "France"
+    "length": "0:47",
+    "country": "Spain"
   },
   {
     "species_code": "SPFL",
