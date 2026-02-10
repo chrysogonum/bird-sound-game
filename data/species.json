@@ -14494,5 +14494,59 @@
     "common_name": "Black Woodpecker",
     "scientific_name": "Dryocopus martius",
     "taxonomic_order": 2416
+  },
+  {
+    "species_code": "eugori2",
+    "common_name": "Eurasian Golden Oriole",
+    "scientific_name": "Oriolus oriolus",
+    "taxonomic_order": 2417
+  },
+  {
+    "species_code": "carcro1",
+    "common_name": "Carrion Crow",
+    "scientific_name": "Corvus corone",
+    "taxonomic_order": 2418
+  },
+  {
+    "species_code": "eurmag1",
+    "common_name": "Eurasian Magpie",
+    "scientific_name": "Pica pica",
+    "taxonomic_order": 2419
+  },
+  {
+    "species_code": "eugwoo2",
+    "common_name": "Eurasian Green Woodpecker",
+    "scientific_name": "Picus viridis",
+    "taxonomic_order": 2420
+  },
+  {
+    "species_code": "miswoo1",
+    "common_name": "Middle Spotted Woodpecker",
+    "scientific_name": "Dendrocoptes medius",
+    "taxonomic_order": 2421
+  },
+  {
+    "species_code": "leswoo1",
+    "common_name": "Lesser Spotted Woodpecker",
+    "scientific_name": "Dryobates minor",
+    "taxonomic_order": 2422
+  },
+  {
+    "species_code": "redkit1",
+    "common_name": "Red Kite",
+    "scientific_name": "Milvus milvus",
+    "taxonomic_order": 2423
+  },
+  {
+    "species_code": "combuz1",
+    "common_name": "Common Buzzard",
+    "scientific_name": "Buteo buteo",
+    "taxonomic_order": 2424
+  },
+  {
+    "species_code": "euhbuz1",
+    "common_name": "European Honey-buzzard",
+    "scientific_name": "Pernis apivorus",
+    "taxonomic_order": 2425
   }
 ]

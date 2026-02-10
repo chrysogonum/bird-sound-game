@@ -13,7 +13,8 @@
     "recordist": "Alex Jones",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1025810"
+    "source_url": "https://xeno-canto.org/1025810",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "ACFL_6f66c465",
@@ -29,7 +30,8 @@
     "recordist": "Noah Khanti Steinberg",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1071605"
+    "source_url": "https://xeno-canto.org/1071605",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "ACFL_4f93a708",
@@ -45,7 +47,8 @@
     "recordist": "Paul Driver",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/772372"
+    "source_url": "https://xeno-canto.org/772372",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "ACFL_7edbc7c7",
@@ -61,7 +64,8 @@
     "recordist": "Manuel Oudard",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/839505"
+    "source_url": "https://xeno-canto.org/839505",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "AGOL_229ae506",
@@ -77,7 +81,8 @@
     "recordist": "Rory Nefdt",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1034479"
+    "source_url": "https://xeno-canto.org/1034479",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AGOL_d5c9914a",
@@ -93,7 +98,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/638294"
+    "source_url": "https://xeno-canto.org/638294",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AGOL_7c103e06",
@@ -109,7 +115,8 @@
     "recordist": "William Whitehead",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/720038"
+    "source_url": "https://xeno-canto.org/720038",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "AGOL_98188b4c",
@@ -189,7 +196,8 @@
     "recordist": "Sue Riffe",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/316302"
+    "source_url": "https://xeno-canto.org/316302",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMCR_7f3a91b1",
@@ -205,7 +213,8 @@
     "recordist": "Nick Komar",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/667361"
+    "source_url": "https://xeno-canto.org/667361",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRE_293665b4",
@@ -221,7 +230,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014425"
+    "source_url": "https://xeno-canto.org/1014425",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRE_a6608de8",
@@ -237,7 +247,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014856"
+    "source_url": "https://xeno-canto.org/1014856",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRE_72ac84db",
@@ -253,7 +264,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014857"
+    "source_url": "https://xeno-canto.org/1014857",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRO_08ee3b44",
@@ -269,7 +281,8 @@
     "recordist": "Rory Nefdt",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1010651"
+    "source_url": "https://xeno-canto.org/1010651",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRO_c89258ea",
@@ -285,7 +298,8 @@
     "recordist": "AUDEVARD Aur\u00e9lien",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1046358"
+    "source_url": "https://xeno-canto.org/1046358",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRO_92f67853",
@@ -301,7 +315,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1047670"
+    "source_url": "https://xeno-canto.org/1047670",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRO_64807a09",
@@ -317,7 +332,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/825254"
+    "source_url": "https://xeno-canto.org/825254",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRO_9e7017ce",
@@ -333,7 +349,8 @@
     "recordist": "Sue Riffe",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/860362"
+    "source_url": "https://xeno-canto.org/860362",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRO_4304eb59",
@@ -349,7 +366,8 @@
     "recordist": "David Tattersley",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/999597"
+    "source_url": "https://xeno-canto.org/999597",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRO_103541a1",
@@ -365,7 +383,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/999642"
+    "source_url": "https://xeno-canto.org/999642",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "AMRO_a35b473b",
@@ -381,7 +400,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/999643"
+    "source_url": "https://xeno-canto.org/999643",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAOW_cfd22794",
@@ -477,7 +497,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013805"
+    "source_url": "https://xeno-canto.org/1013805",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAWW_e4eba590",
@@ -493,7 +514,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013903"
+    "source_url": "https://xeno-canto.org/1013903",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAWW_99e485c0",
@@ -509,7 +531,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013906"
+    "source_url": "https://xeno-canto.org/1013906",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAWW_6f2596e4",
@@ -525,7 +548,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013908"
+    "source_url": "https://xeno-canto.org/1013908",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAWW_af033aa2",
@@ -541,7 +565,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013909"
+    "source_url": "https://xeno-canto.org/1013909",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAWW_0cc17af2",
@@ -557,7 +582,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1036380"
+    "source_url": "https://xeno-canto.org/1036380",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BBWA_083bef52",
@@ -573,7 +599,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014733"
+    "source_url": "https://xeno-canto.org/1014733",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BBWA_de619c70",
@@ -589,7 +616,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014776"
+    "source_url": "https://xeno-canto.org/1014776",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BBWA_a0600ac2",
@@ -605,7 +633,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1036530"
+    "source_url": "https://xeno-canto.org/1036530",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BCCH_1f1620c6",
@@ -685,7 +714,8 @@
     "recordist": "Richard E. Webster",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1034325"
+    "source_url": "https://xeno-canto.org/1034325",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BEKI_1535fa3d",
@@ -701,7 +731,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/448752"
+    "source_url": "https://xeno-canto.org/448752",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BEKI_23c104b2",
@@ -717,7 +748,8 @@
     "recordist": "Russ Wigh",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/590595"
+    "source_url": "https://xeno-canto.org/590595",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BEKI_b3c68c02",
@@ -733,7 +765,8 @@
     "recordist": "Peter Ward and Ken Hall",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/612651"
+    "source_url": "https://xeno-canto.org/612651",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BEKI_dd2ca081",
@@ -749,7 +782,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/628808"
+    "source_url": "https://xeno-canto.org/628808",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BHNU_721381ab",
@@ -765,7 +799,8 @@
     "recordist": "Russ Wigh",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/570311"
+    "source_url": "https://xeno-canto.org/570311",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BHNU_bbd3bfd3",
@@ -781,7 +816,8 @@
     "recordist": "Paul Driver",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/651187"
+    "source_url": "https://xeno-canto.org/651187",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BHNU_202a044a",
@@ -797,7 +833,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/714465"
+    "source_url": "https://xeno-canto.org/714465",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BHNU_02357f0d",
@@ -813,7 +850,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/714466"
+    "source_url": "https://xeno-canto.org/714466",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BHNU_49b9eea1",
@@ -829,7 +867,8 @@
     "recordist": "PT xiao",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/726413"
+    "source_url": "https://xeno-canto.org/726413",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLBW_029daa8c",
@@ -845,7 +884,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013883"
+    "source_url": "https://xeno-canto.org/1013883",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLBW_f39873c4",
@@ -861,7 +901,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014269"
+    "source_url": "https://xeno-canto.org/1014269",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLBW_2cbb8123",
@@ -877,7 +918,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014459"
+    "source_url": "https://xeno-canto.org/1014459",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLJA_6a15d880",
@@ -893,7 +935,8 @@
     "recordist": "Rory Nefdt",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1010650"
+    "source_url": "https://xeno-canto.org/1010650",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLJA_72dae65d",
@@ -909,7 +952,8 @@
     "recordist": "ckp274",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1046664"
+    "source_url": "https://xeno-canto.org/1046664",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLJA_331a00b4",
@@ -925,7 +969,8 @@
     "recordist": "Dany Sloan",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/861979"
+    "source_url": "https://xeno-canto.org/861979",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLJA_1c24aa6d",
@@ -941,7 +986,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/933595"
+    "source_url": "https://xeno-canto.org/933595",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLPW_0978805e",
@@ -957,7 +1003,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014468"
+    "source_url": "https://xeno-canto.org/1014468",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLPW_0a4ac12a",
@@ -973,7 +1020,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014475"
+    "source_url": "https://xeno-canto.org/1014475",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLPW_11c99723",
@@ -989,7 +1037,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/690983"
+    "source_url": "https://xeno-canto.org/690983",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRCR_25967ceb",
@@ -1005,7 +1054,8 @@
     "recordist": "Ron Overholtz",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/709621"
+    "source_url": "https://xeno-canto.org/709621",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRCR_c1e4f872",
@@ -1021,7 +1071,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/744286"
+    "source_url": "https://xeno-canto.org/744286",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRCR_27b5c28d",
@@ -1037,7 +1088,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/933554"
+    "source_url": "https://xeno-canto.org/933554",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRCR_9093a40d",
@@ -1053,7 +1105,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/933558"
+    "source_url": "https://xeno-canto.org/933558",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRCR_ed9fa117",
@@ -1069,7 +1122,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/938850"
+    "source_url": "https://xeno-canto.org/938850",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRTH_bcdf3683",
@@ -1085,7 +1139,8 @@
     "recordist": "Peder Svingen",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1011716"
+    "source_url": "https://xeno-canto.org/1011716",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRTH_016b47bf",
@@ -1101,7 +1156,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/803817"
+    "source_url": "https://xeno-canto.org/803817",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRTH_562fd25c",
@@ -1117,7 +1173,8 @@
     "recordist": "Manuel Oudard",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/839369"
+    "source_url": "https://xeno-canto.org/839369",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BRTH_d7df3c93",
@@ -1133,7 +1190,8 @@
     "recordist": "Brian Cox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/939190"
+    "source_url": "https://xeno-canto.org/939190",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BRTH_d0086c7d",
@@ -1149,7 +1207,8 @@
     "recordist": "Molly Jacobson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/996863"
+    "source_url": "https://xeno-canto.org/996863",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTBW_eb82fbe3",
@@ -1165,7 +1224,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013120"
+    "source_url": "https://xeno-canto.org/1013120",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTBW_7df143ec",
@@ -1181,7 +1241,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013121"
+    "source_url": "https://xeno-canto.org/1013121",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTBW_25c8a4ff",
@@ -1197,7 +1258,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1038360"
+    "source_url": "https://xeno-canto.org/1038360",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTBW_077265ad",
@@ -1213,7 +1275,8 @@
     "recordist": "Molly Jacobson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/903870"
+    "source_url": "https://xeno-canto.org/903870",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTNW_c78bb12f",
@@ -1229,7 +1292,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013766"
+    "source_url": "https://xeno-canto.org/1013766",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTNW_e16b6db7",
@@ -1245,7 +1309,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013767"
+    "source_url": "https://xeno-canto.org/1013767",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTNW_92a267e9",
@@ -1261,7 +1326,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014367"
+    "source_url": "https://xeno-canto.org/1014367",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTNW_c5173907",
@@ -1277,7 +1343,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014727"
+    "source_url": "https://xeno-canto.org/1014727",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTNW_fd5cd4e2",
@@ -1293,7 +1360,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014729"
+    "source_url": "https://xeno-canto.org/1014729",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTNW_3b6fb38a",
@@ -1309,7 +1377,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014732"
+    "source_url": "https://xeno-canto.org/1014732",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BTNW_1ea0eaa4",
@@ -1325,7 +1394,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1038308"
+    "source_url": "https://xeno-canto.org/1038308",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BWWA_283fdc39",
@@ -1341,7 +1411,8 @@
     "recordist": "Daniel Lane",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/101664"
+    "source_url": "https://xeno-canto.org/101664",
+    "license": "//creativecommons.org/licenses/by-nc-nd/2.5/"
   },
   {
     "clip_id": "BWWA_f9390a8b",
@@ -1357,7 +1428,8 @@
     "recordist": "Daniel Lane",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/101899"
+    "source_url": "https://xeno-canto.org/101899",
+    "license": "//creativecommons.org/licenses/by-nc-nd/2.5/"
   },
   {
     "clip_id": "BWWA_57adeb56",
@@ -1373,7 +1445,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/598819"
+    "source_url": "https://xeno-canto.org/598819",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BWWA_c6ccfb7c",
@@ -1389,7 +1462,8 @@
     "recordist": "Manuel Oudard",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/839511"
+    "source_url": "https://xeno-canto.org/839511",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "CACH_4e018400",
@@ -1405,7 +1479,8 @@
     "recordist": "Thomas Magarian",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/877921"
+    "source_url": "https://xeno-canto.org/877921",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CACH_75c7a5ee",
@@ -1421,7 +1496,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/877922"
+    "source_url": "https://xeno-canto.org/877922",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CACH_ae85ad6f",
@@ -1437,7 +1513,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/877923"
+    "source_url": "https://xeno-canto.org/877923",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CACH_31be7f6f",
@@ -1453,7 +1530,8 @@
     "recordist": "steve",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/884282"
+    "source_url": "https://xeno-canto.org/884282",
+    "license": "//creativecommons.org/licenses/by-sa/4.0/"
   },
   {
     "clip_id": "CACH_190fbd6f",
@@ -1469,7 +1547,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/933606"
+    "source_url": "https://xeno-canto.org/933606",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CAFI_0df81e13",
@@ -1549,7 +1628,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1010648"
+    "source_url": "https://xeno-canto.org/1010648",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARW_4ed44038",
@@ -1565,7 +1645,8 @@
     "recordist": "Sue Riffe",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/941065"
+    "source_url": "https://xeno-canto.org/941065",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARW_0350b42d",
@@ -1581,7 +1662,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/951784"
+    "source_url": "https://xeno-canto.org/951784",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARW_4b015350",
@@ -1597,7 +1679,8 @@
     "recordist": "James Robe",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/995314"
+    "source_url": "https://xeno-canto.org/995314",
+    "license": "//creativecommons.org/publicdomain/zero/1.0/"
   },
   {
     "clip_id": "CASJ_2ab9f9a4",
@@ -1661,7 +1744,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014128"
+    "source_url": "https://xeno-canto.org/1014128",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CAWA_972ff61b",
@@ -1677,7 +1761,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014299"
+    "source_url": "https://xeno-canto.org/1014299",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CAWA_67f96d07",
@@ -1693,7 +1778,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014302"
+    "source_url": "https://xeno-canto.org/1014302",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CAWA_dd8c3b47",
@@ -1709,7 +1795,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015017"
+    "source_url": "https://xeno-canto.org/1015017",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CEDW_695793ef",
@@ -1725,7 +1812,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014827"
+    "source_url": "https://xeno-canto.org/1014827",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CEDW_0ef52a4a",
@@ -1741,7 +1829,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014829"
+    "source_url": "https://xeno-canto.org/1014829",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CEDW_a2d3b380",
@@ -1757,7 +1846,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014832"
+    "source_url": "https://xeno-canto.org/1014832",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CEDW_81623196",
@@ -1773,7 +1863,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014833"
+    "source_url": "https://xeno-canto.org/1014833",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CEDW_ee0466e0",
@@ -1789,7 +1880,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/598824"
+    "source_url": "https://xeno-canto.org/598824",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CEDW_50c14952",
@@ -1805,7 +1897,8 @@
     "recordist": "Jeffrey Mann",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/771668"
+    "source_url": "https://xeno-canto.org/771668",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSP_f54ee7a8",
@@ -1821,7 +1914,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012541"
+    "source_url": "https://xeno-canto.org/1012541",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSP_654a16e3",
@@ -1837,7 +1931,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013215"
+    "source_url": "https://xeno-canto.org/1013215",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSP_a4a6f476",
@@ -1853,7 +1948,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013719"
+    "source_url": "https://xeno-canto.org/1013719",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSP_b98bd2f5",
@@ -1869,7 +1965,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013721"
+    "source_url": "https://xeno-canto.org/1013721",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSP_83b48b51",
@@ -1885,7 +1982,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014201"
+    "source_url": "https://xeno-canto.org/1014201",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSP_8f993213",
@@ -1901,7 +1999,8 @@
     "recordist": "Jim Berry",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1024787"
+    "source_url": "https://xeno-canto.org/1024787",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSP_8a8ebe32",
@@ -1917,7 +2016,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1038385"
+    "source_url": "https://xeno-canto.org/1038385",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CMWA_94c035e4",
@@ -1933,7 +2033,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013293"
+    "source_url": "https://xeno-canto.org/1013293",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CMWA_b718f636",
@@ -1949,7 +2050,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013473"
+    "source_url": "https://xeno-canto.org/1013473",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COGR_6003a2a1",
@@ -1965,7 +2067,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012859"
+    "source_url": "https://xeno-canto.org/1012859",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COGR_198fb276",
@@ -1981,7 +2084,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014939"
+    "source_url": "https://xeno-canto.org/1014939",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COGR_0b8cc0b5",
@@ -1997,7 +2101,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014942"
+    "source_url": "https://xeno-canto.org/1014942",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COGR_a36aa4ed",
@@ -2013,7 +2118,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014943"
+    "source_url": "https://xeno-canto.org/1014943",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COHA_03673d56",
@@ -2029,7 +2135,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/806092"
+    "source_url": "https://xeno-canto.org/806092",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COHA_dee92334",
@@ -2045,7 +2152,8 @@
     "recordist": "Scott Crabtree",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/819551"
+    "source_url": "https://xeno-canto.org/819551",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COHA_cd1a9641",
@@ -2061,7 +2169,8 @@
     "recordist": "Whitney Neufeld-Kaiser",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/830259"
+    "source_url": "https://xeno-canto.org/830259",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COHA_837063eb",
@@ -2077,7 +2186,8 @@
     "recordist": "Dany Sloan",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/859371"
+    "source_url": "https://xeno-canto.org/859371",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COHA_f358c9f4",
@@ -2093,7 +2203,8 @@
     "recordist": "Scott Crabtree",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/944418"
+    "source_url": "https://xeno-canto.org/944418",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COHA_b49e211a",
@@ -2109,7 +2220,8 @@
     "recordist": "Don Profota",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/985664"
+    "source_url": "https://xeno-canto.org/985664",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CONW_cfecf0ac",
@@ -2125,7 +2237,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013973"
+    "source_url": "https://xeno-canto.org/1013973",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CONW_732ed356",
@@ -2141,7 +2254,8 @@
     "recordist": "Nancy Hetrick",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/252951"
+    "source_url": "https://xeno-canto.org/252951",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CONW_81501cb4",
@@ -2157,7 +2271,8 @@
     "recordist": "Scott Gravette",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/475279"
+    "source_url": "https://xeno-canto.org/475279",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COYE_b9cebfa9",
@@ -2173,7 +2288,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013902"
+    "source_url": "https://xeno-canto.org/1013902",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COYE_e2baa6ab",
@@ -2189,7 +2305,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014863"
+    "source_url": "https://xeno-canto.org/1014863",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "COYE_15a1a094",
@@ -2205,7 +2322,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1021804"
+    "source_url": "https://xeno-canto.org/1021804",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CSWA_f215bb3a",
@@ -2221,7 +2339,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014420"
+    "source_url": "https://xeno-canto.org/1014420",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CSWA_c9870703",
@@ -2237,7 +2356,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015053"
+    "source_url": "https://xeno-canto.org/1015053",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CSWA_d8ad6714",
@@ -2253,7 +2373,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015055"
+    "source_url": "https://xeno-canto.org/1015055",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DEJU_f04ee91b",
@@ -2269,7 +2390,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014358"
+    "source_url": "https://xeno-canto.org/1014358",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DEJU_c0035fe1",
@@ -2285,7 +2407,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1024572"
+    "source_url": "https://xeno-canto.org/1024572",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DEJU_4b379c63",
@@ -2301,7 +2424,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1046356"
+    "source_url": "https://xeno-canto.org/1046356",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DEJU_25cbf5f8",
@@ -2317,7 +2441,8 @@
     "recordist": null,
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1046357"
+    "source_url": "https://xeno-canto.org/1046357",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DEJU_6d31e0df",
@@ -2349,7 +2474,8 @@
     "recordist": "Bill Pyle",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1036590"
+    "source_url": "https://xeno-canto.org/1036590",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DOWO_8dde860a",
@@ -2365,7 +2491,8 @@
     "recordist": "Peter Mundale",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/982935"
+    "source_url": "https://xeno-canto.org/982935",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DOWO_f8ce0634",
@@ -2429,7 +2556,8 @@
     "recordist": "Christopher McPherson",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/608740"
+    "source_url": "https://xeno-canto.org/608740",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EABL_cb90d4cb",
@@ -2445,7 +2573,8 @@
     "recordist": "Patrick J. Blake",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/712412"
+    "source_url": "https://xeno-canto.org/712412",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EABL_c8206305",
@@ -2461,7 +2590,8 @@
     "recordist": "Michael Hurben",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/844282"
+    "source_url": "https://xeno-canto.org/844282",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EABL_9a118efc",
@@ -2477,7 +2607,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/890146"
+    "source_url": "https://xeno-canto.org/890146",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EABL_a2ac585c",
@@ -2493,7 +2624,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/890150"
+    "source_url": "https://xeno-canto.org/890150",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EABL_02c38a74",
@@ -2509,7 +2641,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/890154"
+    "source_url": "https://xeno-canto.org/890154",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAPH_880a91dc",
@@ -2525,7 +2658,8 @@
     "recordist": "Barry Edmonston",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/682550"
+    "source_url": "https://xeno-canto.org/682550",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAPH_e3b9c1da",
@@ -2541,7 +2675,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/713589"
+    "source_url": "https://xeno-canto.org/713589",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAPH_c4d2ee3c",
@@ -2557,7 +2692,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/713591"
+    "source_url": "https://xeno-canto.org/713591",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAPH_81c844f5",
@@ -2573,7 +2709,8 @@
     "recordist": "Andrew Sonea",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/813069"
+    "source_url": "https://xeno-canto.org/813069",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "EAPH_311bc9f5",
@@ -2589,7 +2726,8 @@
     "recordist": "Manuel Oudard",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/839500"
+    "source_url": "https://xeno-canto.org/839500",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "EAPH_238bb1ed",
@@ -2605,7 +2743,8 @@
     "recordist": "Paul Driver",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/893395"
+    "source_url": "https://xeno-canto.org/893395",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EATO_465cdd29",
@@ -2749,7 +2888,8 @@
     "recordist": "Ted Floyd",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/264970"
+    "source_url": "https://xeno-canto.org/264970",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "FICR_93124b17",
@@ -2765,7 +2905,8 @@
     "recordist": "Valerie Wininger",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/459772"
+    "source_url": "https://xeno-canto.org/459772",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "FICR_debb425c",
@@ -2781,7 +2922,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/815114"
+    "source_url": "https://xeno-canto.org/815114",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "FICR_f5a7c587",
@@ -2797,7 +2939,8 @@
     "recordist": "Gregory Askew",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/822351"
+    "source_url": "https://xeno-canto.org/822351",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "FICR_69f02423",
@@ -2813,7 +2956,8 @@
     "recordist": "Daniel Parker",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/902120"
+    "source_url": "https://xeno-canto.org/902120",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "FISP_367bbeaf",
@@ -2829,7 +2973,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014919"
+    "source_url": "https://xeno-canto.org/1014919",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "FISP_2cc46c8b",
@@ -2845,7 +2990,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015150"
+    "source_url": "https://xeno-canto.org/1015150",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "FISP_ef2d7a23",
@@ -2861,7 +3007,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/825414"
+    "source_url": "https://xeno-canto.org/825414",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "FISP_0e9caa09",
@@ -2877,7 +3024,8 @@
     "recordist": "Manuel Oudard",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/837818"
+    "source_url": "https://xeno-canto.org/837818",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "FISP_7f35e1ea",
@@ -2893,7 +3041,8 @@
     "recordist": "Oscar Gordo",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/924416"
+    "source_url": "https://xeno-canto.org/924416",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCFL_3a292a4c",
@@ -2909,7 +3058,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012534"
+    "source_url": "https://xeno-canto.org/1012534",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCFL_06322d7a",
@@ -2925,7 +3075,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012536"
+    "source_url": "https://xeno-canto.org/1012536",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCFL_d720b692",
@@ -2941,7 +3092,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1036375"
+    "source_url": "https://xeno-canto.org/1036375",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCFL_7f003c92",
@@ -2957,7 +3109,8 @@
     "recordist": "Manuel Oudard",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/840737"
+    "source_url": "https://xeno-canto.org/840737",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "GCFL_5bc8f1a0",
@@ -2973,7 +3126,8 @@
     "recordist": "Sue Riffe",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/844235"
+    "source_url": "https://xeno-canto.org/844235",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCFL_762d7bf9",
@@ -2989,7 +3143,8 @@
     "recordist": "Denis Provencher",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/916957"
+    "source_url": "https://xeno-canto.org/916957",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCKI_f6521ac6",
@@ -3005,7 +3160,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013480"
+    "source_url": "https://xeno-canto.org/1013480",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCKI_0ecb2059",
@@ -3021,7 +3177,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013481"
+    "source_url": "https://xeno-canto.org/1013481",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCKI_e5fd25b7",
@@ -3037,7 +3194,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1040799"
+    "source_url": "https://xeno-canto.org/1040799",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GCKI_68785d05",
@@ -3053,7 +3211,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1047665"
+    "source_url": "https://xeno-canto.org/1047665",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_6da59577",
@@ -3069,7 +3228,8 @@
     "recordist": "Sue Riffe",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1002792"
+    "source_url": "https://xeno-canto.org/1002792",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_e48db981",
@@ -3085,7 +3245,8 @@
     "recordist": "Bill Pyle",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1010845"
+    "source_url": "https://xeno-canto.org/1010845",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_e456664f",
@@ -3101,7 +3262,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012942"
+    "source_url": "https://xeno-canto.org/1012942",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_ad19d291",
@@ -3117,7 +3279,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012947"
+    "source_url": "https://xeno-canto.org/1012947",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_9a7d5612",
@@ -3133,7 +3296,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012948"
+    "source_url": "https://xeno-canto.org/1012948",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_c9975d52",
@@ -3149,7 +3313,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013399"
+    "source_url": "https://xeno-canto.org/1013399",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_482f6608",
@@ -3165,7 +3330,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013400"
+    "source_url": "https://xeno-canto.org/1013400",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_2967c66d",
@@ -3181,7 +3347,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013402"
+    "source_url": "https://xeno-canto.org/1013402",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_e6b58443",
@@ -3197,7 +3364,8 @@
     "recordist": "Ned Bohman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1016556"
+    "source_url": "https://xeno-canto.org/1016556",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRCA_73a726ba",
@@ -3213,7 +3381,8 @@
     "recordist": "Haoning Gong",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/998812"
+    "source_url": "https://xeno-canto.org/998812",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GWWA_2e9f6c02",
@@ -3229,7 +3398,8 @@
     "recordist": "William Whitehead",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/650432"
+    "source_url": "https://xeno-canto.org/650432",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "GWWA_1ab8f8ea",
@@ -3245,7 +3415,8 @@
     "recordist": "Paul Driver",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/658548"
+    "source_url": "https://xeno-canto.org/658548",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GWWA_547a9cd0",
@@ -3261,7 +3432,8 @@
     "recordist": "Manuel Oudard",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/839513"
+    "source_url": "https://xeno-canto.org/839513",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "HAWO_b2eae8d8",
@@ -3277,7 +3449,8 @@
     "recordist": "Greg Irving",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1028817"
+    "source_url": "https://xeno-canto.org/1028817",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HAWO_d27f7d6a",
@@ -3293,7 +3466,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1039174"
+    "source_url": "https://xeno-canto.org/1039174",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HAWO_34f862b0",
@@ -3309,7 +3483,8 @@
     "recordist": "Scott Crabtree",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/951714"
+    "source_url": "https://xeno-canto.org/951714",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HAWO_516e9380",
@@ -3325,7 +3500,8 @@
     "recordist": "Jim Berry",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/988849"
+    "source_url": "https://xeno-canto.org/988849",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HAWO_413674d5",
@@ -3341,7 +3517,8 @@
     "recordist": "Scott Crabtree",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/994605"
+    "source_url": "https://xeno-canto.org/994605",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HETH_235fed76",
@@ -3357,7 +3534,8 @@
     "recordist": "Bill Pyle",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1036596"
+    "source_url": "https://xeno-canto.org/1036596",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HETH_cad85051",
@@ -3373,7 +3551,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1037508"
+    "source_url": "https://xeno-canto.org/1037508",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HETH_483d6521",
@@ -3389,7 +3568,8 @@
     "recordist": "AUDEVARD Aur\u00e9lien",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1048898"
+    "source_url": "https://xeno-canto.org/1048898",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HETH_f03cc2d7",
@@ -3405,7 +3585,8 @@
     "recordist": "Leander Khil",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/957962"
+    "source_url": "https://xeno-canto.org/957962",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HETH_52f9982a",
@@ -3421,7 +3602,8 @@
     "recordist": "Bill Pyle",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/963177"
+    "source_url": "https://xeno-canto.org/963177",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HOFI_29833094",
@@ -3437,7 +3619,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/898674"
+    "source_url": "https://xeno-canto.org/898674",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HOFI_957cb09a",
@@ -3453,7 +3636,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/899902"
+    "source_url": "https://xeno-canto.org/899902",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HOFI_3aaae59a",
@@ -3469,7 +3653,8 @@
     "recordist": "Thomas G. Graves",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/900144"
+    "source_url": "https://xeno-canto.org/900144",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HOFI_b4a42769",
@@ -3533,7 +3718,8 @@
     "recordist": "Sue Riffe",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1002085"
+    "source_url": "https://xeno-canto.org/1002085",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KEWA_7cab2233",
@@ -3549,7 +3735,8 @@
     "recordist": "Scott Gravette",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/795271"
+    "source_url": "https://xeno-canto.org/795271",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KEWA_390ba526",
@@ -3565,7 +3752,8 @@
     "recordist": "Tom Ford-Hutchinson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/808671"
+    "source_url": "https://xeno-canto.org/808671",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KEWA_144b6d0f",
@@ -3581,7 +3769,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/827876"
+    "source_url": "https://xeno-canto.org/827876",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KEWA_a90b029a",
@@ -3597,7 +3786,8 @@
     "recordist": "Dany Sloan",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/860980"
+    "source_url": "https://xeno-canto.org/860980",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LISP_0cbf4974",
@@ -3613,7 +3803,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014972"
+    "source_url": "https://xeno-canto.org/1014972",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LISP_65e65128",
@@ -3629,7 +3820,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014974"
+    "source_url": "https://xeno-canto.org/1014974",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LISP_7c7b24f1",
@@ -3645,7 +3837,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014977"
+    "source_url": "https://xeno-canto.org/1014977",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LISP_db2bb15b",
@@ -3661,7 +3854,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014979"
+    "source_url": "https://xeno-canto.org/1014979",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LISP_aa5f346e",
@@ -3677,7 +3871,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014983"
+    "source_url": "https://xeno-canto.org/1014983",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LOWA_5d9e132d",
@@ -3693,7 +3888,8 @@
     "recordist": "Christopher McPherson",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/691609"
+    "source_url": "https://xeno-canto.org/691609",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LOWA_6438e5bf",
@@ -3709,7 +3905,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/805820"
+    "source_url": "https://xeno-canto.org/805820",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LOWA_d91e6f4c",
@@ -3725,7 +3922,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/828213"
+    "source_url": "https://xeno-canto.org/828213",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "LOWA_504b44e8",
@@ -3741,7 +3939,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/828223"
+    "source_url": "https://xeno-canto.org/828223",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MAWA_acaf8b28",
@@ -3757,7 +3956,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013890"
+    "source_url": "https://xeno-canto.org/1013890",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MAWA_877f60c8",
@@ -3773,7 +3973,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013891"
+    "source_url": "https://xeno-canto.org/1013891",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MAWA_7833bd2b",
@@ -3789,7 +3990,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014112"
+    "source_url": "https://xeno-canto.org/1014112",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MAWA_d096696a",
@@ -3805,7 +4007,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014780"
+    "source_url": "https://xeno-canto.org/1014780",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MODO_40620503",
@@ -3821,7 +4024,8 @@
     "recordist": "Christopher McPherson",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/638304"
+    "source_url": "https://xeno-canto.org/638304",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MODO_65fa5c24",
@@ -3837,7 +4041,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/940517"
+    "source_url": "https://xeno-canto.org/940517",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MODO_0c29a4f8",
@@ -3885,7 +4090,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014001"
+    "source_url": "https://xeno-canto.org/1014001",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MOWA_0bee542e",
@@ -3901,7 +4107,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014326"
+    "source_url": "https://xeno-canto.org/1014326",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "MOWA_c3e5df00",
@@ -3917,7 +4124,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014327"
+    "source_url": "https://xeno-canto.org/1014327",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NAWA_9105bcb3",
@@ -3933,7 +4141,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013952"
+    "source_url": "https://xeno-canto.org/1013952",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NAWA_4207ecae",
@@ -3949,7 +4158,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013954"
+    "source_url": "https://xeno-canto.org/1013954",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NAWA_0e87de6e",
@@ -3965,7 +4175,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013956"
+    "source_url": "https://xeno-canto.org/1013956",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NAWA_1605fc06",
@@ -3981,7 +4192,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013979"
+    "source_url": "https://xeno-canto.org/1013979",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOCA_05c03abc",
@@ -3997,7 +4209,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1010609"
+    "source_url": "https://xeno-canto.org/1010609",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOCA_505c934d",
@@ -4013,7 +4226,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1010649"
+    "source_url": "https://xeno-canto.org/1010649",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOCA_beb5d6ce",
@@ -4029,7 +4243,8 @@
     "recordist": "Michael S. Taylor",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1070756"
+    "source_url": "https://xeno-canto.org/1070756",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOCA_d12a975a",
@@ -4045,7 +4260,8 @@
     "recordist": "Simon Elliott",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/598016"
+    "source_url": "https://xeno-canto.org/598016",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "NOCA_903340f2",
@@ -4061,7 +4277,8 @@
     "recordist": "Scott Crabtree",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/809789"
+    "source_url": "https://xeno-canto.org/809789",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOFL_3d25ea3e",
@@ -4077,7 +4294,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1007124"
+    "source_url": "https://xeno-canto.org/1007124",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOFL_06b9c600",
@@ -4093,7 +4311,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1033749"
+    "source_url": "https://xeno-canto.org/1033749",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOFL_44b248d7",
@@ -4109,7 +4328,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/768323"
+    "source_url": "https://xeno-canto.org/768323",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOFL_69af15ec",
@@ -4125,7 +4345,8 @@
     "recordist": "Scott Olmstead",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/776026"
+    "source_url": "https://xeno-canto.org/776026",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOFL_6babde31",
@@ -4141,7 +4362,8 @@
     "recordist": "Paul Driver",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/786153"
+    "source_url": "https://xeno-canto.org/786153",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOFL_d5b6a41f",
@@ -4157,7 +4379,8 @@
     "recordist": "Paul Driver",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/786154"
+    "source_url": "https://xeno-canto.org/786154",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOFL_3e2fdd09",
@@ -4237,7 +4460,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/807449"
+    "source_url": "https://xeno-canto.org/807449",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOMO_a76ee7f5",
@@ -4253,7 +4477,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/807536"
+    "source_url": "https://xeno-canto.org/807536",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOMO_30b222fa",
@@ -4269,7 +4494,8 @@
     "recordist": "Percy Ulsamer",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/862380"
+    "source_url": "https://xeno-canto.org/862380",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOMO_14a1aba4",
@@ -4285,7 +4511,8 @@
     "recordist": "Scott Gravette",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/871912"
+    "source_url": "https://xeno-canto.org/871912",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOMO_016a1bd8",
@@ -4301,7 +4528,8 @@
     "recordist": "Scott Crabtree",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/871984"
+    "source_url": "https://xeno-canto.org/871984",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOMO_a15d732d",
@@ -4317,7 +4545,8 @@
     "recordist": "Scott Olmstead",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/872514"
+    "source_url": "https://xeno-canto.org/872514",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOMO_cdbcc34c",
@@ -4333,7 +4562,8 @@
     "recordist": "David Tattersley",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/901002"
+    "source_url": "https://xeno-canto.org/901002",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOMO_ab61732e",
@@ -4349,7 +4579,8 @@
     "recordist": "Shelby M Palmer",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/981689"
+    "source_url": "https://xeno-canto.org/981689",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOPA_150e126d",
@@ -4365,7 +4596,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013754"
+    "source_url": "https://xeno-canto.org/1013754",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOPA_2e7e9e62",
@@ -4381,7 +4613,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013870"
+    "source_url": "https://xeno-canto.org/1013870",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOPA_ab89abf0",
@@ -4397,7 +4630,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013947"
+    "source_url": "https://xeno-canto.org/1013947",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOWA_86c4ede9",
@@ -4413,7 +4647,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013461"
+    "source_url": "https://xeno-canto.org/1013461",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOWA_b9e600e7",
@@ -4429,7 +4664,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013462"
+    "source_url": "https://xeno-canto.org/1013462",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NOWA_9c81411f",
@@ -4445,7 +4681,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013464"
+    "source_url": "https://xeno-canto.org/1013464",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OCWA_4d6eefc8",
@@ -4461,7 +4698,8 @@
     "recordist": "AUDEVARD Aur\u00e9lien",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1046368"
+    "source_url": "https://xeno-canto.org/1046368",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OCWA_b2d69015",
@@ -4477,7 +4715,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/800862"
+    "source_url": "https://xeno-canto.org/800862",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OCWA_3c1af398",
@@ -4493,7 +4732,8 @@
     "recordist": "Andy Birch",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/808323"
+    "source_url": "https://xeno-canto.org/808323",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OCWA_b8e38e6b",
@@ -4509,7 +4749,8 @@
     "recordist": "Nancy Salem",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/976251"
+    "source_url": "https://xeno-canto.org/976251",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OCWA_22d5a582",
@@ -4525,7 +4766,8 @@
     "recordist": "Matthew L. Brady",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/980342"
+    "source_url": "https://xeno-canto.org/980342",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OCWA_70ea44fe",
@@ -4541,7 +4783,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/985696"
+    "source_url": "https://xeno-canto.org/985696",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OVEN_f1a85b43",
@@ -4557,7 +4800,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014291"
+    "source_url": "https://xeno-canto.org/1014291",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OVEN_7a07ebde",
@@ -4573,7 +4817,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014294"
+    "source_url": "https://xeno-canto.org/1014294",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OVEN_1d8ba32d",
@@ -4589,7 +4834,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014599"
+    "source_url": "https://xeno-canto.org/1014599",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PAWA_9fb86375",
@@ -4605,7 +4851,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015024"
+    "source_url": "https://xeno-canto.org/1015024",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PAWA_bbcf15db",
@@ -4621,7 +4868,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015031"
+    "source_url": "https://xeno-canto.org/1015031",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PAWA_e70ca0e9",
@@ -4637,7 +4885,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015036"
+    "source_url": "https://xeno-canto.org/1015036",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PAWA_ad1a21a5",
@@ -4653,7 +4902,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015038"
+    "source_url": "https://xeno-canto.org/1015038",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PISI_cd1cc4eb",
@@ -4717,7 +4967,8 @@
     "recordist": "Jan Huus",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1002534"
+    "source_url": "https://xeno-canto.org/1002534",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWA_6c76cdc7",
@@ -4733,7 +4984,8 @@
     "recordist": "John Middleton",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/476138"
+    "source_url": "https://xeno-canto.org/476138",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWA_61c0dbeb",
@@ -4749,7 +5001,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/895213"
+    "source_url": "https://xeno-canto.org/895213",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWA_e4ff0bd0",
@@ -4765,7 +5018,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/895216"
+    "source_url": "https://xeno-canto.org/895216",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWA_4a2490ca",
@@ -4781,7 +5035,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/895228"
+    "source_url": "https://xeno-canto.org/895228",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWA_7ae35091",
@@ -4797,7 +5052,8 @@
     "recordist": "David Tattersley",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/901095"
+    "source_url": "https://xeno-canto.org/901095",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWO_f9f6788e",
@@ -4813,7 +5069,8 @@
     "recordist": "Brian Hendrix",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/570955"
+    "source_url": "https://xeno-canto.org/570955",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWO_a1d3a400",
@@ -4829,7 +5086,8 @@
     "recordist": null,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/582550"
+    "source_url": "https://xeno-canto.org/582550",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWO_c5cae1c9",
@@ -4845,7 +5103,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/586579"
+    "source_url": "https://xeno-canto.org/586579",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWO_a2be8f36",
@@ -4861,7 +5120,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/599834"
+    "source_url": "https://xeno-canto.org/599834",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWO_83eea4c4",
@@ -4877,7 +5137,8 @@
     "recordist": "Russ Wigh",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/649554"
+    "source_url": "https://xeno-canto.org/649554",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWO_f51dc23a",
@@ -4893,7 +5154,8 @@
     "recordist": "Jim Berry",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/797066"
+    "source_url": "https://xeno-canto.org/797066",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PIWO_b8aa06e0",
@@ -4909,7 +5171,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/828370"
+    "source_url": "https://xeno-canto.org/828370",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PRAW_d0f51cf8",
@@ -4925,7 +5188,8 @@
     "recordist": "Christopher McPherson",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/691780"
+    "source_url": "https://xeno-canto.org/691780",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PRAW_561998a8",
@@ -4941,7 +5205,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/691782"
+    "source_url": "https://xeno-canto.org/691782",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PRAW_179d4366",
@@ -4957,7 +5222,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/691783"
+    "source_url": "https://xeno-canto.org/691783",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PRAW_14d6ea79",
@@ -4973,7 +5239,8 @@
     "recordist": "Alex Lin-Moore",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/805473"
+    "source_url": "https://xeno-canto.org/805473",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PROW_1589ec62",
@@ -4989,7 +5256,8 @@
     "recordist": "Scott Gravette",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/371157"
+    "source_url": "https://xeno-canto.org/371157",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PROW_4a556fc8",
@@ -5005,7 +5273,8 @@
     "recordist": "Antonio Xeira",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/389965"
+    "source_url": "https://xeno-canto.org/389965",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PROW_71d2a7ab",
@@ -5021,7 +5290,8 @@
     "recordist": "Patrick Blake",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/413204"
+    "source_url": "https://xeno-canto.org/413204",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "PROW_f4aa6032",
@@ -5037,7 +5307,8 @@
     "recordist": "Will Sweet",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/565260"
+    "source_url": "https://xeno-canto.org/565260",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBWO_a9f561cb",
@@ -5053,7 +5324,8 @@
     "recordist": "Rory Nefdt",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012058"
+    "source_url": "https://xeno-canto.org/1012058",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBWO_454f0239",
@@ -5069,7 +5341,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/687174"
+    "source_url": "https://xeno-canto.org/687174",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBWO_54074c94",
@@ -5085,7 +5358,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/691788"
+    "source_url": "https://xeno-canto.org/691788",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBWO_7d26e3e7",
@@ -5101,7 +5375,8 @@
     "recordist": "Bill Grantham",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/692437"
+    "source_url": "https://xeno-canto.org/692437",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBWO_51980e1a",
@@ -5117,7 +5392,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/713254"
+    "source_url": "https://xeno-canto.org/713254",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBWO_2c1970db",
@@ -5133,7 +5409,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/713255"
+    "source_url": "https://xeno-canto.org/713255",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBWO_9a998efc",
@@ -5149,7 +5426,8 @@
     "recordist": "Paul Driver",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/780787"
+    "source_url": "https://xeno-canto.org/780787",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBWO_fb5186d8",
@@ -5165,7 +5443,8 @@
     "recordist": "A Richardson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/962378"
+    "source_url": "https://xeno-canto.org/962378",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RCKI_817e283b",
@@ -5181,7 +5460,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014439"
+    "source_url": "https://xeno-canto.org/1014439",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RCKI_42047d08",
@@ -5197,7 +5477,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014752"
+    "source_url": "https://xeno-canto.org/1014752",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RCKI_306447aa",
@@ -5213,7 +5494,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014754"
+    "source_url": "https://xeno-canto.org/1014754",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RCKI_e7b4acb8",
@@ -5229,7 +5511,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014756"
+    "source_url": "https://xeno-canto.org/1014756",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RCKI_8b06363e",
@@ -5245,7 +5528,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014787"
+    "source_url": "https://xeno-canto.org/1014787",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RHWO_633a5b0a",
@@ -5261,7 +5545,8 @@
     "recordist": "David Darrell-Lambert",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1062474"
+    "source_url": "https://xeno-canto.org/1062474",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RHWO_aa77ecf0",
@@ -5277,7 +5562,8 @@
     "recordist": "John A. Middleton Jr.",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/733937"
+    "source_url": "https://xeno-canto.org/733937",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RHWO_98417472",
@@ -5293,7 +5579,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/774908"
+    "source_url": "https://xeno-canto.org/774908",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RHWO_9dfdd541",
@@ -5309,7 +5596,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/818871"
+    "source_url": "https://xeno-canto.org/818871",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RHWO_912e791e",
@@ -5325,7 +5613,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/845687"
+    "source_url": "https://xeno-canto.org/845687",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RHWO_452980f5",
@@ -5341,7 +5630,8 @@
     "recordist": "Whitney Neufeld-Kaiser",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/940918"
+    "source_url": "https://xeno-canto.org/940918",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RHWO_9b0d8c73",
@@ -5357,7 +5647,8 @@
     "recordist": "Peter Mundale",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/959566"
+    "source_url": "https://xeno-canto.org/959566",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RSHA_a489ce32",
@@ -5373,7 +5664,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/712976"
+    "source_url": "https://xeno-canto.org/712976",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RSHA_2271b819",
@@ -5389,7 +5681,8 @@
     "recordist": "William Whitehead",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/729076"
+    "source_url": "https://xeno-canto.org/729076",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "RSHA_1853d2ff",
@@ -5405,7 +5698,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/809281"
+    "source_url": "https://xeno-canto.org/809281",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RSHA_35fce471",
@@ -5421,7 +5715,8 @@
     "recordist": "Daniel Parker",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/878472"
+    "source_url": "https://xeno-canto.org/878472",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RSHA_54539f88",
@@ -5437,7 +5732,8 @@
     "recordist": "Megan Johnson",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/892537"
+    "source_url": "https://xeno-canto.org/892537",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "RSHA_a695a0ba",
@@ -5453,7 +5749,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/923439"
+    "source_url": "https://xeno-canto.org/923439",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RSHA_c3500b23",
@@ -5469,7 +5766,8 @@
     "recordist": "Valerie Heemstra",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/933584"
+    "source_url": "https://xeno-canto.org/933584",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RSHA_c89473f5",
@@ -5485,7 +5783,8 @@
     "recordist": "Rick Wheat",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/952544"
+    "source_url": "https://xeno-canto.org/952544",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RSHA_2f720f1e",
@@ -5501,7 +5800,8 @@
     "recordist": "Matthew L. Brady",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/980329"
+    "source_url": "https://xeno-canto.org/980329",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHA_004c65de",
@@ -5517,7 +5817,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1035993"
+    "source_url": "https://xeno-canto.org/1035993",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHA_2e4d05f1",
@@ -5533,7 +5834,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/914680"
+    "source_url": "https://xeno-canto.org/914680",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHA_d97012dc",
@@ -5549,7 +5851,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/973856"
+    "source_url": "https://xeno-canto.org/973856",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHA_2791da41",
@@ -5565,7 +5868,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/973864"
+    "source_url": "https://xeno-canto.org/973864",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHU_b79b25f5",
@@ -5581,7 +5885,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013051"
+    "source_url": "https://xeno-canto.org/1013051",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHU_5543b668",
@@ -5597,7 +5902,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013237"
+    "source_url": "https://xeno-canto.org/1013237",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHU_df9bb920",
@@ -5613,7 +5919,8 @@
     "recordist": "Craig Brookes",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/193646"
+    "source_url": "https://xeno-canto.org/193646",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHU_f0d13969",
@@ -5629,7 +5936,8 @@
     "recordist": "Russ Wigh",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/505916"
+    "source_url": "https://xeno-canto.org/505916",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RTHU_2b67483e",
@@ -5645,7 +5953,8 @@
     "recordist": "Christopher McPherson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/691886"
+    "source_url": "https://xeno-canto.org/691886",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RWBL_9da88d42",
@@ -5709,7 +6018,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014027"
+    "source_url": "https://xeno-canto.org/1014027",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SAVS_91fc9acb",
@@ -5725,7 +6035,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014028"
+    "source_url": "https://xeno-canto.org/1014028",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SAVS_bf7ea041",
@@ -5741,7 +6052,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014989"
+    "source_url": "https://xeno-canto.org/1014989",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SAVS_bc85a1b6",
@@ -5757,7 +6069,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014991"
+    "source_url": "https://xeno-canto.org/1014991",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SAVS_e639745a",
@@ -5773,7 +6086,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1021629"
+    "source_url": "https://xeno-canto.org/1021629",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SAVS_1f5b1bff",
@@ -5789,7 +6103,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1040463"
+    "source_url": "https://xeno-canto.org/1040463",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SOSP_75a0d82c",
@@ -5805,7 +6120,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1021071"
+    "source_url": "https://xeno-canto.org/1021071",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SOSP_4a876b57",
@@ -5821,7 +6137,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1021073"
+    "source_url": "https://xeno-canto.org/1021073",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SOSP_744d2d03",
@@ -5837,7 +6154,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1021074"
+    "source_url": "https://xeno-canto.org/1021074",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SOSP_a75e3216",
@@ -5853,7 +6171,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1021075"
+    "source_url": "https://xeno-canto.org/1021075",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SOSP_12562145",
@@ -5869,7 +6188,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1021076"
+    "source_url": "https://xeno-canto.org/1021076",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SOSP_76085653",
@@ -5885,7 +6205,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1021087"
+    "source_url": "https://xeno-canto.org/1021087",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SOSP_727b1e8a",
@@ -5901,7 +6222,8 @@
     "recordist": "Jim Berry",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1027844"
+    "source_url": "https://xeno-canto.org/1027844",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SOSP_c099aba2",
@@ -5917,7 +6239,8 @@
     "recordist": "Denis Dujardin",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1056054"
+    "source_url": "https://xeno-canto.org/1056054",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SSHA_75e124aa",
@@ -5933,7 +6256,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014685"
+    "source_url": "https://xeno-canto.org/1014685",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SSHA_f5e81da8",
@@ -5949,7 +6273,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/626060"
+    "source_url": "https://xeno-canto.org/626060",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SSHA_65cff250",
@@ -5965,7 +6290,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/710944"
+    "source_url": "https://xeno-canto.org/710944",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SSHA_b1feed33",
@@ -5981,7 +6307,8 @@
     "recordist": "Ray Cooke",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/923859"
+    "source_url": "https://xeno-canto.org/923859",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "STJA_1360a0f5",
@@ -6077,7 +6404,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012741"
+    "source_url": "https://xeno-canto.org/1012741",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SWSP_5eeeea0c",
@@ -6093,7 +6421,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012743"
+    "source_url": "https://xeno-canto.org/1012743",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SWSP_8caa2de8",
@@ -6109,7 +6438,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012748"
+    "source_url": "https://xeno-canto.org/1012748",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SWSP_09b620f4",
@@ -6125,7 +6455,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1012914"
+    "source_url": "https://xeno-canto.org/1012914",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SWSP_73ec0262",
@@ -6141,7 +6472,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013530"
+    "source_url": "https://xeno-canto.org/1013530",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SWWA_6f528874",
@@ -6157,7 +6489,8 @@
     "recordist": "Noah Khanti Steinberg",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1071256"
+    "source_url": "https://xeno-canto.org/1071256",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SWWA_9d1b6b28",
@@ -6173,7 +6506,8 @@
     "recordist": "John A. Middleton Jr.",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/720952"
+    "source_url": "https://xeno-canto.org/720952",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SWWA_975b7a42",
@@ -6189,7 +6523,8 @@
     "recordist": "Sue Riffe",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/938875"
+    "source_url": "https://xeno-canto.org/938875",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "TEWA_e9a9cd72",
@@ -6205,7 +6540,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013989"
+    "source_url": "https://xeno-canto.org/1013989",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "TEWA_79da94e2",
@@ -6221,7 +6557,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013990"
+    "source_url": "https://xeno-canto.org/1013990",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "TEWA_df6c2e14",
@@ -6237,7 +6574,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014318"
+    "source_url": "https://xeno-canto.org/1014318",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "TEWA_f75448c8",
@@ -6253,7 +6591,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014433"
+    "source_url": "https://xeno-canto.org/1014433",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "TUTI_7bf8e998",
@@ -6269,7 +6608,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1035994"
+    "source_url": "https://xeno-canto.org/1035994",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "TUTI_f49f7239",
@@ -6285,7 +6625,8 @@
     "recordist": "Mike Nelson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/60068"
+    "source_url": "https://xeno-canto.org/60068",
+    "license": "//creativecommons.org/licenses/by-nc-sa/3.0/"
   },
   {
     "clip_id": "TUTI_ac0dfe97",
@@ -6301,7 +6642,8 @@
     "recordist": "steve",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/884288"
+    "source_url": "https://xeno-canto.org/884288",
+    "license": "//creativecommons.org/licenses/by-sa/4.0/"
   },
   {
     "clip_id": "WBNU_3b5ad0f4",
@@ -6317,7 +6659,8 @@
     "recordist": "Scott Olmstead",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/728659"
+    "source_url": "https://xeno-canto.org/728659",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WBNU_eff6e53a",
@@ -6333,7 +6676,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/762303"
+    "source_url": "https://xeno-canto.org/762303",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WBNU_180f974d",
@@ -6349,7 +6693,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/810120"
+    "source_url": "https://xeno-canto.org/810120",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WBNU_35ec3674",
@@ -6509,7 +6854,8 @@
     "recordist": "Richard E. Webster",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/827619"
+    "source_url": "https://xeno-canto.org/827619",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEVI_18947ee8",
@@ -6525,7 +6871,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/833700"
+    "source_url": "https://xeno-canto.org/833700",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEVI_72883edf",
@@ -6541,7 +6888,8 @@
     "recordist": "Scott Gravette",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/988446"
+    "source_url": "https://xeno-canto.org/988446",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEVI_e058d5fb",
@@ -6557,7 +6905,8 @@
     "recordist": "Scott Gravette",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/989689"
+    "source_url": "https://xeno-canto.org/989689",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEWA_03a75b16",
@@ -6573,7 +6922,8 @@
     "recordist": "Brian Henderson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/654638"
+    "source_url": "https://xeno-canto.org/654638",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEWA_0ba0f667",
@@ -6589,7 +6939,8 @@
     "recordist": "Jorge de Leon Cardozo &amp; Susan Hochgraf",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/730180"
+    "source_url": "https://xeno-canto.org/730180",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEWA_e7995587",
@@ -6605,7 +6956,8 @@
     "recordist": "Richard E. Webster",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/828191"
+    "source_url": "https://xeno-canto.org/828191",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEWA_f37a900c",
@@ -6621,7 +6973,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/933617"
+    "source_url": "https://xeno-canto.org/933617",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WIWA_074536e9",
@@ -6637,7 +6990,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014396"
+    "source_url": "https://xeno-canto.org/1014396",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WIWA_f1a33399",
@@ -6653,7 +7007,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014397"
+    "source_url": "https://xeno-canto.org/1014397",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WIWA_6d576a20",
@@ -6669,7 +7024,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014403"
+    "source_url": "https://xeno-canto.org/1014403",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WTSP_1bab9e11",
@@ -6685,7 +7041,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1015145"
+    "source_url": "https://xeno-canto.org/1015145",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WTSP_76847107",
@@ -6701,7 +7058,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/714082"
+    "source_url": "https://xeno-canto.org/714082",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WTSP_e62162b2",
@@ -6717,7 +7075,8 @@
     "recordist": "Jim Berry",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/793715"
+    "source_url": "https://xeno-canto.org/793715",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WTSP_7a4056a2",
@@ -6733,7 +7092,8 @@
     "recordist": "Valerie Heemstra",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/821692"
+    "source_url": "https://xeno-canto.org/821692",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WTSP_cb00d5ce",
@@ -6749,7 +7109,8 @@
     "recordist": "Meena Haribal",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/915935"
+    "source_url": "https://xeno-canto.org/915935",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBSA_0cc8c404",
@@ -6765,7 +7126,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1011116"
+    "source_url": "https://xeno-canto.org/1011116",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBSA_6aca6db4",
@@ -6781,7 +7143,8 @@
     "recordist": "Bobby Wilcox",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1038387"
+    "source_url": "https://xeno-canto.org/1038387",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBSA_c9c87cc5",
@@ -6797,7 +7160,8 @@
     "recordist": "Sue Riffe",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/629141"
+    "source_url": "https://xeno-canto.org/629141",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBSA_dfbff483",
@@ -6813,7 +7177,8 @@
     "recordist": "Richard E. Webster",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/663258"
+    "source_url": "https://xeno-canto.org/663258",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBSA_4453dba3",
@@ -6829,7 +7194,8 @@
     "recordist": "Magnus Hellstr\u00f6m",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/803622"
+    "source_url": "https://xeno-canto.org/803622",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBSA_2b9a57c8",
@@ -6845,7 +7211,8 @@
     "recordist": "steve",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/870691"
+    "source_url": "https://xeno-canto.org/870691",
+    "license": "//creativecommons.org/licenses/by-sa/4.0/"
   },
   {
     "clip_id": "YBSA_e5c01856",
@@ -6861,7 +7228,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/871633"
+    "source_url": "https://xeno-canto.org/871633",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBSA_64291229",
@@ -6877,7 +7245,8 @@
     "recordist": "Megan Johnson",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/892544"
+    "source_url": "https://xeno-canto.org/892544",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "YBSA_aba39d15",
@@ -6893,7 +7262,8 @@
     "recordist": "Valerie Heemstra",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/899093"
+    "source_url": "https://xeno-canto.org/899093",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YRWA_966f9810",
@@ -6909,7 +7279,8 @@
     "recordist": "Gwen Baluss",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1000573"
+    "source_url": "https://xeno-canto.org/1000573",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YRWA_d64f107e",
@@ -6925,7 +7296,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013276"
+    "source_url": "https://xeno-canto.org/1013276",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YRWA_4b6e29ef",
@@ -6941,7 +7313,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1013277"
+    "source_url": "https://xeno-canto.org/1013277",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YRWA_343cdfde",
@@ -6957,7 +7330,8 @@
     "recordist": "Ron Overholtz",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/731214"
+    "source_url": "https://xeno-canto.org/731214",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YRWA_c9a1c627",
@@ -6973,7 +7347,8 @@
     "recordist": "Valerie Heemstra",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/898003"
+    "source_url": "https://xeno-canto.org/898003",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YTWA_74a30af3",
@@ -6989,7 +7364,8 @@
     "recordist": "Jacob R. Saucier",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/404733"
+    "source_url": "https://xeno-canto.org/404733",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YTWA_d4fd6b6e",
@@ -7005,7 +7381,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/460438"
+    "source_url": "https://xeno-canto.org/460438",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YTWA_bb2277aa",
@@ -7021,7 +7398,8 @@
     "recordist": "Caio Brito",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/556587"
+    "source_url": "https://xeno-canto.org/556587",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YTWA_ac200366",
@@ -7037,7 +7415,8 @@
     "recordist": "Matt Wistrand",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/649989"
+    "source_url": "https://xeno-canto.org/649989",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAWP_839983",
@@ -7054,7 +7433,8 @@
     "spectrogram_path": "data/spectrograms/EAWP_839983.png",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/839983"
+    "source_url": "https://xeno-canto.org/839983",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "EAWP_1014933",
@@ -7071,7 +7451,8 @@
     "spectrogram_path": "data/spectrograms/EAWP_1014933.png",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1014933"
+    "source_url": "https://xeno-canto.org/1014933",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAWP_1038498",
@@ -7088,7 +7469,8 @@
     "spectrogram_path": "data/spectrograms/EAWP_1038498.png",
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1038498"
+    "source_url": "https://xeno-canto.org/1038498",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAWP_1038492",
@@ -7105,7 +7487,8 @@
     "spectrogram_path": "data/spectrograms/EAWP_1038492.png",
     "canonical": true,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1038492"
+    "source_url": "https://xeno-canto.org/1038492",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "REVI_1014455",
@@ -7122,7 +7505,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/REVI_1014455.png",
-    "source_url": "https://xeno-canto.org/1014455"
+    "source_url": "https://xeno-canto.org/1014455",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "REVI_1014453",
@@ -7139,7 +7523,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/REVI_1014453.png",
-    "source_url": "https://xeno-canto.org/1014453"
+    "source_url": "https://xeno-canto.org/1014453",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "REVI_1014451",
@@ -7156,7 +7541,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/REVI_1014451.png",
-    "source_url": "https://xeno-canto.org/1014451"
+    "source_url": "https://xeno-canto.org/1014451",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "REVI_1014388",
@@ -7173,7 +7559,8 @@
     "canonical": true,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/REVI_1014388.png",
-    "source_url": "https://xeno-canto.org/1014388"
+    "source_url": "https://xeno-canto.org/1014388",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "REVI_1014387",
@@ -7190,7 +7577,8 @@
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/REVI_1014387.png",
-    "source_url": "https://xeno-canto.org/1014387"
+    "source_url": "https://xeno-canto.org/1014387",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HOSP_872123",
@@ -7207,7 +7595,8 @@
     "recordist": "Scott Olmstead",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOSP_872123.png"
+    "spectrogram_path": "data/spectrograms/HOSP_872123.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HOSP_908403",
@@ -7224,7 +7613,8 @@
     "recordist": "Thomas Ryder Payne",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOSP_908403.png"
+    "spectrogram_path": "data/spectrograms/HOSP_908403.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "HOSP_975549",
@@ -7241,7 +7631,8 @@
     "recordist": "Leonardo Ord\u00f3\u00f1ez-Delgado",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/HOSP_975549.png"
+    "spectrogram_path": "data/spectrograms/HOSP_975549.png",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "file_path": "data/clips/LEWO_700388.wav",
@@ -7260,7 +7651,8 @@
     "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/700388",
-    "spectrogram_path": "data/spectrograms/LEWO_700388.png"
+    "spectrogram_path": "data/spectrograms/LEWO_700388.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/clips/LEWO_575042.wav",
@@ -7279,7 +7671,8 @@
     "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/575042",
-    "spectrogram_path": "data/spectrograms/LEWO_575042.png"
+    "spectrogram_path": "data/spectrograms/LEWO_575042.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/clips/LEWO_310350.wav",
@@ -7298,7 +7691,8 @@
     "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/310350",
-    "spectrogram_path": "data/spectrograms/LEWO_310350.png"
+    "spectrogram_path": "data/spectrograms/LEWO_310350.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/clips/LEWO_13662.wav",
@@ -7317,7 +7711,8 @@
     "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/13662",
-    "spectrogram_path": "data/spectrograms/LEWO_13662.png"
+    "spectrogram_path": "data/spectrograms/LEWO_13662.png",
+    "license": "//creativecommons.org/licenses/by-nc-nd/2.5/"
   },
   {
     "file_path": "data/clips/ACWO_1003757.wav",
@@ -7336,7 +7731,8 @@
     "quality_score": 5,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/1003757"
+    "source_url": "https://xeno-canto.org/1003757",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/clips/ACWO_961969.wav",
@@ -7355,7 +7751,8 @@
     "quality_score": 5,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/961969"
+    "source_url": "https://xeno-canto.org/961969",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/clips/ACWO_959182.wav",
@@ -7374,7 +7771,8 @@
     "quality_score": 5,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/959182"
+    "source_url": "https://xeno-canto.org/959182",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/clips/ACWO_936464.wav",
@@ -7393,7 +7791,8 @@
     "common_name": "Acorn Woodpecker",
     "quality_score": 5,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/936464"
+    "source_url": "https://xeno-canto.org/936464",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/clips/ACWO_915541.wav",
@@ -7412,7 +7811,8 @@
     "quality_score": 5,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/915541"
+    "source_url": "https://xeno-canto.org/915541",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "file_path": "data/clips/ACWO_810121.wav",
@@ -7431,7 +7831,8 @@
     "quality_score": 5,
     "canonical": false,
     "rejected": false,
-    "source_url": "https://xeno-canto.org/810121"
+    "source_url": "https://xeno-canto.org/810121",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WREN_fc3c3d87",
@@ -7448,7 +7849,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_937258.png"
+    "spectrogram_path": "data/spectrograms/WREN_937258.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WREN_d8c82e53",
@@ -7465,7 +7867,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_634664.png"
+    "spectrogram_path": "data/spectrograms/WREN_634664.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WREN_295e4454",
@@ -7482,7 +7885,8 @@
     "recordist": "Thomas G. Graves",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_629171.png"
+    "spectrogram_path": "data/spectrograms/WREN_629171.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WREN_1824903a",
@@ -7499,7 +7903,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_576849.png"
+    "spectrogram_path": "data/spectrograms/WREN_576849.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SPTO_413caab4",
@@ -7516,7 +7921,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/SPTO_1047676.png"
+    "spectrogram_path": "data/spectrograms/SPTO_1047676.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SPTO_02b42978",
@@ -7533,7 +7939,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/SPTO_1024564.png"
+    "spectrogram_path": "data/spectrograms/SPTO_1024564.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SPTO_03fda74a",
@@ -7550,7 +7957,8 @@
     "recordist": "Greg Irving",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/SPTO_1011840.png"
+    "spectrogram_path": "data/spectrograms/SPTO_1011840.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SPTO_d32f4fcc",
@@ -7567,7 +7975,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/SPTO_1004582.png"
+    "spectrogram_path": "data/spectrograms/SPTO_1004582.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SPTO_e71f9a8f",
@@ -7584,7 +7993,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/SPTO_996432.png"
+    "spectrogram_path": "data/spectrograms/SPTO_996432.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEBL_f92f7b01",
@@ -7601,7 +8011,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_703748.png"
+    "spectrogram_path": "data/spectrograms/WEBL_703748.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEBL_c2789d9a",
@@ -7618,7 +8029,8 @@
     "recordist": "Paul Marvin",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_571075.png"
+    "spectrogram_path": "data/spectrograms/WEBL_571075.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEBL_5ceb233c",
@@ -7635,7 +8047,8 @@
     "recordist": "Bruce Lagerquist",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_561903.png"
+    "spectrogram_path": "data/spectrograms/WEBL_561903.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEBL_da1301c9",
@@ -7652,7 +8065,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_552950.png"
+    "spectrogram_path": "data/spectrograms/WEBL_552950.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WEBL_bd5f5db8",
@@ -7669,7 +8083,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/WEBL_457218.png"
+    "spectrogram_path": "data/spectrograms/WEBL_457218.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "INBU_468af7dc",
@@ -7686,7 +8101,8 @@
     "recordist": "Sue Riffe",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/INBU_1002806.png"
+    "spectrogram_path": "data/spectrograms/INBU_1002806.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "INBU_3ce9767b",
@@ -7703,7 +8119,8 @@
     "recordist": "Rory Nefdt",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/INBU_1006771.png"
+    "spectrogram_path": "data/spectrograms/INBU_1006771.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "INBU_bb8cd943",
@@ -7720,7 +8137,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/INBU_1012605.png"
+    "spectrogram_path": "data/spectrograms/INBU_1012605.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "INBU_38905288",
@@ -7737,7 +8155,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/INBU_1012606.png"
+    "spectrogram_path": "data/spectrograms/INBU_1012606.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "INBU_09c19c7c",
@@ -7754,7 +8173,8 @@
     "recordist": "Dany Sloan",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/INBU_861005.png"
+    "spectrogram_path": "data/spectrograms/INBU_861005.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "INBU_33165c47",
@@ -7771,7 +8191,8 @@
     "recordist": "Jeffrey Mann",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/INBU_899365.png"
+    "spectrogram_path": "data/spectrograms/INBU_899365.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BARS_24e64635",
@@ -7788,7 +8209,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/BARS_1011825.png"
+    "spectrogram_path": "data/spectrograms/BARS_1011825.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BARS_ae11f2a6",
@@ -7805,7 +8227,8 @@
     "recordist": "Sunny Tseng",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/BARS_753128.png"
+    "spectrogram_path": "data/spectrograms/BARS_753128.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BARS_f1badcaf",
@@ -7822,7 +8245,8 @@
     "recordist": "Sunny Tseng",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/BARS_753130.png"
+    "spectrogram_path": "data/spectrograms/BARS_753130.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAKI_e1f9757c",
@@ -7839,7 +8263,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAKI_1014876.png"
+    "spectrogram_path": "data/spectrograms/EAKI_1014876.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAKI_ab50da78",
@@ -7856,7 +8281,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAKI_1014877.png"
+    "spectrogram_path": "data/spectrograms/EAKI_1014877.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAKI_1c14d4df",
@@ -7873,7 +8299,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAKI_1014878.png"
+    "spectrogram_path": "data/spectrograms/EAKI_1014878.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAKI_6d9552d6",
@@ -7890,7 +8317,8 @@
     "recordist": "Greg Irving",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAKI_1036234.png"
+    "spectrogram_path": "data/spectrograms/EAKI_1036234.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAKI_74b98fd5",
@@ -7907,7 +8335,8 @@
     "recordist": "Greg Irving",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAKI_1038742.png"
+    "spectrogram_path": "data/spectrograms/EAKI_1038742.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAME_7bc792c5",
@@ -7924,7 +8353,8 @@
     "recordist": "Stanislas Wroza",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAME_1014913.png"
+    "spectrogram_path": "data/spectrograms/EAME_1014913.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAME_fb76bb6a",
@@ -7941,7 +8371,8 @@
     "recordist": "Manuel Oudard",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAME_840192.png"
+    "spectrogram_path": "data/spectrograms/EAME_840192.png",
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "EAME_edf630ae",
@@ -7958,7 +8389,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAME_934441.png"
+    "spectrogram_path": "data/spectrograms/EAME_934441.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAME_7ceeb713",
@@ -7975,7 +8407,8 @@
     "recordist": "Thomas Magarian",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAME_934443.png"
+    "spectrogram_path": "data/spectrograms/EAME_934443.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DICK_1cccf12f",
@@ -7992,7 +8425,8 @@
     "recordist": "David A. Brinkman",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/DICK_1007619.png"
+    "spectrogram_path": "data/spectrograms/DICK_1007619.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DICK_4b7fcbe0",
@@ -8009,7 +8443,8 @@
     "recordist": "Ray Cooke",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/DICK_1058587.png"
+    "spectrogram_path": "data/spectrograms/DICK_1058587.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DICK_cee47d4f",
@@ -8026,7 +8461,8 @@
     "recordist": "Dany Sloan",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/DICK_866017.png"
+    "spectrogram_path": "data/spectrograms/DICK_866017.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DICK_94f1a61a",
@@ -8043,7 +8479,8 @@
     "recordist": "steve",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/DICK_903275.png"
+    "spectrogram_path": "data/spectrograms/DICK_903275.png",
+    "license": "//creativecommons.org/licenses/by-sa/4.0/"
   },
   {
     "clip_id": "DICK_11c1fb6a",
@@ -8060,7 +8497,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/DICK_936314.png"
+    "spectrogram_path": "data/spectrograms/DICK_936314.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "DICK_80a44ae0",
@@ -8077,7 +8515,8 @@
     "recordist": "Richard E. Webster",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/DICK_936318.png"
+    "spectrogram_path": "data/spectrograms/DICK_936318.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YEWA_1fca854f",
@@ -8094,7 +8533,8 @@
     "recordist": "AUDEVARD Aur\u00e9lien",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/YEWA_1046364.png"
+    "spectrogram_path": "data/spectrograms/YEWA_1046364.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YEWA_32a4eafd",
@@ -8111,7 +8551,8 @@
     "recordist": "AUDEVARD Aur\u00e9lien",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/YEWA_1046362.png"
+    "spectrogram_path": "data/spectrograms/YEWA_1046362.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_3475acc6",
@@ -8128,7 +8569,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_999244.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_999244.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_632f3c2f",
@@ -8145,7 +8587,8 @@
     "recordist": "Matthew L. Brady",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_980363.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_980363.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_1ea430f0",
@@ -8162,7 +8605,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_807965.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_807965.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_e919a73f",
@@ -8179,7 +8623,8 @@
     "recordist": "Ed Pandolfino",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_794296.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_794296.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_6395022f",
@@ -8196,7 +8641,8 @@
     "recordist": "Paul Marvin",
     "canonical": true,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_714832.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_714832.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_74726d39",
@@ -8213,7 +8659,8 @@
     "recordist": "Paul Marvin",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_710735.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_710735.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_0b6a42d3",
@@ -8230,7 +8677,8 @@
     "recordist": "Steve Hampton",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_602846.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_602846.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_a4615d1c",
@@ -8247,7 +8695,8 @@
     "recordist": "Steve Hampton",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_493955.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_493955.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "OATI_04708455",
@@ -8264,7 +8713,8 @@
     "recordist": "Meena Haribal",
     "canonical": false,
     "rejected": false,
-    "spectrogram_path": "data/spectrograms/OATI_xenocanto_481142.png"
+    "spectrogram_path": "data/spectrograms/OATI_xenocanto_481142.png",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "nezbel1_doc_001",
@@ -11317,7 +11767,8 @@
     "spectrogram_path": "data/spectrograms/EAME_906697_1.png",
     "canonical": false,
     "rejected": false,
-    "common_name": "Eastern Meadowlark"
+    "common_name": "Eastern Meadowlark",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EAME_906697_2",
@@ -11334,7 +11785,8 @@
     "spectrogram_path": "data/spectrograms/EAME_906697_2.png",
     "canonical": false,
     "rejected": false,
-    "common_name": "Eastern Meadowlark"
+    "common_name": "Eastern Meadowlark",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WOTH_1013065_1",
@@ -11351,7 +11803,8 @@
     "file_path": "data/clips/WOTH_1013065_1.wav",
     "spectrogram_path": "data/spectrograms/WOTH_1013065_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WOTH_1013065_3",
@@ -11368,7 +11821,8 @@
     "file_path": "data/clips/WOTH_1013065_3.wav",
     "spectrogram_path": "data/spectrograms/WOTH_1013065_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WOTH_1001801_1",
@@ -11385,7 +11839,8 @@
     "file_path": "data/clips/WOTH_1001801_1.wav",
     "spectrogram_path": "data/spectrograms/WOTH_1001801_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WOTH_1038301_1",
@@ -11402,7 +11857,8 @@
     "file_path": "data/clips/WOTH_1038301_1.wav",
     "spectrogram_path": "data/spectrograms/WOTH_1038301_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WOTH_934452_2",
@@ -11419,7 +11875,8 @@
     "file_path": "data/clips/WOTH_934452_2.wav",
     "spectrogram_path": "data/spectrograms/WOTH_934452_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WOTH_995785_1",
@@ -11436,7 +11893,8 @@
     "file_path": "data/clips/WOTH_995785_1.wav",
     "spectrogram_path": "data/spectrograms/WOTH_995785_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KILL_1040455_1",
@@ -11453,7 +11911,8 @@
     "file_path": "data/clips/KILL_1040455_1.wav",
     "spectrogram_path": "data/spectrograms/KILL_1040455_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KILL_1040455_2",
@@ -11470,7 +11929,8 @@
     "file_path": "data/clips/KILL_1040455_2.wav",
     "spectrogram_path": "data/spectrograms/KILL_1040455_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KILL_1016734_1",
@@ -11487,7 +11947,8 @@
     "file_path": "data/clips/KILL_1016734_1.wav",
     "spectrogram_path": "data/spectrograms/KILL_1016734_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KILL_1012888_1",
@@ -11504,7 +11965,8 @@
     "file_path": "data/clips/KILL_1012888_1.wav",
     "spectrogram_path": "data/spectrograms/KILL_1012888_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "KILL_1013247_1",
@@ -11521,7 +11983,8 @@
     "file_path": "data/clips/KILL_1013247_1.wav",
     "spectrogram_path": "data/spectrograms/KILL_1013247_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAOR_1036355_1",
@@ -11538,7 +12001,8 @@
     "file_path": "data/clips/BAOR_1036355_1.wav",
     "spectrogram_path": "data/spectrograms/BAOR_1036355_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAOR_1014853_1",
@@ -11555,7 +12019,8 @@
     "file_path": "data/clips/BAOR_1014853_1.wav",
     "spectrogram_path": "data/spectrograms/BAOR_1014853_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAOR_1014849_1",
@@ -11572,7 +12037,8 @@
     "file_path": "data/clips/BAOR_1014849_1.wav",
     "spectrogram_path": "data/spectrograms/BAOR_1014849_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAOR_1036385_1",
@@ -11589,7 +12055,8 @@
     "file_path": "data/clips/BAOR_1036385_1.wav",
     "spectrogram_path": "data/spectrograms/BAOR_1036385_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BAOR_1036385_2",
@@ -11606,7 +12073,8 @@
     "file_path": "data/clips/BAOR_1036385_2.wav",
     "spectrogram_path": "data/spectrograms/BAOR_1036385_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBCU_819386_1",
@@ -11623,7 +12091,8 @@
     "file_path": "data/clips/YBCU_819386_1.wav",
     "spectrogram_path": "data/spectrograms/YBCU_819386_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBCU_575074_1",
@@ -11640,7 +12109,8 @@
     "file_path": "data/clips/YBCU_575074_1.wav",
     "spectrogram_path": "data/spectrograms/YBCU_575074_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBCU_736281_1",
@@ -11657,7 +12127,8 @@
     "file_path": "data/clips/YBCU_736281_1.wav",
     "spectrogram_path": "data/spectrograms/YBCU_736281_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBCU_740401_1",
@@ -11674,7 +12145,8 @@
     "file_path": "data/clips/YBCU_740401_1.wav",
     "spectrogram_path": "data/spectrograms/YBCU_740401_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "YBCU_840179_1",
@@ -11691,7 +12163,8 @@
     "file_path": "data/clips/YBCU_840179_1.wav",
     "spectrogram_path": "data/spectrograms/YBCU_840179_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GBHE_1040454_1",
@@ -11708,7 +12181,8 @@
     "file_path": "data/clips/GBHE_1040454_1.wav",
     "spectrogram_path": "data/spectrograms/GBHE_1040454_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GBHE_927403_1",
@@ -11725,7 +12199,8 @@
     "file_path": "data/clips/GBHE_927403_1.wav",
     "spectrogram_path": "data/spectrograms/GBHE_927403_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GBHE_705570_1",
@@ -11742,7 +12217,8 @@
     "file_path": "data/clips/GBHE_705570_1.wav",
     "spectrogram_path": "data/spectrograms/GBHE_705570_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GBHE_1020818_1",
@@ -11759,7 +12235,8 @@
     "file_path": "data/clips/GBHE_1020818_1.wav",
     "spectrogram_path": "data/spectrograms/GBHE_1020818_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRHE_1014824_2",
@@ -11776,7 +12253,8 @@
     "file_path": "data/clips/GRHE_1014824_2.wav",
     "spectrogram_path": "data/spectrograms/GRHE_1014824_2.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRHE_1014823_1",
@@ -11793,7 +12271,8 @@
     "file_path": "data/clips/GRHE_1014823_1.wav",
     "spectrogram_path": "data/spectrograms/GRHE_1014823_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "GRHE_1014824_3",
@@ -11810,7 +12289,8 @@
     "file_path": "data/clips/GRHE_1014824_3.wav",
     "spectrogram_path": "data/spectrograms/GRHE_1014824_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBNU_1014440_2",
@@ -11827,7 +12307,8 @@
     "file_path": "data/clips/RBNU_1014440_2.wav",
     "spectrogram_path": "data/spectrograms/RBNU_1014440_2.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBNU_1014149_1",
@@ -11844,7 +12325,8 @@
     "file_path": "data/clips/RBNU_1014149_1.wav",
     "spectrogram_path": "data/spectrograms/RBNU_1014149_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBNU_1013165_1",
@@ -11861,7 +12343,8 @@
     "file_path": "data/clips/RBNU_1013165_1.wav",
     "spectrogram_path": "data/spectrograms/RBNU_1013165_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBNU_938021_1",
@@ -11878,7 +12361,8 @@
     "file_path": "data/clips/RBNU_938021_1.wav",
     "spectrogram_path": "data/spectrograms/RBNU_938021_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBNU_1048899_1",
@@ -11895,7 +12379,8 @@
     "file_path": "data/clips/RBNU_1048899_1.wav",
     "spectrogram_path": "data/spectrograms/RBNU_1048899_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RBNU_1013162_1",
@@ -11912,7 +12397,8 @@
     "file_path": "data/clips/RBNU_1013162_1.wav",
     "spectrogram_path": "data/spectrograms/RBNU_1013162_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NHWR_1001083_2",
@@ -11929,7 +12415,8 @@
     "file_path": "data/clips/NHWR_1001083_2.wav",
     "spectrogram_path": "data/spectrograms/NHWR_1001083_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NHWR_935840_1",
@@ -11946,7 +12433,8 @@
     "file_path": "data/clips/NHWR_935840_1.wav",
     "spectrogram_path": "data/spectrograms/NHWR_935840_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NHWR_900081_1",
@@ -11963,7 +12451,8 @@
     "file_path": "data/clips/NHWR_900081_1.wav",
     "spectrogram_path": "data/spectrograms/NHWR_900081_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NHWR_872521_1",
@@ -11980,7 +12469,8 @@
     "file_path": "data/clips/NHWR_872521_1.wav",
     "spectrogram_path": "data/spectrograms/NHWR_872521_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NHWR_1029469_1",
@@ -11997,7 +12487,8 @@
     "file_path": "data/clips/NHWR_1029469_1.wav",
     "spectrogram_path": "data/spectrograms/NHWR_1029469_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NHWR_965429_1",
@@ -12014,7 +12505,8 @@
     "file_path": "data/clips/NHWR_965429_1.wav",
     "spectrogram_path": "data/spectrograms/NHWR_965429_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NHWR_965429_2",
@@ -12031,7 +12523,8 @@
     "file_path": "data/clips/NHWR_965429_2.wav",
     "spectrogram_path": "data/spectrograms/NHWR_965429_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "NHWR_803459_1",
@@ -12048,7 +12541,8 @@
     "file_path": "data/clips/NHWR_803459_1.wav",
     "spectrogram_path": "data/spectrograms/NHWR_803459_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EUST_914383_1",
@@ -12065,7 +12559,8 @@
     "file_path": "data/clips/EUST_914383_1.wav",
     "spectrogram_path": "data/spectrograms/EUST_914383_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EUST_981795_1",
@@ -12082,7 +12577,8 @@
     "file_path": "data/clips/EUST_981795_1.wav",
     "spectrogram_path": "data/spectrograms/EUST_981795_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EUST_1075304_1",
@@ -12099,7 +12595,8 @@
     "file_path": "data/clips/EUST_1075304_1.wav",
     "spectrogram_path": "data/spectrograms/EUST_1075304_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EUST_996283_1",
@@ -12116,7 +12613,8 @@
     "file_path": "data/clips/EUST_996283_1.wav",
     "spectrogram_path": "data/spectrograms/EUST_996283_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "EUST_934628_1",
@@ -12133,7 +12631,8 @@
     "file_path": "data/clips/EUST_934628_1.wav",
     "spectrogram_path": "data/spectrograms/EUST_934628_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/publicdomain/zero/1.0/"
   },
   {
     "clip_id": "CHSW_1014807_1",
@@ -12150,7 +12649,8 @@
     "file_path": "data/clips/CHSW_1014807_1.wav",
     "spectrogram_path": "data/spectrograms/CHSW_1014807_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSW_1014804_2",
@@ -12167,7 +12667,8 @@
     "file_path": "data/clips/CHSW_1014804_2.wav",
     "spectrogram_path": "data/spectrograms/CHSW_1014804_2.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSW_1014800_2",
@@ -12184,7 +12685,8 @@
     "file_path": "data/clips/CHSW_1014800_2.wav",
     "spectrogram_path": "data/spectrograms/CHSW_1014800_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CHSW_457517_2",
@@ -12201,7 +12703,8 @@
     "file_path": "data/clips/CHSW_457517_2.wav",
     "spectrogram_path": "data/spectrograms/CHSW_457517_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SCTA_1036515_1",
@@ -12218,7 +12721,8 @@
     "file_path": "data/clips/SCTA_1036515_1.wav",
     "spectrogram_path": "data/spectrograms/SCTA_1036515_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SCTA_938801_1",
@@ -12235,7 +12739,8 @@
     "file_path": "data/clips/SCTA_938801_1.wav",
     "spectrogram_path": "data/spectrograms/SCTA_938801_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SCTA_1013158_1",
@@ -12252,7 +12757,8 @@
     "file_path": "data/clips/SCTA_1013158_1.wav",
     "spectrogram_path": "data/spectrograms/SCTA_1013158_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SCTA_1013158_2",
@@ -12269,7 +12775,8 @@
     "file_path": "data/clips/SCTA_1013158_2.wav",
     "spectrogram_path": "data/spectrograms/SCTA_1013158_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SCTA_913300_1",
@@ -12286,7 +12793,8 @@
     "file_path": "data/clips/SCTA_913300_1.wav",
     "spectrogram_path": "data/spectrograms/SCTA_913300_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SCTA_913300_2",
@@ -12303,7 +12811,8 @@
     "file_path": "data/clips/SCTA_913300_2.wav",
     "spectrogram_path": "data/spectrograms/SCTA_913300_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "VEER_1012569_1",
@@ -12320,7 +12829,8 @@
     "file_path": "data/clips/VEER_1012569_1.wav",
     "spectrogram_path": "data/spectrograms/VEER_1012569_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "VEER_1012569_2",
@@ -12337,7 +12847,8 @@
     "file_path": "data/clips/VEER_1012569_2.wav",
     "spectrogram_path": "data/spectrograms/VEER_1012569_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "VEER_1012568_1",
@@ -12354,7 +12865,8 @@
     "file_path": "data/clips/VEER_1012568_1.wav",
     "spectrogram_path": "data/spectrograms/VEER_1012568_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "VEER_1012566_1",
@@ -12371,7 +12883,8 @@
     "file_path": "data/clips/VEER_1012566_1.wav",
     "spectrogram_path": "data/spectrograms/VEER_1012566_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "VEER_1012566_2",
@@ -12388,7 +12901,8 @@
     "file_path": "data/clips/VEER_1012566_2.wav",
     "spectrogram_path": "data/spectrograms/VEER_1012566_2.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "VEER_1014543_2",
@@ -12405,7 +12919,8 @@
     "file_path": "data/clips/VEER_1014543_2.wav",
     "spectrogram_path": "data/spectrograms/VEER_1014543_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "VEER_1013072_1",
@@ -12422,7 +12937,8 @@
     "file_path": "data/clips/VEER_1013072_1.wav",
     "spectrogram_path": "data/spectrograms/VEER_1013072_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SUTA_1008566_1",
@@ -12439,7 +12955,8 @@
     "file_path": "data/clips/SUTA_1008566_1.wav",
     "spectrogram_path": "data/spectrograms/SUTA_1008566_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SUTA_1008566_2",
@@ -12456,7 +12973,8 @@
     "file_path": "data/clips/SUTA_1008566_2.wav",
     "spectrogram_path": "data/spectrograms/SUTA_1008566_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SUTA_901298_1",
@@ -12473,7 +12991,8 @@
     "file_path": "data/clips/SUTA_901298_1.wav",
     "spectrogram_path": "data/spectrograms/SUTA_901298_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SUTA_827075_1",
@@ -12490,7 +13009,8 @@
     "file_path": "data/clips/SUTA_827075_1.wav",
     "spectrogram_path": "data/spectrograms/SUTA_827075_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SUTA_840931_1",
@@ -12507,7 +13027,8 @@
     "file_path": "data/clips/SUTA_840931_1.wav",
     "spectrogram_path": "data/spectrograms/SUTA_840931_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SUTA_840931_2",
@@ -12524,7 +13045,8 @@
     "file_path": "data/clips/SUTA_840931_2.wav",
     "spectrogram_path": "data/spectrograms/SUTA_840931_2.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BGGN_939824_1",
@@ -12541,7 +13063,8 @@
     "file_path": "data/clips/BGGN_939824_1.wav",
     "spectrogram_path": "data/spectrograms/BGGN_939824_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BGGN_939824_2",
@@ -12558,7 +13081,8 @@
     "file_path": "data/clips/BGGN_939824_2.wav",
     "spectrogram_path": "data/spectrograms/BGGN_939824_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BGGN_939814_1",
@@ -12575,7 +13099,8 @@
     "file_path": "data/clips/BGGN_939814_1.wav",
     "spectrogram_path": "data/spectrograms/BGGN_939814_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BGGN_812871_1",
@@ -12592,7 +13117,8 @@
     "file_path": "data/clips/BGGN_812871_1.wav",
     "spectrogram_path": "data/spectrograms/BGGN_812871_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BGGN_812869_1",
@@ -12609,7 +13135,8 @@
     "file_path": "data/clips/BGGN_812869_1.wav",
     "spectrogram_path": "data/spectrograms/BGGN_812869_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BGGN_816250_1",
@@ -12626,7 +13153,8 @@
     "file_path": "data/clips/BGGN_816250_1.wav",
     "spectrogram_path": "data/spectrograms/BGGN_816250_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1077531_1",
@@ -12643,7 +13171,8 @@
     "file_path": "data/clips/SEWA_1077531_1.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1077531_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1077531_2",
@@ -12660,7 +13189,8 @@
     "file_path": "data/clips/SEWA_1077531_2.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1077531_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1037205_1",
@@ -12677,7 +13207,8 @@
     "file_path": "data/clips/SEWA_1037205_1.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1037205_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1037205_2",
@@ -12694,7 +13225,8 @@
     "file_path": "data/clips/SEWA_1037205_2.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1037205_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1037205_3",
@@ -12711,7 +13243,8 @@
     "file_path": "data/clips/SEWA_1037205_3.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1037205_3.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1014935_1",
@@ -12728,7 +13261,8 @@
     "file_path": "data/clips/SEWA_1014935_1.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1014935_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1014935_2",
@@ -12745,7 +13279,8 @@
     "file_path": "data/clips/SEWA_1014935_2.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1014935_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1072008_1",
@@ -12762,7 +13297,8 @@
     "file_path": "data/clips/SEWA_1072008_1.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1072008_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_1072008_2",
@@ -12779,7 +13315,8 @@
     "file_path": "data/clips/SEWA_1072008_2.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1072008_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "SEWA_819502_1",
@@ -12796,7 +13333,8 @@
     "file_path": "data/clips/SEWA_819502_1.wav",
     "spectrogram_path": "data/spectrograms/SEWA_819502_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RIWA_1005479_1",
@@ -12813,7 +13351,8 @@
     "file_path": "data/clips/RIWA_1005479_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_1005479_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RIWA_1005479_2",
@@ -12830,7 +13369,8 @@
     "file_path": "data/clips/RIWA_1005479_2.wav",
     "spectrogram_path": "data/spectrograms/RIWA_1005479_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RIWA_921386_1",
@@ -12847,7 +13387,8 @@
     "file_path": "data/clips/RIWA_921386_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_921386_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "RIWA_918378_1",
@@ -12864,7 +13405,8 @@
     "file_path": "data/clips/RIWA_918378_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_918378_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RIWA_917638_1",
@@ -12881,7 +13423,8 @@
     "file_path": "data/clips/RIWA_917638_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_917638_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RIWA_916806_1",
@@ -12898,7 +13441,8 @@
     "file_path": "data/clips/RIWA_916806_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_916806_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RIWA_575434_1",
@@ -12915,7 +13459,8 @@
     "file_path": "data/clips/RIWA_575434_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_575434_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "RIWA_188793_1",
@@ -12932,7 +13477,8 @@
     "file_path": "data/clips/RIWA_188793_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_188793_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WILW_1014947_1",
@@ -12949,7 +13495,8 @@
     "file_path": "data/clips/WILW_1014947_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1014947_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WILW_1012264_1",
@@ -12966,7 +13513,8 @@
     "file_path": "data/clips/WILW_1012264_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1012264_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WILW_1011607_1",
@@ -12983,7 +13531,8 @@
     "file_path": "data/clips/WILW_1011607_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1011607_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WILW_1009211_1",
@@ -13000,7 +13549,8 @@
     "file_path": "data/clips/WILW_1009211_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1009211_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "WILW_1000141_1",
@@ -13017,7 +13567,8 @@
     "file_path": "data/clips/WILW_1000141_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1000141_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WILW_997389_1",
@@ -13034,7 +13585,8 @@
     "file_path": "data/clips/WILW_997389_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_997389_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WILW_989893_1",
@@ -13051,7 +13603,8 @@
     "file_path": "data/clips/WILW_989893_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_989893_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by/4.0/"
   },
   {
     "clip_id": "WILW_1047057_1",
@@ -13068,7 +13621,8 @@
     "file_path": "data/clips/WILW_1047057_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1047057_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "WILW_833638_1",
@@ -13085,7 +13639,8 @@
     "file_path": "data/clips/WILW_833638_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_833638_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "WILW_820883_1",
@@ -13102,7 +13657,8 @@
     "file_path": "data/clips/WILW_820883_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_820883_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1078542_1",
@@ -13119,7 +13675,8 @@
     "file_path": "data/clips/CCHI_1078542_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1078542_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1078542_2",
@@ -13136,7 +13693,8 @@
     "file_path": "data/clips/CCHI_1078542_2.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1078542_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1071008_1",
@@ -13153,7 +13711,8 @@
     "file_path": "data/clips/CCHI_1071008_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1071008_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1055979_1",
@@ -13170,7 +13729,8 @@
     "file_path": "data/clips/CCHI_1055979_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1055979_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1040884_1",
@@ -13187,7 +13747,8 @@
     "file_path": "data/clips/CCHI_1040884_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1040884_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1033984_1",
@@ -13204,7 +13765,8 @@
     "file_path": "data/clips/CCHI_1033984_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1033984_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1031004_1",
@@ -13221,7 +13783,8 @@
     "file_path": "data/clips/CCHI_1031004_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1031004_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1053323_1",
@@ -13238,7 +13801,8 @@
     "file_path": "data/clips/CCHI_1053323_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1053323_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1048070_1",
@@ -13255,7 +13819,8 @@
     "file_path": "data/clips/CCHI_1048070_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1048070_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CCHI_1035832_1",
@@ -13272,7 +13837,8 @@
     "file_path": "data/clips/CCHI_1035832_1.wav",
     "spectrogram_path": "data/spectrograms/CCHI_1035832_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BARWAR1_1030784_1",
@@ -13289,7 +13855,8 @@
     "file_path": "data/clips/BARWAR1_1030784_1.wav",
     "spectrogram_path": "data/spectrograms/BARWAR1_1030784_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BLAK_989603_1",
@@ -13306,7 +13873,8 @@
     "file_path": "data/clips/BLAK_989603_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_989603_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAK_1054414_1",
@@ -13323,7 +13891,8 @@
     "file_path": "data/clips/BLAK_1054414_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_1054414_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAK_1030297_1",
@@ -13340,7 +13909,8 @@
     "file_path": "data/clips/BLAK_1030297_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_1030297_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAK_1030295_1",
@@ -13357,7 +13927,8 @@
     "file_path": "data/clips/BLAK_1030295_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_1030295_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAK_989602_1",
@@ -13374,7 +13945,8 @@
     "file_path": "data/clips/BLAK_989602_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_989602_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAK_944160_1",
@@ -13391,7 +13963,8 @@
     "file_path": "data/clips/BLAK_944160_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_944160_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAK_899786_1",
@@ -13408,7 +13981,8 @@
     "file_path": "data/clips/BLAK_899786_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_899786_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAK_896545_1",
@@ -13425,7 +13999,8 @@
     "file_path": "data/clips/BLAK_896545_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_896545_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAK_796153_1",
@@ -13442,7 +14017,8 @@
     "file_path": "data/clips/BLAK_796153_1.wav",
     "spectrogram_path": "data/spectrograms/BLAK_796153_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_881488_1",
@@ -13459,7 +14035,8 @@
     "file_path": "data/clips/BLAWOO1_881488_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_881488_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BLAWOO1_834230_1",
@@ -13476,7 +14053,8 @@
     "file_path": "data/clips/BLAWOO1_834230_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_834230_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_830598_1",
@@ -13493,7 +14071,8 @@
     "file_path": "data/clips/BLAWOO1_830598_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_830598_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_1067908_1",
@@ -13510,7 +14089,8 @@
     "file_path": "data/clips/BLAWOO1_1067908_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_1067908_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_1067908_2",
@@ -13527,7 +14107,8 @@
     "file_path": "data/clips/BLAWOO1_1067908_2.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_1067908_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_1044011_1",
@@ -13544,7 +14125,8 @@
     "file_path": "data/clips/BLAWOO1_1044011_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_1044011_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_1010668_1",
@@ -13561,7 +14143,8 @@
     "file_path": "data/clips/BLAWOO1_1010668_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_1010668_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_1010667_1",
@@ -13578,7 +14161,8 @@
     "file_path": "data/clips/BLAWOO1_1010667_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_1010667_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_979267_1",
@@ -13595,7 +14179,8 @@
     "file_path": "data/clips/BLAWOO1_979267_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_979267_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLAWOO1_972606_1",
@@ -13612,7 +14197,8 @@
     "file_path": "data/clips/BLAWOO1_972606_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_972606_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BLAWOO1_937534_1",
@@ -13629,7 +14215,8 @@
     "file_path": "data/clips/BLAWOO1_937534_1.wav",
     "spectrogram_path": "data/spectrograms/BLAWOO1_937534_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1005709_1",
@@ -13646,7 +14233,8 @@
     "file_path": "data/clips/BLUE_1005709_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005709_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1005709_2",
@@ -13663,7 +14251,8 @@
     "file_path": "data/clips/BLUE_1005709_2.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005709_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1005157_1",
@@ -13680,7 +14269,8 @@
     "file_path": "data/clips/BLUE_1005157_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005157_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1005157_2",
@@ -13697,7 +14287,8 @@
     "file_path": "data/clips/BLUE_1005157_2.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005157_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1005155_1",
@@ -13714,7 +14305,8 @@
     "file_path": "data/clips/BLUE_1005155_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005155_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BARWAR1_1030782_1",
@@ -13731,7 +14323,8 @@
     "file_path": "data/clips/BARWAR1_1030782_1.wav",
     "spectrogram_path": "data/spectrograms/BARWAR1_1030782_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BARWAR1_1030782_2",
@@ -13748,7 +14341,8 @@
     "file_path": "data/clips/BARWAR1_1030782_2.wav",
     "spectrogram_path": "data/spectrograms/BARWAR1_1030782_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BARWAR1_1030781_1",
@@ -13765,7 +14359,8 @@
     "file_path": "data/clips/BARWAR1_1030781_1.wav",
     "spectrogram_path": "data/spectrograms/BARWAR1_1030781_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BARWAR1_1026388_1",
@@ -13782,7 +14377,8 @@
     "file_path": "data/clips/BARWAR1_1026388_1.wav",
     "spectrogram_path": "data/spectrograms/BARWAR1_1026388_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BARWAR1_1016099_1",
@@ -13799,7 +14395,8 @@
     "file_path": "data/clips/BARWAR1_1016099_1.wav",
     "spectrogram_path": "data/spectrograms/BARWAR1_1016099_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BARWAR1_1001834_1",
@@ -13816,7 +14413,8 @@
     "file_path": "data/clips/BARWAR1_1001834_1.wav",
     "spectrogram_path": "data/spectrograms/BARWAR1_1001834_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BARWAR1_916472_1",
@@ -13833,7 +14431,8 @@
     "file_path": "data/clips/BARWAR1_916472_1.wav",
     "spectrogram_path": "data/spectrograms/BARWAR1_916472_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "BLUE_1005154_1",
@@ -13850,7 +14449,8 @@
     "file_path": "data/clips/BLUE_1005154_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005154_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1005154_2",
@@ -13867,7 +14467,8 @@
     "file_path": "data/clips/BLUE_1005154_2.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005154_2.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1005152_1",
@@ -13884,7 +14485,8 @@
     "file_path": "data/clips/BLUE_1005152_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005152_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1005151_1",
@@ -13901,7 +14503,8 @@
     "file_path": "data/clips/BLUE_1005151_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1005151_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_1003240_1",
@@ -13918,7 +14521,8 @@
     "file_path": "data/clips/BLUE_1003240_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1003240_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_934764_1",
@@ -13935,7 +14539,8 @@
     "file_path": "data/clips/BLUE_934764_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_934764_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_741791_1",
@@ -13952,7 +14557,8 @@
     "file_path": "data/clips/BLUE_741791_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_741791_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "BLUE_670926_1",
@@ -13969,7 +14575,8 @@
     "file_path": "data/clips/BLUE_670926_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_670926_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARCRO1_627714_1",
@@ -13986,7 +14593,8 @@
     "file_path": "data/clips/CARCRO1_627714_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_627714_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "CARCRO1_530807_1",
@@ -14003,7 +14611,8 @@
     "file_path": "data/clips/CARCRO1_530807_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_530807_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARCRO1_194504_1",
@@ -14020,7 +14629,8 @@
     "file_path": "data/clips/CARCRO1_194504_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_194504_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
     "clip_id": "CARCRO1_1053150_1",
@@ -14037,7 +14647,8 @@
     "file_path": "data/clips/CARCRO1_1053150_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_1053150_1.png",
     "canonical": true,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARCRO1_1039715_1",
@@ -14054,7 +14665,8 @@
     "file_path": "data/clips/CARCRO1_1039715_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_1039715_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARCRO1_1006239_1",
@@ -14071,7 +14683,8 @@
     "file_path": "data/clips/CARCRO1_1006239_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_1006239_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARCRO1_943486_1",
@@ -14088,7 +14701,8 @@
     "file_path": "data/clips/CARCRO1_943486_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_943486_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARCRO1_879586_1",
@@ -14105,7 +14719,8 @@
     "file_path": "data/clips/CARCRO1_879586_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_879586_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
     "clip_id": "CARCRO1_845011_1",
@@ -14122,6 +14737,7 @@
     "file_path": "data/clips/CARCRO1_845011_1.wav",
     "spectrogram_path": "data/spectrograms/CARCRO1_845011_1.png",
     "canonical": false,
-    "rejected": false
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   }
 ]

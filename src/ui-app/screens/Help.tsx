@@ -464,7 +464,7 @@ function Help() {
             <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
               <span style={{ fontSize: '16px', flexShrink: 0 }}>🇪🇺</span>
               <div>
-                <strong>European Warblers & Skulkers:</strong> 41 species of European warblers, skulkers, and secretive songbirds. From Nightingales to Treecreepers — the birds that MUST be identified by ear. Includes reed warblers, leaf warblers, Sylvia warblers, nightingales, flycatchers, treecreepers, kinglets, and more.
+                <strong>European Birds:</strong> 61 species across 4 packs: "Warblers & Skulkers" (35 species — reed warblers, leaf warblers, nightingales, flycatchers, treecreepers, kinglets), "Raptors" (9 hawks, kites, buzzards, falcons), "Woodland & Field" (17 thrushes, corvids, woodpeckers, oriole), and "All European Birds" (complete 61-species collection).
               </div>
             </div>
           </div>
@@ -878,6 +878,7 @@ function Help() {
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
             <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)', opacity: 0.6 }}>🎯 Recent Updates</h4>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
+              <div>🇪🇺 <strong>EU Pack Expansion!</strong> – 61 European species across 4 packs: Warblers & Skulkers, Raptors, Woodland & Field, plus All European Birds.</div>
               <div>🌏 <strong>Worldwide Bird Packs!</strong> – ChipNotes goes global! Starting with New Zealand, home to some of the world's most unusual and iconic birds. 42 native NZ species across 4 regional packs.</div>
               <div>🎉 <strong>120 Species!</strong> – 120 North American species with curated audio clips and spectrograms</div>
               <div>🔄 <strong>Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</div>
@@ -893,6 +894,13 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="4.22" date="February 9, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>EU Pack Expansion:</strong> European collection grows from 41 to 61 species across 3 thematic packs: Warblers & Skulkers (35), Raptors (9 hawks/kites/falcons), and Woodland & Field (17 thrushes/corvids/woodpeckers). Plus "All European Birds" for the complete 61-species challenge.</li>
+              <li><strong>EU Sub-Page:</strong> European Birds now has its own dedicated page (like NZ) with pack grid, custom pack builder, and Sound Library with alphabetical/taxonomic sorting.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.21" date="February 5, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>European Warblers & Skulkers:</strong> New world pack with 41 European species — reed warblers, leaf warblers, nightingales, flycatchers, treecreepers, kinglets, and more. Birds that MUST be identified by ear.</li>

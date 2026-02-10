@@ -98,7 +98,7 @@ If adding recordings from a source NOT in the list above (e.g., iNaturalist, NZ 
    - Does this source provide quality ratings? (yes/no)
 4. **Volume:**
    - Will you be downloading multiple recordings from this source regularly? (yes/no)
-   - If yes: Consider building a download script (like audio_ingest.py for Xeno-canto)
+   - If yes: Consider adding search support to clip_editor.py
    - If no: Manual import workflow is fine
 
 **Setup Steps for New Source:**
@@ -134,7 +134,7 @@ git push
 ### 4. Audio Acquisition Method
 Once source is confirmed/added:
 - **Already have audio files** → Where are they located?
-- **Download from Xeno-canto** → Use audio_ingest.py
+- **Download from Xeno-canto** → Use clip_editor.py batch mode
 - **Download from Cornell** → Manual selection (waiting for API access)
 - **Download from new source** → Manual or custom script
 
@@ -178,64 +178,43 @@ If user has existing .wav files:
 - Verify audio meets specs (mono, 0.5-3s, -16 LUFS)
 - Proceed directly to Step 2 (metadata tagging)
 
-### Plan B: Manual Extraction from Xeno-canto (Recommended)
+### Plan B: Extract from Xeno-canto (Recommended)
 
-**Primary tool: `clip_editor.py`** — manual selection with waveform UI for precise segment extraction.
+**Tool: `clip_editor.py --batch`** — 3-panel waveform UI for manual clip extraction.
 
-**Step 1: Find Good XC Recordings**
+⚠️ **NEVER auto-extract clips. Always use manual extraction via clip_editor.py.**
+⚠️ **audio_ingest.py has been DELETED. Do not recreate it.**
 
-For each species, search Xeno-canto for top-rated (quality A/B) recordings. Claude can query the XC API to find candidates and present XC IDs.
+**Step 1: Prepare candidate directories**
 
-**Step 2: Extract Clips with Clip Editor**
+Each species needs a `data/candidates_{CODE}/` folder with a `.ingest_manifest.json` containing XC IDs. If candidates already exist (from prior search), skip to Step 2.
 
+To search for new XC recordings:
 ```bash
-# Load a specific XC recording for a species
-python3 scripts/clip_editor.py --xc 123456 --species RWBL
-
-# Or browse/add clips for a species
-python3 scripts/clip_editor.py --species RWBL
+python3 scripts/clip_editor.py --search "Northern Cardinal" --region na
 ```
 
-**What clip_editor.py does:**
-- Downloads the full XC recording to `/tmp/clip-edit/`
-- Queries XC API to auto-populate recordist and vocalization type
-- Renders waveform in browser (http://localhost:8889)
-- User clicks to set start point, adjusts duration (0.5-3s)
-- Previews selection, clicks "Extract" to save
-- Auto-normalizes to -16 LUFS, mono, correct sample rate
-- Saves to `data/clips/` with proper naming (`{CODE}_{XCID}_{N}.wav`)
-- Adds entry to `clips.json` automatically (no merge_candidates step needed)
+**Step 2: Launch Batch Mode**
+
+```bash
+python3 scripts/clip_editor.py --batch
+# Opens 3-panel UI at http://localhost:8889
+```
+
+**3-Panel Layout:**
+- **Left panel**: Species list from all `data/candidates_*` dirs, sorted by clip count (0 first)
+- **Center panel**: Waveform extractor — click source buttons (XC IDs), click waveform to set start, extract
+- **Right panel**: Extracted clips for selected species with playback
+
+**How it works:**
+- Click a species on the left → loads its XC source recordings as buttons
+- Click a source button → downloads full XC recording, renders waveform
+- Click waveform to set start point, adjust duration slider (0.5-3s)
+- Click "Extract Clip" → saves to `data/clips/`, adds to `clips.json` automatically
+- Auto-normalizes to -16 LUFS, mono, 44.1kHz (uses librosa for resampling)
+- Counts update in real-time — no server restart between species!
 
 **Goal:** 5-8 high-quality clips per species with maximum variation in vocalization types.
-
-### Tool Decision Guide
-
-| Tool | When to Use |
-|------|-------------|
-| `clip_editor.py` | **Primary** — manual extraction from XC recordings with waveform UI |
-| `audio_ingest.py` | Bulk auto-extraction (quick additions where manual selection isn't needed) |
-| `augment_species.py` | Adding more clips to species already in game (auto-filters existing/rejected) |
-| `clip_selector.py` | Extracting from local long-form recordings (NZ workflow) |
-
-### Alternative: Bulk Auto-Extraction
-
-For quick bulk additions where manual selection isn't critical:
-
-```bash
-# Auto-extract from Xeno-canto
-python3 scripts/audio_ingest.py \
-  --output data/candidates_RWBL \
-  --species "Red-winged Blackbird" \
-  --max-per-species 10
-
-# Merge into clips.json
-python3 scripts/merge_candidates.py data/candidates_RWBL
-```
-
-**For existing species, use augment_species.py:**
-```bash
-python3 scripts/augment_species.py YRWA --max 10 --quality A
-```
 
 ### Plan C: Cornell Macaulay Library (Manual)
 Cornell API access pending. For now:
@@ -246,13 +225,20 @@ Cornell API access pending. For now:
 
 ## Step-by-Step Workflow
 
-### Step 1: Acquire Audio Files
-Follow Plan A, B, or C above to get audio files into `data/clips/`
+### Step 1: Extract Audio Clips
+
+**Primary method:** Launch clip_editor.py in batch mode (Plan B above).
+
+```bash
+python3 scripts/clip_editor.py --batch
+```
+
+Extract 5-8 clips per species using the 3-panel UI. Clips are saved to `data/clips/` and added to `clips.json` automatically.
 
 **Verify files exist:**
 ```bash
 ls data/clips/{CODE}_*.wav
-# Should show 5-10 files per species
+# Should show 5-8 files per species
 ```
 
 ### Step 1b: Generate Icon Prompts (NEW SPECIES ONLY)
@@ -295,78 +281,22 @@ git commit -m "Add icon prompts for {N} new species: {CODE1}, {CODE2}, ..."
 
 **Note:** Icon generation (using ChatGPT/DALL-E) happens later in Step 5. This step just documents the prompts.
 
-### Step 2: Merge Candidate Clips into clips.json
-⚠️ **CRITICAL:** Use the safe merge script to add clips without destroying existing data:
+### Step 2: Verify clips.json (clip_editor.py does this automatically)
 
-**BEFORE merging - Record canonical count:**
-```bash
-python3 -c "import json; print('Canonical clips before:', sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
-```
+clip_editor.py adds clips to `clips.json` automatically during extraction. No merge step needed.
 
-**Merge candidates:**
-```bash
-python3 scripts/merge_candidates.py data/candidates_{CODE}
-```
-
-**AFTER merging - Verify canonical count:**
-```bash
-python3 -c "import json; print('Canonical clips after:', sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
-# MUST match or exceed the before count - if it dropped, STOP and restore from backup!
-```
-
-**What this does:**
-- Loads existing clips.json (preserves ALL curated metadata)
-- Loads candidate manifest.json from the candidates folder
-- Appends new clips to clips.json (NEVER overwrites)
-- Creates automatic backup at data/clips.json.backup
-- Validates no data loss occurred (aborts if clip count decreases)
-- Reads `.ingest_manifest.json` to get metadata from Xeno-canto:
-  - Vocalization type (song, call, drum, alarm, etc.)
-  - Quality rating (A=5, B=4, etc.)
-  - Recordist name
-  - Source info
-
-⚠️ **NEVER use audio_tagger.py - IT HAS BEEN DELETED** - it overwrites the entire clips.json file and destroys all curated metadata (canonical flags, recordist attributions, vocalization corrections, etc.)
-
-**Verify clips.json was updated:**
+**Verify clips were added:**
 ```bash
 # Check that new species appear
 grep -c "\"species_code\": \"STJA\"" data/clips.json
-# Should show number of STJA clips
+# Should show number of clips extracted for that species
 ```
 
-**CRITICAL: Verify recordist attribution and source URLs:**
+**Verify canonical count wasn't affected:**
 ```bash
-# Check that source_url and recordist fields are populated
-python3 -c "
-import json
-clips = json.load(open('data/clips.json'))
-new_clips = [c for c in clips if c['species_code'] in ['ACWO', 'LEWO']]  # Replace with your codes
-missing_url = [c['clip_id'] for c in new_clips if not c.get('source_url')]
-missing_recordist = [c['clip_id'] for c in new_clips if not c.get('recordist')]
-
-print(f'New clips: {len(new_clips)}')
-print(f'Missing source_url: {len(missing_url)}')
-print(f'Missing recordist: {len(missing_recordist)}')
-
-if missing_url:
-    print('ERROR: Missing source_url for:', missing_url)
-if missing_recordist:
-    print('WARNING: Missing recordist for:', missing_recordist)
-"
+python3 -c "import json; print('Canonical clips:', sum(1 for c in json.load(open('data/clips.json')) if c.get('canonical')))"
+# Must match baseline (currently 162)
 ```
-
-**Expected output:**
-```
-New clips: 10
-Missing source_url: 0
-Missing recordist: 0
-```
-
-**If source_url or recordist are missing, STOP!** This means:
-- Legal attribution requirements not met (Xeno-canto requires recordist credit)
-- Bird Reference will not show clickable links to source
-- You need to fix merge_candidates.py or manually add the fields
 
 ### Step 3: Generate Spectrograms
 Generate spectrograms BEFORE review so they're visible in the review tool:

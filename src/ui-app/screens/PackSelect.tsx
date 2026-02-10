@@ -682,11 +682,11 @@ function PackSelect() {
             </div>
           </button>
 
-          {/* European Warblers & Skulkers */}
+          {/* European Birds */}
           <button
             onClick={() => {
-              trackPackSelect('eu_warblers', 'European Warblers & Skulkers');
-              navigate('/level-select?pack=eu_warblers');
+              trackPackSelect('eu_all_birds', 'European Birds');
+              navigate('/eu-packs');
             }}
             style={{
               width: '100%',
@@ -732,10 +732,10 @@ function PackSelect() {
             <span style={{ fontSize: '32px', position: 'relative', zIndex: 1 }}>🇪🇺</span>
             <div style={{ flex: 1, position: 'relative', zIndex: 1 }}>
               <h3 style={{ margin: 0, fontSize: '18px', color: '#c8d8a2', fontWeight: 700 }}>
-                EU Warblers & Skulkers <span style={{ fontSize: '16px' }}>→</span>
+                European Birds <span style={{ fontSize: '16px' }}>→</span>
               </h3>
               <p style={{ margin: '4px 0 0 0', fontSize: '13px', color: 'var(--color-text-muted)' }}>
-                41 European species — birds that<br />MUST be identified by ear
+                61 species across Europe • 4 packs
               </p>
             </div>
           </button>

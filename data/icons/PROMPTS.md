@@ -431,7 +431,7 @@ RBNU: Stylized icon of a Red-breasted Nuthatch, simple flat design, circular fra
 
 ---
 
-## European Warblers & Skulkers (41)
+## European Birds (61)
 
 ### AOS Vagrant Species (17 — already have 4-letter codes)
 | Code | Name | Prompt |
@@ -504,7 +504,35 @@ RBNU: Stylized icon of a Red-breasted Nuthatch, simple flat design, circular fra
 | eurjay1 | Eurasian Jay | Stylized icon of a Eurasian Jay, simple flat design, circular frame, pinkish-brown bird with black mustache, blue-and-black wing patch, and streaked crown, white background, game asset style, clean vector look, centered composition, no text |
 | blawoo1 | Black Woodpecker | Stylized icon of a Black Woodpecker, simple flat design, circular frame, large all-black woodpecker with bright red crown and pale eye, white background, game asset style, clean vector look, centered composition, no text |
 
-### Quick Copy - European Warblers & Skulkers (41 species)
+### Raptors (9 — AOS codes already exist)
+| Code | Name | Prompt |
+|------|------|--------|
+| ESPA | Eurasian Sparrowhawk | Stylized icon of a Eurasian Sparrowhawk, simple flat design, circular frame, small blue-gray hawk with orange-barred breast and bright yellow-orange eye, white background, game asset style, clean vector look, centered composition, no text |
+| EGOS | Eurasian Goshawk | Stylized icon of a Eurasian Goshawk, simple flat design, circular frame, powerful gray hawk with white supercilium, finely barred breast, and fierce red-orange eye, white background, game asset style, clean vector look, centered composition, no text |
+| BLAK | Black Kite | Stylized icon of a Black Kite, simple flat design, circular frame, dark brown raptor with forked tail and yellow bill soaring, white background, game asset style, clean vector look, centered composition, no text |
+| redkit1 | Red Kite | Stylized icon of a Red Kite, simple flat design, circular frame, elegant reddish-brown raptor with deeply forked tail, gray head, and pale eye, white background, game asset style, clean vector look, centered composition, no text |
+| combuz1 | Common Buzzard | Stylized icon of a Common Buzzard, simple flat design, circular frame, stocky brown raptor with broad rounded wings and variable breast band, white background, game asset style, clean vector look, centered composition, no text |
+| euhbuz1 | European Honey-buzzard | Stylized icon of a European Honey-buzzard, simple flat design, circular frame, slender raptor with small pigeon-like head, barred underparts, and long tail with dark bands, white background, game asset style, clean vector look, centered composition, no text |
+| EUKE | Eurasian Kestrel | Stylized icon of a Eurasian Kestrel, simple flat design, circular frame, small falcon with rufous spotted back, gray head and tail, and dark mustache, white background, game asset style, clean vector look, centered composition, no text |
+| EUHO | Eurasian Hobby | Stylized icon of a Eurasian Hobby, simple flat design, circular frame, sleek dark falcon with white cheeks, streaked underparts, and rufous thighs, white background, game asset style, clean vector look, centered composition, no text |
+| PEFA | Peregrine Falcon | Stylized icon of a Peregrine Falcon, simple flat design, circular frame, powerful falcon with dark helmet, barred gray-blue upperparts, and pale barred breast, white background, game asset style, clean vector look, centered composition, no text |
+
+### Woodland & Field — New Species (11 — AOS + eBird codes)
+| Code | Name | Prompt |
+|------|------|--------|
+| REDW | Redwing | Stylized icon of a Redwing, simple flat design, circular frame, small thrush with bold cream supercilium, streaked breast, and rusty-red flanks, white background, game asset style, clean vector look, centered composition, no text |
+| eugori2 | Eurasian Golden Oriole | Stylized icon of a Eurasian Golden Oriole, simple flat design, circular frame, brilliant yellow bird with black wings and red bill, white background, game asset style, clean vector look, centered composition, no text |
+| EUJA | Eurasian Jackdaw | Stylized icon of a Eurasian Jackdaw, simple flat design, circular frame, compact black crow with silver-gray nape and pale blue-white eye, white background, game asset style, clean vector look, centered composition, no text |
+| ROOK | Rook | Stylized icon of a Rook, simple flat design, circular frame, glossy black crow with bare whitish face patch and pointed bill, white background, game asset style, clean vector look, centered composition, no text |
+| carcro1 | Carrion Crow | Stylized icon of a Carrion Crow, simple flat design, circular frame, all-black crow with sturdy bill and glossy plumage, white background, game asset style, clean vector look, centered composition, no text |
+| CORA | Common Raven | Stylized icon of a Common Raven, simple flat design, circular frame, large all-black bird with heavy bill, shaggy throat hackles, and wedge-shaped tail, white background, game asset style, clean vector look, centered composition, no text |
+| eurmag1 | Eurasian Magpie | Stylized icon of a Eurasian Magpie, simple flat design, circular frame, striking black and white bird with long iridescent blue-green tail, white background, game asset style, clean vector look, centered composition, no text |
+| eugwoo2 | Eurasian Green Woodpecker | Stylized icon of a Eurasian Green Woodpecker, simple flat design, circular frame, bright green woodpecker with red crown, black face mask, and yellow rump, white background, game asset style, clean vector look, centered composition, no text |
+| GSWO | Great Spotted Woodpecker | Stylized icon of a Great Spotted Woodpecker, simple flat design, circular frame, black and white woodpecker with bold white shoulder patches and red undertail coverts, white background, game asset style, clean vector look, centered composition, no text |
+| miswoo1 | Middle Spotted Woodpecker | Stylized icon of a Middle Spotted Woodpecker, simple flat design, circular frame, medium woodpecker with red crown, streaked flanks, and smaller bill than Great Spotted, white background, game asset style, clean vector look, centered composition, no text |
+| leswoo1 | Lesser Spotted Woodpecker | Stylized icon of a Lesser Spotted Woodpecker, simple flat design, circular frame, tiny sparrow-sized woodpecker with black and white barred back and red crown on male, white background, game asset style, clean vector look, centered composition, no text |
+
+### Quick Copy - All European Birds (61 species)
 
 ```
 SEWA: Stylized icon of a Sedge Warbler, simple flat design, circular frame, streaky brown warbler with bold cream supercilium and streaked crown, white background, game asset style, clean vector look, centered composition, no text
@@ -548,4 +576,24 @@ dunnoc1: Stylized icon of a Dunnock, simple flat design, circular frame, small b
 winwre4: Stylized icon of a Eurasian Wren, simple flat design, circular frame, tiny rufous-brown bird with short cocked tail and barred plumage, white background, game asset style, clean vector look, centered composition, no text
 eurjay1: Stylized icon of a Eurasian Jay, simple flat design, circular frame, pinkish-brown bird with black mustache, blue-and-black wing patch, and streaked crown, white background, game asset style, clean vector look, centered composition, no text
 blawoo1: Stylized icon of a Black Woodpecker, simple flat design, circular frame, large all-black woodpecker with bright red crown and pale eye, white background, game asset style, clean vector look, centered composition, no text
+ESPA: Stylized icon of a Eurasian Sparrowhawk, simple flat design, circular frame, small blue-gray hawk with orange-barred breast and bright yellow-orange eye, white background, game asset style, clean vector look, centered composition, no text
+EGOS: Stylized icon of a Eurasian Goshawk, simple flat design, circular frame, powerful gray hawk with white supercilium, finely barred breast, and fierce red-orange eye, white background, game asset style, clean vector look, centered composition, no text
+BLAK: Stylized icon of a Black Kite, simple flat design, circular frame, dark brown raptor with forked tail and yellow bill soaring, white background, game asset style, clean vector look, centered composition, no text
+redkit1: Stylized icon of a Red Kite, simple flat design, circular frame, elegant reddish-brown raptor with deeply forked tail, gray head, and pale eye, white background, game asset style, clean vector look, centered composition, no text
+combuz1: Stylized icon of a Common Buzzard, simple flat design, circular frame, stocky brown raptor with broad rounded wings and variable breast band, white background, game asset style, clean vector look, centered composition, no text
+euhbuz1: Stylized icon of a European Honey-buzzard, simple flat design, circular frame, slender raptor with small pigeon-like head, barred underparts, and long tail with dark bands, white background, game asset style, clean vector look, centered composition, no text
+EUKE: Stylized icon of a Eurasian Kestrel, simple flat design, circular frame, small falcon with rufous spotted back, gray head and tail, and dark mustache, white background, game asset style, clean vector look, centered composition, no text
+EUHO: Stylized icon of a Eurasian Hobby, simple flat design, circular frame, sleek dark falcon with white cheeks, streaked underparts, and rufous thighs, white background, game asset style, clean vector look, centered composition, no text
+PEFA: Stylized icon of a Peregrine Falcon, simple flat design, circular frame, powerful falcon with dark helmet, barred gray-blue upperparts, and pale barred breast, white background, game asset style, clean vector look, centered composition, no text
+REDW: Stylized icon of a Redwing, simple flat design, circular frame, small thrush with bold cream supercilium, streaked breast, and rusty-red flanks, white background, game asset style, clean vector look, centered composition, no text
+eugori2: Stylized icon of a Eurasian Golden Oriole, simple flat design, circular frame, brilliant yellow bird with black wings and red bill, white background, game asset style, clean vector look, centered composition, no text
+EUJA: Stylized icon of a Eurasian Jackdaw, simple flat design, circular frame, compact black crow with silver-gray nape and pale blue-white eye, white background, game asset style, clean vector look, centered composition, no text
+ROOK: Stylized icon of a Rook, simple flat design, circular frame, glossy black crow with bare whitish face patch and pointed bill, white background, game asset style, clean vector look, centered composition, no text
+carcro1: Stylized icon of a Carrion Crow, simple flat design, circular frame, all-black crow with sturdy bill and glossy plumage, white background, game asset style, clean vector look, centered composition, no text
+CORA: Stylized icon of a Common Raven, simple flat design, circular frame, large all-black bird with heavy bill, shaggy throat hackles, and wedge-shaped tail, white background, game asset style, clean vector look, centered composition, no text
+eurmag1: Stylized icon of a Eurasian Magpie, simple flat design, circular frame, striking black and white bird with long iridescent blue-green tail, white background, game asset style, clean vector look, centered composition, no text
+eugwoo2: Stylized icon of a Eurasian Green Woodpecker, simple flat design, circular frame, bright green woodpecker with red crown, black face mask, and yellow rump, white background, game asset style, clean vector look, centered composition, no text
+GSWO: Stylized icon of a Great Spotted Woodpecker, simple flat design, circular frame, black and white woodpecker with bold white shoulder patches and red undertail coverts, white background, game asset style, clean vector look, centered composition, no text
+miswoo1: Stylized icon of a Middle Spotted Woodpecker, simple flat design, circular frame, medium woodpecker with red crown, streaked flanks, and smaller bill than Great Spotted, white background, game asset style, clean vector look, centered composition, no text
+leswoo1: Stylized icon of a Lesser Spotted Woodpecker, simple flat design, circular frame, tiny sparrow-sized woodpecker with black and white barred back and red crown on male, white background, game asset style, clean vector look, centered composition, no text
 ```

@@ -32,6 +32,9 @@ const STATIC_ASSETS = [
   `${BASE_URL}data/packs/nz_south_island.json`,
   `${BASE_URL}data/packs/nz_all_birds.json`,
   `${BASE_URL}data/packs/eu_warblers.json`,
+  `${BASE_URL}data/packs/eu_raptors.json`,
+  `${BASE_URL}data/packs/eu_woodland.json`,
+  `${BASE_URL}data/packs/eu_all_birds.json`,
 ];
 
 // Install event - cache static assets

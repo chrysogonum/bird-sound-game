@@ -562,4 +562,8 @@ export const AVAILABLE_PACKS = [
   'nz_north_island',
   'nz_south_island',
   'nz_all_birds',
+  'eu_warblers',
+  'eu_raptors',
+  'eu_woodland',
+  'eu_all_birds',
 ];

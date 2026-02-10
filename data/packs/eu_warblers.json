@@ -1,8 +1,8 @@
 {
   "pack_id": "eu_warblers",
   "region": "eu",
-  "display_name": "European Warblers & Skulkers",
-  "description": "41 species of European warblers, skulkers, and secretive songbirds. From Nightingales to Treecreepers — birds that MUST be identified by ear.",
+  "display_name": "Warblers & Skulkers",
+  "description": "35 species of European warblers, skulkers, and secretive songbirds. From Nightingales to Treecreepers — birds that MUST be identified by ear.",
   "species": [
     "SEWA",
     "RIWA",
@@ -14,10 +14,6 @@
     "ICWA",
     "BLUE",
     "SPFL",
-    "EUBB",
-    "SOTH",
-    "MITH",
-    "FIEL",
     "EUSK",
     "EURO",
     "CCRA",
@@ -42,9 +38,7 @@
     "firecr1",
     "woolar1",
     "dunnoc1",
-    "winwre4",
-    "eurjay1",
-    "blawoo1"
+    "winwre4"
   ],
   "display_species": [
     "SEWA",
@@ -57,10 +51,6 @@
     "ICWA",
     "BLUE",
     "SPFL",
-    "EUBB",
-    "SOTH",
-    "MITH",
-    "FIEL",
     "EUSK",
     "EURO",
     "CCRA",
@@ -85,9 +75,7 @@
     "firecr1",
     "woolar1",
     "dunnoc1",
-    "winwre4",
-    "eurjay1",
-    "blawoo1"
+    "winwre4"
   ],
   "vocalization_weights": {
     "song": 0.7,

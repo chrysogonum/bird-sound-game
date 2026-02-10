@@ -177,7 +177,7 @@ git diff data/clips.json | grep -c "canonical.*true"  # Should show balanced +/-
 
 ### Directory Structure
 - `src/` - TypeScript source (organized by domain: audio/, input/, scoring/, game/, modes/, ui/, visual/, packs/, storage/, stats/)
-- `scripts/` - Python preprocessing scripts (audio_ingest.py, merge_candidates.py, spectrogram_gen.py, validate_schema.py, review_clips.py)
+- `scripts/` - Python preprocessing scripts (clip_editor.py, merge_candidates.py, spectrogram_gen.py, validate_schema.py)
 - `data/` - Runtime data (clips/, packs/, spectrograms/, clips.json, levels.json)
 - `schemas/` - JSON schemas (clip.schema.json, level.schema.json, pack.schema.json)
 - `tests/` - Vitest test files
@@ -242,56 +242,34 @@ useEffect(() => {
 
 ### Adding New Bird Audio Clips ⚠️ CRITICAL WORKFLOW
 
+**⚠️ Use Clip Studio (`clip_editor.py --batch`) for ALL audio work - extraction + curation in one tool.**
+
 **Complete workflow to add new clips to the game:**
 
-1. **Download clips from Xeno-Canto** (downloads to temporary candidates folder):
+1. **Launch Clip Studio:**
    ```bash
-   python3 scripts/audio_ingest.py \
-     --output data/candidates_XXXX \
-     --species "Common Name" \
-     --max-per-species 5 \
-     --vocalization-type call  # or song
-   ```
-   This creates preprocessed WAV files (mono, 0.5-3s, -16 LUFS) with manifest.json
-
-2. **Copy WAV files to main clips folder**:
-   ```bash
-   cp data/candidates_XXXX/*.wav data/clips/
+   python3 scripts/clip_editor.py --batch
+   # Opens unified Clip Studio at http://localhost:8889
    ```
 
-3. **Add clip metadata to clips.json** (merge candidate manifest into clips.json):
-   ```bash
-   python3 scripts/merge_candidates.py data/candidates_XXXX
-   ```
-   This script safely:
-   - Appends new clips to existing clips.json (NEVER overwrites)
-   - Creates backup at data/clips.json.backup
-   - Validates no data loss occurred
-   - Sets sensible defaults (canonical=false, quality_score=5)
+2. **Extract & Curate Clips:**
+   - **Filter:** Select pack (e.g., "European Packs" → "Warblers & Skulkers")
+   - **Search:** Use search box to find species (🔍 icon)
+   - **Select:** Click species in left panel
+   - **Load:** Click source chip (XC ID) in center panel
+   - **Extract:** Click waveform to set start time, adjust duration with +/- buttons, click "🎯 Extract Clip"
+   - **Curate:** In right panel, mark ⭐ canonical, rate ★ quality, 🗑️ delete bad clips
+   - **Save:** Click "💾 Save All" → automatic git commit
 
-4. **Generate spectrograms**:
-   ```bash
-   python3 scripts/spectrogram_gen.py --input data/clips --output data/spectrograms
-   ```
-   This generates PNG spectrograms AND updates clips.json with spectrogram_path
-
-5. **Review clips in the browser** (optional but recommended):
-   ```bash
-   python3 scripts/review_clips.py --filter XXXX
-   ```
-   Open http://localhost:8888 to listen, view spectrograms, and mark clips as canonical/rejected
-
-6. **Commit changes**:
-   ```bash
-   git add data/clips.json data/clips/XXXX_*.wav data/spectrograms/XXXX_*.png
-   git commit -m "Add N XXXX clips for [species name]"
-   ```
-
-**IMPORTANT GOTCHAS:**
-- Species code in filenames MUST match `species_code` in clips.json
-- Always run spectrogram_gen.py AFTER adding to clips.json (it updates paths)
-- If species code is wrong (e.g., RUBY instead of RCKI), rename files AND update manifest before step 2
-- Spectrograms won't show until clips.json has correct spectrogram_path entries
+3. **All features in one tool:**
+   - ✅ Pack-based filtering
+   - ✅ Waveform extraction
+   - ✅ Automatic spectrogram generation
+   - ✅ Canonical marking (max 1 per species, enforced)
+   - ✅ Quality rating (1-5 stars)
+   - ✅ Clip deletion (with file removal)
+   - ✅ Git commits (automatic backup + descriptive messages)
+   - ✅ Rejection tracking (logs XC IDs to prevent re-download)
 
 ### Species Data - Single Source of Truth ⚠️ CRITICAL
 
@@ -371,7 +349,7 @@ ChipNotes uses the Xeno-canto API v3 for downloading bird recordings. **An API k
 ```bash
 # The key is automatically loaded by scripts that need it
 source ~/.zshrc
-python3 scripts/audio_ingest.py --species "Northern Cardinal" --output data/candidates_NOCA
+python3 scripts/clip_editor.py --search "Northern Cardinal" --region na
 
 # To verify key is set:
 echo $XENO_CANTO_API_KEY

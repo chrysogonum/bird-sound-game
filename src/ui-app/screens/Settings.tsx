@@ -334,81 +334,94 @@ function Settings() {
                 </div>
               )}
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {AVAILABLE_PACKS.map((packId) => {
-                  const manifest = packManifests[packId];
-                  const status = packStatuses[packId] || 'not_downloaded';
-                  const isDownloading = activeDownload === packId;
-
-                  return (
-                    <div
-                      key={packId}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        padding: '8px',
-                        backgroundColor: 'var(--color-surface)',
-                        borderRadius: '6px',
-                      }}
-                    >
-                      {/* Status indicator */}
-                      <span style={{ fontSize: '14px', width: '20px' }}>
-                        {status === 'downloaded' && '✓'}
-                        {status === 'partial' && '◐'}
-                        {status === 'downloading' && '⏳'}
-                        {status === 'not_downloaded' && '○'}
-                      </span>
-
-                      {/* Pack name and size */}
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontSize: '14px', fontWeight: 500 }}>
-                          {manifest?.displayName || packId}
-                        </div>
-                        <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
-                          ~{manifest?.estimatedSizeMB || '?'} MB
-                        </div>
-                      </div>
-
-                      {/* Action button */}
-                      {isDownloading ? (
-                        <button
-                          className="btn-secondary"
-                          onClick={handleCancelDownload}
-                          style={{ fontSize: '12px', padding: '4px 8px' }}
-                        >
-                          Cancel
-                        </button>
-                      ) : status === 'downloaded' ? (
-                        <button
-                          className="btn-secondary"
-                          onClick={() => handleClearPack(packId)}
-                          style={{ fontSize: '12px', padding: '4px 8px' }}
-                        >
-                          Remove
-                        </button>
-                      ) : status === 'partial' ? (
-                        <button
-                          className="btn-secondary"
-                          onClick={() => handleDownload(packId, true)}
-                          disabled={activeDownload !== null}
-                          style={{ fontSize: '12px', padding: '4px 8px' }}
-                        >
-                          Resume
-                        </button>
-                      ) : (
-                        <button
-                          className="btn-secondary"
-                          onClick={() => handleDownload(packId, false)}
-                          disabled={activeDownload !== null}
-                          style={{ fontSize: '12px', padding: '4px 8px' }}
-                        >
-                          Download
-                        </button>
-                      )}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {[
+                  { label: 'North America', packs: ['starter_birds', 'grassland_birds', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds', 'expanded_backyard', 'common_se_birds'] },
+                  { label: 'New Zealand', packs: ['nz_common', 'nz_north_island', 'nz_south_island', 'nz_all_birds'] },
+                  { label: 'Europe', packs: ['eu_warblers', 'eu_raptors', 'eu_woodland', 'eu_all_birds'] },
+                ].map((group) => (
+                  <div key={group.label}>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: 'var(--color-text-muted)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
+                      {group.label}
                     </div>
-                  );
-                })}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                      {group.packs.map((packId) => {
+                        const manifest = packManifests[packId];
+                        const status = packStatuses[packId] || 'not_downloaded';
+                        const isDownloading = activeDownload === packId;
+
+                        return (
+                          <div
+                            key={packId}
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '8px',
+                              padding: '8px',
+                              backgroundColor: 'var(--color-surface)',
+                              borderRadius: '6px',
+                            }}
+                          >
+                            {/* Status indicator */}
+                            <span style={{ fontSize: '14px', width: '20px' }}>
+                              {status === 'downloaded' && '✓'}
+                              {status === 'partial' && '◐'}
+                              {status === 'downloading' && '⏳'}
+                              {status === 'not_downloaded' && '○'}
+                            </span>
+
+                            {/* Pack name and size */}
+                            <div style={{ flex: 1, minWidth: 0 }}>
+                              <div style={{ fontSize: '14px', fontWeight: 500 }}>
+                                {manifest?.displayName || packId}
+                              </div>
+                              <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
+                                ~{manifest?.estimatedSizeMB || '?'} MB
+                              </div>
+                            </div>
+
+                            {/* Action button */}
+                            {isDownloading ? (
+                              <button
+                                className="btn-secondary"
+                                onClick={handleCancelDownload}
+                                style={{ fontSize: '12px', padding: '4px 8px' }}
+                              >
+                                Cancel
+                              </button>
+                            ) : status === 'downloaded' ? (
+                              <button
+                                className="btn-secondary"
+                                onClick={() => handleClearPack(packId)}
+                                style={{ fontSize: '12px', padding: '4px 8px' }}
+                              >
+                                Remove
+                              </button>
+                            ) : status === 'partial' ? (
+                              <button
+                                className="btn-secondary"
+                                onClick={() => handleDownload(packId, true)}
+                                disabled={activeDownload !== null}
+                                style={{ fontSize: '12px', padding: '4px 8px' }}
+                              >
+                                Resume
+                              </button>
+                            ) : (
+                              <button
+                                className="btn-secondary"
+                                onClick={() => handleDownload(packId, false)}
+                                disabled={activeDownload !== null}
+                                style={{ fontSize: '12px', padding: '4px 8px' }}
+                              >
+                                Download
+                              </button>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
 
               {/* Progress bar for active download */}
