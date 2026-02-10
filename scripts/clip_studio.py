@@ -203,11 +203,19 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
         segment = librosa.resample(segment, orig_sr=sr, target_sr=OUTPUT_SAMPLE_RATE)
         sr = OUTPUT_SAMPLE_RATE
 
-    # Normalize loudness to -16 LUFS
+    # Normalize loudness to -16 LUFS, fall back to peak normalization if clipping
     meter = pyln.Meter(sr)
     loudness = meter.integrated_loudness(segment)
     if not np.isinf(loudness) and not np.isnan(loudness):
-        segment = pyln.normalize.loudness(segment, loudness, TARGET_LUFS)
+        gain_db = TARGET_LUFS - loudness
+        peak = np.max(np.abs(segment))
+        max_gain_db = 20 * np.log10(0.95 / peak) if peak > 0 else 40
+        if gain_db <= max_gain_db:
+            # Safe to normalize to -16 LUFS without clipping
+            segment = pyln.normalize.loudness(segment, loudness, TARGET_LUFS)
+        else:
+            # Would clip — apply max safe gain (peak at 0.95)
+            segment = segment * (0.95 / peak)
         segment = np.clip(segment, -1.0, 1.0)
 
     # Load existing clips
@@ -1707,7 +1715,7 @@ def generate_html() -> str:
                     <button class="btn" id="btnSel" onclick="toggleSelection()">&#9654; Selection</button>
                     <div class="time-display" id="timeDisplay">0:00 - 0:00</div>
                     <span style="color:var(--text-dim);font-size:10px;margin-left:auto;">Zoom</span>
-                    <input type="range" id="zoomSlider" min="1" max="10" step="0.5" value="1"
+                    <input type="range" id="zoomSlider" min="1" max="5" step="0.5" value="1"
                            oninput="setZoom(parseFloat(this.value))"
                            style="width:100px;accent-color:var(--teal);">
                 </div>
@@ -1720,20 +1728,18 @@ def generate_html() -> str:
                         </div>
                         <div class="form-field">
                             <label class="form-label">Duration</label>
-                            <div style="display:flex;align-items:center;gap:6px;">
+                            <div style="display:flex;align-items:center;gap:4px;">
                                 <button class="dur-btn" onclick="adjustDuration(-0.1)">&minus;</button>
                                 <div class="dur-display" id="durationDisplay">2.0</div>
                                 <button class="dur-btn" onclick="adjustDuration(0.1)">+</button>
                             </div>
+                            <input type="range" id="durationSlider" min="0.5" max="3.0" step="0.1" value="2.0"
+                                   oninput="setDuration(parseFloat(this.value))"
+                                   style="width:100%;accent-color:var(--teal);margin-top:4px;">
                         </div>
                         <div class="form-field">
                             <label class="form-label">Vocalization Type</label>
                             <select class="form-select" id="vocType">''' + voc_type_options + '''</select>
-                        </div>
-                        <div class="form-field" style="grid-column:1/-1;">
-                            <input type="range" id="durationSlider" min="0.5" max="3.0" step="0.1" value="2.0"
-                                   oninput="setDuration(parseFloat(this.value))"
-                                   style="width:100%;accent-color:var(--teal);">
                         </div>
                         <div class="form-field">
                             <label class="form-label">License</label>
@@ -2054,10 +2060,14 @@ function loadCandidate(candidate) {
         .then(data => {
             S.waveformData = data;
             S.startTime = 0;
-            // Auto-zoom: aim for ~30px per second, capped at 1-10x
+            // Auto-zoom: only for long recordings (>10s), gentle max 3x
             var containerW = document.getElementById('waveform').clientWidth;
-            var idealZoom = (data.duration * 30) / containerW;
-            S.zoom = Math.max(1, Math.min(10, idealZoom));
+            if (data.duration > 10) {
+                var idealZoom = (data.duration * 20) / containerW;
+                S.zoom = Math.max(1, Math.min(3, idealZoom));
+            } else {
+                S.zoom = 1;
+            }
             document.getElementById('zoomSlider').value = S.zoom;
             drawWaveform();
             updateSelectionUI();
