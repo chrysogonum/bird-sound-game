@@ -1,50 +1,86 @@
 [
   {
-    "file_path": "data/candidates_savwar1/savwar1_997090.wav",
-    "species_name": "Savi's Warbler",
     "species_code": "savwar1",
+    "species_name": "Savi's Warbler",
+    "source": "xenocanto",
+    "source_id": "XC1042941",
+    "recordist": "Geoff Carey",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:08",
+    "country": "Mongolia"
+  },
+  {
+    "species_code": "savwar1",
+    "species_name": "Savi's Warbler",
+    "source": "xenocanto",
+    "source_id": "XC1042940",
+    "recordist": "Geoff Carey",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "3:43",
+    "country": "China"
+  },
+  {
+    "species_code": "savwar1",
+    "species_name": "Savi's Warbler",
     "source": "xenocanto",
     "source_id": "XC997090",
     "recordist": "Martin Fransson",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:52",
+    "country": "Sweden"
   },
   {
-    "file_path": "data/candidates_savwar1/savwar1_990477.wav",
-    "species_name": "Savi's Warbler",
     "species_code": "savwar1",
+    "species_name": "Savi's Warbler",
+    "source": "xenocanto",
+    "source_id": "XC992328",
+    "recordist": "Manusan",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "2:26",
+    "country": "Spain"
+  },
+  {
+    "species_code": "savwar1",
+    "species_name": "Savi's Warbler",
     "source": "xenocanto",
     "source_id": "XC990477",
     "recordist": "Bram Piot",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:10",
+    "country": "Belgium"
   },
   {
-    "file_path": "data/candidates_savwar1/savwar1_571353.wav",
-    "species_name": "Savi's Warbler",
     "species_code": "savwar1",
+    "species_name": "Savi's Warbler",
     "source": "xenocanto",
-    "source_id": "XC571353",
+    "source_id": "XC572015",
     "recordist": "Stanislas Wroza",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "vocalization_type": "flight call",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:34",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_savwar1/savwar1_571352.wav",
-    "species_name": "Savi's Warbler",
     "species_code": "savwar1",
+    "species_name": "Savi's Warbler",
     "source": "xenocanto",
-    "source_id": "XC571352",
-    "recordist": "Stanislas Wroza",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "source_id": "XC283494",
+    "recordist": "Vincent van der Spek",
+    "vocalization_type": "alarm call",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:04",
+    "country": "Netherlands"
   }
 ]

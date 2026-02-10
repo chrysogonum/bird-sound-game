@@ -1,110 +1,86 @@
 [
   {
-    "file_path": "data/candidates_eugori2/eugori2_1062294.wav",
-    "species_name": "Eurasian Golden Oriole",
     "species_code": "eugori2",
+    "species_name": "Eurasian Golden Oriole",
     "source": "xenocanto",
     "source_id": "XC1062294",
     "recordist": "Adrien Peillon",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -17.0,
-    "quality": "A"
+    "vocalization_type": "call, song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:13",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_eugori2/eugori2_1062293.wav",
-    "species_name": "Eurasian Golden Oriole",
     "species_code": "eugori2",
+    "species_name": "Eurasian Golden Oriole",
     "source": "xenocanto",
     "source_id": "XC1062293",
     "recordist": "Adrien Peillon",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.2,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:16",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_eugori2/eugori2_1062292.wav",
-    "species_name": "Eurasian Golden Oriole",
     "species_code": "eugori2",
+    "species_name": "Eurasian Golden Oriole",
     "source": "xenocanto",
     "source_id": "XC1062292",
     "recordist": "Adrien Peillon",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -17.2,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:22",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_eugori2/eugori2_1062291.wav",
-    "species_name": "Eurasian Golden Oriole",
     "species_code": "eugori2",
+    "species_name": "Eurasian Golden Oriole",
     "source": "xenocanto",
     "source_id": "XC1062291",
     "recordist": "Adrien Peillon",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.2,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:14",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_eugori2/eugori2_1054413.wav",
-    "species_name": "Eurasian Golden Oriole",
     "species_code": "eugori2",
+    "species_name": "Eurasian Golden Oriole",
     "source": "xenocanto",
     "source_id": "XC1054413",
-    "recordist": "Feliu L\u00f3pez i Gelats",
+    "recordist": "Feliu López i Gelats",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:29",
+    "country": "Spain"
   },
   {
-    "file_path": "data/candidates_eugori2/eugori2_1052247.wav",
-    "species_name": "Eurasian Golden Oriole",
     "species_code": "eugori2",
-    "source": "xenocanto",
-    "source_id": "XC1052247",
-    "recordist": "Jack Berteau",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_eugori2/eugori2_1045063.wav",
     "species_name": "Eurasian Golden Oriole",
-    "species_code": "eugori2",
-    "source": "xenocanto",
-    "source_id": "XC1045063",
-    "recordist": "Beatrix Saadi-Varchmin",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_eugori2/eugori2_1043474.wav",
-    "species_name": "Eurasian Golden Oriole",
-    "species_code": "eugori2",
     "source": "xenocanto",
     "source_id": "XC1043474",
     "recordist": "Johannes Dag Mayer",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:07",
+    "country": "Germany"
   },
   {
-    "file_path": "data/candidates_eugori2/eugori2_1032791.wav",
-    "species_name": "Eurasian Golden Oriole",
     "species_code": "eugori2",
+    "species_name": "Eurasian Golden Oriole",
     "source": "xenocanto",
     "source_id": "XC1032791",
     "recordist": "Thierry THOMAS",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "vocalization_type": "call, short calls",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:06",
+    "country": "France"
   }
 ]

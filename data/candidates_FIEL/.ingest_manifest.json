@@ -1,74 +1,86 @@
 [
   {
-    "file_path": "data/candidates_FIEL/FIEL_804831.wav",
-    "species_name": "Fieldfare",
     "species_code": "FIEL",
+    "species_name": "Fieldfare",
     "source": "xenocanto",
     "source_id": "XC804831",
     "recordist": "Uku Paal",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:27",
+    "country": "Estonia"
   },
   {
-    "file_path": "data/candidates_FIEL/FIEL_683568.wav",
-    "species_name": "Fieldfare",
     "species_code": "FIEL",
+    "species_name": "Fieldfare",
     "source": "xenocanto",
     "source_id": "XC683568",
     "recordist": "Frode Falkenberg",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:09",
+    "country": "Norway"
   },
   {
-    "file_path": "data/candidates_FIEL/FIEL_635213.wav",
-    "species_name": "Fieldfare",
     "species_code": "FIEL",
+    "species_name": "Fieldfare",
+    "source": "xenocanto",
+    "source_id": "XC635633",
+    "recordist": "Jozef van der Heijden",
+    "vocalization_type": "subsong",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:47",
+    "country": "Netherlands"
+  },
+  {
+    "species_code": "FIEL",
+    "species_name": "Fieldfare",
     "source": "xenocanto",
     "source_id": "XC635213",
     "recordist": "Stanislas Wroza",
+    "vocalization_type": "alarm call, song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:29",
+    "country": "France"
+  },
+  {
+    "species_code": "FIEL",
+    "species_name": "Fieldfare",
+    "source": "xenocanto",
+    "source_id": "XC633551",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "2:57",
+    "country": "France"
+  },
+  {
+    "species_code": "FIEL",
+    "species_name": "Fieldfare",
+    "source": "xenocanto",
+    "source_id": "XC1014924",
+    "recordist": "Lars Edenius",
     "vocalization_type": "alarm call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:14",
+    "country": "Sweden"
   },
   {
-    "file_path": "data/candidates_FIEL/FIEL_477289.wav",
-    "species_name": "Fieldfare",
     "species_code": "FIEL",
-    "source": "xenocanto",
-    "source_id": "XC477289",
-    "recordist": "PE Svahn",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_FIEL/FIEL_310574.wav",
     "species_name": "Fieldfare",
-    "species_code": "FIEL",
-    "source": "xenocanto",
-    "source_id": "XC310574",
-    "recordist": "Patrik \u00c5berg",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_FIEL/FIEL_972709.wav",
-    "species_name": "Fieldfare",
-    "species_code": "FIEL",
     "source": "xenocanto",
     "source_id": "XC972709",
     "recordist": "Beatrix Saadi-Varchmin",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.2,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:58",
+    "country": "Germany"
   }
 ]

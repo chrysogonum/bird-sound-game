@@ -1,122 +1,86 @@
 [
   {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_1054287.wav",
-    "species_name": "Dunnock",
     "species_code": "dunnoc1",
+    "species_name": "Dunnock",
     "source": "xenocanto",
     "source_id": "XC1054287",
     "recordist": "Lee Alder",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "vocalization_type": "song, human voices",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:47",
+    "country": "United Kingdom"
   },
   {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_1011603.wav",
-    "species_name": "Dunnock",
     "species_code": "dunnoc1",
+    "species_name": "Dunnock",
     "source": "xenocanto",
     "source_id": "XC1011603",
     "recordist": "Lars Edenius",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:35",
+    "country": "Sweden"
   },
   {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_1011602.wav",
-    "species_name": "Dunnock",
     "species_code": "dunnoc1",
+    "species_name": "Dunnock",
     "source": "xenocanto",
     "source_id": "XC1011602",
     "recordist": "Lars Edenius",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:31",
+    "country": "Sweden"
   },
   {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_1003038.wav",
-    "species_name": "Dunnock",
     "species_code": "dunnoc1",
+    "species_name": "Dunnock",
     "source": "xenocanto",
     "source_id": "XC1003038",
     "recordist": "Susanne Kuijpers",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:18",
+    "country": "Netherlands"
   },
   {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_991430.wav",
-    "species_name": "Dunnock",
     "species_code": "dunnoc1",
+    "species_name": "Dunnock",
     "source": "xenocanto",
     "source_id": "XC991430",
     "recordist": "Lars Edenius",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:19",
+    "country": "Sweden"
   },
   {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_991429.wav",
-    "species_name": "Dunnock",
     "species_code": "dunnoc1",
-    "source": "xenocanto",
-    "source_id": "XC991429",
-    "recordist": "Lars Edenius",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_982393.wav",
     "species_name": "Dunnock",
-    "species_code": "dunnoc1",
-    "source": "xenocanto",
-    "source_id": "XC982393",
-    "recordist": "Benjamin Drillat",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_1074560.wav",
-    "species_name": "Dunnock",
-    "species_code": "dunnoc1",
     "source": "xenocanto",
     "source_id": "XC1074560",
     "recordist": "Laura Martin",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:33",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_1074559.wav",
-    "species_name": "Dunnock",
     "species_code": "dunnoc1",
+    "species_name": "Dunnock",
     "source": "xenocanto",
     "source_id": "XC1074559",
     "recordist": "Laura Martin",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_dunnoc1/dunnoc1_1074558.wav",
-    "species_name": "Dunnock",
-    "species_code": "dunnoc1",
-    "source": "xenocanto",
-    "source_id": "XC1074558",
-    "recordist": "Laura Martin",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:46",
+    "country": "France"
   }
 ]

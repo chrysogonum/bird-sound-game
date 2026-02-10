@@ -1,110 +1,86 @@
 [
   {
-    "file_path": "data/candidates_darwar1/darwar1_1074561.wav",
-    "species_name": "Dartford Warbler",
     "species_code": "darwar1",
+    "species_name": "Dartford Warbler",
     "source": "xenocanto",
     "source_id": "XC1074561",
     "recordist": "Laura Martin",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "vocalization_type": "call, song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:10",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_darwar1/darwar1_1025835.wav",
-    "species_name": "Dartford Warbler",
     "species_code": "darwar1",
+    "species_name": "Dartford Warbler",
     "source": "xenocanto",
     "source_id": "XC1025835",
     "recordist": "David Boyle",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:53",
+    "country": "United Kingdom"
   },
   {
-    "file_path": "data/candidates_darwar1/darwar1_1011883.wav",
-    "species_name": "Dartford Warbler",
     "species_code": "darwar1",
+    "species_name": "Dartford Warbler",
+    "source": "xenocanto",
+    "source_id": "XC1022438",
+    "recordist": "Stanislas Wroza",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "2:29",
+    "country": "France"
+  },
+  {
+    "species_code": "darwar1",
+    "species_name": "Dartford Warbler",
     "source": "xenocanto",
     "source_id": "XC1011883",
     "recordist": "David Boyle",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:08",
+    "country": "United Kingdom"
   },
   {
-    "file_path": "data/candidates_darwar1/darwar1_1001458.wav",
-    "species_name": "Dartford Warbler",
     "species_code": "darwar1",
+    "species_name": "Dartford Warbler",
     "source": "xenocanto",
     "source_id": "XC1001458",
     "recordist": "brickegickel",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:48",
+    "country": "Spain"
   },
   {
-    "file_path": "data/candidates_darwar1/darwar1_1001457.wav",
-    "species_name": "Dartford Warbler",
     "species_code": "darwar1",
-    "source": "xenocanto",
-    "source_id": "XC1001457",
-    "recordist": "brickegickel",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_darwar1/darwar1_1001456.wav",
     "species_name": "Dartford Warbler",
-    "species_code": "darwar1",
-    "source": "xenocanto",
-    "source_id": "XC1001456",
-    "recordist": "brickegickel",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_darwar1/darwar1_996612.wav",
-    "species_name": "Dartford Warbler",
-    "species_code": "darwar1",
-    "source": "xenocanto",
-    "source_id": "XC996612",
-    "recordist": "Stanislas Wroza",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_darwar1/darwar1_1060161.wav",
-    "species_name": "Dartford Warbler",
-    "species_code": "darwar1",
     "source": "xenocanto",
     "source_id": "XC1060161",
     "recordist": "MERCIER Christophe",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:28",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_darwar1/darwar1_1060160.wav",
-    "species_name": "Dartford Warbler",
     "species_code": "darwar1",
+    "species_name": "Dartford Warbler",
     "source": "xenocanto",
     "source_id": "XC1060160",
     "recordist": "MERCIER Christophe",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.1,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:01",
+    "country": "France"
   }
 ]

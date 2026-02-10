@@ -1,50 +1,86 @@
 [
   {
-    "file_path": "data/candidates_LEWH/LEWH_1069647.wav",
-    "species_name": "Lesser Whitethroat",
     "species_code": "LEWH",
+    "species_name": "Lesser Whitethroat",
     "source": "xenocanto",
     "source_id": "XC1069647",
-    "recordist": "Andr\u00e1s Schmidt",
+    "recordist": "András Schmidt",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:03",
+    "country": "Hungary"
   },
   {
-    "file_path": "data/candidates_LEWH/LEWH_1006515.wav",
-    "species_name": "Lesser Whitethroat",
     "species_code": "LEWH",
+    "species_name": "Lesser Whitethroat",
+    "source": "xenocanto",
+    "source_id": "XC1069645",
+    "recordist": "András Schmidt",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:33",
+    "country": "Hungary"
+  },
+  {
+    "species_code": "LEWH",
+    "species_name": "Lesser Whitethroat",
+    "source": "xenocanto",
+    "source_id": "XC1024202",
+    "recordist": "Paul Driver",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "2:21",
+    "country": "United Kingdom"
+  },
+  {
+    "species_code": "LEWH",
+    "species_name": "Lesser Whitethroat",
     "source": "xenocanto",
     "source_id": "XC1006515",
     "recordist": "Franck Hollander",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:44",
+    "country": "Germany"
   },
   {
-    "file_path": "data/candidates_LEWH/LEWH_997438.wav",
-    "species_name": "Lesser Whitethroat",
     "species_code": "LEWH",
+    "species_name": "Lesser Whitethroat",
     "source": "xenocanto",
-    "source_id": "XC997438",
-    "recordist": "Lars Edenius",
+    "source_id": "XC1003502",
+    "recordist": "Eetu Paljakka",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "3:13",
+    "country": "Finland"
   },
   {
-    "file_path": "data/candidates_LEWH/LEWH_997420.wav",
-    "species_name": "Lesser Whitethroat",
     "species_code": "LEWH",
+    "species_name": "Lesser Whitethroat",
     "source": "xenocanto",
-    "source_id": "XC997420",
-    "recordist": "Lars Edenius",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "source_id": "XC1065146",
+    "recordist": "Meena Haribal",
+    "vocalization_type": "call",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:22",
+    "country": "India"
+  },
+  {
+    "species_code": "LEWH",
+    "species_name": "Lesser Whitethroat",
+    "source": "xenocanto",
+    "source_id": "XC1053918",
+    "recordist": "David Darrell-Lambert",
+    "vocalization_type": "call",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:25",
+    "country": "United Arab Emirates"
   }
 ]

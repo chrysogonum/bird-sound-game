@@ -1,86 +1,86 @@
 [
   {
-    "file_path": "data/candidates_eurtre1/eurtre1_976546.wav",
-    "species_name": "Eurasian Treecreeper",
     "species_code": "eurtre1",
+    "species_name": "Eurasian Treecreeper",
+    "source": "xenocanto",
+    "source_id": "XC1024415",
+    "recordist": "Richard E. Webster",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:25",
+    "country": "Mongolia"
+  },
+  {
+    "species_code": "eurtre1",
+    "species_name": "Eurasian Treecreeper",
     "source": "xenocanto",
     "source_id": "XC976546",
     "recordist": "Markku Miettinen",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:30",
+    "country": "Finland"
   },
   {
-    "file_path": "data/candidates_eurtre1/eurtre1_893580.wav",
-    "species_name": "Eurasian Treecreeper",
     "species_code": "eurtre1",
+    "species_name": "Eurasian Treecreeper",
     "source": "xenocanto",
     "source_id": "XC893580",
     "recordist": "Henk Schreuders",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:15",
+    "country": "Netherlands"
   },
   {
-    "file_path": "data/candidates_eurtre1/eurtre1_808139.wav",
-    "species_name": "Eurasian Treecreeper",
     "species_code": "eurtre1",
+    "species_name": "Eurasian Treecreeper",
     "source": "xenocanto",
     "source_id": "XC808139",
     "recordist": "Lars Edenius",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:14",
+    "country": "Sweden"
   },
   {
-    "file_path": "data/candidates_eurtre1/eurtre1_807845.wav",
-    "species_name": "Eurasian Treecreeper",
     "species_code": "eurtre1",
+    "species_name": "Eurasian Treecreeper",
     "source": "xenocanto",
     "source_id": "XC807845",
     "recordist": "Jerome Fischer",
     "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:51",
+    "country": "Switzerland"
   },
   {
-    "file_path": "data/candidates_eurtre1/eurtre1_780619.wav",
-    "species_name": "Eurasian Treecreeper",
     "species_code": "eurtre1",
+    "species_name": "Eurasian Treecreeper",
     "source": "xenocanto",
-    "source_id": "XC780619",
-    "recordist": "Lars Edenius",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "source_id": "XC1079007",
+    "recordist": "Olivier SWIFT",
+    "vocalization_type": "call",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:14",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_eurtre1/eurtre1_1061243.wav",
-    "species_name": "Eurasian Treecreeper",
     "species_code": "eurtre1",
+    "species_name": "Eurasian Treecreeper",
     "source": "xenocanto",
     "source_id": "XC1061243",
     "recordist": "Lars Edenius",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_eurtre1/eurtre1_984243.wav",
-    "species_name": "Eurasian Treecreeper",
-    "species_code": "eurtre1",
-    "source": "xenocanto",
-    "source_id": "XC984243",
-    "recordist": "Mark Plummer",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:09",
+    "country": "Sweden"
   }
 ]

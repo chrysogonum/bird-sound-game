@@ -1,74 +1,86 @@
 [
   {
-    "file_path": "data/candidates_EUJA/EUJA_1075128.wav",
-    "species_name": "Eurasian Jackdaw",
     "species_code": "EUJA",
+    "species_name": "Eurasian Jackdaw",
+    "source": "xenocanto",
+    "source_id": "XC637582",
+    "recordist": "Irish Wildlife Sounds",
+    "vocalization_type": "song",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "2:43",
+    "country": "Ireland"
+  },
+  {
+    "species_code": "EUJA",
+    "species_name": "Eurasian Jackdaw",
     "source": "xenocanto",
     "source_id": "XC1075128",
     "recordist": "Thierry THOMAS",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "vocalization_type": "call, flight call",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:21",
+    "country": "France"
   },
   {
-    "file_path": "data/candidates_EUJA/EUJA_1052519.wav",
-    "species_name": "Eurasian Jackdaw",
     "species_code": "EUJA",
+    "species_name": "Eurasian Jackdaw",
     "source": "xenocanto",
     "source_id": "XC1052519",
     "recordist": "Francesco Sottile",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.4,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:23",
+    "country": "Italy"
   },
   {
-    "file_path": "data/candidates_EUJA/EUJA_1045811.wav",
-    "species_name": "Eurasian Jackdaw",
     "species_code": "EUJA",
+    "species_name": "Eurasian Jackdaw",
     "source": "xenocanto",
     "source_id": "XC1045811",
     "recordist": "Mark Plummer",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:21",
+    "country": "United Kingdom"
   },
   {
-    "file_path": "data/candidates_EUJA/EUJA_1004412.wav",
-    "species_name": "Eurasian Jackdaw",
     "species_code": "EUJA",
+    "species_name": "Eurasian Jackdaw",
+    "source": "xenocanto",
+    "source_id": "XC801264",
+    "recordist": "Gunnar Dolk",
+    "vocalization_type": "uncertain",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "5:23",
+    "country": "Sweden"
+  },
+  {
+    "species_code": "EUJA",
+    "species_name": "Eurasian Jackdaw",
     "source": "xenocanto",
     "source_id": "XC1004412",
     "recordist": "Esperanza Poveda",
     "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.1,
-    "quality": "A"
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "0:07",
+    "country": "Sweden"
   },
   {
-    "file_path": "data/candidates_EUJA/EUJA_959254.wav",
-    "species_name": "Eurasian Jackdaw",
     "species_code": "EUJA",
+    "species_name": "Eurasian Jackdaw",
     "source": "xenocanto",
     "source_id": "XC959254",
-    "recordist": "Jo\u00e3o Tom\u00e1s",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
-  },
-  {
-    "file_path": "data/candidates_EUJA/EUJA_904573.wav",
-    "species_name": "Eurasian Jackdaw",
-    "species_code": "EUJA",
-    "source": "xenocanto",
-    "source_id": "XC904573",
-    "recordist": "Martin Billard",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality": "A"
+    "recordist": "João Tomás",
+    "vocalization_type": "call, Roost calls",
+    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/",
+    "quality": "A",
+    "length": "1:26",
+    "country": "Spain"
   }
 ]
