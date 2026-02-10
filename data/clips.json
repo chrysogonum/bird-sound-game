@@ -13732,7 +13732,7 @@
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
-    "clip_id": "BLAK_1075223_2",
+    "clip_id": "BLAK_1075223_3",
     "species_code": "BLAK",
     "common_name": "Black Kite",
     "vocalization_type": "song",
@@ -13743,8 +13743,8 @@
     "source_id": "XC1075223",
     "source_url": "https://xeno-canto.org/1075223",
     "recordist": "Jonathan Onongo",
-    "file_path": "data/clips/BLAK_1075223_2.wav",
-    "spectrogram_path": "data/spectrograms/BLAK_1075223_2.png",
+    "file_path": "data/clips/BLAK_1075223_3.wav",
+    "spectrogram_path": "data/spectrograms/BLAK_1075223_3.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
