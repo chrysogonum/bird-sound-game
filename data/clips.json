@@ -2040,23 +2040,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "CMWA_94c035e4",
-    "species_code": "CMWA",
-    "common_name": "Cape May Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1013293",
-    "file_path": "data/clips/CMWA_1013293.wav",
-    "spectrogram_path": "data/spectrograms/CMWA_1013293.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1013293",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "CMWA_b718f636",
     "species_code": "CMWA",
     "common_name": "Cape May Warbler",
@@ -20965,6 +20948,24 @@
     "file_path": "data/clips/CMWA_784610_1.wav",
     "spectrogram_path": "data/spectrograms/CMWA_784610_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CMWA_1013293_1",
+    "species_code": "CMWA",
+    "common_name": "Cape May Warbler",
+    "vocalization_type": "call",
+    "duration_ms": 1600,
+    "quality_score": 5,
+    "loudness_lufs": -19.3,
+    "source": "xenocanto",
+    "source_id": "XC1013293",
+    "source_url": "https://xeno-canto.org/1013293",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/CMWA_1013293_1.wav",
+    "spectrogram_path": "data/spectrograms/CMWA_1013293_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
