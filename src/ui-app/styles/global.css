@@ -116,17 +116,17 @@ button:disabled {
 .btn-primary {
   width: 100%;
   padding: var(--spacing-md);
-  background: linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%);
+  background: linear-gradient(135deg, #7DB87E 0%, #3D8B4F 50%, #1A4D2E 100%);
   color: white;
   border-radius: 28px;
   min-height: 48px;
-  box-shadow: 0 3px 14px rgba(46, 125, 50, 0.35);
+  box-shadow: 0 3px 14px rgba(26, 77, 46, 0.35);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.45);
+  box-shadow: 0 6px 20px rgba(26, 77, 46, 0.45);
 }
 
 /* Secondary Button */

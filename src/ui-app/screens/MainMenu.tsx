@@ -219,7 +219,7 @@ function MainMenu() {
             fontSize: 'clamp(19px, 2.5vmin, 26px)',
             fontWeight: 700,
             letterSpacing: '1px',
-            background: 'linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%)',
+            background: 'linear-gradient(135deg, #7DB87E 0%, #3D8B4F 50%, #1A4D2E 100%)',
             color: 'white',
             border: 'none',
             borderRadius: '28px',
@@ -355,7 +355,7 @@ function MainMenu() {
                 justifyContent: 'center',
                 boxShadow: '0 2px 8px rgba(0, 0, 0, 0.4)',
               }}>
-                <div style={{ fontSize: '28px' }}>🎯</div>
+                <div style={{ fontSize: '28px' }}>🧠</div>
               </div>
               <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
                 Learn

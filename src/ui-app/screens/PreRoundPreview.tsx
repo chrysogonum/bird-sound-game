@@ -1194,7 +1194,7 @@ function PreRoundPreview() {
           fontSize: '14px',
           fontWeight: 700,
           background: preloadStatus === 'ready'
-            ? 'linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%)'
+            ? 'linear-gradient(135deg, #7DB87E 0%, #3D8B4F 50%, #1A4D2E 100%)'
             : 'linear-gradient(135deg, #555 0%, #444 100%)',
           color: 'white',
           border: 'none',

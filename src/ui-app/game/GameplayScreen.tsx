@@ -1031,12 +1031,12 @@ function GameplayScreen() {
           font-size: 18px;
           font-weight: 700;
           letter-spacing: 1px;
-          background: linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%);
+          background: linear-gradient(135deg, #7DB87E 0%, #3D8B4F 50%, #1A4D2E 100%);
           color: white;
           border: none;
           border-radius: 28px;
           cursor: pointer;
-          box-shadow: 0 3px 14px rgba(46, 125, 50, 0.35);
+          box-shadow: 0 3px 14px rgba(26, 77, 46, 0.35);
           transition: transform 0.2s, box-shadow 0.2s;
         }
 
@@ -1074,7 +1074,7 @@ function GameplayScreen() {
         }
 
         .feedback-overlay.good {
-          background: #4CAF50;
+          background: #3D8B4F;
         }
 
         .feedback-overlay.partial {

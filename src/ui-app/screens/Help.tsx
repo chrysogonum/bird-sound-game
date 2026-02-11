@@ -173,7 +173,14 @@ function Help() {
             className="btn-icon"
             onClick={() => navigate('/')}
             aria-label="Home"
-            style={{ color: 'var(--color-accent)' }}
+            style={{
+              flexShrink: 0,
+              color: 'var(--color-text-muted)',
+              background: 'rgba(255, 255, 255, 0.06)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '10px',
+              padding: '6px',
+            }}
           >
             <HomeIcon />
           </button>
