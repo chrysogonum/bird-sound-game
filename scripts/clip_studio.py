@@ -2016,10 +2016,14 @@ function renderSpeciesList() {
     const search = document.getElementById('searchInput').value.toLowerCase();
     document.getElementById('searchClear').style.display = search ? '' : 'none';
 
-    const filtered = S.species.filter(sp =>
+    let filtered = S.species.filter(sp =>
         sp.species_code.toLowerCase().includes(search) ||
         (sp.common_name && sp.common_name.toLowerCase().includes(search))
     );
+    // When searching, show species with clips first (more likely targets)
+    if (search) {
+        filtered.sort((a, b) => (b.clip_count - a.clip_count) || a.species_code.localeCompare(b.species_code));
+    }
 
     container.innerHTML = filtered.map(sp => {
         const isActive = S.selectedSpecies && S.selectedSpecies.species_code === sp.species_code;
