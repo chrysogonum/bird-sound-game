@@ -45,16 +45,26 @@ const PACK_NAMES: Record<string, string> = {
   western_birds: 'Western Birds',
   custom: 'Custom Pack',
   drill: 'Confusion Drill',
+  na_all_birds: 'All North America',
   // NZ packs
   nz_all_birds: 'All NZ Birds',
   nz_common: 'Garden & Bush',
   nz_north_island: 'North Island',
   nz_south_island: 'South Island',
+  // EU packs
+  eu_warblers: 'Warblers & Skulkers',
+  eu_raptors: 'Raptors',
+  eu_woodland: 'Woodland & Field',
+  eu_all_birds: 'All European Birds',
 };
 
 // NZ pack IDs and theme color
 const NZ_PACK_IDS = ['nz_all_birds', 'nz_common', 'nz_north_island', 'nz_south_island'];
 const NZ_ACCENT_COLOR = '#4db6ac';  // Muted teal for NZ
+
+// EU pack IDs and theme color
+const EU_PACK_IDS = ['eu_warblers', 'eu_raptors', 'eu_woodland', 'eu_all_birds'];
+const EU_ACCENT_COLOR = '#a0b450';  // Olive for EU
 
 // Level titles for custom pack
 const LEVEL_TITLES: Record<number, string> = {
@@ -145,7 +155,9 @@ function PreRoundPreview() {
   // Determine if this is an NZ pack for theming
   const isNZPack = NZ_PACK_IDS.includes(packId) ||
     (packId === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'nz');
-  const accentColor = isNZPack ? NZ_ACCENT_COLOR : 'var(--color-accent)';
+  const isEUPack = EU_PACK_IDS.includes(packId) ||
+    (packId === 'custom' && localStorage.getItem('soundfield_custom_pack_region') === 'eu');
+  const accentColor = isNZPack ? NZ_ACCENT_COLOR : isEUPack ? EU_ACCENT_COLOR : 'var(--color-accent)';
 
   const [level, setLevel] = useState<LevelConfig | null>(null);
   const [clips, setClips] = useState<ClipData[]>([]);
@@ -181,6 +193,9 @@ function PreRoundPreview() {
   const [metadataLoaded, setMetadataLoaded] = useState(false);  // Track when NZ display codes etc are loaded
   const [mergeConfigLoaded, setMergeConfigLoaded] = useState(false);  // Track when subspecies merge config is loaded
   const [showSoundLibrary, setShowSoundLibrary] = useState(false);  // Mini sound library modal
+  const [showGallery, setShowGallery] = useState(false);  // Gallery modal
+  const [galleryPlayingClip, setGalleryPlayingClip] = useState<string | null>(null);
+  const galleryAudioRef = useRef<HTMLAudioElement | null>(null);
   const [libraryPlayingClip, setLibraryPlayingClip] = useState<string | null>(null);  // Currently playing clip in library
   const selectedForRef = useRef<string | null>(null);  // Track which pack/level we've selected species for
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -216,24 +231,15 @@ function PreRoundPreview() {
     let resorted: SelectedSpecies[];
 
     if (isNZPack) {
-      // NZ packs use 3-way sort mode
-      switch (nzSortMode) {
-        case 'english':
-          resorted = [...selectedSpecies].sort((a, b) => a.englishName.localeCompare(b.englishName));
-          break;
-        case 'taxonomic':
-          if (Object.keys(taxonomicOrder).length === 0) return;
-          resorted = [...selectedSpecies].sort((a, b) => {
+      // NZ packs: taxonomicSort controls sort order, nzSortMode controls display
+      if (taxonomicSort && Object.keys(taxonomicOrder).length === 0) return;
+      resorted = taxonomicSort
+        ? [...selectedSpecies].sort((a, b) => {
             const orderA = taxonomicOrder[a.code] || 9999;
             const orderB = taxonomicOrder[b.code] || 9999;
             return orderA - orderB;
-          });
-          break;
-        case 'maori':
-        default:
-          resorted = [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
-          break;
-      }
+          })
+        : [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
     } else {
       // NA packs use 2-way toggle
       if (taxonomicSort && Object.keys(taxonomicOrder).length === 0) return;
@@ -313,9 +319,11 @@ function PreRoundPreview() {
       if (isNZPack) {
         tileName = nzData?.tileName || iconCode;
       } else {
-        // NA birds: show 4-letter code or common name based on user preference
+        // NA birds: show 4-letter code, common name, or Latin based on user preference
         tileName = naDisplayMode === 'name'
           ? (commonNames[iconCode] || iconCode)
+          : naDisplayMode === 'latin'
+          ? (scientificNames[iconCode] || commonNames[iconCode] || iconCode)
           : iconCode;
       }
 
@@ -334,23 +342,14 @@ function PreRoundPreview() {
     // Sort based on current preference
     let sorted: SelectedSpecies[];
     if (isNZPack) {
-      // NZ packs use 3-way sort mode
-      switch (nzSortMode) {
-        case 'english':
-          sorted = unsorted.sort((a, b) => a.englishName.localeCompare(b.englishName));
-          break;
-        case 'taxonomic':
-          sorted = unsorted.sort((a, b) => {
+      // NZ packs: taxonomicSort controls sort order, nzSortMode controls display
+      sorted = taxonomicSort && Object.keys(taxonomicOrder).length > 0
+        ? unsorted.sort((a, b) => {
             const orderA = taxonomicOrder[a.code] || 9999;
             const orderB = taxonomicOrder[b.code] || 9999;
             return orderA - orderB;
-          });
-          break;
-        case 'maori':
-        default:
-          sorted = unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
-          break;
-      }
+          })
+        : unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
     } else {
       // NA packs use 2-way toggle (alphabetic/taxonomic)
       // Always sort by 4-letter code alphabetically (not tileName, which may be common name)
@@ -573,6 +572,13 @@ function PreRoundPreview() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [packId, levelId, keepBirds, metadataLoaded]);
 
+  // Persist selected species to sessionStorage so level-dot switches can restore them
+  useEffect(() => {
+    if (selectedSpecies.length > 0) {
+      sessionStorage.setItem('roundSpecies', JSON.stringify(selectedSpecies.map(s => s.code)));
+    }
+  }, [selectedSpecies]);
+
   // Preload all clips for selected species in the background
   useEffect(() => {
     if (selectedSpecies.length === 0 || clips.length === 0) {
@@ -758,9 +764,21 @@ function PreRoundPreview() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <button
           className="btn-icon"
-          onClick={() => navigate(`/level-select?pack=${packId}`)}
+          onClick={() => {
+            if (packId === 'custom') navigate('/custom-pack');
+            else if (packId === 'drill') navigate('/pack-select');
+            else if (isNZPack) navigate('/nz-packs');
+            else if (isEUPack) navigate('/eu-packs');
+            else navigate('/na-packs');
+          }}
           aria-label="Back"
-          style={{ flexShrink: 0, color: accentColor, opacity: 0.6 }}
+          style={{
+            flexShrink: 0, color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <BackIcon />
         </button>
@@ -768,62 +786,77 @@ function PreRoundPreview() {
           <h2 style={{ margin: 0, fontSize: '14px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {packName}
           </h2>
-          <div style={{ fontSize: '12px', color: accentColor, opacity: 0.85, lineHeight: 1.1 }}>
+          <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', lineHeight: 1.1 }}>
             Level {level.level_id}: {level.title}
           </div>
         </div>
-        {/* Sound Library button - opens modal with all clips for selected birds */}
+        {/* Home button */}
         <button
-          onClick={() => setShowSoundLibrary(true)}
+          className="btn-icon"
+          onClick={() => navigate('/')}
+          aria-label="Home"
           style={{
-            padding: '6px 10px',
-            background: 'transparent',
-            border: '1px solid rgba(100, 181, 246, 0.3)',
-            borderRadius: '6px',
-            color: '#64B5F6',
-            fontSize: '15px',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            flexShrink: 0,
-            whiteSpace: 'nowrap',
+            flexShrink: 0, color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
           }}
-          title="Sound Library - hear all clips for these birds"
         >
-          🎧📚
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
         </button>
-        {/* Shuffle/Re-roll button - compact top right */}
-        {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
-          <button
-            onClick={fullCustomPack.length > 9 ? handleReroll : handleShuffle}
-            style={{
-              padding: '6px 10px',
-              background: 'transparent',
-              border: `1px solid ${accentColor}`,
-              borderRadius: '6px',
-              color: accentColor,
-              fontSize: '11px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-              flexShrink: 0,
-              opacity: 0.6,
-            }}
-            title={fullCustomPack.length > 9 ? `Re-roll (${fullCustomPack.length} total birds)` : 'Shuffle birds'}
-          >
-            <ShuffleIcon />
-          </button>
-        )}
       </div>
 
-      {/* Compact Toggles Row */}
+      {/* Level switcher dots */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '8px',
+        marginBottom: '2px',
+      }}>
+        {[1, 2, 3, 4, 5, 6].map((lvl) => {
+          const isActive = lvl === levelId;
+          const color = lvl <= 2 ? '#4CAF50' : lvl <= 4 ? '#FF9800' : '#f44336';
+          return (
+            <button
+              key={lvl}
+              onClick={() => {
+                if (lvl !== levelId) {
+                  navigate(`/preview?pack=${packId}&level=${lvl}&keepBirds=true`, { replace: true });
+                }
+              }}
+              style={{
+                width: '38px',
+                height: '38px',
+                borderRadius: '50%',
+                border: isActive ? `2px solid ${color}` : '2px solid rgba(255, 255, 255, 0.15)',
+                background: isActive ? `${color}33` : 'rgba(255, 255, 255, 0.05)',
+                color: isActive ? color : 'var(--color-text-muted)',
+                fontSize: '15px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.15s',
+                opacity: isActive ? 1 : 0.7,
+              }}
+              title={LEVEL_TITLES[lvl] || `Level ${lvl}`}
+            >
+              {lvl}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Toggles + tools row */}
       <div style={{ display: 'flex', gap: '6px', fontSize: '12px' }}>
         <button
           onClick={handleTrainingModeToggle}
           style={{
-            flex: 1,
             padding: '6px 8px',
             background: trainingMode ? 'rgba(76, 175, 80, 0.25)' : 'rgba(255, 255, 255, 0.05)',
             border: trainingMode ? '2px solid var(--color-success)' : '1px solid rgba(255, 255, 255, 0.15)',
@@ -832,96 +865,31 @@ function PreRoundPreview() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '4px',
+            flexShrink: 0,
           }}
+          title={trainingMode ? 'Training mode ON' : 'Training mode OFF'}
         >
           <EyeIcon filled={trainingMode} color={trainingMode ? 'var(--color-success)' : undefined} />
-          <span style={{ fontSize: '11px' }}>Training</span>
         </button>
         {isNZPack ? (
-          /* NZ 3-way sort toggle */
-          <div style={{
-            flex: 1,
-            display: 'flex',
-            borderRadius: '6px',
-            overflow: 'hidden',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-          }}>
-            <button
-              onClick={() => {
-                setNzSortMode('maori');
-                trackNZSortModeChange('maori', 'preview_screen');
-              }}
-              style={{
-                flex: 1,
-                padding: '6px 4px',
-                background: nzSortMode === 'maori' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
-                cursor: 'pointer',
-                fontSize: '12px',
-                color: nzSortMode === 'maori' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'maori' ? 600 : 400,
-              }}
-              title="Sort by Maori name"
-            >
-              Te Reo
-            </button>
-            <button
-              onClick={() => {
-                setNzSortMode('english');
-                trackNZSortModeChange('english', 'preview_screen');
-              }}
-              style={{
-                flex: 1,
-                padding: '6px 4px',
-                background: nzSortMode === 'english' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
-                cursor: 'pointer',
-                fontSize: '12px',
-                color: nzSortMode === 'english' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'english' ? 600 : 400,
-              }}
-              title="Sort by English name"
-            >
-              English
-            </button>
-            <button
-              onClick={() => {
-                setNzSortMode('taxonomic');
-                trackNZSortModeChange('taxonomic', 'preview_screen');
-              }}
-              style={{
-                flex: 1,
-                padding: '6px 4px',
-                background: nzSortMode === 'taxonomic' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '12px',
-                color: nzSortMode === 'taxonomic' ? NZ_ACCENT_COLOR : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'taxonomic' ? 600 : 400,
-              }}
-              title="Sort by taxonomic order"
-            >
-              📊
-            </button>
-          </div>
-        ) : (
-          /* NA display mode + taxonomic sort toggles */
+          /* NZ display mode + taxonomic sort toggles */
           <div style={{
             display: 'flex',
             gap: '6px',
             flex: 1,
           }}>
-            {/* Display mode toggle: 4-letter code vs common name */}
+            {/* Display mode toggle: Te Reo → English → Latin */}
             <button
-              onClick={() => setNaDisplayMode(naDisplayMode === 'code' ? 'name' : 'code')}
+              onClick={() => {
+                const next = nzSortMode === 'maori' ? 'english' : nzSortMode === 'english' ? 'taxonomic' : 'maori';
+                setNzSortMode(next);
+                trackNZSortModeChange(next, 'preview_screen');
+              }}
               style={{
                 flex: 1,
                 padding: '6px 8px',
-                background: naDisplayMode === 'name' ? 'rgba(255, 152, 0, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-                border: naDisplayMode === 'name' ? '2px solid var(--color-accent)' : '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 display: 'flex',
@@ -929,10 +897,10 @@ function PreRoundPreview() {
                 justifyContent: 'center',
                 gap: '4px',
               }}
-              title={naDisplayMode === 'code' ? 'Show common names' : 'Show 4-letter codes'}
+              title={nzSortMode === 'maori' ? 'Show English names' : nzSortMode === 'english' ? 'Show Latin names' : 'Show Te Reo names'}
             >
-              <span style={{ fontSize: '11px', fontWeight: naDisplayMode === 'name' ? 600 : 400 }}>
-                {naDisplayMode === 'name' ? 'Names' : 'NOCA'}
+              <span style={{ fontSize: '11px', fontWeight: 600, fontStyle: nzSortMode === 'taxonomic' ? 'italic' : 'normal', color: NZ_ACCENT_COLOR }}>
+                {nzSortMode === 'maori' ? 'Te Reo' : nzSortMode === 'english' ? 'English' : 'Latin'}
               </span>
             </button>
             {/* Taxonomic sort toggle */}
@@ -941,8 +909,8 @@ function PreRoundPreview() {
               style={{
                 flex: 1,
                 padding: '6px 8px',
-                background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-                border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 display: 'flex',
@@ -952,9 +920,115 @@ function PreRoundPreview() {
               }}
               title={taxonomicSort ? 'Sort alphabetically' : 'Sort by taxonomy'}
             >
-              <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.7)' }}>{taxonomicSort ? 'Taxonomic' : 'ABC'}</span>
             </button>
           </div>
+        ) : (
+          /* NA display mode + taxonomic sort toggles */
+          <div style={{
+            display: 'flex',
+            gap: '6px',
+            flex: 1,
+          }}>
+            {/* Display mode toggle: 4-letter code → common name → Latin */}
+            <button
+              onClick={() => {
+                const next = naDisplayMode === 'code' ? 'name' : naDisplayMode === 'name' ? 'latin' : 'code';
+                setNaDisplayMode(next);
+              }}
+              style={{
+                flex: 1,
+                padding: '6px 8px',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4px',
+              }}
+              title={naDisplayMode === 'code' ? 'Show common names' : naDisplayMode === 'name' ? 'Show Latin names' : 'Show 4-letter codes'}
+            >
+              <span style={{ fontSize: '11px', fontWeight: 600, fontStyle: naDisplayMode === 'latin' ? 'italic' : 'normal' }}>
+                {naDisplayMode === 'name' ? 'Names' : naDisplayMode === 'latin' ? 'Latin' : 'NOCA'}
+              </span>
+            </button>
+            {/* Taxonomic sort toggle */}
+            <button
+              onClick={handleTaxonomicSortToggle}
+              style={{
+                flex: 1,
+                padding: '6px 8px',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4px',
+              }}
+              title={taxonomicSort ? 'Sort alphabetically' : 'Sort by taxonomy'}
+            >
+              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.7)' }}>{taxonomicSort ? 'Taxonomic' : 'ABC'}</span>
+            </button>
+          </div>
+        )}
+        {/* Gallery */}
+        {packId !== 'custom' && (
+          <button
+            onClick={() => setShowGallery(true)}
+            style={{
+              padding: '6px 8px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '6px',
+              color: accentColor,
+              fontSize: '13px',
+              cursor: 'pointer',
+              flexShrink: 0,
+            }}
+            title="Bird Gallery"
+          >
+            🖼️
+          </button>
+        )}
+        {/* Sound Library */}
+        <button
+          onClick={() => setShowSoundLibrary(true)}
+          style={{
+            padding: '6px 8px',
+            background: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            borderRadius: '6px',
+            color: '#64B5F6',
+            fontSize: '13px',
+            cursor: 'pointer',
+            flexShrink: 0,
+          }}
+          title="Sound Library"
+        >
+          🎧
+        </button>
+        {/* Shuffle/Re-roll */}
+        {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
+          <button
+            onClick={fullCustomPack.length > 9 ? handleReroll : handleShuffle}
+            style={{
+              padding: '6px 8px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '6px',
+              color: accentColor,
+              cursor: 'pointer',
+              flexShrink: 0,
+              opacity: 0.6,
+            }}
+            title={fullCustomPack.length > 9 ? `Re-roll (${fullCustomPack.length} total birds)` : 'Shuffle birds'}
+          >
+            <ShuffleIcon />
+          </button>
         )}
       </div>
 
@@ -989,24 +1063,6 @@ function PreRoundPreview() {
         </div>
       )}
 
-      {/* Tip Box - Study the Grid */}
-      {/* Tip box */}
-      <div style={{
-        background: 'rgba(100, 181, 246, 0.1)',
-        border: '1px solid rgba(100, 181, 246, 0.3)',
-        borderRadius: '8px',
-        padding: '10px 12px',
-      }}>
-        <div style={{
-          fontSize: '12px',
-          color: 'var(--color-text)',
-          lineHeight: 1.4,
-          textAlign: 'center',
-        }}>
-          <strong>💡 Study the grid:</strong> Each bird keeps its position during play. Tap to hear, hold for a closer look. Use 🔀 to shuffle.
-        </div>
-      </div>
-
       {/* Species grid - MAIN FOCUS */}
       <div style={{
         flex: 1,
@@ -1032,7 +1088,7 @@ function PreRoundPreview() {
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '10px',
-          maxWidth: '320px',
+          maxWidth: '480px',
           width: '100%',
         }}>
           {selectedSpecies.map((species) => (
@@ -1046,8 +1102,8 @@ function PreRoundPreview() {
                 alignItems: 'center',
                 gap: '6px',
                 padding: '10px 6px',
-                background: playingCode === species.code ? `${species.color}33` : 'var(--color-surface)',
-                border: `2px solid ${species.color}`,
+                background: playingCode === species.code ? 'rgba(255, 255, 255, 0.1)' : 'var(--color-surface)',
+                border: '2px solid rgba(255, 255, 255, 0.15)',
                 borderRadius: '10px',
                 cursor: species.clipPath ? 'pointer' : 'not-allowed',
                 opacity: species.clipPath ? 1 : 0.5,
@@ -1057,7 +1113,7 @@ function PreRoundPreview() {
             >
               {/* Bird icon - no tileName above, we show names below */}
               <div style={{ position: 'relative', WebkitTapHighlightColor: 'transparent' }}>
-                <BirdIcon code={species.code} size={52} color={species.color} />
+                <BirdIcon code={species.code} size={64} color={species.color} />
               </div>
               {/* Name display based on region and mode */}
               <div style={{
@@ -1065,7 +1121,7 @@ function PreRoundPreview() {
                 color: 'var(--color-text)',
                 textAlign: 'center',
                 lineHeight: 1.2,
-                maxWidth: '80px',
+                maxWidth: '100px',
                 overflow: 'hidden',
               }}>
                 {(() => {
@@ -1095,11 +1151,11 @@ function PreRoundPreview() {
                       </>
                     );
                   } else {
-                    // NA birds: code or common name based on display mode
+                    // NA birds: code, common name, or Latin based on display mode
                     // (taxonomic sort only changes order, not display)
                     return (
-                      <div style={{ fontWeight: 600 }}>
-                        {naDisplayMode === 'name' ? species.name : species.code}
+                      <div style={{ fontWeight: 600, fontStyle: naDisplayMode === 'latin' ? 'italic' : 'normal' }}>
+                        {naDisplayMode === 'name' ? species.name : naDisplayMode === 'latin' ? (species.scientificName || species.name) : species.code}
                       </div>
                     );
                   }
@@ -1110,40 +1166,41 @@ function PreRoundPreview() {
         </div>
       </div>
 
-      {/* Status line showing current settings */}
+      {/* Tip box */}
       <div style={{
-        fontSize: '11px',
-        color: 'var(--color-text-muted)',
-        textAlign: 'center',
-        marginBottom: '8px',
+        background: 'rgba(100, 181, 246, 0.1)',
+        border: '1px solid rgba(100, 181, 246, 0.3)',
+        borderRadius: '8px',
+        padding: '10px 12px',
+        marginBottom: '4px',
       }}>
-        {isNZPack ? (
-          <>
-            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {nzSortMode === 'maori' ? 'Te Reo' : nzSortMode === 'english' ? 'English' : 'Taxonomic'} • Sort: {nzSortMode === 'taxonomic' ? 'Taxonomic' : 'A-Z'}
-          </>
-        ) : (
-          <>
-            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {naDisplayMode === 'name' ? 'Common names' : '4-letter codes'} • Sort: {taxonomicSort ? 'Taxonomic' : 'A-Z'}
-          </>
-        )}
+        <div style={{
+          fontSize: '12px',
+          color: 'var(--color-text)',
+          lineHeight: 1.4,
+          textAlign: 'center',
+        }}>
+          <strong>💡 Study the grid:</strong> Each bird keeps its position during play. Tap to hear, hold for a closer look. Use 🔀 to shuffle.
+        </div>
       </div>
 
       {/* Ready button - bottom */}
       <button
         onClick={handleReady}
         style={{
-          width: '100%',
-          padding: '12px',
-          fontSize: '15px',
+          width: 'auto',
+          margin: '0 auto',
+          padding: '10px 24px',
+          fontSize: '14px',
           fontWeight: 700,
           background: preloadStatus === 'ready'
-            ? 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)'
+            ? 'linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%)'
             : 'linear-gradient(135deg, #555 0%, #444 100%)',
           color: 'white',
           border: 'none',
-          borderRadius: '10px',
+          borderRadius: '28px',
           cursor: 'pointer',
-          boxShadow: '0 3px 10px rgba(45, 90, 39, 0.3)',
+          boxShadow: '0 3px 14px rgba(46, 125, 50, 0.35)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -1161,7 +1218,8 @@ function PreRoundPreview() {
 
 
       {/* Mini Sound Library Modal */}
-      {showSoundLibrary && (
+      {/* Gallery Modal */}
+      {showGallery && (
         <div
           style={{
             position: 'fixed',
@@ -1170,6 +1228,194 @@ function PreRoundPreview() {
             right: 0,
             bottom: 0,
             background: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            animation: 'fadeIn 0.2s ease-out',
+          }}
+          onClick={() => {
+            if (galleryAudioRef.current) {
+              galleryAudioRef.current.pause();
+            }
+            setGalleryPlayingClip(null);
+            setShowGallery(false);
+          }}
+        >
+          {/* Header */}
+          <div style={{
+            padding: '16px 20px',
+            paddingTop: 'calc(16px + var(--safe-area-top, 0px))',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            borderBottom: '1px solid rgba(255,255,255,0.1)',
+          }}>
+            <h3 style={{ margin: 0, fontSize: '18px', color: 'var(--color-text)' }}>
+              {packName}
+            </h3>
+            <button
+              onClick={() => {
+                if (galleryAudioRef.current) {
+                  galleryAudioRef.current.pause();
+                }
+                setGalleryPlayingClip(null);
+                setShowGallery(false);
+              }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '20px',
+              }}
+              aria-label="Close gallery"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Gallery Grid */}
+          <div
+            style={{
+              flex: 1,
+              overflow: 'auto',
+              padding: '16px',
+              paddingBottom: 'calc(16px + var(--safe-area-bottom, 0px))',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+              maxWidth: '400px',
+              margin: '0 auto',
+            }}>
+              {selectedSpecies.map((species) => (
+                <div
+                  key={species.code}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '12px',
+                    padding: '16px',
+                    background: 'var(--color-surface)',
+                    borderRadius: '16px',
+                  }}
+                >
+                  {/* Image with play button overlay */}
+                  <div style={{ position: 'relative', width: '100%' }}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}data/icons/${species.code}.png`}
+                      alt={species.name}
+                      style={{
+                        width: '100%',
+                        aspectRatio: '1',
+                        borderRadius: '12px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                    {species.clipPath && (
+                      <button
+                        onClick={() => {
+                          if (galleryAudioRef.current) {
+                            galleryAudioRef.current.pause();
+                            galleryAudioRef.current = null;
+                          }
+                          if (galleryPlayingClip === species.code) {
+                            setGalleryPlayingClip(null);
+                            return;
+                          }
+                          const audio = new Audio(species.clipPath!);
+                          galleryAudioRef.current = audio;
+                          setGalleryPlayingClip(species.code);
+                          audio.play().catch(console.error);
+                          audio.onended = () => {
+                            setGalleryPlayingClip(null);
+                            galleryAudioRef.current = null;
+                          };
+                        }}
+                        style={{
+                          position: 'absolute',
+                          bottom: '12px',
+                          right: '12px',
+                          width: '48px',
+                          height: '48px',
+                          borderRadius: '50%',
+                          border: 'none',
+                          background: galleryPlayingClip === species.code
+                            ? accentColor
+                            : 'rgba(0, 0, 0, 0.7)',
+                          color: galleryPlayingClip === species.code
+                            ? '#000'
+                            : accentColor,
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '20px',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                          transition: 'all 0.15s',
+                        }}
+                        aria-label={galleryPlayingClip === species.code ? `Stop ${species.name}` : `Play ${species.name}`}
+                      >
+                        {galleryPlayingClip === species.code ? '⏸' : '▶'}
+                      </button>
+                    )}
+                  </div>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: 'var(--color-text)',
+                      marginBottom: '4px',
+                    }}>
+                      {species.name}
+                    </div>
+                    {species.scientificName && (
+                      <div style={{
+                        fontSize: '15px',
+                        fontStyle: 'italic',
+                        color: 'var(--color-text-muted)',
+                        marginBottom: isNZPack ? '0' : '6px',
+                      }}>
+                        {species.scientificName}
+                      </div>
+                    )}
+                    {!isNZPack && (
+                      <div style={{
+                        fontSize: '12px',
+                        fontWeight: 600,
+                        color: accentColor,
+                        opacity: 0.7,
+                      }}>
+                        {species.code}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showSoundLibrary && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.95)',
             zIndex: 1000,
             display: 'flex',
             flexDirection: 'column',
@@ -1241,22 +1487,7 @@ function PreRoundPreview() {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Construction notice */}
-            <div
-              style={{
-                background: 'rgba(255, 200, 50, 0.12)',
-                border: '1px solid rgba(255, 200, 50, 0.3)',
-                borderRadius: '8px',
-                padding: '10px 14px',
-                marginBottom: '16px',
-                fontSize: '13px',
-                color: 'rgba(255, 255, 255, 0.8)',
-                lineHeight: '1.4',
-              }}
-            >
-              <span style={{ marginRight: '6px' }}>🚧</span>
-              Sound library under construction. Sound type labels (song, call, etc.) are being reviewed and corrected — don't rely on them just yet.
-            </div>
+
             {selectedSpecies.map((species) => {
               // Get all clips for this species
               const speciesClips = clips.filter(
@@ -1289,7 +1520,7 @@ function PreRoundPreview() {
                         height: '44px',
                         borderRadius: '50%',
                         objectFit: 'cover',
-                        border: `2px solid ${species.color}`,
+                        border: '2px solid rgba(255, 255, 255, 0.15)',
                       }}
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
@@ -1387,6 +1618,10 @@ function PreRoundPreview() {
         @keyframes pulse {
           0%, 100% { transform: scale(1); opacity: 1; }
           50% { transform: scale(1.1); opacity: 0.7; }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
         * {
           -webkit-tap-highlight-color: transparent;

@@ -132,5 +132,6 @@
   },
   "overlap_multiplier": 1.0,
   "tempo_multiplier": 1.0,
-  "seasonal_context": null
+  "seasonal_context": null,
+  "region": "na"
 }

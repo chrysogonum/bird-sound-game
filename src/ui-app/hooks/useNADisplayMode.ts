@@ -5,18 +5,19 @@ import { trackEvent } from '../utils/analytics';
  * NA (North American) display mode for bird names during gameplay.
  * - 'code': Show 4-letter codes (NOCA, BLJA, etc.)
  * - 'name': Show common names (Northern Cardinal, Blue Jay, etc.)
+ * - 'latin': Show scientific names (Cardinalis cardinalis, etc.)
  *
  * Note: This only affects display, not sort order. Sort is always by 4-letter code
  * (alphabetically) or taxonomic order.
  */
-export type NADisplayMode = 'code' | 'name';
+export type NADisplayMode = 'code' | 'name' | 'latin';
 
 const STORAGE_KEY = 'soundfield_na_display_mode';
 
 export function useNADisplayMode(): [NADisplayMode, (mode: NADisplayMode) => void] {
   const [displayMode, setDisplayMode] = useState<NADisplayMode>(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === 'code' || saved === 'name') {
+    if (saved === 'code' || saved === 'name' || saved === 'latin') {
       return saved;
     }
     return 'code'; // Default to 4-letter codes (existing behavior)

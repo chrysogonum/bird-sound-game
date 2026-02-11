@@ -1,6 +1,28 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
+// Pack display names (shared with PreRoundPreview)
+const PACK_NAMES: Record<string, string> = {
+  starter_birds: 'Backyard Birds',
+  grassland_birds: 'Grasslands',
+  expanded_backyard: 'Eastern Birds',
+  sparrows: 'Sparrows',
+  woodpeckers: 'Woodpeckers',
+  spring_warblers: 'Warbler Academy',
+  western_birds: 'Western Birds',
+  custom: 'Custom Pack',
+  drill: 'Confusion Drill',
+  na_all_birds: 'All North America',
+  nz_all_birds: 'All NZ Birds',
+  nz_common: 'Garden & Bush',
+  nz_north_island: 'North Island',
+  nz_south_island: 'South Island',
+  eu_warblers: 'Warblers & Skulkers',
+  eu_raptors: 'Raptors',
+  eu_woodland: 'Woodland & Field',
+  eu_all_birds: 'All European Birds',
+};
+
 function MainMenu() {
   const navigate = useNavigate();
   const [pullDistance, setPullDistance] = useState(0);
@@ -8,6 +30,36 @@ function MainMenu() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const PULL_THRESHOLD = 80; // Distance to trigger refresh
+
+  // Check for last game (Continue button)
+  const [lastGame, setLastGame] = useState<{ packId: string; levelId: number } | null>(null);
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('soundfield_last_game');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.packId && parsed.levelId) {
+          setLastGame({ packId: parsed.packId, levelId: parsed.levelId });
+        }
+      }
+    } catch { /* ignore */ }
+  }, []);
+
+  // Cycling button text
+  const buttonWords = ['PLAY', 'LEARN', 'LISTEN'];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [wordOpacity, setWordOpacity] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordOpacity(0);
+      setTimeout(() => {
+        setWordIndex(i => (i + 1) % buttonWords.length);
+        setWordOpacity(1);
+      }, 250);
+    }, 1800);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -113,7 +165,7 @@ function MainMenu() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '8px',
+        gap: 'clamp(8px, 1.5vh, 16px)',
         zIndex: 1,
         transform: `translateY(${pullDistance}px)`,
         transition: pullDistance === 0 ? 'transform 0.3s ease' : 'none',
@@ -124,8 +176,8 @@ function MainMenu() {
           src={`${import.meta.env.BASE_URL}data/icons/OwlHeadphones.png`}
           alt="ChipNotes Owl Professor"
           style={{
-            width: '180px',
-            height: '180px',
+            width: 'clamp(180px, 25vmin, 280px)',
+            height: 'clamp(180px, 25vmin, 280px)',
             borderRadius: '50%',
             boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
             marginBottom: '4px',
@@ -135,7 +187,7 @@ function MainMenu() {
         {/* Title */}
         <h1 style={{
           margin: 0,
-          fontSize: '44px',
+          fontSize: 'clamp(44px, 6vmin, 64px)',
           fontWeight: 800,
           letterSpacing: '-1px',
           background: 'linear-gradient(135deg, #FFD54F 0%, #FF8A65 50%, #E57373 100%)',
@@ -148,8 +200,8 @@ function MainMenu() {
 
         <p style={{
           color: 'var(--color-text-muted)',
-          fontSize: '16px',
-          maxWidth: '280px',
+          fontSize: 'clamp(16px, 2.2vmin, 22px)',
+          maxWidth: 'clamp(280px, 40vmin, 420px)',
           textAlign: 'center',
           lineHeight: 1.4,
           marginTop: '-4px',
@@ -158,41 +210,69 @@ function MainMenu() {
           Train your ear. Know the birds.
         </p>
 
-        {/* Main Play Button */}
+        {/* Main Play Button - always cycles PLAY/LEARN/LISTEN */}
         <button
           onClick={() => navigate('/pack-select')}
           style={{
-            marginTop: '16px',
-            padding: '18px 64px',
-            fontSize: '20px',
+            marginTop: 'clamp(16px, 2vh, 28px)',
+            padding: 'clamp(16px, 2.2vmin, 24px) clamp(72px, 10vmin, 100px)',
+            fontSize: 'clamp(19px, 2.5vmin, 26px)',
             fontWeight: 700,
-            background: 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)',
+            letterSpacing: '1px',
+            background: 'linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%)',
             color: 'white',
             border: 'none',
-            borderRadius: '16px',
+            borderRadius: '28px',
             cursor: 'pointer',
-            boxShadow: '0 4px 16px rgba(45, 90, 39, 0.4)',
+            boxShadow: '0 3px 14px rgba(46, 125, 50, 0.35)',
             transition: 'transform 0.2s, box-shadow 0.2s',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(45, 90, 39, 0.5)';
+            e.currentTarget.style.boxShadow = '0 6px 20px rgba(46, 125, 50, 0.45)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 16px rgba(45, 90, 39, 0.4)';
+            e.currentTarget.style.boxShadow = '0 3px 14px rgba(46, 125, 50, 0.35)';
           }}
         >
-          Play
+          <span style={{
+            opacity: wordOpacity,
+            transition: 'opacity 0.25s ease',
+            display: 'inline-block',
+            minWidth: '80px',
+          }}>
+            {buttonWords[wordIndex]}
+          </span>
         </button>
+
+        {/* Continue link - only shown for returning players */}
+        {lastGame && (
+          <button
+            onClick={() => navigate(`/preview?pack=${lastGame.packId}&level=${lastGame.levelId}`)}
+            style={{
+              marginTop: '8px',
+              background: 'none',
+              border: 'none',
+              color: 'var(--color-accent)',
+              fontSize: '14px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              padding: '4px 8px',
+              opacity: 0.7,
+            }}
+          >
+            Continue · {PACK_NAMES[lastGame.packId] || lastGame.packId} L{lastGame.levelId}
+          </button>
+        )}
 
         {/* How it works - visual gameplay preview */}
         <div style={{
-          marginTop: '20px',
-          padding: '16px',
+          marginTop: 'clamp(20px, 3vh, 36px)',
+          padding: 'clamp(16px, 2vmin, 24px)',
           background: 'var(--color-surface)',
           borderRadius: '16px',
-          maxWidth: '360px',
+          maxWidth: 'clamp(360px, 50vmin, 500px)',
         }}>
           <div style={{
             display: 'flex',
@@ -222,8 +302,8 @@ function MainMenu() {
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', opacity: 0.5, fontSize: '24px', marginTop: '-16px' }}>
-              →
+            <div style={{ color: 'var(--color-text-muted)', opacity: 0.3, fontSize: '18px', marginTop: '-16px' }}>
+              ›
             </div>
 
             {/* Step 2: Bird options */}
@@ -241,8 +321,8 @@ function MainMenu() {
                       height: '28px',
                       borderRadius: '6px',
                       overflow: 'hidden',
-                      border: i === 0 ? '2px solid var(--color-accent)' : '2px solid transparent',
-                      boxShadow: i === 0 ? '0 0 8px rgba(255, 152, 0, 0.4)' : 'none',
+                      border: i === 0 ? '2px solid #FF8A65' : '2px solid transparent',
+                      boxShadow: i === 0 ? '0 0 8px rgba(255, 138, 101, 0.3)' : 'none',
                     }}
                   >
                     <img
@@ -259,8 +339,8 @@ function MainMenu() {
             </div>
 
             {/* Arrow */}
-            <div style={{ color: 'var(--color-accent)', opacity: 0.5, fontSize: '24px', marginTop: '-16px' }}>
-              →
+            <div style={{ color: 'var(--color-text-muted)', opacity: 0.3, fontSize: '18px', marginTop: '-16px' }}>
+              ›
             </div>
 
             {/* Step 3: Learning outcome */}
@@ -275,10 +355,10 @@ function MainMenu() {
                 justifyContent: 'center',
                 boxShadow: '0 2px 8px rgba(0, 0, 0, 0.4)',
               }}>
-                <div style={{ fontSize: '32px' }}>🧠</div>
+                <div style={{ fontSize: '28px' }}>🎯</div>
               </div>
               <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', marginTop: '6px' }}>
-                Train
+                Learn
               </div>
             </div>
           </div>
@@ -384,7 +464,7 @@ function MainMenu() {
         onMouseLeave={(e) => e.currentTarget.style.opacity = '0.6'}
         aria-label="View version history"
       >
-        v4.20
+        v5.0
       </button>
     </div>
   );

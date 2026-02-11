@@ -27,8 +27,8 @@
     },
     "region": {
       "type": "string",
-      "enum": ["na", "nz"],
-      "description": "Region identifier: 'na' for North America (default), 'nz' for New Zealand"
+      "enum": ["na", "nz", "eu"],
+      "description": "Region identifier: 'na' for North America (default), 'nz' for New Zealand, 'eu' for Europe"
     },
     "species": {
       "type": "array",

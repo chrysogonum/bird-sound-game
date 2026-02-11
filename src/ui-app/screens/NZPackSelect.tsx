@@ -98,9 +98,11 @@ function NZPackSelect() {
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
+  const [showExamples, setShowExamples] = useState(false);
 
   // NZ 3-way sort mode
   const [nzSortMode, setNzSortMode] = useNZSortMode();
+  const [showPackGallery, setShowPackGallery] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const soundLibraryRef = useRef<HTMLDivElement | null>(null);
 
@@ -185,7 +187,9 @@ function NZPackSelect() {
 
   const handlePackSelect = (pack: Pack) => {
     trackPackSelect(pack.id, pack.name);
-    navigate(`/level-select?pack=${pack.id}`);
+    const savedLevel = localStorage.getItem(`soundfield_pack_level_${pack.id}`);
+    const levelId = savedLevel ? parseInt(savedLevel, 10) : 1;
+    navigate(`/preview?pack=${pack.id}&level=${levelId}`);
   };
 
   const getBirdsForPack = (packId: string): BirdInfo[] => {
@@ -316,18 +320,30 @@ function NZPackSelect() {
           className="btn-icon"
           onClick={() => navigate('/pack-select')}
           aria-label="Back"
-          style={{ color: NZ_ACCENT_COLOR }}
+          style={{
+            color: NZ_ACCENT_COLOR,
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
         </button>
-        <h2 style={{ margin: 0, flex: 1, fontSize: '22px' }}>New Zealand Birds <span style={{ fontSize: '26px' }}>🇳🇿</span></h2>
+        <h2 style={{ margin: 0, flex: 1, fontSize: '22px' }}>New Zealand Birds</h2>
         <button
           className="btn-icon"
           onClick={() => navigate('/')}
           aria-label="Home"
-          style={{ color: NZ_ACCENT_COLOR }}
+          style={{
+            color: NZ_ACCENT_COLOR,
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -336,32 +352,12 @@ function NZPackSelect() {
         </button>
       </div>
 
-      <div style={{
-        fontSize: '14px',
-        color: 'var(--color-text-muted)',
-        marginBottom: '20px',
-        lineHeight: 1.6,
-        background: 'rgba(70, 70, 90, 0.5)',
-        padding: '16px',
-        borderRadius: '12px',
-      }}>
-        <p style={{ margin: 0 }}>
-          37 native species from Aotearoa New Zealand. Audio courtesy of the{' '}
-          <a
-            href="https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#a8d5a2', textDecoration: 'underline' }}
-          >NZ Department of Conservation</a> (Crown Copyright).
-        </p>
-      </div>
-
       {/* Create Custom Pack Section */}
       <div
         style={{
           marginBottom: '20px',
-          background: 'var(--color-surface)',
-          border: '2px solid rgba(45, 122, 122, 0.4)',
+          background: 'rgba(77, 182, 172, 0.12)',
+          border: 'none',
           borderRadius: '16px',
           overflow: 'visible',
         }}
@@ -386,28 +382,83 @@ function NZPackSelect() {
           <div style={{
             width: '40px',
             height: '40px',
-            borderRadius: '10px',
-            background: 'rgba(45, 122, 122, 0.5)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#fff',
+            fontSize: '36px',
             flexShrink: 0,
           }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M12 5v14M5 12h14" />
-            </svg>
+            🥚
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '16px', fontWeight: 600, color: '#f5f0e6' }}>
-              Create Custom Pack
+            <div style={{ fontSize: '16px', fontWeight: 600, color: '#a8d8cc' }}>
+              Hatch a Custom Pack
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
-              Mix and match your own selection of NZ birds
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowExamples(!showExamples);
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                fontSize: '12px',
+                cursor: 'pointer',
+                padding: '0',
+                textDecoration: 'underline',
+                marginTop: '4px',
+              }}
+            >
+              {showExamples ? 'Hide examples' : 'See examples'}
+            </button>
+          </div>
+        </div>
+
+        {showExamples && (
+          <div
+            onClick={() => navigate('/custom-pack?region=nz')}
+            style={{
+              padding: '0 16px 16px 16px',
+              cursor: 'pointer',
+            }}
+          >
+            <div style={{
+              fontSize: '13px',
+              color: 'var(--color-text-muted)',
+              lineHeight: 1.6,
+              borderTop: '1px solid rgba(255,255,255,0.1)',
+              paddingTop: '12px',
+            }}>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Dawn chorus prep — pick the birds from your local bush walk and learn them all.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Confuse T&#363;&#299; and Korimako? Put them head-to-head until you nail it.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Night birds only — R&#363;r&#363;, Kiwi, and Weka after dark.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Heading to a sanctuary? Build a pack from the species you'll hear there.
+              </div>
+              <div style={{ marginBottom: '12px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Native vs introduced — mix them up and learn to tell them apart.
+              </div>
+              <div style={{
+                marginTop: '12px',
+                padding: '10px 16px',
+                background: 'rgba(77, 182, 172, 0.4)',
+                borderRadius: '8px',
+                color: '#f5f0e6',
+                fontWeight: 600,
+                textAlign: 'center',
+              }}>
+                Click to Get Started →
+              </div>
             </div>
           </div>
-          <span style={{ fontSize: '20px', color: '#a8d5a2' }}>→</span>
-        </div>
+        )}
       </div>
 
       {/* Pack Grid */}
@@ -504,92 +555,51 @@ function NZPackSelect() {
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '12px' }}>
           <div>
             <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
-              Sound Library
+              🎧📚 Sound Library
             </h3>
-            <div style={{ fontSize: '14px', marginTop: '2px' }}>🎧📚</div>
           </div>
-          {/* 3-way sort toggle */}
-          <div style={{
-            display: 'flex',
-            borderRadius: '6px',
-            overflow: 'hidden',
-            border: '1px solid rgba(255, 255, 255, 0.15)',
-          }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            {/* Cycling sort button */}
             <button
               onClick={() => {
-                setNzSortMode('maori');
-                trackNZSortModeChange('maori', 'sound_library');
+                const next = nzSortMode === 'maori' ? 'english' : nzSortMode === 'english' ? 'taxonomic' : 'maori';
+                setNzSortMode(next);
+                trackNZSortModeChange(next, 'sound_library');
               }}
               style={{
-                padding: '6px 10px',
-                background: nzSortMode === 'maori' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
+                padding: '6px 12px',
+                borderRadius: '6px',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.05)',
                 cursor: 'pointer',
                 fontSize: '11px',
-                color: nzSortMode === 'maori' ? '#4db6ac' : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'maori' ? 600 : 400,
+                color: '#4db6ac',
+                fontWeight: 600,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
               }}
-              title="Sort by Maori name"
             >
-              Te Reo
+              <span style={{ fontSize: '14px' }}>{nzSortMode === 'taxonomic' ? '📊' : '🔤'}</span>
+              {nzSortMode === 'maori' ? 'Te Reo' : nzSortMode === 'english' ? 'English' : 'Taxonomy'}
             </button>
             <button
-              onClick={() => {
-                setNzSortMode('english');
-                trackNZSortModeChange('english', 'sound_library');
-              }}
+              onClick={() => setShowPackGallery(true)}
               style={{
-                padding: '6px 10px',
-                background: nzSortMode === 'english' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                borderRight: '1px solid rgba(255, 255, 255, 0.15)',
+                padding: '6px 8px',
+                borderRadius: '6px',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.05)',
                 cursor: 'pointer',
-                fontSize: '11px',
-                color: nzSortMode === 'english' ? '#4db6ac' : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'english' ? 600 : 400,
+                fontSize: '14px',
               }}
-              title="Sort by English name"
+              title="Bird Gallery"
             >
-              English
-            </button>
-            <button
-              onClick={() => {
-                setNzSortMode('taxonomic');
-                trackNZSortModeChange('taxonomic', 'sound_library');
-              }}
-              style={{
-                padding: '6px 10px',
-                background: nzSortMode === 'taxonomic' ? 'rgba(77, 182, 172, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '11px',
-                color: nzSortMode === 'taxonomic' ? '#4db6ac' : 'var(--color-text-muted)',
-                fontWeight: nzSortMode === 'taxonomic' ? 600 : 400,
-              }}
-              title="Sort by taxonomic order"
-            >
-              📊 Taxonomy
+              🖼️
             </button>
           </div>
         </div>
 
-        {/* Construction notice */}
-        <div
-          style={{
-            background: 'rgba(255, 200, 50, 0.12)',
-            border: '1px solid rgba(255, 200, 50, 0.3)',
-            borderRadius: '8px',
-            padding: '10px 14px',
-            marginBottom: '16px',
-            fontSize: '13px',
-            color: 'rgba(255, 255, 255, 0.8)',
-            lineHeight: '1.4',
-          }}
-        >
-          <span style={{ marginRight: '6px' }}>🚧</span>
-          Sound library under construction. Sound type labels (song, call, etc.) are being reviewed and corrected — don't rely on them just yet.
-        </div>
 
         {/* Subspecies merge note */}
         <p style={{
@@ -603,33 +613,6 @@ function NZPackSelect() {
           <span style={{ background: '#4db6ac', color: '#fff', padding: '1px 4px', borderRadius: '3px', fontSize: '10px' }}>SI</span>{' '}
           <span style={{ background: '#4db6ac', color: '#fff', padding: '1px 4px', borderRadius: '3px', fontSize: '10px' }}>Ch</span>
         </p>
-
-        {/* Back to Level Select button */}
-        {location.state?.fromLevelSelect && location.state?.packId && (
-          <div style={{ marginBottom: '16px' }}>
-            <button
-              onClick={() => navigate(`/level-select?pack=${location.state.packId}`)}
-              style={{
-                background: '#4db6ac',
-                color: 'var(--color-background)',
-                border: 'none',
-                borderRadius: '8px',
-                padding: '10px 16px',
-                fontSize: '14px',
-                fontWeight: 600,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-              }}
-              aria-label="Back to Level Select"
-            >
-              <span style={{ fontSize: '18px' }}>←</span>
-              Back to Level Select
-            </button>
-          </div>
-        )}
 
         {NZ_PACKS.map((pack) => {
           const isExpanded = expandedPacks.has(pack.id);
@@ -655,7 +638,7 @@ function NZPackSelect() {
                   alignItems: 'center',
                   gap: '8px',
                   padding: '10px 12px',
-                  background: 'var(--color-surface)',
+                  background: 'rgba(45, 45, 68, 0.7)',
                   borderRadius: '8px',
                   transition: 'background 0.15s',
                 }}
@@ -910,6 +893,65 @@ function NZPackSelect() {
           );
         })}
       </div>
+
+      {/* Attribution footnote */}
+      <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', opacity: 0.6, marginTop: '16px', textAlign: 'center', lineHeight: 1.5 }}>
+        Audio courtesy of the{' '}
+        <a href="https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/" target="_blank" rel="noopener noreferrer" style={{ color: NZ_ACCENT_COLOR, textDecoration: 'underline' }}>NZ Department of Conservation</a>{' '}
+        (Crown Copyright)
+      </div>
+
+      {/* Bird Gallery Modal */}
+      {showPackGallery && (
+        <div
+          onClick={() => setShowPackGallery(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            overflowY: 'auto',
+            padding: '60px 16px 24px',
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: '480px', width: '100%' }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <h2 style={{ margin: 0, fontSize: '18px', color: '#fff' }}>All NZ Birds</h2>
+              <button
+                onClick={() => setShowPackGallery(false)}
+                style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer', padding: '8px 14px', borderRadius: '8px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                ✕
+              </button>
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '16px',
+            }}>
+              {getBirdsForPack('nz_all_birds').map((bird) => (
+                <div key={bird.code} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                  <img
+                    src={`${import.meta.env.BASE_URL}data/icons/${bird.code}.png`}
+                    alt={bird.name}
+                    style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', background: 'rgba(255,255,255,0.1)' }}
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.8)', textAlign: 'center', lineHeight: 1.2 }}>
+                    {commonNames[bird.code] || bird.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -209,10 +209,6 @@ function RoundSummary() {
     navigate(`/preview?pack=${packId}&level=${level}&keepBirds=true`);
   };
 
-  const goToLevelSelect = () => {
-    navigate(`/level-select?pack=${packId}`);
-  };
-
   const goToMenu = () => {
     navigate('/');
   };
@@ -293,11 +289,18 @@ function RoundSummary() {
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
         <button
           className="btn-icon"
-          onClick={goToLevelSelect}
-          aria-label="Back to levels"
-          style={{ color: accentColor, opacity: 0.6 }}
+          onClick={() => goToLevel(currentLevel)}
+          aria-label="Back to preview"
+          style={{
+            flexShrink: 0,
+            color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
           </svg>
         </button>
@@ -313,9 +316,16 @@ function RoundSummary() {
           className="btn-icon"
           onClick={goToMenu}
           aria-label="Home"
-          style={{ color: accentColor }}
+          style={{
+            flexShrink: 0,
+            color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
@@ -351,7 +361,7 @@ function RoundSummary() {
       <div className="card" style={{ width: '100%', maxWidth: '320px', margin: '0 auto 20px' }}>
         <div className="flex-row justify-between" style={{ marginBottom: '12px' }}>
           <span>Score</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '24px', color: accentColor, opacity: 0.85 }}>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '24px', color: '#fff', opacity: 0.85 }}>
             {results?.score || 0}
           </span>
         </div>
@@ -361,7 +371,7 @@ function RoundSummary() {
         </div>
         <div className="flex-row justify-between" style={{ marginBottom: '12px' }}>
           <span>Overall Accuracy</span>
-          <span className={overallAccuracy >= 70 ? 'text-success' : overallAccuracy >= 50 ? 'text-accent' : 'text-error'}>
+          <span className={overallAccuracy >= 70 ? 'text-success' : overallAccuracy >= 50 ? '' : 'text-error'}>
             {overallAccuracy}%
           </span>
         </div>
@@ -422,7 +432,7 @@ function RoundSummary() {
                 <div style={{
                   width: `${result.accuracy}%`,
                   height: '100%',
-                  backgroundColor: result.accuracy >= 80 ? 'var(--color-success)' : result.accuracy >= 50 ? 'var(--color-accent)' : 'var(--color-error)',
+                  backgroundColor: result.accuracy >= 80 ? 'var(--color-success)' : result.accuracy >= 50 ? 'rgba(255, 255, 255, 0.5)' : 'var(--color-error)',
                   borderRadius: '4px',
                   transition: 'width 0.3s ease',
                 }} />
@@ -443,11 +453,11 @@ function RoundSummary() {
             <div key={index} style={{ marginBottom: '8px', fontSize: '14px' }}>
               {item.guessedSpecies === null ? (
                 <span>
-                  Missed <span className="text-accent">{item.expectedSpecies}</span>: {item.count}x
+                  Missed <span style={{ color: '#fff', fontWeight: 600 }}>{item.expectedSpecies}</span>: {item.count}x
                 </span>
               ) : (
                 <span>
-                  <span className="text-accent">{item.expectedSpecies}</span> → <span className="text-error">{item.guessedSpecies}</span>: {item.count}x
+                  <span style={{ color: '#fff', fontWeight: 600 }}>{item.expectedSpecies}</span> → <span className="text-error">{item.guessedSpecies}</span>: {item.count}x
                 </span>
               )}
             </div>
@@ -625,22 +635,32 @@ function RoundSummary() {
             </button>
           )}
 
-          {/* Share Score Button - bottom position */}
-          <button
-            className="btn-primary"
-            onClick={handleShare}
-            disabled={isSharing || !results || !shareReady}
-            style={{
-              width: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '8px',
-            }}
-          >
-            <ShareIcon />
-            {isSharing ? 'Generating...' : !shareReady ? 'Preparing...' : 'Share Your Score'}
-          </button>
+          {/* Share Score Button - icon + pill */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+            <div style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>
+              <ShareIcon />
+            </div>
+            <button
+              onClick={handleShare}
+              disabled={isSharing || !results || !shareReady}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '8px 20px',
+                fontSize: '14px',
+                fontWeight: 600,
+                borderRadius: '20px',
+                border: 'none',
+                background: 'linear-gradient(135deg, #4A90D9 0%, #357ABD 100%)',
+                color: '#fff',
+                cursor: 'pointer',
+                opacity: (isSharing || !results || !shareReady) ? 0.5 : 1,
+              }}
+            >
+              {isSharing ? 'Generating...' : !shareReady ? 'Preparing...' : 'Share Your Score'}
+            </button>
+          </div>
           <p style={{
             fontSize: '13px',
             color: 'var(--color-text-muted)',
@@ -654,7 +674,7 @@ function RoundSummary() {
           {shareMessage && (
             <p style={{
               fontSize: '14px',
-              color: accentColor,
+              color: '#fff',
               textAlign: 'center',
               marginTop: '0',
               marginBottom: '0',

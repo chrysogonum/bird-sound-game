@@ -28,6 +28,10 @@ npm-debug.log*
 .vitest/
 coverage/
 
+# Candidate source recordings (large MP3s, re-downloadable via batch_download_xc.py)
+data/candidates_*/*.mp3
+data/candidates_*/*.wav
+
 # Rejected audio files
 **/clips-rejected/
 **/spectrograms-rejected/

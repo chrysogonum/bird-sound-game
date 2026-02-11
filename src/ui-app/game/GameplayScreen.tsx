@@ -256,7 +256,7 @@ function GameplayScreen() {
 
   // Read mode, pack, and level from URL params
   const mode = (searchParams.get('mode') || 'campaign') as GameMode;
-  const packId = searchParams.get('pack') || 'common_se_birds';
+  const packId = searchParams.get('pack') || 'starter_birds';
   const levelId = parseInt(searchParams.get('level') || '1', 10);
 
   // Load campaign levels from levels.json
@@ -518,12 +518,10 @@ function GameplayScreen() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [gameState.roundState, handleChannelTap, handleSpeciesSelect, speciesForWheel]);
 
-  // Handle back button - return to preview with same birds
+  // Handle back button - trigger quit confirmation (same as quit button)
   const handleBack = useCallback(() => {
-    gameActions.reset();
-    // Navigate back to PreRoundPreview with keepBirds=true to restore the same selection
-    navigate(`/preview?pack=${packId}&level=${levelId}&keepBirds=true`);
-  }, [navigate, gameActions, packId, levelId]);
+    setShowQuitConfirm(true);
+  }, []);
 
   // Handle quit confirmation
   const handleQuitClick = useCallback(() => {
@@ -779,33 +777,39 @@ function GameplayScreen() {
         </div>
       </div>
 
-      {/* Quit confirmation modal */}
-      {showQuitConfirm && (
-        <div className="quit-modal-overlay">
-          <div className="quit-modal">
-            <h3 style={{ margin: 0, marginBottom: '16px', fontSize: '20px' }}>Quit Round?</h3>
-            <p style={{ margin: 0, marginBottom: '24px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
-              Your progress will not be saved.
-            </p>
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <button
-                className="btn-secondary"
-                onClick={handleQuitCancel}
-                style={{ flex: 1, padding: '12px' }}
-              >
-                Cancel
-              </button>
-              <button
-                className="btn-primary"
-                onClick={handleQuitConfirm}
-                style={{ flex: 1, padding: '12px', background: 'var(--color-error)' }}
-              >
-                Quit
-              </button>
-            </div>
+      {/* Quit confirmation modal - always rendered, toggled via visibility */}
+      <div
+        className="quit-modal-overlay"
+        style={{
+          visibility: showQuitConfirm ? 'visible' : 'hidden',
+          opacity: showQuitConfirm ? 1 : 0,
+          pointerEvents: showQuitConfirm ? 'auto' : 'none',
+          transition: 'opacity 0.15s ease-out, visibility 0.15s ease-out',
+        }}
+      >
+        <div className="quit-modal">
+          <h3 style={{ margin: 0, marginBottom: '16px', fontSize: '20px' }}>Quit Round?</h3>
+          <p style={{ margin: 0, marginBottom: '24px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
+            Your progress will not be saved.
+          </p>
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <button
+              className="btn-secondary"
+              onClick={handleQuitCancel}
+              style={{ flex: 1, padding: '12px' }}
+            >
+              Cancel
+            </button>
+            <button
+              className="btn-primary"
+              onClick={handleQuitConfirm}
+              style={{ flex: 1, padding: '12px', background: 'var(--color-error)' }}
+            >
+              Quit
+            </button>
           </div>
         </div>
-      )}
+      </div>
 
       <style>{`
         .gameplay-screen {
@@ -867,21 +871,20 @@ function GameplayScreen() {
           right: 0;
           bottom: 0;
           background: rgba(0, 0, 0, 0.7);
-          display: flex;
-          align-items: center;
-          justify-content: center;
           z-index: 1000;
-          animation: fadeIn 0.2s ease-out;
         }
 
         .quit-modal {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           background: var(--color-surface);
           border-radius: 16px;
           padding: 24px;
           max-width: 320px;
           width: 90%;
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-          animation: slideUp 0.2s ease-out;
         }
 
         @keyframes fadeIn {
@@ -891,11 +894,11 @@ function GameplayScreen() {
 
         @keyframes slideUp {
           from {
-            transform: translateY(20px);
+            transform: scale(0.95);
             opacity: 0;
           }
           to {
-            transform: translateY(0);
+            transform: scale(1);
             opacity: 1;
           }
         }
@@ -1024,20 +1027,22 @@ function GameplayScreen() {
         }
 
         .start-button {
-          padding: 16px 32px;
+          padding: 16px 48px;
           font-size: 18px;
           font-weight: 700;
-          background: var(--color-primary);
+          letter-spacing: 1px;
+          background: linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%);
           color: white;
           border: none;
-          border-radius: 8px;
+          border-radius: 28px;
           cursor: pointer;
-          transition: transform 0.2s, background 0.2s;
+          box-shadow: 0 3px 14px rgba(46, 125, 50, 0.35);
+          transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .start-button:hover:not(:disabled) {
-          transform: scale(1.05);
-          background: var(--color-accent);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(46, 125, 50, 0.45);
         }
 
         .start-button:disabled {

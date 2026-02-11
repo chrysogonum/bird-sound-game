@@ -56,6 +56,7 @@ function Settings() {
   const [activeDownload, setActiveDownload] = useState<string | null>(null);
   const [storageInfo, setStorageInfo] = useState<{ used: number; available: number } | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+  const [expandedRegions, setExpandedRegions] = useState<string[]>([]);
 
   // Load offline pack data on mount
   useEffect(() => {
@@ -239,7 +240,13 @@ function Settings() {
           className="btn-icon"
           onClick={() => navigate(-1)}
           aria-label="Back"
-          style={{ color: 'var(--color-accent)' }}
+          style={{
+            color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <BackIcon />
         </button>
@@ -248,7 +255,13 @@ function Settings() {
           className="btn-icon"
           onClick={() => navigate('/')}
           aria-label="Home"
-          style={{ color: 'var(--color-accent)' }}
+          style={{
+            color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <HomeIcon />
         </button>
@@ -335,76 +348,92 @@ function Settings() {
               )}
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                {AVAILABLE_PACKS.map((packId) => {
-                  const manifest = packManifests[packId];
-                  const status = packStatuses[packId] || 'not_downloaded';
-                  const isDownloading = activeDownload === packId;
+                {[
+                  { label: 'North America', packs: ['starter_birds', 'grassland_birds', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds', 'expanded_backyard'] },
+                  { label: 'New Zealand', packs: ['nz_common', 'nz_north_island', 'nz_south_island', 'nz_all_birds'] },
+                  { label: 'Europe', packs: ['eu_warblers', 'eu_raptors', 'eu_woodland', 'eu_all_birds'] },
+                ].map((group) => {
+                  const downloadedCount = group.packs.filter(p => packStatuses[p] === 'downloaded').length;
+                  const totalCount = group.packs.length;
+                  const hasPartial = group.packs.some(p => packStatuses[p] === 'partial');
+                  const isExpanded = expandedRegions.includes(group.label);
 
                   return (
-                    <div
-                      key={packId}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        padding: '8px',
-                        backgroundColor: 'var(--color-surface)',
-                        borderRadius: '6px',
-                      }}
-                    >
-                      {/* Status indicator */}
-                      <span style={{ fontSize: '14px', width: '20px' }}>
-                        {status === 'downloaded' && '✓'}
-                        {status === 'partial' && '◐'}
-                        {status === 'downloading' && '⏳'}
-                        {status === 'not_downloaded' && '○'}
-                      </span>
+                    <div key={group.label}>
+                      {/* Collapsible region header */}
+                      <button
+                        onClick={() => setExpandedRegions(prev =>
+                          prev.includes(group.label)
+                            ? prev.filter(r => r !== group.label)
+                            : [...prev, group.label]
+                        )}
+                        style={{
+                          width: '100%',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '8px',
+                          padding: '10px 8px',
+                          background: 'var(--color-surface)',
+                          border: 'none',
+                          borderRadius: '6px',
+                          cursor: 'pointer',
+                          color: 'var(--color-text)',
+                        }}
+                      >
+                        <span style={{ fontSize: '12px', transition: 'transform 0.2s', transform: isExpanded ? 'rotate(90deg)' : 'rotate(0deg)' }}>▶</span>
+                        <span style={{ fontSize: '13px', fontWeight: 600, flex: 1, textAlign: 'left' }}>{group.label}</span>
+                        <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
+                          {downloadedCount === totalCount ? `✓ All ${totalCount}` : hasPartial ? `${downloadedCount}/${totalCount} (partial)` : downloadedCount > 0 ? `${downloadedCount}/${totalCount}` : `${totalCount} packs`}
+                        </span>
+                      </button>
 
-                      {/* Pack name and size */}
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ fontSize: '14px', fontWeight: 500 }}>
-                          {manifest?.displayName || packId}
-                        </div>
-                        <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
-                          ~{manifest?.estimatedSizeMB || '?'} MB
-                        </div>
-                      </div>
+                      {/* Expanded pack list */}
+                      {isExpanded && (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginTop: '6px', paddingLeft: '12px' }}>
+                          {group.packs.map((packId) => {
+                            const manifest = packManifests[packId];
+                            const status = packStatuses[packId] || 'not_downloaded';
+                            const isDownloading = activeDownload === packId;
 
-                      {/* Action button */}
-                      {isDownloading ? (
-                        <button
-                          className="btn-secondary"
-                          onClick={handleCancelDownload}
-                          style={{ fontSize: '12px', padding: '4px 8px' }}
-                        >
-                          Cancel
-                        </button>
-                      ) : status === 'downloaded' ? (
-                        <button
-                          className="btn-secondary"
-                          onClick={() => handleClearPack(packId)}
-                          style={{ fontSize: '12px', padding: '4px 8px' }}
-                        >
-                          Remove
-                        </button>
-                      ) : status === 'partial' ? (
-                        <button
-                          className="btn-secondary"
-                          onClick={() => handleDownload(packId, true)}
-                          disabled={activeDownload !== null}
-                          style={{ fontSize: '12px', padding: '4px 8px' }}
-                        >
-                          Resume
-                        </button>
-                      ) : (
-                        <button
-                          className="btn-secondary"
-                          onClick={() => handleDownload(packId, false)}
-                          disabled={activeDownload !== null}
-                          style={{ fontSize: '12px', padding: '4px 8px' }}
-                        >
-                          Download
-                        </button>
+                            return (
+                              <div
+                                key={packId}
+                                style={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: '8px',
+                                  padding: '8px',
+                                  backgroundColor: 'var(--color-surface)',
+                                  borderRadius: '6px',
+                                }}
+                              >
+                                <span style={{ fontSize: '14px', width: '20px' }}>
+                                  {status === 'downloaded' && '✓'}
+                                  {status === 'partial' && '◐'}
+                                  {status === 'downloading' && '⏳'}
+                                  {status === 'not_downloaded' && '○'}
+                                </span>
+                                <div style={{ flex: 1, minWidth: 0 }}>
+                                  <div style={{ fontSize: '14px', fontWeight: 500 }}>
+                                    {manifest?.displayName || packId}
+                                  </div>
+                                  <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
+                                    ~{manifest?.estimatedSizeMB || '?'} MB
+                                  </div>
+                                </div>
+                                {isDownloading ? (
+                                  <button className="btn-secondary" onClick={handleCancelDownload} style={{ fontSize: '12px', padding: '4px 8px' }}>Cancel</button>
+                                ) : status === 'downloaded' ? (
+                                  <button className="btn-secondary" onClick={() => handleClearPack(packId)} style={{ fontSize: '12px', padding: '4px 8px' }}>Remove</button>
+                                ) : status === 'partial' ? (
+                                  <button className="btn-secondary" onClick={() => handleDownload(packId, true)} disabled={activeDownload !== null} style={{ fontSize: '12px', padding: '4px 10px', background: 'var(--color-accent)', color: '#000', fontWeight: 600, borderRadius: '6px', border: 'none' }}>Resume</button>
+                                ) : (
+                                  <button className="btn-secondary" onClick={() => handleDownload(packId, false)} disabled={activeDownload !== null} style={{ fontSize: '12px', padding: '4px 10px', background: 'var(--color-accent)', color: '#000', fontWeight: 600, borderRadius: '6px', border: 'none' }}>Download</button>
+                                )}
+                              </div>
+                            );
+                          })}
+                        </div>
                       )}
                     </div>
                   );
@@ -587,13 +616,22 @@ function Settings() {
         </div>
 
         {/* Reset */}
-        <div className="card">
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <button
-            className="btn-secondary"
             onClick={handleResetAllProgress}
-            style={{ width: '100%', color: 'var(--color-error)' }}
+            style={{
+              padding: '10px 24px',
+              fontSize: '13px',
+              fontWeight: 700,
+              color: 'white',
+              background: 'linear-gradient(135deg, #E57373 0%, #C62828 100%)',
+              border: 'none',
+              borderRadius: '28px',
+              cursor: 'pointer',
+              boxShadow: '0 3px 14px rgba(198, 40, 40, 0.35)',
+            }}
           >
-            Reset All Progress
+            Reset All Data
           </button>
         </div>
       </div>

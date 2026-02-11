@@ -11,7 +11,7 @@ function Help() {
   // If navigated with openVersionHistory state, auto-open Full Version History
   const initialSections = ['Why Learn Bird Song?', 'ChipNotes Basics'];
   if (location.hash === '#training-mode') {
-    initialSections.push('Training Mode');
+    initialSections.push('Training Tools');
   }
   if (location.state?.openVersionHistory) {
     initialSections.push('Full Version History');
@@ -31,7 +31,7 @@ function Help() {
     'Why Learn Bird Song?',
     'ChipNotes Basics',
     'The Spectrograms',
-    'Training Mode',
+    'Training Tools',
     'Scoring',
     'The Bird Packs',
     'The Bird Gallery',
@@ -296,15 +296,16 @@ function Help() {
           </p>
         </Section>
 
-        {/* Training Mode */}
+        {/* Training Tools */}
         <Section
           id="training-mode"
-          title="Training Mode"
-          isExpanded={expandedSections.has('Training Mode')}
-          onToggle={() => toggleSection('Training Mode')}
+          title="Training Tools"
+          isExpanded={expandedSections.has('Training Tools')}
+          onToggle={() => toggleSection('Training Tools')}
         >
-          <p style={{ marginBottom: '12px' }}>
-            Training Mode shows bird icons and names on each tile alongside the spectrogram—perfect for learning which sounds belong to which birds. North American packs show 4-letter codes (like NOCA), while New Zealand packs show Māori names.
+          <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: 'var(--color-text)' }}>Training Mode</h4>
+          <p style={{ marginBottom: '12px', fontSize: '13px' }}>
+            Shows bird icons and names on each tile alongside the spectrogram—perfect for learning which sounds belong to which birds. North American packs show 4-letter codes (like NOCA), while New Zealand packs show Māori names.
           </p>
 
           {/* Side-by-side: Eye icon info + Example tile */}
@@ -357,8 +358,13 @@ function Help() {
             />
           </div>
 
-          <p>
+          <p style={{ marginBottom: '16px', fontSize: '13px' }}>
             Enable it on the preview screen before starting a round, or toggle on/off anytime during gameplay using the <strong>eye icon</strong> (next to the back button). Start with labels visible, then toggle off to challenge yourself!
+          </p>
+
+          <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: 'var(--color-text)' }}>Drill Confused Birds</h4>
+          <p style={{ fontSize: '13px' }}>
+            After each round, the confusion matrix shows which birds you mixed up. If you confused 4+ birds, a 🎯 <strong>"Drill These Birds"</strong> button appears—tap it to immediately practice just those species at the same difficulty level. It's the fastest way to turn your weak spots into strengths!
           </p>
         </Section>
 
@@ -372,9 +378,6 @@ function Help() {
           <ScoreRow label="Good" points={75} description="Right bird + right ear" color="var(--color-success)" />
           <ScoreRow label="Partial" points={25} description="Right bird, wrong ear" color="var(--color-accent)" />
           <ScoreRow label="Miss" points={0} description="Wrong bird or no response" color="var(--color-error)" />
-          <p style={{ marginTop: '12px', fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-            After each round, check the confusion matrix to see which birds you mixed up. If you confused 4+ birds, use the 🎯 <strong>"Drill These Birds"</strong> button to immediately practice just those species!
-          </p>
         </Section>
 
         {/* The Bird Packs */}
@@ -396,58 +399,97 @@ function Help() {
             borderLeft: '3px solid var(--color-primary)',
           }}>
             <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
-              <span style={{ color: '#F5A623', fontSize: '16px', fontWeight: 'bold', flexShrink: 0 }}>+</span>
+              <span style={{ color: '#f5c87a', fontSize: '16px', fontWeight: 'bold', flexShrink: 0 }}>+</span>
               <div>
                 <strong>Build Your Own Pack:</strong> You can combine any birds from the packs below into custom training sessions. Perfect for drilling problem birds, comparing confusing species, or creating and saving your yard list!
               </div>
             </div>
           </div>
 
-          <PackInfo
-            name="Backyard Birds"
-            description="Perfect for beginners. 6 distinctive birds you'll hear around your neighborhood: American Crow (AMCR), American Robin (AMRO), Blue Jay (BLJA), Carolina Wren (CARW), Northern Cardinal (NOCA), and Tufted Titmouse (TUTI)."
-          />
-          <PackInfo
-            name="Grassland & Open Country"
-            description="10 species of grasslands, prairies, farmland, and field edges: Barn Swallow, Common Yellowthroat, Dickcissel, Eastern Kingbird, Eastern Meadowlark, Field Sparrow, Indigo Bunting, Red-winged Blackbird, Savannah Sparrow, and Yellow Warbler."
-          />
-          <PackInfo
-            name="Eastern Birds"
-            description="60 species from the eastern US. 9 birds are selected randomly, and you can shuffle for a new set anytime from the preview screen."
-          />
-          <PackInfo
-            name="Western Birds"
-            description="26 common species from western North America: Steller's Jay, California Scrub-Jay, Oak Titmouse, Black-capped Chickadee, White-crowned Sparrow, Killdeer, Red-breasted Nuthatch, and more."
-          />
-          <PackInfo
-            name="Woodpeckers"
-            description="Drums, rattles, and calls. 9 species: Downy, Hairy, Red-bellied, Pileated, Yellow-bellied Sapsucker, Northern Flicker, Red-headed, Acorn, and Lewis's."
-          />
-          <PackInfo
-            name="Sparrows"
-            description="Master the subtle singers! 9 sparrow species with distinctive patterns: White-throated, Song, Chipping, Swamp, Savannah, Field, Lincoln's, White-crowned, and House Sparrow."
-          />
-          <PackInfo
-            name="Warbler Academy"
-            description="For experts! 34 wood-warbler species with their high-pitched, buzzy songs. 9 warblers are selected randomly—shuffle for a new set anytime."
-          />
+          <RegionGroup
+            label="North America"
+            summary="120 species · 8 packs"
+            color="#f5c87a"
+          >
+            <PackInfo
+              name="Backyard Birds"
+              description="Perfect for beginners. 6 distinctive birds you'll hear around your neighborhood."
+            />
+            <PackInfo
+              name="Grasslands"
+              description="Prairies, farmland, and field edges: meadowlarks, buntings, and field singers."
+            />
+            <PackInfo
+              name="Eastern Birds"
+              description="60 species from the eastern US. 9 random per round."
+            />
+            <PackInfo
+              name="Western Birds"
+              description="Pacific coast to the Rockies. 26 common western species."
+            />
+            <PackInfo
+              name="Woodpeckers"
+              description="Drums, rattles, and calls. 9 species."
+            />
+            <PackInfo
+              name="Sparrows"
+              description="Master their subtle songs. 9 sparrow species."
+            />
+            <PackInfo
+              name="Warbler Academy"
+              description="34 wood-warbler species. 9 random per round."
+            />
+            <PackInfo
+              name="All North America"
+              description="The complete 120-species collection across all NA packs. 9 random per round."
+            />
+          </RegionGroup>
 
-          {/* New Zealand Birds */}
-          <div style={{
-            marginTop: '20px',
-            marginBottom: '16px',
-            padding: '12px 16px',
-            background: 'rgba(45, 122, 122, 0.15)',
-            borderRadius: '8px',
-            borderLeft: '3px solid #2d7a7a',
-          }}>
-            <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
-              <span style={{ fontSize: '16px', flexShrink: 0 }}>🥝</span>
-              <div>
-                <strong>New Zealand Birds:</strong> ChipNotes goes global, starting with New Zealand—home to some of the world's most unusual and iconic birds, species found nowhere else. 42 native species across 4 packs: "All NZ Birds" (complete collection), "Garden & Bush" (9 common species), "North Island" (21 species), and "South Island" (22 species). Birds display their Māori names during gameplay. Regional packs play region-specific recordings for subspecies like Toutouwai (NZ Robin).
-              </div>
-            </div>
-          </div>
+          <RegionGroup
+            label="Europe"
+            summary="61 species · 4 packs"
+            color="#a0b450"
+          >
+            <PackInfo
+              name="Warblers & Skulkers"
+              description="35 species — reed warblers, leaf warblers, nightingales, flycatchers, treecreepers, kinglets."
+            />
+            <PackInfo
+              name="Raptors"
+              description="9 species — buzzards, kites, falcons, hawks."
+            />
+            <PackInfo
+              name="Woodland & Field"
+              description="17 species — thrushes, corvids, woodpeckers, oriole."
+            />
+            <PackInfo
+              name="All European Birds"
+              description="Complete 61-species collection."
+            />
+          </RegionGroup>
+
+          <RegionGroup
+            label="New Zealand"
+            summary="42 species · 4 packs"
+            color="#4db6ac"
+          >
+            <PackInfo
+              name="Garden & Bush"
+              description="9 common species you'll hear around New Zealand."
+            />
+            <PackInfo
+              name="North Island"
+              description="21 species from the North Island."
+            />
+            <PackInfo
+              name="South Island"
+              description="22 species from the South Island."
+            />
+            <PackInfo
+              name="All NZ Birds"
+              description="Complete collection with Māori names during gameplay."
+            />
+          </RegionGroup>
 
           <p style={{ marginTop: '16px', fontSize: '13px', color: 'var(--color-text-muted)', fontStyle: 'italic' }}>
             There are 11,000 birds out there, so more are coming soon. Send your suggestions to{' '}
@@ -854,16 +896,15 @@ function Help() {
 
         {/* Version History */}
         <div ref={versionHistoryRef}>
-          {/* Recent Updates - Always Visible */}
-          <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.3)' }}>
-            <h4 style={{ margin: '0 0 12px 0', fontSize: '16px', color: 'var(--color-accent)', opacity: 0.6 }}>🎯 Recent Updates</h4>
-            <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
-              <div>🌏 <strong>Worldwide Bird Packs!</strong> – ChipNotes goes global! Starting with New Zealand, home to some of the world's most unusual and iconic birds. 42 native NZ species across 4 regional packs.</div>
-              <div>🎉 <strong>120 Species!</strong> – 120 North American species with curated audio clips and spectrograms</div>
-              <div>🔄 <strong>Drill Confused Birds</strong> – After a round, instantly practice just the birds you mixed up</div>
-              <div>📦 <strong>Pack Expansions</strong> – New Grassland pack (10 species), plus Western Birds expanded to 26, Eastern to 60, and Woodpeckers to 9</div>
-              <div>🐦 <strong>Taxonomic Sorting</strong> – Play birds in evolutionary order, see scientific names</div>
-              <div>🎨 <strong>Custom Pack Builder</strong> – Build and save up to 10 custom packs from any species</div>
+          {/* What's New */}
+          <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.15)' }}>
+            <h4 style={{ margin: '0 0 10px 0', fontSize: '15px', color: 'var(--color-accent)', opacity: 0.7 }}>What's New in v5.0</h4>
+            <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
+              <div>🇪🇺 <strong>Europe arrives!</strong> 61 species across 4 packs — warblers, raptors, woodland birds, and more.</div>
+              <div>🌍 <strong>Global Custom Packs</strong> — mix birds from any region into one training session.</div>
+              <div>🔠 <strong>Latin name display</strong> — toggle scientific names on the preview screen.</div>
+              <div>⚡ <strong>Fewer taps to play</strong> — Continue button on home screen, pack cards jump straight to preview, and per-pack level memory.</div>
+              <div>🎨 <strong>Visual refresh</strong> — earth-tone pack cards, translucent headers, polished nav icons across all pages.</div>
             </div>
           </div>
 
@@ -873,6 +914,14 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.0" date="February 11, 2026 🎂 One month old today!">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Global Domination Continues:</strong> 61 European birds join the roster across 4 packs — Warblers & Skulkers, Raptors, Woodland & Field, and All European Birds. Dedicated EU sub-page with Sound Library and custom pack builder.</li>
+              <li><strong>Quick Resume:</strong> "Continue" button on home screen resumes your last pack and level. Pack cards skip straight to preview with per-pack level memory. "Change Level" link on preview screen keeps level select accessible.</li>
+              <li><strong>UI Polish:</strong> Earth-tone color palette for NA pack cards, translucent pack headers across all regions, nav icons with subtle containers, centered titles, and "Getting Started" tips on the Bird Packs page.</li>
+            </ul>
+          </VersionEntry>
+
           <VersionEntry version="4.20" date="February 5, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Error Tracking:</strong> Added Sentry error monitoring to automatically capture and report crashes in production — no more silent white screens. Includes a friendly error fallback UI with a "Back to Menu" button.</li>
@@ -1625,6 +1674,49 @@ function ScoreRow({ label, points, description, color }: { label: string; points
           {description}
         </span>
       </div>
+    </div>
+  );
+}
+
+function RegionGroup({ label, summary, color, defaultExpanded = false, children }: {
+  label: string;
+  summary: string;
+  color: string;
+  defaultExpanded?: boolean;
+  children: React.ReactNode;
+}) {
+  const [expanded, setExpanded] = useState(defaultExpanded);
+  return (
+    <div style={{
+      marginBottom: '16px',
+      borderLeft: `3px solid ${color}`,
+      borderRadius: '8px',
+      overflow: 'hidden',
+    }}>
+      <div
+        onClick={() => setExpanded(!expanded)}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '10px 14px',
+          cursor: 'pointer',
+          background: 'var(--color-surface)',
+        }}
+      >
+        <span style={{ fontSize: '13px', color, opacity: 0.7 }}>
+          {expanded ? '▼' : '▶'}
+        </span>
+        <span style={{ fontWeight: 600, color, fontSize: '14px' }}>{label}</span>
+        <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
+          {summary}
+        </span>
+      </div>
+      {expanded && (
+        <div style={{ padding: '4px 12px 8px 12px' }}>
+          {children}
+        </div>
+      )}
     </div>
   );
 }
