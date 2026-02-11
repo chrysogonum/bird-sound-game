@@ -2908,6 +2908,10 @@ function extractClip() {
                     S.clips = clips;
                     renderClips();
                     refreshStats();
+                    // Refresh browse results if open
+                    if (document.getElementById('browsePanel').style.display !== 'none') {
+                        searchXC();
+                    }
                 });
         } else {
             showStatus('Error: ' + result.error, 'error');
