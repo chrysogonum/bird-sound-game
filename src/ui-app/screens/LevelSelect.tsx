@@ -398,7 +398,7 @@ function LevelSelect() {
           } else {
             navigate(`/pack-detail?pack=${packId}`);
           }
-        }} aria-label="Back" style={{ color: accentColor, opacity: 0.6 }}>
+        }} aria-label="Back" style={{ color: 'var(--color-text-muted)' }}>
           <BackIcon />
         </button>
         <div style={{ flex: 1 }}>
@@ -415,7 +415,7 @@ function LevelSelect() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: accentColor,
+                color: 'var(--color-text)',
                 opacity: 0.85,
               }}
               aria-label={`View ${packName} bird gallery`}
@@ -440,13 +440,13 @@ function LevelSelect() {
             <button
               onClick={() => setShowSoundLibrary(true)}
               className="btn-icon"
-              style={{ color: accentColor, opacity: 0.6, background: 'none', border: 'none', fontSize: '18px', display: 'flex', gap: '2px', cursor: 'pointer' }}
+              style={{ color: 'var(--color-text-muted)', background: 'none', border: 'none', fontSize: '18px', display: 'flex', gap: '2px', cursor: 'pointer' }}
               aria-label="Sound Library"
             >
               <span>🎧</span><span>📚</span>
             </button>
           )}
-          <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: accentColor }}>
+          <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-text-muted)' }}>
             <HomeIcon />
           </button>
         </div>

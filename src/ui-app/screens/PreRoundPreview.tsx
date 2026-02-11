@@ -766,7 +766,7 @@ function PreRoundPreview() {
           }}
           aria-label="Back"
           style={{
-            flexShrink: 0, color: accentColor, opacity: 0.6,
+            flexShrink: 0, color: 'var(--color-text-muted)',
             background: 'rgba(255, 255, 255, 0.06)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
             borderRadius: '10px',
@@ -780,7 +780,7 @@ function PreRoundPreview() {
             {packName}
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', lineHeight: 1.1 }}>
-            <span style={{ fontSize: '12px', color: accentColor, opacity: 0.85 }}>
+            <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
               Level {level.level_id}: {level.title}
             </span>
             <button
@@ -806,7 +806,7 @@ function PreRoundPreview() {
           onClick={() => navigate('/')}
           aria-label="Home"
           style={{
-            flexShrink: 0, color: accentColor, opacity: 0.6,
+            flexShrink: 0, color: 'var(--color-text-muted)',
             background: 'rgba(255, 255, 255, 0.06)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
             borderRadius: '10px',
