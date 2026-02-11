@@ -222,7 +222,8 @@ def count_candidates_per_species() -> Dict[str, int]:
 def extract_clip(source_path: Path, start_time: float, duration: float,
                  species_code: str, xc_id: str = None,
                  vocalization_type: str = 'song', recordist: str = 'Unknown',
-                 license: str = '') -> dict:
+                 license: str = '', denoise: bool = False,
+                 denoise_strength: float = 0.7) -> dict:
     """Extract a clip segment from source recording.
 
     Saves immediately to clips.json (extraction is not batched).
@@ -250,6 +251,15 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
         import librosa
         segment = librosa.resample(segment, orig_sr=sr, target_sr=OUTPUT_SAMPLE_RATE)
         sr = OUTPUT_SAMPLE_RATE
+
+    # Noise reduction (spectral gating)
+    if denoise and denoise_strength > 0:
+        import noisereduce as nr_lib
+        segment = nr_lib.reduce_noise(
+            y=segment, sr=sr,
+            prop_decrease=min(1.0, max(0.0, denoise_strength)),
+            stationary=True,
+        )
 
     # Normalize loudness to -16 LUFS, fall back to peak normalization if clipping
     meter = pyln.Meter(sr)
@@ -953,6 +963,8 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 vocalization_type=params.get('vocalization_type', 'song'),
                 recordist=params.get('recordist', 'Unknown'),
                 license=params.get('license', ''),
+                denoise=params.get('denoise', False),
+                denoise_strength=params.get('denoise_strength', 0.7),
             )
             self.send_json(result)
         except Exception as e:
@@ -1987,6 +1999,15 @@ def generate_html() -> str:
                             <input type="text" class="form-input" id="recordist" placeholder="Unknown">
                         </div>
                     </div>
+                    <div style="display:flex;align-items:center;gap:10px;margin:8px 0;padding:8px 10px;background:var(--bg-tertiary);border-radius:6px;">
+                        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;white-space:nowrap;">
+                            <input type="checkbox" id="denoiseToggle" checked> Denoise
+                        </label>
+                        <input type="range" id="denoiseStrength" min="0" max="100" value="70"
+                               style="flex:1;accent-color:var(--teal);"
+                               oninput="document.getElementById('denoiseLabel').textContent=this.value+'%'">
+                        <span id="denoiseLabel" style="font-size:11px;color:var(--text-dim);min-width:30px;">70%</span>
+                    </div>
                     <button class="btn btn-primary" style="width:100%;" onclick="extractClip()">
                         Extract Clip
                     </button>
@@ -2790,6 +2811,8 @@ function extractClip() {
             vocalization_type: document.getElementById('vocType').value,
             recordist: document.getElementById('recordist').value || 'Unknown',
             license: document.getElementById('licenseDisplay').textContent || '',
+            denoise: document.getElementById('denoiseToggle').checked,
+            denoise_strength: parseInt(document.getElementById('denoiseStrength').value) / 100,
         })
     })
     .then(r => r.json())
