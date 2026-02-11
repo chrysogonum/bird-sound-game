@@ -84,6 +84,7 @@ function PackSelect() {
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
+  const [searchQuery, setSearchQuery] = useState('');
   const [taxonomicSort, setTaxonomicSort] = useState(false);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
@@ -534,14 +535,62 @@ function PackSelect() {
                   </span>
                 </div>
                 {isExpanded && (
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                      gap: '8px',
-                    }}
-                  >
-                    {getBirdsForAllBirds().map((bird) => {
+                  <div>
+                    <div style={{ marginBottom: '10px', position: 'relative' }}>
+                      <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Search by code, name, or Latin name..."
+                        style={{
+                          width: '100%',
+                          padding: '8px 12px 8px 32px',
+                          fontSize: '13px',
+                          background: 'rgba(255,255,255,0.06)',
+                          border: '1px solid rgba(255,255,255,0.1)',
+                          borderRadius: '8px',
+                          color: '#fff',
+                          outline: 'none',
+                          boxSizing: 'border-box',
+                        }}
+                        onFocus={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'}
+                        onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'}
+                      />
+                      <span style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', opacity: 0.4 }}>🔍</span>
+                      {searchQuery && (
+                        <button
+                          onClick={() => setSearchQuery('')}
+                          style={{
+                            position: 'absolute',
+                            right: '8px',
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            background: 'none',
+                            border: 'none',
+                            color: 'rgba(255,255,255,0.4)',
+                            cursor: 'pointer',
+                            fontSize: '14px',
+                            padding: '2px 4px',
+                          }}
+                        >
+                          ✕
+                        </button>
+                      )}
+                    </div>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                        gap: '8px',
+                      }}
+                    >
+                    {getBirdsForAllBirds().filter((bird) => {
+                      if (!searchQuery.trim()) return true;
+                      const q = searchQuery.toLowerCase().trim();
+                      return bird.code.toLowerCase().includes(q)
+                        || bird.name.toLowerCase().includes(q)
+                        || (scientificNames[bird.code] || '').toLowerCase().includes(q);
+                    }).map((bird) => {
                       const isBirdExpanded = expandedBird === bird.code;
                       return (
                         <div
@@ -721,6 +770,7 @@ function PackSelect() {
                         </div>
                       );
                     })}
+                    </div>
                   </div>
                 )}
               </div>

@@ -241,15 +241,23 @@ function PreRoundPreview() {
           })
         : [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
     } else {
-      // NA packs use 2-way toggle
+      // NA/EU packs: update tileName based on current display mode, then sort
       if (taxonomicSort && Object.keys(taxonomicOrder).length === 0) return;
+      const updated = [...selectedSpecies].map(sp => ({
+        ...sp,
+        tileName: naDisplayMode === 'name'
+          ? (commonNames[sp.code] || sp.code)
+          : naDisplayMode === 'latin'
+          ? (scientificNames[sp.code] || commonNames[sp.code] || sp.code)
+          : sp.code,
+      }));
       resorted = taxonomicSort
-        ? [...selectedSpecies].sort((a, b) => {
+        ? updated.sort((a, b) => {
             const orderA = taxonomicOrder[a.code] || 9999;
             const orderB = taxonomicOrder[b.code] || 9999;
             return orderA - orderB;
           })
-        : [...selectedSpecies].sort((a, b) => a.tileName.localeCompare(b.tileName));
+        : updated.sort((a, b) => a.tileName.localeCompare(b.tileName));
     }
 
     // Reassign colors based on new sort order
@@ -258,12 +266,12 @@ function PreRoundPreview() {
       color: SPECIES_COLORS[index % SPECIES_COLORS.length],
     }));
 
-    // Only update if order actually changed
-    const orderChanged = withColors.some((sp, i) => sp.code !== selectedSpecies[i].code);
-    if (orderChanged) {
+    // Only update if order or tileNames changed
+    const changed = withColors.some((sp, i) => sp.code !== selectedSpecies[i].code || sp.tileName !== selectedSpecies[i].tileName);
+    if (changed) {
       setSelectedSpecies(withColors);
     }
-  }, [taxonomicSort, taxonomicOrder, nzSortMode, isNZPack]); // Depend on sort modes but not selectedSpecies to avoid infinite loop
+  }, [taxonomicSort, taxonomicOrder, nzSortMode, isNZPack, naDisplayMode, commonNames, scientificNames]); // Depend on sort/display modes but not selectedSpecies to avoid infinite loop
 
   // Load taxonomic order data, species metadata, NZ display codes, and subspecies merge config
   useEffect(() => {
@@ -351,15 +359,14 @@ function PreRoundPreview() {
           })
         : unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
     } else {
-      // NA packs use 2-way toggle (alphabetic/taxonomic)
-      // Always sort by 4-letter code alphabetically (not tileName, which may be common name)
+      // NA/EU packs: sort by displayed name (code, common name, or Latin) or taxonomy
       sorted = taxonomicSort && Object.keys(taxonomicOrder).length > 0
         ? unsorted.sort((a, b) => {
             const orderA = taxonomicOrder[a.code] || 9999;
             const orderB = taxonomicOrder[b.code] || 9999;
             return orderA - orderB;
           })
-        : unsorted.sort((a, b) => a.code.localeCompare(b.code));
+        : unsorted.sort((a, b) => a.tileName.localeCompare(b.tileName));
     }
 
     // Assign colors based on sorted position
@@ -1180,7 +1187,7 @@ function PreRoundPreview() {
           lineHeight: 1.4,
           textAlign: 'center',
         }}>
-          <strong>💡 Study the grid:</strong> Each bird keeps its position during play. Tap to hear, hold for a closer look. Use 🔀 to shuffle.
+          <strong>💡 Sort it your way:</strong> Use the toggles above to display and sort by code, name, or taxonomy. This order stays the same during play. Tap to hear, hold to inspect.
         </div>
       </div>
 

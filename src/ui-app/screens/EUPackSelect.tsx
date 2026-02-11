@@ -89,6 +89,7 @@ function EUPackSelect() {
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [playingClip, setPlayingClip] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [showExamples, setShowExamples] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -639,6 +640,39 @@ function EUPackSelect() {
                       </button>
                     </div>
                   )}
+                  {pack.id === 'eu_all_birds' && (
+                    <div style={{ marginBottom: '10px', position: 'relative' }}>
+                      <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Search by code, name, or Latin name..."
+                        style={{
+                          width: '100%',
+                          padding: '8px 12px 8px 32px',
+                          fontSize: '13px',
+                          background: 'rgba(255,255,255,0.06)',
+                          border: '1px solid rgba(255,255,255,0.1)',
+                          borderRadius: '8px',
+                          color: '#fff',
+                          outline: 'none',
+                          boxSizing: 'border-box',
+                        }}
+                        onFocus={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'}
+                        onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'}
+                      />
+                      <span style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', fontSize: '14px', opacity: 0.4 }}>🔍</span>
+                      {searchQuery && (
+                        <button
+                          onClick={() => setSearchQuery('')}
+                          style={{
+                            position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)',
+                            background: 'none', border: 'none', color: 'rgba(255,255,255,0.4)', cursor: 'pointer', fontSize: '14px', padding: '2px 4px',
+                          }}
+                        >✕</button>
+                      )}
+                    </div>
+                  )}
                   <div
                     style={{
                       display: 'grid',
@@ -649,7 +683,13 @@ function EUPackSelect() {
                       borderRadius: '8px',
                     }}
                   >
-                  {birds.map((bird) => {
+                  {birds.filter((bird) => {
+                    if (pack.id !== 'eu_all_birds' || !searchQuery.trim()) return true;
+                    const q = searchQuery.toLowerCase().trim();
+                    return bird.code.toLowerCase().includes(q)
+                      || bird.name.toLowerCase().includes(q)
+                      || (bird.scientificName || '').toLowerCase().includes(q);
+                  }).map((bird) => {
                     const isBirdExpanded = expandedBird === bird.code;
                     return (
                       <div

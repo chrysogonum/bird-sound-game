@@ -62,7 +62,7 @@ const NZ_ACCENT_COLOR = '#4db6ac';  // Muted teal for NZ
 // Level color based on difficulty (matches LevelSelect.tsx)
 function getLevelColor(level: number): string {
   if (level <= 2) return '#4CAF50'; // Easy - green
-  if (level <= 4) return 'rgba(245, 166, 35, 0.8)'; // Medium - muted orange
+  if (level <= 4) return '#E5A623'; // Medium - muted orange
   return '#FF5722'; // Hard - red/orange
 }
 
@@ -403,15 +403,118 @@ function RoundSummary() {
         )}
       </div>
 
-      {/* Play Again Button - below score summary, above species breakdown */}
+      {/* Play Again + Level Nav - compact action cluster */}
       <div style={{ width: '100%', maxWidth: '320px', margin: '0 auto 20px' }}>
         <button
           className="btn-primary"
           onClick={() => goToLevel(currentLevel)}
-          style={{ width: '100%' }}
+          style={{ width: 'auto', margin: '0 auto', display: 'block', padding: '8px 28px', fontSize: '13px' }}
         >
           {isDrill ? 'Drill Again' : 'Play Again'}
         </button>
+        {isCampaign && (
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', marginTop: '10px' }}>
+            <button
+              onClick={() => goToLevel(currentLevel - 1)}
+              disabled={!hasPrevLevel}
+              style={{
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '8px',
+                padding: '6px 12px',
+                fontSize: '12px',
+                fontWeight: 600,
+                color: 'rgba(255,255,255,0.7)',
+                cursor: hasPrevLevel ? 'pointer' : 'default',
+                opacity: hasPrevLevel ? 1 : 0.3,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+            >
+              <ChevronLeftIcon /> Prev
+            </button>
+            <button
+              onClick={() => setShowLevelPicker(!showLevelPicker)}
+              style={{
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                border: `2px solid ${getLevelColor(currentLevel)}`,
+                background: showLevelPicker
+                  ? getLevelColor(currentLevel)
+                  : `linear-gradient(135deg, ${getLevelColor(currentLevel)}33, ${getLevelColor(currentLevel)}11)`,
+                color: showLevelPicker ? 'var(--color-background)' : getLevelColor(currentLevel),
+                fontWeight: 700,
+                fontSize: '14px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              title={`Level ${currentLevel}/${TOTAL_LEVELS}`}
+            >
+              {currentLevel}
+            </button>
+            <button
+              onClick={() => goToLevel(currentLevel + 1)}
+              disabled={!hasNextLevel}
+              style={{
+                background: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '8px',
+                padding: '6px 12px',
+                fontSize: '12px',
+                fontWeight: 600,
+                color: 'rgba(255,255,255,0.7)',
+                cursor: hasNextLevel ? 'pointer' : 'default',
+                opacity: hasNextLevel ? 1 : 0.3,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+            >
+              Next <ChevronRightIcon />
+            </button>
+          </div>
+        )}
+        {/* Level Picker Dropdown */}
+        {showLevelPicker && isCampaign && (
+          <div style={{ marginTop: '8px', padding: '10px', background: 'var(--color-surface)', borderRadius: '10px' }}>
+            <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginBottom: '8px', textAlign: 'center' }}>
+              Jump to level:
+            </div>
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+              {[1, 2, 3, 4, 5, 6].map((level) => (
+                <button
+                  key={level}
+                  onClick={() => {
+                    setShowLevelPicker(false);
+                    goToLevel(level);
+                  }}
+                  style={{
+                    width: '38px',
+                    height: '38px',
+                    borderRadius: '50%',
+                    border: `2px solid ${getLevelColor(level)}`,
+                    background: level === currentLevel
+                      ? getLevelColor(level)
+                      : `linear-gradient(135deg, ${getLevelColor(level)}33, ${getLevelColor(level)}11)`,
+                    color: level === currentLevel ? 'var(--color-background)' : getLevelColor(level),
+                    fontWeight: 700,
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  {level}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Species Breakdown */}
@@ -561,67 +664,6 @@ function RoundSummary() {
 
       {/* Navigation Buttons */}
       <div style={{ width: '100%', maxWidth: '320px', margin: '0 auto' }}>
-        {/* Level Navigation Row */}
-        {isCampaign && (
-          <div className="flex-row gap-md" style={{ marginBottom: '12px' }}>
-            <button
-              className="btn-secondary"
-              onClick={() => goToLevel(currentLevel - 1)}
-              disabled={!hasPrevLevel}
-              style={{ flex: 1, opacity: hasPrevLevel ? 1 : 0.4 }}
-            >
-              <ChevronLeftIcon /> Prev
-            </button>
-            <button
-              className="btn-secondary"
-              onClick={() => setShowLevelPicker(!showLevelPicker)}
-              style={{ flex: 1 }}
-            >
-              Level {currentLevel}/{TOTAL_LEVELS}
-            </button>
-            <button
-              className="btn-secondary"
-              onClick={() => goToLevel(currentLevel + 1)}
-              disabled={!hasNextLevel}
-              style={{ flex: 1, opacity: hasNextLevel ? 1 : 0.4 }}
-            >
-              Next <ChevronRightIcon />
-            </button>
-          </div>
-        )}
-
-        {/* Level Picker Dropdown */}
-        {showLevelPicker && (
-          <div className="card" style={{ marginBottom: '12px', padding: '12px' }}>
-            <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginBottom: '8px' }}>
-              Jump to level:
-            </div>
-            <div className="flex-row" style={{ flexWrap: 'wrap', gap: '8px' }}>
-              {[1, 2, 3, 4, 5, 6].map((level) => (
-                <button
-                  key={level}
-                  onClick={() => {
-                    setShowLevelPicker(false);
-                    goToLevel(level);
-                  }}
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '8px',
-                    border: level === currentLevel ? `2px solid ${accentColor}` : '1px solid var(--color-text-muted)',
-                    background: level === currentLevel ? accentColor : 'var(--color-surface)',
-                    color: level === currentLevel ? 'var(--color-background)' : 'var(--color-text)',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                  }}
-                >
-                  {level}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
         {/* Main Actions */}
         <div className="flex-col gap-md">
           {/* Return to origin pack after drill */}
