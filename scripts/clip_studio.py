@@ -872,7 +872,9 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
         duration = float(query.get('duration', [2.0])[0])
         strength = float(query.get('strength', [0.7])[0])
 
-        if not source:
+        print(f"[preview-denoise] source={source} start={start} dur={duration} str={strength}")
+
+        if not source or source in ('null', 'undefined', 'None'):
             self.send_error(400, "Missing source")
             return
 
@@ -880,6 +882,7 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
         if not source_path.exists():
             source_path = PROJECT_ROOT / source
         if not source_path.exists():
+            print(f"[preview-denoise] Source not found: {source}")
             self.send_error(404, f"Source not found: {source}")
             return
 
@@ -901,12 +904,13 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 segment = librosa.resample(segment, orig_sr=sr, target_sr=OUTPUT_SAMPLE_RATE)
                 sr = OUTPUT_SAMPLE_RATE
 
-            # Apply noise reduction
-            segment = nr_lib.reduce_noise(
-                y=segment, sr=sr,
-                prop_decrease=min(1.0, max(0.0, strength)),
-                stationary=True,
-            )
+            # Apply noise reduction (skip if strength is 0)
+            if strength > 0:
+                segment = nr_lib.reduce_noise(
+                    y=segment, sr=sr,
+                    prop_decrease=min(1.0, max(0.0, strength)),
+                    stationary=True,
+                )
 
             # Write to temp file
             preview_path = Path('/tmp/clip-studio/preview_denoise.wav')
@@ -2778,45 +2782,31 @@ function toggleSelection() {
     centerPlayMode = 'selection';
     updateCenterButtons();
 
+    // Always use server-side preview for accurate selection playback
     const denoiseOn = document.getElementById('denoiseToggle').checked;
-    if (denoiseOn) {
-        // Play denoised preview from server
-        const strength = parseInt(document.getElementById('denoiseStrength').value) / 100;
-        const url = '/api/preview-denoise?source=' + encodeURIComponent(S.selectedSource.path) +
-            '&start=' + S.startTime + '&duration=' + S.duration + '&strength=' + strength;
-        document.getElementById('btnSel').textContent = '⏳ Denoising...';
-        audio = new Audio(url);
-        audio.oncanplay = () => {
+    const strength = denoiseOn ? parseInt(document.getElementById('denoiseStrength').value) / 100 : 0;
+    const url = '/api/preview-denoise?source=' + encodeURIComponent(S.selectedSource.path) +
+        '&start=' + S.startTime + '&duration=' + S.duration + '&strength=' + strength;
+    document.getElementById('btnSel').textContent = denoiseOn ? '⏳ Denoising...' : '⏳ Loading...';
+    fetch(url)
+        .then(resp => {
+            if (!resp.ok) throw new Error('Server returned ' + resp.status);
+            return resp.blob();
+        })
+        .then(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            audio = new Audio(blobUrl);
+            audio.onended = () => { URL.revokeObjectURL(blobUrl); stopAudio(); };
             document.getElementById('btnSel').innerHTML = '&#9632; Selection';
             audio.play();
             isPlaying = true;
-            updatePlayhead();
-        };
-        audio.onerror = () => {
+        })
+        .catch(err => {
+            console.error('Selection preview error:', err);
             document.getElementById('btnSel').innerHTML = '&#9654; Selection';
             centerPlayMode = null;
-            showStatus('Denoise preview failed', 'error');
-        };
-        audio.onended = () => { stopAudio(); };
-    } else {
-        // Play raw selection from source file
-        audio = new Audio('/audio/' + encodeURIComponent(S.selectedSource.path));
-        audio.currentTime = S.startTime;
-        audio.play();
-        isPlaying = true;
-        updatePlayhead();
-
-        const endTime = S.startTime + S.duration;
-        const checkEnd = () => {
-            if (audio && audio.currentTime >= endTime) {
-                stopAudio();
-            } else if (isPlaying) {
-                requestAnimationFrame(checkEnd);
-            }
-        };
-        requestAnimationFrame(checkEnd);
-    }
-    audio.onended = () => { stopAudio(); };
+            showStatus('Preview failed: ' + err.message, 'error');
+        });
 }
 
 let playingClipPath = null;
