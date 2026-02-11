@@ -2051,7 +2051,7 @@
     "file_path": "data/clips/CMWA_1013293.wav",
     "spectrogram_path": "data/spectrograms/CMWA_1013293.png",
     "recordist": "Stanislas Wroza",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1013293",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -20947,6 +20947,24 @@
     "file_path": "data/clips/grrwar1_800528_2.wav",
     "spectrogram_path": "data/spectrograms/grrwar1_800528_2.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CMWA_784610_1",
+    "species_code": "CMWA",
+    "common_name": "Cape May Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 1600,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC784610",
+    "source_url": "https://xeno-canto.org/784610",
+    "recordist": "Paul Driver",
+    "file_path": "data/clips/CMWA_784610_1.wav",
+    "spectrogram_path": "data/spectrograms/CMWA_784610_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
