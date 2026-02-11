@@ -153,17 +153,17 @@ function PackDetail() {
           className="btn-icon"
           onClick={() => navigate(getBackRoute(packId))}
           aria-label="Back"
-          style={{ color: accentColor }}
+          style={{ color: 'var(--color-text-muted)' }}
         >
           <BackIcon />
         </button>
         <div style={{ flex: 1 }}>
-          <h2 style={{ margin: 0, fontSize: '20px', color: accentColor, opacity: 0.85 }}>{packName}</h2>
+          <h2 style={{ margin: 0, fontSize: '20px', color: 'var(--color-text)', opacity: 0.85 }}>{packName}</h2>
           <div style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
             {birds.length} species
           </div>
         </div>
-        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: accentColor }}>
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-text-muted)' }}>
           <HomeIcon />
         </button>
       </div>
@@ -178,8 +178,8 @@ function PackDetail() {
             fontSize: '16px',
             fontWeight: 600,
             background: 'transparent',
-            color: accentColor,
-            border: `2px solid ${accentColor}`,
+            color: 'var(--color-text)',
+            border: '2px solid rgba(255, 255, 255, 0.25)',
             borderRadius: '14px',
             cursor: 'pointer',
             boxShadow: 'none',
@@ -187,7 +187,7 @@ function PackDetail() {
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = `0 4px 12px ${accentColor}33`;
+            e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 255, 255, 0.1)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
