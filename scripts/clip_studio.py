@@ -614,6 +614,8 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             self.handle_load_xc(query)
         elif path == '/api/search-xc':
             self.handle_search_xc(query)
+        elif path == '/api/preview-denoise':
+            self.handle_preview_denoise(query)
         elif path.startswith('/audio/'):
             self.serve_audio(path[7:])
         elif path.startswith('/data/'):
@@ -862,6 +864,64 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             self.send_json(result)
         except Exception as e:
             self.send_json({'success': False, 'error': str(e)})
+
+    def handle_preview_denoise(self, query):
+        """Generate a denoised preview WAV of the current selection"""
+        source = query.get('source', [None])[0]
+        start = float(query.get('start', [0])[0])
+        duration = float(query.get('duration', [2.0])[0])
+        strength = float(query.get('strength', [0.7])[0])
+
+        if not source:
+            self.send_error(400, "Missing source")
+            return
+
+        source_path = Path(source)
+        if not source_path.exists():
+            source_path = PROJECT_ROOT / source
+        if not source_path.exists():
+            self.send_error(404, f"Source not found: {source}")
+            return
+
+        try:
+            import noisereduce as nr_lib
+            import io
+
+            audio, sr = sf.read(str(source_path))
+            if len(audio.shape) > 1:
+                audio = np.mean(audio, axis=1)
+
+            start_sample = int(start * sr)
+            end_sample = int((start + duration) * sr)
+            segment = audio[max(0, start_sample):min(len(audio), end_sample)]
+
+            # Resample if needed
+            if sr != OUTPUT_SAMPLE_RATE:
+                import librosa
+                segment = librosa.resample(segment, orig_sr=sr, target_sr=OUTPUT_SAMPLE_RATE)
+                sr = OUTPUT_SAMPLE_RATE
+
+            # Apply noise reduction
+            segment = nr_lib.reduce_noise(
+                y=segment, sr=sr,
+                prop_decrease=min(1.0, max(0.0, strength)),
+                stationary=True,
+            )
+
+            # Write to temp file
+            preview_path = Path('/tmp/clip-studio/preview_denoise.wav')
+            preview_path.parent.mkdir(parents=True, exist_ok=True)
+            sf.write(str(preview_path), segment, sr, subtype='PCM_16')
+
+            # Serve the WAV
+            self.send_response(200)
+            self.send_header('Content-Type', 'audio/wav')
+            self.send_header('Cache-Control', 'no-cache')
+            self.end_headers()
+            with open(preview_path, 'rb') as f:
+                self.wfile.write(f.read())
+        except Exception as e:
+            self.send_error(500, str(e))
 
     def handle_search_xc(self, query):
         """Search Xeno-Canto for recordings of a species"""
@@ -2717,21 +2777,46 @@ function toggleSelection() {
     stopAudio();
     centerPlayMode = 'selection';
     updateCenterButtons();
-    audio = new Audio('/audio/' + encodeURIComponent(S.selectedSource.path));
-    audio.currentTime = S.startTime;
-    audio.play();
-    isPlaying = true;
-    updatePlayhead();
 
-    const endTime = S.startTime + S.duration;
-    const checkEnd = () => {
-        if (audio && audio.currentTime >= endTime) {
-            stopAudio();
-        } else if (isPlaying) {
-            requestAnimationFrame(checkEnd);
-        }
-    };
-    requestAnimationFrame(checkEnd);
+    const denoiseOn = document.getElementById('denoiseToggle').checked;
+    if (denoiseOn) {
+        // Play denoised preview from server
+        const strength = parseInt(document.getElementById('denoiseStrength').value) / 100;
+        const url = '/api/preview-denoise?source=' + encodeURIComponent(S.selectedSource.path) +
+            '&start=' + S.startTime + '&duration=' + S.duration + '&strength=' + strength;
+        document.getElementById('btnSel').textContent = '⏳ Denoising...';
+        audio = new Audio(url);
+        audio.oncanplay = () => {
+            document.getElementById('btnSel').innerHTML = '&#9632; Selection';
+            audio.play();
+            isPlaying = true;
+            updatePlayhead();
+        };
+        audio.onerror = () => {
+            document.getElementById('btnSel').innerHTML = '&#9654; Selection';
+            centerPlayMode = null;
+            showStatus('Denoise preview failed', 'error');
+        };
+        audio.onended = () => { stopAudio(); };
+    } else {
+        // Play raw selection from source file
+        audio = new Audio('/audio/' + encodeURIComponent(S.selectedSource.path));
+        audio.currentTime = S.startTime;
+        audio.play();
+        isPlaying = true;
+        updatePlayhead();
+
+        const endTime = S.startTime + S.duration;
+        const checkEnd = () => {
+            if (audio && audio.currentTime >= endTime) {
+                stopAudio();
+            } else if (isPlaying) {
+                requestAnimationFrame(checkEnd);
+            }
+        };
+        requestAnimationFrame(checkEnd);
+    }
+    audio.onended = () => { stopAudio(); };
 }
 
 let playingClipPath = null;
