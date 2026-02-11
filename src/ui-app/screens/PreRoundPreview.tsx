@@ -881,8 +881,8 @@ function PreRoundPreview() {
               style={{
                 flex: 1,
                 padding: '6px 8px',
-                background: 'rgba(77, 182, 172, 0.25)',
-                border: `2px solid ${NZ_ACCENT_COLOR}`,
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 display: 'flex',
@@ -902,8 +902,8 @@ function PreRoundPreview() {
               style={{
                 flex: 1,
                 padding: '6px 8px',
-                background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-                border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 display: 'flex',
@@ -913,7 +913,7 @@ function PreRoundPreview() {
               }}
               title={taxonomicSort ? 'Sort alphabetically' : 'Sort by taxonomy'}
             >
-              <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.7)' }}>{taxonomicSort ? 'Taxonomic' : 'ABC'}</span>
             </button>
           </div>
         ) : (
@@ -932,8 +932,8 @@ function PreRoundPreview() {
               style={{
                 flex: 1,
                 padding: '6px 8px',
-                background: naDisplayMode !== 'code' ? 'rgba(255, 152, 0, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-                border: naDisplayMode !== 'code' ? '2px solid var(--color-accent)' : '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 display: 'flex',
@@ -943,7 +943,7 @@ function PreRoundPreview() {
               }}
               title={naDisplayMode === 'code' ? 'Show common names' : naDisplayMode === 'name' ? 'Show Latin names' : 'Show 4-letter codes'}
             >
-              <span style={{ fontSize: '11px', fontWeight: naDisplayMode !== 'code' ? 600 : 400, fontStyle: naDisplayMode === 'latin' ? 'italic' : 'normal' }}>
+              <span style={{ fontSize: '11px', fontWeight: 600, fontStyle: naDisplayMode === 'latin' ? 'italic' : 'normal' }}>
                 {naDisplayMode === 'name' ? 'Names' : naDisplayMode === 'latin' ? 'Latin' : 'NOCA'}
               </span>
             </button>
@@ -953,8 +953,8 @@ function PreRoundPreview() {
               style={{
                 flex: 1,
                 padding: '6px 8px',
-                background: taxonomicSort ? 'rgba(100, 181, 246, 0.25)' : 'rgba(255, 255, 255, 0.05)',
-                border: taxonomicSort ? '2px solid #64B5F6' : '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '6px',
                 cursor: 'pointer',
                 display: 'flex',
@@ -964,7 +964,7 @@ function PreRoundPreview() {
               }}
               title={taxonomicSort ? 'Sort alphabetically' : 'Sort by taxonomy'}
             >
-              <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.7)' }}>{taxonomicSort ? 'Taxonomic' : 'ABC'}</span>
             </button>
           </div>
         )}
@@ -1407,7 +1407,7 @@ function PreRoundPreview() {
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'rgba(0, 0, 0, 0.85)',
+            background: 'rgba(0, 0, 0, 0.95)',
             zIndex: 1000,
             display: 'flex',
             flexDirection: 'column',
