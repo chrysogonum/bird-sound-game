@@ -240,7 +240,13 @@ function Settings() {
           className="btn-icon"
           onClick={() => navigate(-1)}
           aria-label="Back"
-          style={{ color: 'var(--color-accent)' }}
+          style={{
+            color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <BackIcon />
         </button>
@@ -249,7 +255,13 @@ function Settings() {
           className="btn-icon"
           onClick={() => navigate('/')}
           aria-label="Home"
-          style={{ color: 'var(--color-accent)' }}
+          style={{
+            color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <HomeIcon />
         </button>
@@ -337,7 +349,7 @@ function Settings() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                 {[
-                  { label: 'North America', packs: ['starter_birds', 'grassland_birds', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds', 'expanded_backyard', 'common_se_birds'] },
+                  { label: 'North America', packs: ['starter_birds', 'grassland_birds', 'sparrows', 'woodpeckers', 'spring_warblers', 'western_birds', 'expanded_backyard'] },
                   { label: 'New Zealand', packs: ['nz_common', 'nz_north_island', 'nz_south_island', 'nz_all_birds'] },
                   { label: 'Europe', packs: ['eu_warblers', 'eu_raptors', 'eu_woodland', 'eu_all_birds'] },
                 ].map((group) => {
@@ -604,13 +616,22 @@ function Settings() {
         </div>
 
         {/* Reset */}
-        <div className="card">
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <button
-            className="btn-secondary"
             onClick={handleResetAllProgress}
-            style={{ width: '100%', color: 'var(--color-error)' }}
+            style={{
+              padding: '10px 24px',
+              fontSize: '13px',
+              fontWeight: 700,
+              color: 'white',
+              background: 'linear-gradient(135deg, #E57373 0%, #C62828 100%)',
+              border: 'none',
+              borderRadius: '28px',
+              cursor: 'pointer',
+              boxShadow: '0 3px 14px rgba(198, 40, 40, 0.35)',
+            }}
           >
-            Reset All Progress
+            Reset All Data
           </button>
         </div>
       </div>

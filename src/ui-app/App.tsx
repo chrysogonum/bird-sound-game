@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainMenu from './screens/MainMenu';
 import PackSelect from './screens/PackSelect';
-import LevelSelect from './screens/LevelSelect';
 import PreRoundPreview from './screens/PreRoundPreview';
 import CustomPackBuilder from './screens/CustomPackBuilder';
 import GameplayScreen from './game/GameplayScreen';
@@ -63,7 +62,6 @@ function App() {
         <Route path="/na-packs" element={<NAPackSelect />} />
         <Route path="/nz-packs" element={<NZPackSelect />} />
         <Route path="/eu-packs" element={<EUPackSelect />} />
-        <Route path="/level-select" element={<LevelSelect />} />
         <Route path="/preview" element={<PreRoundPreview />} />
         <Route path="/custom-pack" element={<CustomPackBuilder />} />
         <Route path="/gameplay" element={<GameplayScreen />} />

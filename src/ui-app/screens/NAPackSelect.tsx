@@ -59,7 +59,7 @@ const PACKS: Pack[] = [
     name: 'Grasslands',
     speciesCount: 10,
     isUnlocked: true,
-    description: 'From prairies to farmland: meadowlarks, buntings, and field singers.',
+    description: 'From prairies to farmland: meadowlarks,\nbuntings, and field singers.',
     region: 'na',
   },
   {
@@ -124,6 +124,7 @@ function NAPackSelect() {
   const [expandedPacks, setExpandedPacks] = useState<Set<string>>(new Set());
   const [showMoreExamples, setShowMoreExamples] = useState(false);
   const [taxonomicSort, setTaxonomicSort] = useState(false);
+  const [showPackGallery, setShowPackGallery] = useState(false);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
   const [scientificNames, setScientificNames] = useState<Record<string, string>>({});
   const [commonNames, setCommonNames] = useState<Record<string, string>>({});
@@ -355,20 +356,17 @@ function NAPackSelect() {
           <div style={{
             width: '40px',
             height: '40px',
-            borderRadius: '10px',
-            background: 'transparent',
-            border: '2px solid rgba(255, 255, 255, 0.2)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: 'var(--color-text-muted)',
+            fontSize: '36px',
             flexShrink: 0,
           }}>
-            <PlusIcon />
+            🥚
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text)' }}>
-              Create Custom Pack
+              Hatch a Custom Pack
             </div>
             <button
               onClick={(e) => {
@@ -590,31 +588,6 @@ function NAPackSelect() {
       {/* Sound Library Section */}
       <div id="bird-reference" style={{ marginTop: '16px', scrollMarginTop: '20px' }}>
         {/* Back navigation button (PWA-friendly) */}
-        {location.state?.fromLevelSelect && location.state?.packId && (
-          <div style={{ marginBottom: '16px' }}>
-            <button
-              onClick={() => navigate(`/level-select?pack=${location.state.packId}`)}
-              style={{
-                background: 'rgba(255, 255, 255, 0.7)',
-                color: 'var(--color-background)',
-                border: 'none',
-                borderRadius: '8px',
-                padding: '10px 16px',
-                fontSize: '14px',
-                fontWeight: 600,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
-              }}
-              aria-label="Back to Level Select"
-            >
-              <span style={{ fontSize: '18px' }}>←</span>
-              Back to Level Select
-            </button>
-          </div>
-        )}
         {location.state?.fromHelp && (
           <div style={{ marginBottom: '16px' }}>
             <button
@@ -647,25 +620,41 @@ function NAPackSelect() {
               🎧📚 Sound Library
             </h3>
           </div>
-          <button
-            onClick={() => setTaxonomicSort(!taxonomicSort)}
-            style={{
-              padding: '6px 12px',
-              borderRadius: '6px',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              cursor: 'pointer',
-              fontSize: '11px',
-              color: '#fff',
-              fontWeight: 600,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-            }}
-          >
-            <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
-            {taxonomicSort ? 'Taxonomy' : 'A-Z'}
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              onClick={() => setTaxonomicSort(!taxonomicSort)}
+              style={{
+                padding: '6px 12px',
+                borderRadius: '6px',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.05)',
+                cursor: 'pointer',
+                fontSize: '11px',
+                color: '#fff',
+                fontWeight: 600,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '4px',
+              }}
+            >
+              <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+              {taxonomicSort ? 'Taxonomy' : 'A-Z'}
+            </button>
+            <button
+              onClick={() => setShowPackGallery(true)}
+              style={{
+                padding: '6px 8px',
+                borderRadius: '6px',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.05)',
+                cursor: 'pointer',
+                fontSize: '14px',
+              }}
+              title="Bird Gallery"
+            >
+              🖼️
+            </button>
+          </div>
         </div>
 
         {/* Construction notice */}
@@ -1202,6 +1191,53 @@ function NAPackSelect() {
           );
         })}
       </div>
+
+      {/* Bird Gallery Modal */}
+      {showPackGallery && (
+        <div
+          onClick={() => setShowPackGallery(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            overflowY: 'auto',
+            padding: '60px 16px 24px',
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: '480px', width: '100%' }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <h2 style={{ margin: 0, fontSize: '18px', color: '#fff' }}>All NA Birds</h2>
+              <button
+                onClick={() => setShowPackGallery(false)}
+                style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer', padding: '8px 14px', borderRadius: '8px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                ✕
+              </button>
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '16px',
+            }}>
+              {getBirdsForPack('na_all_birds').map((bird) => (
+                <div key={bird.code} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                  <BirdIcon code={bird.code} size={80} />
+                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.8)', textAlign: 'center', lineHeight: 1.2 }}>
+                    {commonNames[bird.code] || bird.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -1243,14 +1279,6 @@ function ArrowIcon() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
       <path d="M5 12h14M12 5l7 7-7 7" />
-    </svg>
-  );
-}
-
-function PlusIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-      <path d="M12 5v14M5 12h14" />
     </svg>
   );
 }

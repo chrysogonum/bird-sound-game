@@ -165,7 +165,7 @@ function MainMenu() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '8px',
+        gap: 'clamp(8px, 1.5vh, 16px)',
         zIndex: 1,
         transform: `translateY(${pullDistance}px)`,
         transition: pullDistance === 0 ? 'transform 0.3s ease' : 'none',
@@ -176,8 +176,8 @@ function MainMenu() {
           src={`${import.meta.env.BASE_URL}data/icons/OwlHeadphones.png`}
           alt="ChipNotes Owl Professor"
           style={{
-            width: '180px',
-            height: '180px',
+            width: 'clamp(180px, 25vmin, 280px)',
+            height: 'clamp(180px, 25vmin, 280px)',
             borderRadius: '50%',
             boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
             marginBottom: '4px',
@@ -187,7 +187,7 @@ function MainMenu() {
         {/* Title */}
         <h1 style={{
           margin: 0,
-          fontSize: '44px',
+          fontSize: 'clamp(44px, 6vmin, 64px)',
           fontWeight: 800,
           letterSpacing: '-1px',
           background: 'linear-gradient(135deg, #FFD54F 0%, #FF8A65 50%, #E57373 100%)',
@@ -200,8 +200,8 @@ function MainMenu() {
 
         <p style={{
           color: 'var(--color-text-muted)',
-          fontSize: '16px',
-          maxWidth: '280px',
+          fontSize: 'clamp(16px, 2.2vmin, 22px)',
+          maxWidth: 'clamp(280px, 40vmin, 420px)',
           textAlign: 'center',
           lineHeight: 1.4,
           marginTop: '-4px',
@@ -214,26 +214,26 @@ function MainMenu() {
         <button
           onClick={() => navigate('/pack-select')}
           style={{
-            marginTop: '16px',
-            padding: '16px 72px',
-            fontSize: '19px',
+            marginTop: 'clamp(16px, 2vh, 28px)',
+            padding: 'clamp(16px, 2.2vmin, 24px) clamp(72px, 10vmin, 100px)',
+            fontSize: 'clamp(19px, 2.5vmin, 26px)',
             fontWeight: 700,
             letterSpacing: '1px',
-            background: 'linear-gradient(135deg, #e8c060 0%, #d4896a 50%, #c07070 100%)',
-            color: '#1a1a2e',
+            background: 'linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%)',
+            color: 'white',
             border: 'none',
             borderRadius: '28px',
             cursor: 'pointer',
-            boxShadow: '0 3px 14px rgba(200, 130, 90, 0.25)',
+            boxShadow: '0 3px 14px rgba(46, 125, 50, 0.35)',
             transition: 'transform 0.2s, box-shadow 0.2s',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(200, 130, 90, 0.35)';
+            e.currentTarget.style.boxShadow = '0 6px 20px rgba(46, 125, 50, 0.45)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 3px 14px rgba(200, 130, 90, 0.25)';
+            e.currentTarget.style.boxShadow = '0 3px 14px rgba(46, 125, 50, 0.35)';
           }}
         >
           <span style={{
@@ -268,11 +268,11 @@ function MainMenu() {
 
         {/* How it works - visual gameplay preview */}
         <div style={{
-          marginTop: '20px',
-          padding: '16px',
+          marginTop: 'clamp(20px, 3vh, 36px)',
+          padding: 'clamp(16px, 2vmin, 24px)',
           background: 'var(--color-surface)',
           borderRadius: '16px',
-          maxWidth: '360px',
+          maxWidth: 'clamp(360px, 50vmin, 500px)',
         }}>
           <div style={{
             display: 'flex',

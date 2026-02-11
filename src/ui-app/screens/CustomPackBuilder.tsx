@@ -377,7 +377,7 @@ function CustomPackBuilder() {
     trackCustomPackCreate(selectedCodes.length);
 
     // Navigate to level select for custom pack
-    navigate('/level-select?pack=custom');
+    navigate('/preview?pack=custom&level=1');
   };
 
   // Save pack and then play
@@ -519,7 +519,7 @@ function CustomPackBuilder() {
       // DON'T mark as temporary - it's been saved
       // Track and navigate
       trackCustomPackCreate(selectedCodes.length);
-      navigate('/level-select?pack=custom');
+      navigate('/preview?pack=custom&level=1');
     }
   };
 

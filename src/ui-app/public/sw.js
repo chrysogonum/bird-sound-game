@@ -26,7 +26,6 @@ const STATIC_ASSETS = [
   `${BASE_URL}data/packs/spring_warblers.json`,
   `${BASE_URL}data/packs/western_birds.json`,
   `${BASE_URL}data/packs/expanded_backyard.json`,
-  `${BASE_URL}data/packs/common_se_birds.json`,
   `${BASE_URL}data/packs/nz_common.json`,
   `${BASE_URL}data/packs/nz_north_island.json`,
   `${BASE_URL}data/packs/nz_south_island.json`,

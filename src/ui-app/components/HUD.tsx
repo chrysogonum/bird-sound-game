@@ -16,6 +16,27 @@ const MODE_LABELS: Record<string, string> = {
   random: 'Random',
 };
 
+// Interpolate between ChipNotes gradient colors: yellow → orange → red
+const STREAK_COLORS = [
+  [255, 213, 79],   // #FFD54F
+  [255, 138, 101],  // #FF8A65
+  [229, 115, 115],  // #E57373
+];
+
+function getStreakColor(index: number, total: number): string {
+  if (total <= 1) return `rgb(${STREAK_COLORS[0].join(',')})`;
+  const t = index / (total - 1); // 0 to 1
+  const pos = t * 2; // 0 to 2 (across 3 color stops)
+  const seg = Math.min(Math.floor(pos), 1);
+  const local = pos - seg;
+  const c0 = STREAK_COLORS[seg];
+  const c1 = STREAK_COLORS[seg + 1];
+  const r = Math.round(c0[0] + (c1[0] - c0[0]) * local);
+  const g = Math.round(c0[1] + (c1[1] - c0[1]) * local);
+  const b = Math.round(c0[2] + (c1[2] - c0[2]) * local);
+  return `rgb(${r},${g},${b})`;
+}
+
 function HUD({ score, streak, timeRemaining, mode, levelId, levelTitle }: HUDProps) {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
@@ -39,7 +60,7 @@ function HUD({ score, streak, timeRemaining, mode, levelId, levelTitle }: HUDPro
             <span className="streak-dot">○</span>
           ) : (
             Array.from({ length: streak }).map((_, i) => (
-              <span key={i} className="streak-dot active">●</span>
+              <span key={i} className="streak-dot active" style={{ color: getStreakColor(i, streak) }}>●</span>
             ))
           )}
         </div>
@@ -79,7 +100,14 @@ function HUD({ score, streak, timeRemaining, mode, levelId, levelTitle }: HUDPro
           font-family: var(--font-mono);
           font-size: 20px;
           font-weight: 600;
-          color: var(--color-accent);
+        }
+
+        .hud-score .hud-value {
+          color: #81C784;
+        }
+
+        .hud-timer .hud-value {
+          color: #64B5F6;
         }
 
         .hud-center {
@@ -111,7 +139,6 @@ function HUD({ score, streak, timeRemaining, mode, levelId, levelTitle }: HUDPro
         }
 
         .streak-dot.active {
-          color: var(--color-accent);
           transform: scale(1.2);
         }
       `}</style>

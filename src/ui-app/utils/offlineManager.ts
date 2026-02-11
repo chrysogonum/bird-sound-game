@@ -557,7 +557,6 @@ export const AVAILABLE_PACKS = [
   'spring_warblers',
   'western_birds',
   'expanded_backyard',
-  'common_se_birds',
   'nz_common',
   'nz_north_island',
   'nz_south_island',

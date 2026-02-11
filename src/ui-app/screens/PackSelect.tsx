@@ -362,20 +362,17 @@ function PackSelect() {
           <div style={{
             width: '52px',
             height: '52px',
-            borderRadius: '50%',
-            background: 'rgba(255, 255, 255, 0.08)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '22px',
-            color: 'var(--color-text-muted)',
+            fontSize: '36px',
             flexShrink: 0,
           }}>
-            +
+            🥚
           </div>
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-text)', opacity: 0.8 }}>
-              Custom Pack
+              Hatch a Custom Pack
             </div>
             <button
               onClick={(e) => {

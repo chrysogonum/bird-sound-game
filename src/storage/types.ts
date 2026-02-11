@@ -124,7 +124,7 @@ export function createEmptyProgress(playerId: string = 'default'): PlayerProgres
     version: SCHEMA_VERSION,
     playerId,
     unlockedLevels: [1], // Level 1 always unlocked
-    unlockedPacks: ['common_se_birds'], // Default pack unlocked
+    unlockedPacks: ['starter_birds'], // Default pack unlocked
     packStats: {},
     levelStats: {},
     highScores: {

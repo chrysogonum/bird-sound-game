@@ -94,6 +94,7 @@ function EUPackSelect() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const soundLibraryRef = useRef<HTMLDivElement | null>(null);
   const [taxonomicSort, setTaxonomicSort] = useState(false);
+  const [showPackGallery, setShowPackGallery] = useState(false);
 
   // Scroll to top on mount
   useEffect(() => {
@@ -272,8 +273,8 @@ function EUPackSelect() {
   const euPackColors: Record<string, string> = {
     eu_warblers: 'linear-gradient(135deg, #5a6b2d 0%, #3a4a1a 100%)',
     eu_raptors: 'linear-gradient(135deg, #6b4a2d 0%, #4a3018 100%)',
-    eu_woodland: 'linear-gradient(135deg, #3d5a3d 0%, #2a402a 100%)',
-    eu_all_birds: 'linear-gradient(135deg, #4a5a6b 0%, #2d3a4a 100%)',
+    eu_woodland: 'linear-gradient(135deg, #4a5a6b 0%, #2d3a4a 100%)',
+    eu_all_birds: 'linear-gradient(135deg, #3d5a3d 0%, #2a402a 100%)',
   };
 
   const euPackIcons: Record<string, string> = {
@@ -352,22 +353,17 @@ function EUPackSelect() {
           <div style={{
             width: '40px',
             height: '40px',
-            borderRadius: '10px',
-            background: 'transparent',
-            border: '2px solid rgba(160, 180, 80, 0.4)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#a0b450',
+            fontSize: '36px',
             flexShrink: 0,
           }}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M12 5v14M5 12h14" />
-            </svg>
+            🥚
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: '16px', fontWeight: 600, color: '#c8d8a2' }}>
-              Create Custom Pack
+              Hatch a Custom Pack
             </div>
             <button
               onClick={(e) => {
@@ -536,53 +532,42 @@ function EUPackSelect() {
               🎧📚 Sound Library
             </h3>
           </div>
-          <button
-            onClick={() => setTaxonomicSort(!taxonomicSort)}
-            style={{
-              padding: '6px 12px',
-              borderRadius: '6px',
-              border: '1px solid rgba(255, 255, 255, 0.15)',
-              background: 'rgba(255, 255, 255, 0.05)',
-              cursor: 'pointer',
-              fontSize: '11px',
-              color: EU_ACCENT_COLOR,
-              fontWeight: 600,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-            }}
-          >
-            <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
-            {taxonomicSort ? 'Taxonomy' : 'A-Z'}
-          </button>
-        </div>
-
-        {/* Back to Level Select button */}
-        {location.state?.fromLevelSelect && location.state?.packId && (
-          <div style={{ marginBottom: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <button
-              onClick={() => navigate(`/level-select?pack=${location.state.packId}`)}
+              onClick={() => setTaxonomicSort(!taxonomicSort)}
               style={{
-                background: EU_ACCENT_COLOR,
-                color: 'var(--color-background)',
-                border: 'none',
-                borderRadius: '8px',
-                padding: '10px 16px',
-                fontSize: '14px',
-                fontWeight: 600,
+                padding: '6px 12px',
+                borderRadius: '6px',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.05)',
                 cursor: 'pointer',
+                fontSize: '11px',
+                color: EU_ACCENT_COLOR,
+                fontWeight: 600,
                 display: 'flex',
                 alignItems: 'center',
-                gap: '8px',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                gap: '4px',
               }}
-              aria-label="Back to Level Select"
             >
-              <span style={{ fontSize: '18px' }}>←</span>
-              Back to Level Select
+              <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+              {taxonomicSort ? 'Taxonomy' : 'A-Z'}
+            </button>
+            <button
+              onClick={() => setShowPackGallery(true)}
+              style={{
+                padding: '6px 8px',
+                borderRadius: '6px',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                background: 'rgba(255, 255, 255, 0.05)',
+                cursor: 'pointer',
+                fontSize: '14px',
+              }}
+              title="Bird Gallery"
+            >
+              🖼️
             </button>
           </div>
-        )}
+        </div>
 
         {EU_PACKS.map((pack) => {
           const isExpanded = expandedPacks.has(pack.id);
@@ -863,6 +848,58 @@ function EUPackSelect() {
         <a href="https://xeno-canto.org/" target="_blank" rel="noopener noreferrer" style={{ color: EU_ACCENT_COLOR, textDecoration: 'underline' }}>Xeno-canto</a>{' '}
         contributors (CC BY-NC-SA)
       </div>
+
+      {/* Bird Gallery Modal */}
+      {showPackGallery && (
+        <div
+          onClick={() => setShowPackGallery(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            overflowY: 'auto',
+            padding: '60px 16px 24px',
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: '480px', width: '100%' }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <h2 style={{ margin: 0, fontSize: '18px', color: '#fff' }}>All European Birds</h2>
+              <button
+                onClick={() => setShowPackGallery(false)}
+                style={{ background: 'rgba(255,255,255,0.1)', border: 'none', color: '#fff', fontSize: '20px', cursor: 'pointer', padding: '8px 14px', borderRadius: '8px', minWidth: '44px', minHeight: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                ✕
+              </button>
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '16px',
+            }}>
+              {getBirdsForPack('eu_all_birds').map((bird) => (
+                <div key={bird.code} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+                  <img
+                    src={`${import.meta.env.BASE_URL}data/icons/${bird.code}.png`}
+                    alt={bird.name}
+                    style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', background: 'rgba(255,255,255,0.1)' }}
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                  />
+                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.8)', textAlign: 'center', lineHeight: 1.2 }}>
+                    {commonNames[bird.code] || bird.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

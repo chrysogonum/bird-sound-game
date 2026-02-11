@@ -115,7 +115,7 @@ const SCROLL_SPEED_BY_DENSITY: Record<string, number> = {
 /** Default level config for testing */
 const DEFAULT_LEVEL: LevelConfig = {
   level_id: 1,
-  pack_id: 'common_se_birds',
+  pack_id: 'starter_birds',
   mode: 'campaign',
   round_duration_sec: 30,
   species_count: 5,

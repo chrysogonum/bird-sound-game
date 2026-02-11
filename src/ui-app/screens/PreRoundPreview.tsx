@@ -572,6 +572,13 @@ function PreRoundPreview() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [packId, levelId, keepBirds, metadataLoaded]);
 
+  // Persist selected species to sessionStorage so level-dot switches can restore them
+  useEffect(() => {
+    if (selectedSpecies.length > 0) {
+      sessionStorage.setItem('roundSpecies', JSON.stringify(selectedSpecies.map(s => s.code)));
+    }
+  }, [selectedSpecies]);
+
   // Preload all clips for selected species in the background
   useEffect(() => {
     if (selectedSpecies.length === 0 || clips.length === 0) {
@@ -822,20 +829,20 @@ function PreRoundPreview() {
                 }
               }}
               style={{
-                width: '32px',
-                height: '32px',
+                width: '38px',
+                height: '38px',
                 borderRadius: '50%',
                 border: isActive ? `2px solid ${color}` : '2px solid rgba(255, 255, 255, 0.15)',
                 background: isActive ? `${color}33` : 'rgba(255, 255, 255, 0.05)',
                 color: isActive ? color : 'var(--color-text-muted)',
-                fontSize: '13px',
+                fontSize: '15px',
                 fontWeight: 700,
                 cursor: 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 transition: 'all 0.15s',
-                opacity: isActive ? 1 : 0.6,
+                opacity: isActive ? 1 : 0.7,
               }}
               title={LEVEL_TITLES[lvl] || `Level ${lvl}`}
             >
@@ -1095,8 +1102,8 @@ function PreRoundPreview() {
                 alignItems: 'center',
                 gap: '6px',
                 padding: '10px 6px',
-                background: playingCode === species.code ? `${species.color}33` : 'var(--color-surface)',
-                border: `2px solid ${species.color}`,
+                background: playingCode === species.code ? 'rgba(255, 255, 255, 0.1)' : 'var(--color-surface)',
+                border: '2px solid rgba(255, 255, 255, 0.15)',
                 borderRadius: '10px',
                 cursor: species.clipPath ? 'pointer' : 'not-allowed',
                 opacity: species.clipPath ? 1 : 0.5,
@@ -1181,18 +1188,19 @@ function PreRoundPreview() {
       <button
         onClick={handleReady}
         style={{
-          width: '100%',
-          padding: '12px',
-          fontSize: '15px',
+          width: 'auto',
+          margin: '0 auto',
+          padding: '10px 24px',
+          fontSize: '14px',
           fontWeight: 700,
           background: preloadStatus === 'ready'
-            ? 'linear-gradient(135deg, var(--color-primary) 0%, #3a7332 100%)'
+            ? 'linear-gradient(135deg, #81C784 0%, #4CAF50 50%, #1B5E20 100%)'
             : 'linear-gradient(135deg, #555 0%, #444 100%)',
           color: 'white',
           border: 'none',
-          borderRadius: '10px',
+          borderRadius: '28px',
           cursor: 'pointer',
-          boxShadow: '0 3px 10px rgba(45, 90, 39, 0.3)',
+          boxShadow: '0 3px 14px rgba(46, 125, 50, 0.35)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -1527,7 +1535,7 @@ function PreRoundPreview() {
                         height: '44px',
                         borderRadius: '50%',
                         objectFit: 'cover',
-                        border: `2px solid ${species.color}`,
+                        border: '2px solid rgba(255, 255, 255, 0.15)',
                       }}
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
