@@ -779,25 +779,8 @@ function PreRoundPreview() {
           <h2 style={{ margin: 0, fontSize: '14px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {packName}
           </h2>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', lineHeight: 1.1 }}>
-            <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>
-              Level {level.level_id}: {level.title}
-            </span>
-            <button
-              onClick={() => navigate(`/level-select?pack=${packId}`)}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-text-muted)',
-                fontSize: '11px',
-                cursor: 'pointer',
-                padding: '0 4px',
-                textDecoration: 'underline',
-                opacity: 0.7,
-              }}
-            >
-              Change
-            </button>
+          <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', lineHeight: 1.1 }}>
+            Level {level.level_id}: {level.title}
           </div>
         </div>
         {/* Home button */}
@@ -818,6 +801,48 @@ function PreRoundPreview() {
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
         </button>
+      </div>
+
+      {/* Level switcher dots */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '8px',
+        marginBottom: '2px',
+      }}>
+        {[1, 2, 3, 4, 5, 6].map((lvl) => {
+          const isActive = lvl === levelId;
+          const color = lvl <= 2 ? '#4CAF50' : lvl <= 4 ? '#FF9800' : '#f44336';
+          return (
+            <button
+              key={lvl}
+              onClick={() => {
+                if (lvl !== levelId) {
+                  navigate(`/preview?pack=${packId}&level=${lvl}`, { replace: true });
+                }
+              }}
+              style={{
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                border: isActive ? `2px solid ${color}` : '2px solid rgba(255, 255, 255, 0.15)',
+                background: isActive ? `${color}33` : 'rgba(255, 255, 255, 0.05)',
+                color: isActive ? color : 'var(--color-text-muted)',
+                fontSize: '13px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.15s',
+                opacity: isActive ? 1 : 0.6,
+              }}
+              title={LEVEL_TITLES[lvl] || `Level ${lvl}`}
+            >
+              {lvl}
+            </button>
+          );
+        })}
       </div>
 
       {/* Toggles + tools row */}
