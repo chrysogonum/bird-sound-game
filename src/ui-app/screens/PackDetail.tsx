@@ -42,7 +42,7 @@ const EU_PACK_IDS = ['eu_warblers', 'eu_raptors', 'eu_woodland', 'eu_all_birds']
 function getAccentColor(packId: string): string {
   if (NZ_PACK_IDS.includes(packId)) return '#4db6ac';
   if (EU_PACK_IDS.includes(packId)) return '#a0b450';
-  return '#f5a623';
+  return '#f5c87a';
 }
 
 function getBackRoute(packId: string): string {
@@ -174,24 +174,24 @@ function PackDetail() {
           onClick={() => navigate(`/level-select?pack=${packId}`)}
           style={{
             width: '100%',
-            padding: '16px',
-            fontSize: '18px',
-            fontWeight: 700,
-            background: accentColor,
-            color: '#000',
-            border: 'none',
+            padding: '14px',
+            fontSize: '16px',
+            fontWeight: 600,
+            background: 'transparent',
+            color: accentColor,
+            border: `2px solid ${accentColor}`,
             borderRadius: '14px',
             cursor: 'pointer',
-            boxShadow: `0 4px 16px ${accentColor}44`,
+            boxShadow: 'none',
             transition: 'transform 0.15s, box-shadow 0.15s',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = `0 6px 20px ${accentColor}66`;
+            e.currentTarget.style.boxShadow = `0 4px 12px ${accentColor}33`;
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = `0 4px 16px ${accentColor}44`;
+            e.currentTarget.style.boxShadow = 'none';
           }}
         >
           Choose a Level

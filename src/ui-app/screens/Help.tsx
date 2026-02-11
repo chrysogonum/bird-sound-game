@@ -399,7 +399,7 @@ function Help() {
             borderLeft: '3px solid var(--color-primary)',
           }}>
             <div style={{ fontSize: '14px', color: 'var(--color-text)', lineHeight: 1.5, display: 'flex', alignItems: 'flex-start', gap: '6px' }}>
-              <span style={{ color: '#F5A623', fontSize: '16px', fontWeight: 'bold', flexShrink: 0 }}>+</span>
+              <span style={{ color: '#f5c87a', fontSize: '16px', fontWeight: 'bold', flexShrink: 0 }}>+</span>
               <div>
                 <strong>Build Your Own Pack:</strong> You can combine any birds from the packs below into custom training sessions. Perfect for drilling problem birds, comparing confusing species, or creating and saving your yard list!
               </div>
@@ -409,7 +409,7 @@ function Help() {
           <RegionGroup
             label="North America"
             summary="120 species · 8 packs"
-            color="#f5a623"
+            color="#f5c87a"
           >
             <PackInfo
               name="Backyard Birds"
@@ -903,6 +903,8 @@ function Help() {
               <div>🇪🇺 <strong>Europe arrives!</strong> 61 species across 4 packs — warblers, raptors, woodland birds, and more.</div>
               <div>🌍 <strong>Global Custom Packs</strong> — mix birds from any region into one training session.</div>
               <div>🔠 <strong>Latin name display</strong> — toggle scientific names on the preview screen.</div>
+              <div>⚡ <strong>Fewer taps to play</strong> — Continue button on home screen, pack cards jump straight to preview, and per-pack level memory.</div>
+              <div>🎨 <strong>Visual refresh</strong> — earth-tone pack cards, translucent headers, polished nav icons across all pages.</div>
             </div>
           </div>
 
@@ -912,9 +914,11 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
-          <VersionEntry version="5.0" date="February 10, 2026">
+          <VersionEntry version="5.0" date="February 11, 2026 🎂 One month old today!">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Global Domination Continues:</strong> 61 European birds join the roster across 4 packs — Warblers & Skulkers, Raptors, Woodland & Field, and All European Birds. Dedicated EU sub-page with Sound Library and custom pack builder.</li>
+              <li><strong>Quick Resume:</strong> "Continue" button on home screen resumes your last pack and level. Pack cards skip straight to preview with per-pack level memory. "Change Level" link on preview screen keeps level select accessible.</li>
+              <li><strong>UI Polish:</strong> Earth-tone color palette for NA pack cards, translucent pack headers across all regions, nav icons with subtle containers, centered titles, and "Getting Started" tips on the Bird Packs page.</li>
             </ul>
           </VersionEntry>
 

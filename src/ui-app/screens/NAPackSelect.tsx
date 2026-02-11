@@ -258,7 +258,9 @@ function NAPackSelect() {
   const handlePackSelect = (pack: Pack) => {
     if (pack.isUnlocked) {
       trackPackSelect(pack.id, pack.name);
-      navigate(`/pack-detail?pack=${pack.id}`);
+      const savedLevel = localStorage.getItem(`soundfield_pack_level_${pack.id}`);
+      const levelId = savedLevel ? parseInt(savedLevel, 10) : 1;
+      navigate(`/preview?pack=${pack.id}&level=${levelId}`);
     }
   };
 
@@ -313,12 +315,24 @@ function NAPackSelect() {
   return (
     <div className="screen" style={{ paddingBottom: '24px' }}>
       <div className="flex-row items-center gap-md" style={{ marginBottom: '16px' }}>
-        <button className="btn-icon" onClick={() => navigate('/pack-select')} aria-label="Back" style={{ color: '#f5a623' }}>
+        <button className="btn-icon" onClick={() => navigate('/pack-select')} aria-label="Back" style={{
+          color: 'var(--color-text-muted)',
+          background: 'rgba(255, 255, 255, 0.06)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          borderRadius: '10px',
+          padding: '6px',
+        }}>
           <BackIcon />
         </button>
         <h2 style={{ margin: 0 }}>North America</h2>
         <div style={{ marginLeft: 'auto' }}>
-          <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: '#f5a623' }}>
+          <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{
+            color: 'var(--color-text-muted)',
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}>
             <HomeIcon />
           </button>
         </div>
@@ -328,8 +342,8 @@ function NAPackSelect() {
       <div
         style={{
           marginBottom: '20px',
-          background: 'var(--color-surface)',
-          border: '2px solid rgba(245, 166, 35, 0.7)',
+          background: 'rgba(255, 255, 255, 0.04)',
+          border: '1px dashed rgba(255, 255, 255, 0.15)',
           borderRadius: '16px',
           overflow: 'visible',
         }}
@@ -346,7 +360,7 @@ function NAPackSelect() {
             minHeight: '80px',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = 'rgba(45, 90, 39, 0.15)';
+            e.currentTarget.style.background = 'rgba(245, 200, 122, 0.08)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.background = 'transparent';
@@ -356,17 +370,18 @@ function NAPackSelect() {
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'rgba(245, 166, 35, 0.8)',
+            background: 'transparent',
+            border: '2px solid rgba(255, 255, 255, 0.2)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#000',
+            color: 'var(--color-text-muted)',
             flexShrink: 0,
           }}>
             <PlusIcon />
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '16px', fontWeight: 600, color: '#f5f0e6' }}>
+            <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text)' }}>
               Create Custom Pack
             </div>
             <button
@@ -377,7 +392,7 @@ function NAPackSelect() {
               style={{
                 background: 'none',
                 border: 'none',
-                color: '#f5a623',
+                color: '#fff',
                 fontSize: '12px',
                 cursor: 'pointer',
                 padding: '0',
@@ -406,27 +421,27 @@ function NAPackSelect() {
               paddingTop: '12px',
             }}>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: '#f5a623', opacity: 0.6 }}>→</span> Got a nemesis bird? Add it and drill all its variations.
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Got a nemesis bird? Add it and drill all its variations.
               </div>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: '#f5a623', opacity: 0.6 }}>→</span> A friend's eBird checklist has you jealous? Build their list and practice like you were there.
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> A friend's eBird checklist has you jealous? Build their list and practice like you were there.
               </div>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: '#f5a623', opacity: 0.6 }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Constantly confuse Kinglets, Creepers and Waxwings? Put them head-to-head.
               </div>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: '#f5a623', opacity: 0.6 }}>→</span> Warbler Wizard Wannabe? Training starts here!
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Warbler Wizard Wannabe? Training starts here!
               </div>
               <div style={{ marginBottom: '8px' }}>
-                <span style={{ color: '#f5a623', opacity: 0.6 }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> You think you know your woodpeckers? Try the Pileated vs. Northern Flicker on Level 5.
               </div>
               <div style={{ marginBottom: '12px' }}>
-                <span style={{ color: '#f5a623', opacity: 0.6 }}>→</span> Mix species from any pack — your rules, your practice.
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Mix species from any pack — your rules, your practice.
               </div>
               <div style={{
                 marginTop: '12px',
                 padding: '10px 16px',
-                background: 'rgba(245, 166, 35, 0.5)',
+                background: 'rgba(245, 200, 122, 0.5)',
                 borderRadius: '8px',
                 color: '#f5f0e6',
                 fontWeight: 600,
@@ -449,14 +464,14 @@ function NAPackSelect() {
       >
         {PACKS.map((pack) => {
           const packColors: Record<string, string> = {
-            starter_birds: 'linear-gradient(135deg, #2d5a3d 0%, #1a3d2a 100%)',
-            grassland_birds: 'linear-gradient(135deg, #7a6b2d 0%, #5a4a1a 100%)',
-            expanded_backyard: 'linear-gradient(135deg, #3d5a6e 0%, #2a3d4a 100%)',
-            sparrows: 'linear-gradient(135deg, #6b5344 0%, #4a3a2e 100%)',
-            woodpeckers: 'linear-gradient(135deg, #6e3d3d 0%, #4a2a2a 100%)',
-            western_birds: 'linear-gradient(135deg, #5a4a7a 0%, #3a2a5a 100%)',
-            spring_warblers: 'linear-gradient(135deg, #c46a28 0%, #8a4a18 100%)',
-            na_all_birds: 'linear-gradient(135deg, #2d5a6e 0%, #1a3d4a 100%)',
+            starter_birds: 'linear-gradient(135deg, #2a4a3a 0%, #1a3028 100%)',
+            grassland_birds: 'linear-gradient(135deg, #3a4a2a 0%, #263618 100%)',
+            expanded_backyard: 'linear-gradient(135deg, #2a3a4a 0%, #1a2838 100%)',
+            sparrows: 'linear-gradient(135deg, #3a3a4a 0%, #282838 100%)',
+            woodpeckers: 'linear-gradient(135deg, #4a2a2a 0%, #381a1a 100%)',
+            western_birds: 'linear-gradient(135deg, #2a3a3a 0%, #1a2a2a 100%)',
+            spring_warblers: 'linear-gradient(135deg, #4a4a1a 0%, #383810 100%)',
+            na_all_birds: 'linear-gradient(135deg, #2a3040 0%, #1a2030 100%)',
           };
 
           const packIcons: Record<string, string> = {
@@ -594,7 +609,7 @@ function NAPackSelect() {
             <button
               onClick={() => navigate(`/level-select?pack=${location.state.packId}`)}
               style={{
-                background: '#f5a623',
+                background: '#f5c87a',
                 color: 'var(--color-background)',
                 border: 'none',
                 borderRadius: '8px',
@@ -619,7 +634,7 @@ function NAPackSelect() {
             <button
               onClick={() => navigate('/help')}
               style={{
-                background: '#f5a623',
+                background: '#f5c87a',
                 color: 'var(--color-background)',
                 border: 'none',
                 borderRadius: '8px',
@@ -643,50 +658,28 @@ function NAPackSelect() {
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '12px' }}>
           <div>
             <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
-              Sound Library
+              🎧📚 Sound Library
             </h3>
-            <div style={{ fontSize: '14px', marginTop: '2px' }}>🎧📚</div>
           </div>
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-            <div style={{
-              display: 'flex',
+          <button
+            onClick={() => setTaxonomicSort(!taxonomicSort)}
+            style={{
+              padding: '6px 12px',
               borderRadius: '6px',
-              overflow: 'hidden',
               border: '1px solid rgba(255, 255, 255, 0.15)',
-            }}>
-              <button
-                onClick={() => setTaxonomicSort(false)}
-                style={{
-                  padding: '6px 10px',
-                  background: !taxonomicSort ? 'rgba(245, 166, 35, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                  border: 'none',
-                  borderRight: '1px solid rgba(255, 255, 255, 0.15)',
-                  cursor: 'pointer',
-                  fontSize: '11px',
-                  color: !taxonomicSort ? '#f5a623' : 'var(--color-text-muted)',
-                  fontWeight: !taxonomicSort ? 600 : 400,
-                }}
-                title="Sort alphabetically by species code"
-              >
-                🔤 A-Z
-              </button>
-              <button
-                onClick={() => setTaxonomicSort(true)}
-                style={{
-                  padding: '6px 10px',
-                  background: taxonomicSort ? 'rgba(245, 166, 35, 0.3)' : 'rgba(255, 255, 255, 0.05)',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '11px',
-                  color: taxonomicSort ? '#f5a623' : 'var(--color-text-muted)',
-                  fontWeight: taxonomicSort ? 600 : 400,
-                }}
-                title="Sort by taxonomic order"
-              >
-                📊 Taxonomy
-              </button>
-            </div>
-          </div>
+              background: 'rgba(255, 255, 255, 0.05)',
+              cursor: 'pointer',
+              fontSize: '11px',
+              color: '#f5c87a',
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+            }}
+          >
+            <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+            {taxonomicSort ? 'Taxonomy' : 'A-Z'}
+          </button>
         </div>
 
         {/* Construction notice */}
@@ -712,7 +705,7 @@ function NAPackSelect() {
           lineHeight: 1.6,
           marginBottom: '20px',
           paddingLeft: '12px',
-          borderLeft: '3px solid rgba(245, 166, 35, 0.5)',
+          borderLeft: '3px solid rgba(245, 200, 122, 0.5)',
         }}>
           Preview signature sounds for each bird before you play. Click pack names to expand and see all birds, or click individual birds to explore their full library of recordings.
         </p>
@@ -742,17 +735,17 @@ function NAPackSelect() {
                   alignItems: 'center',
                   gap: '8px',
                   padding: '8px 12px',
-                  background: 'var(--color-surface)',
+                  background: 'rgba(45, 45, 68, 0.7)',
                   borderRadius: '8px',
                   transition: 'background 0.15s',
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 1)'}
-                onMouseLeave={(e) => e.currentTarget.style.background = 'var(--color-surface)'}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 0.85)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 0.7)'}
               >
-                <span style={{ fontSize: '14px', color: '#f5a623', opacity: 0.6 }}>
+                <span style={{ fontSize: '14px', color: '#f5c87a', opacity: 0.6 }}>
                   {isExpanded ? '▼' : '▶'}
                 </span>
-                <span style={{ fontWeight: 600, color: '#f5a623', opacity: 0.85 }}>
+                <span style={{ fontWeight: 600, color: '#f5c87a', opacity: 0.85 }}>
                   All Birds
                 </span>
                 <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
@@ -794,7 +787,7 @@ function NAPackSelect() {
                       >
                         <BirdIcon code={bird.code} size={36} />
                         <div style={{ minWidth: 0, flex: 1 }}>
-                          <div style={{ fontSize: '11px', fontWeight: 700, color: '#f5a623' }}>
+                          <div style={{ fontSize: '11px', fontWeight: 700, color: '#f5c87a' }}>
                             {bird.code}
                           </div>
                           <div style={{ fontSize: '13px', fontWeight: 600, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
@@ -824,8 +817,8 @@ function NAPackSelect() {
                               height: '32px',
                               borderRadius: '50%',
                               border: 'none',
-                              background: playingClip === bird.code ? '#f5a623' : 'rgba(245, 166, 35, 0.3)',
-                              color: playingClip === bird.code ? '#000' : '#f5a623',
+                              background: playingClip === bird.code ? '#f5c87a' : 'rgba(245, 200, 122, 0.3)',
+                              color: playingClip === bird.code ? '#000' : '#f5c87a',
                               cursor: 'pointer',
                               display: 'flex',
                               alignItems: 'center',
@@ -872,8 +865,8 @@ function NAPackSelect() {
                                   height: '24px',
                                   borderRadius: '50%',
                                   border: 'none',
-                                  background: playingClip === `${bird.code}_${idx}` ? '#f5a623' : 'rgba(245, 166, 35, 0.3)',
-                                  color: playingClip === `${bird.code}_${idx}` ? '#000' : '#f5a623',
+                                  background: playingClip === `${bird.code}_${idx}` ? '#f5c87a' : 'rgba(245, 200, 122, 0.3)',
+                                  color: playingClip === `${bird.code}_${idx}` ? '#000' : '#f5c87a',
                                   cursor: 'pointer',
                                   display: 'flex',
                                   alignItems: 'center',
@@ -889,7 +882,7 @@ function NAPackSelect() {
                                   {clip.isCanonical && (
                                     <span style={{
                                       fontSize: '9px',
-                                      background: '#f5a623',
+                                      background: '#f5c87a',
                                       color: '#000',
                                       padding: '2px 6px',
                                       borderRadius: '4px',
@@ -901,7 +894,7 @@ function NAPackSelect() {
                                   <span style={{
                                     fontSize: '9px',
                                     color: 'var(--color-text-muted)',
-                                    background: clip.vocalizationType === 'song' ? 'rgba(76, 175, 80, 0.2)' : 'rgba(245, 166, 35, 0.2)',
+                                    background: clip.vocalizationType === 'song' ? 'rgba(76, 175, 80, 0.2)' : 'rgba(245, 200, 122, 0.2)',
                                     padding: '2px 6px',
                                     borderRadius: '4px',
                                     textTransform: 'uppercase',
@@ -917,7 +910,7 @@ function NAPackSelect() {
                                       borderRadius: '4px',
                                     }}>
                                       {clip.sourceUrl ? (
-                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#f5a623', textDecoration: 'underline' }}>
+                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#f5c87a', textDecoration: 'underline' }}>
                                           {clip.sourceId}{clip.recordist ? ` • ${clip.recordist}` : ''}
                                         </a>
                                       ) : (
@@ -966,17 +959,17 @@ function NAPackSelect() {
                 alignItems: 'center',
                 gap: '8px',
                 padding: '8px 12px',
-                background: 'var(--color-surface)',
+                background: 'rgba(45, 45, 68, 0.7)',
                 borderRadius: '8px',
                 transition: 'background 0.15s',
               }}
-              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 1)'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'var(--color-surface)'}
+              onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 0.85)'}
+              onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(45, 45, 68, 0.7)'}
             >
-              <span style={{ fontSize: '14px', color: '#f5a623', opacity: 0.6 }}>
+              <span style={{ fontSize: '14px', color: '#f5c87a', opacity: 0.6 }}>
                 {isExpanded ? '▼' : '▶'}
               </span>
-              <span style={{ fontWeight: 600, color: '#f5a623', opacity: 0.85 }}>
+              <span style={{ fontWeight: 600, color: '#f5c87a', opacity: 0.85 }}>
                 {pack.name}
               </span>
               <span style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginLeft: 'auto' }}>
@@ -1056,7 +1049,7 @@ function NAPackSelect() {
                     >
                       <BirdIcon code={bird.code} size={36} />
                       <div style={{ minWidth: 0, flex: 1 }}>
-                        <div style={{ fontSize: '11px', fontWeight: 700, color: '#f5a623' }}>
+                        <div style={{ fontSize: '11px', fontWeight: 700, color: '#f5c87a' }}>
                           {bird.code}
                         </div>
                         <div
@@ -1085,7 +1078,7 @@ function NAPackSelect() {
                         <div style={{ fontSize: '10px', color: 'var(--color-text-muted)' }}>
                           {bird.clipCount} clip{bird.clipCount !== 1 ? 's' : ''}
                           {bird.clipCount > 1 && (
-                            <span style={{ marginLeft: '4px', color: '#f5a623', opacity: 0.6 }}>
+                            <span style={{ marginLeft: '4px', color: '#f5c87a', opacity: 0.6 }}>
                               {isExpanded ? '▲' : '▼'}
                             </span>
                           )}
@@ -1102,8 +1095,8 @@ function NAPackSelect() {
                           height: '28px',
                           borderRadius: '50%',
                           border: 'none',
-                          background: playingClip === bird.code ? '#f5a623' : 'rgba(245, 166, 35, 0.3)',
-                          color: playingClip === bird.code ? '#000' : '#f5a623',
+                          background: playingClip === bird.code ? '#f5c87a' : 'rgba(245, 200, 122, 0.3)',
+                          color: playingClip === bird.code ? '#000' : '#f5c87a',
                           cursor: bird.canonicalClipPath ? 'pointer' : 'not-allowed',
                           opacity: bird.canonicalClipPath ? 1 : 0.3,
                           display: 'flex',
@@ -1146,8 +1139,8 @@ function NAPackSelect() {
                                   height: '24px',
                                   borderRadius: '50%',
                                   border: 'none',
-                                  background: playingClip === clip.id ? '#f5a623' : 'rgba(245, 166, 35, 0.3)',
-                                  color: playingClip === clip.id ? '#000' : '#f5a623',
+                                  background: playingClip === clip.id ? '#f5c87a' : 'rgba(245, 200, 122, 0.3)',
+                                  color: playingClip === clip.id ? '#000' : '#f5c87a',
                                   cursor: 'pointer',
                                   display: 'flex',
                                   alignItems: 'center',
@@ -1167,7 +1160,7 @@ function NAPackSelect() {
                                     <span style={{
                                       fontSize: '9px',
                                       color: '#000',
-                                      background: '#f5a623',
+                                      background: '#f5c87a',
                                       padding: '2px 6px',
                                       borderRadius: '4px',
                                       fontWeight: 600,
@@ -1196,7 +1189,7 @@ function NAPackSelect() {
                                       borderRadius: '4px',
                                     }}>
                                       {clip.sourceUrl ? (
-                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#f5a623', textDecoration: 'underline' }}>
+                                        <a href={clip.sourceUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#f5c87a', textDecoration: 'underline' }}>
                                           {clip.sourceId}{clip.recordist ? ` • ${clip.recordist}` : ''}
                                         </a>
                                       ) : (

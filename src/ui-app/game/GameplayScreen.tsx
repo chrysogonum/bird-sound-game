@@ -518,12 +518,10 @@ function GameplayScreen() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [gameState.roundState, handleChannelTap, handleSpeciesSelect, speciesForWheel]);
 
-  // Handle back button - return to preview with same birds
+  // Handle back button - trigger quit confirmation (same as quit button)
   const handleBack = useCallback(() => {
-    gameActions.reset();
-    // Navigate back to PreRoundPreview with keepBirds=true to restore the same selection
-    navigate(`/preview?pack=${packId}&level=${levelId}&keepBirds=true`);
-  }, [navigate, gameActions, packId, levelId]);
+    setShowQuitConfirm(true);
+  }, []);
 
   // Handle quit confirmation
   const handleQuitClick = useCallback(() => {

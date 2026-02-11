@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
 const REGIONS = [
@@ -8,7 +9,7 @@ const REGIONS = [
     summary: '120 species · 8 packs',
     tagline: 'Warblers, sparrows, woodpeckers & more',
     bg: 'rgba(245, 166, 35, 0.18)',
-    accentColor: '#f5a623',
+    accentColor: '#f5c87a',
     titleColor: '#f5c87a',
     icon: 'NOCA',
     preview: ['BLJA', 'CARW', 'EATO', 'AMRO', 'RWBL'],
@@ -41,15 +42,24 @@ const REGIONS = [
 
 function PackSelect() {
   const navigate = useNavigate();
+  const [showExamples, setShowExamples] = useState(false);
 
   return (
     <div className="screen" style={{ paddingBottom: '24px' }}>
       {/* Header */}
       <div className="flex-row items-center gap-md" style={{ marginBottom: '20px' }}>
-        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{ color: 'var(--color-text-muted)' }}>
+        <button className="btn-icon" onClick={() => navigate('/')} aria-label="Home" style={{
+          color: 'var(--color-text-muted)',
+          background: 'rgba(255, 255, 255, 0.06)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          borderRadius: '10px',
+          padding: '6px',
+        }}>
           <HomeIcon />
         </button>
-        <h2 style={{ margin: 0, fontSize: '18px', fontWeight: 600, color: 'var(--color-text)', opacity: 0.9 }}>Bird Packs</h2>
+        <h2 style={{ margin: 0, fontSize: '24px', fontWeight: 600, color: 'var(--color-text)', opacity: 0.9, flex: 1, textAlign: 'center' }}>Bird Packs</h2>
+        {/* Invisible spacer to balance the home button */}
+        <div style={{ width: '37px' }} />
       </div>
 
       <div style={{
@@ -61,6 +71,7 @@ function PackSelect() {
         padding: '16px',
         borderRadius: '12px',
       }}>
+        <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-text)', marginBottom: '8px' }}>Getting Started</div>
         <ul style={{ margin: 0, paddingLeft: '20px' }}>
           <li style={{ fontWeight: 600 }}>Best on a phone/tablet, with 🎧</li>
           <li>No sound? Check if 📱 is on silent 🔇→🔊</li>
@@ -75,6 +86,7 @@ function PackSelect() {
               🧘 ⚙️
             </Link>
           </li>
+          <li style={{ fontWeight: 600 }}>Pick a region below and start birding! 👇</li>
         </ul>
       </div>
 
@@ -88,8 +100,7 @@ function PackSelect() {
               width: '100%',
               display: 'flex',
               flexDirection: 'column',
-              gap: '6px',
-              padding: '14px 20px',
+              padding: '12px 16px',
               background: region.bg,
               borderRadius: '14px',
               border: 'none',
@@ -106,14 +117,13 @@ function PackSelect() {
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            {/* Top row: icon + title + chevron */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <img
                 src={`${import.meta.env.BASE_URL}data/icons/${region.icon}.png`}
                 alt=""
                 style={{
-                  width: '56px',
-                  height: '56px',
+                  width: '76px',
+                  height: '76px',
                   borderRadius: '50%',
                   objectFit: 'cover',
                   flexShrink: 0,
@@ -127,89 +137,151 @@ function PackSelect() {
                 <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
                   {region.summary}
                 </div>
+                <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', opacity: 0.8, marginTop: '2px' }}>
+                  {region.tagline}
+                </div>
+                <div style={{ display: 'flex', marginTop: '6px' }}>
+                  {region.preview.map((code, i) => (
+                    <img
+                      key={code}
+                      src={`${import.meta.env.BASE_URL}data/icons/${code}.png`}
+                      alt=""
+                      style={{
+                        width: '30px',
+                        height: '30px',
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                        border: '2px solid rgba(0,0,0,0.4)',
+                        marginLeft: i === 0 ? 0 : '-4px',
+                      }}
+                    />
+                  ))}
+                </div>
               </div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={region.accentColor} strokeWidth="3" style={{ opacity: 1, flexShrink: 0 }}>
                 <path d="M9 18l6-6-6-6" />
               </svg>
-            </div>
-            {/* Tagline */}
-            <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', opacity: 0.8, paddingLeft: '70px' }}>
-              {region.tagline}
-            </div>
-            {/* Preview bird avatars */}
-            <div style={{ display: 'flex', gap: '0px', paddingLeft: '70px' }}>
-              {region.preview.map((code, i) => (
-                <img
-                  key={code}
-                  src={`${import.meta.env.BASE_URL}data/icons/${code}.png`}
-                  alt=""
-                  style={{
-                    width: '38px',
-                    height: '38px',
-                    borderRadius: '50%',
-                    objectFit: 'cover',
-                    border: '2px solid rgba(0,0,0,0.4)',
-                    marginLeft: i === 0 ? 0 : '-4px',
-                  }}
-                />
-              ))}
             </div>
           </button>
         ))}
       </div>
 
       {/* Custom Pack */}
-      <button
-        onClick={() => navigate('/custom-pack')}
+      <div
         style={{
           width: '100%',
           marginTop: '16px',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '16px',
-          padding: '16px 20px',
           background: 'rgba(255, 255, 255, 0.04)',
           borderRadius: '14px',
           border: '1px dashed rgba(255, 255, 255, 0.15)',
-          cursor: 'pointer',
-          transition: 'all 0.2s',
-          textAlign: 'left',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)';
-          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
-          e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+          overflow: 'visible',
         }}
       >
-        <div style={{
-          width: '52px',
-          height: '52px',
-          borderRadius: '50%',
-          background: 'rgba(255, 255, 255, 0.08)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontSize: '22px',
-          color: 'var(--color-text-muted)',
-          flexShrink: 0,
-        }}>
-          +
-        </div>
-        <div style={{ flex: 1 }}>
-          <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-text)', opacity: 0.8 }}>
-            Custom Pack
+        <div
+          onClick={() => navigate('/custom-pack')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '16px',
+            padding: '16px 20px',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+            textAlign: 'left',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.04)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'transparent';
+          }}
+        >
+          <div style={{
+            width: '52px',
+            height: '52px',
+            borderRadius: '50%',
+            background: 'rgba(255, 255, 255, 0.08)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '22px',
+            color: 'var(--color-text-muted)',
+            flexShrink: 0,
+          }}>
+            +
           </div>
-          <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
-            Mix birds from any region
+          <div style={{ flex: 1 }}>
+            <div style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-text)', opacity: 0.8 }}>
+              Custom Pack
+            </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowExamples(!showExamples);
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                fontSize: '12px',
+                cursor: 'pointer',
+                padding: '0',
+                textDecoration: 'underline',
+                marginTop: '4px',
+              }}
+            >
+              {showExamples ? 'Hide ideas' : 'Mix birds from any region — see ideas'}
+            </button>
           </div>
         </div>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ opacity: 0.3, flexShrink: 0 }}>
-          <path d="M9 18l6-6-6-6" />
-        </svg>
-      </button>
+
+        {showExamples && (
+          <div
+            onClick={() => navigate('/custom-pack')}
+            style={{
+              padding: '0 20px 16px 20px',
+              cursor: 'pointer',
+            }}
+          >
+            <div style={{
+              fontSize: '13px',
+              color: 'var(--color-text-muted)',
+              lineHeight: 1.6,
+              borderTop: '1px solid rgba(255,255,255,0.1)',
+              paddingTop: '12px',
+            }}>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ opacity: 0.6 }}>→</span> <strong>Thrush showdown:</strong> American Robin vs Song Thrush vs Eurasian Blackbird — how well do you know your <em>Turdus</em>?
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ opacity: 0.6 }}>→</span> <strong>Global woodpeckers:</strong> Downy, Hairy, Great Spotted, Lesser Spotted, Green — tap & drum across continents.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ opacity: 0.6 }}>→</span> <strong>Warblers worldwide:</strong> NA wood-warblers vs EU leaf warblers — completely different families, equally confusing.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ opacity: 0.6 }}>→</span> <strong>Raptors everywhere:</strong> Red-tailed Hawk vs Peregrine Falcon vs Red Kite vs Eurasian Sparrowhawk — raptor calls across continents.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ opacity: 0.6 }}>→</span> <strong>Island vs mainland:</strong> NZ endemics mixed with their closest European or American cousins.
+              </div>
+              <div style={{ marginBottom: '12px' }}>
+                <span style={{ opacity: 0.6 }}>→</span> <strong>Your rules:</strong> Any combination, any region — build whatever challenge you want.
+              </div>
+              <div style={{
+                marginTop: '12px',
+                padding: '10px 16px',
+                background: 'rgba(255, 255, 255, 0.12)',
+                borderRadius: '8px',
+                color: '#f5f0e6',
+                fontWeight: 600,
+                textAlign: 'center',
+              }}>
+                Build Your Pack →
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

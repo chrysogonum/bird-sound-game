@@ -58,9 +58,9 @@ function CustomPackBuilder() {
   const region = searchParams.get('region') as 'na' | 'nz' | 'eu' | null;
 
   // Region-specific accent colors
-  const accentColor = region === 'nz' ? '#4db6ac' : region === 'eu' ? '#a0b450' : 'var(--color-accent)';
-  const accentColorMuted = region === 'nz' ? 'rgba(45, 122, 122, 0.7)' : region === 'eu' ? 'rgba(160, 180, 80, 0.6)' : 'rgba(245, 166, 35, 0.6)';
-  const accentColorBorder = region === 'nz' ? 'rgba(45, 122, 122, 0.5)' : region === 'eu' ? 'rgba(160, 180, 80, 0.4)' : 'rgba(255, 152, 0, 0.3)';
+  const accentColor = region === 'nz' ? '#4db6ac' : region === 'eu' ? '#a0b450' : '#f5c87a';
+  const accentColorMuted = region === 'nz' ? 'rgba(45, 122, 122, 0.7)' : region === 'eu' ? 'rgba(160, 180, 80, 0.6)' : 'rgba(245, 200, 122, 0.6)';
+  const accentColorBorder = region === 'nz' ? 'rgba(45, 122, 122, 0.5)' : region === 'eu' ? 'rgba(160, 180, 80, 0.4)' : 'rgba(245, 200, 122, 0.3)';
   const [allSpecies, setAllSpecies] = useState<SpeciesInfo[]>([]);
   const [selectedCodes, setSelectedCodes] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState('');

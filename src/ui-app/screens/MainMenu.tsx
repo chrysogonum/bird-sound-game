@@ -1,6 +1,28 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useRef, useEffect } from 'react';
 
+// Pack display names (shared with PreRoundPreview)
+const PACK_NAMES: Record<string, string> = {
+  starter_birds: 'Backyard Birds',
+  grassland_birds: 'Grasslands',
+  expanded_backyard: 'Eastern Birds',
+  sparrows: 'Sparrows',
+  woodpeckers: 'Woodpeckers',
+  spring_warblers: 'Warbler Academy',
+  western_birds: 'Western Birds',
+  custom: 'Custom Pack',
+  drill: 'Confusion Drill',
+  na_all_birds: 'All North America',
+  nz_all_birds: 'All NZ Birds',
+  nz_common: 'Garden & Bush',
+  nz_north_island: 'North Island',
+  nz_south_island: 'South Island',
+  eu_warblers: 'Warblers & Skulkers',
+  eu_raptors: 'Raptors',
+  eu_woodland: 'Woodland & Field',
+  eu_all_birds: 'All European Birds',
+};
+
 function MainMenu() {
   const navigate = useNavigate();
   const [pullDistance, setPullDistance] = useState(0);
@@ -8,6 +30,36 @@ function MainMenu() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const PULL_THRESHOLD = 80; // Distance to trigger refresh
+
+  // Check for last game (Continue button)
+  const [lastGame, setLastGame] = useState<{ packId: string; levelId: number } | null>(null);
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('soundfield_last_game');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.packId && parsed.levelId) {
+          setLastGame({ packId: parsed.packId, levelId: parsed.levelId });
+        }
+      }
+    } catch { /* ignore */ }
+  }, []);
+
+  // Cycling button text
+  const buttonWords = ['PLAY', 'LEARN', 'LISTEN'];
+  const [wordIndex, setWordIndex] = useState(0);
+  const [wordOpacity, setWordOpacity] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordOpacity(0);
+      setTimeout(() => {
+        setWordIndex(i => (i + 1) % buttonWords.length);
+        setWordOpacity(1);
+      }, 250);
+    }, 1800);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -158,7 +210,7 @@ function MainMenu() {
           Train your ear. Know the birds.
         </p>
 
-        {/* Main Play Button */}
+        {/* Main Play Button - always cycles PLAY/LEARN/LISTEN */}
         <button
           onClick={() => navigate('/pack-select')}
           style={{
@@ -167,25 +219,52 @@ function MainMenu() {
             fontSize: '19px',
             fontWeight: 700,
             letterSpacing: '1px',
-            background: 'linear-gradient(135deg, #FFD54F 0%, #FF8A65 50%, #E57373 100%)',
+            background: 'linear-gradient(135deg, #e8c060 0%, #d4896a 50%, #c07070 100%)',
             color: '#1a1a2e',
             border: 'none',
             borderRadius: '28px',
             cursor: 'pointer',
-            boxShadow: '0 4px 20px rgba(255, 138, 101, 0.35)',
+            boxShadow: '0 3px 14px rgba(200, 130, 90, 0.25)',
             transition: 'transform 0.2s, box-shadow 0.2s',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 8px 28px rgba(255, 138, 101, 0.45)';
+            e.currentTarget.style.boxShadow = '0 6px 20px rgba(200, 130, 90, 0.35)';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 4px 20px rgba(255, 138, 101, 0.35)';
+            e.currentTarget.style.boxShadow = '0 3px 14px rgba(200, 130, 90, 0.25)';
           }}
         >
-          PLAY
+          <span style={{
+            opacity: wordOpacity,
+            transition: 'opacity 0.25s ease',
+            display: 'inline-block',
+            minWidth: '80px',
+          }}>
+            {buttonWords[wordIndex]}
+          </span>
         </button>
+
+        {/* Continue link - only shown for returning players */}
+        {lastGame && (
+          <button
+            onClick={() => navigate(`/preview?pack=${lastGame.packId}&level=${lastGame.levelId}`)}
+            style={{
+              marginTop: '8px',
+              background: 'none',
+              border: 'none',
+              color: 'var(--color-accent)',
+              fontSize: '14px',
+              fontWeight: 600,
+              cursor: 'pointer',
+              padding: '4px 8px',
+              opacity: 0.7,
+            }}
+          >
+            Continue · {PACK_NAMES[lastGame.packId] || lastGame.packId} L{lastGame.levelId}
+          </button>
+        )}
 
         {/* How it works - visual gameplay preview */}
         <div style={{

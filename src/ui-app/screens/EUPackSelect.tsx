@@ -90,8 +90,10 @@ function EUPackSelect() {
   const [expandedBird, setExpandedBird] = useState<string | null>(null);
   const [playingClip, setPlayingClip] = useState<string | null>(null);
   const [taxonomicOrder, setTaxonomicOrder] = useState<Record<string, number>>({});
+  const [showExamples, setShowExamples] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const soundLibraryRef = useRef<HTMLDivElement | null>(null);
+  const [taxonomicSort, setTaxonomicSort] = useState(false);
 
   // Scroll to top on mount
   useEffect(() => {
@@ -187,7 +189,9 @@ function EUPackSelect() {
 
   const handlePackSelect = (pack: Pack) => {
     trackPackSelect(pack.id, pack.name);
-    navigate(`/pack-detail?pack=${pack.id}`);
+    const savedLevel = localStorage.getItem(`soundfield_pack_level_${pack.id}`);
+    const levelId = savedLevel ? parseInt(savedLevel, 10) : 1;
+    navigate(`/preview?pack=${pack.id}&level=${levelId}`);
   };
 
   const getBirdsForPack = (packId: string): BirdInfo[] => {
@@ -224,9 +228,9 @@ function EUPackSelect() {
       };
     });
 
-    // Sort by taxonomic order if available, otherwise alphabetically
+    // Sort by taxonomic order or alphabetically based on toggle
     return birds.sort((a, b) => {
-      if (Object.keys(taxonomicOrder).length > 0) {
+      if (taxonomicSort && Object.keys(taxonomicOrder).length > 0) {
         const orderA = taxonomicOrder[a.code] || 9999;
         const orderB = taxonomicOrder[b.code] || 9999;
         return orderA - orderB;
@@ -286,7 +290,13 @@ function EUPackSelect() {
           className="btn-icon"
           onClick={() => navigate('/pack-select')}
           aria-label="Back"
-          style={{ color: EU_ACCENT_COLOR }}
+          style={{
+            color: EU_ACCENT_COLOR,
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -297,7 +307,13 @@ function EUPackSelect() {
           className="btn-icon"
           onClick={() => navigate('/')}
           aria-label="Home"
-          style={{ color: EU_ACCENT_COLOR }}
+          style={{
+            color: EU_ACCENT_COLOR,
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -306,32 +322,12 @@ function EUPackSelect() {
         </button>
       </div>
 
-      <div style={{
-        fontSize: '14px',
-        color: 'var(--color-text-muted)',
-        marginBottom: '20px',
-        lineHeight: 1.6,
-        background: 'rgba(70, 70, 90, 0.5)',
-        padding: '16px',
-        borderRadius: '12px',
-      }}>
-        <p style={{ margin: 0 }}>
-          61 species from across Europe. Audio courtesy of{' '}
-          <a
-            href="https://xeno-canto.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#c8d8a2', textDecoration: 'underline' }}
-          >Xeno-canto</a> contributors (CC BY-NC-SA).
-        </p>
-      </div>
-
       {/* Create Custom Pack Section */}
       <div
         style={{
           marginBottom: '20px',
-          background: 'var(--color-surface)',
-          border: '2px solid rgba(160, 180, 80, 0.4)',
+          background: 'rgba(160, 180, 80, 0.12)',
+          border: 'none',
           borderRadius: '16px',
           overflow: 'visible',
         }}
@@ -357,11 +353,12 @@ function EUPackSelect() {
             width: '40px',
             height: '40px',
             borderRadius: '10px',
-            background: 'rgba(160, 180, 80, 0.5)',
+            background: 'transparent',
+            border: '2px solid rgba(160, 180, 80, 0.4)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#fff',
+            color: '#a0b450',
             flexShrink: 0,
           }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -369,15 +366,74 @@ function EUPackSelect() {
             </svg>
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '16px', fontWeight: 600, color: '#f5f0e6' }}>
+            <div style={{ fontSize: '16px', fontWeight: 600, color: '#c8d8a2' }}>
               Create Custom Pack
             </div>
-            <div style={{ fontSize: '12px', color: 'var(--color-text-muted)', marginTop: '2px' }}>
-              Mix and match your own selection of European birds
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setShowExamples(!showExamples);
+              }}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                fontSize: '12px',
+                cursor: 'pointer',
+                padding: '0',
+                textDecoration: 'underline',
+                marginTop: '4px',
+              }}
+            >
+              {showExamples ? 'Hide examples' : 'See examples'}
+            </button>
+          </div>
+        </div>
+
+        {showExamples && (
+          <div
+            onClick={() => navigate('/custom-pack?region=eu')}
+            style={{
+              padding: '0 16px 16px 16px',
+              cursor: 'pointer',
+            }}
+          >
+            <div style={{
+              fontSize: '13px',
+              color: 'var(--color-text-muted)',
+              lineHeight: 1.6,
+              borderTop: '1px solid rgba(255,255,255,0.1)',
+              paddingTop: '12px',
+            }}>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Build your own woodpecker pack — Great Spotted, Lesser Spotted, Green, and Black side by side.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Can't tell Reed Warbler from Marsh Warbler? Put all the skulkers head-to-head.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Prep for a birding trip — build a pack from your target species list.
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Mix raptors and woodland birds for a realistic forest walk challenge.
+              </div>
+              <div style={{ marginBottom: '12px' }}>
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Tit and warbler songs blending together? Isolate the tricky pairs.
+              </div>
+              <div style={{
+                marginTop: '12px',
+                padding: '10px 16px',
+                background: 'rgba(160, 180, 80, 0.4)',
+                borderRadius: '8px',
+                color: '#f5f0e6',
+                fontWeight: 600,
+                textAlign: 'center',
+              }}>
+                Click to Get Started →
+              </div>
             </div>
           </div>
-          <span style={{ fontSize: '20px', color: '#c8d8a2' }}>→</span>
-        </div>
+        )}
       </div>
 
       {/* Pack Grid */}
@@ -477,10 +533,28 @@ function EUPackSelect() {
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '12px' }}>
           <div>
             <h3 style={{ fontSize: '16px', margin: 0, color: 'var(--color-text-muted)' }}>
-              Sound Library
+              🎧📚 Sound Library
             </h3>
-            <div style={{ fontSize: '14px', marginTop: '2px' }}>🎧📚</div>
           </div>
+          <button
+            onClick={() => setTaxonomicSort(!taxonomicSort)}
+            style={{
+              padding: '6px 12px',
+              borderRadius: '6px',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              background: 'rgba(255, 255, 255, 0.05)',
+              cursor: 'pointer',
+              fontSize: '11px',
+              color: EU_ACCENT_COLOR,
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px',
+            }}
+          >
+            <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
+            {taxonomicSort ? 'Taxonomy' : 'A-Z'}
+          </button>
         </div>
 
         {/* Back to Level Select button */}
@@ -534,7 +608,7 @@ function EUPackSelect() {
                   alignItems: 'center',
                   gap: '8px',
                   padding: '10px 12px',
-                  background: 'var(--color-surface)',
+                  background: 'rgba(45, 45, 68, 0.7)',
                   borderRadius: '8px',
                   transition: 'background 0.15s',
                 }}
@@ -781,6 +855,13 @@ function EUPackSelect() {
             </div>
           );
         })}
+      </div>
+
+      {/* Attribution footnote */}
+      <div style={{ fontSize: '11px', color: 'var(--color-text-muted)', opacity: 0.6, marginTop: '16px', textAlign: 'center', lineHeight: 1.5 }}>
+        Audio courtesy of{' '}
+        <a href="https://xeno-canto.org/" target="_blank" rel="noopener noreferrer" style={{ color: EU_ACCENT_COLOR, textDecoration: 'underline' }}>Xeno-canto</a>{' '}
+        contributors (CC BY-NC-SA)
       </div>
     </div>
   );

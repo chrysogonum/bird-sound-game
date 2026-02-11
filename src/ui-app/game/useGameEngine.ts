@@ -1509,6 +1509,16 @@ export function useGameEngine(level: LevelConfig = DEFAULT_LEVEL): [GameEngineSt
       confusionData: confusionDataRef.current,
     };
     localStorage.setItem('soundfield_round_results', JSON.stringify(roundResults));
+
+    // Save last game for "Continue" button on MainMenu
+    localStorage.setItem('soundfield_last_game', JSON.stringify({
+      packId: level.pack_id,
+      levelId: level.level_id,
+      timestamp: Date.now(),
+    }));
+
+    // Save per-pack last level for quick resume from pack cards
+    localStorage.setItem(`soundfield_pack_level_${level.pack_id}`, String(level.level_id));
   }, [species, level.mode, level.pack_id, level.level_id, level.title]);
 
   /**

@@ -4,7 +4,7 @@
   /* Color Palette (Colorblind-Safe) */
   --color-primary: #2D5A27;
   --color-secondary: #4A90D9;
-  --color-accent: #F5A623;
+  --color-accent: #f5c87a;
   --color-background: #1A1A2E;
   --color-surface: #2D2D44;
   --color-text: #FFFFFF;
@@ -41,6 +41,11 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
 }
 
 html, body {
@@ -72,6 +77,11 @@ html, body {
   padding-top: calc(var(--spacing-lg) + var(--safe-area-top));
   padding-bottom: calc(var(--spacing-lg) + var(--safe-area-bottom));
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.screen::-webkit-scrollbar {
+  display: none;
 }
 
 .screen-center {

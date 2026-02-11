@@ -754,9 +754,21 @@ function PreRoundPreview() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         <button
           className="btn-icon"
-          onClick={() => navigate(`/level-select?pack=${packId}`)}
+          onClick={() => {
+            if (packId === 'custom') navigate('/custom-pack');
+            else if (packId === 'drill') navigate('/pack-select');
+            else if (isNZPack) navigate('/nz-packs');
+            else if (isEUPack) navigate('/eu-packs');
+            else navigate('/na-packs');
+          }}
           aria-label="Back"
-          style={{ flexShrink: 0, color: accentColor, opacity: 0.6 }}
+          style={{
+            flexShrink: 0, color: accentColor, opacity: 0.6,
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
+          }}
         >
           <BackIcon />
         </button>
@@ -764,57 +776,48 @@ function PreRoundPreview() {
           <h2 style={{ margin: 0, fontSize: '14px', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {packName}
           </h2>
-          <div style={{ fontSize: '12px', color: accentColor, opacity: 0.85, lineHeight: 1.1 }}>
-            Level {level.level_id}: {level.title}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', lineHeight: 1.1 }}>
+            <span style={{ fontSize: '12px', color: accentColor, opacity: 0.85 }}>
+              Level {level.level_id}: {level.title}
+            </span>
+            <button
+              onClick={() => navigate(`/level-select?pack=${packId}`)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-text-muted)',
+                fontSize: '11px',
+                cursor: 'pointer',
+                padding: '0 4px',
+                textDecoration: 'underline',
+                opacity: 0.7,
+              }}
+            >
+              Change
+            </button>
           </div>
         </div>
-        {/* Sound Library button - opens modal with all clips for selected birds */}
+        {/* Home button */}
         <button
-          onClick={() => setShowSoundLibrary(true)}
+          className="btn-icon"
+          onClick={() => navigate('/')}
+          aria-label="Home"
           style={{
-            padding: '6px 10px',
-            background: 'transparent',
-            border: '1px solid rgba(100, 181, 246, 0.3)',
-            borderRadius: '6px',
-            color: '#64B5F6',
-            fontSize: '15px',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4px',
-            flexShrink: 0,
-            whiteSpace: 'nowrap',
+            flexShrink: 0, color: accentColor, opacity: 0.6,
+            background: 'rgba(255, 255, 255, 0.06)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '10px',
+            padding: '6px',
           }}
-          title="Sound Library - hear all clips for these birds"
         >
-          🎧📚
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
         </button>
-        {/* Shuffle/Re-roll button - compact top right */}
-        {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
-          <button
-            onClick={fullCustomPack.length > 9 ? handleReroll : handleShuffle}
-            style={{
-              padding: '6px 10px',
-              background: 'transparent',
-              border: `1px solid ${accentColor}`,
-              borderRadius: '6px',
-              color: accentColor,
-              fontSize: '11px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '4px',
-              flexShrink: 0,
-              opacity: 0.6,
-            }}
-            title={fullCustomPack.length > 9 ? `Re-roll (${fullCustomPack.length} total birds)` : 'Shuffle birds'}
-          >
-            <ShuffleIcon />
-          </button>
-        )}
       </div>
 
-      {/* Compact Toggles Row */}
+      {/* Toggles + tools row */}
       <div style={{ display: 'flex', gap: '6px', fontSize: '12px' }}>
         <button
           onClick={handleTrainingModeToggle}
@@ -938,6 +941,42 @@ function PreRoundPreview() {
             </button>
           </div>
         )}
+        {/* Sound Library */}
+        <button
+          onClick={() => setShowSoundLibrary(true)}
+          style={{
+            padding: '6px 8px',
+            background: 'rgba(255, 255, 255, 0.05)',
+            border: '1px solid rgba(255, 255, 255, 0.15)',
+            borderRadius: '6px',
+            color: '#64B5F6',
+            fontSize: '13px',
+            cursor: 'pointer',
+            flexShrink: 0,
+          }}
+          title="Sound Library"
+        >
+          🎧
+        </button>
+        {/* Shuffle/Re-roll */}
+        {((level.species_pool && level.species_pool.length > (level.species_count || 0)) || fullCustomPack.length > 9) && (
+          <button
+            onClick={fullCustomPack.length > 9 ? handleReroll : handleShuffle}
+            style={{
+              padding: '6px 8px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '6px',
+              color: accentColor,
+              cursor: 'pointer',
+              flexShrink: 0,
+              opacity: 0.6,
+            }}
+            title={fullCustomPack.length > 9 ? `Re-roll (${fullCustomPack.length} total birds)` : 'Shuffle birds'}
+          >
+            <ShuffleIcon />
+          </button>
+        )}
       </div>
 
       {/* Preload status indicator */}
@@ -970,23 +1009,6 @@ function PreRoundPreview() {
           </div>
         </div>
       )}
-
-      {/* Status line showing current settings */}
-      <div style={{
-        fontSize: '11px',
-        color: 'var(--color-text-muted)',
-        textAlign: 'center',
-      }}>
-        {isNZPack ? (
-          <>
-            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {nzSortMode === 'maori' ? 'Te Reo' : nzSortMode === 'english' ? 'English' : 'Latin'} • Sort: {taxonomicSort ? 'Taxonomic' : 'A-Z'}
-          </>
-        ) : (
-          <>
-            👁️ Training {trainingMode ? 'on' : 'off'} • Display: {naDisplayMode === 'name' ? 'Common names' : naDisplayMode === 'latin' ? 'Latin names' : '4-letter codes'} • Sort: {taxonomicSort ? 'Taxonomic' : 'A-Z'}
-          </>
-        )}
-      </div>
 
       {/* Species grid - MAIN FOCUS */}
       <div style={{
