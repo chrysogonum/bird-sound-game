@@ -602,6 +602,8 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             self.handle_waveform(query)
         elif path == '/api/load-xc':
             self.handle_load_xc(query)
+        elif path == '/api/search-xc':
+            self.handle_search_xc(query)
         elif path.startswith('/audio/'):
             self.serve_audio(path[7:])
         elif path.startswith('/data/'):
@@ -850,6 +852,90 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             self.send_json(result)
         except Exception as e:
             self.send_json({'success': False, 'error': str(e)})
+
+    def handle_search_xc(self, query):
+        """Search Xeno-Canto for recordings of a species"""
+        import urllib.request
+        import urllib.parse
+
+        species_name = query.get('name', [None])[0]
+        quality = query.get('quality', [None])[0]  # e.g. "A", "A B"
+        voc_type = query.get('type', [None])[0]  # e.g. "song", "call"
+
+        if not species_name:
+            self.send_json({'error': 'Missing species name'})
+            return
+
+        api_key = os.environ.get('XENO_CANTO_API_KEY', '')
+        if not api_key:
+            self.send_json({'error': 'XENO_CANTO_API_KEY not set'})
+            return
+
+        # Build XC query — v3 API requires tagged search (en:"Name" or sp:epithet gen:Genus)
+        q_parts = [f'en:"{species_name}"']
+        if quality:
+            for q in quality.split():
+                q_parts.append(f'q:{q}')
+        if voc_type:
+            q_parts.append(f'type:{voc_type}')
+        q_parts.append('grp:birds')
+
+        xc_query = ' '.join(q_parts)
+        url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=50"
+
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'ChipNotes/1.0'})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read().decode())
+
+            # Get existing XC IDs for this species to mark them
+            clips = load_clips()
+            species_code = query.get('species', [None])[0] or ''
+            existing_xc = set()
+            rejected_xc = set()
+            for c in clips:
+                if c.get('species_code') == species_code:
+                    sid = c.get('source_id', '').replace('XC', '')
+                    if sid:
+                        if c.get('rejected'):
+                            rejected_xc.add(sid)
+                        else:
+                            existing_xc.add(sid)
+
+            results = []
+            for rec in data.get('recordings', []):
+                xc_id = str(rec.get('id', ''))
+                # Parse duration string "M:SS" to seconds
+                length_str = rec.get('length', '0:00')
+                try:
+                    parts = length_str.split(':')
+                    duration_s = int(parts[0]) * 60 + int(parts[1]) if len(parts) == 2 else 0
+                except (ValueError, IndexError):
+                    duration_s = 0
+
+                results.append({
+                    'xc_id': xc_id,
+                    'recordist': rec.get('rec', ''),
+                    'quality': rec.get('q', ''),
+                    'type': rec.get('type', ''),
+                    'duration': duration_s,
+                    'duration_str': length_str,
+                    'license': rec.get('lic', ''),
+                    'country': rec.get('cnt', ''),
+                    'date': rec.get('date', ''),
+                    'sample_rate': int(rec.get('smp', 0)),
+                    'remarks': rec.get('rmk', '')[:100] if rec.get('rmk') else '',
+                    'existing': xc_id in existing_xc,
+                    'rejected': xc_id in rejected_xc,
+                })
+
+            self.send_json({
+                'total': int(data.get('numRecordings', 0)),
+                'shown': len(results),
+                'results': results,
+            })
+        except Exception as e:
+            self.send_json({'error': str(e)})
 
     # ── POST handlers ─────────────────────────────────────────────
 
@@ -1304,6 +1390,67 @@ def generate_html() -> str:
             background: var(--teal-bg);
             color: var(--teal);
         }
+        .btn-browse {
+            background: var(--bg-tertiary);
+            color: var(--teal);
+            border-color: var(--teal);
+        }
+        .btn-browse:hover { background: var(--teal-bg); }
+        .browse-xc-panel {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg-secondary);
+            margin: 8px 0;
+            overflow: hidden;
+        }
+        .browse-filters {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-tertiary);
+        }
+        .browse-select {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-family: inherit;
+        }
+        .browse-results {
+            max-height: 240px;
+            overflow-y: auto;
+            padding: 4px;
+        }
+        .xc-result {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.15s;
+        }
+        .xc-result:hover { background: var(--bg-elevated); }
+        .xc-result.existing { opacity: 0.4; }
+        .xc-result.rejected { opacity: 0.3; text-decoration: line-through; }
+        .xc-result-id { font-family: 'IBM Plex Mono', monospace; font-size: 11px; min-width: 70px; color: var(--teal); }
+        .xc-result-q { font-weight: 700; min-width: 18px; text-align: center; }
+        .xc-result-q.qA { color: #66bb6a; }
+        .xc-result-q.qB { color: #aed581; }
+        .xc-result-q.qC { color: #fdd835; }
+        .xc-result-q.qD { color: #ffa726; }
+        .xc-result-q.qE { color: #ef5350; }
+        .xc-result-type { color: var(--text-dim); min-width: 60px; }
+        .xc-result-dur { color: var(--text-dim); min-width: 40px; text-align: right; }
+        .xc-result-rec { color: var(--text-dim); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .xc-result-badge { font-size: 10px; padding: 1px 5px; border-radius: 3px; }
+        .xc-result-badge.in-use { background: var(--teal-bg); color: var(--teal); }
+        .xc-result-badge.rejected-badge { background: rgba(239,83,80,0.15); color: #ef5350; }
 
         .xc-load-area {
             margin-left: auto;
@@ -1761,8 +1908,29 @@ def generate_html() -> str:
             <div id="sourceChips" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
             <div class="xc-load-area">
                 <input type="text" class="xc-input" id="xcInput" placeholder="XC ID">
-                <button class="btn" onclick="loadXC()">Load XC</button>
+                <button class="btn" onclick="loadXC()">Load</button>
+                <button class="btn btn-browse" onclick="toggleBrowseXC()">🔍 Browse XC</button>
             </div>
+        </div>
+
+        <div class="browse-xc-panel" id="browsePanel" style="display:none;">
+            <div class="browse-filters">
+                <select id="browseQuality" class="browse-select">
+                    <option value="">Any quality</option>
+                    <option value="A" selected>A only</option>
+                    <option value="A B">A or B</option>
+                </select>
+                <select id="browseType" class="browse-select">
+                    <option value="">Any type</option>
+                    <option value="song">Song</option>
+                    <option value="call">Call</option>
+                    <option value="alarm call">Alarm</option>
+                    <option value="flight call">Flight call</option>
+                </select>
+                <button class="btn" onclick="searchXC()">Search</button>
+                <span id="browseStatus" style="font-size:11px;color:var(--text-dim);margin-left:8px;"></span>
+            </div>
+            <div class="browse-results" id="browseResults"></div>
         </div>
 
         <div class="center-placeholder" id="centerPlaceholder">
@@ -2058,10 +2226,12 @@ function selectSpecies(species) {
     renderSpeciesList();
     updateUnsavedBadge();
 
-    // Show header
+    // Show header, reset browse panel
     document.getElementById('speciesHeader').style.display = '';
     document.getElementById('speciesTitle').textContent = species.common_name || species.species_code;
     document.getElementById('speciesSci').textContent = species.scientific_name || '';
+    document.getElementById('browsePanel').style.display = 'none';
+    document.getElementById('browseResults').innerHTML = '';
 
     // Load clips and candidates in parallel
     Promise.all([
@@ -2249,6 +2419,128 @@ function loadXC() {
                     });
             } else {
                 showStatus('Failed: ' + result.error, 'error');
+            }
+        });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CENTER PANEL: Browse XC
+// ═══════════════════════════════════════════════════════════════
+
+function toggleBrowseXC() {
+    const panel = document.getElementById('browsePanel');
+    if (panel.style.display === 'none') {
+        panel.style.display = '';
+        if (!document.getElementById('browseResults').innerHTML) searchXC();
+    } else {
+        panel.style.display = 'none';
+    }
+}
+
+function searchXC() {
+    if (!S.selectedSpecies) return;
+    const name = S.selectedSpecies.common_name || S.selectedSpecies.scientific_name;
+    const quality = document.getElementById('browseQuality').value;
+    const type = document.getElementById('browseType').value;
+    const species = S.selectedSpecies.species_code;
+
+    document.getElementById('browseStatus').textContent = 'Searching...';
+    document.getElementById('browseResults').innerHTML = '';
+
+    let url = '/api/search-xc?name=' + encodeURIComponent(name) + '&species=' + encodeURIComponent(species);
+    if (quality) url += '&quality=' + encodeURIComponent(quality);
+    if (type) url += '&type=' + encodeURIComponent(type);
+
+    fetch(url)
+        .then(r => r.json())
+        .then(data => {
+            if (data.error) {
+                document.getElementById('browseStatus').textContent = 'Error: ' + data.error;
+                return;
+            }
+            document.getElementById('browseStatus').textContent = data.shown + ' of ' + data.total + ' recordings';
+            renderBrowseResults(data.results);
+        })
+        .catch(err => {
+            document.getElementById('browseStatus').textContent = 'Error: ' + err;
+        });
+}
+
+function renderBrowseResults(results) {
+    const container = document.getElementById('browseResults');
+    if (!results.length) {
+        container.innerHTML = '<div style="padding:16px;color:var(--text-dim);text-align:center;">No recordings found. Try different filters.</div>';
+        return;
+    }
+    container.innerHTML = results.map(r => {
+        let cls = 'xc-result';
+        if (r.existing) cls += ' existing';
+        if (r.rejected) cls += ' rejected';
+        const qClass = r.quality ? ' q' + r.quality : '';
+        let badge = '';
+        if (r.existing) badge = '<span class="xc-result-badge in-use">in use</span>';
+        else if (r.rejected) badge = '<span class="xc-result-badge rejected-badge">rejected</span>';
+        const licShort = (function(lic) {
+            if (!lic) return '';
+            lic = lic.toLowerCase();
+            if (lic.includes('by-nc-nd')) return '<span style="color:#ff5252" title="BY-NC-ND">ND</span>';
+            if (lic.includes('by-nc-sa')) return '<span style="color:#81c784" title="BY-NC-SA">SA</span>';
+            if (lic.includes('by-sa')) return '<span style="color:#4db6ac" title="BY-SA">SA</span>';
+            return '';
+        })(r.license);
+        return '<div class="' + cls + '" onclick="loadFromBrowse(\\'' + r.xc_id + '\\',\\'' + escHtml(r.recordist) + '\\',\\'' + escHtml(r.type) + '\\',\\'' + escHtml(r.license) + '\\')" title="' + escHtml(r.remarks) + '">' +
+            '<span class="xc-result-id">XC' + r.xc_id + '</span>' +
+            '<span class="xc-result-q' + qClass + '">' + (r.quality || '?') + '</span>' +
+            '<span class="xc-result-type">' + escHtml(r.type || '') + '</span>' +
+            '<span class="xc-result-dur">' + r.duration_str + '</span>' +
+            '<span class="xc-result-rec">' + escHtml(r.recordist) + '</span>' +
+            (r.sample_rate && r.sample_rate !== 44100 ? '<span style="color:#e57373;font-size:10px;" title="' + r.sample_rate + 'Hz source">⚠</span>' : '') +
+            (licShort ? ' ' + licShort : '') +
+            badge +
+            '</div>';
+    }).join('');
+}
+
+function loadFromBrowse(xcId, recordist, vocType, license) {
+    // Download and load this XC recording
+    showStatus('Downloading XC' + xcId + '...', 'info');
+    document.getElementById('browsePanel').style.display = 'none';
+
+    fetch('/api/load-xc?id=' + xcId)
+        .then(r => r.json())
+        .then(result => {
+            if (result.success) {
+                S.selectedSource = {
+                    path: result.source_path,
+                    xc_id: xcId,
+                };
+
+                document.getElementById('recordist').value = result.recordist || recordist;
+                setVocType(result.vocalization_type || vocType);
+
+                // Update license display
+                const licEl = document.getElementById('licenseDisplay');
+                const lic = (result.license || license || '').toLowerCase();
+                if (lic.includes('by-nc-nd')) licEl.innerHTML = '<span style="color:#ff5252;">CC BY-NC-ND 4.0 ⚠️</span>';
+                else if (lic.includes('by-nc-sa')) licEl.innerHTML = '<span style="color:#81c784;">CC BY-NC-SA 4.0 ✓</span>';
+                else if (lic.includes('by-sa')) licEl.innerHTML = '<span style="color:#4db6ac;">CC BY-SA 4.0 ✓</span>';
+                else licEl.innerHTML = '<span style="color:var(--text-dim);">' + (result.license || license || 'Unknown') + '</span>';
+
+                document.getElementById('centerPlaceholder').style.display = 'none';
+                document.getElementById('waveformArea').style.display = '';
+
+                showStatus('Loaded XC' + xcId + ' — ' + (result.recordist || recordist), 'success');
+                loadWaveformFromPath(result.source_path);
+
+                // Also add to source chips for easy re-selection
+                S.candidates.push({xc_id: xcId, path: result.source_path, recordist: result.recordist || recordist, vocalization_type: result.vocalization_type || vocType, license: result.license || license});
+                renderSourceBar(S.candidates);
+                // Mark new chip active
+                document.querySelectorAll('.source-chip').forEach(el => el.classList.remove('active'));
+                const last = document.querySelector('.source-chip:last-child');
+                if (last) last.classList.add('active');
+            } else {
+                showStatus('Download failed: ' + (result.error || 'unknown'), 'error');
             }
         });
 }
