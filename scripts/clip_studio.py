@@ -392,9 +392,15 @@ def generate_spectrogram(audio: np.ndarray, sr: int, output_path: str):
         )
         ax.axis('off')
         plt.tight_layout(pad=0)
-        plt.savefig(output_path, bbox_inches='tight', pad_inches=0,
-                     facecolor='black', edgecolor='none', dpi=100)
-        plt.close()
+        fig.savefig(
+            output_path,
+            dpi=100,
+            bbox_inches='tight',
+            pad_inches=0,
+            transparent=False,
+            facecolor='black'
+        )
+        plt.close(fig)
     except Exception as e:
         print(f"Warning: Could not generate spectrogram: {e}")
 
