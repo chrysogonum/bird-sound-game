@@ -1056,7 +1056,7 @@ function PreRoundPreview() {
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: '10px',
-          maxWidth: '320px',
+          maxWidth: '480px',
           width: '100%',
         }}>
           {selectedSpecies.map((species) => (
@@ -1081,7 +1081,7 @@ function PreRoundPreview() {
             >
               {/* Bird icon - no tileName above, we show names below */}
               <div style={{ position: 'relative', WebkitTapHighlightColor: 'transparent' }}>
-                <BirdIcon code={species.code} size={52} color={species.color} />
+                <BirdIcon code={species.code} size={64} color={species.color} />
               </div>
               {/* Name display based on region and mode */}
               <div style={{
@@ -1089,7 +1089,7 @@ function PreRoundPreview() {
                 color: 'var(--color-text)',
                 textAlign: 'center',
                 lineHeight: 1.2,
-                maxWidth: '80px',
+                maxWidth: '100px',
                 overflow: 'hidden',
               }}>
                 {(() => {
