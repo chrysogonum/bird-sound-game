@@ -395,8 +395,12 @@ function LevelSelect() {
           if (packId === 'custom') {
             const customPackRegion = localStorage.getItem(CUSTOM_PACK_REGION_KEY);
             navigate(customPackRegion && customPackRegion !== 'all' ? `/custom-pack?region=${customPackRegion}` : '/custom-pack');
+          } else if (isNZPack) {
+            navigate('/nz-packs');
+          } else if (isEUPack) {
+            navigate('/eu-packs');
           } else {
-            navigate(`/pack-detail?pack=${packId}`);
+            navigate('/na-packs');
           }
         }} aria-label="Back" style={{ color: 'var(--color-text-muted)' }}>
           <BackIcon />
