@@ -86,26 +86,27 @@ def main():
 
     print(f"Total clips: {len(clips)}")
 
-    # Identify potentially affected clips: hash IDs from XC source
+    # Identify potentially affected clips: ALL XC clips (both hash and numeric IDs)
+    # Both old tool (hash IDs) and clip_editor.py (numeric IDs) used np.interp
     candidates = []
     for c in clips:
         if c.get("rejected"):
-            continue
-        if not is_hash_id(c["clip_id"]):
             continue
         if c.get("source") != "xenocanto":
             continue
         candidates.append(c)
 
-    print(f"Hash-ID XC clips to check: {len(candidates)}")
+    hash_count = sum(1 for c in candidates if is_hash_id(c["clip_id"]))
+    numeric_count = len(candidates) - hash_count
+    print(f"XC clips to check: {len(candidates)} (hash: {hash_count}, numeric: {numeric_count})")
     canonical_count = sum(1 for c in candidates if c.get("canonical"))
     print(f"  Of which canonical: {canonical_count}")
 
-    # Also check DOC and Macaulay hash clips (different pipeline, but worth noting)
-    doc_hash = [c for c in clips if not c.get("rejected") and is_hash_id(c["clip_id"]) and c.get("source") == "doc"]
-    mac_hash = [c for c in clips if not c.get("rejected") and is_hash_id(c["clip_id"]) and c.get("source") == "macaulay"]
-    print(f"DOC hash clips (not checked via API): {len(doc_hash)}")
-    print(f"Macaulay hash clips (not checked via API): {len(mac_hash)}")
+    # Also note DOC and Macaulay clips (different pipeline, not checkable via XC API)
+    doc_clips = [c for c in clips if not c.get("rejected") and c.get("source") == "doc"]
+    mac_clips = [c for c in clips if not c.get("rejected") and c.get("source") == "macaulay"]
+    print(f"DOC clips (not checked via API): {len(doc_clips)}")
+    print(f"Macaulay clips (not checked via API): {len(mac_clips)}")
 
     # Deduplicate XC source IDs — many clips share the same source recording
     source_ids = {}
@@ -208,8 +209,8 @@ def main():
         "degraded_non_canonical": [d for d in degraded if not d["is_canonical"]],
         "clean": clean,
         "unknown": unknown,
-        "doc_clips_not_checked": len(doc_hash),
-        "macaulay_clips_not_checked": len(mac_hash),
+        "doc_clips_not_checked": len(doc_clips),
+        "macaulay_clips_not_checked": len(mac_clips),
     }
 
     with open(OUTPUT_PATH, "w") as f:

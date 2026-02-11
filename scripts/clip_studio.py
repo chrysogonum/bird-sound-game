@@ -2569,9 +2569,9 @@ function renderClips() {
                 if (!info) return '';
                 var rateKhz = (info.rate / 1000).toFixed(1);
                 if (info.degraded) {
-                    return '<div class="clip-edit-row"><span class="clip-edit-label">Source</span><span style="color:#e57373;font-size:11px;">⚠ ' + rateKhz + 'kHz (np.interp)</span></div>';
+                    return '<div class="clip-edit-row"><span class="clip-edit-label">Sample</span><span style="color:#e57373;font-size:11px;">⚠ ' + rateKhz + 'kHz (np.interp)</span></div>';
                 } else {
-                    return '<div class="clip-edit-row"><span class="clip-edit-label">Source</span><span style="color:#81c784;font-size:11px;">' + rateKhz + 'kHz ✓</span></div>';
+                    return '<div class="clip-edit-row"><span class="clip-edit-label">Sample</span><span style="color:#81c784;font-size:11px;">' + rateKhz + 'kHz ✓</span></div>';
                 }
             })() +
             '<div class="clip-edit-row">' +
