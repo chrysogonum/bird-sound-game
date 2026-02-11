@@ -162,6 +162,37 @@ def load_candidates_for_species(species_code: str) -> List[Dict]:
                             'license': item.get('license', 'unknown')
                         })
 
+    # Fallback: if no candidates from manifests, extract XC source IDs from clips.json
+    if not candidates:
+        clips = load_clips()
+        seen_xc = set()
+        for clip in clips:
+            if clip.get('rejected'):
+                continue
+            if clip.get('species_code') != species_code:
+                continue
+            sid = clip.get('source_id', '')
+            xc_match = re.match(r'XC(\d+)', sid)
+            if xc_match and xc_match.group(1) not in seen_xc:
+                xc_id = xc_match.group(1)
+                seen_xc.add(xc_id)
+                # Check if audio already downloaded
+                audio_file = None
+                for cdir in (PROJECT_ROOT / 'data').glob(f'candidates_{species_code}'):
+                    for ext in ['.mp3', '.wav']:
+                        matches = list(cdir.glob(f'*{xc_id}*{ext}'))
+                        if matches:
+                            audio_file = str(matches[0])
+                            break
+                candidates.append({
+                    'xc_id': xc_id,
+                    'path': audio_file,  # None if not yet downloaded
+                    'recordist': clip.get('recordist', 'Unknown'),
+                    'vocalization_type': clip.get('vocalization_type', 'song'),
+                    'license': clip.get('license', 'unknown'),
+                    'from_clips': True,  # Flag: derived from clips.json, not manifest
+                })
+
     return candidates
 
 
@@ -2120,7 +2151,31 @@ function loadCandidate(candidate) {
         xc_id: candidate.xc_id,
     };
 
-    fetch('/api/waveform?source=' + encodeURIComponent(candidate.path))
+    // If no local file, download from XC first
+    if (!candidate.path) {
+        showStatus('Downloading XC' + candidate.xc_id + '...', 'info');
+        fetch('/api/load-xc?id=' + candidate.xc_id)
+            .then(r => r.json())
+            .then(result => {
+                if (result.success) {
+                    candidate.path = result.source_path;
+                    S.selectedSource.path = result.source_path;
+                    if (result.recordist) document.getElementById('recordist').value = result.recordist;
+                    if (result.vocalization_type) setVocType(result.vocalization_type);
+                    showStatus('Downloaded XC' + candidate.xc_id, 'success');
+                    loadWaveformFromPath(result.source_path);
+                } else {
+                    showStatus('Download failed: ' + (result.error || 'unknown'), 'error');
+                }
+            });
+        return;
+    }
+
+    loadWaveformFromPath(candidate.path);
+}
+
+function loadWaveformFromPath(path) {
+    fetch('/api/waveform?source=' + encodeURIComponent(path))
         .then(r => r.json())
         .then(data => {
             S.waveformData = data;
