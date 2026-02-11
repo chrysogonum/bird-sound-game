@@ -818,7 +818,7 @@ function PreRoundPreview() {
               key={lvl}
               onClick={() => {
                 if (lvl !== levelId) {
-                  navigate(`/preview?pack=${packId}&level=${lvl}`, { replace: true });
+                  navigate(`/preview?pack=${packId}&level=${lvl}&keepBirds=true`, { replace: true });
                 }
               }}
               style={{
