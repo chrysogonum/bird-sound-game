@@ -110,6 +110,23 @@ def load_packs() -> Dict[str, List[Dict]]:
     return packs_by_region
 
 
+def load_degraded_species() -> Dict[str, List[str]]:
+    """Load degraded species from degraded_clips.json report.
+    Returns dict with 'all' (all degraded species) and 'canonical' (species with degraded canonical clips)."""
+    report_path = PROJECT_ROOT / 'data' / 'degraded_clips.json'
+    if not report_path.exists():
+        return {'all': [], 'canonical': []}
+    with open(report_path, 'r') as f:
+        report = json.load(f)
+    all_species = sorted(set(
+        d['species_code'] for d in report.get('degraded_canonical', []) + report.get('degraded_non_canonical', [])
+    ))
+    canonical_species = sorted(set(
+        d['species_code'] for d in report.get('degraded_canonical', [])
+    ))
+    return {'all': all_species, 'canonical': canonical_species}
+
+
 def load_candidates_for_species(species_code: str) -> List[Dict]:
     """Load candidate sources for a species from ingest manifests"""
     candidates = []
@@ -614,12 +631,14 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 if clip.get('canonical'):
                     canonical_count += 1
 
+        degraded = load_degraded_species()
         self.send_json({
             'packs': packs,
             'total_clips': sum(clip_counts.values()),
             'total_canonical': canonical_count,
             'clip_counts': clip_counts,
             'filter_pack': self.filter_pack,
+            'degraded_species': degraded,
         })
 
     def handle_species(self, query):
@@ -628,7 +647,13 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
 
         # Determine which species to include
         pack_species = None
-        if pack_id:
+        if pack_id == '__degraded__':
+            degraded = load_degraded_species()
+            pack_species = set(degraded['all'])
+        elif pack_id == '__degraded_canonical__':
+            degraded = load_degraded_species()
+            pack_species = set(degraded['canonical'])
+        elif pack_id:
             packs = load_packs()
             for region_packs in packs.values():
                 for pack in region_packs:
@@ -1814,6 +1839,7 @@ fetch('/api/init')
         S.packs = data.packs;
         S.totalClips = data.total_clips;
         S.totalCanonical = data.total_canonical;
+        S.degradedSpecies = data.degraded_species || {all: [], canonical: []};
         S.selectedPack = data.filter_pack;
         renderPackTree();
         updateStatsDisplay();
@@ -1849,6 +1875,45 @@ function renderPackTree() {
     all.textContent = 'All Birds';
     all.onclick = () => { S.selectedPack = null; renderPackTree(); loadSpeciesList(null); };
     c.appendChild(all);
+
+    // Degraded Clips filters (from find_degraded_clips.py report)
+    if (S.degradedSpecies && S.degradedSpecies.all && S.degradedSpecies.all.length > 0) {
+        const group = document.createElement('div');
+        group.className = 'pack-group';
+
+        const hdr = document.createElement('div');
+        hdr.className = 'pack-group-hdr';
+        hdr.innerHTML = '<span class="pack-arrow">&#9654;</span>' +
+            '<span class="pack-group-name" style="color:#e57373">⚠ Degraded Clips</span>' +
+            '<span class="pack-group-count">' + S.degradedSpecies.all.length + '</span>';
+        hdr.onclick = () => group.classList.toggle('open');
+
+        const children = document.createElement('div');
+        children.className = 'pack-children';
+
+        // Canonical only
+        const canon = document.createElement('div');
+        canon.className = 'pack-child' + (S.selectedPack === '__degraded_canonical__' ? ' active' : '');
+        canon.innerHTML = '⭐ Canonical Only<span class="pack-child-count">' + S.degradedSpecies.canonical.length + '</span>';
+        canon.onclick = (e) => { e.stopPropagation(); S.selectedPack = '__degraded_canonical__'; renderPackTree(); loadSpeciesList('__degraded_canonical__'); };
+        children.appendChild(canon);
+
+        // All degraded
+        const allDeg = document.createElement('div');
+        allDeg.className = 'pack-child' + (S.selectedPack === '__degraded__' ? ' active' : '');
+        allDeg.innerHTML = 'All Degraded<span class="pack-child-count">' + S.degradedSpecies.all.length + '</span>';
+        allDeg.onclick = (e) => { e.stopPropagation(); S.selectedPack = '__degraded__'; renderPackTree(); loadSpeciesList('__degraded__'); };
+        children.appendChild(allDeg);
+
+        // Auto-expand if selected
+        if (S.selectedPack === '__degraded__' || S.selectedPack === '__degraded_canonical__') {
+            group.classList.add('open');
+        }
+
+        group.appendChild(hdr);
+        group.appendChild(children);
+        c.appendChild(group);
+    }
 
     const regions = [
         ['eu', 'European Packs'],
