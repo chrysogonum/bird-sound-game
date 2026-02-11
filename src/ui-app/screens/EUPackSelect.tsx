@@ -885,18 +885,45 @@ function EUPackSelect() {
             </div>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(2, 1fr)',
               gap: '16px',
             }}>
               {getBirdsForPack('eu_all_birds').map((bird) => (
-                <div key={bird.code} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
-                  <img
-                    src={`${import.meta.env.BASE_URL}data/icons/${bird.code}.png`}
-                    alt={bird.name}
-                    style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover', background: 'rgba(255,255,255,0.1)' }}
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                  />
-                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.8)', textAlign: 'center', lineHeight: 1.2 }}>
+                <div key={bird.code} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ position: 'relative' }}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}data/icons/${bird.code}.png`}
+                      alt={bird.name}
+                      style={{ width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', background: 'rgba(255,255,255,0.1)' }}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                    {bird.canonicalClipPath && (
+                      <button
+                        onClick={() => playSound(bird.canonicalClipPath!, bird.code)}
+                        style={{
+                          position: 'absolute',
+                          bottom: '-8px',
+                          right: '-14px',
+                          width: '36px',
+                          height: '36px',
+                          borderRadius: '50%',
+                          border: 'none',
+                          background: playingClip === bird.code ? 'rgba(255,255,255,0.25)' : 'rgba(0, 0, 0, 0.7)',
+                          color: playingClip === bird.code ? '#000' : 'rgba(255,255,255,0.8)',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '16px',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                        }}
+                        aria-label={playingClip === bird.code ? `Stop ${bird.name}` : `Play ${bird.name}`}
+                      >
+                        {playingClip === bird.code ? '⏸' : '▶'}
+                      </button>
+                    )}
+                  </div>
+                  <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.8)', textAlign: 'center', lineHeight: 1.2 }}>
                     {commonNames[bird.code] || bird.name}
                   </span>
                 </div>

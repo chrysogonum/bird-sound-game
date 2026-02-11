@@ -1351,11 +1351,11 @@ function PreRoundPreview() {
                           borderRadius: '50%',
                           border: 'none',
                           background: galleryPlayingClip === species.code
-                            ? accentColor
+                            ? 'rgba(255,255,255,0.25)'
                             : 'rgba(0, 0, 0, 0.7)',
                           color: galleryPlayingClip === species.code
-                            ? '#000'
-                            : accentColor,
+                            ? '#fff'
+                            : 'rgba(255,255,255,0.8)',
                           cursor: 'pointer',
                           display: 'flex',
                           alignItems: 'center',
