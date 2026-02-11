@@ -622,7 +622,12 @@ function NAPackSelect() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <button
-              onClick={() => setTaxonomicSort(!taxonomicSort)}
+              onClick={() => {
+                setTaxonomicSort(!taxonomicSort);
+                if (expandedPacks.size === 0) {
+                  setExpandedPacks(new Set(['na_all_birds']));
+                }
+              }}
               style={{
                 padding: '6px 12px',
                 borderRadius: '6px',

@@ -565,6 +565,9 @@ function NZPackSelect() {
                 const next = nzSortMode === 'maori' ? 'english' : nzSortMode === 'english' ? 'taxonomic' : 'maori';
                 setNzSortMode(next);
                 trackNZSortModeChange(next, 'sound_library');
+                if (expandedPacks.size === 0) {
+                  setExpandedPacks(new Set([NZ_PACKS[0].id]));
+                }
               }}
               style={{
                 padding: '6px 12px',

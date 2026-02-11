@@ -414,7 +414,7 @@ function EUPackSelect() {
                 <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Mix raptors and woodland birds for a realistic forest walk challenge.
               </div>
               <div style={{ marginBottom: '12px' }}>
-                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Tit and warbler songs blending together? Isolate the tricky pairs.
+                <span style={{ color: 'var(--color-text-muted)', opacity: 0.6 }}>→</span> Warbler songs all sound alike? Build a focused pack to drill the differences.
               </div>
               <div style={{
                 marginTop: '12px',
@@ -534,7 +534,12 @@ function EUPackSelect() {
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <button
-              onClick={() => setTaxonomicSort(!taxonomicSort)}
+              onClick={() => {
+                setTaxonomicSort(!taxonomicSort);
+                if (expandedPacks.size === 0) {
+                  setExpandedPacks(new Set([EU_PACKS[0].id]));
+                }
+              }}
               style={{
                 padding: '6px 12px',
                 borderRadius: '6px',

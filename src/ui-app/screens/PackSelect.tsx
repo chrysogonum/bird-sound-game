@@ -454,7 +454,12 @@ function PackSelect() {
               </h3>
             </div>
             <button
-              onClick={() => setTaxonomicSort(!taxonomicSort)}
+              onClick={() => {
+                setTaxonomicSort(!taxonomicSort);
+                if (expandedPacks.size === 0) {
+                  setExpandedPacks(new Set(['all_birds']));
+                }
+              }}
               style={{
                 padding: '6px 12px',
                 borderRadius: '6px',
