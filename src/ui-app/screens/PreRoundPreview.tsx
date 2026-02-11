@@ -193,6 +193,9 @@ function PreRoundPreview() {
   const [metadataLoaded, setMetadataLoaded] = useState(false);  // Track when NZ display codes etc are loaded
   const [mergeConfigLoaded, setMergeConfigLoaded] = useState(false);  // Track when subspecies merge config is loaded
   const [showSoundLibrary, setShowSoundLibrary] = useState(false);  // Mini sound library modal
+  const [showGallery, setShowGallery] = useState(false);  // Gallery modal
+  const [galleryPlayingClip, setGalleryPlayingClip] = useState<string | null>(null);
+  const galleryAudioRef = useRef<HTMLAudioElement | null>(null);
   const [libraryPlayingClip, setLibraryPlayingClip] = useState<string | null>(null);  // Currently playing clip in library
   const selectedForRef = useRef<string | null>(null);  // Track which pack/level we've selected species for
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -822,7 +825,6 @@ function PreRoundPreview() {
         <button
           onClick={handleTrainingModeToggle}
           style={{
-            flex: 1,
             padding: '6px 8px',
             background: trainingMode ? 'rgba(76, 175, 80, 0.25)' : 'rgba(255, 255, 255, 0.05)',
             border: trainingMode ? '2px solid var(--color-success)' : '1px solid rgba(255, 255, 255, 0.15)',
@@ -831,11 +833,11 @@ function PreRoundPreview() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '4px',
+            flexShrink: 0,
           }}
+          title={trainingMode ? 'Training mode ON' : 'Training mode OFF'}
         >
           <EyeIcon filled={trainingMode} color={trainingMode ? 'var(--color-success)' : undefined} />
-          <span style={{ fontSize: '11px' }}>Training</span>
         </button>
         {isNZPack ? (
           /* NZ display mode + taxonomic sort toggles */
@@ -940,6 +942,25 @@ function PreRoundPreview() {
               <span style={{ fontSize: '14px' }}>{taxonomicSort ? '📊' : '🔤'}</span>
             </button>
           </div>
+        )}
+        {/* Gallery */}
+        {packId !== 'custom' && (
+          <button
+            onClick={() => setShowGallery(true)}
+            style={{
+              padding: '6px 8px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              border: '1px solid rgba(255, 255, 255, 0.15)',
+              borderRadius: '6px',
+              color: accentColor,
+              fontSize: '13px',
+              cursor: 'pointer',
+              flexShrink: 0,
+            }}
+            title="Bird Gallery"
+          >
+            🖼️
+          </button>
         )}
         {/* Sound Library */}
         <button
@@ -1164,6 +1185,195 @@ function PreRoundPreview() {
 
 
       {/* Mini Sound Library Modal */}
+      {/* Gallery Modal */}
+      {showGallery && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: 'rgba(0, 0, 0, 0.85)',
+            zIndex: 1000,
+            display: 'flex',
+            flexDirection: 'column',
+            animation: 'fadeIn 0.2s ease-out',
+          }}
+          onClick={() => {
+            if (galleryAudioRef.current) {
+              galleryAudioRef.current.pause();
+            }
+            setGalleryPlayingClip(null);
+            setShowGallery(false);
+          }}
+        >
+          {/* Header */}
+          <div style={{
+            padding: '16px 20px',
+            paddingTop: 'calc(16px + var(--safe-area-top, 0px))',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            borderBottom: '1px solid rgba(255,255,255,0.1)',
+          }}>
+            <h3 style={{ margin: 0, fontSize: '18px', color: 'var(--color-text)' }}>
+              {packName}
+            </h3>
+            <button
+              onClick={() => {
+                if (galleryAudioRef.current) {
+                  galleryAudioRef.current.pause();
+                }
+                setGalleryPlayingClip(null);
+                setShowGallery(false);
+              }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: 'none',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                color: 'white',
+                fontSize: '20px',
+              }}
+              aria-label="Close gallery"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Gallery Grid */}
+          <div
+            style={{
+              flex: 1,
+              overflow: 'auto',
+              padding: '16px',
+              paddingBottom: 'calc(16px + var(--safe-area-bottom, 0px))',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+              maxWidth: '400px',
+              margin: '0 auto',
+            }}>
+              {selectedSpecies.map((species) => (
+                <div
+                  key={species.code}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '12px',
+                    padding: '16px',
+                    background: 'var(--color-surface)',
+                    borderRadius: '16px',
+                  }}
+                >
+                  {/* Image with play button overlay */}
+                  <div style={{ position: 'relative', width: '100%' }}>
+                    <img
+                      src={`${import.meta.env.BASE_URL}data/icons/${species.code}.png`}
+                      alt={species.name}
+                      style={{
+                        width: '100%',
+                        aspectRatio: '1',
+                        borderRadius: '12px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                    {species.clipPath && (
+                      <button
+                        onClick={() => {
+                          if (galleryAudioRef.current) {
+                            galleryAudioRef.current.pause();
+                            galleryAudioRef.current = null;
+                          }
+                          if (galleryPlayingClip === species.code) {
+                            setGalleryPlayingClip(null);
+                            return;
+                          }
+                          const audio = new Audio(species.clipPath!);
+                          galleryAudioRef.current = audio;
+                          setGalleryPlayingClip(species.code);
+                          audio.play().catch(console.error);
+                          audio.onended = () => {
+                            setGalleryPlayingClip(null);
+                            galleryAudioRef.current = null;
+                          };
+                        }}
+                        style={{
+                          position: 'absolute',
+                          bottom: '12px',
+                          right: '12px',
+                          width: '48px',
+                          height: '48px',
+                          borderRadius: '50%',
+                          border: 'none',
+                          background: galleryPlayingClip === species.code
+                            ? accentColor
+                            : 'rgba(0, 0, 0, 0.7)',
+                          color: galleryPlayingClip === species.code
+                            ? '#000'
+                            : accentColor,
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '20px',
+                          boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                          transition: 'all 0.15s',
+                        }}
+                        aria-label={galleryPlayingClip === species.code ? `Stop ${species.name}` : `Play ${species.name}`}
+                      >
+                        {galleryPlayingClip === species.code ? '⏸' : '▶'}
+                      </button>
+                    )}
+                  </div>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{
+                      fontSize: '20px',
+                      fontWeight: 700,
+                      color: 'var(--color-text)',
+                      marginBottom: '4px',
+                    }}>
+                      {species.name}
+                    </div>
+                    {species.scientificName && (
+                      <div style={{
+                        fontSize: '15px',
+                        fontStyle: 'italic',
+                        color: 'var(--color-text-muted)',
+                        marginBottom: isNZPack ? '0' : '6px',
+                      }}>
+                        {species.scientificName}
+                      </div>
+                    )}
+                    {!isNZPack && (
+                      <div style={{
+                        fontSize: '12px',
+                        fontWeight: 600,
+                        color: accentColor,
+                        opacity: 0.7,
+                      }}>
+                        {species.code}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {showSoundLibrary && (
         <div
           style={{
@@ -1390,6 +1600,10 @@ function PreRoundPreview() {
         @keyframes pulse {
           0%, 100% { transform: scale(1); opacity: 1; }
           50% { transform: scale(1.1); opacity: 0.7; }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
         }
         * {
           -webkit-tap-highlight-color: transparent;
