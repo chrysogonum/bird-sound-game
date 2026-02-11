@@ -3,6 +3,9 @@ node_modules/
 
 # Build outputs
 dist/
+
+# Generated reports
+data/degraded_clips.json
 bird-sound-game/
 
 # IDE
