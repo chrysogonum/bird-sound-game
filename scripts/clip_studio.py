@@ -350,34 +350,44 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
 
 
 def generate_spectrogram(audio: np.ndarray, sr: int, output_path: str):
-    """Generate spectrogram matching game style (locked settings)."""
+    """Generate spectrogram matching game style (locked settings).
+
+    Uses scipy.signal.spectrogram with pcolormesh + gouraud shading,
+    matching spectrogram_gen.py exactly.
+    """
     try:
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
-        import librosa
-        import librosa.display
+        from scipy import signal
 
-        # LOCKED SETTINGS — DO NOT MODIFY
+        # LOCKED SETTINGS — DO NOT MODIFY (must match spectrogram_gen.py)
         n_fft = 1024
         hop_length = 256
-        fmin = 500
-        fmax = 10000
+        freq_min = 500
+        freq_max = 10000
 
-        S = librosa.feature.melspectrogram(
-            y=audio, sr=sr, n_fft=n_fft, hop_length=hop_length,
-            fmin=fmin, fmax=fmax, n_mels=128
+        frequencies, times, Sxx = signal.spectrogram(
+            audio, fs=sr,
+            nperseg=n_fft,
+            noverlap=n_fft - hop_length,
+            scaling='density'
         )
-        S_db = librosa.power_to_db(S, ref=np.max)
 
-        vmin = np.percentile(S_db, 5)
-        vmax = np.percentile(S_db, 95)
+        Sxx_db = 10 * np.log10(Sxx + 1e-10)
+
+        freq_mask = (frequencies >= freq_min) & (frequencies <= freq_max)
+        frequencies_filtered = frequencies[freq_mask]
+        Sxx_filtered = Sxx_db[freq_mask, :]
+
+        vmin = np.percentile(Sxx_filtered, 5)
+        vmax = np.percentile(Sxx_filtered, 95)
 
         # 400x200px output (2:1 aspect ratio)
         fig, ax = plt.subplots(figsize=(4, 2), dpi=100)
-        librosa.display.specshow(
-            S_db, sr=sr, hop_length=hop_length,
-            fmin=fmin, fmax=fmax, ax=ax, cmap='magma',
+        ax.pcolormesh(
+            times, frequencies_filtered, Sxx_filtered,
+            shading='gouraud', cmap='magma',
             vmin=vmin, vmax=vmax
         )
         ax.axis('off')
