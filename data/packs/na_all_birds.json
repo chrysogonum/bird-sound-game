@@ -1,0 +1,40 @@
+{
+  "pack_id": "na_all_birds",
+  "region": "na",
+  "display_name": "All North America",
+  "description": "The complete collection of 120 North American bird species across all NA packs — backyard birds, grassland singers, warblers, sparrows, woodpeckers, and more.",
+  "species": [
+    "ACFL", "ACWO", "AGOL", "AMCR", "AMRE", "AMRO", "BAOR", "BAOW", "BARS", "BAWW",
+    "BBWA", "BCCH", "BEKI", "BGGN", "BHNU", "BLBW", "BLJA", "BLPW", "BRCR", "BRTH",
+    "BTBW", "BTNW", "BWWA", "CACH", "CAFI", "CARW", "CASJ", "CAWA", "CEDW", "CHSP",
+    "CHSW", "CMWA", "COGR", "COHA", "CONW", "COYE", "CSWA", "DEJU", "DICK", "DOWO",
+    "EABL", "EAKI", "EAME", "EAPH", "EATO", "EAWP", "EUST", "EVGR", "FICR", "FISP",
+    "GBHE", "GCFL", "GCKI", "GRCA", "GRHE", "GWWA", "HAWO", "HETH", "HOFI", "HOSP",
+    "INBU", "KEWA", "KILL", "LEWO", "LISP", "LOWA", "MAWA", "MODO", "MOWA", "NAWA",
+    "NHWR", "NOCA", "NOFL", "NOMO", "NOPA", "NOWA", "OATI", "OCWA", "OVEN", "PAWA",
+    "PISI", "PIWA", "PIWO", "PRAW", "PROW", "RBNU", "RBWO", "RCKI", "REVI", "RHWO",
+    "RSHA", "RTHA", "RTHU", "RWBL", "SAVS", "SCTA", "SOSP", "SPTO", "SSHA", "STJA",
+    "SUTA", "SWSP", "SWWA", "TEWA", "TUTI", "VEER", "WBNU", "WCSP", "WEBL", "WEVI",
+    "WEWA", "WIWA", "WOTH", "WREN", "WTSP", "YBCU", "YBSA", "YEWA", "YRWA", "YTWA"
+  ],
+  "display_species": [
+    "ACFL", "ACWO", "AGOL", "AMCR", "AMRE", "AMRO", "BAOR", "BAOW", "BARS", "BAWW",
+    "BBWA", "BCCH", "BEKI", "BGGN", "BHNU", "BLBW", "BLJA", "BLPW", "BRCR", "BRTH",
+    "BTBW", "BTNW", "BWWA", "CACH", "CAFI", "CARW", "CASJ", "CAWA", "CEDW", "CHSP",
+    "CHSW", "CMWA", "COGR", "COHA", "CONW", "COYE", "CSWA", "DEJU", "DICK", "DOWO",
+    "EABL", "EAKI", "EAME", "EAPH", "EATO", "EAWP", "EUST", "EVGR", "FICR", "FISP",
+    "GBHE", "GCFL", "GCKI", "GRCA", "GRHE", "GWWA", "HAWO", "HETH", "HOFI", "HOSP",
+    "INBU", "KEWA", "KILL", "LEWO", "LISP", "LOWA", "MAWA", "MODO", "MOWA", "NAWA",
+    "NHWR", "NOCA", "NOFL", "NOMO", "NOPA", "NOWA", "OATI", "OCWA", "OVEN", "PAWA",
+    "PISI", "PIWA", "PIWO", "PRAW", "PROW", "RBNU", "RBWO", "RCKI", "REVI", "RHWO",
+    "RSHA", "RTHA", "RTHU", "RWBL", "SAVS", "SCTA", "SOSP", "SPTO", "SSHA", "STJA",
+    "SUTA", "SWSP", "SWWA", "TEWA", "TUTI", "VEER", "WBNU", "WCSP", "WEBL", "WEVI",
+    "WEWA", "WIWA", "WOTH", "WREN", "WTSP", "YBCU", "YBSA", "YEWA", "YRWA", "YTWA"
+  ],
+  "vocalization_weights": {
+    "song": 0.5,
+    "call": 0.5
+  },
+  "overlap_multiplier": 1.0,
+  "tempo_multiplier": 1.0
+}
