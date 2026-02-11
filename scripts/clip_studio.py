@@ -663,6 +663,16 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                     canonical_count += 1
 
         degraded = load_degraded_species()
+
+        # Build map of degraded clip_id → source_sample_rate
+        degraded_clips_info = {}
+        report_path = PROJECT_ROOT / 'data' / 'degraded_clips.json'
+        if report_path.exists():
+            with open(report_path, 'r') as f:
+                report = json.load(f)
+            for d in report.get('degraded_canonical', []) + report.get('degraded_non_canonical', []):
+                degraded_clips_info[d['clip_id']] = d.get('source_sample_rate', 0)
+
         self.send_json({
             'packs': packs,
             'total_clips': sum(clip_counts.values()),
@@ -670,6 +680,7 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             'clip_counts': clip_counts,
             'filter_pack': self.filter_pack,
             'degraded_species': degraded,
+            'degraded_clips': degraded_clips_info,
         })
 
     def handle_species(self, query):
@@ -1871,6 +1882,7 @@ fetch('/api/init')
         S.totalClips = data.total_clips;
         S.totalCanonical = data.total_canonical;
         S.degradedSpecies = data.degraded_species || {all: [], canonical: []};
+        S.degradedClips = data.degraded_clips || {};
         S.selectedPack = data.filter_pack;
         renderPackTree();
         updateStatsDisplay();
@@ -2546,6 +2558,14 @@ function renderClips() {
             '<span class="clip-edit-label">Duration</span>' +
             '<span style="font-size:11px;">' + (clip.duration_ms/1000).toFixed(1) + 's</span></div>' +
             (clip.source_id ? '<div class="clip-edit-row"><span class="clip-edit-label">Source</span><span style="font-size:11px;">' + escHtml(clip.source_id) + '</span></div>' : '') +
+            (function() {
+                var rate = S.degradedClips[id];
+                if (rate) {
+                    var rateKhz = (rate / 1000).toFixed(1);
+                    return '<div class="clip-edit-row"><span class="clip-edit-label">Resamp</span><span style="color:#e57373;font-size:11px;">⚠ ' + rateKhz + 'kHz → 44.1kHz (np.interp)</span></div>';
+                }
+                return '';
+            })() +
             '<div class="clip-edit-row">' +
             '<span class="clip-edit-label">Type</span>' +
             '<select class="clip-edit-select" onchange="setMod(\\'' + id + '\\',\\'vocalization_type\\',this.value)">' +
