@@ -2800,6 +2800,7 @@ function toggleSelection() {
             document.getElementById('btnSel').innerHTML = '&#9632; Selection';
             audio.play();
             isPlaying = true;
+            updatePlayhead();
         })
         .catch(err => {
             console.error('Selection preview error:', err);
@@ -2861,7 +2862,13 @@ function updatePlayhead() {
     if (!isPlaying || !audio || !S.waveformData) return;
     const ph = document.getElementById('playhead');
     ph.style.display = 'block';
-    ph.style.left = (audio.currentTime / S.waveformData.duration * 100) + '%';
+    if (centerPlayMode === 'selection') {
+        // Server-side preview plays from 0..S.duration — offset to selection position
+        const pos = S.startTime + audio.currentTime;
+        ph.style.left = (pos / S.waveformData.duration * 100) + '%';
+    } else {
+        ph.style.left = (audio.currentTime / S.waveformData.duration * 100) + '%';
+    }
     animFrame = requestAnimationFrame(updatePlayhead);
 }
 
