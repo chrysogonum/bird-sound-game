@@ -905,13 +905,13 @@ function Help() {
         <div ref={versionHistoryRef}>
           {/* What's New */}
           <div className="card" style={{ marginBottom: '16px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.15)' }}>
-            <h4 style={{ margin: '0 0 10px 0', fontSize: '15px', color: 'var(--color-accent)', opacity: 0.7 }}>What's New in v5.01</h4>
+            <h4 style={{ margin: '0 0 10px 0', fontSize: '15px', color: 'var(--color-accent)', opacity: 0.7 }}>What's New in v5.0</h4>
             <div style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.7 }}>
-              <div>🔍 <strong>Sound Library search</strong> — search by code, common name, or Latin name in all "All Birds" libraries.</div>
-              <div>🔤 <strong>Sort fix</strong> — ABC sort now correctly sorts by what's displayed (codes, names, or Latin).</div>
-              <div>🖼️ <strong>Bird gallery upgrades</strong> — larger 2-column layout with play buttons for signature songs.</div>
-              <div>🎯 <strong>Faster replay</strong> — compact level nav with colored circles right below Play Again on the score page.</div>
-              <div>🎨 <strong>Polish</strong> — neutral play button colors, updated tips, and removal of construction notices.</div>
+              <div>🇪🇺 <strong>Europe arrives!</strong> 61 species across 4 packs — warblers, raptors, woodland birds, and more.</div>
+              <div>🌍 <strong>Global Custom Packs</strong> — mix birds from any region into one training session.</div>
+              <div>🔠 <strong>Latin name display</strong> — toggle scientific names on the preview screen.</div>
+              <div>⚡ <strong>Fewer taps to play</strong> — Continue button on home screen, pack cards jump straight to preview, and per-pack level memory.</div>
+              <div>🎨 <strong>Visual refresh</strong> — earth-tone pack cards, translucent headers, polished nav icons across all pages.</div>
             </div>
           </div>
 
