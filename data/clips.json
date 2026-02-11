@@ -2040,23 +2040,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "CMWA_b718f636",
-    "species_code": "CMWA",
-    "common_name": "Cape May Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1013473",
-    "file_path": "data/clips/CMWA_1013473.wav",
-    "spectrogram_path": "data/spectrograms/CMWA_1013473.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1013473",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "COGR_6003a2a1",
     "species_code": "COGR",
     "common_name": "Common Grackle",
@@ -20965,6 +20948,24 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/CMWA_1013293_1.wav",
     "spectrogram_path": "data/spectrograms/CMWA_1013293_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CMWA_1013473_1",
+    "species_code": "CMWA",
+    "common_name": "Cape May Warbler",
+    "vocalization_type": "call",
+    "duration_ms": 1900,
+    "quality_score": 5,
+    "loudness_lufs": -17.9,
+    "source": "xenocanto",
+    "source_id": "XC1013473",
+    "source_url": "https://xeno-canto.org/1013473",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/CMWA_1013473_1.wav",
+    "spectrogram_path": "data/spectrograms/CMWA_1013473_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
