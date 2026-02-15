@@ -631,6 +631,9 @@ function PreRoundPreview() {
     Promise.all(preloadPromises).then(() => {
       console.log('Preloading complete!');
       setPreloadStatus('ready');
+    }).catch((err) => {
+      console.warn('Preloading failed:', err);
+      setPreloadStatus('ready'); // Allow play even if preload fails
     });
   }, [selectedSpecies, clips]);
 
