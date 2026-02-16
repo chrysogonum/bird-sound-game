@@ -11,11 +11,21 @@ export function initSentry(): void {
     sampleRate: 1.0,
     tracesSampleRate: 0,
     beforeSend(event) {
+      const firstException = event.exception?.values?.[0];
+      const frames = firstException?.stacktrace?.frames;
+
       // Drop errors from browser extensions
-      const frames = event.exception?.values?.[0]?.stacktrace?.frames;
       if (frames?.some(f => f.filename?.startsWith('chrome-extension://') || f.filename?.startsWith('moz-extension://'))) {
         return null;
       }
+
+      // Drop browser-internal errors with no stack trace (e.g., privacy browsers like
+      // DuckDuckGo throwing "invalid origin" from their tracking protection features)
+      const message = firstException?.value || '';
+      if ((!frames || frames.length === 0) && /^invalid origin$/i.test(message)) {
+        return null;
+      }
+
       return event;
     },
   });
