@@ -19,6 +19,23 @@ function BirdIcon({ code, tileName, size = 32, color, twoRowLayout = false }: {
   const iconPath = `${import.meta.env.BASE_URL}data/icons/${code}.png`;
   const labelCode = tileName || code;  // Show tileName if available, otherwise use code
 
+  // Dynamic font scale: shrink text for long bird names to prevent wrapping
+  const labelScale = useMemo(() => {
+    if (!twoRowLayout) return 1;
+    const maxCharsPerLine = 9; // approx chars that fit at base font size
+    // Longest unbreakable segment determines if a word must shrink to fit one line
+    const words = labelCode.split(/[\s\-]/);
+    const longestWordLen = Math.max(...words.map(w => w.length));
+    const wordFactor = longestWordLen > maxCharsPerLine
+      ? maxCharsPerLine / longestWordLen : 1;
+    // Total length determines if text fits within 2 lines
+    const totalLen = labelCode.length;
+    const maxTotalChars = maxCharsPerLine * 2;
+    const totalFactor = totalLen > maxTotalChars
+      ? maxTotalChars / totalLen : 1;
+    return Math.max(Math.min(wordFactor, totalFactor), 0.68);
+  }, [labelCode, twoRowLayout]);
+
   // Two-row layout: larger icon on top, text below with 2-line wrapping
   if (twoRowLayout) {
     return (
@@ -56,8 +73,8 @@ function BirdIcon({ code, tileName, size = 32, color, twoRowLayout = false }: {
             {labelCode.slice(0, 4)}
           </div>
         )}
-        <span style={{
-          fontSize: '8px',
+        <span className="bird-label" style={{
+          '--label-scale': labelScale,
           fontWeight: 600,
           color: '#FFFFFF',
           lineHeight: 1.2,
@@ -68,8 +85,8 @@ function BirdIcon({ code, tileName, size = 32, color, twoRowLayout = false }: {
           display: '-webkit-box',
           WebkitLineClamp: 2,
           WebkitBoxOrient: 'vertical',
-          wordBreak: 'break-word',
-        }}>
+          overflowWrap: 'break-word',
+        } as React.CSSProperties}>
           {labelCode}
         </span>
       </div>
@@ -1245,6 +1262,10 @@ function GameplayScreen() {
           cursor: not-allowed;
         }
 
+        .bird-label {
+          font-size: calc(8px * var(--label-scale, 1));
+        }
+
         /* Tablet: larger icons and more spacing */
         @media (min-width: 768px) {
           .species-buttons {
@@ -1261,8 +1282,8 @@ function GameplayScreen() {
             height: 52px !important;
           }
 
-          .species-btn > div > span {
-            font-size: 13px !important;
+          .bird-label {
+            font-size: calc(13px * var(--label-scale, 1)) !important;
           }
         }
       `}</style>
