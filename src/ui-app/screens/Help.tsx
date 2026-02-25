@@ -921,6 +921,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.02" date="February 25, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Bird Name Scaling:</strong> Long species names (like "Common Whitethroat") now dynamically shrink to fit gameplay buttons instead of breaking mid-word.</li>
+              <li><strong>Error Handling:</strong> Filtered spurious "invalid origin" errors from privacy browsers (DuckDuckGo) in error tracking. Added missing error handler for audio preloading.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.01" date="February 11, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Sound Library Search:</strong> New search box in all "All Birds" Sound Libraries — filter by species code, common name, or Latin name across all four regions.</li>
