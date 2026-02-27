@@ -703,16 +703,6 @@ function RoundSummary() {
               {isSharing ? 'Generating...' : !shareReady ? 'Preparing...' : 'Share Your Score'}
             </button>
           </div>
-          <p style={{
-            fontSize: '13px',
-            color: 'var(--color-text-muted)',
-            textAlign: 'center',
-            marginTop: '-8px',
-            marginBottom: '0',
-            fontStyle: 'italic',
-          }}>
-            Let them Wordle, you already know how to spell.
-          </p>
           {shareMessage && (
             <p style={{
               fontSize: '14px',
