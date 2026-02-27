@@ -660,38 +660,8 @@ function Help() {
           isExpanded={expandedSections.has('Taxonomic Sorting')}
           onToggle={() => toggleSection('Taxonomic Sorting')}
         >
-          <div style={{
-            background: 'var(--color-surface)',
-            padding: '12px',
-            borderRadius: '8px',
-            marginBottom: '12px',
-            fontSize: '14px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-          }}>
-            <span style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: '32px',
-              height: '32px',
-              background: 'rgba(100, 181, 246, 0.3)',
-              border: '2px solid rgba(100, 181, 246, 0.6)',
-              borderRadius: '50%',
-              color: '#64B5F6',
-            }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
-            </span>
-            <span style={{ color: 'var(--color-text-muted)' }}>Toggle glows blue when Taxonomic Sorting is ON</span>
-          </div>
           <p>
-            Taxonomic sorting can be toggled on and off throughout the game - on the preview screen, in Sound Library sections, in the Custom Pack Builder, and during gameplay. When enabled, birds appear in phylogenetic order with scientific names instead of alphabetically. 🐦🤓
+            Tap the sort button to switch between alphabetical and taxonomic ordering. You'll find it on the preview screen, in Sound Library sections, in the Custom Pack Builder, and during gameplay. When taxonomic sorting is active, birds appear in phylogenetic order with scientific names instead of alphabetically. 🐦🤓
           </p>
           <p style={{ marginTop: '12px' }}>
             Birds are sorted by their position on the evolutionary tree (using the 2025 eBird/AOS taxonomy), and common names are replaced with <em>scientific names in italics</em>. Perfect for learning evolutionary relationships!
