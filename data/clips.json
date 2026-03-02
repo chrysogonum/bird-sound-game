@@ -510,23 +510,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "BBWA_a0600ac2",
-    "species_code": "BBWA",
-    "common_name": "Bay-breasted Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1036530",
-    "file_path": "data/clips/BBWA_1036530.wav",
-    "spectrogram_path": "data/spectrograms/BBWA_1036530.png",
-    "recordist": "Bobby Wilcox",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1036530",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "BCCH_1f1620c6",
     "species_code": "BCCH",
     "common_name": "Black-capped Chickadee",
@@ -21125,7 +21108,7 @@
     "clip_id": "BBWA_1020371_1",
     "species_code": "BBWA",
     "common_name": "Bay-breasted Warbler",
-    "vocalization_type": "call, chip",
+    "vocalization_type": "chip",
     "duration_ms": 1100,
     "quality_score": 5,
     "loudness_lufs": -18.4,
