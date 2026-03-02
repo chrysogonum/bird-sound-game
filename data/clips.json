@@ -5508,23 +5508,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "SWWA_6f528874",
-    "species_code": "SWWA",
-    "common_name": "Swainson's Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1071256",
-    "file_path": "data/clips/SWWA_1071256.wav",
-    "spectrogram_path": "data/spectrograms/SWWA_1071256.png",
-    "recordist": "Noah Khanti Steinberg",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1071256",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "TEWA_e9a9cd72",
     "species_code": "TEWA",
     "common_name": "Tennessee Warbler",
@@ -21696,6 +21679,24 @@
     "file_path": "data/clips/SWWA_938875_1.wav",
     "spectrogram_path": "data/spectrograms/SWWA_938875_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "SWWA_1071256_1",
+    "species_code": "SWWA",
+    "common_name": "Swainson's Warbler",
+    "vocalization_type": "call",
+    "duration_ms": 2300,
+    "quality_score": 5,
+    "loudness_lufs": -18.0,
+    "source": "xenocanto",
+    "source_id": "XC1071256",
+    "source_url": "https://xeno-canto.org/1071256",
+    "recordist": "Noah Khanti Steinberg",
+    "file_path": "data/clips/SWWA_1071256_1.wav",
+    "spectrogram_path": "data/spectrograms/SWWA_1071256_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
