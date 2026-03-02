@@ -1768,23 +1768,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "COYE_15a1a094",
-    "species_code": "COYE",
-    "common_name": "Common Yellowthroat",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1021804",
-    "file_path": "data/clips/COYE_1021804.wav",
-    "spectrogram_path": "data/spectrograms/COYE_1021804.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1021804",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "DEJU_f04ee91b",
     "species_code": "DEJU",
     "common_name": "Dark-eyed Junco",
@@ -21647,6 +21630,24 @@
     "file_path": "data/clips/CAWA_1015017_1.wav",
     "spectrogram_path": "data/spectrograms/CAWA_1015017_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "COYE_1021804_1",
+    "species_code": "COYE",
+    "common_name": "Common Yellowthroat",
+    "vocalization_type": "song",
+    "duration_ms": 2200,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1021804",
+    "source_url": "https://xeno-canto.org/1021804",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/COYE_1021804_1.wav",
+    "spectrogram_path": "data/spectrograms/COYE_1021804_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
