@@ -21421,5 +21421,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "GRHE_144306_1",
+    "species_code": "GRHE",
+    "common_name": "Green Heron",
+    "vocalization_type": "alarm call",
+    "duration_ms": 1300,
+    "quality_score": 5,
+    "loudness_lufs": -18.7,
+    "source": "xenocanto",
+    "source_id": "XC144306",
+    "source_url": "https://xeno-canto.org/144306",
+    "recordist": "Russ Wigh",
+    "file_path": "data/clips/GRHE_144306_1.wav",
+    "spectrogram_path": "data/spectrograms/GRHE_144306_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
