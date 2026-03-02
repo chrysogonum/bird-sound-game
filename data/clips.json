@@ -187,23 +187,6 @@
     "license": "Macaulay Library - Non-commercial license"
   },
   {
-    "clip_id": "AMCR_7f3a91b1",
-    "species_code": "AMCR",
-    "common_name": "American Crow",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC667361",
-    "file_path": "data/clips/AMCR_667361.wav",
-    "spectrogram_path": "data/spectrograms/AMCR_667361.png",
-    "recordist": "Nick Komar",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/667361",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "AMRE_293665b4",
     "species_code": "AMRE",
     "common_name": "American Redstart",
@@ -20948,6 +20931,24 @@
     "file_path": "data/clips/AMCR_316302_1.wav",
     "spectrogram_path": "data/spectrograms/AMCR_316302_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "AMCR_667361_1",
+    "species_code": "AMCR",
+    "common_name": "American Crow",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC667361",
+    "source_url": "https://xeno-canto.org/667361",
+    "recordist": "Nick Komar",
+    "file_path": "data/clips/AMCR_667361_1.wav",
+    "spectrogram_path": "data/spectrograms/AMCR_667361_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
