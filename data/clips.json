@@ -187,23 +187,6 @@
     "license": "Macaulay Library - Non-commercial license"
   },
   {
-    "clip_id": "AMCR_e2208b21",
-    "species_code": "AMCR",
-    "common_name": "American Crow",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC316302",
-    "file_path": "data/clips/AMCR_316302.wav",
-    "spectrogram_path": "data/spectrograms/AMCR_316302.png",
-    "recordist": "Sue Riffe",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/316302",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "AMCR_7f3a91b1",
     "species_code": "AMCR",
     "common_name": "American Crow",
@@ -20947,6 +20930,24 @@
     "file_path": "data/clips/grrwar1_800528_2.wav",
     "spectrogram_path": "data/spectrograms/grrwar1_800528_2.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "AMCR_316302_1",
+    "species_code": "AMCR",
+    "common_name": "American Crow",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.7,
+    "source": "xenocanto",
+    "source_id": "XC316302",
+    "source_url": "https://xeno-canto.org/316302",
+    "recordist": "Sue Riffe",
+    "file_path": "data/clips/AMCR_316302_1.wav",
+    "spectrogram_path": "data/spectrograms/AMCR_316302_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
