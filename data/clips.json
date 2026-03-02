@@ -3230,23 +3230,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "LOWA_5d9e132d",
-    "species_code": "LOWA",
-    "common_name": "Louisiana Waterthrush",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC691609",
-    "file_path": "data/clips/LOWA_691609.wav",
-    "spectrogram_path": "data/spectrograms/LOWA_691609.png",
-    "recordist": "Christopher McPherson",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/691609",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "LOWA_6438e5bf",
     "species_code": "LOWA",
     "common_name": "Louisiana Waterthrush",
@@ -21650,6 +21633,24 @@
     "file_path": "data/clips/LOWA_828223_1.wav",
     "spectrogram_path": "data/spectrograms/LOWA_828223_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "LOWA_691609_1",
+    "species_code": "LOWA",
+    "common_name": "Louisiana Waterthrush",
+    "vocalization_type": "song",
+    "duration_ms": 2500,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC691609",
+    "source_url": "https://xeno-canto.org/691609",
+    "recordist": "Christopher McPherson",
+    "file_path": "data/clips/LOWA_691609_1.wav",
+    "spectrogram_path": "data/spectrograms/LOWA_691609_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
