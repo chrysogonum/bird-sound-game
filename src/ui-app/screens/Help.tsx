@@ -891,6 +891,11 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.03" date="March 2, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Audio Quality Fix:</strong> Re-extracted 20 species with improved resampling — eliminates subtle metallic artifacts in clips sourced from 48kHz recordings. Affected species include warblers, woodpeckers, and more.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.02" date="February 25, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Bird Name Scaling:</strong> Long species names (like "Common Whitethroat") now dynamically shrink to fit gameplay buttons instead of breaking mid-word.</li>
