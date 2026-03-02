@@ -986,23 +986,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "BTBW_077265ad",
-    "species_code": "BTBW",
-    "common_name": "Black-throated Blue Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC903870",
-    "file_path": "data/clips/BTBW_903870.wav",
-    "spectrogram_path": "data/spectrograms/BTBW_903870.png",
-    "recordist": "Molly Jacobson",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/903870",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "BTNW_c78bb12f",
     "species_code": "BTNW",
     "common_name": "Black-throated Green Warbler",
