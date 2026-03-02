@@ -816,23 +816,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "BLPW_11c99723",
-    "species_code": "BLPW",
-    "common_name": "Blackpoll Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC690983",
-    "file_path": "data/clips/BLPW_690983.wav",
-    "spectrogram_path": "data/spectrograms/BLPW_690983.png",
-    "recordist": "Christopher McPherson",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/690983",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "BRCR_25967ceb",
     "species_code": "BRCR",
     "common_name": "Brown Creeper",
@@ -21285,6 +21268,24 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/BLPW_1014475_2.wav",
     "spectrogram_path": "data/spectrograms/BLPW_1014475_2.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BLPW_488509_1",
+    "species_code": "BLPW",
+    "common_name": "Blackpoll Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 1800,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC488509",
+    "source_url": "https://xeno-canto.org/488509",
+    "recordist": "Aidan Place",
+    "file_path": "data/clips/BLPW_488509_1.wav",
+    "spectrogram_path": "data/spectrograms/BLPW_488509_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
