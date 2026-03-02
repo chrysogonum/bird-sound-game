@@ -21563,5 +21563,23 @@
     "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "WIWA_1070694_1",
+    "species_code": "WIWA",
+    "common_name": "Wilson's Warbler",
+    "vocalization_type": "call",
+    "duration_ms": 2200,
+    "quality_score": 5,
+    "loudness_lufs": -20.5,
+    "source": "xenocanto",
+    "source_id": "XC1070694",
+    "source_url": "https://xeno-canto.org/1070694",
+    "recordist": "Manuel Grosselet ",
+    "file_path": "data/clips/WIWA_1070694_1.wav",
+    "spectrogram_path": "data/spectrograms/WIWA_1070694_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
