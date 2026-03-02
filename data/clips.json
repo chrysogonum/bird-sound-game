@@ -20953,5 +20953,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CMWA_784610_1",
+    "species_code": "CMWA",
+    "common_name": "Cape May Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 1700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC784610",
+    "source_url": "https://xeno-canto.org/784610",
+    "recordist": "Paul Driver",
+    "file_path": "data/clips/CMWA_784610_1.wav",
+    "spectrogram_path": "data/spectrograms/CMWA_784610_1.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
