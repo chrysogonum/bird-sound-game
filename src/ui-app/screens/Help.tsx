@@ -198,10 +198,10 @@ function Help() {
             <strong>Birds</strong> are heard more often than they're seen. But, even their sounds can be easy to miss. If you learn their songs, you'll know what to look for - and suddenly your backyard becomes way more interesting.
           </p>
           <p style={{ marginBottom: '12px' }}>
-            <strong>ChipNotes</strong> plays sounds separately in your left and right ears. It may seem like a hearing test, but that's birding! You're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" Training your ears to separate simultaneous sounds - like a pianist controlling both hands independently - dramatically sharpens your field skills.
+            <strong>ChipNotes</strong> plays sounds separately in your left and right ears. It may seem like a hearing test, but that's birding! You're constantly triangulating: "Cardinal to my left, chickadee to my right, warbler... somewhere up there?" Like a pianist training each hand independently, separating simultaneous sounds dramatically sharpens your field skills.
           </p>
           <p style={{ marginBottom: '12px' }}>
-            <strong>Neuroplasticity works:</strong> Your brain rewires with practice. These sound patterns feel impossible at first, but repeated exposure trains your auditory cortex faster than you'd think. Give it a few sessions - you'll be amazed what you can hear.
+            <strong>Neuroplasticity works:</strong> Your brain rewires with practice. These sound patterns feel impossible at first, but repeated exposure trains your auditory cortex surprisingly fast. Give it a few sessions.
           </p>
           <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
             <strong>Need real-time ID?</strong> Get Cornell's free <a href="https://merlin.allaboutbirds.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)' }}>Merlin app</a> - it's magic for "what bird is that singing <em>right now</em>?"
@@ -227,7 +227,7 @@ function Help() {
           <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
             <strong>Mobile tip:</strong> For fullscreen play on iOS, use Safari. On Android Chrome, tap ⋮ → "Add to Home screen" and launch from the icon.
           </p>
-          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
+          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
             <strong>Offline tip:</strong> Playing on a flight?{' '}
             <button
               onClick={() => {
@@ -312,7 +312,7 @@ function Help() {
         >
           <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: 'var(--color-text)' }}>Training Mode</h4>
           <p style={{ marginBottom: '12px', fontSize: '13px' }}>
-            Shows bird icons and names on each tile alongside the spectrogram—perfect for learning which sounds belong to which birds. North American packs show 4-letter codes (like NOCA), while New Zealand packs show Māori names.
+            Shows bird icons and names on each tile alongside the spectrogram—learn which sounds belong to which birds. Tiles display whichever naming style you've chosen on the preview screen: 4-letter codes, common names, scientific names, or Māori names (NZ packs).
           </p>
 
           {/* Side-by-side: Eye icon info + Example tile */}
@@ -366,7 +366,7 @@ function Help() {
           </div>
 
           <p style={{ marginBottom: '16px', fontSize: '13px' }}>
-            Enable it on the preview screen before starting a round, or toggle on/off anytime during gameplay using the <strong>eye icon</strong> (next to the back button). Start with labels visible, then toggle off to challenge yourself!
+            Toggle it on the preview screen or anytime during gameplay using the <strong>eye icon</strong> (next to the back button). Start with labels visible, then toggle off to challenge yourself!
           </p>
 
           <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: 'var(--color-text)' }}>Drill Confused Birds</h4>
@@ -542,9 +542,7 @@ function Help() {
           </div>
 
           <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-            This is a great way to preview unfamiliar species before jumping into gameplay.
-            Tap the play button on each card to hear what you'll be listening for,
-            while seeing the bird's face at the same time—connecting sight and sound helps the names stick!
+            Tap the play button on each card to hear what you'll be listening for—connecting sight and sound helps the names stick!
           </p>
         </Section>
 
@@ -561,21 +559,21 @@ function Help() {
           <div className="card" style={{ marginBottom: '12px', background: 'rgba(255, 152, 0, 0.08)', border: '1px solid rgba(255, 152, 0, 0.2)' }}>
             <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: 'var(--color-accent)' }}>📦 Pack Select Page</h4>
             <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-              Scroll to the bottom of the Pack Select page to find the complete Sound Library. Expand any species to see all available clips with recordist credits and source links. Great for deep exploration!
+              Scroll to the bottom of Pack Select for the complete Sound Library. Expand any species to see all clips with recordist credits and source links.
             </p>
           </div>
 
           <div className="card" style={{ marginBottom: '12px', background: 'rgba(100, 181, 246, 0.08)', border: '1px solid rgba(100, 181, 246, 0.2)' }}>
             <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#64B5F6' }}>📋 Level Select Page</h4>
             <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-              Tap the 🎧📚 icon to open a modal with all clips for every bird in that pack. Quick access without leaving the page.
+              Tap the 🎧📚 icon to see all clips for every bird in that pack without leaving the page.
             </p>
           </div>
 
           <div className="card" style={{ marginBottom: '12px', background: 'rgba(76, 175, 80, 0.08)', border: '1px solid rgba(76, 175, 80, 0.2)' }}>
             <h4 style={{ margin: '0 0 8px 0', fontSize: '14px', color: '#81C784' }}>🏁 Ready to Play Page</h4>
             <p style={{ margin: 0, fontSize: '13px', color: 'var(--color-text-muted)', lineHeight: 1.5 }}>
-              Tap the 🎧📚 icon to preview clips for just the 9 birds you're about to play. Perfect for a quick refresher before the round starts!
+              Tap the 🎧📚 icon to preview clips for just the 9 birds you're about to play — a quick refresher before the round starts.
             </p>
           </div>
 
@@ -636,7 +634,7 @@ function Help() {
 
           <h4 style={{ margin: '16px 0 8px 0', fontSize: '15px' }}>How It Works</h4>
           <p style={{ marginBottom: '12px', color: 'var(--color-text-muted)', fontSize: '14px' }}>
-            When you play normally, audio clips and spectrograms are downloaded from the server as needed. The app automatically saves them to your device's cache, so clips you've already heard load instantly next time.
+            Audio clips and spectrograms are downloaded as needed and automatically cached on your device, so clips you've already heard load instantly next time.
           </p>
 
           <h4 style={{ margin: '16px 0 8px 0', fontSize: '15px' }}>Preparing for Offline</h4>
@@ -661,13 +659,10 @@ function Help() {
           onToggle={() => toggleSection('Taxonomic Sorting')}
         >
           <p>
-            Tap the sort button to switch between alphabetical and taxonomic ordering. You'll find it on the preview screen, in Sound Library sections, in the Custom Pack Builder, and during gameplay. When taxonomic sorting is active, birds appear in phylogenetic order with scientific names instead of alphabetically. 🐦🤓
+            Tap the sort button to switch between alphabetical and taxonomic ordering. You'll find it on the preview screen, in Sound Library sections, in the Custom Pack Builder, and during gameplay. When active, birds appear in phylogenetic order (2025 eBird/AOS taxonomy) with <em>scientific names in italics</em>. 🐦🤓
           </p>
           <p style={{ marginTop: '12px' }}>
-            Birds are sorted by their position on the evolutionary tree (using the 2025 eBird/AOS taxonomy), and common names are replaced with <em>scientific names in italics</em>. Perfect for learning evolutionary relationships!
-          </p>
-          <p style={{ marginTop: '12px' }}>
-            Most beginners stick with alphabetical sorting during gameplay - it's faster to find birds by their 4-letter codes. But as you advance, you might prefer taxonomic sorting everywhere, building muscle memory based on evolutionary relationships. Either way works - you're training your brain to recognize patterns!
+            Alphabetical is faster during gameplay — it's easier to find birds by their 4-letter codes. But taxonomic sorting builds muscle memory around evolutionary relationships. Either way works!
           </p>
         </Section>
 
@@ -678,7 +673,7 @@ function Help() {
           onToggle={() => toggleSection('The 4-Letter Codes')}
         >
           <p>
-            Birders use standardized 4-letter codes (called "Alpha codes") as shorthand for species names.
+            Some birders use standardized 4-letter codes (called "Alpha codes") as shorthand for species names.
             They're easy to learn:
           </p>
           <div style={{
@@ -722,7 +717,7 @@ function Help() {
 
           <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Bird sounds:</strong> North American species sourced from{' '}
+              <strong style={{ color: 'var(--color-accent)' }}>Bird sounds:</strong> Sourced from{' '}
               <a href="https://xeno-canto.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Xeno-Canto
               </a>
@@ -730,11 +725,11 @@ function Help() {
               <a href="https://www.macaulaylibrary.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 Cornell Macaulay Library
               </a>
-              , and from user contributions. New Zealand species sourced from the{' '}
+              , the{' '}
               <a href="https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 New Zealand Department of Conservation (DOC)
               </a>
-              . All sound clips have attribution in the Sound Library.
+              , and from user contributions. All clips have attribution in the Sound Library.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
@@ -742,11 +737,11 @@ function Help() {
             </p>
 
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>The Tech:</strong> Pair-programmed with Claude Code using TypeScript, React, and PixiJS for buttery-smooth scrolling spectrograms. The Web Audio API handles sample-accurate playback with real-time stereo panning - your browser decodes and buffers audio into memory for zero-latency triggering. Vite bundles it all into a PWA (Progressive Web App) that caches sounds as you play them - so load up those birds before your flight to New Zealand takes off ✈️.
+              <strong style={{ color: 'var(--color-accent)' }}>The Tech:</strong> Pair-programmed with Claude Code using TypeScript, React, and PixiJS for buttery-smooth scrolling spectrograms. The Web Audio API handles sample-accurate playback with real-time stereo panning. Vite bundles it all into a PWA that caches sounds as you play — so load up those birds before your flight to New Zealand takes off ✈️.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Audio Processing:</strong> Every clip in ChipNotes is 0.5-3 seconds, mono, and normalized to -16 LUFS for consistent volume. Source recordings from Xeno-canto and Cornell are loaded into Clip Studio, a custom waveform editor built for this project. Each clip is hand-selected by visually scanning the waveform, setting a start point, and adjusting the duration to isolate the clearest vocalization. Every clip then gets the same final processing: convert to mono, resample to 44.1 kHz, normalize loudness, and generate a spectrogram. A signature clip is marked for each species to represent it at introductory levels.
+              <strong style={{ color: 'var(--color-accent)' }}>Audio Processing:</strong> Every clip is 0.5-3 seconds, mono, and normalized to -16 LUFS. Source recordings are loaded into Clip Studio, a custom waveform editor built for this project, where each clip is hand-selected to isolate the clearest vocalization. Final processing: convert to mono, resample to 44.1 kHz, normalize loudness, and generate a spectrogram. A signature clip is marked for each species to represent it at introductory levels.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
@@ -786,7 +781,7 @@ function Help() {
             >
               supporting development
             </a>
-            {' '}- your donations help me add new species, add features, and do more birding. Now, you go build something cool - it might be easier than you think! ;)
+            {' '}- your donations help me add new species and features. Now, you go build something cool - it might be easier than you think! ;)
           </p>
 
           <p style={{ color: 'var(--color-text-muted)', lineHeight: 1.6, marginBottom: '8px', fontWeight: 600 }}>
