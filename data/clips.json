@@ -2584,23 +2584,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "MODO_0c29a4f8",
-    "species_code": "MODO",
-    "common_name": "Mourning Dove",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "quality_score": 4,
-    "source": "macaulay",
-    "source_id": "Cornell CD Track 002",
-    "file_path": "data/clips/MODO_cornell_002_2.wav",
-    "spectrogram_path": "data/spectrograms/MODO_cornell_002_2.png",
-    "recordist": null,
-    "canonical": false,
-    "rejected": false,
-    "source_url": null,
-    "license": "Macaulay Library - Non-commercial license"
-  },
-  {
     "clip_id": "NOCA_05c03abc",
     "species_code": "NOCA",
     "common_name": "Northern Cardinal",
