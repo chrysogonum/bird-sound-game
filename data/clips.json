@@ -21934,7 +21934,7 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/GCKI_1013481_1.wav",
     "spectrogram_path": "data/spectrograms/GCKI_1013481_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
@@ -21970,7 +21970,7 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/GCKI_1013481_2.wav",
     "spectrogram_path": "data/spectrograms/GCKI_1013481_2.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
