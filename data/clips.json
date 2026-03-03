@@ -3213,23 +3213,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "MAWA_d096696a",
-    "species_code": "MAWA",
-    "common_name": "Magnolia Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1014780",
-    "file_path": "data/clips/MAWA_1014780.wav",
-    "spectrogram_path": "data/spectrograms/MAWA_1014780.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1014780",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "MODO_40620503",
     "species_code": "MODO",
     "common_name": "Mourning Dove",
@@ -21689,6 +21672,24 @@
     "file_path": "data/clips/MAWA_1014112_1.wav",
     "spectrogram_path": "data/spectrograms/MAWA_1014112_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "MAWA_1014780_1",
+    "species_code": "MAWA",
+    "common_name": "Magnolia Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 1200,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1014780",
+    "source_url": "https://xeno-canto.org/1014780",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/MAWA_1014780_1.wav",
+    "spectrogram_path": "data/spectrograms/MAWA_1014780_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
