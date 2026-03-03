@@ -3485,23 +3485,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "OCWA_3c1af398",
-    "species_code": "OCWA",
-    "common_name": "Orange-crowned Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC808323",
-    "file_path": "data/clips/OCWA_808323.wav",
-    "spectrogram_path": "data/spectrograms/OCWA_808323.png",
-    "recordist": "Andy Birch",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/808323",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "OCWA_b8e38e6b",
     "species_code": "OCWA",
     "common_name": "Orange-crowned Warbler",
@@ -21928,6 +21911,24 @@
     "recordist": "Ed Pandolfino",
     "file_path": "data/clips/OCWA_985696_1.wav",
     "spectrogram_path": "data/spectrograms/OCWA_985696_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "OCWA_808323_1",
+    "species_code": "OCWA",
+    "common_name": "Orange-crowned Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 1800,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC808323",
+    "source_url": "https://xeno-canto.org/808323",
+    "recordist": "Andy Birch",
+    "file_path": "data/clips/OCWA_808323_1.wav",
+    "spectrogram_path": "data/spectrograms/OCWA_808323_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
