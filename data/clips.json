@@ -2363,23 +2363,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "GCKI_e5fd25b7",
-    "species_code": "GCKI",
-    "common_name": "Golden-crowned Kinglet",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1040799",
-    "file_path": "data/clips/GCKI_1040799.wav",
-    "spectrogram_path": "data/spectrograms/GCKI_1040799.png",
-    "recordist": "Greg Irving",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1040799",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "GRCA_6da59577",
     "species_code": "GRCA",
     "common_name": "Gray Catbird",
@@ -22005,6 +21988,24 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/GCKI_1013481_3.wav",
     "spectrogram_path": "data/spectrograms/GCKI_1013481_3.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "GCKI_1040799_1",
+    "species_code": "GCKI",
+    "common_name": "Golden-crowned Kinglet",
+    "vocalization_type": "call",
+    "duration_ms": 1300,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1040799",
+    "source_url": "https://xeno-canto.org/1040799",
+    "recordist": "Greg Irving",
+    "file_path": "data/clips/GCKI_1040799_1.wav",
+    "spectrogram_path": "data/spectrograms/GCKI_1040799_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
