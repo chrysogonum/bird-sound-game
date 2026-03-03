@@ -19998,7 +19998,7 @@
     "recordist": "Christian Kerihuel",
     "file_path": "data/clips/MOWA_814611_1.wav",
     "spectrogram_path": "data/spectrograms/MOWA_814611_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
@@ -21870,7 +21870,7 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/MOWA_1014327_1.wav",
     "spectrogram_path": "data/spectrograms/MOWA_1014327_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
