@@ -612,23 +612,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "BRTH_562fd25c",
-    "species_code": "BRTH",
-    "common_name": "Brown Thrasher",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC839369",
-    "file_path": "data/clips/BRTH_839369.wav",
-    "spectrogram_path": "data/spectrograms/BRTH_839369.png",
-    "recordist": "Manuel Oudard",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/839369",
-    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
-  },
-  {
     "clip_id": "BRTH_d7df3c93",
     "species_code": "BRTH",
     "common_name": "Brown Thrasher",
