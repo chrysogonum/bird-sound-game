@@ -1972,23 +1972,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "HAWO_413674d5",
-    "species_code": "HAWO",
-    "common_name": "Hairy Woodpecker",
-    "vocalization_type": "drum",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC994605",
-    "file_path": "data/clips/HAWO_994605.wav",
-    "spectrogram_path": "data/spectrograms/HAWO_994605.png",
-    "recordist": "Scott Crabtree",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/994605",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "HETH_235fed76",
     "species_code": "HETH",
     "common_name": "Hermit Thrush",
@@ -22112,7 +22095,7 @@
     "clip_id": "HAWO_994605_1",
     "species_code": "HAWO",
     "common_name": "Hairy Woodpecker",
-    "vocalization_type": "drumming",
+    "vocalization_type": "drum",
     "duration_ms": 2300,
     "quality_score": 5,
     "loudness_lufs": -16.0,
