@@ -510,23 +510,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "BHNU_bbd3bfd3",
-    "species_code": "BHNU",
-    "common_name": "Brown-headed Nuthatch",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC651187",
-    "file_path": "data/clips/BHNU_651187.wav",
-    "spectrogram_path": "data/spectrograms/BHNU_651187.png",
-    "recordist": "Paul Driver",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/651187",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "BLJA_6a15d880",
     "species_code": "BLJA",
     "common_name": "Blue Jay",
@@ -22053,6 +22036,24 @@
     "file_path": "data/clips/BHNU_726413_1.wav",
     "spectrogram_path": "data/spectrograms/BHNU_726413_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BHNU_651187_1",
+    "species_code": "BHNU",
+    "common_name": "Brown-headed Nuthatch",
+    "vocalization_type": "song",
+    "duration_ms": 2600,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC651187",
+    "source_url": "https://xeno-canto.org/651187",
+    "recordist": "Paul Driver",
+    "file_path": "data/clips/BHNU_651187_1.wav",
+    "spectrogram_path": "data/spectrograms/BHNU_651187_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
