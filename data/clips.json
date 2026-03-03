@@ -5848,23 +5848,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "YTWA_74a30af3",
-    "species_code": "YTWA",
-    "common_name": "Yellow-throated Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC404733",
-    "file_path": "data/clips/YTWA_404733.wav",
-    "spectrogram_path": "data/spectrograms/YTWA_404733.png",
-    "recordist": "Jacob R. Saucier",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/404733",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "YTWA_d4fd6b6e",
     "species_code": "YTWA",
     "common_name": "Yellow-throated Warbler",
@@ -21794,6 +21777,24 @@
     "file_path": "data/clips/TEWA_1014433_1.wav",
     "spectrogram_path": "data/spectrograms/TEWA_1014433_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "YTWA_404733_2",
+    "species_code": "YTWA",
+    "common_name": "Yellow-throated Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 2700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC404733",
+    "source_url": "https://xeno-canto.org/404733",
+    "recordist": "Jacob R. Saucier",
+    "file_path": "data/clips/YTWA_404733_2.wav",
+    "spectrogram_path": "data/spectrograms/YTWA_404733_2.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
