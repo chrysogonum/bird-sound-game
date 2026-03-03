@@ -5226,24 +5226,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "EAKI_e1f9757c",
-    "species_code": "EAKI",
-    "common_name": "Eastern Kingbird",
-    "file_path": "data/clips/EAKI_1014876.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1014876",
-    "source_url": "https://xeno-canto.org/1014876",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/EAKI_1014876.png",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "EAME_7bc792c5",
     "species_code": "EAME",
     "common_name": "Eastern Meadowlark",
@@ -22153,7 +22135,7 @@
     "clip_id": "EAKI_1014877_1",
     "species_code": "EAKI",
     "common_name": "Eastern Kingbird",
-    "vocalization_type": "call, song, dzeer",
+    "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 5,
     "loudness_lufs": -16.0,
@@ -22182,6 +22164,24 @@
     "file_path": "data/clips/EAKI_1014878_1.wav",
     "spectrogram_path": "data/spectrograms/EAKI_1014878_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "EAKI_1014876_1",
+    "species_code": "EAKI",
+    "common_name": "Eastern Kingbird",
+    "vocalization_type": "song",
+    "duration_ms": 2300,
+    "quality_score": 5,
+    "loudness_lufs": -17.3,
+    "source": "xenocanto",
+    "source_id": "XC1014876",
+    "source_url": "https://xeno-canto.org/1014876",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/EAKI_1014876_1.wav",
+    "spectrogram_path": "data/spectrograms/EAKI_1014876_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
