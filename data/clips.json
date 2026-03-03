@@ -884,23 +884,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "BWWA_c6ccfb7c",
-    "species_code": "BWWA",
-    "common_name": "Blue-winged Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC839511",
-    "file_path": "data/clips/BWWA_839511.wav",
-    "spectrogram_path": "data/spectrograms/BWWA_839511.png",
-    "recordist": "Manuel Oudard",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/839511",
-    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
-  },
-  {
     "clip_id": "CACH_4e018400",
     "species_code": "CACH",
     "common_name": "Carolina Chickadee",
