@@ -1966,7 +1966,7 @@
     "file_path": "data/clips/HAWO_1028817.wav",
     "spectrogram_path": "data/spectrograms/HAWO_1028817.png",
     "recordist": "Greg Irving",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1028817",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -2017,7 +2017,7 @@
     "file_path": "data/clips/HAWO_988849.wav",
     "spectrogram_path": "data/spectrograms/HAWO_988849.png",
     "recordist": "Jim Berry",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/988849",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
