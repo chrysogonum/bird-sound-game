@@ -521,7 +521,7 @@
     "file_path": "data/clips/BLJA_1010650.wav",
     "spectrogram_path": "data/spectrograms/BLJA_1010650.png",
     "recordist": "Rory Nefdt",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1010650",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -538,7 +538,7 @@
     "file_path": "data/clips/BLJA_861979.wav",
     "spectrogram_path": "data/spectrograms/BLJA_861979.png",
     "recordist": "Dany Sloan",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/861979",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -22084,6 +22084,24 @@
     "recordist": "Thomas Magarian",
     "file_path": "data/clips/BLJA_933595_1.wav",
     "spectrogram_path": "data/spectrograms/BLJA_933595_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BLJA_1007688_1",
+    "species_code": "BLJA",
+    "common_name": "Blue Jay",
+    "vocalization_type": "call",
+    "duration_ms": 2200,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1007688",
+    "source_url": "https://xeno-canto.org/1007688",
+    "recordist": "David A. Brinkman",
+    "file_path": "data/clips/BLJA_1007688_1.wav",
+    "spectrogram_path": "data/spectrograms/BLJA_1007688_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
