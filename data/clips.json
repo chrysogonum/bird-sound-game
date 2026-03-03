@@ -21787,24 +21787,6 @@
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
-    "clip_id": "WEWA_730180_2",
-    "species_code": "WEWA",
-    "common_name": "Worm-eating Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 2400,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC730180",
-    "source_url": "https://xeno-canto.org/730180",
-    "recordist": "Jorge de Leon Cardozo &amp; Susan Hochgraf",
-    "file_path": "data/clips/WEWA_730180_2.wav",
-    "spectrogram_path": "data/spectrograms/WEWA_730180_2.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "CC BY-NC-SA 4.0 \u2713"
-  },
-  {
     "clip_id": "WEWA_828191_1",
     "species_code": "WEWA",
     "common_name": "Worm-eating Warbler",
@@ -21836,7 +21818,7 @@
     "recordist": "Thomas Magarian",
     "file_path": "data/clips/WEWA_933617_1.wav",
     "spectrogram_path": "data/spectrograms/WEWA_933617_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
