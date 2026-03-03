@@ -140,6 +140,19 @@ def load_degraded_species() -> Dict[str, List[str]]:
     return {'all': sorted(all_species), 'canonical': sorted(canonical_species)}
 
 
+def load_cornell_cd_species() -> List[str]:
+    """Load species that have Cornell CD clips (no source URL available)"""
+    clips = load_clips()
+    species = set()
+    for clip in clips:
+        if clip.get('rejected', False):
+            continue
+        source_id = clip.get('source_id', '')
+        if 'Cornell' in str(source_id):
+            species.add(clip['species_code'])
+    return sorted(species)
+
+
 def load_candidates_for_species(species_code: str) -> List[Dict]:
     """Load candidate sources for a species from ingest manifests"""
     candidates = []
@@ -706,6 +719,7 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                     canonical_count += 1
 
         degraded = load_degraded_species()
+        cornell_cd_species = load_cornell_cd_species()
 
         # Build map of clip_id → {rate, degraded} for all checked clips
         clip_sample_rates = {}
@@ -725,6 +739,7 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             'clip_counts': clip_counts,
             'filter_pack': self.filter_pack,
             'degraded_species': degraded,
+            'cornell_cd_species': cornell_cd_species,
             'clip_sample_rates': clip_sample_rates,
         })
 
@@ -740,6 +755,8 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
         elif pack_id == '__degraded_canonical__':
             degraded = load_degraded_species()
             pack_species = set(degraded['canonical'])
+        elif pack_id == '__cornell_cd__':
+            pack_species = set(load_cornell_cd_species())
         elif pack_id:
             packs = load_packs()
             for region_packs in packs.values():
@@ -975,7 +992,9 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             return
 
         # Build XC query — v3 API requires tagged search (en:"Name" or sp:epithet gen:Genus)
-        q_parts = [f'en:"{species_name}"']
+        # XC doesn't use hyphens in common names (e.g. "Scrub Jay" not "Scrub-Jay")
+        xc_name = species_name.replace('-', ' ')
+        q_parts = [f'en:"{xc_name}"']
         if quality:
             for q in quality.split():
                 q_parts.append(f'q:{q}')
@@ -984,7 +1003,7 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
         q_parts.append('grp:birds')
 
         xc_query = ' '.join(q_parts)
-        url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=50"
+        url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=200"
 
         try:
             req = urllib.request.Request(url, headers={'User-Agent': 'ChipNotes/1.0'})
@@ -1005,8 +1024,13 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                         else:
                             existing_xc.add(sid)
 
+            # Filter out ND (No Derivatives) licenses — we modify clips (trim, resample, normalize)
+            ND_LICENSES = {'//creativecommons.org/licenses/by-nd/', '//creativecommons.org/licenses/by-nc-nd/'}
             results = []
             for rec in data.get('recordings', []):
+                lic = rec.get('lic', '')
+                if any(nd in lic for nd in ND_LICENSES):
+                    continue
                 xc_id = str(rec.get('id', ''))
                 # Parse duration string "M:SS" to seconds
                 length_str = rec.get('length', '0:00')
@@ -2166,6 +2190,7 @@ fetch('/api/init')
         S.totalClips = data.total_clips;
         S.totalCanonical = data.total_canonical;
         S.degradedSpecies = data.degraded_species || {all: [], canonical: []};
+        S.cornellCdSpecies = data.cornell_cd_species || [];
         S.clipSampleRates = data.clip_sample_rates || {};
         S.selectedPack = data.filter_pack;
         renderPackTree();
@@ -2240,6 +2265,16 @@ function renderPackTree() {
         group.appendChild(hdr);
         group.appendChild(children);
         c.appendChild(group);
+    }
+
+    // Cornell CD filter (species needing XC replacements)
+    if (S.cornellCdSpecies && S.cornellCdSpecies.length > 0) {
+        const cornell = document.createElement('div');
+        cornell.className = 'pack-child' + (S.selectedPack === '__cornell_cd__' ? ' active' : '');
+        cornell.style.cssText = 'color:#ffb74d; font-weight:600; margin:4px 0; padding:6px 10px; border-radius:6px; cursor:pointer;';
+        cornell.innerHTML = '📀 Cornell CD<span class="pack-child-count">' + S.cornellCdSpecies.length + '</span>';
+        cornell.onclick = () => { S.selectedPack = '__cornell_cd__'; renderPackTree(); loadSpeciesList('__cornell_cd__'); };
+        c.appendChild(cornell);
     }
 
     const regions = [
