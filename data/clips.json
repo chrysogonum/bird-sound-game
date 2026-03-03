@@ -3179,23 +3179,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "NAWA_1605fc06",
-    "species_code": "NAWA",
-    "common_name": "Nashville Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1013979",
-    "file_path": "data/clips/NAWA_1013979.wav",
-    "spectrogram_path": "data/spectrograms/NAWA_1013979.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1013979",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "NOCA_05c03abc",
     "species_code": "NOCA",
     "common_name": "Northern Cardinal",
@@ -21864,6 +21847,24 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/NAWA_1013956_1.wav",
     "spectrogram_path": "data/spectrograms/NAWA_1013956_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "NAWA_1013979_1",
+    "species_code": "NAWA",
+    "common_name": "Nashville Warbler",
+    "vocalization_type": "call, pink",
+    "duration_ms": 2500,
+    "quality_score": 5,
+    "loudness_lufs": -17.8,
+    "source": "xenocanto",
+    "source_id": "XC1013979",
+    "source_url": "https://xeno-canto.org/1013979",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/NAWA_1013979_1.wav",
+    "spectrogram_path": "data/spectrograms/NAWA_1013979_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
