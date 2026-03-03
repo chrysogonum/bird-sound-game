@@ -22134,7 +22134,7 @@
     "recordist": "Jim Berry",
     "file_path": "data/clips/CHSP_1024787_1.wav",
     "spectrogram_path": "data/spectrograms/CHSP_1024787_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
