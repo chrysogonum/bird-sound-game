@@ -214,7 +214,7 @@
     "source_id": "XC1046358",
     "file_path": "data/clips/AMRO_1046358.wav",
     "spectrogram_path": "data/spectrograms/AMRO_1046358.png",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1046358",
@@ -350,7 +350,7 @@
     "source_id": "BAOW_a04d9a56",
     "file_path": "data/clips/BAOW_a04d9a56.wav",
     "spectrogram_path": "data/spectrograms/BAOW_a04d9a56.png",
-    "recordist": "Bob Planqué",
+    "recordist": "Bob Planqu\u00e9",
     "canonical": false,
     "rejected": false,
     "source_url": null,
@@ -384,7 +384,7 @@
     "source_id": "BAOW_ecde4ff0",
     "file_path": "data/clips/BAOW_ecde4ff0.wav",
     "spectrogram_path": "data/spectrograms/BAOW_ecde4ff0.png",
-    "recordist": "Bob Planqué",
+    "recordist": "Bob Planqu\u00e9",
     "canonical": false,
     "rejected": false,
     "source_url": null,
@@ -895,7 +895,7 @@
     "file_path": "data/clips/BWWA_101664.wav",
     "spectrogram_path": "data/spectrograms/BWWA_101664.png",
     "recordist": "Daniel Lane",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/101664",
     "license": "//creativecommons.org/licenses/by-nc-nd/2.5/"
@@ -2798,7 +2798,7 @@
     "source_id": "XC1048898",
     "file_path": "data/clips/HETH_1048898.wav",
     "spectrogram_path": "data/spectrograms/HETH_1048898.png",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1048898",
@@ -3580,7 +3580,7 @@
     "source_id": "XC1046368",
     "file_path": "data/clips/OCWA_1046368.wav",
     "spectrogram_path": "data/spectrograms/OCWA_1046368.png",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/1046368",
@@ -5552,7 +5552,7 @@
     "source_id": "XC803622",
     "file_path": "data/clips/YBSA_803622.wav",
     "spectrogram_path": "data/spectrograms/YBSA_803622.png",
-    "recordist": "Magnus Hellström",
+    "recordist": "Magnus Hellstr\u00f6m",
     "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/803622",
@@ -5819,7 +5819,7 @@
     "source": "xenocanto",
     "source_id": "XC975549",
     "source_url": "https://xeno-canto.org/975549",
-    "recordist": "Leonardo Ordóñez-Delgado",
+    "recordist": "Leonardo Ord\u00f3\u00f1ez-Delgado",
     "canonical": false,
     "rejected": false,
     "spectrogram_path": "data/spectrograms/HOSP_975549.png",
@@ -6946,7 +6946,7 @@
   {
     "clip_id": "kokako3_doc_001",
     "species_code": "kokako3",
-    "common_name": "Kōkako",
+    "common_name": "K\u014dkako",
     "scientific_name": "Callaeas wilsoni",
     "vocalization_type": "call",
     "duration_ms": 2600,
@@ -6967,7 +6967,7 @@
   {
     "clip_id": "kokako3_doc_002",
     "species_code": "kokako3",
-    "common_name": "Kōkako",
+    "common_name": "K\u014dkako",
     "scientific_name": "Callaeas wilsoni",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -6988,7 +6988,7 @@
   {
     "clip_id": "kokako3_doc_003",
     "species_code": "kokako3",
-    "common_name": "Kōkako",
+    "common_name": "K\u014dkako",
     "scientific_name": "Callaeas wilsoni",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -7030,7 +7030,7 @@
   {
     "clip_id": "tui1_doc_001",
     "species_code": "tui1",
-    "common_name": "Tūī",
+    "common_name": "T\u016b\u012b",
     "scientific_name": "Prosthemadera novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -7051,7 +7051,7 @@
   {
     "clip_id": "tui1_doc_002",
     "species_code": "tui1",
-    "common_name": "Tūī",
+    "common_name": "T\u016b\u012b",
     "scientific_name": "Prosthemadera novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 2700,
@@ -7072,7 +7072,7 @@
   {
     "clip_id": "tui1_doc_003",
     "species_code": "tui1",
-    "common_name": "Tūī",
+    "common_name": "T\u016b\u012b",
     "scientific_name": "Prosthemadera novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 2700,
@@ -7093,7 +7093,7 @@
   {
     "clip_id": "tui1_doc_004",
     "species_code": "tui1",
-    "common_name": "Tūī",
+    "common_name": "T\u016b\u012b",
     "scientific_name": "Prosthemadera novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 2700,
@@ -7152,7 +7152,7 @@
   {
     "clip_id": "ausbit1_doc_001",
     "species_code": "ausbit1",
-    "common_name": "Australasian Bittern / Matuku-hūrepo",
+    "common_name": "Australasian Bittern / Matuku-h\u016brepo",
     "maori_name": "Korimako",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -7171,7 +7171,7 @@
   {
     "clip_id": "ausbit1_doc_002",
     "species_code": "ausbit1",
-    "common_name": "Australasian Bittern / Matuku-hūrepo",
+    "common_name": "Australasian Bittern / Matuku-h\u016brepo",
     "maori_name": "Korimako",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -7190,7 +7190,7 @@
   {
     "clip_id": "ausbit1_doc_003",
     "species_code": "ausbit1",
-    "common_name": "Australasian Bittern / Matuku-hūrepo",
+    "common_name": "Australasian Bittern / Matuku-h\u016brepo",
     "maori_name": "Korimako",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -7247,7 +7247,7 @@
   {
     "clip_id": "blasti1_doc_001",
     "species_code": "blasti1",
-    "common_name": "Black Stilt / Kakī",
+    "common_name": "Black Stilt / Kak\u012b",
     "maori_name": "Korimako",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -7266,7 +7266,7 @@
   {
     "clip_id": "blasti1_doc_002",
     "species_code": "blasti1",
-    "common_name": "Black Stilt / Kakī",
+    "common_name": "Black Stilt / Kak\u012b",
     "maori_name": "Korimako",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -7285,7 +7285,7 @@
   {
     "clip_id": "blasti1_doc_003",
     "species_code": "blasti1",
-    "common_name": "Black Stilt / Kakī",
+    "common_name": "Black Stilt / Kak\u012b",
     "maori_name": "Korimako",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -7721,7 +7721,7 @@
   {
     "clip_id": "nezfan1_doc_001",
     "species_code": "nezfan1",
-    "common_name": "New Zealand Fantail / Pīwakawaka",
+    "common_name": "New Zealand Fantail / P\u012bwakawaka",
     "scientific_name": "Rhipidura fuliginosa",
     "vocalization_type": "call",
     "duration_ms": 2100,
@@ -7742,7 +7742,7 @@
   {
     "clip_id": "nezfan1_doc_003",
     "species_code": "nezfan1",
-    "common_name": "New Zealand Fantail / Pīwakawaka",
+    "common_name": "New Zealand Fantail / P\u012bwakawaka",
     "scientific_name": "Rhipidura fuliginosa",
     "vocalization_type": "call",
     "duration_ms": 1900,
@@ -7763,7 +7763,7 @@
   {
     "clip_id": "nezfan1_doc_005",
     "species_code": "nezfan1",
-    "common_name": "New Zealand Fantail / Pīwakawaka",
+    "common_name": "New Zealand Fantail / P\u012bwakawaka",
     "scientific_name": "Rhipidura fuliginosa",
     "vocalization_type": "call",
     "duration_ms": 1900,
@@ -7784,7 +7784,7 @@
   {
     "clip_id": "nezfan1_doc_006",
     "species_code": "nezfan1",
-    "common_name": "New Zealand Fantail / Pīwakawaka",
+    "common_name": "New Zealand Fantail / P\u012bwakawaka",
     "scientific_name": "Rhipidura fuliginosa",
     "vocalization_type": "song",
     "duration_ms": 1900,
@@ -7931,7 +7931,7 @@
   {
     "clip_id": "hutshe1_doc_001",
     "species_code": "hutshe1",
-    "common_name": "Hutton's Shearwater / Tītī",
+    "common_name": "Hutton's Shearwater / T\u012bt\u012b",
     "scientific_name": "Puffinus huttoni",
     "vocalization_type": "call",
     "duration_ms": 2200,
@@ -7952,7 +7952,7 @@
   {
     "clip_id": "hutshe1_doc_002",
     "species_code": "hutshe1",
-    "common_name": "Hutton's Shearwater / Tītī",
+    "common_name": "Hutton's Shearwater / T\u012bt\u012b",
     "scientific_name": "Puffinus huttoni",
     "vocalization_type": "call",
     "duration_ms": 2200,
@@ -7973,7 +7973,7 @@
   {
     "clip_id": "hutshe1_doc_003",
     "species_code": "hutshe1",
-    "common_name": "Hutton's Shearwater / Tītī",
+    "common_name": "Hutton's Shearwater / T\u012bt\u012b",
     "scientific_name": "Puffinus huttoni",
     "vocalization_type": "call",
     "duration_ms": 2200,
@@ -7994,7 +7994,7 @@
   {
     "clip_id": "kakapo2_doc_001",
     "species_code": "kakapo2",
-    "common_name": "Kākāpō",
+    "common_name": "K\u0101k\u0101p\u014d",
     "scientific_name": "Strigops habroptilus",
     "vocalization_type": "call",
     "duration_ms": 2200,
@@ -8015,7 +8015,7 @@
   {
     "clip_id": "kakapo2_doc_002",
     "species_code": "kakapo2",
-    "common_name": "Kākāpō",
+    "common_name": "K\u0101k\u0101p\u014d",
     "scientific_name": "Strigops habroptilus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8036,7 +8036,7 @@
   {
     "clip_id": "kakapo2_doc_003",
     "species_code": "kakapo2",
-    "common_name": "Kākāpō",
+    "common_name": "K\u0101k\u0101p\u014d",
     "scientific_name": "Strigops habroptilus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8057,7 +8057,7 @@
   {
     "clip_id": "kakapo2_doc_005",
     "species_code": "kakapo2",
-    "common_name": "Kākāpō",
+    "common_name": "K\u0101k\u0101p\u014d",
     "scientific_name": "Strigops habroptilus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8078,7 +8078,7 @@
   {
     "clip_id": "kakapo2_doc_006",
     "species_code": "kakapo2",
-    "common_name": "Kākāpō",
+    "common_name": "K\u0101k\u0101p\u014d",
     "scientific_name": "Strigops habroptilus",
     "vocalization_type": "call",
     "duration_ms": 2800,
@@ -8099,7 +8099,7 @@
   {
     "clip_id": "kakapo2_doc_007",
     "species_code": "kakapo2",
-    "common_name": "Kākāpō",
+    "common_name": "K\u0101k\u0101p\u014d",
     "scientific_name": "Strigops habroptilus",
     "vocalization_type": "call",
     "duration_ms": 2800,
@@ -8183,7 +8183,7 @@
   {
     "clip_id": "kokako3_doc_004",
     "species_code": "kokako3",
-    "common_name": "Kōkako",
+    "common_name": "K\u014dkako",
     "scientific_name": "Callaeas wilsoni",
     "vocalization_type": "call",
     "duration_ms": 2800,
@@ -8204,7 +8204,7 @@
   {
     "clip_id": "kokako3_doc_006",
     "species_code": "kokako3",
-    "common_name": "Kōkako",
+    "common_name": "K\u014dkako",
     "scientific_name": "Callaeas wilsoni",
     "vocalization_type": "call",
     "duration_ms": 2300,
@@ -8225,7 +8225,7 @@
   {
     "clip_id": "kokako3_doc_007",
     "species_code": "kokako3",
-    "common_name": "Kōkako",
+    "common_name": "K\u014dkako",
     "scientific_name": "Callaeas wilsoni",
     "vocalization_type": "call",
     "duration_ms": 2299,
@@ -8309,7 +8309,7 @@
   {
     "clip_id": "nezkak1_doc_001",
     "species_code": "nezkak1",
-    "common_name": "North Island Kākā",
+    "common_name": "North Island K\u0101k\u0101",
     "scientific_name": "Nestor meridionalis septentrionalis",
     "vocalization_type": "call",
     "duration_ms": 1700,
@@ -8330,7 +8330,7 @@
   {
     "clip_id": "nezkak1_doc_002",
     "species_code": "nezkak1",
-    "common_name": "North Island Kākā",
+    "common_name": "North Island K\u0101k\u0101",
     "scientific_name": "Nestor meridionalis septentrionalis",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8351,7 +8351,7 @@
   {
     "clip_id": "nezkak1_doc_003",
     "species_code": "nezkak1",
-    "common_name": "North Island Kākā",
+    "common_name": "North Island K\u0101k\u0101",
     "scientific_name": "Nestor meridionalis septentrionalis",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8435,7 +8435,7 @@
   {
     "clip_id": "saddle2_doc_001",
     "species_code": "saddle2",
-    "common_name": "North Island Saddleback / Tīeke",
+    "common_name": "North Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus rufusater",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8456,7 +8456,7 @@
   {
     "clip_id": "saddle2_doc_002",
     "species_code": "saddle2",
-    "common_name": "North Island Saddleback / Tīeke",
+    "common_name": "North Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus rufusater",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8477,7 +8477,7 @@
   {
     "clip_id": "saddle2_doc_003",
     "species_code": "saddle2",
-    "common_name": "North Island Saddleback / Tīeke",
+    "common_name": "North Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus rufusater",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8540,7 +8540,7 @@
   {
     "clip_id": "rebdot1_doc_001",
     "species_code": "rebdot1",
-    "common_name": "New Zealand Dotterel / Tūturiwhatu",
+    "common_name": "New Zealand Dotterel / T\u016bturiwhatu",
     "scientific_name": "Charadrius obscurus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8561,7 +8561,7 @@
   {
     "clip_id": "rebdot1_doc_002",
     "species_code": "rebdot1",
-    "common_name": "New Zealand Dotterel / Tūturiwhatu",
+    "common_name": "New Zealand Dotterel / T\u016bturiwhatu",
     "scientific_name": "Charadrius obscurus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8582,7 +8582,7 @@
   {
     "clip_id": "rebdot1_doc_003",
     "species_code": "rebdot1",
-    "common_name": "New Zealand Dotterel / Tūturiwhatu",
+    "common_name": "New Zealand Dotterel / T\u016bturiwhatu",
     "scientific_name": "Charadrius obscurus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8603,7 +8603,7 @@
   {
     "clip_id": "nezfal1_doc_001",
     "species_code": "nezfal1",
-    "common_name": "New Zealand Falcon / Kārearea",
+    "common_name": "New Zealand Falcon / K\u0101rearea",
     "scientific_name": "Falco novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8624,7 +8624,7 @@
   {
     "clip_id": "nezfal1_doc_002",
     "species_code": "nezfal1",
-    "common_name": "New Zealand Falcon / Kārearea",
+    "common_name": "New Zealand Falcon / K\u0101rearea",
     "scientific_name": "Falco novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8645,7 +8645,7 @@
   {
     "clip_id": "nezfal1_doc_003",
     "species_code": "nezfal1",
-    "common_name": "New Zealand Falcon / Kārearea",
+    "common_name": "New Zealand Falcon / K\u0101rearea",
     "scientific_name": "Falco novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8666,7 +8666,7 @@
   {
     "clip_id": "nezfal1_doc_004",
     "species_code": "nezfal1",
-    "common_name": "New Zealand Falcon / Kārearea",
+    "common_name": "New Zealand Falcon / K\u0101rearea",
     "scientific_name": "Falco novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 2400,
@@ -8687,7 +8687,7 @@
   {
     "clip_id": "nezpig2_doc_001",
     "species_code": "nezpig2",
-    "common_name": "New Zealand Pigeon / Kererū",
+    "common_name": "New Zealand Pigeon / Kerer\u016b",
     "scientific_name": "Hemiphaga novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 2400,
@@ -8708,7 +8708,7 @@
   {
     "clip_id": "nezpig2_doc_002",
     "species_code": "nezpig2",
-    "common_name": "New Zealand Pigeon / Kererū",
+    "common_name": "New Zealand Pigeon / Kerer\u016b",
     "scientific_name": "Hemiphaga novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 1700,
@@ -8729,7 +8729,7 @@
   {
     "clip_id": "malpar2_doc_002",
     "species_code": "malpar2",
-    "common_name": "Orange-fronted Parakeet / Kākāriki",
+    "common_name": "Orange-fronted Parakeet / K\u0101k\u0101riki",
     "scientific_name": "Cyanoramphus malherbi",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8750,7 +8750,7 @@
   {
     "clip_id": "malpar2_doc_003",
     "species_code": "malpar2",
-    "common_name": "Orange-fronted Parakeet / Kākāriki",
+    "common_name": "Orange-fronted Parakeet / K\u0101k\u0101riki",
     "scientific_name": "Cyanoramphus malherbi",
     "vocalization_type": "call",
     "duration_ms": 2000,
@@ -8771,7 +8771,7 @@
   {
     "clip_id": "malpar2_doc_004",
     "species_code": "malpar2",
-    "common_name": "Orange-fronted Parakeet / Kākāriki",
+    "common_name": "Orange-fronted Parakeet / K\u0101k\u0101riki",
     "scientific_name": "Cyanoramphus malherbi",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8792,7 +8792,7 @@
   {
     "clip_id": "parshe1_doc_001",
     "species_code": "parshe1",
-    "common_name": "Paradise Shelduck / Pūtangitangi",
+    "common_name": "Paradise Shelduck / P\u016btangitangi",
     "scientific_name": "Tadorna variegata",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8813,7 +8813,7 @@
   {
     "clip_id": "parshe1_doc_002",
     "species_code": "parshe1",
-    "common_name": "Paradise Shelduck / Pūtangitangi",
+    "common_name": "Paradise Shelduck / P\u016btangitangi",
     "scientific_name": "Tadorna variegata",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8834,7 +8834,7 @@
   {
     "clip_id": "parshe1_doc_003",
     "species_code": "parshe1",
-    "common_name": "Paradise Shelduck / Pūtangitangi",
+    "common_name": "Paradise Shelduck / P\u016btangitangi",
     "scientific_name": "Tadorna variegata",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8855,7 +8855,7 @@
   {
     "clip_id": "parshe1_doc_004",
     "species_code": "parshe1",
-    "common_name": "Paradise Shelduck / Pūtangitangi",
+    "common_name": "Paradise Shelduck / P\u016btangitangi",
     "scientific_name": "Tadorna variegata",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8876,7 +8876,7 @@
   {
     "clip_id": "refpar4_doc_001",
     "species_code": "refpar4",
-    "common_name": "Red-crowned Parakeet / Kākāriki",
+    "common_name": "Red-crowned Parakeet / K\u0101k\u0101riki",
     "scientific_name": "Cyanoramphus novaezelandiae",
     "vocalization_type": "call",
     "duration_ms": 1900,
@@ -8897,7 +8897,7 @@
   {
     "clip_id": "refpar4_doc_003",
     "species_code": "refpar4",
-    "common_name": "Red-crowned Parakeet / Kākāriki",
+    "common_name": "Red-crowned Parakeet / K\u0101k\u0101riki",
     "scientific_name": "Cyanoramphus novaezelandiae",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8918,7 +8918,7 @@
   {
     "clip_id": "refpar4_doc_004",
     "species_code": "refpar4",
-    "common_name": "Red-crowned Parakeet / Kākāriki",
+    "common_name": "Red-crowned Parakeet / K\u0101k\u0101riki",
     "scientific_name": "Cyanoramphus novaezelandiae",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8939,7 +8939,7 @@
   {
     "clip_id": "soiwre1_doc_001",
     "species_code": "soiwre1",
-    "common_name": "Rock Wren / Pīwauwau",
+    "common_name": "Rock Wren / P\u012bwauwau",
     "scientific_name": "Xenicus gilviventris",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -8960,7 +8960,7 @@
   {
     "clip_id": "soiwre1_doc_002",
     "species_code": "soiwre1",
-    "common_name": "Rock Wren / Pīwauwau",
+    "common_name": "Rock Wren / P\u012bwauwau",
     "scientific_name": "Xenicus gilviventris",
     "vocalization_type": "call",
     "duration_ms": 1700,
@@ -8981,7 +8981,7 @@
   {
     "clip_id": "soiwre1_doc_003",
     "species_code": "soiwre1",
-    "common_name": "Rock Wren / Pīwauwau",
+    "common_name": "Rock Wren / P\u012bwauwau",
     "scientific_name": "Xenicus gilviventris",
     "vocalization_type": "call",
     "duration_ms": 1700,
@@ -9065,7 +9065,7 @@
   {
     "clip_id": "nezfan1_doc_007",
     "species_code": "nezfan1",
-    "common_name": "South Island Fantail / Pīwakawaka",
+    "common_name": "South Island Fantail / P\u012bwakawaka",
     "scientific_name": "Rhipidura fuliginosa fuliginosa",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9086,7 +9086,7 @@
   {
     "clip_id": "nezfan1_doc_008",
     "species_code": "nezfan1",
-    "common_name": "South Island Fantail / Pīwakawaka",
+    "common_name": "South Island Fantail / P\u012bwakawaka",
     "scientific_name": "Rhipidura fuliginosa fuliginosa",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9107,7 +9107,7 @@
   {
     "clip_id": "nezfan1_doc_009",
     "species_code": "nezfan1",
-    "common_name": "South Island Fantail / Pīwakawaka",
+    "common_name": "South Island Fantail / P\u012bwakawaka",
     "scientific_name": "Rhipidura fuliginosa fuliginosa",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9128,7 +9128,7 @@
   {
     "clip_id": "nezkak1_doc_004",
     "species_code": "nezkak1",
-    "common_name": "South Island Kākā",
+    "common_name": "South Island K\u0101k\u0101",
     "scientific_name": "Nestor meridionalis meridionalis",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9149,7 +9149,7 @@
   {
     "clip_id": "nezkak1_doc_005",
     "species_code": "nezkak1",
-    "common_name": "South Island Kākā",
+    "common_name": "South Island K\u0101k\u0101",
     "scientific_name": "Nestor meridionalis meridionalis",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9170,7 +9170,7 @@
   {
     "clip_id": "nezkak1_doc_006",
     "species_code": "nezkak1",
-    "common_name": "South Island Kākā",
+    "common_name": "South Island K\u0101k\u0101",
     "scientific_name": "Nestor meridionalis meridionalis",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9254,7 +9254,7 @@
   {
     "clip_id": "saddle3_doc_001",
     "species_code": "saddle3",
-    "common_name": "South Island Saddleback / Tīeke",
+    "common_name": "South Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus carunculatus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9275,7 +9275,7 @@
   {
     "clip_id": "saddle3_doc_002",
     "species_code": "saddle3",
-    "common_name": "South Island Saddleback / Tīeke",
+    "common_name": "South Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus carunculatus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9296,7 +9296,7 @@
   {
     "clip_id": "saddle3_doc_003",
     "species_code": "saddle3",
-    "common_name": "South Island Saddleback / Tīeke",
+    "common_name": "South Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus carunculatus",
     "vocalization_type": "call",
     "duration_ms": 2999,
@@ -9317,7 +9317,7 @@
   {
     "clip_id": "saddle3_doc_004",
     "species_code": "saddle3",
-    "common_name": "South Island Saddleback / Tīeke",
+    "common_name": "South Island Saddleback / T\u012beke",
     "scientific_name": "Philesturnus carunculatus",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9485,7 +9485,7 @@
   {
     "clip_id": "takahe3_doc_001",
     "species_code": "takahe3",
-    "common_name": "Takahē",
+    "common_name": "Takah\u0113",
     "scientific_name": "Porphyrio hochstetteri",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9506,7 +9506,7 @@
   {
     "clip_id": "takahe3_doc_002",
     "species_code": "takahe3",
-    "common_name": "Takahē",
+    "common_name": "Takah\u0113",
     "scientific_name": "Porphyrio hochstetteri",
     "vocalization_type": "call",
     "duration_ms": 2700,
@@ -9527,7 +9527,7 @@
   {
     "clip_id": "takahe3_doc_004",
     "species_code": "takahe3",
-    "common_name": "Takahē",
+    "common_name": "Takah\u0113",
     "scientific_name": "Porphyrio hochstetteri",
     "vocalization_type": "call",
     "duration_ms": 2700,
@@ -9548,7 +9548,7 @@
   {
     "clip_id": "tui1_doc_005",
     "species_code": "tui1",
-    "common_name": "Tūī",
+    "common_name": "T\u016b\u012b",
     "scientific_name": "Prosthemadera novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9569,7 +9569,7 @@
   {
     "clip_id": "tui1_doc_006",
     "species_code": "tui1",
-    "common_name": "Tūī",
+    "common_name": "T\u016b\u012b",
     "scientific_name": "Prosthemadera novaeseelandiae",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9611,7 +9611,7 @@
   {
     "clip_id": "wespet1_doc_001",
     "species_code": "wespet1",
-    "common_name": "Westland Petrel / Tāiko",
+    "common_name": "Westland Petrel / T\u0101iko",
     "scientific_name": "Procellaria westlandica",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9632,7 +9632,7 @@
   {
     "clip_id": "wespet1_doc_002",
     "species_code": "wespet1",
-    "common_name": "Westland Petrel / Tāiko",
+    "common_name": "Westland Petrel / T\u0101iko",
     "scientific_name": "Procellaria westlandica",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9653,7 +9653,7 @@
   {
     "clip_id": "wespet1_doc_003",
     "species_code": "wespet1",
-    "common_name": "Westland Petrel / Tāiko",
+    "common_name": "Westland Petrel / T\u0101iko",
     "scientific_name": "Procellaria westlandica",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9674,7 +9674,7 @@
   {
     "clip_id": "wespet1_doc_004",
     "species_code": "wespet1",
-    "common_name": "Westland Petrel / Tāiko",
+    "common_name": "Westland Petrel / T\u0101iko",
     "scientific_name": "Procellaria westlandica",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9695,7 +9695,7 @@
   {
     "clip_id": "greegr_doc_001",
     "species_code": "greegr",
-    "common_name": "White Heron / Kōtuku",
+    "common_name": "White Heron / K\u014dtuku",
     "scientific_name": "Ardea alba modesta",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9716,7 +9716,7 @@
   {
     "clip_id": "greegr_doc_002",
     "species_code": "greegr",
-    "common_name": "White Heron / Kōtuku",
+    "common_name": "White Heron / K\u014dtuku",
     "scientific_name": "Ardea alba modesta",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9737,7 +9737,7 @@
   {
     "clip_id": "greegr_doc_003",
     "species_code": "greegr",
-    "common_name": "White Heron / Kōtuku",
+    "common_name": "White Heron / K\u014dtuku",
     "scientific_name": "Ardea alba modesta",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9758,7 +9758,7 @@
   {
     "clip_id": "whiteh1_doc_001",
     "species_code": "whiteh1",
-    "common_name": "Whitehead / Pōpokotea",
+    "common_name": "Whitehead / P\u014dpokotea",
     "scientific_name": "Mohoua albicilla",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -9779,7 +9779,7 @@
   {
     "clip_id": "whiteh1_doc_002",
     "species_code": "whiteh1",
-    "common_name": "Whitehead / Pōpokotea",
+    "common_name": "Whitehead / P\u014dpokotea",
     "scientific_name": "Mohoua albicilla",
     "vocalization_type": "call",
     "duration_ms": 2800,
@@ -9800,7 +9800,7 @@
   {
     "clip_id": "whiteh1_doc_003",
     "species_code": "whiteh1",
-    "common_name": "Whitehead / Pōpokotea",
+    "common_name": "Whitehead / P\u014dpokotea",
     "scientific_name": "Mohoua albicilla",
     "vocalization_type": "call",
     "duration_ms": 2000,
@@ -9821,7 +9821,7 @@
   {
     "clip_id": "whiteh1_doc_004",
     "species_code": "whiteh1",
-    "common_name": "Whitehead / Pōpokotea",
+    "common_name": "Whitehead / P\u014dpokotea",
     "scientific_name": "Mohoua albicilla",
     "vocalization_type": "call",
     "duration_ms": 2000,
@@ -9842,7 +9842,7 @@
   {
     "clip_id": "whiteh1_doc_005",
     "species_code": "whiteh1",
-    "common_name": "Whitehead / Pōpokotea",
+    "common_name": "Whitehead / P\u014dpokotea",
     "scientific_name": "Mohoua albicilla",
     "vocalization_type": "call",
     "duration_ms": 3000,
@@ -10576,7 +10576,7 @@
     "source": "xenocanto",
     "source_id": "XC1048899",
     "source_url": "https://xeno-canto.org/1048899",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/RBNU_1048899_1.wav",
     "spectrogram_path": "data/spectrograms/RBNU_1048899_1.png",
     "canonical": false,
@@ -10828,7 +10828,7 @@
     "source": "xenocanto",
     "source_id": "XC934628",
     "source_url": "https://xeno-canto.org/934628",
-    "recordist": "Sonothèque ADVL",
+    "recordist": "Sonoth\u00e8que ADVL",
     "file_path": "data/clips/EUST_934628_1.wav",
     "spectrogram_path": "data/spectrograms/EUST_934628_1.png",
     "canonical": false,
@@ -11440,7 +11440,7 @@
     "source": "xenocanto",
     "source_id": "XC845011",
     "source_url": "https://xeno-canto.org/845011",
-    "recordist": "Jorge Leitão",
+    "recordist": "Jorge Leit\u00e3o",
     "file_path": "data/clips/carcro1_845011_1.wav",
     "spectrogram_path": "data/spectrograms/carcro1_845011_1.png",
     "canonical": false,
@@ -11476,7 +11476,7 @@
     "source": "xenocanto",
     "source_id": "XC1070963",
     "source_url": "https://xeno-canto.org/1070963",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/CCRA_1070963_1.wav",
     "spectrogram_path": "data/spectrograms/CCRA_1070963_1.png",
     "canonical": true,
@@ -11553,7 +11553,7 @@
     "spectrogram_path": "data/spectrograms/woolar1_911886_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "woolar1_911886_2",
@@ -11571,7 +11571,7 @@
     "spectrogram_path": "data/spectrograms/woolar1_911886_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "woolar1_911886_3",
@@ -11589,7 +11589,7 @@
     "spectrogram_path": "data/spectrograms/woolar1_911886_3.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "woolar1_1051220_1",
@@ -11607,7 +11607,7 @@
     "spectrogram_path": "data/spectrograms/woolar1_1051220_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "woolar1_995007_1",
@@ -11625,7 +11625,7 @@
     "spectrogram_path": "data/spectrograms/woolar1_995007_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "woolar1_994642_1",
@@ -11638,12 +11638,12 @@
     "source": "xenocanto",
     "source_id": "XC994642",
     "source_url": "https://xeno-canto.org/994642",
-    "recordist": "Johan Södercrantz",
+    "recordist": "Johan S\u00f6dercrantz",
     "file_path": "data/clips/woolar1_994642_1.wav",
     "spectrogram_path": "data/spectrograms/woolar1_994642_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "woolar1_801434_1",
@@ -11661,7 +11661,7 @@
     "spectrogram_path": "data/spectrograms/woolar1_801434_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "woolar1_801434_2",
@@ -11679,7 +11679,7 @@
     "spectrogram_path": "data/spectrograms/woolar1_801434_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "winwre4_1078121_1",
@@ -11692,12 +11692,12 @@
     "source": "xenocanto",
     "source_id": "XC1078121",
     "source_url": "https://xeno-canto.org/1078121",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/winwre4_1078121_1.wav",
     "spectrogram_path": "data/spectrograms/winwre4_1078121_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "winwre4_1078120_1",
@@ -11710,12 +11710,12 @@
     "source": "xenocanto",
     "source_id": "XC1078120",
     "source_url": "https://xeno-canto.org/1078120",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/winwre4_1078120_1.wav",
     "spectrogram_path": "data/spectrograms/winwre4_1078120_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "winwre4_1078119_1",
@@ -11728,12 +11728,12 @@
     "source": "xenocanto",
     "source_id": "XC1078119",
     "source_url": "https://xeno-canto.org/1078119",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/winwre4_1078119_1.wav",
     "spectrogram_path": "data/spectrograms/winwre4_1078119_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "winwre4_1075414_1",
@@ -11751,7 +11751,7 @@
     "spectrogram_path": "data/spectrograms/winwre4_1075414_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "winwre4_1075276_1",
@@ -11769,7 +11769,7 @@
     "spectrogram_path": "data/spectrograms/winwre4_1075276_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "winwre4_1074572_1",
@@ -11787,7 +11787,7 @@
     "spectrogram_path": "data/spectrograms/winwre4_1074572_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "webwar1_1043951_1",
@@ -11805,7 +11805,7 @@
     "spectrogram_path": "data/spectrograms/webwar1_1043951_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "webwar1_1034502_1",
@@ -11823,7 +11823,7 @@
     "spectrogram_path": "data/spectrograms/webwar1_1034502_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "webwar1_1043071_1",
@@ -11836,12 +11836,12 @@
     "source": "xenocanto",
     "source_id": "XC1043071",
     "source_url": "https://xeno-canto.org/1043071",
-    "recordist": "Killian Jégo",
+    "recordist": "Killian J\u00e9go",
     "file_path": "data/clips/webwar1_1043071_1.wav",
     "spectrogram_path": "data/spectrograms/webwar1_1043071_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1029228_1",
@@ -11859,7 +11859,7 @@
     "spectrogram_path": "data/spectrograms/thrnig1_1029228_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1029228_2",
@@ -11877,7 +11877,7 @@
     "spectrogram_path": "data/spectrograms/thrnig1_1029228_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1029228_3",
@@ -11895,7 +11895,7 @@
     "spectrogram_path": "data/spectrograms/thrnig1_1029228_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1017999_1",
@@ -11908,12 +11908,12 @@
     "source": "xenocanto",
     "source_id": "XC1017999",
     "source_url": "https://xeno-canto.org/1017999",
-    "recordist": "Aku Kalliomäki",
+    "recordist": "Aku Kalliom\u00e4ki",
     "file_path": "data/clips/thrnig1_1017999_1.wav",
     "spectrogram_path": "data/spectrograms/thrnig1_1017999_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1017991_1",
@@ -11926,12 +11926,12 @@
     "source": "xenocanto",
     "source_id": "XC1017991",
     "source_url": "https://xeno-canto.org/1017991",
-    "recordist": "Aku Kalliomäki",
+    "recordist": "Aku Kalliom\u00e4ki",
     "file_path": "data/clips/thrnig1_1017991_1.wav",
     "spectrogram_path": "data/spectrograms/thrnig1_1017991_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1017991_2",
@@ -11944,12 +11944,12 @@
     "source": "xenocanto",
     "source_id": "XC1017991",
     "source_url": "https://xeno-canto.org/1017991",
-    "recordist": "Aku Kalliomäki",
+    "recordist": "Aku Kalliom\u00e4ki",
     "file_path": "data/clips/thrnig1_1017991_2.wav",
     "spectrogram_path": "data/spectrograms/thrnig1_1017991_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1007424_1",
@@ -11967,7 +11967,7 @@
     "spectrogram_path": "data/spectrograms/thrnig1_1007424_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1007424_2",
@@ -11985,7 +11985,7 @@
     "spectrogram_path": "data/spectrograms/thrnig1_1007424_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_1060925_1",
@@ -11998,12 +11998,12 @@
     "source": "xenocanto",
     "source_id": "XC1060925",
     "source_url": "https://xeno-canto.org/1060925",
-    "recordist": "Mikołaj Koss",
+    "recordist": "Miko\u0142aj Koss",
     "file_path": "data/clips/thrnig1_1060925_1.wav",
     "spectrogram_path": "data/spectrograms/thrnig1_1060925_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "thrnig1_916831_1",
@@ -12021,7 +12021,7 @@
     "spectrogram_path": "data/spectrograms/thrnig1_916831_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "shttre1_1068696_1",
@@ -12039,7 +12039,7 @@
     "spectrogram_path": "data/spectrograms/shttre1_1068696_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "shttre1_1068696_2",
@@ -12057,7 +12057,7 @@
     "spectrogram_path": "data/spectrograms/shttre1_1068696_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "shttre1_1048997_1",
@@ -12075,7 +12075,7 @@
     "spectrogram_path": "data/spectrograms/shttre1_1048997_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "shttre1_1076766_1",
@@ -12093,7 +12093,7 @@
     "spectrogram_path": "data/spectrograms/shttre1_1076766_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "shttre1_1076766_2",
@@ -12111,7 +12111,7 @@
     "spectrogram_path": "data/spectrograms/shttre1_1076766_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "savwar1_1042941_1",
@@ -12129,7 +12129,7 @@
     "spectrogram_path": "data/spectrograms/savwar1_1042941_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "savwar1_1042941_2",
@@ -12147,7 +12147,7 @@
     "spectrogram_path": "data/spectrograms/savwar1_1042941_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "savwar1_1042940_1",
@@ -12165,7 +12165,7 @@
     "spectrogram_path": "data/spectrograms/savwar1_1042940_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "savwar1_992328_1",
@@ -12183,7 +12183,7 @@
     "spectrogram_path": "data/spectrograms/savwar1_992328_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "savwar1_572015_1",
@@ -12201,7 +12201,7 @@
     "spectrogram_path": "data/spectrograms/savwar1_572015_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "savwar1_283494_1",
@@ -12219,7 +12219,7 @@
     "spectrogram_path": "data/spectrograms/savwar1_283494_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "redkit1_879251_1",
@@ -12237,7 +12237,7 @@
     "spectrogram_path": "data/spectrograms/redkit1_879251_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "redkit1_879195_1",
@@ -12255,7 +12255,7 @@
     "spectrogram_path": "data/spectrograms/redkit1_879195_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "redkit1_879194_1",
@@ -12273,7 +12273,7 @@
     "spectrogram_path": "data/spectrograms/redkit1_879194_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "redkit1_879190_1",
@@ -12291,7 +12291,7 @@
     "spectrogram_path": "data/spectrograms/redkit1_879190_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLUE_1068596_1",
@@ -12304,12 +12304,12 @@
     "source": "xenocanto",
     "source_id": "XC1068596",
     "source_url": "https://xeno-canto.org/1068596",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/BLUE_1068596_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1068596_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLUE_1045713_1",
@@ -12322,12 +12322,12 @@
     "source": "xenocanto",
     "source_id": "XC1045713",
     "source_url": "https://xeno-canto.org/1045713",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/BLUE_1045713_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1045713_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLUE_1045713_2",
@@ -12340,12 +12340,12 @@
     "source": "xenocanto",
     "source_id": "XC1045713",
     "source_url": "https://xeno-canto.org/1045713",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/BLUE_1045713_2.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1045713_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLUE_1045712_1",
@@ -12358,12 +12358,12 @@
     "source": "xenocanto",
     "source_id": "XC1045712",
     "source_url": "https://xeno-canto.org/1045712",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/BLUE_1045712_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1045712_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLUE_1039066_1",
@@ -12376,12 +12376,12 @@
     "source": "xenocanto",
     "source_id": "XC1039066",
     "source_url": "https://xeno-canto.org/1039066",
-    "recordist": "Aku Kalliomäki",
+    "recordist": "Aku Kalliom\u00e4ki",
     "file_path": "data/clips/BLUE_1039066_1.wav",
     "spectrogram_path": "data/spectrograms/BLUE_1039066_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CCHI_1071008_1",
@@ -12399,7 +12399,7 @@
     "spectrogram_path": "data/spectrograms/CCHI_1071008_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CCHI_1054286_1",
@@ -12417,7 +12417,7 @@
     "spectrogram_path": "data/spectrograms/CCHI_1054286_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CCHI_1053323_1",
@@ -12435,7 +12435,7 @@
     "spectrogram_path": "data/spectrograms/CCHI_1053323_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CCHI_1053323_2",
@@ -12453,7 +12453,7 @@
     "spectrogram_path": "data/spectrograms/CCHI_1053323_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CCHI_1048070_1",
@@ -12471,7 +12471,7 @@
     "spectrogram_path": "data/spectrograms/CCHI_1048070_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CORA_791383_1",
@@ -12484,12 +12484,12 @@
     "source": "xenocanto",
     "source_id": "XC791383",
     "source_url": "https://xeno-canto.org/791383",
-    "recordist": "Marcin Urbański",
+    "recordist": "Marcin Urba\u0144ski",
     "file_path": "data/clips/CORA_791383_1.wav",
     "spectrogram_path": "data/spectrograms/CORA_791383_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CORA_1078519_1",
@@ -12507,7 +12507,7 @@
     "spectrogram_path": "data/spectrograms/CORA_1078519_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CORA_1078362_1",
@@ -12525,7 +12525,7 @@
     "spectrogram_path": "data/spectrograms/CORA_1078362_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CORA_1077846_1",
@@ -12543,7 +12543,7 @@
     "spectrogram_path": "data/spectrograms/CORA_1077846_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CORA_1060365_1",
@@ -12561,7 +12561,7 @@
     "spectrogram_path": "data/spectrograms/CORA_1060365_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_1075227_1",
@@ -12579,7 +12579,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_1075227_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_978938_1",
@@ -12597,7 +12597,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_978938_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_877694_1",
@@ -12615,7 +12615,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_877694_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_685091_1",
@@ -12633,7 +12633,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_685091_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_631732_1",
@@ -12651,7 +12651,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_631732_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_818170_1",
@@ -12669,7 +12669,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_818170_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_818170_2",
@@ -12687,7 +12687,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_818170_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_818169_1",
@@ -12705,7 +12705,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_818169_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EGOS_818169_2",
@@ -12723,7 +12723,7 @@
     "spectrogram_path": "data/spectrograms/EGOS_818169_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ESPA_721201_1",
@@ -12741,7 +12741,7 @@
     "spectrogram_path": "data/spectrograms/ESPA_721201_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ESPA_37534_1",
@@ -12759,7 +12759,7 @@
     "spectrogram_path": "data/spectrograms/ESPA_37534_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ESPA_1071299_1",
@@ -12777,7 +12777,7 @@
     "spectrogram_path": "data/spectrograms/ESPA_1071299_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ESPA_1044180_1",
@@ -12795,7 +12795,7 @@
     "spectrogram_path": "data/spectrograms/ESPA_1044180_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBB_1078838_1",
@@ -12813,7 +12813,7 @@
     "spectrogram_path": "data/spectrograms/EUBB_1078838_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBB_1078838_2",
@@ -12831,7 +12831,7 @@
     "spectrogram_path": "data/spectrograms/EUBB_1078838_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBB_1078824_1",
@@ -12849,7 +12849,7 @@
     "spectrogram_path": "data/spectrograms/EUBB_1078824_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBB_1078115_1",
@@ -12867,7 +12867,7 @@
     "spectrogram_path": "data/spectrograms/EUBB_1078115_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBB_1078003_1",
@@ -12885,7 +12885,7 @@
     "spectrogram_path": "data/spectrograms/EUBB_1078003_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBB_1074719_1",
@@ -12903,7 +12903,7 @@
     "spectrogram_path": "data/spectrograms/EUBB_1074719_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBB_1054837_1",
@@ -12921,7 +12921,7 @@
     "spectrogram_path": "data/spectrograms/EUBB_1054837_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBC_1075026_1",
@@ -12939,7 +12939,7 @@
     "spectrogram_path": "data/spectrograms/EUBC_1075026_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBC_1074975_1",
@@ -12957,7 +12957,7 @@
     "spectrogram_path": "data/spectrograms/EUBC_1074975_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBC_1074971_1",
@@ -12975,7 +12975,7 @@
     "spectrogram_path": "data/spectrograms/EUBC_1074971_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBC_1074961_1",
@@ -12993,7 +12993,7 @@
     "spectrogram_path": "data/spectrograms/EUBC_1074961_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUBC_1011676_1",
@@ -13011,7 +13011,7 @@
     "spectrogram_path": "data/spectrograms/EUBC_1011676_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUHO_747503_1",
@@ -13029,7 +13029,7 @@
     "spectrogram_path": "data/spectrograms/EUHO_747503_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUHO_747503_3",
@@ -13047,7 +13047,7 @@
     "spectrogram_path": "data/spectrograms/EUHO_747503_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUHO_586296_1",
@@ -13065,7 +13065,7 @@
     "spectrogram_path": "data/spectrograms/EUHO_586296_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUHO_577476_1",
@@ -13083,7 +13083,7 @@
     "spectrogram_path": "data/spectrograms/EUHO_577476_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUHO_474909_1",
@@ -13101,7 +13101,7 @@
     "spectrogram_path": "data/spectrograms/EUHO_474909_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUHO_188229_1",
@@ -13119,7 +13119,7 @@
     "spectrogram_path": "data/spectrograms/EUHO_188229_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUHO_960301_1",
@@ -13132,12 +13132,12 @@
     "source": "xenocanto",
     "source_id": "XC960301",
     "source_url": "https://xeno-canto.org/960301",
-    "recordist": "Csont-Kelemen Mátyás",
+    "recordist": "Csont-Kelemen M\u00e1ty\u00e1s",
     "file_path": "data/clips/EUHO_960301_1.wav",
     "spectrogram_path": "data/spectrograms/EUHO_960301_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUHO_933041_1",
@@ -13155,7 +13155,7 @@
     "spectrogram_path": "data/spectrograms/EUHO_933041_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUJA_1004412_1",
@@ -13173,7 +13173,7 @@
     "spectrogram_path": "data/spectrograms/EUJA_1004412_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUKE_1055740_1",
@@ -13191,7 +13191,7 @@
     "spectrogram_path": "data/spectrograms/EUKE_1055740_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUKE_1077594_1",
@@ -13209,7 +13209,7 @@
     "spectrogram_path": "data/spectrograms/EUKE_1077594_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUKE_1076829_1",
@@ -13227,7 +13227,7 @@
     "spectrogram_path": "data/spectrograms/EUKE_1076829_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUKE_1076829_2",
@@ -13245,7 +13245,7 @@
     "spectrogram_path": "data/spectrograms/EUKE_1076829_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUKE_1076829_3",
@@ -13263,7 +13263,7 @@
     "spectrogram_path": "data/spectrograms/EUKE_1076829_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUKE_1076828_1",
@@ -13281,7 +13281,7 @@
     "spectrogram_path": "data/spectrograms/EUKE_1076828_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUKE_1076828_2",
@@ -13299,7 +13299,7 @@
     "spectrogram_path": "data/spectrograms/EUKE_1076828_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUKE_1076825_1",
@@ -13317,7 +13317,7 @@
     "spectrogram_path": "data/spectrograms/EUKE_1076825_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EURO_1078398_1",
@@ -13335,7 +13335,7 @@
     "spectrogram_path": "data/spectrograms/EURO_1078398_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EURO_1078398_2",
@@ -13353,7 +13353,7 @@
     "spectrogram_path": "data/spectrograms/EURO_1078398_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EURO_1075739_1",
@@ -13371,7 +13371,7 @@
     "spectrogram_path": "data/spectrograms/EURO_1075739_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EURO_1075203_1",
@@ -13389,7 +13389,7 @@
     "spectrogram_path": "data/spectrograms/EURO_1075203_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EURO_1072480_1",
@@ -13407,7 +13407,7 @@
     "spectrogram_path": "data/spectrograms/EURO_1072480_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EURO_1074568_1",
@@ -13425,7 +13425,7 @@
     "spectrogram_path": "data/spectrograms/EURO_1074568_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EURO_1065556_1",
@@ -13438,12 +13438,12 @@
     "source": "xenocanto",
     "source_id": "XC1065556",
     "source_url": "https://xeno-canto.org/1065556",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/EURO_1065556_1.wav",
     "spectrogram_path": "data/spectrograms/EURO_1065556_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUSK_1067544_1",
@@ -13461,7 +13461,7 @@
     "spectrogram_path": "data/spectrograms/EUSK_1067544_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUSK_1067544_2",
@@ -13479,7 +13479,7 @@
     "spectrogram_path": "data/spectrograms/EUSK_1067544_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUSK_1027864_1",
@@ -13497,7 +13497,7 @@
     "spectrogram_path": "data/spectrograms/EUSK_1027864_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUSK_1027860_1",
@@ -13515,7 +13515,7 @@
     "spectrogram_path": "data/spectrograms/EUSK_1027860_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUSK_1027706_1",
@@ -13533,7 +13533,7 @@
     "spectrogram_path": "data/spectrograms/EUSK_1027706_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUSK_1027698_1",
@@ -13551,7 +13551,7 @@
     "spectrogram_path": "data/spectrograms/EUSK_1027698_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_804831_1",
@@ -13569,7 +13569,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_804831_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_804831_2",
@@ -13587,7 +13587,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_804831_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_683568_1",
@@ -13605,7 +13605,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_683568_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_635633_1",
@@ -13623,7 +13623,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_635633_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_635213_1",
@@ -13641,7 +13641,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_635213_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_635213_2",
@@ -13659,7 +13659,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_635213_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_1014924_1",
@@ -13677,7 +13677,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_1014924_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_1014924_2",
@@ -13695,7 +13695,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_1014924_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "FIEL_972709_1",
@@ -13713,7 +13713,7 @@
     "spectrogram_path": "data/spectrograms/FIEL_972709_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GSWO_1075748_1",
@@ -13731,7 +13731,7 @@
     "spectrogram_path": "data/spectrograms/GSWO_1075748_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GSWO_1075748_2",
@@ -13749,7 +13749,7 @@
     "spectrogram_path": "data/spectrograms/GSWO_1075748_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GSWO_1061167_1",
@@ -13767,7 +13767,7 @@
     "spectrogram_path": "data/spectrograms/GSWO_1061167_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GSWO_1061151_1",
@@ -13785,7 +13785,7 @@
     "spectrogram_path": "data/spectrograms/GSWO_1061151_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GSWO_1061170_1",
@@ -13803,7 +13803,7 @@
     "spectrogram_path": "data/spectrograms/GSWO_1061170_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GSWO_1061126_1",
@@ -13821,7 +13821,7 @@
     "spectrogram_path": "data/spectrograms/GSWO_1061126_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ICWA_1005634_1",
@@ -13839,7 +13839,7 @@
     "spectrogram_path": "data/spectrograms/ICWA_1005634_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ICWA_1005634_2",
@@ -13857,7 +13857,7 @@
     "spectrogram_path": "data/spectrograms/ICWA_1005634_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ICWA_1005500_1",
@@ -13875,7 +13875,7 @@
     "spectrogram_path": "data/spectrograms/ICWA_1005500_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ICWA_1005496_1",
@@ -13893,7 +13893,7 @@
     "spectrogram_path": "data/spectrograms/ICWA_1005496_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ICWA_1005496_2",
@@ -13911,7 +13911,7 @@
     "spectrogram_path": "data/spectrograms/ICWA_1005496_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ICWA_1003955_1",
@@ -13929,7 +13929,7 @@
     "spectrogram_path": "data/spectrograms/ICWA_1003955_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ICWA_800651_1",
@@ -13947,7 +13947,7 @@
     "spectrogram_path": "data/spectrograms/ICWA_800651_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ICWA_800650_1",
@@ -13965,7 +13965,7 @@
     "spectrogram_path": "data/spectrograms/ICWA_800650_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "miswoo1_1076671_1",
@@ -13983,7 +13983,7 @@
     "spectrogram_path": "data/spectrograms/miswoo1_1076671_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "miswoo1_1040850_1",
@@ -14001,7 +14001,7 @@
     "spectrogram_path": "data/spectrograms/miswoo1_1040850_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "miswoo1_1009838_1",
@@ -14019,7 +14019,7 @@
     "spectrogram_path": "data/spectrograms/miswoo1_1009838_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "miswoo1_1076924_1",
@@ -14037,7 +14037,7 @@
     "spectrogram_path": "data/spectrograms/miswoo1_1076924_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "miswoo1_1072942_1",
@@ -14055,7 +14055,7 @@
     "spectrogram_path": "data/spectrograms/miswoo1_1072942_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LEWH_1069647_1",
@@ -14068,12 +14068,12 @@
     "source": "xenocanto",
     "source_id": "XC1069647",
     "source_url": "https://xeno-canto.org/1069647",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/LEWH_1069647_1.wav",
     "spectrogram_path": "data/spectrograms/LEWH_1069647_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LEWH_1069647_2",
@@ -14086,12 +14086,12 @@
     "source": "xenocanto",
     "source_id": "XC1069647",
     "source_url": "https://xeno-canto.org/1069647",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/LEWH_1069647_2.wav",
     "spectrogram_path": "data/spectrograms/LEWH_1069647_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LEWH_1069645_1",
@@ -14104,12 +14104,12 @@
     "source": "xenocanto",
     "source_id": "XC1069645",
     "source_url": "https://xeno-canto.org/1069645",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/LEWH_1069645_1.wav",
     "spectrogram_path": "data/spectrograms/LEWH_1069645_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LEWH_1024202_1",
@@ -14127,7 +14127,7 @@
     "spectrogram_path": "data/spectrograms/LEWH_1024202_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LEWH_1006515_1",
@@ -14145,7 +14145,7 @@
     "spectrogram_path": "data/spectrograms/LEWH_1006515_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LEWH_1065146_1",
@@ -14163,7 +14163,7 @@
     "spectrogram_path": "data/spectrograms/LEWH_1065146_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LEWH_1065146_2",
@@ -14181,7 +14181,7 @@
     "spectrogram_path": "data/spectrograms/LEWH_1065146_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LEWH_1053918_1",
@@ -14199,7 +14199,7 @@
     "spectrogram_path": "data/spectrograms/LEWH_1053918_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_1041651_1",
@@ -14217,7 +14217,7 @@
     "spectrogram_path": "data/spectrograms/MITH_1041651_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_1041651_2",
@@ -14235,7 +14235,7 @@
     "spectrogram_path": "data/spectrograms/MITH_1041651_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_1011341_1",
@@ -14253,7 +14253,7 @@
     "spectrogram_path": "data/spectrograms/MITH_1011341_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_1011341_2",
@@ -14271,7 +14271,7 @@
     "spectrogram_path": "data/spectrograms/MITH_1011341_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_991459_1",
@@ -14289,7 +14289,7 @@
     "spectrogram_path": "data/spectrograms/MITH_991459_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_991459_2",
@@ -14307,7 +14307,7 @@
     "spectrogram_path": "data/spectrograms/MITH_991459_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_990283_1",
@@ -14325,7 +14325,7 @@
     "spectrogram_path": "data/spectrograms/MITH_990283_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_990283_2",
@@ -14343,7 +14343,7 @@
     "spectrogram_path": "data/spectrograms/MITH_990283_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_1045972_1",
@@ -14361,7 +14361,7 @@
     "spectrogram_path": "data/spectrograms/MITH_1045972_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MITH_1012901_1",
@@ -14379,7 +14379,7 @@
     "spectrogram_path": "data/spectrograms/MITH_1012901_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PEFA_985567_1",
@@ -14397,7 +14397,7 @@
     "spectrogram_path": "data/spectrograms/PEFA_985567_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PEFA_985566_1",
@@ -14415,7 +14415,7 @@
     "spectrogram_path": "data/spectrograms/PEFA_985566_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PEFA_757590_1",
@@ -14433,7 +14433,7 @@
     "spectrogram_path": "data/spectrograms/PEFA_757590_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PEFA_689369_1",
@@ -14451,7 +14451,7 @@
     "spectrogram_path": "data/spectrograms/PEFA_689369_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PEFA_1059390_1",
@@ -14469,7 +14469,7 @@
     "spectrogram_path": "data/spectrograms/PEFA_1059390_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PEFA_1055457_1",
@@ -14487,7 +14487,7 @@
     "spectrogram_path": "data/spectrograms/PEFA_1055457_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_1005148_1",
@@ -14505,7 +14505,7 @@
     "spectrogram_path": "data/spectrograms/REDW_1005148_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_1005147_1",
@@ -14523,7 +14523,7 @@
     "spectrogram_path": "data/spectrograms/REDW_1005147_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_1005147_2",
@@ -14541,7 +14541,7 @@
     "spectrogram_path": "data/spectrograms/REDW_1005147_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_1003922_1",
@@ -14559,7 +14559,7 @@
     "spectrogram_path": "data/spectrograms/REDW_1003922_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_1000358_1",
@@ -14572,12 +14572,12 @@
     "source": "xenocanto",
     "source_id": "XC1000358",
     "source_url": "https://xeno-canto.org/1000358",
-    "recordist": "Aku Kalliomäki",
+    "recordist": "Aku Kalliom\u00e4ki",
     "file_path": "data/clips/REDW_1000358_1.wav",
     "spectrogram_path": "data/spectrograms/REDW_1000358_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_996170_1",
@@ -14595,7 +14595,7 @@
     "spectrogram_path": "data/spectrograms/REDW_996170_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_982792_1",
@@ -14613,7 +14613,7 @@
     "spectrogram_path": "data/spectrograms/REDW_982792_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_900507_1",
@@ -14631,7 +14631,7 @@
     "spectrogram_path": "data/spectrograms/REDW_900507_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "REDW_900507_2",
@@ -14649,7 +14649,7 @@
     "spectrogram_path": "data/spectrograms/REDW_900507_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "RIWA_1078928_1",
@@ -14667,7 +14667,7 @@
     "spectrogram_path": "data/spectrograms/RIWA_1078928_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "RIWA_1006964_1",
@@ -14680,12 +14680,12 @@
     "source": "xenocanto",
     "source_id": "XC1006964",
     "source_url": "https://xeno-canto.org/1006964",
-    "recordist": "Håkan Söderman",
+    "recordist": "H\u00e5kan S\u00f6derman",
     "file_path": "data/clips/RIWA_1006964_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_1006964_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "RIWA_1005479_1",
@@ -14698,12 +14698,12 @@
     "source": "xenocanto",
     "source_id": "XC1005479",
     "source_url": "https://xeno-canto.org/1005479",
-    "recordist": "Aku Kalliomäki",
+    "recordist": "Aku Kalliom\u00e4ki",
     "file_path": "data/clips/RIWA_1005479_1.wav",
     "spectrogram_path": "data/spectrograms/RIWA_1005479_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "RIWA_575434_1",
@@ -14721,7 +14721,7 @@
     "spectrogram_path": "data/spectrograms/RIWA_575434_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "RIWA_245646_1",
@@ -14739,7 +14739,7 @@
     "spectrogram_path": "data/spectrograms/RIWA_245646_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ROOK_637823_1",
@@ -14757,7 +14757,7 @@
     "spectrogram_path": "data/spectrograms/ROOK_637823_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ROOK_637820_1",
@@ -14775,7 +14775,7 @@
     "spectrogram_path": "data/spectrograms/ROOK_637820_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ROOK_637818_1",
@@ -14793,7 +14793,7 @@
     "spectrogram_path": "data/spectrograms/ROOK_637818_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ROOK_637817_1",
@@ -14811,7 +14811,7 @@
     "spectrogram_path": "data/spectrograms/ROOK_637817_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "ROOK_637814_1",
@@ -14829,7 +14829,7 @@
     "spectrogram_path": "data/spectrograms/ROOK_637814_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SEWA_1077535_1",
@@ -14847,7 +14847,7 @@
     "spectrogram_path": "data/spectrograms/SEWA_1077535_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SEWA_1077535_2",
@@ -14865,7 +14865,7 @@
     "spectrogram_path": "data/spectrograms/SEWA_1077535_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SEWA_1077533_1",
@@ -14883,7 +14883,7 @@
     "spectrogram_path": "data/spectrograms/SEWA_1077533_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SEWA_1077533_2",
@@ -14901,7 +14901,7 @@
     "spectrogram_path": "data/spectrograms/SEWA_1077533_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SEWA_1077531_1",
@@ -14919,7 +14919,7 @@
     "spectrogram_path": "data/spectrograms/SEWA_1077531_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SEWA_1072008_1",
@@ -14932,12 +14932,12 @@
     "source": "xenocanto",
     "source_id": "XC1072008",
     "source_url": "https://xeno-canto.org/1072008",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/SEWA_1072008_1.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1072008_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SEWA_1072008_2",
@@ -14950,12 +14950,12 @@
     "source": "xenocanto",
     "source_id": "XC1072008",
     "source_url": "https://xeno-canto.org/1072008",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/SEWA_1072008_2.wav",
     "spectrogram_path": "data/spectrograms/SEWA_1072008_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SEWA_819502_1",
@@ -14973,7 +14973,7 @@
     "spectrogram_path": "data/spectrograms/SEWA_819502_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SOTH_1076449_1",
@@ -14991,7 +14991,7 @@
     "spectrogram_path": "data/spectrograms/SOTH_1076449_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SOTH_1073943_1",
@@ -15009,7 +15009,7 @@
     "spectrogram_path": "data/spectrograms/SOTH_1073943_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SOTH_1071986_1",
@@ -15022,12 +15022,12 @@
     "source": "xenocanto",
     "source_id": "XC1071986",
     "source_url": "https://xeno-canto.org/1071986",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/SOTH_1071986_1.wav",
     "spectrogram_path": "data/spectrograms/SOTH_1071986_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SOTH_1046157_1",
@@ -15045,7 +15045,7 @@
     "spectrogram_path": "data/spectrograms/SOTH_1046157_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SOTH_905174_1",
@@ -15063,7 +15063,7 @@
     "spectrogram_path": "data/spectrograms/SOTH_905174_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SPFL_1038340_1",
@@ -15076,12 +15076,12 @@
     "source": "xenocanto",
     "source_id": "XC1038340",
     "source_url": "https://xeno-canto.org/1038340",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/SPFL_1038340_1.wav",
     "spectrogram_path": "data/spectrograms/SPFL_1038340_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SPFL_993955_1",
@@ -15099,7 +15099,7 @@
     "spectrogram_path": "data/spectrograms/SPFL_993955_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1070103_1",
@@ -15112,12 +15112,12 @@
     "source": "xenocanto",
     "source_id": "XC1070103",
     "source_url": "https://xeno-canto.org/1070103",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/WILW_1070103_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1070103_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1070103_2",
@@ -15130,12 +15130,12 @@
     "source": "xenocanto",
     "source_id": "XC1070103",
     "source_url": "https://xeno-canto.org/1070103",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/WILW_1070103_2.wav",
     "spectrogram_path": "data/spectrograms/WILW_1070103_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1015728_1",
@@ -15153,7 +15153,7 @@
     "spectrogram_path": "data/spectrograms/WILW_1015728_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1014947_1",
@@ -15171,7 +15171,7 @@
     "spectrogram_path": "data/spectrograms/WILW_1014947_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1013512_1",
@@ -15189,7 +15189,7 @@
     "spectrogram_path": "data/spectrograms/WILW_1013512_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1012264_1",
@@ -15207,7 +15207,7 @@
     "spectrogram_path": "data/spectrograms/WILW_1012264_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1047059_1",
@@ -15220,12 +15220,12 @@
     "source": "xenocanto",
     "source_id": "XC1047059",
     "source_url": "https://xeno-canto.org/1047059",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/WILW_1047059_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1047059_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1047059_2",
@@ -15238,12 +15238,12 @@
     "source": "xenocanto",
     "source_id": "XC1047059",
     "source_url": "https://xeno-canto.org/1047059",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/WILW_1047059_2.wav",
     "spectrogram_path": "data/spectrograms/WILW_1047059_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WILW_1047057_1",
@@ -15256,12 +15256,12 @@
     "source": "xenocanto",
     "source_id": "XC1047057",
     "source_url": "https://xeno-canto.org/1047057",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/WILW_1047057_1.wav",
     "spectrogram_path": "data/spectrograms/WILW_1047057_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_1076823_1",
@@ -15279,7 +15279,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_1076823_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_1076823_2",
@@ -15297,7 +15297,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_1076823_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_1007775_1",
@@ -15315,7 +15315,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_1007775_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_1003392_1",
@@ -15333,7 +15333,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_1003392_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_1000139_1",
@@ -15351,7 +15351,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_1000139_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_997377_1",
@@ -15369,7 +15369,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_997377_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_997377_2",
@@ -15387,7 +15387,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_997377_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_900998_1",
@@ -15405,7 +15405,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_900998_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WOWA_900998_2",
@@ -15423,7 +15423,7 @@
     "spectrogram_path": "data/spectrograms/WOWA_900998_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "barwar1_961165_1",
@@ -15441,7 +15441,7 @@
     "spectrogram_path": "data/spectrograms/barwar1_961165_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "barwar1_961165_2",
@@ -15459,7 +15459,7 @@
     "spectrogram_path": "data/spectrograms/barwar1_961165_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "barwar1_904382_1",
@@ -15477,7 +15477,7 @@
     "spectrogram_path": "data/spectrograms/barwar1_904382_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "barwar1_845030_1",
@@ -15495,7 +15495,7 @@
     "spectrogram_path": "data/spectrograms/barwar1_845030_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "barwar1_575813_1",
@@ -15513,7 +15513,7 @@
     "spectrogram_path": "data/spectrograms/barwar1_575813_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "barwar1_575811_1",
@@ -15531,7 +15531,7 @@
     "spectrogram_path": "data/spectrograms/barwar1_575811_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "blawoo1_1009800_1",
@@ -15549,7 +15549,7 @@
     "spectrogram_path": "data/spectrograms/blawoo1_1009800_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "blawoo1_1009793_2",
@@ -15567,7 +15567,7 @@
     "spectrogram_path": "data/spectrograms/blawoo1_1009793_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "blawoo1_976909_1",
@@ -15585,7 +15585,7 @@
     "spectrogram_path": "data/spectrograms/blawoo1_976909_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "blawoo1_976909_2",
@@ -15603,7 +15603,7 @@
     "spectrogram_path": "data/spectrograms/blawoo1_976909_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "blawoo1_922491_1",
@@ -15621,7 +15621,7 @@
     "spectrogram_path": "data/spectrograms/blawoo1_922491_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "blawoo1_884376_1",
@@ -15639,7 +15639,7 @@
     "spectrogram_path": "data/spectrograms/blawoo1_884376_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "blawoo1_1067908_1",
@@ -15657,7 +15657,7 @@
     "spectrogram_path": "data/spectrograms/blawoo1_1067908_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "blawoo1_1067908_2",
@@ -15675,7 +15675,7 @@
     "spectrogram_path": "data/spectrograms/blawoo1_1067908_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cetwar1_1079100_1",
@@ -15693,7 +15693,7 @@
     "spectrogram_path": "data/spectrograms/cetwar1_1079100_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cetwar1_1079098_1",
@@ -15711,7 +15711,7 @@
     "spectrogram_path": "data/spectrograms/cetwar1_1079098_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cetwar1_1078113_1",
@@ -15724,12 +15724,12 @@
     "source": "xenocanto",
     "source_id": "XC1078113",
     "source_url": "https://xeno-canto.org/1078113",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/cetwar1_1078113_1.wav",
     "spectrogram_path": "data/spectrograms/cetwar1_1078113_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cetwar1_1064751_1",
@@ -15747,7 +15747,7 @@
     "spectrogram_path": "data/spectrograms/cetwar1_1064751_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cetwar1_1064751_2",
@@ -15765,7 +15765,7 @@
     "spectrogram_path": "data/spectrograms/cetwar1_1064751_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cetwar1_1064567_1",
@@ -15783,7 +15783,7 @@
     "spectrogram_path": "data/spectrograms/cetwar1_1064567_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cogwar1_1071998_1",
@@ -15796,12 +15796,12 @@
     "source": "xenocanto",
     "source_id": "XC1071998",
     "source_url": "https://xeno-canto.org/1071998",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/cogwar1_1071998_1.wav",
     "spectrogram_path": "data/spectrograms/cogwar1_1071998_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cogwar1_1017997_1",
@@ -15814,12 +15814,12 @@
     "source": "xenocanto",
     "source_id": "XC1017997",
     "source_url": "https://xeno-canto.org/1017997",
-    "recordist": "Aku Kalliomäki",
+    "recordist": "Aku Kalliom\u00e4ki",
     "file_path": "data/clips/cogwar1_1017997_1.wav",
     "spectrogram_path": "data/spectrograms/cogwar1_1017997_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cogwar1_999357_1",
@@ -15837,7 +15837,7 @@
     "spectrogram_path": "data/spectrograms/cogwar1_999357_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cogwar1_579796_1",
@@ -15855,7 +15855,7 @@
     "spectrogram_path": "data/spectrograms/cogwar1_579796_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cogwar1_579796_2",
@@ -15873,7 +15873,7 @@
     "spectrogram_path": "data/spectrograms/cogwar1_579796_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "cogwar1_571153_1",
@@ -15891,7 +15891,7 @@
     "spectrogram_path": "data/spectrograms/cogwar1_571153_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_965842_1",
@@ -15909,7 +15909,7 @@
     "spectrogram_path": "data/spectrograms/colfly1_965842_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_726952_1",
@@ -15927,7 +15927,7 @@
     "spectrogram_path": "data/spectrograms/colfly1_726952_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_720758_1",
@@ -15945,7 +15945,7 @@
     "spectrogram_path": "data/spectrograms/colfly1_720758_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_655679_1",
@@ -15963,7 +15963,7 @@
     "spectrogram_path": "data/spectrograms/colfly1_655679_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_655677_1",
@@ -15981,7 +15981,7 @@
     "spectrogram_path": "data/spectrograms/colfly1_655677_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_655677_2",
@@ -15999,7 +15999,7 @@
     "spectrogram_path": "data/spectrograms/colfly1_655677_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_994916_1",
@@ -16017,7 +16017,7 @@
     "spectrogram_path": "data/spectrograms/colfly1_994916_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_994916_2",
@@ -16035,7 +16035,7 @@
     "spectrogram_path": "data/spectrograms/colfly1_994916_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "colfly1_652066_1",
@@ -16048,12 +16048,12 @@
     "source": "xenocanto",
     "source_id": "XC652066",
     "source_url": "https://xeno-canto.org/652066",
-    "recordist": "Paweł Szymański",
+    "recordist": "Pawe\u0142 Szyma\u0144ski",
     "file_path": "data/clips/colfly1_652066_1.wav",
     "spectrogram_path": "data/spectrograms/colfly1_652066_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "combuz1_1077055_1",
@@ -16071,7 +16071,7 @@
     "spectrogram_path": "data/spectrograms/combuz1_1077055_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "combuz1_1077055_2",
@@ -16089,7 +16089,7 @@
     "spectrogram_path": "data/spectrograms/combuz1_1077055_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "combuz1_1072717_1",
@@ -16107,7 +16107,7 @@
     "spectrogram_path": "data/spectrograms/combuz1_1072717_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "combuz1_1069780_1",
@@ -16125,7 +16125,7 @@
     "spectrogram_path": "data/spectrograms/combuz1_1069780_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "combuz1_1039689_1",
@@ -16143,7 +16143,7 @@
     "spectrogram_path": "data/spectrograms/combuz1_1039689_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "combuz1_954507_1",
@@ -16161,7 +16161,7 @@
     "spectrogram_path": "data/spectrograms/combuz1_954507_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "combuz1_1067905_1",
@@ -16179,7 +16179,7 @@
     "spectrogram_path": "data/spectrograms/combuz1_1067905_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "combuz1_1067905_2",
@@ -16197,7 +16197,7 @@
     "spectrogram_path": "data/spectrograms/combuz1_1067905_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1075277_1",
@@ -16215,7 +16215,7 @@
     "spectrogram_path": "data/spectrograms/comnig1_1075277_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1075277_2",
@@ -16233,7 +16233,7 @@
     "spectrogram_path": "data/spectrograms/comnig1_1075277_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1075277_3",
@@ -16251,7 +16251,7 @@
     "spectrogram_path": "data/spectrograms/comnig1_1075277_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1071979_1",
@@ -16264,12 +16264,12 @@
     "source": "xenocanto",
     "source_id": "XC1071979",
     "source_url": "https://xeno-canto.org/1071979",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/comnig1_1071979_1.wav",
     "spectrogram_path": "data/spectrograms/comnig1_1071979_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1071979_2",
@@ -16282,12 +16282,12 @@
     "source": "xenocanto",
     "source_id": "XC1071979",
     "source_url": "https://xeno-canto.org/1071979",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/comnig1_1071979_2.wav",
     "spectrogram_path": "data/spectrograms/comnig1_1071979_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1071288_1",
@@ -16300,12 +16300,12 @@
     "source": "xenocanto",
     "source_id": "XC1071288",
     "source_url": "https://xeno-canto.org/1071288",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/comnig1_1071288_1.wav",
     "spectrogram_path": "data/spectrograms/comnig1_1071288_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1070159_1",
@@ -16318,12 +16318,12 @@
     "source": "xenocanto",
     "source_id": "XC1070159",
     "source_url": "https://xeno-canto.org/1070159",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/comnig1_1070159_1.wav",
     "spectrogram_path": "data/spectrograms/comnig1_1070159_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1071632_1",
@@ -16336,12 +16336,12 @@
     "source": "xenocanto",
     "source_id": "XC1071632",
     "source_url": "https://xeno-canto.org/1071632",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/comnig1_1071632_1.wav",
     "spectrogram_path": "data/spectrograms/comnig1_1071632_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "comnig1_1071632_2",
@@ -16354,12 +16354,12 @@
     "source": "xenocanto",
     "source_id": "XC1071632",
     "source_url": "https://xeno-canto.org/1071632",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/comnig1_1071632_2.wav",
     "spectrogram_path": "data/spectrograms/comnig1_1071632_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "darwar1_1025835_1",
@@ -16377,7 +16377,7 @@
     "spectrogram_path": "data/spectrograms/darwar1_1025835_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "darwar1_1022438_1",
@@ -16395,7 +16395,7 @@
     "spectrogram_path": "data/spectrograms/darwar1_1022438_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "darwar1_1022438_2",
@@ -16413,7 +16413,7 @@
     "spectrogram_path": "data/spectrograms/darwar1_1022438_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "darwar1_1011883_1",
@@ -16431,7 +16431,7 @@
     "spectrogram_path": "data/spectrograms/darwar1_1011883_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "darwar1_1060161_1",
@@ -16449,7 +16449,7 @@
     "spectrogram_path": "data/spectrograms/darwar1_1060161_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "darwar1_1060161_2",
@@ -16467,7 +16467,7 @@
     "spectrogram_path": "data/spectrograms/darwar1_1060161_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "dunnoc1_1011603_1",
@@ -16485,7 +16485,7 @@
     "spectrogram_path": "data/spectrograms/dunnoc1_1011603_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "dunnoc1_1011602_1",
@@ -16503,7 +16503,7 @@
     "spectrogram_path": "data/spectrograms/dunnoc1_1011602_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "dunnoc1_1003038_1",
@@ -16521,7 +16521,7 @@
     "spectrogram_path": "data/spectrograms/dunnoc1_1003038_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "dunnoc1_991430_1",
@@ -16539,7 +16539,7 @@
     "spectrogram_path": "data/spectrograms/dunnoc1_991430_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "dunnoc1_1074560_1",
@@ -16557,7 +16557,7 @@
     "spectrogram_path": "data/spectrograms/dunnoc1_1074560_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "dunnoc1_1074560_2",
@@ -16575,7 +16575,7 @@
     "spectrogram_path": "data/spectrograms/dunnoc1_1074560_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "dunnoc1_1074559_1",
@@ -16593,7 +16593,7 @@
     "spectrogram_path": "data/spectrograms/dunnoc1_1074559_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugori2_1062291_1",
@@ -16611,7 +16611,7 @@
     "spectrogram_path": "data/spectrograms/eugori2_1062291_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugori2_1054413_1",
@@ -16624,12 +16624,12 @@
     "source": "xenocanto",
     "source_id": "XC1054413",
     "source_url": "https://xeno-canto.org/1054413",
-    "recordist": "Feliu López i Gelats",
+    "recordist": "Feliu L\u00f3pez i Gelats",
     "file_path": "data/clips/eugori2_1054413_1.wav",
     "spectrogram_path": "data/spectrograms/eugori2_1054413_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugori2_1054413_2",
@@ -16642,12 +16642,12 @@
     "source": "xenocanto",
     "source_id": "XC1054413",
     "source_url": "https://xeno-canto.org/1054413",
-    "recordist": "Feliu López i Gelats",
+    "recordist": "Feliu L\u00f3pez i Gelats",
     "file_path": "data/clips/eugori2_1054413_2.wav",
     "spectrogram_path": "data/spectrograms/eugori2_1054413_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugori2_1043474_1",
@@ -16665,7 +16665,7 @@
     "spectrogram_path": "data/spectrograms/eugori2_1043474_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugori2_1043474_2",
@@ -16683,7 +16683,7 @@
     "spectrogram_path": "data/spectrograms/eugori2_1043474_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugori2_1062293_2",
@@ -16701,7 +16701,7 @@
     "spectrogram_path": "data/spectrograms/eugori2_1062293_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugwoo2_976587_1",
@@ -16719,7 +16719,7 @@
     "spectrogram_path": "data/spectrograms/eugwoo2_976587_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugwoo2_882026_1",
@@ -16737,7 +16737,7 @@
     "spectrogram_path": "data/spectrograms/eugwoo2_882026_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugwoo2_879113_1",
@@ -16755,7 +16755,7 @@
     "spectrogram_path": "data/spectrograms/eugwoo2_879113_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugwoo2_844211_1",
@@ -16773,7 +16773,7 @@
     "spectrogram_path": "data/spectrograms/eugwoo2_844211_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugwoo2_927450_1",
@@ -16791,7 +16791,7 @@
     "spectrogram_path": "data/spectrograms/eugwoo2_927450_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugwoo2_927450_2",
@@ -16809,7 +16809,7 @@
     "spectrogram_path": "data/spectrograms/eugwoo2_927450_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eugwoo2_927449_1",
@@ -16827,7 +16827,7 @@
     "spectrogram_path": "data/spectrograms/eugwoo2_927449_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "euhbuz1_914246_1",
@@ -16845,7 +16845,7 @@
     "spectrogram_path": "data/spectrograms/euhbuz1_914246_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "euhbuz1_585589_1",
@@ -16863,7 +16863,7 @@
     "spectrogram_path": "data/spectrograms/euhbuz1_585589_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "euhbuz1_1035966_1",
@@ -16881,7 +16881,7 @@
     "spectrogram_path": "data/spectrograms/euhbuz1_1035966_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "euhbuz1_1035966_3",
@@ -16899,7 +16899,7 @@
     "spectrogram_path": "data/spectrograms/euhbuz1_1035966_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "euhbuz1_1027226_1",
@@ -16917,7 +16917,7 @@
     "spectrogram_path": "data/spectrograms/euhbuz1_1027226_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "euhbuz1_1027226_2",
@@ -16935,7 +16935,7 @@
     "spectrogram_path": "data/spectrograms/euhbuz1_1027226_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1024766_1",
@@ -16953,7 +16953,7 @@
     "spectrogram_path": "data/spectrograms/eupfly1_1024766_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1013516_1",
@@ -16971,7 +16971,7 @@
     "spectrogram_path": "data/spectrograms/eupfly1_1013516_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1005646_1",
@@ -16989,7 +16989,7 @@
     "spectrogram_path": "data/spectrograms/eupfly1_1005646_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1005646_2",
@@ -17007,7 +17007,7 @@
     "spectrogram_path": "data/spectrograms/eupfly1_1005646_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1005334_1",
@@ -17020,12 +17020,12 @@
     "source": "xenocanto",
     "source_id": "XC1005334",
     "source_url": "https://xeno-canto.org/1005334",
-    "recordist": "Stein Ø. Nilsen",
+    "recordist": "Stein \u00d8. Nilsen",
     "file_path": "data/clips/eupfly1_1005334_1.wav",
     "spectrogram_path": "data/spectrograms/eupfly1_1005334_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1005334_2",
@@ -17038,12 +17038,12 @@
     "source": "xenocanto",
     "source_id": "XC1005334",
     "source_url": "https://xeno-canto.org/1005334",
-    "recordist": "Stein Ø. Nilsen",
+    "recordist": "Stein \u00d8. Nilsen",
     "file_path": "data/clips/eupfly1_1005334_2.wav",
     "spectrogram_path": "data/spectrograms/eupfly1_1005334_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1003846_1",
@@ -17056,12 +17056,12 @@
     "source": "xenocanto",
     "source_id": "XC1003846",
     "source_url": "https://xeno-canto.org/1003846",
-    "recordist": "Stein Ø. Nilsen",
+    "recordist": "Stein \u00d8. Nilsen",
     "file_path": "data/clips/eupfly1_1003846_1.wav",
     "spectrogram_path": "data/spectrograms/eupfly1_1003846_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1003846_2",
@@ -17074,12 +17074,12 @@
     "source": "xenocanto",
     "source_id": "XC1003846",
     "source_url": "https://xeno-canto.org/1003846",
-    "recordist": "Stein Ø. Nilsen",
+    "recordist": "Stein \u00d8. Nilsen",
     "file_path": "data/clips/eupfly1_1003846_2.wav",
     "spectrogram_path": "data/spectrograms/eupfly1_1003846_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1041227_1",
@@ -17092,12 +17092,12 @@
     "source": "xenocanto",
     "source_id": "XC1041227",
     "source_url": "https://xeno-canto.org/1041227",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/eupfly1_1041227_1.wav",
     "spectrogram_path": "data/spectrograms/eupfly1_1041227_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eupfly1_1041218_1",
@@ -17110,12 +17110,12 @@
     "source": "xenocanto",
     "source_id": "XC1041218",
     "source_url": "https://xeno-canto.org/1041218",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/eupfly1_1041218_1.wav",
     "spectrogram_path": "data/spectrograms/eupfly1_1041218_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurjay1_1075235_1",
@@ -17133,7 +17133,7 @@
     "spectrogram_path": "data/spectrograms/eurjay1_1075235_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurjay1_994551_1",
@@ -17146,12 +17146,12 @@
     "source": "xenocanto",
     "source_id": "XC994551",
     "source_url": "https://xeno-canto.org/994551",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/eurjay1_994551_1.wav",
     "spectrogram_path": "data/spectrograms/eurjay1_994551_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurjay1_789418_1",
@@ -17169,7 +17169,7 @@
     "spectrogram_path": "data/spectrograms/eurjay1_789418_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurjay1_1079016_1",
@@ -17187,7 +17187,7 @@
     "spectrogram_path": "data/spectrograms/eurjay1_1079016_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurjay1_1079013_1",
@@ -17205,7 +17205,7 @@
     "spectrogram_path": "data/spectrograms/eurjay1_1079013_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurjay1_1079013_2",
@@ -17223,7 +17223,7 @@
     "spectrogram_path": "data/spectrograms/eurjay1_1079013_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurmag1_1055714_1",
@@ -17241,7 +17241,7 @@
     "spectrogram_path": "data/spectrograms/eurmag1_1055714_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurmag1_1043581_1",
@@ -17259,7 +17259,7 @@
     "spectrogram_path": "data/spectrograms/eurmag1_1043581_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurmag1_1039731_1",
@@ -17277,7 +17277,7 @@
     "spectrogram_path": "data/spectrograms/eurmag1_1039731_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurmag1_1039731_2",
@@ -17295,7 +17295,7 @@
     "spectrogram_path": "data/spectrograms/eurmag1_1039731_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurmag1_992152_1",
@@ -17313,7 +17313,7 @@
     "spectrogram_path": "data/spectrograms/eurmag1_992152_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurmag1_992152_2",
@@ -17331,7 +17331,7 @@
     "spectrogram_path": "data/spectrograms/eurmag1_992152_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurmag1_1075379_1",
@@ -17349,7 +17349,7 @@
     "spectrogram_path": "data/spectrograms/eurmag1_1075379_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurmag1_1075379_2",
@@ -17367,7 +17367,7 @@
     "spectrogram_path": "data/spectrograms/eurmag1_1075379_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurtre1_1024415_1",
@@ -17385,7 +17385,7 @@
     "spectrogram_path": "data/spectrograms/eurtre1_1024415_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurtre1_1024415_2",
@@ -17403,7 +17403,7 @@
     "spectrogram_path": "data/spectrograms/eurtre1_1024415_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurtre1_976546_1",
@@ -17421,7 +17421,7 @@
     "spectrogram_path": "data/spectrograms/eurtre1_976546_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurtre1_893580_1",
@@ -17439,7 +17439,7 @@
     "spectrogram_path": "data/spectrograms/eurtre1_893580_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurtre1_808139_1",
@@ -17457,7 +17457,7 @@
     "spectrogram_path": "data/spectrograms/eurtre1_808139_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurtre1_807845_1",
@@ -17475,7 +17475,7 @@
     "spectrogram_path": "data/spectrograms/eurtre1_807845_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurtre1_1061243_1",
@@ -17493,7 +17493,7 @@
     "spectrogram_path": "data/spectrograms/eurtre1_1061243_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurtre1_1061243_2",
@@ -17511,7 +17511,7 @@
     "spectrogram_path": "data/spectrograms/eurtre1_1061243_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1075089_1",
@@ -17529,7 +17529,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1075089_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1075089_2",
@@ -17547,7 +17547,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1075089_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1075089_3",
@@ -17565,7 +17565,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1075089_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1073280_1",
@@ -17583,7 +17583,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1073280_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1073280_2",
@@ -17601,7 +17601,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1073280_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1073280_3",
@@ -17619,7 +17619,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1073280_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1072351_1",
@@ -17637,7 +17637,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1072351_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1072351_2",
@@ -17655,7 +17655,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1072351_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1067667_1",
@@ -17673,7 +17673,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1067667_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_1065697_1",
@@ -17691,7 +17691,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_1065697_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_923586_1",
@@ -17709,7 +17709,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_923586_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_923586_2",
@@ -17727,7 +17727,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_923586_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_923585_1",
@@ -17745,7 +17745,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_923585_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "marwar3_923585_2",
@@ -17763,7 +17763,7 @@
     "spectrogram_path": "data/spectrograms/marwar3_923585_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_989701_1",
@@ -17781,7 +17781,7 @@
     "spectrogram_path": "data/spectrograms/leswoo1_989701_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_989701_2",
@@ -17799,7 +17799,7 @@
     "spectrogram_path": "data/spectrograms/leswoo1_989701_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_795692_1",
@@ -17817,7 +17817,7 @@
     "spectrogram_path": "data/spectrograms/leswoo1_795692_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_790447_1",
@@ -17830,12 +17830,12 @@
     "source": "xenocanto",
     "source_id": "XC790447",
     "source_url": "https://xeno-canto.org/790447",
-    "recordist": "Dag Österlund",
+    "recordist": "Dag \u00d6sterlund",
     "file_path": "data/clips/leswoo1_790447_1.wav",
     "spectrogram_path": "data/spectrograms/leswoo1_790447_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_790447_2",
@@ -17848,12 +17848,12 @@
     "source": "xenocanto",
     "source_id": "XC790447",
     "source_url": "https://xeno-canto.org/790447",
-    "recordist": "Dag Österlund",
+    "recordist": "Dag \u00d6sterlund",
     "file_path": "data/clips/leswoo1_790447_2.wav",
     "spectrogram_path": "data/spectrograms/leswoo1_790447_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_713650_1",
@@ -17871,7 +17871,7 @@
     "spectrogram_path": "data/spectrograms/leswoo1_713650_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_711601_1",
@@ -17889,7 +17889,7 @@
     "spectrogram_path": "data/spectrograms/leswoo1_711601_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_989608_1",
@@ -17907,7 +17907,7 @@
     "spectrogram_path": "data/spectrograms/leswoo1_989608_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "leswoo1_987735_1",
@@ -17925,7 +17925,7 @@
     "spectrogram_path": "data/spectrograms/leswoo1_987735_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_831497_1",
@@ -17943,7 +17943,7 @@
     "spectrogram_path": "data/spectrograms/goldcr1_831497_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_831497_2",
@@ -17961,7 +17961,7 @@
     "spectrogram_path": "data/spectrograms/goldcr1_831497_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_793472_1",
@@ -17979,7 +17979,7 @@
     "spectrogram_path": "data/spectrograms/goldcr1_793472_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_791898_1",
@@ -17997,7 +17997,7 @@
     "spectrogram_path": "data/spectrograms/goldcr1_791898_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_791898_2",
@@ -18015,7 +18015,7 @@
     "spectrogram_path": "data/spectrograms/goldcr1_791898_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_716611_1",
@@ -18028,12 +18028,12 @@
     "source": "xenocanto",
     "source_id": "XC716611",
     "source_url": "https://xeno-canto.org/716611",
-    "recordist": "Tanguy Loïs",
+    "recordist": "Tanguy Lo\u00efs",
     "file_path": "data/clips/goldcr1_716611_1.wav",
     "spectrogram_path": "data/spectrograms/goldcr1_716611_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_661535_1",
@@ -18051,7 +18051,7 @@
     "spectrogram_path": "data/spectrograms/goldcr1_661535_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_1064695_1",
@@ -18069,7 +18069,7 @@
     "spectrogram_path": "data/spectrograms/goldcr1_1064695_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "goldcr1_1064695_2",
@@ -18087,7 +18087,7 @@
     "spectrogram_path": "data/spectrograms/goldcr1_1064695_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_1060910_1",
@@ -18100,12 +18100,12 @@
     "source": "xenocanto",
     "source_id": "XC1060910",
     "source_url": "https://xeno-canto.org/1060910",
-    "recordist": "Mikołaj Koss",
+    "recordist": "Miko\u0142aj Koss",
     "file_path": "data/clips/grewhi1_1060910_1.wav",
     "spectrogram_path": "data/spectrograms/grewhi1_1060910_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_1028382_1",
@@ -18123,7 +18123,7 @@
     "spectrogram_path": "data/spectrograms/grewhi1_1028382_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_1028382_2",
@@ -18141,7 +18141,7 @@
     "spectrogram_path": "data/spectrograms/grewhi1_1028382_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_1007554_1",
@@ -18154,12 +18154,12 @@
     "source": "xenocanto",
     "source_id": "XC1007554",
     "source_url": "https://xeno-canto.org/1007554",
-    "recordist": "Tobias Nykänen",
+    "recordist": "Tobias Nyk\u00e4nen",
     "file_path": "data/clips/grewhi1_1007554_1.wav",
     "spectrogram_path": "data/spectrograms/grewhi1_1007554_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_1007305_1",
@@ -18177,7 +18177,7 @@
     "spectrogram_path": "data/spectrograms/grewhi1_1007305_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_931937_1",
@@ -18195,7 +18195,7 @@
     "spectrogram_path": "data/spectrograms/grewhi1_931937_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_931937_2",
@@ -18213,7 +18213,7 @@
     "spectrogram_path": "data/spectrograms/grewhi1_931937_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_912893_1",
@@ -18231,7 +18231,7 @@
     "spectrogram_path": "data/spectrograms/grewhi1_912893_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grewhi1_912893_2",
@@ -18249,7 +18249,7 @@
     "spectrogram_path": "data/spectrograms/grewhi1_912893_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "firecr1_1075175_1",
@@ -18267,7 +18267,7 @@
     "spectrogram_path": "data/spectrograms/firecr1_1075175_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "firecr1_1064193_1",
@@ -18285,7 +18285,7 @@
     "spectrogram_path": "data/spectrograms/firecr1_1064193_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "firecr1_1051373_1",
@@ -18303,7 +18303,7 @@
     "spectrogram_path": "data/spectrograms/firecr1_1051373_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "firecr1_1051373_2",
@@ -18321,7 +18321,7 @@
     "spectrogram_path": "data/spectrograms/firecr1_1051373_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "firecr1_1074610_1",
@@ -18334,12 +18334,12 @@
     "source": "xenocanto",
     "source_id": "XC1074610",
     "source_url": "https://xeno-canto.org/1074610",
-    "recordist": "João Tomás",
+    "recordist": "Jo\u00e3o Tom\u00e1s",
     "file_path": "data/clips/firecr1_1074610_1.wav",
     "spectrogram_path": "data/spectrograms/firecr1_1074610_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1075351_1",
@@ -18357,7 +18357,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1075351_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1075351_2",
@@ -18375,7 +18375,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1075351_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1075309_1",
@@ -18393,7 +18393,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1075309_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1075309_2",
@@ -18411,7 +18411,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1075309_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1075309_3",
@@ -18429,7 +18429,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1075309_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1075309_4",
@@ -18447,7 +18447,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1075309_4.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1063753_1",
@@ -18465,7 +18465,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1063753_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1063753_2",
@@ -18483,7 +18483,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1063753_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1009420_1",
@@ -18501,7 +18501,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1009420_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1009419_1",
@@ -18519,7 +18519,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1009419_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1009422_1",
@@ -18537,7 +18537,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1009422_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1009422_2",
@@ -18555,7 +18555,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1009422_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1009422_3",
@@ -18573,7 +18573,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1009422_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "eurwar1_1009421_1",
@@ -18591,7 +18591,7 @@
     "spectrogram_path": "data/spectrograms/eurwar1_1009421_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "garwar1_1078897_1",
@@ -18604,12 +18604,12 @@
     "source": "xenocanto",
     "source_id": "XC1078897",
     "source_url": "https://xeno-canto.org/1078897",
-    "recordist": "Grégoire Chauvot",
+    "recordist": "Gr\u00e9goire Chauvot",
     "file_path": "data/clips/garwar1_1078897_1.wav",
     "spectrogram_path": "data/spectrograms/garwar1_1078897_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "garwar1_1047746_1",
@@ -18627,7 +18627,7 @@
     "spectrogram_path": "data/spectrograms/garwar1_1047746_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "garwar1_1014945_1",
@@ -18645,7 +18645,7 @@
     "spectrogram_path": "data/spectrograms/garwar1_1014945_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "garwar1_1014944_1",
@@ -18663,7 +18663,7 @@
     "spectrogram_path": "data/spectrograms/garwar1_1014944_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "garwar1_1014940_1",
@@ -18681,7 +18681,7 @@
     "spectrogram_path": "data/spectrograms/garwar1_1014940_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "garwar1_836297_1",
@@ -18699,7 +18699,7 @@
     "spectrogram_path": "data/spectrograms/garwar1_836297_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "garwar1_817765_1",
@@ -18717,7 +18717,7 @@
     "spectrogram_path": "data/spectrograms/garwar1_817765_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grrwar1_1071010_1",
@@ -18735,7 +18735,7 @@
     "spectrogram_path": "data/spectrograms/grrwar1_1071010_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grrwar1_1071010_2",
@@ -18753,7 +18753,7 @@
     "spectrogram_path": "data/spectrograms/grrwar1_1071010_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grrwar1_1049412_1",
@@ -18771,7 +18771,7 @@
     "spectrogram_path": "data/spectrograms/grrwar1_1049412_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grrwar1_1049412_2",
@@ -18789,7 +18789,7 @@
     "spectrogram_path": "data/spectrograms/grrwar1_1049412_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grrwar1_1049412_3",
@@ -18807,7 +18807,7 @@
     "spectrogram_path": "data/spectrograms/grrwar1_1049412_3.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grrwar1_1031040_1",
@@ -18825,7 +18825,7 @@
     "spectrogram_path": "data/spectrograms/grrwar1_1031040_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grrwar1_800528_1",
@@ -18843,7 +18843,7 @@
     "spectrogram_path": "data/spectrograms/grrwar1_800528_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "grrwar1_800528_2",
@@ -18861,7 +18861,7 @@
     "spectrogram_path": "data/spectrograms/grrwar1_800528_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMCR_316302_1",
@@ -18879,7 +18879,7 @@
     "spectrogram_path": "data/spectrograms/AMCR_316302_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMCR_667361_1",
@@ -18897,7 +18897,7 @@
     "spectrogram_path": "data/spectrograms/AMCR_667361_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CMWA_1013293_1",
@@ -18915,7 +18915,7 @@
     "spectrogram_path": "data/spectrograms/CMWA_1013293_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CMWA_1013473_1",
@@ -18933,7 +18933,7 @@
     "spectrogram_path": "data/spectrograms/CMWA_1013473_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CMWA_784610_1",
@@ -18951,7 +18951,7 @@
     "spectrogram_path": "data/spectrograms/CMWA_784610_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CMWA_466992_1",
@@ -18969,7 +18969,7 @@
     "spectrogram_path": "data/spectrograms/CMWA_466992_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YEWA_1046364_1",
@@ -18982,12 +18982,12 @@
     "source": "xenocanto",
     "source_id": "XC1046364",
     "source_url": "https://xeno-canto.org/1046364",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/YEWA_1046364_1.wav",
     "spectrogram_path": "data/spectrograms/YEWA_1046364_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YEWA_1046362_1",
@@ -19000,12 +19000,12 @@
     "source": "xenocanto",
     "source_id": "XC1046362",
     "source_url": "https://xeno-canto.org/1046362",
-    "recordist": "AUDEVARD Aurélien",
+    "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/YEWA_1046362_1.wav",
     "spectrogram_path": "data/spectrograms/YEWA_1046362_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YEWA_704480_1",
@@ -19018,12 +19018,12 @@
     "source": "xenocanto",
     "source_id": "XC704480",
     "source_url": "https://xeno-canto.org/704480",
-    "recordist": "András Schmidt",
+    "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/YEWA_704480_1.wav",
     "spectrogram_path": "data/spectrograms/YEWA_704480_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YEWA_1021359_1",
@@ -19041,7 +19041,7 @@
     "spectrogram_path": "data/spectrograms/YEWA_1021359_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMRE_1014425_1",
@@ -19059,7 +19059,7 @@
     "spectrogram_path": "data/spectrograms/AMRE_1014425_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMRE_1014856_1",
@@ -19077,7 +19077,7 @@
     "spectrogram_path": "data/spectrograms/AMRE_1014856_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMRE_1014857_1",
@@ -19095,7 +19095,7 @@
     "spectrogram_path": "data/spectrograms/AMRE_1014857_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMRE_1079599_1",
@@ -19113,7 +19113,7 @@
     "spectrogram_path": "data/spectrograms/AMRE_1079599_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMRE_1056045_1",
@@ -19126,12 +19126,12 @@
     "source": "xenocanto",
     "source_id": "XC1056045",
     "source_url": "https://xeno-canto.org/1056045",
-    "recordist": "Paul Lenrumé",
+    "recordist": "Paul Lenrum\u00e9",
     "file_path": "data/clips/AMRE_1056045_1.wav",
     "spectrogram_path": "data/spectrograms/AMRE_1056045_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMRE_998836_1",
@@ -19149,7 +19149,7 @@
     "spectrogram_path": "data/spectrograms/AMRE_998836_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMRE_1079599_2",
@@ -19167,7 +19167,7 @@
     "spectrogram_path": "data/spectrograms/AMRE_1079599_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BARS_753130_1",
@@ -19185,7 +19185,7 @@
     "spectrogram_path": "data/spectrograms/BARS_753130_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BARS_1043386_1",
@@ -19203,7 +19203,7 @@
     "spectrogram_path": "data/spectrograms/BARS_1043386_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BARS_753128_1",
@@ -19221,7 +19221,7 @@
     "spectrogram_path": "data/spectrograms/BARS_753128_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BARS_1011825_1",
@@ -19239,7 +19239,7 @@
     "spectrogram_path": "data/spectrograms/BARS_1011825_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BBWA_1014733_1",
@@ -19257,7 +19257,7 @@
     "spectrogram_path": "data/spectrograms/BBWA_1014733_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BBWA_1014776_1",
@@ -19275,7 +19275,7 @@
     "spectrogram_path": "data/spectrograms/BBWA_1014776_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BBWA_1020371_1",
@@ -19293,7 +19293,7 @@
     "spectrogram_path": "data/spectrograms/BBWA_1020371_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BBWA_389298_1",
@@ -19311,7 +19311,7 @@
     "spectrogram_path": "data/spectrograms/BBWA_389298_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BBWA_389298_2",
@@ -19329,7 +19329,7 @@
     "spectrogram_path": "data/spectrograms/BBWA_389298_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BBWA_135079_1",
@@ -19347,7 +19347,7 @@
     "spectrogram_path": "data/spectrograms/BBWA_135079_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMCR_1058578_1",
@@ -19365,7 +19365,7 @@
     "spectrogram_path": "data/spectrograms/AMCR_1058578_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "AMCR_1012136_1",
@@ -19383,7 +19383,7 @@
     "spectrogram_path": "data/spectrograms/AMCR_1012136_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLAK_993943_2",
@@ -19396,12 +19396,12 @@
     "source": "xenocanto",
     "source_id": "XC993943",
     "source_url": "https://xeno-canto.org/993943",
-    "recordist": "Ray Tsu 诸仁",
+    "recordist": "Ray Tsu \u8bf8\u4ec1",
     "file_path": "data/clips/BLAK_993943_2.wav",
     "spectrogram_path": "data/spectrograms/BLAK_993943_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLAK_994856_2",
@@ -19414,12 +19414,12 @@
     "source": "xenocanto",
     "source_id": "XC994856",
     "source_url": "https://xeno-canto.org/994856",
-    "recordist": "Ray Tsu 诸仁",
+    "recordist": "Ray Tsu \u8bf8\u4ec1",
     "file_path": "data/clips/BLAK_994856_2.wav",
     "spectrogram_path": "data/spectrograms/BLAK_994856_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLAK_1075223_1",
@@ -19437,7 +19437,7 @@
     "spectrogram_path": "data/spectrograms/BLAK_1075223_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLBW_1013883_1",
@@ -19455,7 +19455,7 @@
     "spectrogram_path": "data/spectrograms/BLBW_1013883_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLBW_1013883_2",
@@ -19473,7 +19473,7 @@
     "spectrogram_path": "data/spectrograms/BLBW_1013883_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLBW_1014269_1",
@@ -19491,7 +19491,7 @@
     "spectrogram_path": "data/spectrograms/BLBW_1014269_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLBW_1014459_1",
@@ -19509,7 +19509,7 @@
     "spectrogram_path": "data/spectrograms/BLBW_1014459_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLBW_1079587_1",
@@ -19527,7 +19527,7 @@
     "spectrogram_path": "data/spectrograms/BLBW_1079587_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLBW_616301_1",
@@ -19545,7 +19545,7 @@
     "spectrogram_path": "data/spectrograms/BLBW_616301_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLPW_1014468_1",
@@ -19563,7 +19563,7 @@
     "spectrogram_path": "data/spectrograms/BLPW_1014468_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLPW_1014475_1",
@@ -19581,7 +19581,7 @@
     "spectrogram_path": "data/spectrograms/BLPW_1014475_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLPW_1014475_2",
@@ -19599,7 +19599,7 @@
     "spectrogram_path": "data/spectrograms/BLPW_1014475_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLPW_467689_1",
@@ -19617,7 +19617,7 @@
     "spectrogram_path": "data/spectrograms/BLPW_467689_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BLPW_390831_1",
@@ -19630,12 +19630,12 @@
     "source": "xenocanto",
     "source_id": "XC390831",
     "source_url": "https://xeno-canto.org/390831",
-    "recordist": "Marcin Sołowiej",
+    "recordist": "Marcin So\u0142owiej",
     "file_path": "data/clips/BLPW_390831_1.wav",
     "spectrogram_path": "data/spectrograms/BLPW_390831_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CONW_1013973_1",
@@ -19653,7 +19653,7 @@
     "spectrogram_path": "data/spectrograms/CONW_1013973_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CONW_252951_1",
@@ -19671,7 +19671,7 @@
     "spectrogram_path": "data/spectrograms/CONW_252951_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CONW_475279_1",
@@ -19689,7 +19689,7 @@
     "spectrogram_path": "data/spectrograms/CONW_475279_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CONW_475279_2",
@@ -19707,7 +19707,7 @@
     "spectrogram_path": "data/spectrograms/CONW_475279_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CONW_190351_1",
@@ -19725,7 +19725,7 @@
     "spectrogram_path": "data/spectrograms/CONW_190351_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CONW_190349_1",
@@ -19743,7 +19743,7 @@
     "spectrogram_path": "data/spectrograms/CONW_190349_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CSWA_1014420_1",
@@ -19761,7 +19761,7 @@
     "spectrogram_path": "data/spectrograms/CSWA_1014420_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CSWA_1015053_1",
@@ -19779,7 +19779,7 @@
     "spectrogram_path": "data/spectrograms/CSWA_1015053_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CSWA_1015055_1",
@@ -19797,7 +19797,7 @@
     "spectrogram_path": "data/spectrograms/CSWA_1015055_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CSWA_1015055_2",
@@ -19815,7 +19815,7 @@
     "spectrogram_path": "data/spectrograms/CSWA_1015055_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CSWA_1008349_1",
@@ -19833,7 +19833,7 @@
     "spectrogram_path": "data/spectrograms/CSWA_1008349_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CSWA_561404_1",
@@ -19851,7 +19851,7 @@
     "spectrogram_path": "data/spectrograms/CSWA_561404_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUJA_1075128_2",
@@ -19869,7 +19869,7 @@
     "spectrogram_path": "data/spectrograms/EUJA_1075128_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "EUJA_1045811_2",
@@ -19887,7 +19887,7 @@
     "spectrogram_path": "data/spectrograms/EUJA_1045811_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GRHE_1014824_4",
@@ -19905,7 +19905,7 @@
     "spectrogram_path": "data/spectrograms/GRHE_1014824_4.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GRHE_1014823_2",
@@ -19923,7 +19923,7 @@
     "spectrogram_path": "data/spectrograms/GRHE_1014823_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GRHE_878516_1",
@@ -19941,7 +19941,7 @@
     "spectrogram_path": "data/spectrograms/GRHE_878516_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GRHE_144306_1",
@@ -19959,7 +19959,7 @@
     "spectrogram_path": "data/spectrograms/GRHE_144306_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GWWA_329965_1",
@@ -19977,7 +19977,7 @@
     "spectrogram_path": "data/spectrograms/GWWA_329965_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GWWA_329965_2",
@@ -19995,7 +19995,7 @@
     "spectrogram_path": "data/spectrograms/GWWA_329965_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "GWWA_658548_1",
@@ -20013,7 +20013,7 @@
     "spectrogram_path": "data/spectrograms/GWWA_658548_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MOWA_1014001_1",
@@ -20031,7 +20031,7 @@
     "spectrogram_path": "data/spectrograms/MOWA_1014001_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MOWA_1014001_2",
@@ -20049,7 +20049,7 @@
     "spectrogram_path": "data/spectrograms/MOWA_1014001_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MOWA_1014326_1",
@@ -20067,7 +20067,7 @@
     "spectrogram_path": "data/spectrograms/MOWA_1014326_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MOWA_814611_1",
@@ -20085,7 +20085,7 @@
     "spectrogram_path": "data/spectrograms/MOWA_814611_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOPA_1013754_1",
@@ -20103,7 +20103,7 @@
     "spectrogram_path": "data/spectrograms/NOPA_1013754_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOPA_1013870_1",
@@ -20121,7 +20121,7 @@
     "spectrogram_path": "data/spectrograms/NOPA_1013870_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOPA_1013947_1",
@@ -20139,7 +20139,7 @@
     "spectrogram_path": "data/spectrograms/NOPA_1013947_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOPA_1013947_2",
@@ -20157,7 +20157,7 @@
     "spectrogram_path": "data/spectrograms/NOPA_1013947_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "OVEN_1014291_1",
@@ -20175,7 +20175,7 @@
     "spectrogram_path": "data/spectrograms/OVEN_1014291_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "OVEN_1014294_1",
@@ -20193,7 +20193,7 @@
     "spectrogram_path": "data/spectrograms/OVEN_1014294_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "OVEN_1014599_1",
@@ -20211,7 +20211,7 @@
     "spectrogram_path": "data/spectrograms/OVEN_1014599_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOWA_1013461_1",
@@ -20229,7 +20229,7 @@
     "spectrogram_path": "data/spectrograms/NOWA_1013461_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOWA_1013462_1",
@@ -20247,7 +20247,7 @@
     "spectrogram_path": "data/spectrograms/NOWA_1013462_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOWA_1013462_2",
@@ -20265,7 +20265,7 @@
     "spectrogram_path": "data/spectrograms/NOWA_1013462_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOWA_1013464_1",
@@ -20283,7 +20283,7 @@
     "spectrogram_path": "data/spectrograms/NOWA_1013464_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NOWA_1048517_1",
@@ -20296,12 +20296,12 @@
     "source": "xenocanto",
     "source_id": "XC1048517",
     "source_url": "https://xeno-canto.org/1048517",
-    "recordist": "Paul Lenrumé",
+    "recordist": "Paul Lenrum\u00e9",
     "file_path": "data/clips/NOWA_1048517_1.wav",
     "spectrogram_path": "data/spectrograms/NOWA_1048517_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WIWA_1014396_1",
@@ -20319,7 +20319,7 @@
     "spectrogram_path": "data/spectrograms/WIWA_1014396_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WIWA_1014397_1",
@@ -20337,7 +20337,7 @@
     "spectrogram_path": "data/spectrograms/WIWA_1014397_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WIWA_1014403_1",
@@ -20355,7 +20355,7 @@
     "spectrogram_path": "data/spectrograms/WIWA_1014403_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WIWA_1070694_1",
@@ -20373,7 +20373,7 @@
     "spectrogram_path": "data/spectrograms/WIWA_1070694_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WIWA_906161_1",
@@ -20391,7 +20391,7 @@
     "spectrogram_path": "data/spectrograms/WIWA_906161_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WIWA_582129_1",
@@ -20409,7 +20409,7 @@
     "spectrogram_path": "data/spectrograms/WIWA_582129_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTBW_1013120_1",
@@ -20427,7 +20427,7 @@
     "spectrogram_path": "data/spectrograms/BTBW_1013120_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTBW_1013121_1",
@@ -20445,7 +20445,7 @@
     "spectrogram_path": "data/spectrograms/BTBW_1013121_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTBW_1038360_1",
@@ -20463,7 +20463,7 @@
     "spectrogram_path": "data/spectrograms/BTBW_1038360_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTBW_903870_1",
@@ -20481,7 +20481,7 @@
     "spectrogram_path": "data/spectrograms/BTBW_903870_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTBW_560659_1",
@@ -20499,7 +20499,7 @@
     "spectrogram_path": "data/spectrograms/BTBW_560659_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BAWW_1013805_1",
@@ -20517,7 +20517,7 @@
     "spectrogram_path": "data/spectrograms/BAWW_1013805_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BAWW_1013903_1",
@@ -20535,7 +20535,7 @@
     "spectrogram_path": "data/spectrograms/BAWW_1013903_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BAWW_1013906_1",
@@ -20553,7 +20553,7 @@
     "spectrogram_path": "data/spectrograms/BAWW_1013906_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BAWW_1013908_1",
@@ -20571,7 +20571,7 @@
     "spectrogram_path": "data/spectrograms/BAWW_1013908_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BAWW_1013909_1",
@@ -20589,7 +20589,7 @@
     "spectrogram_path": "data/spectrograms/BAWW_1013909_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BAWW_805472_1",
@@ -20607,7 +20607,7 @@
     "spectrogram_path": "data/spectrograms/BAWW_805472_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CAWA_1014128_1",
@@ -20625,7 +20625,7 @@
     "spectrogram_path": "data/spectrograms/CAWA_1014128_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CAWA_1014299_1",
@@ -20643,7 +20643,7 @@
     "spectrogram_path": "data/spectrograms/CAWA_1014299_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CAWA_1014299_2",
@@ -20661,7 +20661,7 @@
     "spectrogram_path": "data/spectrograms/CAWA_1014299_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "CAWA_1015017_1",
@@ -20679,7 +20679,7 @@
     "spectrogram_path": "data/spectrograms/CAWA_1015017_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "COYE_1021804_1",
@@ -20697,7 +20697,7 @@
     "spectrogram_path": "data/spectrograms/COYE_1021804_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LOWA_828213_1",
@@ -20715,7 +20715,7 @@
     "spectrogram_path": "data/spectrograms/LOWA_828213_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LOWA_828223_1",
@@ -20733,7 +20733,7 @@
     "spectrogram_path": "data/spectrograms/LOWA_828223_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "LOWA_691609_1",
@@ -20751,7 +20751,7 @@
     "spectrogram_path": "data/spectrograms/LOWA_691609_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PRAW_691780_1",
@@ -20769,7 +20769,7 @@
     "spectrogram_path": "data/spectrograms/PRAW_691780_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PRAW_691780_2",
@@ -20787,7 +20787,7 @@
     "spectrogram_path": "data/spectrograms/PRAW_691780_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PRAW_691782_1",
@@ -20805,7 +20805,7 @@
     "spectrogram_path": "data/spectrograms/PRAW_691782_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PRAW_691783_1",
@@ -20823,7 +20823,7 @@
     "spectrogram_path": "data/spectrograms/PRAW_691783_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PROW_413204_1",
@@ -20841,7 +20841,7 @@
     "spectrogram_path": "data/spectrograms/PROW_413204_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PROW_413204_2",
@@ -20859,7 +20859,7 @@
     "spectrogram_path": "data/spectrograms/PROW_413204_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PROW_389965_1",
@@ -20877,7 +20877,7 @@
     "spectrogram_path": "data/spectrograms/PROW_389965_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PROW_565260_1",
@@ -20895,7 +20895,7 @@
     "spectrogram_path": "data/spectrograms/PROW_565260_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PROW_371157_1",
@@ -20913,7 +20913,7 @@
     "spectrogram_path": "data/spectrograms/PROW_371157_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SWWA_720952_1",
@@ -20931,7 +20931,7 @@
     "spectrogram_path": "data/spectrograms/SWWA_720952_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SWWA_938875_1",
@@ -20949,7 +20949,7 @@
     "spectrogram_path": "data/spectrograms/SWWA_938875_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "SWWA_1071256_1",
@@ -20967,7 +20967,7 @@
     "spectrogram_path": "data/spectrograms/SWWA_1071256_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YRWA_898003_1",
@@ -20985,7 +20985,7 @@
     "spectrogram_path": "data/spectrograms/YRWA_898003_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YRWA_731214_1",
@@ -21003,7 +21003,7 @@
     "spectrogram_path": "data/spectrograms/YRWA_731214_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YRWA_1013277_1",
@@ -21021,7 +21021,7 @@
     "spectrogram_path": "data/spectrograms/YRWA_1013277_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YRWA_1013276_1",
@@ -21039,7 +21039,7 @@
     "spectrogram_path": "data/spectrograms/YRWA_1013276_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YRWA_1013276_2",
@@ -21057,7 +21057,7 @@
     "spectrogram_path": "data/spectrograms/YRWA_1013276_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "KEWA_1002085_1",
@@ -21075,7 +21075,7 @@
     "spectrogram_path": "data/spectrograms/KEWA_1002085_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "KEWA_827876_1",
@@ -21093,7 +21093,7 @@
     "spectrogram_path": "data/spectrograms/KEWA_827876_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MAWA_1013890_1",
@@ -21111,7 +21111,7 @@
     "spectrogram_path": "data/spectrograms/MAWA_1013890_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MAWA_1014112_1",
@@ -21129,7 +21129,7 @@
     "spectrogram_path": "data/spectrograms/MAWA_1014112_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MAWA_1014780_1",
@@ -21147,7 +21147,7 @@
     "spectrogram_path": "data/spectrograms/MAWA_1014780_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MAWA_1007638_1",
@@ -21165,7 +21165,7 @@
     "spectrogram_path": "data/spectrograms/MAWA_1007638_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MAWA_962395_1",
@@ -21183,7 +21183,7 @@
     "spectrogram_path": "data/spectrograms/MAWA_962395_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "MAWA_1013958_1",
@@ -21201,7 +21201,7 @@
     "spectrogram_path": "data/spectrograms/MAWA_1013958_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PIWA_1002534_1",
@@ -21219,7 +21219,7 @@
     "spectrogram_path": "data/spectrograms/PIWA_1002534_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PIWA_476138_1",
@@ -21237,7 +21237,7 @@
     "spectrogram_path": "data/spectrograms/PIWA_476138_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PIWA_895213_1",
@@ -21255,7 +21255,7 @@
     "spectrogram_path": "data/spectrograms/PIWA_895213_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PIWA_895216_1",
@@ -21273,7 +21273,7 @@
     "spectrogram_path": "data/spectrograms/PIWA_895216_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PIWA_901095_1",
@@ -21291,7 +21291,7 @@
     "spectrogram_path": "data/spectrograms/PIWA_901095_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PIWA_895216_2",
@@ -21309,7 +21309,7 @@
     "spectrogram_path": "data/spectrograms/PIWA_895216_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PAWA_1015024_1",
@@ -21327,7 +21327,7 @@
     "spectrogram_path": "data/spectrograms/PAWA_1015024_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PAWA_1015024_2",
@@ -21345,7 +21345,7 @@
     "spectrogram_path": "data/spectrograms/PAWA_1015024_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PAWA_1015031_1",
@@ -21363,7 +21363,7 @@
     "spectrogram_path": "data/spectrograms/PAWA_1015031_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PAWA_1015036_1",
@@ -21381,7 +21381,7 @@
     "spectrogram_path": "data/spectrograms/PAWA_1015036_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PAWA_1015038_1",
@@ -21399,7 +21399,7 @@
     "spectrogram_path": "data/spectrograms/PAWA_1015038_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "PAWA_307682_1",
@@ -21417,7 +21417,7 @@
     "spectrogram_path": "data/spectrograms/PAWA_307682_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "TEWA_1013989_1",
@@ -21435,7 +21435,7 @@
     "spectrogram_path": "data/spectrograms/TEWA_1013989_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "TEWA_1013990_1",
@@ -21453,7 +21453,7 @@
     "spectrogram_path": "data/spectrograms/TEWA_1013990_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "TEWA_1014318_2",
@@ -21471,7 +21471,7 @@
     "spectrogram_path": "data/spectrograms/TEWA_1014318_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "TEWA_1014433_1",
@@ -21489,7 +21489,7 @@
     "spectrogram_path": "data/spectrograms/TEWA_1014433_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YTWA_404733_2",
@@ -21507,7 +21507,7 @@
     "spectrogram_path": "data/spectrograms/YTWA_404733_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YTWA_460438_1",
@@ -21525,7 +21525,7 @@
     "spectrogram_path": "data/spectrograms/YTWA_460438_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YTWA_460438_2",
@@ -21543,7 +21543,7 @@
     "spectrogram_path": "data/spectrograms/YTWA_460438_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YTWA_649989_1",
@@ -21561,7 +21561,7 @@
     "spectrogram_path": "data/spectrograms/YTWA_649989_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "YTWA_649989_2",
@@ -21579,7 +21579,7 @@
     "spectrogram_path": "data/spectrograms/YTWA_649989_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WEWA_730180_1",
@@ -21597,7 +21597,7 @@
     "spectrogram_path": "data/spectrograms/WEWA_730180_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WEWA_828191_1",
@@ -21615,7 +21615,7 @@
     "spectrogram_path": "data/spectrograms/WEWA_828191_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "WEWA_933617_1",
@@ -21633,7 +21633,7 @@
     "spectrogram_path": "data/spectrograms/WEWA_933617_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTNW_1013766_1",
@@ -21651,7 +21651,7 @@
     "spectrogram_path": "data/spectrograms/BTNW_1013766_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTNW_1013767_1",
@@ -21669,7 +21669,7 @@
     "spectrogram_path": "data/spectrograms/BTNW_1013767_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTNW_1014367_1",
@@ -21687,7 +21687,7 @@
     "spectrogram_path": "data/spectrograms/BTNW_1014367_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTNW_1014367_2",
@@ -21705,7 +21705,7 @@
     "spectrogram_path": "data/spectrograms/BTNW_1014367_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTNW_1014727_1",
@@ -21723,7 +21723,7 @@
     "spectrogram_path": "data/spectrograms/BTNW_1014727_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTNW_1014727_2",
@@ -21741,7 +21741,7 @@
     "spectrogram_path": "data/spectrograms/BTNW_1014727_2.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTNW_1014732_1",
@@ -21759,7 +21759,7 @@
     "spectrogram_path": "data/spectrograms/BTNW_1014732_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "BTNW_1038308_1",
@@ -21777,7 +21777,7 @@
     "spectrogram_path": "data/spectrograms/BTNW_1038308_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NAWA_1013952_1",
@@ -21795,7 +21795,7 @@
     "spectrogram_path": "data/spectrograms/NAWA_1013952_1.png",
     "canonical": true,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NAWA_1013954_1",
@@ -21813,7 +21813,7 @@
     "spectrogram_path": "data/spectrograms/NAWA_1013954_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NAWA_1013954_2",
@@ -21831,7 +21831,7 @@
     "spectrogram_path": "data/spectrograms/NAWA_1013954_2.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NAWA_1013956_1",
@@ -21849,7 +21849,7 @@
     "spectrogram_path": "data/spectrograms/NAWA_1013956_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
     "clip_id": "NAWA_1013979_1",
@@ -21867,6 +21867,60 @@
     "spectrogram_path": "data/spectrograms/NAWA_1013979_1.png",
     "canonical": false,
     "rejected": false,
-    "license": "CC BY-NC-SA 4.0 ✓"
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BWWA_598819_1",
+    "species_code": "BWWA",
+    "common_name": "Blue-winged Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 2100,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC598819",
+    "source_url": "https://xeno-canto.org/598819",
+    "recordist": "Christopher McPherson",
+    "file_path": "data/clips/BWWA_598819_1.wav",
+    "spectrogram_path": "data/spectrograms/BWWA_598819_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BWWA_1072511_1",
+    "species_code": "BWWA",
+    "common_name": "Blue-winged Warbler",
+    "vocalization_type": "call",
+    "duration_ms": 1100,
+    "quality_score": 5,
+    "loudness_lufs": -18.3,
+    "source": "xenocanto",
+    "source_id": "XC1072511",
+    "source_url": "https://xeno-canto.org/1072511",
+    "recordist": "Max Noack",
+    "file_path": "data/clips/BWWA_1072511_1.wav",
+    "spectrogram_path": "data/spectrograms/BWWA_1072511_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BWWA_469578_1",
+    "species_code": "BWWA",
+    "common_name": "Blue-winged Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 2500,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC469578",
+    "source_url": "https://xeno-canto.org/469578",
+    "recordist": "Rolf A. de By",
+    "file_path": "data/clips/BWWA_469578_1.wav",
+    "spectrogram_path": "data/spectrograms/BWWA_469578_1.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
