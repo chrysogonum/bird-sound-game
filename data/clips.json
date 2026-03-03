@@ -21822,7 +21822,7 @@
     "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/OCWA_1046368_2.wav",
     "spectrogram_path": "data/spectrograms/OCWA_1046368_2.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
