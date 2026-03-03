@@ -1598,23 +1598,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "FICR_f5a7c587",
-    "species_code": "FICR",
-    "common_name": "Fish Crow",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC822351",
-    "file_path": "data/clips/FICR_822351.wav",
-    "spectrogram_path": "data/spectrograms/FICR_822351.png",
-    "recordist": "Gregory Askew",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/822351",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "FISP_367bbeaf",
     "species_code": "FISP",
     "common_name": "Field Sparrow",
@@ -22118,7 +22101,7 @@
     "recordist": "Gregory Askew",
     "file_path": "data/clips/FICR_822351_1.wav",
     "spectrogram_path": "data/spectrograms/FICR_822351_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
