@@ -3071,7 +3071,7 @@
     "file_path": "data/clips/KEWA_795271.wav",
     "spectrogram_path": "data/spectrograms/KEWA_795271.png",
     "recordist": "Scott Gravette",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/795271",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
