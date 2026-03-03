@@ -2017,7 +2017,7 @@
     "file_path": "data/clips/HAWO_988849.wav",
     "spectrogram_path": "data/spectrograms/HAWO_988849.png",
     "recordist": "Jim Berry",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "source_url": "https://xeno-canto.org/988849",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -22101,6 +22101,24 @@
     "recordist": "Gregory Askew",
     "file_path": "data/clips/FICR_822351_1.wav",
     "spectrogram_path": "data/spectrograms/FICR_822351_1.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "HAWO_1022464_1",
+    "species_code": "HAWO",
+    "common_name": "Hairy Woodpecker",
+    "vocalization_type": "call, whinny",
+    "duration_ms": 2800,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1022464",
+    "source_url": "https://xeno-canto.org/1022464",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/HAWO_1022464_1.wav",
+    "spectrogram_path": "data/spectrograms/HAWO_1022464_1.png",
     "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
