@@ -22094,7 +22094,7 @@
     "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/DEJU_1046356_1.wav",
     "spectrogram_path": "data/spectrograms/DEJU_1046356_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
@@ -22112,7 +22112,7 @@
     "recordist": "AUDEVARD Aur\u00e9lien",
     "file_path": "data/clips/DEJU_1046357_1.wav",
     "spectrogram_path": "data/spectrograms/DEJU_1046357_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
