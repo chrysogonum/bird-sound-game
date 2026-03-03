@@ -110,6 +110,36 @@ def load_packs() -> Dict[str, List[Dict]]:
     return packs_by_region
 
 
+def load_degraded_species() -> Dict[str, List[str]]:
+    """Load degraded species from degraded_clips.json, cross-referenced with current clips.json.
+    Species drop off once their degraded clips have been replaced."""
+    report_path = PROJECT_ROOT / 'data' / 'degraded_clips.json'
+    if not report_path.exists():
+        return {'all': [], 'canonical': []}
+    with open(report_path, 'r') as f:
+        report = json.load(f)
+
+    # Build set of degraded clip IDs
+    degraded_canonical_ids = {c['clip_id'] for c in report.get('degraded_canonical', [])}
+    degraded_all_ids = degraded_canonical_ids | {c['clip_id'] for c in report.get('degraded_non_canonical', [])}
+
+    # Cross-reference with current clips — only include species that still have degraded clips
+    clips = load_clips()
+    all_species = set()
+    canonical_species = set()
+    for clip in clips:
+        if clip.get('rejected', False):
+            continue
+        cid = clip['clip_id']
+        sp = clip['species_code']
+        if cid in degraded_all_ids:
+            all_species.add(sp)
+        if cid in degraded_canonical_ids and clip.get('canonical'):
+            canonical_species.add(sp)
+
+    return {'all': sorted(all_species), 'canonical': sorted(canonical_species)}
+
+
 def load_candidates_for_species(species_code: str) -> List[Dict]:
     """Load candidate sources for a species from ingest manifests"""
     candidates = []
@@ -145,6 +175,37 @@ def load_candidates_for_species(species_code: str) -> List[Dict]:
                             'license': item.get('license', 'unknown')
                         })
 
+    # Fallback: if no candidates from manifests, extract XC source IDs from clips.json
+    if not candidates:
+        clips = load_clips()
+        seen_xc = set()
+        for clip in clips:
+            if clip.get('rejected'):
+                continue
+            if clip.get('species_code') != species_code:
+                continue
+            sid = clip.get('source_id', '')
+            xc_match = re.match(r'XC(\d+)', sid)
+            if xc_match and xc_match.group(1) not in seen_xc:
+                xc_id = xc_match.group(1)
+                seen_xc.add(xc_id)
+                # Check if audio already downloaded
+                audio_file = None
+                for cdir in (PROJECT_ROOT / 'data').glob(f'candidates_{species_code}'):
+                    for ext in ['.mp3', '.wav']:
+                        matches = list(cdir.glob(f'*{xc_id}*{ext}'))
+                        if matches:
+                            audio_file = str(matches[0])
+                            break
+                candidates.append({
+                    'xc_id': xc_id,
+                    'path': audio_file,  # None if not yet downloaded
+                    'recordist': clip.get('recordist', 'Unknown'),
+                    'vocalization_type': clip.get('vocalization_type', 'song'),
+                    'license': clip.get('license', 'unknown'),
+                    'from_clips': True,  # Flag: derived from clips.json, not manifest
+                })
+
     return candidates
 
 
@@ -174,7 +235,8 @@ def count_candidates_per_species() -> Dict[str, int]:
 def extract_clip(source_path: Path, start_time: float, duration: float,
                  species_code: str, xc_id: str = None,
                  vocalization_type: str = 'song', recordist: str = 'Unknown',
-                 license: str = '') -> dict:
+                 license: str = '', denoise: bool = False,
+                 denoise_strength: float = 0.7) -> dict:
     """Extract a clip segment from source recording.
 
     Saves immediately to clips.json (extraction is not batched).
@@ -202,6 +264,15 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
         import librosa
         segment = librosa.resample(segment, orig_sr=sr, target_sr=OUTPUT_SAMPLE_RATE)
         sr = OUTPUT_SAMPLE_RATE
+
+    # Noise reduction (spectral gating)
+    if denoise and denoise_strength > 0:
+        import noisereduce as nr_lib
+        segment = nr_lib.reduce_noise(
+            y=segment, sr=sr,
+            prop_decrease=min(1.0, max(0.0, denoise_strength)),
+            stationary=True,
+        )
 
     # Normalize loudness to -16 LUFS, fall back to peak normalization if clipping
     meter = pyln.Meter(sr)
@@ -292,41 +363,57 @@ def extract_clip(source_path: Path, start_time: float, duration: float,
 
 
 def generate_spectrogram(audio: np.ndarray, sr: int, output_path: str):
-    """Generate spectrogram matching game style (locked settings)."""
+    """Generate spectrogram matching game style (locked settings).
+
+    Uses scipy.signal.spectrogram with pcolormesh + gouraud shading,
+    matching spectrogram_gen.py exactly.
+    """
     try:
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
-        import librosa
-        import librosa.display
+        from scipy import signal
 
-        # LOCKED SETTINGS — DO NOT MODIFY
+        # LOCKED SETTINGS — DO NOT MODIFY (must match spectrogram_gen.py)
         n_fft = 1024
         hop_length = 256
-        fmin = 500
-        fmax = 10000
+        freq_min = 500
+        freq_max = 10000
 
-        S = librosa.feature.melspectrogram(
-            y=audio, sr=sr, n_fft=n_fft, hop_length=hop_length,
-            fmin=fmin, fmax=fmax, n_mels=128
+        frequencies, times, Sxx = signal.spectrogram(
+            audio, fs=sr,
+            nperseg=n_fft,
+            noverlap=n_fft - hop_length,
+            scaling='density'
         )
-        S_db = librosa.power_to_db(S, ref=np.max)
 
-        vmin = np.percentile(S_db, 5)
-        vmax = np.percentile(S_db, 95)
+        Sxx_db = 10 * np.log10(Sxx + 1e-10)
+
+        freq_mask = (frequencies >= freq_min) & (frequencies <= freq_max)
+        frequencies_filtered = frequencies[freq_mask]
+        Sxx_filtered = Sxx_db[freq_mask, :]
+
+        vmin = np.percentile(Sxx_filtered, 5)
+        vmax = np.percentile(Sxx_filtered, 95)
 
         # 400x200px output (2:1 aspect ratio)
         fig, ax = plt.subplots(figsize=(4, 2), dpi=100)
-        librosa.display.specshow(
-            S_db, sr=sr, hop_length=hop_length,
-            fmin=fmin, fmax=fmax, ax=ax, cmap='magma',
+        ax.pcolormesh(
+            times, frequencies_filtered, Sxx_filtered,
+            shading='gouraud', cmap='magma',
             vmin=vmin, vmax=vmax
         )
         ax.axis('off')
         plt.tight_layout(pad=0)
-        plt.savefig(output_path, bbox_inches='tight', pad_inches=0,
-                     facecolor='black', edgecolor='none', dpi=100)
-        plt.close()
+        fig.savefig(
+            output_path,
+            dpi=100,
+            bbox_inches='tight',
+            pad_inches=0,
+            transparent=False,
+            facecolor='black'
+        )
+        plt.close(fig)
     except Exception as e:
         print(f"Warning: Could not generate spectrogram: {e}")
 
@@ -554,6 +641,10 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             self.handle_waveform(query)
         elif path == '/api/load-xc':
             self.handle_load_xc(query)
+        elif path == '/api/search-xc':
+            self.handle_search_xc(query)
+        elif path == '/api/preview-denoise':
+            self.handle_preview_denoise(query)
         elif path.startswith('/audio/'):
             self.serve_audio(path[7:])
         elif path.startswith('/data/'):
@@ -614,12 +705,27 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 if clip.get('canonical'):
                     canonical_count += 1
 
+        degraded = load_degraded_species()
+
+        # Build map of clip_id → {rate, degraded} for all checked clips
+        clip_sample_rates = {}
+        report_path = PROJECT_ROOT / 'data' / 'degraded_clips.json'
+        if report_path.exists():
+            with open(report_path, 'r') as f:
+                report = json.load(f)
+            for d in report.get('degraded_canonical', []) + report.get('degraded_non_canonical', []):
+                clip_sample_rates[d['clip_id']] = {'rate': d.get('source_sample_rate', 0), 'degraded': True}
+            for d in report.get('clean', []):
+                clip_sample_rates[d['clip_id']] = {'rate': d.get('source_sample_rate', 0), 'degraded': False}
+
         self.send_json({
             'packs': packs,
             'total_clips': sum(clip_counts.values()),
             'total_canonical': canonical_count,
             'clip_counts': clip_counts,
             'filter_pack': self.filter_pack,
+            'degraded_species': degraded,
+            'clip_sample_rates': clip_sample_rates,
         })
 
     def handle_species(self, query):
@@ -628,7 +734,13 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
 
         # Determine which species to include
         pack_species = None
-        if pack_id:
+        if pack_id == '__degraded__':
+            degraded = load_degraded_species()
+            pack_species = set(degraded['all'])
+        elif pack_id == '__degraded_canonical__':
+            degraded = load_degraded_species()
+            pack_species = set(degraded['canonical'])
+        elif pack_id:
             packs = load_packs()
             for region_packs in packs.values():
                 for pack in region_packs:
@@ -782,6 +894,152 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
         except Exception as e:
             self.send_json({'success': False, 'error': str(e)})
 
+    def handle_preview_denoise(self, query):
+        """Generate a denoised preview WAV of the current selection"""
+        source = query.get('source', [None])[0]
+        start = float(query.get('start', [0])[0])
+        duration = float(query.get('duration', [2.0])[0])
+        strength = float(query.get('strength', [0.7])[0])
+
+        print(f"[preview-denoise] source={source} start={start} dur={duration} str={strength}")
+
+        if not source or source in ('null', 'undefined', 'None'):
+            self.send_error(400, "Missing source")
+            return
+
+        source_path = Path(source)
+        if not source_path.exists():
+            source_path = PROJECT_ROOT / source
+        if not source_path.exists():
+            print(f"[preview-denoise] Source not found: {source}")
+            self.send_error(404, f"Source not found: {source}")
+            return
+
+        try:
+            import noisereduce as nr_lib
+            import io
+
+            audio, sr = sf.read(str(source_path))
+            if len(audio.shape) > 1:
+                audio = np.mean(audio, axis=1)
+
+            start_sample = int(start * sr)
+            end_sample = int((start + duration) * sr)
+            segment = audio[max(0, start_sample):min(len(audio), end_sample)]
+
+            # Resample if needed
+            if sr != OUTPUT_SAMPLE_RATE:
+                import librosa
+                segment = librosa.resample(segment, orig_sr=sr, target_sr=OUTPUT_SAMPLE_RATE)
+                sr = OUTPUT_SAMPLE_RATE
+
+            # Apply noise reduction (skip if strength is 0)
+            if strength > 0:
+                segment = nr_lib.reduce_noise(
+                    y=segment, sr=sr,
+                    prop_decrease=min(1.0, max(0.0, strength)),
+                    stationary=True,
+                )
+
+            # Write to temp file
+            preview_path = Path('/tmp/clip-studio/preview_denoise.wav')
+            preview_path.parent.mkdir(parents=True, exist_ok=True)
+            sf.write(str(preview_path), segment, sr, subtype='PCM_16')
+
+            # Serve the WAV
+            self.send_response(200)
+            self.send_header('Content-Type', 'audio/wav')
+            self.send_header('Cache-Control', 'no-cache')
+            self.end_headers()
+            with open(preview_path, 'rb') as f:
+                self.wfile.write(f.read())
+        except Exception as e:
+            self.send_error(500, str(e))
+
+    def handle_search_xc(self, query):
+        """Search Xeno-Canto for recordings of a species"""
+        import urllib.request
+        import urllib.parse
+
+        species_name = query.get('name', [None])[0]
+        quality = query.get('quality', [None])[0]  # e.g. "A", "A B"
+        voc_type = query.get('type', [None])[0]  # e.g. "song", "call"
+
+        if not species_name:
+            self.send_json({'error': 'Missing species name'})
+            return
+
+        api_key = os.environ.get('XENO_CANTO_API_KEY', '')
+        if not api_key:
+            self.send_json({'error': 'XENO_CANTO_API_KEY not set'})
+            return
+
+        # Build XC query — v3 API requires tagged search (en:"Name" or sp:epithet gen:Genus)
+        q_parts = [f'en:"{species_name}"']
+        if quality:
+            for q in quality.split():
+                q_parts.append(f'q:{q}')
+        if voc_type:
+            q_parts.append(f'type:{voc_type}')
+        q_parts.append('grp:birds')
+
+        xc_query = ' '.join(q_parts)
+        url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=50"
+
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'ChipNotes/1.0'})
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read().decode())
+
+            # Get existing XC IDs for this species to mark them
+            clips = load_clips()
+            species_code = query.get('species', [None])[0] or ''
+            existing_xc = set()
+            rejected_xc = set()
+            for c in clips:
+                if c.get('species_code') == species_code:
+                    sid = c.get('source_id', '').replace('XC', '')
+                    if sid:
+                        if c.get('rejected'):
+                            rejected_xc.add(sid)
+                        else:
+                            existing_xc.add(sid)
+
+            results = []
+            for rec in data.get('recordings', []):
+                xc_id = str(rec.get('id', ''))
+                # Parse duration string "M:SS" to seconds
+                length_str = rec.get('length', '0:00')
+                try:
+                    parts = length_str.split(':')
+                    duration_s = int(parts[0]) * 60 + int(parts[1]) if len(parts) == 2 else 0
+                except (ValueError, IndexError):
+                    duration_s = 0
+
+                results.append({
+                    'xc_id': xc_id,
+                    'recordist': rec.get('rec', ''),
+                    'quality': rec.get('q', ''),
+                    'type': rec.get('type', ''),
+                    'duration': duration_s,
+                    'duration_str': length_str,
+                    'license': rec.get('lic', ''),
+                    'country': rec.get('cnt', ''),
+                    'date': rec.get('date', ''),
+                    'sample_rate': int(rec.get('smp', 0)),
+                    'remarks': rec.get('rmk', '')[:100] if rec.get('rmk') else '',
+                    'existing': xc_id in existing_xc,
+                    'rejected': xc_id in rejected_xc,
+                })
+
+            self.send_json({
+                'total': int(data.get('numRecordings', 0)),
+                'shown': len(results),
+                'results': results,
+            })
+        except Exception as e:
+            self.send_json({'error': str(e)})
+
     # ── POST handlers ─────────────────────────────────────────────
 
     def handle_extract(self, post_data):
@@ -798,6 +1056,8 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                 vocalization_type=params.get('vocalization_type', 'song'),
                 recordist=params.get('recordist', 'Unknown'),
                 license=params.get('license', ''),
+                denoise=params.get('denoise', False),
+                denoise_strength=params.get('denoise_strength', 0.7),
             )
             self.send_json(result)
         except Exception as e:
@@ -1235,6 +1495,67 @@ def generate_html() -> str:
             background: var(--teal-bg);
             color: var(--teal);
         }
+        .btn-browse {
+            background: var(--bg-tertiary);
+            color: var(--teal);
+            border-color: var(--teal);
+        }
+        .btn-browse:hover { background: var(--teal-bg); }
+        .browse-xc-panel {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg-secondary);
+            margin: 8px 0;
+            overflow: hidden;
+        }
+        .browse-filters {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-tertiary);
+        }
+        .browse-select {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            font-family: inherit;
+        }
+        .browse-results {
+            max-height: 240px;
+            overflow-y: auto;
+            padding: 4px;
+        }
+        .xc-result {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.15s;
+        }
+        .xc-result:hover { background: var(--bg-elevated); }
+        .xc-result.existing { opacity: 0.4; }
+        .xc-result.rejected { opacity: 0.3; text-decoration: line-through; }
+        .xc-result-id { font-family: 'IBM Plex Mono', monospace; font-size: 11px; min-width: 70px; color: var(--teal); }
+        .xc-result-q { font-weight: 700; min-width: 18px; text-align: center; }
+        .xc-result-q.qA { color: #66bb6a; }
+        .xc-result-q.qB { color: #aed581; }
+        .xc-result-q.qC { color: #fdd835; }
+        .xc-result-q.qD { color: #ffa726; }
+        .xc-result-q.qE { color: #ef5350; }
+        .xc-result-type { color: var(--text-dim); min-width: 60px; }
+        .xc-result-dur { color: var(--text-dim); min-width: 40px; text-align: right; }
+        .xc-result-rec { color: var(--text-dim); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .xc-result-badge { font-size: 10px; padding: 1px 5px; border-radius: 3px; }
+        .xc-result-badge.in-use { background: var(--teal-bg); color: var(--teal); }
+        .xc-result-badge.rejected-badge { background: rgba(239,83,80,0.15); color: #ef5350; }
 
         .xc-load-area {
             margin-left: auto;
@@ -1692,8 +2013,29 @@ def generate_html() -> str:
             <div id="sourceChips" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
             <div class="xc-load-area">
                 <input type="text" class="xc-input" id="xcInput" placeholder="XC ID">
-                <button class="btn" onclick="loadXC()">Load XC</button>
+                <button class="btn" onclick="loadXC()">Load</button>
+                <button class="btn btn-browse" onclick="toggleBrowseXC()">🔍 Browse XC</button>
             </div>
+        </div>
+
+        <div class="browse-xc-panel" id="browsePanel" style="display:none;">
+            <div class="browse-filters">
+                <select id="browseQuality" class="browse-select">
+                    <option value="">Any quality</option>
+                    <option value="A" selected>A only</option>
+                    <option value="A B">A or B</option>
+                </select>
+                <select id="browseType" class="browse-select">
+                    <option value="">Any type</option>
+                    <option value="song">Song</option>
+                    <option value="call">Call</option>
+                    <option value="alarm call">Alarm</option>
+                    <option value="flight call">Flight call</option>
+                </select>
+                <button class="btn" onclick="searchXC()">Search</button>
+                <span id="browseStatus" style="font-size:11px;color:var(--text-dim);margin-left:8px;"></span>
+            </div>
+            <div class="browse-results" id="browseResults"></div>
         </div>
 
         <div class="center-placeholder" id="centerPlaceholder">
@@ -1749,6 +2091,15 @@ def generate_html() -> str:
                             <label class="form-label">Recordist</label>
                             <input type="text" class="form-input" id="recordist" placeholder="Unknown">
                         </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:10px;margin:8px 0;padding:8px 10px;background:var(--bg-tertiary);border-radius:6px;">
+                        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;white-space:nowrap;">
+                            <input type="checkbox" id="denoiseToggle" checked> Denoise
+                        </label>
+                        <input type="range" id="denoiseStrength" min="0" max="100" value="70"
+                               style="flex:1;accent-color:var(--teal);"
+                               oninput="document.getElementById('denoiseLabel').textContent=this.value+'%'">
+                        <span id="denoiseLabel" style="font-size:11px;color:var(--text-dim);min-width:30px;">70%</span>
                     </div>
                     <button class="btn btn-primary" style="width:100%;" onclick="extractClip()">
                         Extract Clip
@@ -1814,6 +2165,8 @@ fetch('/api/init')
         S.packs = data.packs;
         S.totalClips = data.total_clips;
         S.totalCanonical = data.total_canonical;
+        S.degradedSpecies = data.degraded_species || {all: [], canonical: []};
+        S.clipSampleRates = data.clip_sample_rates || {};
         S.selectedPack = data.filter_pack;
         renderPackTree();
         updateStatsDisplay();
@@ -1849,6 +2202,45 @@ function renderPackTree() {
     all.textContent = 'All Birds';
     all.onclick = () => { S.selectedPack = null; renderPackTree(); loadSpeciesList(null); };
     c.appendChild(all);
+
+    // Degraded Clips filters (from find_degraded_clips.py report)
+    if (S.degradedSpecies && S.degradedSpecies.all && S.degradedSpecies.all.length > 0) {
+        const group = document.createElement('div');
+        group.className = 'pack-group';
+
+        const hdr = document.createElement('div');
+        hdr.className = 'pack-group-hdr';
+        hdr.innerHTML = '<span class="pack-arrow">&#9654;</span>' +
+            '<span class="pack-group-name" style="color:#e57373">⚠ Degraded Clips</span>' +
+            '<span class="pack-group-count">' + S.degradedSpecies.all.length + '</span>';
+        hdr.onclick = () => group.classList.toggle('open');
+
+        const children = document.createElement('div');
+        children.className = 'pack-children';
+
+        // Canonical only
+        const canon = document.createElement('div');
+        canon.className = 'pack-child' + (S.selectedPack === '__degraded_canonical__' ? ' active' : '');
+        canon.innerHTML = '⭐ Canonical Only<span class="pack-child-count">' + S.degradedSpecies.canonical.length + '</span>';
+        canon.onclick = (e) => { e.stopPropagation(); S.selectedPack = '__degraded_canonical__'; renderPackTree(); loadSpeciesList('__degraded_canonical__'); };
+        children.appendChild(canon);
+
+        // All degraded
+        const allDeg = document.createElement('div');
+        allDeg.className = 'pack-child' + (S.selectedPack === '__degraded__' ? ' active' : '');
+        allDeg.innerHTML = 'All Degraded<span class="pack-child-count">' + S.degradedSpecies.all.length + '</span>';
+        allDeg.onclick = (e) => { e.stopPropagation(); S.selectedPack = '__degraded__'; renderPackTree(); loadSpeciesList('__degraded__'); };
+        children.appendChild(allDeg);
+
+        // Auto-expand if selected
+        if (S.selectedPack === '__degraded__' || S.selectedPack === '__degraded_canonical__') {
+            group.classList.add('open');
+        }
+
+        group.appendChild(hdr);
+        group.appendChild(children);
+        c.appendChild(group);
+    }
 
     const regions = [
         ['eu', 'European Packs'],
@@ -1906,10 +2298,14 @@ function renderSpeciesList() {
     const search = document.getElementById('searchInput').value.toLowerCase();
     document.getElementById('searchClear').style.display = search ? '' : 'none';
 
-    const filtered = S.species.filter(sp =>
+    let filtered = S.species.filter(sp =>
         sp.species_code.toLowerCase().includes(search) ||
         (sp.common_name && sp.common_name.toLowerCase().includes(search))
     );
+    // When searching, show species with clips first (more likely targets)
+    if (search) {
+        filtered.sort((a, b) => (b.clip_count - a.clip_count) || a.species_code.localeCompare(b.species_code));
+    }
 
     container.innerHTML = filtered.map(sp => {
         const isActive = S.selectedSpecies && S.selectedSpecies.species_code === sp.species_code;
@@ -1944,10 +2340,12 @@ function selectSpecies(species) {
     renderSpeciesList();
     updateUnsavedBadge();
 
-    // Show header
+    // Show header, reset browse panel
     document.getElementById('speciesHeader').style.display = '';
     document.getElementById('speciesTitle').textContent = species.common_name || species.species_code;
     document.getElementById('speciesSci').textContent = species.scientific_name || '';
+    document.getElementById('browsePanel').style.display = 'none';
+    document.getElementById('browseResults').innerHTML = '';
 
     // Load clips and candidates in parallel
     Promise.all([
@@ -2055,7 +2453,31 @@ function loadCandidate(candidate) {
         xc_id: candidate.xc_id,
     };
 
-    fetch('/api/waveform?source=' + encodeURIComponent(candidate.path))
+    // If no local file, download from XC first
+    if (!candidate.path) {
+        showStatus('Downloading XC' + candidate.xc_id + '...', 'info');
+        fetch('/api/load-xc?id=' + candidate.xc_id)
+            .then(r => r.json())
+            .then(result => {
+                if (result.success) {
+                    candidate.path = result.source_path;
+                    S.selectedSource.path = result.source_path;
+                    if (result.recordist) document.getElementById('recordist').value = result.recordist;
+                    if (result.vocalization_type) setVocType(result.vocalization_type);
+                    showStatus('Downloaded XC' + candidate.xc_id, 'success');
+                    loadWaveformFromPath(result.source_path);
+                } else {
+                    showStatus('Download failed: ' + (result.error || 'unknown'), 'error');
+                }
+            });
+        return;
+    }
+
+    loadWaveformFromPath(candidate.path);
+}
+
+function loadWaveformFromPath(path) {
+    fetch('/api/waveform?source=' + encodeURIComponent(path))
         .then(r => r.json())
         .then(data => {
             S.waveformData = data;
@@ -2111,6 +2533,128 @@ function loadXC() {
                     });
             } else {
                 showStatus('Failed: ' + result.error, 'error');
+            }
+        });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CENTER PANEL: Browse XC
+// ═══════════════════════════════════════════════════════════════
+
+function toggleBrowseXC() {
+    const panel = document.getElementById('browsePanel');
+    if (panel.style.display === 'none') {
+        panel.style.display = '';
+        if (!document.getElementById('browseResults').innerHTML) searchXC();
+    } else {
+        panel.style.display = 'none';
+    }
+}
+
+function searchXC() {
+    if (!S.selectedSpecies) return;
+    const name = S.selectedSpecies.common_name || S.selectedSpecies.scientific_name;
+    const quality = document.getElementById('browseQuality').value;
+    const type = document.getElementById('browseType').value;
+    const species = S.selectedSpecies.species_code;
+
+    document.getElementById('browseStatus').textContent = 'Searching...';
+    document.getElementById('browseResults').innerHTML = '';
+
+    let url = '/api/search-xc?name=' + encodeURIComponent(name) + '&species=' + encodeURIComponent(species);
+    if (quality) url += '&quality=' + encodeURIComponent(quality);
+    if (type) url += '&type=' + encodeURIComponent(type);
+
+    fetch(url)
+        .then(r => r.json())
+        .then(data => {
+            if (data.error) {
+                document.getElementById('browseStatus').textContent = 'Error: ' + data.error;
+                return;
+            }
+            document.getElementById('browseStatus').textContent = data.shown + ' of ' + data.total + ' recordings';
+            renderBrowseResults(data.results);
+        })
+        .catch(err => {
+            document.getElementById('browseStatus').textContent = 'Error: ' + err;
+        });
+}
+
+function renderBrowseResults(results) {
+    const container = document.getElementById('browseResults');
+    if (!results.length) {
+        container.innerHTML = '<div style="padding:16px;color:var(--text-dim);text-align:center;">No recordings found. Try different filters.</div>';
+        return;
+    }
+    container.innerHTML = results.map(r => {
+        let cls = 'xc-result';
+        if (r.existing) cls += ' existing';
+        if (r.rejected) cls += ' rejected';
+        const qClass = r.quality ? ' q' + r.quality : '';
+        let badge = '';
+        if (r.existing) badge = '<span class="xc-result-badge in-use">in use</span>';
+        else if (r.rejected) badge = '<span class="xc-result-badge rejected-badge">rejected</span>';
+        const licShort = (function(lic) {
+            if (!lic) return '';
+            lic = lic.toLowerCase();
+            if (lic.includes('by-nc-nd')) return '<span style="color:#ff5252" title="BY-NC-ND">ND</span>';
+            if (lic.includes('by-nc-sa')) return '<span style="color:#81c784" title="BY-NC-SA">SA</span>';
+            if (lic.includes('by-sa')) return '<span style="color:#4db6ac" title="BY-SA">SA</span>';
+            return '';
+        })(r.license);
+        return '<div class="' + cls + '" onclick="loadFromBrowse(\\'' + r.xc_id + '\\',\\'' + escHtml(r.recordist) + '\\',\\'' + escHtml(r.type) + '\\',\\'' + escHtml(r.license) + '\\')" title="' + escHtml(r.remarks) + '">' +
+            '<span class="xc-result-id">XC' + r.xc_id + '</span>' +
+            '<span class="xc-result-q' + qClass + '">' + (r.quality || '?') + '</span>' +
+            '<span class="xc-result-type">' + escHtml(r.type || '') + '</span>' +
+            '<span class="xc-result-dur">' + r.duration_str + '</span>' +
+            '<span class="xc-result-rec">' + escHtml(r.recordist) + '</span>' +
+            (r.sample_rate && r.sample_rate !== 44100 ? '<span style="color:#e57373;font-size:10px;" title="' + r.sample_rate + 'Hz source">⚠</span>' : '') +
+            (licShort ? ' ' + licShort : '') +
+            badge +
+            '</div>';
+    }).join('');
+}
+
+function loadFromBrowse(xcId, recordist, vocType, license) {
+    // Download and load this XC recording
+    showStatus('Downloading XC' + xcId + '...', 'info');
+    document.getElementById('browsePanel').style.display = 'none';
+
+    fetch('/api/load-xc?id=' + xcId)
+        .then(r => r.json())
+        .then(result => {
+            if (result.success) {
+                S.selectedSource = {
+                    path: result.source_path,
+                    xc_id: xcId,
+                };
+
+                document.getElementById('recordist').value = result.recordist || recordist;
+                setVocType(result.vocalization_type || vocType);
+
+                // Update license display
+                const licEl = document.getElementById('licenseDisplay');
+                const lic = (result.license || license || '').toLowerCase();
+                if (lic.includes('by-nc-nd')) licEl.innerHTML = '<span style="color:#ff5252;">CC BY-NC-ND 4.0 ⚠️</span>';
+                else if (lic.includes('by-nc-sa')) licEl.innerHTML = '<span style="color:#81c784;">CC BY-NC-SA 4.0 ✓</span>';
+                else if (lic.includes('by-sa')) licEl.innerHTML = '<span style="color:#4db6ac;">CC BY-SA 4.0 ✓</span>';
+                else licEl.innerHTML = '<span style="color:var(--text-dim);">' + (result.license || license || 'Unknown') + '</span>';
+
+                document.getElementById('centerPlaceholder').style.display = 'none';
+                document.getElementById('waveformArea').style.display = '';
+
+                showStatus('Loaded XC' + xcId + ' — ' + (result.recordist || recordist), 'success');
+                loadWaveformFromPath(result.source_path);
+
+                // Also add to source chips for easy re-selection
+                S.candidates.push({xc_id: xcId, path: result.source_path, recordist: result.recordist || recordist, vocalization_type: result.vocalization_type || vocType, license: result.license || license});
+                renderSourceBar(S.candidates);
+                // Mark new chip active
+                document.querySelectorAll('.source-chip').forEach(el => el.classList.remove('active'));
+                const last = document.querySelector('.source-chip:last-child');
+                if (last) last.classList.add('active');
+            } else {
+                showStatus('Download failed: ' + (result.error || 'unknown'), 'error');
             }
         });
 }
@@ -2266,21 +2810,33 @@ function toggleSelection() {
     stopAudio();
     centerPlayMode = 'selection';
     updateCenterButtons();
-    audio = new Audio('/audio/' + encodeURIComponent(S.selectedSource.path));
-    audio.currentTime = S.startTime;
-    audio.play();
-    isPlaying = true;
-    updatePlayhead();
 
-    const endTime = S.startTime + S.duration;
-    const checkEnd = () => {
-        if (audio && audio.currentTime >= endTime) {
-            stopAudio();
-        } else if (isPlaying) {
-            requestAnimationFrame(checkEnd);
-        }
-    };
-    requestAnimationFrame(checkEnd);
+    // Always use server-side preview for accurate selection playback
+    const denoiseOn = document.getElementById('denoiseToggle').checked;
+    const strength = denoiseOn ? parseInt(document.getElementById('denoiseStrength').value) / 100 : 0;
+    const url = '/api/preview-denoise?source=' + encodeURIComponent(S.selectedSource.path) +
+        '&start=' + S.startTime + '&duration=' + S.duration + '&strength=' + strength;
+    document.getElementById('btnSel').textContent = denoiseOn ? '⏳ Denoising...' : '⏳ Loading...';
+    fetch(url)
+        .then(resp => {
+            if (!resp.ok) throw new Error('Server returned ' + resp.status);
+            return resp.blob();
+        })
+        .then(blob => {
+            const blobUrl = URL.createObjectURL(blob);
+            audio = new Audio(blobUrl);
+            audio.onended = () => { URL.revokeObjectURL(blobUrl); stopAudio(); };
+            document.getElementById('btnSel').innerHTML = '&#9632; Selection';
+            audio.play();
+            isPlaying = true;
+            updatePlayhead();
+        })
+        .catch(err => {
+            console.error('Selection preview error:', err);
+            document.getElementById('btnSel').innerHTML = '&#9654; Selection';
+            centerPlayMode = null;
+            showStatus('Preview failed: ' + err.message, 'error');
+        });
 }
 
 let playingClipPath = null;
@@ -2335,7 +2891,13 @@ function updatePlayhead() {
     if (!isPlaying || !audio || !S.waveformData) return;
     const ph = document.getElementById('playhead');
     ph.style.display = 'block';
-    ph.style.left = (audio.currentTime / S.waveformData.duration * 100) + '%';
+    if (centerPlayMode === 'selection') {
+        // Server-side preview plays from 0..S.duration — offset to selection position
+        const pos = S.startTime + audio.currentTime;
+        ph.style.left = (pos / S.waveformData.duration * 100) + '%';
+    } else {
+        ph.style.left = (audio.currentTime / S.waveformData.duration * 100) + '%';
+    }
     animFrame = requestAnimationFrame(updatePlayhead);
 }
 
@@ -2360,6 +2922,8 @@ function extractClip() {
             vocalization_type: document.getElementById('vocType').value,
             recordist: document.getElementById('recordist').value || 'Unknown',
             license: document.getElementById('licenseDisplay').textContent || '',
+            denoise: document.getElementById('denoiseToggle').checked,
+            denoise_strength: parseInt(document.getElementById('denoiseStrength').value) / 100,
         })
     })
     .then(r => r.json())
@@ -2373,6 +2937,10 @@ function extractClip() {
                     S.clips = clips;
                     renderClips();
                     refreshStats();
+                    // Refresh browse results if open
+                    if (document.getElementById('browsePanel').style.display !== 'none') {
+                        searchXC();
+                    }
                 });
         } else {
             showStatus('Error: ' + result.error, 'error');
@@ -2426,6 +2994,16 @@ function renderClips() {
             '<span class="clip-edit-label">Duration</span>' +
             '<span style="font-size:11px;">' + (clip.duration_ms/1000).toFixed(1) + 's</span></div>' +
             (clip.source_id ? '<div class="clip-edit-row"><span class="clip-edit-label">Source</span><span style="font-size:11px;">' + escHtml(clip.source_id) + '</span></div>' : '') +
+            (function() {
+                var info = S.clipSampleRates[id];
+                if (!info) return '';
+                var rateKhz = (info.rate / 1000).toFixed(1);
+                if (info.degraded) {
+                    return '<div class="clip-edit-row"><span class="clip-edit-label">Sample</span><span style="color:#e57373;font-size:11px;">⚠ ' + rateKhz + 'kHz (np.interp)</span></div>';
+                } else {
+                    return '<div class="clip-edit-row"><span class="clip-edit-label">Sample</span><span style="color:#81c784;font-size:11px;">' + rateKhz + 'kHz ✓</span></div>';
+                }
+            })() +
             '<div class="clip-edit-row">' +
             '<span class="clip-edit-label">Type</span>' +
             '<select class="clip-edit-select" onchange="setMod(\\'' + id + '\\',\\'vocalization_type\\',this.value)">' +
