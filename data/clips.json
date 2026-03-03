@@ -9406,24 +9406,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "EUST_914383_1",
-    "species_code": "EUST",
-    "common_name": "European Starling",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "loudness_lufs": -16.2,
-    "source": "xenocanto",
-    "source_id": "XC914383",
-    "source_url": "https://xeno-canto.org/914383",
-    "recordist": "Thomas Ryder Payne",
-    "file_path": "data/clips/EUST_914383_1.wav",
-    "spectrogram_path": "data/spectrograms/EUST_914383_1.png",
-    "canonical": true,
-    "rejected": false,
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "EUST_981795_1",
     "species_code": "EUST",
     "common_name": "European Starling",
@@ -22182,6 +22164,24 @@
     "file_path": "data/clips/EUST_1075304_2.wav",
     "spectrogram_path": "data/spectrograms/EUST_1075304_2.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "EUST_914383_2",
+    "species_code": "EUST",
+    "common_name": "European Starling",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -23.7,
+    "source": "xenocanto",
+    "source_id": "XC914383",
+    "source_url": "https://xeno-canto.org/914383",
+    "recordist": "Thomas Ryder Payne",
+    "file_path": "data/clips/EUST_914383_2.wav",
+    "spectrogram_path": "data/spectrograms/EUST_914383_2.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
