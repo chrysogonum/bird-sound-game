@@ -22030,7 +22030,7 @@
     "recordist": "Paul Marvin",
     "file_path": "data/clips/BEKI_448752_1.wav",
     "spectrogram_path": "data/spectrograms/BEKI_448752_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
