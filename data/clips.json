@@ -2771,23 +2771,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "TUTI_ac0dfe97",
-    "species_code": "TUTI",
-    "common_name": "Tufted Titmouse",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC884288",
-    "file_path": "data/clips/TUTI_884288.wav",
-    "spectrogram_path": "data/spectrograms/TUTI_884288.png",
-    "recordist": "steve",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/884288",
-    "license": "//creativecommons.org/licenses/by-sa/4.0/"
-  },
-  {
     "clip_id": "WBNU_3b5ad0f4",
     "species_code": "WBNU",
     "common_name": "White-breasted Nuthatch",
@@ -22795,7 +22778,7 @@
     "clip_id": "TUTI_60068_1",
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
-    "vocalization_type": "alarm call, call",
+    "vocalization_type": "alarm call",
     "duration_ms": 3000,
     "quality_score": 5,
     "loudness_lufs": -16.4,
@@ -22808,5 +22791,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "TUTI_884288_1",
+    "species_code": "TUTI",
+    "common_name": "Tufted Titmouse",
+    "vocalization_type": "song",
+    "duration_ms": 1500,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC884288",
+    "source_url": "https://xeno-canto.org/884288",
+    "recordist": "steve",
+    "file_path": "data/clips/TUTI_884288_1.wav",
+    "spectrogram_path": "data/spectrograms/TUTI_884288_1.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-SA 4.0 \u2713"
   }
 ]
