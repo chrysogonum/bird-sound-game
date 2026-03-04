@@ -1513,23 +1513,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "LISP_aa5f346e",
-    "species_code": "LISP",
-    "common_name": "Lincoln's Sparrow",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1014983",
-    "file_path": "data/clips/LISP_1014983.wav",
-    "spectrogram_path": "data/spectrograms/LISP_1014983.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1014983",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "LOWA_6438e5bf",
     "species_code": "LOWA",
     "common_name": "Louisiana Waterthrush",
@@ -22850,6 +22833,24 @@
     "file_path": "data/clips/LISP_1014979_1.wav",
     "spectrogram_path": "data/spectrograms/LISP_1014979_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "LISP_1014983_1",
+    "species_code": "LISP",
+    "common_name": "Lincoln's Sparrow",
+    "vocalization_type": "song",
+    "duration_ms": 2200,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1014983",
+    "source_url": "https://xeno-canto.org/1014983",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/LISP_1014983_1.wav",
+    "spectrogram_path": "data/spectrograms/LISP_1014983_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
