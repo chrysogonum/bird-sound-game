@@ -3349,23 +3349,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "STJA_533a3bfb",
-    "species_code": "STJA",
-    "common_name": "Steller's Jay",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "quality_score": 4,
-    "source": "macaulay",
-    "source_id": "STJA_e4cea032",
-    "file_path": "data/clips/STJA_e4cea032.wav",
-    "spectrogram_path": "data/spectrograms/STJA_e4cea032.png",
-    "recordist": null,
-    "canonical": false,
-    "rejected": false,
-    "source_url": null,
-    "license": "Macaulay Library - Non-commercial license"
-  },
-  {
     "clip_id": "SWSP_8f49a086",
     "species_code": "SWSP",
     "common_name": "Swamp Sparrow",
