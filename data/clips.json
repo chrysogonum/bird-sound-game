@@ -2006,23 +2006,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "PIWO_b8aa06e0",
-    "species_code": "PIWO",
-    "common_name": "Pileated Woodpecker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC828370",
-    "file_path": "data/clips/PIWO_828370.wav",
-    "spectrogram_path": "data/spectrograms/PIWO_828370.png",
-    "recordist": "Richard E. Webster",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/828370",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "PRAW_14d6ea79",
     "species_code": "PRAW",
     "common_name": "Prairie Warbler",
@@ -22343,6 +22326,24 @@
     "recordist": "Russ Wigh",
     "file_path": "data/clips/PIWO_649554_1.wav",
     "spectrogram_path": "data/spectrograms/PIWO_649554_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "PIWO_828370_1",
+    "species_code": "PIWO",
+    "common_name": "Pileated Woodpecker",
+    "vocalization_type": "call",
+    "duration_ms": 2000,
+    "quality_score": 5,
+    "loudness_lufs": -17.4,
+    "source": "xenocanto",
+    "source_id": "XC828370",
+    "source_url": "https://xeno-canto.org/828370",
+    "recordist": "Richard E. Webster",
+    "file_path": "data/clips/PIWO_828370_1.wav",
+    "spectrogram_path": "data/spectrograms/PIWO_828370_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
