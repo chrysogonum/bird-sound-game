@@ -3370,24 +3370,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "WREN_295e4454",
-    "species_code": "WREN",
-    "common_name": "Wrentit",
-    "file_path": "data/clips/WREN_629171.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC629171",
-    "source_url": "https://xeno-canto.org/629171",
-    "recordist": "Thomas G. Graves",
-    "canonical": true,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_629171.png",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "WREN_1824903a",
     "species_code": "WREN",
     "common_name": "Wrentit",
@@ -22882,6 +22864,24 @@
     "file_path": "data/clips/WREN_634664_1.wav",
     "spectrogram_path": "data/spectrograms/WREN_634664_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "WREN_576849_1",
+    "species_code": "WREN",
+    "common_name": "Wrentit",
+    "vocalization_type": "song",
+    "duration_ms": 2700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC576849",
+    "source_url": "https://xeno-canto.org/576849",
+    "recordist": "Paul Marvin",
+    "file_path": "data/clips/WREN_576849_1.wav",
+    "spectrogram_path": "data/spectrograms/WREN_576849_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
