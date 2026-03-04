@@ -22334,7 +22334,7 @@
     "recordist": "Rory Nefdt",
     "file_path": "data/clips/NOFL_1033749_1.wav",
     "spectrogram_path": "data/spectrograms/NOFL_1033749_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
@@ -22342,7 +22342,7 @@
     "clip_id": "NOFL_768323_1",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
-    "vocalization_type": "distress call as pursued by raptor",
+    "vocalization_type": "call",
     "duration_ms": 700,
     "quality_score": 5,
     "loudness_lufs": -16.0,
@@ -22353,6 +22353,24 @@
     "file_path": "data/clips/NOFL_768323_1.wav",
     "spectrogram_path": "data/spectrograms/NOFL_768323_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "NOFL_1069251_1",
+    "species_code": "NOFL",
+    "common_name": "Northern Flicker",
+    "vocalization_type": "call",
+    "duration_ms": 500,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1069251",
+    "source_url": "https://xeno-canto.org/1069251",
+    "recordist": "Don Profota",
+    "file_path": "data/clips/NOFL_1069251_1.wav",
+    "spectrogram_path": "data/spectrograms/NOFL_1069251_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
