@@ -17697,7 +17697,7 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/COYE_1021804_1.wav",
     "spectrogram_path": "data/spectrograms/COYE_1021804_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
@@ -22881,7 +22881,7 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/COYE_1014862_2.wav",
     "spectrogram_path": "data/spectrograms/COYE_1014862_2.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
