@@ -1972,23 +1972,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "PIWO_a1d3a400",
-    "species_code": "PIWO",
-    "common_name": "Pileated Woodpecker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC582550",
-    "file_path": "data/clips/PIWO_582550.wav",
-    "spectrogram_path": "data/spectrograms/PIWO_582550.png",
-    "recordist": null,
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/582550",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "PIWO_c5cae1c9",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
@@ -22341,6 +22324,24 @@
     "file_path": "data/clips/BAOW_569818_1.wav",
     "spectrogram_path": "data/spectrograms/BAOW_569818_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BAOW_216000_1",
+    "species_code": "BAOW",
+    "common_name": "Barred Owl",
+    "vocalization_type": "call",
+    "duration_ms": 1900,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC216000",
+    "source_url": "https://xeno-canto.org/216000",
+    "recordist": "Kassius Santos",
+    "file_path": "data/clips/BAOW_216000_1.wav",
+    "spectrogram_path": "data/spectrograms/BAOW_216000_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
