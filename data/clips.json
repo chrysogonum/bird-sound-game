@@ -21236,7 +21236,7 @@
     "recordist": "Andr\u00e1s Schmidt",
     "file_path": "data/clips/DOWO_880467_1.wav",
     "spectrogram_path": "data/spectrograms/DOWO_880467_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
@@ -22324,7 +22324,7 @@
     "clip_id": "CAFI_551513_1",
     "species_code": "CAFI",
     "common_name": "Cassin's Finch",
-    "vocalization_type": "imitation, song, mimicry/imitation",
+    "vocalization_type": "song",
     "duration_ms": 3000,
     "quality_score": 5,
     "loudness_lufs": -16.0,
@@ -22371,6 +22371,24 @@
     "file_path": "data/clips/CAFI_453739_1.wav",
     "spectrogram_path": "data/spectrograms/CAFI_453739_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "DOWO_1049467_1",
+    "species_code": "DOWO",
+    "common_name": "Downy Woodpecker",
+    "vocalization_type": "call, whinny",
+    "duration_ms": 2000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1049467",
+    "source_url": "https://xeno-canto.org/1049467",
+    "recordist": "Valerie Heemstra",
+    "file_path": "data/clips/DOWO_1049467_1.wav",
+    "spectrogram_path": "data/spectrograms/DOWO_1049467_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
