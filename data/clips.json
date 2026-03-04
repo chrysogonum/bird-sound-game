@@ -561,23 +561,6 @@
     "license": "//creativecommons.org/licenses/by-sa/4.0/"
   },
   {
-    "clip_id": "CAFI_0df81e13",
-    "species_code": "CAFI",
-    "common_name": "Cassin's Finch",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "quality_score": 4,
-    "source": "macaulay",
-    "source_id": "CAFI_9696235e",
-    "file_path": "data/clips/CAFI_9696235e.wav",
-    "spectrogram_path": "data/spectrograms/CAFI_9696235e.png",
-    "recordist": null,
-    "canonical": true,
-    "rejected": false,
-    "source_url": null,
-    "license": "Macaulay Library - Non-commercial license"
-  },
-  {
     "clip_id": "CARW_b1f87e9c",
     "species_code": "CARW",
     "common_name": "Carolina Wren",
@@ -22297,6 +22280,24 @@
     "file_path": "data/clips/BCCH_1073855_1.wav",
     "spectrogram_path": "data/spectrograms/BCCH_1073855_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CAFI_748350_1",
+    "species_code": "CAFI",
+    "common_name": "Cassin's Finch",
+    "vocalization_type": "song",
+    "duration_ms": 2500,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC748350",
+    "source_url": "https://xeno-canto.org/748350",
+    "recordist": "Paul Marvin",
+    "file_path": "data/clips/CAFI_748350_1.wav",
+    "spectrogram_path": "data/spectrograms/CAFI_748350_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
