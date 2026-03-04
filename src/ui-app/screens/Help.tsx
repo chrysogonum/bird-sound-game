@@ -785,16 +785,16 @@ function Help() {
           </p>
           <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--color-text-muted)', lineHeight: 1.8 }}>
             <li>
-              <a href="https://www.birds.cornell.edu/home/support/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-                https://www.birds.cornell.edu/home/support/
+              <a href="https://xeno-canto.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                xeno-canto.org
               </a>
-              {' '}- Incredible bird sound archive
+              {' '}- Community-driven bird recording database (donate via PayPal on homepage)
             </li>
             <li>
-              <a href="https://xeno-canto.org/about/donate" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-                https://xeno-canto.org/about/donate
+              <a href="https://www.birds.cornell.edu/home/give/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                birds.cornell.edu/home/give
               </a>
-              {' '}- Community-driven bird recording database
+              {' '}- Cornell Lab of Ornithology
             </li>
             <li>
               <a href="https://www.doc.govt.nz/get-involved/donate/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
