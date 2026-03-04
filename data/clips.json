@@ -22239,5 +22239,41 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "RWBL_1029613_1",
+    "species_code": "RWBL",
+    "common_name": "Red-winged Blackbird",
+    "vocalization_type": "song",
+    "duration_ms": 1300,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1029613",
+    "source_url": "https://xeno-canto.org/1029613",
+    "recordist": "Manuel Grosselet",
+    "file_path": "data/clips/RWBL_1029613_1.wav",
+    "spectrogram_path": "data/spectrograms/RWBL_1029613_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "RWBL_1013360_1",
+    "species_code": "RWBL",
+    "common_name": "Red-winged Blackbird",
+    "vocalization_type": "call, song",
+    "duration_ms": 1900,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1013360",
+    "source_url": "https://xeno-canto.org/1013360",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/RWBL_1013360_1.wav",
+    "spectrogram_path": "data/spectrograms/RWBL_1013360_1.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
