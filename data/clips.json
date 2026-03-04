@@ -7807,24 +7807,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "VEER_1014543_2",
-    "species_code": "VEER",
-    "common_name": "Veery",
-    "vocalization_type": "call",
-    "duration_ms": 650,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC1014543",
-    "source_url": "https://xeno-canto.org/1014543",
-    "recordist": "Stanislas Wroza",
-    "file_path": "data/clips/VEER_1014543_2.wav",
-    "spectrogram_path": "data/spectrograms/VEER_1014543_2.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "VEER_1013072_1",
     "species_code": "VEER",
     "common_name": "Veery",
@@ -22887,6 +22869,24 @@
     "file_path": "data/clips/VEER_1012566_4.wav",
     "spectrogram_path": "data/spectrograms/VEER_1012566_4.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "VEER_1014543_3",
+    "species_code": "VEER",
+    "common_name": "Veery",
+    "vocalization_type": "call",
+    "duration_ms": 1000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1014543",
+    "source_url": "https://xeno-canto.org/1014543",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/VEER_1014543_3.wav",
+    "spectrogram_path": "data/spectrograms/VEER_1014543_3.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
