@@ -1972,23 +1972,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "NOFL_3d25ea3e",
-    "species_code": "NOFL",
-    "common_name": "Northern Flicker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1007124",
-    "file_path": "data/clips/NOFL_1007124.wav",
-    "spectrogram_path": "data/spectrograms/NOFL_1007124.png",
-    "recordist": "Ed Pandolfino",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1007124",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "NOFL_06b9c600",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
@@ -22417,6 +22400,24 @@
     "recordist": "Arjun Dutta",
     "file_path": "data/clips/BCCH_957291_1.wav",
     "spectrogram_path": "data/spectrograms/BCCH_957291_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "NOFL_1007124_1",
+    "species_code": "NOFL",
+    "common_name": "Northern Flicker",
+    "vocalization_type": "call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1007124",
+    "source_url": "https://xeno-canto.org/1007124",
+    "recordist": "Ed Pandolfino",
+    "file_path": "data/clips/NOFL_1007124_1.wav",
+    "spectrogram_path": "data/spectrograms/NOFL_1007124_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
