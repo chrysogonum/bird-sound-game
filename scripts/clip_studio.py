@@ -1007,11 +1007,16 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             # 1. Original name
             # 2. First name before " / " (for "Morepork / Ruru" style names)
             # 3. Without hyphens (XC is inconsistent: "Red-winged" works but "Scrub-Jay" doesn't)
+            # 4. gray↔grey swap (AOS uses "gray", XC uses British "grey")
             name_variants = [species_name]
             if ' / ' in species_name:
                 name_variants.append(species_name.split(' / ')[0].strip())
             if '-' in species_name:
                 name_variants.append(species_name.replace('-', ' '))
+            if 'gray' in species_name.lower():
+                name_variants.append(species_name.replace('gray', 'grey').replace('Gray', 'Grey'))
+            elif 'grey' in species_name.lower():
+                name_variants.append(species_name.replace('grey', 'gray').replace('Grey', 'Gray'))
 
             data = None
             for name_variant in name_variants:

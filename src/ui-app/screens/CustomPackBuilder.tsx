@@ -19,7 +19,7 @@ interface SpeciesInfo {
   scientificName?: string;
 }
 
-const MAX_SPECIES = 30;
+const MAX_SPECIES = 50;
 const CUSTOM_PACK_KEY = 'soundfield_custom_pack';  // Legacy single pack
 const CUSTOM_PACK_REGION_KEY = 'soundfield_custom_pack_region';  // Track region for back navigation
 
@@ -44,12 +44,14 @@ interface SavedPack {
   version: number;  // For future migrations
 }
 
-// Colors for selected species (30 distinct colors)
+// Colors for selected species (50 distinct colors)
 const SPECIES_COLORS = [
   '#E57373', '#4FC3F7', '#81C784', '#FFD54F', '#BA68C8', '#FF8A65', '#4DB6AC', '#A1887F', '#90A4AE',
   '#F06292', '#64B5F6', '#AED581', '#FFB74D', '#9575CD', '#FF7043', '#4DD0E1', '#DCE775', '#C5A880',
   '#EF5350', '#42A5F5', '#66BB6A', '#FFA726', '#AB47BC', '#FF6F00', '#26C6DA', '#D4E157', '#8D6E63',
-  '#EC407A', '#29B6F6', '#9CCC65',
+  '#EC407A', '#29B6F6', '#9CCC65', '#CE93D8', '#80DEEA', '#C8E6C9', '#FFCC80', '#B39DDB', '#FFAB91',
+  '#80CBC4', '#BCAAA4', '#B0BEC5', '#F48FB1', '#90CAF9', '#A5D6A7', '#FFE082', '#7E57C2', '#FF8A80',
+  '#26A69A', '#CDDC39', '#D7CCC8', '#78909C', '#E91E63',
 ];
 
 function CustomPackBuilder() {

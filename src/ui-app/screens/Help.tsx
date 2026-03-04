@@ -882,6 +882,14 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.05" date="March 4, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>New Species:</strong> Added Hooded Warbler (HOWA) and Cerulean Warbler (CERW) to the Warbler Academy and All North America packs. Warbler Academy now has 36 species, All NA has 122.</li>
+              <li><strong>Audio Curation:</strong> Ongoing quality improvements and new clips across multiple species.</li>
+              <li><strong>Custom Pack Builder:</strong> Maximum species per custom pack increased from 30 to 50.</li>
+              <li><strong>Clip Studio Improvements:</strong> XC search now automatically handles gray/grey spelling differences and paginates through all results to find usable licenses.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.04" date="March 4, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Cornell CD Clips Replaced:</strong> All 43 clips sourced from a Cornell Lab CD (across 13 species) have been replaced with properly attributed Xeno-canto recordings.</li>
