@@ -22731,5 +22731,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "ACWO_323871_1",
+    "species_code": "ACWO",
+    "common_name": "Acorn Woodpecker",
+    "vocalization_type": "drum",
+    "duration_ms": 1100,
+    "quality_score": 5,
+    "loudness_lufs": -21.7,
+    "source": "xenocanto",
+    "source_id": "XC323871",
+    "source_url": "https://xeno-canto.org/323871",
+    "recordist": "Richard E. Webster",
+    "file_path": "data/clips/ACWO_323871_1.wav",
+    "spectrogram_path": "data/spectrograms/ACWO_323871_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
