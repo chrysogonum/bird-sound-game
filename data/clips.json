@@ -2125,23 +2125,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "RHWO_633a5b0a",
-    "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1062474",
-    "file_path": "data/clips/RHWO_1062474.wav",
-    "spectrogram_path": "data/spectrograms/RHWO_1062474.png",
-    "recordist": "David Darrell-Lambert",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1062474",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "RHWO_aa77ecf0",
     "species_code": "RHWO",
     "common_name": "Red-headed Woodpecker",
