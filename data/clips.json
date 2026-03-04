@@ -68,23 +68,6 @@
     "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
   },
   {
-    "clip_id": "AGOL_229ae506",
-    "species_code": "AGOL",
-    "common_name": "American Goldfinch",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1034479",
-    "file_path": "data/clips/AGOL_1034479.wav",
-    "spectrogram_path": "data/spectrograms/AGOL_1034479.png",
-    "recordist": "Rory Nefdt",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1034479",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "AGOL_d5c9914a",
     "species_code": "AGOL",
     "common_name": "American Goldfinch",
@@ -100,23 +83,6 @@
     "rejected": false,
     "source_url": "https://xeno-canto.org/638294",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
-    "clip_id": "AGOL_98188b4c",
-    "species_code": "AGOL",
-    "common_name": "American Goldfinch",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "quality_score": 4,
-    "source": "macaulay",
-    "source_id": "Cornell CD Track 026",
-    "file_path": "data/clips/AGOL_cornell_026_1.wav",
-    "spectrogram_path": "data/spectrograms/AGOL_cornell_026_1.png",
-    "recordist": null,
-    "canonical": false,
-    "rejected": false,
-    "source_url": null,
-    "license": "Macaulay Library - Non-commercial license"
   },
   {
     "clip_id": "AMRO_08ee3b44",
@@ -22255,6 +22221,24 @@
     "file_path": "data/clips/WBNU_1015065_1.wav",
     "spectrogram_path": "data/spectrograms/WBNU_1015065_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "AGOL_1034479_1",
+    "species_code": "AGOL",
+    "common_name": "American Goldfinch",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1034479",
+    "source_url": "https://xeno-canto.org/1034479",
+    "recordist": "Rory Nefdt",
+    "file_path": "data/clips/AGOL_1034479_1.wav",
+    "spectrogram_path": "data/spectrograms/AGOL_1034479_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
