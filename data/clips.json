@@ -1955,23 +1955,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "PIWO_f9f6788e",
-    "species_code": "PIWO",
-    "common_name": "Pileated Woodpecker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC570955",
-    "file_path": "data/clips/PIWO_570955.wav",
-    "spectrogram_path": "data/spectrograms/PIWO_570955.png",
-    "recordist": "Brian Hendrix",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/570955",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "PIWO_c5cae1c9",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
@@ -22341,6 +22324,24 @@
     "recordist": "Kassius Santos",
     "file_path": "data/clips/BAOW_216000_1.wav",
     "spectrogram_path": "data/spectrograms/BAOW_216000_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "PIWO_570955_1",
+    "species_code": "PIWO",
+    "common_name": "Pileated Woodpecker",
+    "vocalization_type": "call",
+    "duration_ms": 2000,
+    "quality_score": 5,
+    "loudness_lufs": -16.4,
+    "source": "xenocanto",
+    "source_id": "XC570955",
+    "source_url": "https://xeno-canto.org/570955",
+    "recordist": "Brian Hendrix",
+    "file_path": "data/clips/PIWO_570955_1.wav",
+    "spectrogram_path": "data/spectrograms/PIWO_570955_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
