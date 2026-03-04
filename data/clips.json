@@ -14711,24 +14711,6 @@
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
-    "clip_id": "firecr1_1075175_1",
-    "species_code": "firecr1",
-    "common_name": "Common Firecrest",
-    "vocalization_type": "song",
-    "duration_ms": 2900,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC1075175",
-    "source_url": "https://xeno-canto.org/1075175",
-    "recordist": "Romuald Mikusek",
-    "file_path": "data/clips/firecr1_1075175_1.wav",
-    "spectrogram_path": "data/spectrograms/firecr1_1075175_1.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "CC BY-NC-SA 4.0 \u2713"
-  },
-  {
     "clip_id": "firecr1_1064193_1",
     "species_code": "firecr1",
     "common_name": "Common Firecrest",
@@ -22843,6 +22825,24 @@
     "file_path": "data/clips/CEDW_598824_2.wav",
     "spectrogram_path": "data/spectrograms/CEDW_598824_2.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "firecr1_1075175_2",
+    "species_code": "firecr1",
+    "common_name": "Common Firecrest",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1075175",
+    "source_url": "https://xeno-canto.org/1075175",
+    "recordist": "Romuald Mikusek",
+    "file_path": "data/clips/firecr1_1075175_2.wav",
+    "spectrogram_path": "data/spectrograms/firecr1_1075175_2.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
