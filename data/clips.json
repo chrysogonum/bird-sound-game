@@ -22565,5 +22565,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CERW_179312_1",
+    "species_code": "CERW",
+    "common_name": "Cerulean Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 2000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC179312",
+    "source_url": "https://xeno-canto.org/179312",
+    "recordist": "Martin St-Michel",
+    "file_path": "data/clips/CERW_179312_1.wav",
+    "spectrogram_path": "data/spectrograms/CERW_179312_1.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
