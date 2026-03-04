@@ -2040,23 +2040,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "NOFL_0c241ce7",
-    "species_code": "NOFL",
-    "common_name": "Northern Flicker",
-    "vocalization_type": "call",
-    "duration_ms": 2000,
-    "quality_score": 4,
-    "source": "macaulay",
-    "source_id": "Cornell CD Track 007",
-    "file_path": "data/clips/NOFL_cornell_007_3.wav",
-    "spectrogram_path": "data/spectrograms/NOFL_cornell_007_3.png",
-    "recordist": null,
-    "canonical": false,
-    "rejected": false,
-    "source_url": null,
-    "license": "Macaulay Library - Non-commercial license"
-  },
-  {
     "clip_id": "NOMO_ba85aedd",
     "species_code": "NOMO",
     "common_name": "Northern Mockingbird",
