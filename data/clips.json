@@ -22324,5 +22324,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BAOW_983636_1",
+    "species_code": "BAOW",
+    "common_name": "Barred Owl",
+    "vocalization_type": "call",
+    "duration_ms": 2800,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC983636",
+    "source_url": "https://xeno-canto.org/983636",
+    "recordist": "Leander Khil",
+    "file_path": "data/clips/BAOW_983636_1.wav",
+    "spectrogram_path": "data/spectrograms/BAOW_983636_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
