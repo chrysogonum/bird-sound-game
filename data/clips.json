@@ -22713,5 +22713,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "LEWO_613905_1",
+    "species_code": "LEWO",
+    "common_name": "Lewis's Woodpecker",
+    "vocalization_type": "drum",
+    "duration_ms": 1100,
+    "quality_score": 5,
+    "loudness_lufs": -18.4,
+    "source": "xenocanto",
+    "source_id": "XC613905",
+    "source_url": "https://xeno-canto.org/613905",
+    "recordist": "Peter Ward and Ken Hall",
+    "file_path": "data/clips/LEWO_613905_1.wav",
+    "spectrogram_path": "data/spectrograms/LEWO_613905_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
