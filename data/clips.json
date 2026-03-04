@@ -21918,24 +21918,6 @@
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
-    "clip_id": "BCCH_1012678_1",
-    "species_code": "BCCH",
-    "common_name": "Black-capped Chickadee",
-    "vocalization_type": "song",
-    "duration_ms": 1500,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC1012678",
-    "source_url": "https://xeno-canto.org/1012678",
-    "recordist": "Stanislas Wroza",
-    "file_path": "data/clips/BCCH_1012678_1.wav",
-    "spectrogram_path": "data/spectrograms/BCCH_1012678_1.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "CC BY-NC-SA 4.0 \u2713"
-  },
-  {
     "clip_id": "BCCH_1012939_1",
     "species_code": "BCCH",
     "common_name": "Black-capped Chickadee",
