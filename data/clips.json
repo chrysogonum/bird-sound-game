@@ -2210,23 +2210,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "RHWO_452980f5",
-    "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC940918",
-    "file_path": "data/clips/RHWO_940918.wav",
-    "spectrogram_path": "data/spectrograms/RHWO_940918.png",
-    "recordist": "Whitney Neufeld-Kaiser",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/940918",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "RHWO_9b0d8c73",
     "species_code": "RHWO",
     "common_name": "Red-headed Woodpecker",
