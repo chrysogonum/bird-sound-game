@@ -2771,23 +2771,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "TUTI_f49f7239",
-    "species_code": "TUTI",
-    "common_name": "Tufted Titmouse",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC60068",
-    "file_path": "data/clips/TUTI_60068.wav",
-    "spectrogram_path": "data/spectrograms/TUTI_60068.png",
-    "recordist": "Mike Nelson",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/60068",
-    "license": "//creativecommons.org/licenses/by-nc-sa/3.0/"
-  },
-  {
     "clip_id": "TUTI_ac0dfe97",
     "species_code": "TUTI",
     "common_name": "Tufted Titmouse",
@@ -22804,6 +22787,24 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/NOCA_1012493_1.wav",
     "spectrogram_path": "data/spectrograms/NOCA_1012493_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "TUTI_60068_1",
+    "species_code": "TUTI",
+    "common_name": "Tufted Titmouse",
+    "vocalization_type": "alarm call, call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.4,
+    "source": "xenocanto",
+    "source_id": "XC60068",
+    "source_url": "https://xeno-canto.org/60068",
+    "recordist": "Mike Nelson",
+    "file_path": "data/clips/TUTI_60068_1.wav",
+    "spectrogram_path": "data/spectrograms/TUTI_60068_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
