@@ -22868,7 +22868,7 @@
     "recordist": "Stanislas Wroza",
     "file_path": "data/clips/REVI_1014388_1.wav",
     "spectrogram_path": "data/spectrograms/REVI_1014388_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
@@ -22887,6 +22887,24 @@
     "file_path": "data/clips/REVI_1014387_1.wav",
     "spectrogram_path": "data/spectrograms/REVI_1014387_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "REVI_1013925_1",
+    "species_code": "REVI",
+    "common_name": "Red-eyed Vireo",
+    "vocalization_type": "song",
+    "duration_ms": 2800,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1013925",
+    "source_url": "https://xeno-canto.org/1013925",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/REVI_1013925_1.wav",
+    "spectrogram_path": "data/spectrograms/REVI_1013925_1.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
