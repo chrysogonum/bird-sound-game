@@ -1038,22 +1038,19 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                             existing_xc.add(sid)
 
             # Filter out ND (No Derivatives) licenses — we modify clips (trim, resample, normalize)
+            # If ALL results are ND-licensed, retry without quality filter to find non-ND recordings
+            # that may be unrated. If still all ND, show them with a warning.
             ND_LICENSES = {'//creativecommons.org/licenses/by-nd/', '//creativecommons.org/licenses/by-nc-nd/'}
-            results = []
-            for rec in data.get('recordings', []):
-                lic = rec.get('lic', '')
-                if any(nd in lic for nd in ND_LICENSES):
-                    continue
+
+            def parse_rec(rec, is_nd=False):
                 xc_id = str(rec.get('id', ''))
-                # Parse duration string "M:SS" to seconds
                 length_str = rec.get('length', '0:00')
                 try:
                     parts = length_str.split(':')
                     duration_s = int(parts[0]) * 60 + int(parts[1]) if len(parts) == 2 else 0
                 except (ValueError, IndexError):
                     duration_s = 0
-
-                results.append({
+                result = {
                     'xc_id': xc_id,
                     'recordist': rec.get('rec', ''),
                     'quality': rec.get('q', ''),
@@ -1067,13 +1064,59 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
                     'remarks': rec.get('rmk', '')[:100] if rec.get('rmk') else '',
                     'existing': xc_id in existing_xc,
                     'rejected': xc_id in rejected_xc,
-                })
+                }
+                if is_nd:
+                    result['nd_license'] = True
+                return result
 
-            self.send_json({
+            results = []
+            nd_results = []
+            for rec in data.get('recordings', []):
+                lic = rec.get('lic', '')
+                if any(nd in lic for nd in ND_LICENSES):
+                    nd_results.append(parse_rec(rec, is_nd=True))
+                else:
+                    results.append(parse_rec(rec))
+
+            # If all results are ND, paginate through ALL pages to find non-ND recordings
+            # (XC sorts by date, so non-ND recordings may be on later pages)
+            nd_fallback = False
+            if not results and nd_results:
+                total_recs = int(data.get('numRecordings', 0))
+                num_pages = int(data.get('numPages', 1))
+                if num_pages > 1:
+                    for page in range(2, num_pages + 1):
+                        page_url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=200&page={page}"
+                        req2 = urllib.request.Request(page_url, headers={'User-Agent': 'ChipNotes/1.0'})
+                        with urllib.request.urlopen(req2, timeout=15) as resp2:
+                            page_data = json.loads(resp2.read().decode())
+                        for rec in page_data.get('recordings', []):
+                            lic = rec.get('lic', '')
+                            if any(nd in lic for nd in ND_LICENSES):
+                                nd_results.append(parse_rec(rec, is_nd=True))
+                            else:
+                                results.append(parse_rec(rec))
+                        # Stop paginating once we have enough non-ND results
+                        if len(results) >= 50:
+                            break
+
+            # Fall back to ND results if truly no permissive-license recordings exist
+            if not results and nd_results:
+                results = nd_results
+                nd_fallback = True
+
+            response = {
                 'total': int(data.get('numRecordings', 0)),
                 'shown': len(results),
                 'results': results,
-            })
+            }
+            if nd_fallback:
+                response['nd_fallback'] = True
+                response['nd_warning'] = f'All {len(results)} recordings are No-Derivatives licensed. Use with caution — modifications (trim/normalize) may violate the license.'
+            elif any(r.get('nd_license') for r in results):
+                # Mixed results won't happen in current logic, but future-proof
+                pass
+            self.send_json(response)
         except Exception as e:
             self.send_json({'error': str(e)})
 
@@ -2621,20 +2664,24 @@ function searchXC() {
                 return;
             }
             document.getElementById('browseStatus').textContent = data.shown + ' of ' + data.total + ' recordings';
-            renderBrowseResults(data.results);
+            renderBrowseResults(data.results, data.nd_warning);
         })
         .catch(err => {
             document.getElementById('browseStatus').textContent = 'Error: ' + err;
         });
 }
 
-function renderBrowseResults(results) {
+function renderBrowseResults(results, ndWarning) {
     const container = document.getElementById('browseResults');
     if (!results.length) {
         container.innerHTML = '<div style="padding:16px;color:var(--text-dim);text-align:center;">No recordings found. Try different filters.</div>';
         return;
     }
-    container.innerHTML = results.map(r => {
+    let html = '';
+    if (ndWarning) {
+        html += '<div style="padding:10px 14px;margin:8px;background:#4a1c1c;border:1px solid #ff5252;border-radius:8px;color:#ff8a80;font-size:12px;">⚠️ ' + ndWarning + '</div>';
+    }
+    html += results.map(r => {
         let cls = 'xc-result';
         if (r.existing) cls += ' existing';
         if (r.rejected) cls += ' rejected';
@@ -2661,6 +2708,7 @@ function renderBrowseResults(results) {
             badge +
             '</div>';
     }).join('');
+    container.innerHTML = html;
 }
 
 function loadFromBrowse(xcId, recordist, vocType, license) {
