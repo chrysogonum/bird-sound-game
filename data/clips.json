@@ -3025,24 +3025,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "WREN_1824903a",
-    "species_code": "WREN",
-    "common_name": "Wrentit",
-    "file_path": "data/clips/WREN_576849.wav",
-    "vocalization_type": "duet",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC576849",
-    "source_url": "https://xeno-canto.org/576849",
-    "recordist": "Paul Marvin",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/WREN_576849.png",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "WEBL_f92f7b01",
     "species_code": "WEBL",
     "common_name": "Western Bluebird",
