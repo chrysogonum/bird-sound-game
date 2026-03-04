@@ -22529,5 +22529,41 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CERW_1038381_1",
+    "species_code": "CERW",
+    "common_name": "Cerulean Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 1700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1038381",
+    "source_url": "https://xeno-canto.org/1038381",
+    "recordist": "Bobby Wilcox",
+    "file_path": "data/clips/CERW_1038381_1.wav",
+    "spectrogram_path": "data/spectrograms/CERW_1038381_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CERW_321531_2",
+    "species_code": "CERW",
+    "common_name": "Cerulean Warbler",
+    "vocalization_type": "song",
+    "duration_ms": 2000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC321531",
+    "source_url": "https://xeno-canto.org/321531",
+    "recordist": "Martin St-Michel",
+    "file_path": "data/clips/CERW_321531_2.wav",
+    "spectrogram_path": "data/spectrograms/CERW_321531_2.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
