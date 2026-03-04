@@ -2856,23 +2856,6 @@
     "license": "//creativecommons.org/licenses/by-sa/4.0/"
   },
   {
-    "clip_id": "YBSA_e5c01856",
-    "species_code": "YBSA",
-    "common_name": "Yellow-bellied Sapsucker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC871633",
-    "file_path": "data/clips/YBSA_871633.wav",
-    "spectrogram_path": "data/spectrograms/YBSA_871633.png",
-    "recordist": "Thomas Magarian",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/871633",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "HOSP_872123",
     "species_code": "HOSP",
     "common_name": "House Sparrow",
@@ -22873,6 +22856,24 @@
     "file_path": "data/clips/YBSA_663258_1.wav",
     "spectrogram_path": "data/spectrograms/YBSA_663258_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "YBSA_871633_1",
+    "species_code": "YBSA",
+    "common_name": "Yellow-bellied Sapsucker",
+    "vocalization_type": "call",
+    "duration_ms": 700,
+    "quality_score": 5,
+    "loudness_lufs": -18.3,
+    "source": "xenocanto",
+    "source_id": "XC871633",
+    "source_url": "https://xeno-canto.org/871633",
+    "recordist": "Thomas Magarian",
+    "file_path": "data/clips/YBSA_871633_1.wav",
+    "spectrogram_path": "data/spectrograms/YBSA_871633_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
