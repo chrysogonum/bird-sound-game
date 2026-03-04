@@ -992,23 +992,31 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             return
 
         # Build XC query — v3 API requires tagged search (en:"Name" or sp:epithet gen:Genus)
-        # XC doesn't use hyphens in common names (e.g. "Scrub Jay" not "Scrub-Jay")
-        xc_name = species_name.replace('-', ' ')
-        q_parts = [f'en:"{xc_name}"']
-        if quality:
-            for q in quality.split():
-                q_parts.append(f'q:{q}')
-        if voc_type:
-            q_parts.append(f'type:{voc_type}')
-        q_parts.append('grp:birds')
-
-        xc_query = ' '.join(q_parts)
-        url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=200"
+        def build_xc_query(name):
+            q_parts = [f'en:"{name}"']
+            if quality:
+                for q in quality.split():
+                    q_parts.append(f'q:{q}')
+            if voc_type:
+                q_parts.append(f'type:{voc_type}')
+            q_parts.append('grp:birds')
+            return ' '.join(q_parts)
 
         try:
+            # Try original name first, then without hyphens if no results
+            # XC is inconsistent: "Red-winged Blackbird" works but "Scrub-Jay" doesn't
+            xc_query = build_xc_query(species_name)
+            url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=200"
             req = urllib.request.Request(url, headers={'User-Agent': 'ChipNotes/1.0'})
             with urllib.request.urlopen(req, timeout=15) as resp:
                 data = json.loads(resp.read().decode())
+
+            if int(data.get('numRecordings', 0)) == 0 and '-' in species_name:
+                xc_query = build_xc_query(species_name.replace('-', ' '))
+                url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=200"
+                req = urllib.request.Request(url, headers={'User-Agent': 'ChipNotes/1.0'})
+                with urllib.request.urlopen(req, timeout=15) as resp:
+                    data = json.loads(resp.read().decode())
 
             # Get existing XC IDs for this species to mark them
             clips = load_clips()
@@ -1574,9 +1582,9 @@ def generate_html() -> str:
         .xc-result-q.qC { color: #fdd835; }
         .xc-result-q.qD { color: #ffa726; }
         .xc-result-q.qE { color: #ef5350; }
-        .xc-result-type { color: var(--text-dim); min-width: 60px; }
-        .xc-result-dur { color: var(--text-dim); min-width: 40px; text-align: right; }
-        .xc-result-rec { color: var(--text-dim); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .xc-result-type { color: #bbb; min-width: 60px; }
+        .xc-result-dur { color: #bbb; min-width: 40px; text-align: right; }
+        .xc-result-rec { color: #ccc; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .xc-result-badge { font-size: 10px; padding: 1px 5px; border-radius: 3px; }
         .xc-result-badge.in-use { background: var(--teal-bg); color: var(--teal); }
         .xc-result-badge.rejected-badge { background: rgba(239,83,80,0.15); color: #ef5350; }
