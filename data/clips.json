@@ -459,23 +459,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "CEDW_ee0466e0",
-    "species_code": "CEDW",
-    "common_name": "Cedar Waxwing",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC598824",
-    "file_path": "data/clips/CEDW_598824.wav",
-    "spectrogram_path": "data/spectrograms/CEDW_598824.png",
-    "recordist": "Christopher McPherson",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/598824",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "CEDW_50c14952",
     "species_code": "CEDW",
     "common_name": "Cedar Waxwing",
