@@ -22677,5 +22677,23 @@
     "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "NOFL_1062460_1",
+    "species_code": "NOFL",
+    "common_name": "Northern Flicker",
+    "vocalization_type": "drum",
+    "duration_ms": 1800,
+    "quality_score": 5,
+    "loudness_lufs": -22.1,
+    "source": "xenocanto",
+    "source_id": "XC1062460",
+    "source_url": "https://xeno-canto.org/1062460",
+    "recordist": "David Darrell-Lambert",
+    "file_path": "data/clips/NOFL_1062460_1.wav",
+    "spectrogram_path": "data/spectrograms/NOFL_1062460_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
