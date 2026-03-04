@@ -2873,23 +2873,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "YBSA_aba39d15",
-    "species_code": "YBSA",
-    "common_name": "Yellow-bellied Sapsucker",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC899093",
-    "file_path": "data/clips/YBSA_899093.wav",
-    "spectrogram_path": "data/spectrograms/YBSA_899093.png",
-    "recordist": "Valerie Heemstra",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/899093",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "HOSP_872123",
     "species_code": "HOSP",
     "common_name": "House Sparrow",
