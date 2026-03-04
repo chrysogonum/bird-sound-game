@@ -40,7 +40,7 @@ const REGIONS = [
     id: 'na',
     name: 'North America',
     route: '/na-packs',
-    summary: '120 species · 8 packs',
+    summary: '122 species · 8 packs',
     tagline: 'Warblers, sparrows, woodpeckers & more',
     bg: 'rgba(245, 166, 35, 0.18)',
     accentColor: '#f5c87a',

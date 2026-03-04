@@ -541,7 +541,9 @@ with open('data/levels.json', 'r') as f:
 new_species = ['DEJU', 'STJA']  # Replace with your species codes
 pack_id = 'expanded_backyard'    # Replace with your pack ID
 
-# Add new species to all matching levels AND update species_count
+# Add new species to species_pool for all matching levels
+# NOTE: Do NOT change species_count — it controls how many species appear
+# per round (usually 9), NOT the total pool size.
 updated_count = 0
 for level in levels:
     if level.get('pack_id') == pack_id:
@@ -551,10 +553,7 @@ for level in levels:
                 species_pool.append(sp)
                 updated_count += 1
                 print(f"Added {sp} to level {level['level_id']}")
-
-        # CRITICAL: Update species_count to match pool length
-        level['species_count'] = len(species_pool)
-        print(f"  Updated species_count to {len(species_pool)}")
+        print(f"  Pool now has {len(species_pool)} species (species_count stays {level['species_count']})")
 
 # Save updated levels.json
 with open('data/levels.json', 'w') as f:

@@ -444,11 +444,11 @@ function Help() {
             />
             <PackInfo
               name="Warbler Academy"
-              description="34 wood-warbler species. 9 random per round."
+              description="36 wood-warbler species. 9 random per round."
             />
             <PackInfo
               name="All North America"
-              description="The complete 120-species collection across all NA packs. 9 random per round."
+              description="The complete 122-species collection across all NA packs. 9 random per round."
             />
           </RegionGroup>
 

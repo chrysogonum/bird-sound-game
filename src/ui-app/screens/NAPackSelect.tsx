@@ -97,7 +97,7 @@ const PACKS: Pack[] = [
   {
     id: 'spring_warblers',
     name: 'Warbler Academy',
-    speciesCount: 34,
+    speciesCount: 36,
     isUnlocked: true,
     description: '9 random per round. Custom Pack\nmode recommended!',
     region: 'na',
@@ -105,9 +105,9 @@ const PACKS: Pack[] = [
   {
     id: 'na_all_birds',
     name: 'All North America',
-    speciesCount: 120,
+    speciesCount: 122,
     isUnlocked: true,
-    description: 'The complete 120-species collection.\n9 random per round.',
+    description: 'The complete 122-species collection.\n9 random per round.',
     region: 'na',
   },
 ];
