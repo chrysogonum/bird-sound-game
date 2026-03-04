@@ -102,23 +102,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "AGOL_7c103e06",
-    "species_code": "AGOL",
-    "common_name": "American Goldfinch",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC720038",
-    "file_path": "data/clips/AGOL_720038.wav",
-    "spectrogram_path": "data/spectrograms/AGOL_720038.png",
-    "recordist": "William Whitehead",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/720038",
-    "license": "//creativecommons.org/licenses/by-nc-nd/4.0/"
-  },
-  {
     "clip_id": "AGOL_98188b4c",
     "species_code": "AGOL",
     "common_name": "American Goldfinch",
@@ -22304,6 +22287,24 @@
     "recordist": "Paul Marvin",
     "file_path": "data/clips/WBNU_810120_1.wav",
     "spectrogram_path": "data/spectrograms/WBNU_810120_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "WBNU_1015065_1",
+    "species_code": "WBNU",
+    "common_name": "White-breasted Nuthatch",
+    "vocalization_type": "song",
+    "duration_ms": 1900,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1015065",
+    "source_url": "https://xeno-canto.org/1015065",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/WBNU_1015065_1.wav",
+    "spectrogram_path": "data/spectrograms/WBNU_1015065_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
