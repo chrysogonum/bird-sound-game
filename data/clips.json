@@ -4396,7 +4396,7 @@
     "species_code": "morepo2",
     "common_name": "Morepork / Ruru",
     "scientific_name": "Ninox novaeseelandiae",
-    "vocalization_type": "call",
+    "vocalization_type": "song",
     "duration_ms": 2000,
     "quality_score": 4,
     "loudness_lufs": -16.0,
@@ -22354,7 +22354,7 @@
     "clip_id": "PIWO_599834_1",
     "species_code": "PIWO",
     "common_name": "Pileated Woodpecker",
-    "vocalization_type": "drumming",
+    "vocalization_type": "drum",
     "duration_ms": 1900,
     "quality_score": 5,
     "loudness_lufs": -17.3,
@@ -22367,5 +22367,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "morepo2_602419_1",
+    "species_code": "morepo2",
+    "common_name": "Morepork / Ruru",
+    "vocalization_type": "song",
+    "duration_ms": 1500,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC602419",
+    "source_url": "https://xeno-canto.org/602419",
+    "recordist": "craig wilson",
+    "file_path": "data/clips/morepo2_602419_1.wav",
+    "spectrogram_path": "data/spectrograms/morepo2_602419_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "//creativecommons.org/licenses/by/4.0/"
   }
 ]
