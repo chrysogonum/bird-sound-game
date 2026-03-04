@@ -1972,23 +1972,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "NOFL_44b248d7",
-    "species_code": "NOFL",
-    "common_name": "Northern Flicker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC768323",
-    "file_path": "data/clips/NOFL_768323.wav",
-    "spectrogram_path": "data/spectrograms/NOFL_768323.png",
-    "recordist": "Richard E. Webster",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/768323",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "NOFL_69af15ec",
     "species_code": "NOFL",
     "common_name": "Northern Flicker",
@@ -22352,6 +22335,24 @@
     "file_path": "data/clips/NOFL_1033749_1.wav",
     "spectrogram_path": "data/spectrograms/NOFL_1033749_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "NOFL_768323_1",
+    "species_code": "NOFL",
+    "common_name": "Northern Flicker",
+    "vocalization_type": "distress call as pursued by raptor",
+    "duration_ms": 700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC768323",
+    "source_url": "https://xeno-canto.org/768323",
+    "recordist": "Richard E. Webster",
+    "file_path": "data/clips/NOFL_768323_1.wav",
+    "spectrogram_path": "data/spectrograms/NOFL_768323_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
