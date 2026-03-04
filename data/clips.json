@@ -22641,5 +22641,41 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "RHWO_959566_1",
+    "species_code": "RHWO",
+    "common_name": "Red-headed Woodpecker",
+    "vocalization_type": "call",
+    "duration_ms": 1800,
+    "quality_score": 5,
+    "loudness_lufs": -22.3,
+    "source": "xenocanto",
+    "source_id": "XC959566",
+    "source_url": "https://xeno-canto.org/959566",
+    "recordist": "Peter Mundale",
+    "file_path": "data/clips/RHWO_959566_1.wav",
+    "spectrogram_path": "data/spectrograms/RHWO_959566_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "RHWO_959566_2",
+    "species_code": "RHWO",
+    "common_name": "Red-headed Woodpecker",
+    "vocalization_type": "call",
+    "duration_ms": 2000,
+    "quality_score": 5,
+    "loudness_lufs": -19.2,
+    "source": "xenocanto",
+    "source_id": "XC959566",
+    "source_url": "https://xeno-canto.org/959566",
+    "recordist": "Peter Mundale",
+    "file_path": "data/clips/RHWO_959566_2.wav",
+    "spectrogram_path": "data/spectrograms/RHWO_959566_2.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
