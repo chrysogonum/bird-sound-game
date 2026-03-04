@@ -722,10 +722,6 @@ function Help() {
                 Xeno-Canto
               </a>
               , the{' '}
-              <a href="https://www.macaulaylibrary.org" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
-                Cornell Macaulay Library
-              </a>
-              , the{' '}
               <a href="https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
                 New Zealand Department of Conservation (DOC)
               </a>
@@ -741,7 +737,7 @@ function Help() {
             </p>
 
             <p style={{ marginBottom: '12px' }}>
-              <strong style={{ color: 'var(--color-accent)' }}>Audio Processing:</strong> Every clip is 0.5-3 seconds, mono, and normalized to -16 LUFS. Source recordings are loaded into Clip Studio, a custom waveform editor built for this project, where each clip is hand-selected to isolate the clearest vocalization. Final processing: convert to mono, resample to 44.1 kHz, normalize loudness, and generate a spectrogram. A signature clip is marked for each species to represent it at introductory levels.
+              <strong style={{ color: 'var(--color-accent)' }}>Audio Processing:</strong> Source recordings are loaded into Clip Studio, a custom waveform editor built for this project, where each clip is hand-selected to isolate the clearest vocalization. Every clip is then converted to mono, resampled to 44.1 kHz, normalized to -16 LUFS, and paired with a generated spectrogram. A signature clip is marked for each species to represent it at introductory levels.
             </p>
 
             <p style={{ marginBottom: '12px' }}>
@@ -888,7 +884,7 @@ function Help() {
           >
           <VersionEntry version="5.04" date="March 4, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
-              <li><strong>Cornell CD Clips Replaced:</strong> All 43 clips sourced from a Cornell Lab CD (across 13 species) have been replaced with properly attributed Xeno-canto recordings — every clip in the game now has a clickable source link in the Sound Library.</li>
+              <li><strong>Cornell CD Clips Replaced:</strong> All 43 clips sourced from a Cornell Lab CD (across 13 species) have been replaced with properly attributed Xeno-canto recordings.</li>
               <li><strong>Help Page Refresh:</strong> Tightened prose throughout, updated Training Mode section to reflect all naming options (codes, common names, scientific names, Māori), and corrected bird sound credits to cover all regions.</li>
             </ul>
           </VersionEntry>
