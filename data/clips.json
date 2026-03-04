@@ -3179,23 +3179,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "RWBL_9da88d42",
-    "species_code": "RWBL",
-    "common_name": "Red-winged Blackbird",
-    "vocalization_type": "song",
-    "duration_ms": 2000,
-    "quality_score": 4,
-    "source": "macaulay",
-    "source_id": "Cornell CD Track 019",
-    "file_path": "data/clips/RWBL_cornell_019_1.wav",
-    "spectrogram_path": "data/spectrograms/RWBL_cornell_019_1.png",
-    "recordist": null,
-    "canonical": true,
-    "rejected": false,
-    "source_url": null,
-    "license": "Macaulay Library - Non-commercial license"
-  },
-  {
     "clip_id": "SAVS_ea19bbf4",
     "species_code": "SAVS",
     "common_name": "Savannah Sparrow",
@@ -22235,6 +22218,24 @@
     "recordist": "Martin St-Michel",
     "file_path": "data/clips/PISI_175353_2.wav",
     "spectrogram_path": "data/spectrograms/PISI_175353_2.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "RWBL_1033286_1",
+    "species_code": "RWBL",
+    "common_name": "Red-winged Blackbird",
+    "vocalization_type": "song",
+    "duration_ms": 2600,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1033286",
+    "source_url": "https://xeno-canto.org/1033286",
+    "recordist": "Adrian D. Thysse",
+    "file_path": "data/clips/RWBL_1033286_1.wav",
+    "spectrogram_path": "data/spectrograms/RWBL_1033286_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
