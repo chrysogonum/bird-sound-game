@@ -79,7 +79,7 @@
     "file_path": "data/clips/AGOL_638294.wav",
     "spectrogram_path": "data/spectrograms/AGOL_638294.png",
     "recordist": "Christopher McPherson",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "source_url": "https://xeno-canto.org/638294",
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -22238,7 +22238,25 @@
     "recordist": "Rory Nefdt",
     "file_path": "data/clips/AGOL_1034479_1.wav",
     "spectrogram_path": "data/spectrograms/AGOL_1034479_1.png",
-    "canonical": true,
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "AGOL_1021822_1",
+    "species_code": "AGOL",
+    "common_name": "American Goldfinch",
+    "vocalization_type": "song",
+    "duration_ms": 2600,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1021822",
+    "source_url": "https://xeno-canto.org/1021822",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/AGOL_1021822_1.wav",
+    "spectrogram_path": "data/spectrograms/AGOL_1021822_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
