@@ -4479,24 +4479,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "SPTO_d32f4fcc",
-    "species_code": "SPTO",
-    "common_name": "Spotted Towhee",
-    "file_path": "data/clips/SPTO_1004582.wav",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "loudness_lufs": -16.0,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC1004582",
-    "source_url": "https://xeno-canto.org/1004582",
-    "recordist": "Ed Pandolfino",
-    "canonical": false,
-    "rejected": false,
-    "spectrogram_path": "data/spectrograms/SPTO_1004582.png",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "SPTO_e71f9a8f",
     "species_code": "SPTO",
     "common_name": "Spotted Towhee",
@@ -22389,6 +22371,24 @@
     "file_path": "data/clips/SPTO_1011840_1.wav",
     "spectrogram_path": "data/spectrograms/SPTO_1011840_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "SPTO_1004582_1",
+    "species_code": "SPTO",
+    "common_name": "Spotted Towhee",
+    "vocalization_type": "song",
+    "duration_ms": 2100,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1004582",
+    "source_url": "https://xeno-canto.org/1004582",
+    "recordist": "Ed Pandolfino",
+    "file_path": "data/clips/SPTO_1004582_1.wav",
+    "spectrogram_path": "data/spectrograms/SPTO_1004582_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
