@@ -22673,5 +22673,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "HOWA_163089_2",
+    "species_code": "HOWA",
+    "common_name": "Hooded Warbler",
+    "vocalization_type": "call",
+    "duration_ms": 700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC163089",
+    "source_url": "https://xeno-canto.org/163089",
+    "recordist": "Arend Wassink",
+    "file_path": "data/clips/HOWA_163089_2.wav",
+    "spectrogram_path": "data/spectrograms/HOWA_163089_2.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
