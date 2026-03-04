@@ -22385,5 +22385,41 @@
     "canonical": false,
     "rejected": false,
     "license": "//creativecommons.org/licenses/by/4.0/"
+  },
+  {
+    "clip_id": "morepo2_348763_1",
+    "species_code": "morepo2",
+    "common_name": "Morepork / Ruru",
+    "vocalization_type": "song",
+    "duration_ms": 1500,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC348763",
+    "source_url": "https://xeno-canto.org/348763",
+    "recordist": "Tony Fulford",
+    "file_path": "data/clips/morepo2_348763_1.wav",
+    "spectrogram_path": "data/spectrograms/morepo2_348763_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "morepo2_402874_1",
+    "species_code": "morepo2",
+    "common_name": "Morepork / Ruru",
+    "vocalization_type": "call",
+    "duration_ms": 2000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC402874",
+    "source_url": "https://xeno-canto.org/402874",
+    "recordist": "Jarmo Pirhonen",
+    "file_path": "data/clips/morepo2_402874_1.wav",
+    "spectrogram_path": "data/spectrograms/morepo2_402874_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
