@@ -21900,24 +21900,6 @@
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
-    "clip_id": "BCCH_1027847_1",
-    "species_code": "BCCH",
-    "common_name": "Black-capped Chickadee",
-    "vocalization_type": "song",
-    "duration_ms": 1700,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC1027847",
-    "source_url": "https://xeno-canto.org/1027847",
-    "recordist": "Jim Berry",
-    "file_path": "data/clips/BCCH_1027847_1.wav",
-    "spectrogram_path": "data/spectrograms/BCCH_1027847_1.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "CC BY-NC-SA 4.0 \u2713"
-  },
-  {
     "clip_id": "BCCH_1012679_1",
     "species_code": "BCCH",
     "common_name": "Black-capped Chickadee",
@@ -22425,7 +22407,7 @@
     "clip_id": "WCSP_481195_1",
     "species_code": "WCSP",
     "common_name": "White-crowned Sparrow",
-    "vocalization_type": "call, song, counter singing males",
+    "vocalization_type": "song",
     "duration_ms": 2500,
     "quality_score": 5,
     "loudness_lufs": -16.0,
