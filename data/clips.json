@@ -459,23 +459,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "CEDW_695793ef",
-    "species_code": "CEDW",
-    "common_name": "Cedar Waxwing",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC1014827",
-    "file_path": "data/clips/CEDW_1014827.wav",
-    "spectrogram_path": "data/spectrograms/CEDW_1014827.png",
-    "recordist": "Stanislas Wroza",
-    "canonical": true,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/1014827",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "CEDW_0ef52a4a",
     "species_code": "CEDW",
     "common_name": "Cedar Waxwing",
@@ -22873,6 +22856,24 @@
     "recordist": "Thomas Magarian",
     "file_path": "data/clips/YBSA_871633_1.wav",
     "spectrogram_path": "data/spectrograms/YBSA_871633_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "CEDW_1014829_1",
+    "species_code": "CEDW",
+    "common_name": "Cedar Waxwing",
+    "vocalization_type": "call",
+    "duration_ms": 2700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1014829",
+    "source_url": "https://xeno-canto.org/1014829",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/CEDW_1014829_1.wav",
+    "spectrogram_path": "data/spectrograms/CEDW_1014829_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
