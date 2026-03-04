@@ -2176,23 +2176,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "RHWO_912e791e",
-    "species_code": "RHWO",
-    "common_name": "Red-headed Woodpecker",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC845687",
-    "file_path": "data/clips/RHWO_845687.wav",
-    "spectrogram_path": "data/spectrograms/RHWO_845687.png",
-    "recordist": "Thomas Magarian",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/845687",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "RHWO_9b0d8c73",
     "species_code": "RHWO",
     "common_name": "Red-headed Woodpecker",
