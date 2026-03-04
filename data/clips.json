@@ -14711,24 +14711,6 @@
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
-    "clip_id": "firecr1_1051373_1",
-    "species_code": "firecr1",
-    "common_name": "Common Firecrest",
-    "vocalization_type": "song",
-    "duration_ms": 2400,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC1051373",
-    "source_url": "https://xeno-canto.org/1051373",
-    "recordist": "Lars Lachmann",
-    "file_path": "data/clips/firecr1_1051373_1.wav",
-    "spectrogram_path": "data/spectrograms/firecr1_1051373_1.png",
-    "canonical": true,
-    "rejected": false,
-    "license": "CC BY-NC-SA 4.0 \u2713"
-  },
-  {
     "clip_id": "firecr1_1074610_1",
     "species_code": "firecr1",
     "common_name": "Common Firecrest",
