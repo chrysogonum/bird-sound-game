@@ -36,7 +36,9 @@
     "WIWA",
     "YEWA",
     "YRWA",
-    "YTWA"
+    "YTWA",
+    "HOWA",
+    "CERW"
   ],
   "vocalization_weights": {
     "song": 0.9,

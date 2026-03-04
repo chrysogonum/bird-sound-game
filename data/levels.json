@@ -928,7 +928,9 @@
       "WIWA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": "canonical",
     "channel_mode": "single",
@@ -978,7 +980,9 @@
       "WIWA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": 3,
     "channel_mode": "single",
@@ -1028,7 +1032,9 @@
       "WIWA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": "all",
     "channel_mode": "single",
@@ -1078,7 +1084,9 @@
       "WIWA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": "canonical",
     "channel_mode": "offset",
@@ -1128,7 +1136,9 @@
       "WIWA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": 3,
     "channel_mode": "offset",
@@ -1178,7 +1188,9 @@
       "WIWA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": "all",
     "channel_mode": "offset",
@@ -3768,7 +3780,9 @@
       "YBSA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": "canonical",
     "channel_mode": "single",
@@ -3904,7 +3918,9 @@
       "YBSA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": 3,
     "channel_mode": "single",
@@ -4040,7 +4056,9 @@
       "YBSA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": "all",
     "channel_mode": "single",
@@ -4176,7 +4194,9 @@
       "YBSA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": "canonical",
     "channel_mode": "offset",
@@ -4312,7 +4332,9 @@
       "YBSA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": 3,
     "channel_mode": "offset",
@@ -4448,7 +4470,9 @@
       "YBSA",
       "YEWA",
       "YRWA",
-      "YTWA"
+      "YTWA",
+      "HOWA",
+      "CERW"
     ],
     "clip_selection": "all",
     "channel_mode": "offset",
