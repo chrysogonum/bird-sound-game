@@ -886,6 +886,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.04" date="March 4, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Cornell CD Clips Replaced:</strong> All 43 clips sourced from a Cornell Lab CD (across 13 species) have been replaced with properly attributed Xeno-canto recordings — every clip in the game now has a clickable source link in the Sound Library.</li>
+              <li><strong>Help Page Refresh:</strong> Tightened prose throughout, updated Training Mode section to reflect all naming options (codes, common names, scientific names, Māori), and corrected bird sound credits to cover all regions.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.03" date="March 2, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Audio Quality Fix:</strong> Re-extracted 47 species with improved resampling — eliminates subtle metallic artifacts in clips sourced from 48kHz recordings. Affected species include warblers, woodpeckers, and more.</li>

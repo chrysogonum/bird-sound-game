@@ -1003,20 +1003,25 @@ class ClipStudioHandler(http.server.BaseHTTPRequestHandler):
             return ' '.join(q_parts)
 
         try:
-            # Try original name first, then without hyphens if no results
-            # XC is inconsistent: "Red-winged Blackbird" works but "Scrub-Jay" doesn't
-            xc_query = build_xc_query(species_name)
-            url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=200"
-            req = urllib.request.Request(url, headers={'User-Agent': 'ChipNotes/1.0'})
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                data = json.loads(resp.read().decode())
+            # Build list of name variants to try:
+            # 1. Original name
+            # 2. First name before " / " (for "Morepork / Ruru" style names)
+            # 3. Without hyphens (XC is inconsistent: "Red-winged" works but "Scrub-Jay" doesn't)
+            name_variants = [species_name]
+            if ' / ' in species_name:
+                name_variants.append(species_name.split(' / ')[0].strip())
+            if '-' in species_name:
+                name_variants.append(species_name.replace('-', ' '))
 
-            if int(data.get('numRecordings', 0)) == 0 and '-' in species_name:
-                xc_query = build_xc_query(species_name.replace('-', ' '))
+            data = None
+            for name_variant in name_variants:
+                xc_query = build_xc_query(name_variant)
                 url = f"https://xeno-canto.org/api/3/recordings?query={urllib.parse.quote(xc_query)}&key={api_key}&per_page=200"
                 req = urllib.request.Request(url, headers={'User-Agent': 'ChipNotes/1.0'})
                 with urllib.request.urlopen(req, timeout=15) as resp:
                     data = json.loads(resp.read().decode())
+                if int(data.get('numRecordings', 0)) > 0:
+                    break
 
             # Get existing XC IDs for this species to mark them
             clips = load_clips()
