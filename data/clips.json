@@ -17416,24 +17416,6 @@
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
-    "clip_id": "PIWA_895216_1",
-    "species_code": "PIWA",
-    "common_name": "Pine Warbler",
-    "vocalization_type": "song",
-    "duration_ms": 2500,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC895216",
-    "source_url": "https://xeno-canto.org/895216",
-    "recordist": "Thomas Magarian",
-    "file_path": "data/clips/PIWA_895216_1.wav",
-    "spectrogram_path": "data/spectrograms/PIWA_895216_1.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "CC BY-NC-SA 4.0 \u2713"
-  },
-  {
     "clip_id": "PIWA_901095_1",
     "species_code": "PIWA",
     "common_name": "Pine Warbler",
@@ -22819,7 +22801,7 @@
     "clip_id": "SUTA_827075_2",
     "species_code": "SUTA",
     "common_name": "Summer Tanager",
-    "vocalization_type": "subsong",
+    "vocalization_type": "song",
     "duration_ms": 2300,
     "quality_score": 5,
     "loudness_lufs": -16.0,
