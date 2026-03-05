@@ -22832,5 +22832,41 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "PIWA_1043993_1",
+    "species_code": "PIWA",
+    "common_name": "Pine Warbler",
+    "vocalization_type": "call",
+    "duration_ms": 2100,
+    "quality_score": 5,
+    "loudness_lufs": -23.1,
+    "source": "xenocanto",
+    "source_id": "XC1043993",
+    "source_url": "https://xeno-canto.org/1043993",
+    "recordist": "Esperanza Poveda",
+    "file_path": "data/clips/PIWA_1043993_1.wav",
+    "spectrogram_path": "data/spectrograms/PIWA_1043993_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "PIWA_795854_1",
+    "species_code": "PIWA",
+    "common_name": "Pine Warbler",
+    "vocalization_type": "call",
+    "duration_ms": 1700,
+    "quality_score": 5,
+    "loudness_lufs": -22.2,
+    "source": "xenocanto",
+    "source_id": "XC795854",
+    "source_url": "https://xeno-canto.org/795854",
+    "recordist": "Stanislas Wroza",
+    "file_path": "data/clips/PIWA_795854_1.wav",
+    "spectrogram_path": "data/spectrograms/PIWA_795854_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
