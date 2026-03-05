@@ -7534,24 +7534,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "SUTA_1008566_1",
-    "species_code": "SUTA",
-    "common_name": "Summer Tanager",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC1008566",
-    "source_url": "https://xeno-canto.org/1008566",
-    "recordist": "Scott Crabtree",
-    "file_path": "data/clips/SUTA_1008566_1.wav",
-    "spectrogram_path": "data/spectrograms/SUTA_1008566_1.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "SUTA_1008566_2",
     "species_code": "SUTA",
     "common_name": "Summer Tanager",
@@ -7637,7 +7619,7 @@
     "recordist": "Manuel Grosselet",
     "file_path": "data/clips/SUTA_840931_2.wav",
     "spectrogram_path": "data/spectrograms/SUTA_840931_2.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
@@ -22868,5 +22850,23 @@
     "canonical": false,
     "rejected": false,
     "license": "CC BY-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "SUTA_1008566_3",
+    "species_code": "SUTA",
+    "common_name": "Summer Tanager",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC1008566",
+    "source_url": "https://xeno-canto.org/1008566",
+    "recordist": "Scott Crabtree",
+    "file_path": "data/clips/SUTA_1008566_3.wav",
+    "spectrogram_path": "data/spectrograms/SUTA_1008566_3.png",
+    "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
   }
 ]
