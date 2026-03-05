@@ -2567,23 +2567,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "WEVI_18947ee8",
-    "species_code": "WEVI",
-    "common_name": "White-eyed Vireo",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC833700",
-    "file_path": "data/clips/WEVI_833700.wav",
-    "spectrogram_path": "data/spectrograms/WEVI_833700.png",
-    "recordist": "David A. Brinkman",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/833700",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "WEVI_72883edf",
     "species_code": "WEVI",
     "common_name": "White-eyed Vireo",
