@@ -7534,24 +7534,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "SUTA_1008566_2",
-    "species_code": "SUTA",
-    "common_name": "Summer Tanager",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "loudness_lufs": -16.0,
-    "source": "xenocanto",
-    "source_id": "XC1008566",
-    "source_url": "https://xeno-canto.org/1008566",
-    "recordist": "Scott Crabtree",
-    "file_path": "data/clips/SUTA_1008566_2.wav",
-    "spectrogram_path": "data/spectrograms/SUTA_1008566_2.png",
-    "canonical": false,
-    "rejected": false,
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "SUTA_901298_1",
     "species_code": "SUTA",
     "common_name": "Summer Tanager",
