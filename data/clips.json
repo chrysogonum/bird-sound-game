@@ -2618,23 +2618,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "WTSP_76847107",
-    "species_code": "WTSP",
-    "common_name": "White-throated Sparrow",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC714082",
-    "file_path": "data/clips/WTSP_714082.wav",
-    "spectrogram_path": "data/spectrograms/WTSP_714082.png",
-    "recordist": "Bruce Lagerquist",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/714082",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "WTSP_e62162b2",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
@@ -22863,6 +22846,24 @@
     "file_path": "data/clips/BGGN_717630_1.wav",
     "spectrogram_path": "data/spectrograms/BGGN_717630_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "WTSP_714082_1",
+    "species_code": "WTSP",
+    "common_name": "White-throated Sparrow",
+    "vocalization_type": "song",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC714082",
+    "source_url": "https://xeno-canto.org/714082",
+    "recordist": "Bruce Lagerquist",
+    "file_path": "data/clips/WTSP_714082_1.wav",
+    "spectrogram_path": "data/spectrograms/WTSP_714082_1.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
