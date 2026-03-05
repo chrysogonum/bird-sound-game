@@ -2635,23 +2635,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "WTSP_7a4056a2",
-    "species_code": "WTSP",
-    "common_name": "White-throated Sparrow",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 4,
-    "source": "xenocanto",
-    "source_id": "XC821692",
-    "file_path": "data/clips/WTSP_821692.wav",
-    "spectrogram_path": "data/spectrograms/WTSP_821692.png",
-    "recordist": "Valerie Heemstra",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/821692",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "WTSP_cb00d5ce",
     "species_code": "WTSP",
     "common_name": "White-throated Sparrow",
@@ -22863,6 +22846,24 @@
     "recordist": "Bruce Lagerquist",
     "file_path": "data/clips/WTSP_714082_1.wav",
     "spectrogram_path": "data/spectrograms/WTSP_714082_1.png",
+    "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "WTSP_821692_1",
+    "species_code": "WTSP",
+    "common_name": "White-throated Sparrow",
+    "vocalization_type": "call, pink call",
+    "duration_ms": 3000,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC821692",
+    "source_url": "https://xeno-canto.org/821692",
+    "recordist": "Valerie Heemstra",
+    "file_path": "data/clips/WTSP_821692_1.wav",
+    "spectrogram_path": "data/spectrograms/WTSP_821692_1.png",
     "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
