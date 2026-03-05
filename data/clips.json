@@ -18668,7 +18668,7 @@
     "recordist": "Richard E. Webster",
     "file_path": "data/clips/WEVI_827619_1.wav",
     "spectrogram_path": "data/spectrograms/WEVI_827619_1.png",
-    "canonical": false,
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
@@ -18686,7 +18686,7 @@
     "recordist": "David A. Brinkman",
     "file_path": "data/clips/WEVI_833700_1.wav",
     "spectrogram_path": "data/spectrograms/WEVI_833700_1.png",
-    "canonical": true,
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
