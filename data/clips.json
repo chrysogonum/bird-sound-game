@@ -2584,23 +2584,6 @@
     "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
   },
   {
-    "clip_id": "WEVI_e058d5fb",
-    "species_code": "WEVI",
-    "common_name": "White-eyed Vireo",
-    "vocalization_type": "song",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "source": "xenocanto",
-    "source_id": "XC989689",
-    "file_path": "data/clips/WEVI_989689.wav",
-    "spectrogram_path": "data/spectrograms/WEVI_989689.png",
-    "recordist": "Scott Gravette",
-    "canonical": false,
-    "rejected": false,
-    "source_url": "https://xeno-canto.org/989689",
-    "license": "//creativecommons.org/licenses/by-nc-sa/4.0/"
-  },
-  {
     "clip_id": "WEWA_03a75b16",
     "species_code": "WEWA",
     "common_name": "Worm-eating Warbler",
@@ -22880,6 +22863,24 @@
     "file_path": "data/clips/BGGN_717630_1.wav",
     "spectrogram_path": "data/spectrograms/BGGN_717630_1.png",
     "canonical": true,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "WEVI_989689_2",
+    "species_code": "WEVI",
+    "common_name": "White-eyed Vireo",
+    "vocalization_type": "song",
+    "duration_ms": 1700,
+    "quality_score": 5,
+    "loudness_lufs": -16.0,
+    "source": "xenocanto",
+    "source_id": "XC989689",
+    "source_url": "https://xeno-canto.org/989689",
+    "recordist": "Scott Gravette",
+    "file_path": "data/clips/WEVI_989689_2.wav",
+    "spectrogram_path": "data/spectrograms/WEVI_989689_2.png",
+    "canonical": false,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
