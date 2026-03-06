@@ -32,14 +32,14 @@ function Help() {
     'ChipNotes Basics',
     'The Spectrograms',
     'Training Tools',
-    'Scoring',
+    'Sorting',
+    'The 4-Letter Codes',
     'The Bird Packs',
     'The Bird Gallery',
     'The Sound Library',
     'The Levels',
     'Offline Play',
-    'Taxonomic Sorting',
-    'The 4-Letter Codes',
+    'Scoring',
     'About & Credits',
     'Support This Project',
     'Feedback & Bug Reports',
@@ -375,16 +375,143 @@ function Help() {
           </p>
         </Section>
 
-        {/* Scoring */}
+        {/* Sorting */}
         <Section
-          title="Scoring"
-          isExpanded={expandedSections.has('Scoring')}
-          onToggle={() => toggleSection('Scoring')}
+          title="Sorting"
+          isExpanded={expandedSections.has('Sorting')}
+          onToggle={() => toggleSection('Sorting')}
         >
-          <ScoreRow label="Perfect" points={100} description="Right bird + right ear + great timing" color="var(--color-success)" />
-          <ScoreRow label="Good" points={75} description="Right bird + right ear" color="var(--color-success)" />
-          <ScoreRow label="Partial" points={25} description="Right bird, wrong ear" color="var(--color-accent)" />
-          <ScoreRow label="Miss" points={0} description="Wrong bird or no response" color="var(--color-error)" />
+          <p style={{ marginBottom: '12px' }}>
+            On the ready-to-play screen before each round, you'll see this toolbar:
+          </p>
+          {/* Toolbar mockup with annotations */}
+          <div style={{ marginBottom: '16px' }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '8px',
+              background: 'rgba(255, 255, 255, 0.04)',
+              borderRadius: '10px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+            }}>
+              {/* Eye toggle */}
+              <div style={{
+                width: '36px', height: '36px',
+                background: 'rgba(76, 175, 80, 0.15)',
+                border: '2px solid rgba(76, 175, 80, 0.6)',
+                borderRadius: '8px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '18px', flexShrink: 0,
+              }}>👁️</div>
+              {/* Names button */}
+              <div style={{
+                flex: 1,
+                padding: '6px 8px',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '2px solid rgba(245, 200, 122, 0.6)',
+                borderRadius: '6px',
+                textAlign: 'center',
+                fontSize: '13px', fontWeight: 600,
+                color: 'rgba(255, 255, 255, 0.9)',
+              }}>Names</div>
+              {/* ABC button */}
+              <div style={{
+                flex: 1,
+                padding: '6px 8px',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '2px solid rgba(245, 200, 122, 0.6)',
+                borderRadius: '6px',
+                textAlign: 'center',
+                fontSize: '13px', fontWeight: 600,
+                color: 'rgba(255, 255, 255, 0.9)',
+              }}>ABC</div>
+              {/* Gallery */}
+              <div style={{
+                width: '36px', height: '36px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                borderRadius: '6px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '16px', flexShrink: 0,
+              }}>🖼️</div>
+              {/* Headphones */}
+              <div style={{
+                width: '36px', height: '36px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                borderRadius: '6px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '16px', flexShrink: 0,
+              }}>🎧</div>
+              {/* Fullscreen */}
+              <div style={{
+                width: '36px', height: '36px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                borderRadius: '6px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                fontSize: '16px', flexShrink: 0,
+              }}>↔️</div>
+            </div>
+            {/* Annotation labels */}
+            <div style={{
+              display: 'flex',
+              gap: '6px',
+              padding: '0 8px',
+              marginTop: '4px',
+            }}>
+              <div style={{ width: '36px', flexShrink: 0 }} />
+              <div style={{ flex: 1, textAlign: 'center', fontSize: '11px', color: '#f5c87a' }}>
+                ↑ Display mode
+              </div>
+              <div style={{ flex: 1, textAlign: 'center', fontSize: '11px', color: '#f5c87a' }}>
+                ↑ Sort order
+              </div>
+              <div style={{ width: '36px', flexShrink: 0 }} />
+              <div style={{ width: '36px', flexShrink: 0 }} />
+              <div style={{ width: '36px', flexShrink: 0 }} />
+            </div>
+          </div>
+
+          <p>
+            <strong style={{ color: '#f5c87a' }}>Names</strong> cycles through display modes: common names → Latin (scientific) → 4-letter codes. <strong style={{ color: '#f5c87a' }}>ABC</strong> toggles between alphabetical and taxonomic order (2025 eBird/AOS taxonomy). These are independent — you can use any display mode with either sort order.
+          </p>
+          <p style={{ marginTop: '12px' }}>
+            Alphabetical may be faster during gameplay — especially with 4-letter codes. Taxonomic sorting groups related species together, building intuition around evolutionary relationships. Try Latin names + taxonomic order for a full bird-nerd experience. 🐦🤓
+          </p>
+        </Section>
+
+        {/* Bird Codes */}
+        <Section
+          title="The 4-Letter Codes"
+          isExpanded={expandedSections.has('The 4-Letter Codes')}
+          onToggle={() => toggleSection('The 4-Letter Codes')}
+        >
+          <p>
+            Some birders use standardized 4-letter codes (called "Alpha codes" or "banding codes") as shorthand for species names.
+            They're easy to learn:
+          </p>
+          <div style={{
+            background: 'var(--color-surface)',
+            padding: '12px',
+            borderRadius: '8px',
+            marginTop: '8px',
+            fontSize: '14px',
+            lineHeight: 1.6
+          }}>
+            <div><strong>Two-word names:</strong> First 2 letters of each word</div>
+            <div style={{ color: 'var(--color-text-muted)', marginLeft: '12px' }}>
+              Northern Cardinal → NO + CA → NOCA
+            </div>
+            <div style={{ marginTop: '8px' }}><strong>Three-word names:</strong> 1 + 1 + 2 letters</div>
+            <div style={{ color: 'var(--color-text-muted)', marginLeft: '12px' }}>
+              Red-bellied Woodpecker → R + B + WO → RBWO
+            </div>
+            <div style={{ marginTop: '12px', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
+              There <a href="https://www.birdpop.org/pages/birdSpeciesCodes.php" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>are exceptions</a>. Because, ornithology. And when species collide (generating identical codes), things get <a href="https://www.carolinabirdclub.org/bandcodes.html" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>even messier</a>.
+            </div>
+          </div>
         </Section>
 
         {/* The Bird Packs */}
@@ -652,50 +779,16 @@ function Help() {
         </Section>
         </div>
 
-        {/* Taxonomic Sorting */}
+        {/* Scoring */}
         <Section
-          title="Taxonomic Sorting"
-          isExpanded={expandedSections.has('Taxonomic Sorting')}
-          onToggle={() => toggleSection('Taxonomic Sorting')}
+          title="Scoring"
+          isExpanded={expandedSections.has('Scoring')}
+          onToggle={() => toggleSection('Scoring')}
         >
-          <p>
-            Tap the sort button to switch between alphabetical and taxonomic ordering. You'll find it on the preview screen, in Sound Library sections, in the Custom Pack Builder, and during gameplay. When active, birds appear in phylogenetic order (2025 eBird/AOS taxonomy) with <em>scientific names in italics</em>. 🐦🤓
-          </p>
-          <p style={{ marginTop: '12px' }}>
-            Alphabetical is faster during gameplay — it's easier to find birds by their 4-letter codes. But taxonomic sorting builds muscle memory around evolutionary relationships. Either way works!
-          </p>
-        </Section>
-
-        {/* Bird Codes */}
-        <Section
-          title="The 4-Letter Codes"
-          isExpanded={expandedSections.has('The 4-Letter Codes')}
-          onToggle={() => toggleSection('The 4-Letter Codes')}
-        >
-          <p>
-            Some birders use standardized 4-letter codes (called "Alpha codes") as shorthand for species names.
-            They're easy to learn:
-          </p>
-          <div style={{
-            background: 'var(--color-surface)',
-            padding: '12px',
-            borderRadius: '8px',
-            marginTop: '8px',
-            fontSize: '14px',
-            lineHeight: 1.6
-          }}>
-            <div><strong>Two-word names:</strong> First 2 letters of each word</div>
-            <div style={{ color: 'var(--color-text-muted)', marginLeft: '12px' }}>
-              Northern Cardinal → NO + CA → NOCA
-            </div>
-            <div style={{ marginTop: '8px' }}><strong>Three-word names:</strong> 1 + 1 + 2 letters</div>
-            <div style={{ color: 'var(--color-text-muted)', marginLeft: '12px' }}>
-              Red-bellied Woodpecker → R + B + WO → RBWO
-            </div>
-            <div style={{ marginTop: '12px', fontStyle: 'italic', color: 'var(--color-text-muted)' }}>
-              There <a href="https://www.birdpop.org/pages/birdSpeciesCodes.php" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>are exceptions</a>. Because, ornithology. And when species collide (generating identical codes), things get <a href="https://www.carolinabirdclub.org/bandcodes.html" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>even messier</a>.
-            </div>
-          </div>
+          <ScoreRow label="Perfect" points={100} description="Right bird + right ear + great timing" color="var(--color-success)" />
+          <ScoreRow label="Good" points={75} description="Right bird + right ear" color="var(--color-success)" />
+          <ScoreRow label="Partial" points={25} description="Right bird, wrong ear" color="var(--color-accent)" />
+          <ScoreRow label="Miss" points={0} description="Wrong bird or no response" color="var(--color-error)" />
         </Section>
 
         {/* About & Credits */}
@@ -882,6 +975,11 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.07" date="March 5, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Help Page Refresh:</strong> Reorganized sections — Sorting and 4-Letter Codes moved up, Scoring moved down. Added visual toolbar mockup to Sorting section. Updated text to reflect independent display mode and sort order controls.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.06" date="March 5, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Android Layout Fix:</strong> Fixed species button panel getting cut off on narrow Android phones (360px viewports).</li>
