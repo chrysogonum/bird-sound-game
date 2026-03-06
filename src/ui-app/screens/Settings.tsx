@@ -309,7 +309,7 @@ function Settings() {
         <div className="card">
           <div className="flex-row justify-between items-center">
             <div>
-              <h3 style={{ marginBottom: '4px' }}>Continuous Play</h3>
+              <h3 style={{ marginBottom: '4px' }}>🧘 Continuous Play</h3>
               <div className="text-muted" style={{ fontSize: '14px' }}>
                 No timer - play until all clips done
               </div>

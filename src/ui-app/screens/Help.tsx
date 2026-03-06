@@ -222,34 +222,60 @@ function Help() {
             and tap its circle on the correct side before the tile passes the scoring zone.
           </p>
           <p style={{ marginBottom: '12px' }}>
-            Each round is 30 seconds. Use headphones for the best experience - unless you want everyone to know you're a bird nerd!
+            Each round is 30 seconds. Want to keep going? Enable 🧘 Continuous Play in{' '}
+              <button
+                onClick={() => navigate('/settings')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--color-accent)',
+                  fontSize: 'inherit',
+                  textDecoration: 'underline',
+                  cursor: 'pointer',
+                  padding: 0,
+                }}
+              >
+                Settings
+              </button>{' '}
+              for a relaxed, no-timer session. Use headphones for the best experience - unless you want everyone to know you're a bird nerd!
           </p>
-          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)' }}>
-            <strong>Mobile tip:</strong> For fullscreen play on iOS, use Safari. On Android Chrome, tap ⋮ → "Add to Home screen" and launch from the icon.
-          </p>
-          <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
-            <strong>Offline tip:</strong> Playing on a flight?{' '}
-            <button
-              onClick={() => {
-                setExpandedSections(prev => new Set([...prev, 'Offline Play']));
-                setTimeout(() => {
-                  document.getElementById('offline-play')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-              }}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-accent)',
-                fontSize: '14px',
-                textDecoration: 'underline',
-                cursor: 'pointer',
-                padding: 0,
-              }}
-            >
-              See Offline Play
-            </button>{' '}
-            to download packs ahead of time.
-          </p>
+          <div style={{
+            marginTop: '4px',
+            padding: '12px 16px',
+            background: 'rgba(76, 175, 80, 0.08)',
+            borderRadius: '8px',
+            borderLeft: '3px solid var(--color-primary)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '8px',
+          }}>
+            <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', margin: 0 }}>
+              <strong style={{ color: 'var(--color-text)' }}>📱 Install on your phone:</strong> ChipNotes is just a fancy web page, but you can make it an app on your home screen. On iPhone, tap Safari's Share button (↑) → "Add to Home Screen." On Android Chrome, tap ⋮ → "Add to Home screen." Then launch from the icon for a fullscreen experience.
+            </p>
+            <p style={{ fontSize: '14px', color: 'var(--color-text-muted)', margin: 0 }}>
+              <strong style={{ color: 'var(--color-text)' }}>✈️ Offline play:</strong> Playing on a flight?{' '}
+              <button
+                onClick={() => {
+                  setExpandedSections(prev => new Set([...prev, 'Offline Play']));
+                  setTimeout(() => {
+                    document.getElementById('offline-play')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 100);
+                }}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'var(--color-accent)',
+                  fontSize: '14px',
+                  textDecoration: 'underline',
+                  cursor: 'pointer',
+                  padding: 0,
+                }}
+              >
+                See Offline Play
+              </button>{' '}
+              to download packs ahead of time.
+            </p>
+          </div>
         </Section>
 
         {/* Spectrograms */}
