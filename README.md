@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://chipnotes.app">Play Now</a> · <a href="https://chrysogonum.github.io/bird-sound-game/">Mirror</a>
+  <a href="https://chipnotes.app">Play Now</a>
 </p>
 
 ---
@@ -33,29 +33,40 @@ Each round is 30 seconds. Use headphones for the best experience!
 
 ## Bird Packs
 
-### North America 🇺🇸🇨🇦
+### North America
 
 | Pack | Species | Description |
 |------|---------|-------------|
 | **Backyard Birds** | 6 | Start here — Cardinal, Carolina Wren, Titmouse, Blue Jay, Crow, Robin |
-| **Grassland & Open Country** | 9 | Meadowlarks, Dickcissels, Indigo Buntings — songs of prairies and field edges |
+| **Grassland & Open Country** | 10 | Meadowlarks, Dickcissels, Indigo Buntings — songs of prairies and field edges |
 | **Eastern Birds** | 60 | Comprehensive eastern US species, 9 random per round |
-| **Western Birds** | 26 | Steller's Jay, Western Scrub-Jay, Oak Titmouse, Killdeer, and more from the Pacific coast to the Rockies |
+| **Western Birds** | 26 | Steller's Jay, California Scrub-Jay, Oak Titmouse, Killdeer, and more from the Pacific coast to the Rockies |
 | **Woodpeckers** | 9 | Drums, calls, and rattles from Downy to Pileated (includes Acorn & Lewis's!) |
 | **Sparrows** | 9 | Nine sparrow species with distinctive patterns |
-| **Warbler Academy** | 34 | High-pitched songs of spring migration (experts only!) |
+| **Warbler Academy** | 36 | High-pitched songs of spring migration (experts only!) |
+| **All North America** | 122 | Every NA species in one pack |
 
-### New Zealand 🇳🇿
+### Europe
 
 | Pack | Species | Description |
 |------|---------|-------------|
-| **All NZ Birds** | 42 | Every NZ species in ChipNotes — the complete collection |
-| **Garden & Bush** | 21 | Common birds of gardens, parks, and forests — Tūī, Kea, Fantail, Bellbird |
-| **Rare & Endemic** | 21 | Conservation stars — Kiwi, Kākāpō, Takahē, and Chatham Islands subspecies |
+| **Warblers & Skulkers** | 35 | European warblers, skulkers, and secretive songbirds — Nightingale to Firecrest |
+| **Woodland & Field** | 17 | Thrushes, corvids, woodpeckers, and oriole |
+| **Raptors** | 9 | Hawks, kites, buzzards, and falcons |
+| **All European Birds** | 61 | Every EU species in one pack |
 
-NZ birds display their **Māori names** (e.g., Tūī, Ruru, Kererū). Subspecies are distinguished with abbreviations: (NI) North Island, (SI) South Island, (Ch.) Chatham Islands.
+### New Zealand
 
-**Custom Packs:** Build your own training session from 163 species — drill a nemesis bird, compare confusing species head-to-head, or create regional lists. Filter by pack, search by name, and save up to 10 custom packs.
+| Pack | Species | Description |
+|------|---------|-------------|
+| **Common Birds** | 9 | Most common birds of gardens, parks, and forests — Tui, Fantail, Bellbird |
+| **North Island** | 21 | Birds of Te Ika-a-Maui |
+| **South Island** | 22 | Birds of Te Waipounamu |
+| **All NZ Birds** | 37 | Every NZ species in ChipNotes |
+
+NZ birds display their **Maori names** (e.g., Tui, Ruru, Kereru). Subspecies are distinguished with abbreviations: (NI) North Island, (SI) South Island, (Ch.) Chatham Islands.
+
+**Custom Packs:** Build your own training session from any combination of species — drill a nemesis bird, compare confusing species head-to-head, or create regional lists. Filter by pack, search by name, and save up to 10 custom packs (up to 50 species each).
 
 ## Difficulty Levels
 
@@ -72,11 +83,11 @@ Each pack has 6 levels that progressively build your skills:
 
 ## Features
 
-- **163 species** with **924 curated clips** from Xeno-canto, Cornell Macaulay Library, and NZ Department of Conservation
-- **Two regions** — North American birds and New Zealand endemic species with Māori names
+- **220 species** with **1,436 curated clips** from [Xeno-canto](https://xeno-canto.org) and [NZ Department of Conservation](https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/) (Crown Copyright)
+- **Three regions** — North American, European, and New Zealand birds (with Maori names)
+- **16 curated packs** — 8 North American + 4 European + 4 New Zealand
 - **Left/right stereo training** — spatial audio identification like real birding
 - **Real spectrograms** generated for every clip (400x200px, 500-10000 Hz range)
-- **10 curated packs** — 7 North American + 3 New Zealand, from 6 to 60 species per pack
 - **Training Mode** — Toggle eye icon to show bird labels on tiles while learning
 - **Taxonomic sorting** — Toggle between alphabetical and phylogenetic order with scientific names
 - **Bird Reference** — Preview all sounds in the game, organized by pack, with canonical recordings marked
@@ -87,28 +98,6 @@ Each pack has 6 levels that progressively build your skills:
 - **Custom pack builder** — Create and save up to 10 custom packs from any combination of species
 - **Random mode** — Shuffle feature for large packs (randomly selects subset each round)
 - **PWA support** — Install on mobile, play offline (clips cache as you play)
-
-## Species Coverage
-
-**163 species** across 10 packs:
-
-### North America (121 species)
-- Backyard birds (cardinals, wrens, jays, chickadees, robins, bluebirds, thrushes)
-- Grassland & open country birds (Eastern Meadowlark, Dickcissel, Indigo Bunting, Barn Swallow, Eastern Kingbird, Common Yellowthroat, Yellow Warbler)
-- Eastern birds (60 species from the eastern US)
-- Western birds (26 species — Steller's Jay, California Scrub-Jay, Killdeer, Red-breasted Nuthatch, and more)
-- Woodpeckers (9 species from Downy to Pileated, including Acorn and Lewis's)
-- Sparrows (9 species including White-throated, White-crowned, Song, Chipping, Field, Savannah)
-- Warblers (34 spring migration species — the ultimate challenge!)
-
-### New Zealand (42 species)
-- Iconic endemics: Kiwi (North Island Brown, Little Spotted, Great Spotted), Kākāpō, Takahē, Kea, Kākā
-- Forest birds: Tūī, Bellbird/Korimako, Fantail/Pīwakawaka, Tomtit/Miromiro, Rifleman/Tītipounamu
-- Wetland & coastal: Blue Duck/Whio, Paradise Shelduck/Pūtangitangi, Variable Oystercatcher/Tōrea
-- Rare subspecies: Chatham Island Tūī, Chatham Island Tomtit, Auckland Island Teal
-- Night birds: Ruru/Morepork, Kiwi species
-
-Audio sourced from [Xeno-canto](https://xeno-canto.org), [Cornell Macaulay Library](https://www.macaulaylibrary.org/), and the [NZ Department of Conservation](https://www.doc.govt.nz/nature/native-animals/birds/bird-songs-and-calls/) (Crown Copyright), with full attribution in the Bird Reference.
 
 ## Tech Stack
 
@@ -141,13 +130,13 @@ cd src/ui-app && npm run deploy
 
 ## Audio Pipeline
 
-New species are added via:
+New species are added via **Clip Studio** (`scripts/clip_studio.py`), a unified browser-based tool for extraction and curation:
 
-1. **Extract clips** from Xeno-canto recordings using the waveform-based clip editor (`scripts/clip_editor.py`) — auto-populates recordist and vocalization type from XC API
-2. **Normalize** to -16 LUFS, mono, 0.5-3 seconds
-3. **Generate spectrograms** (`scripts/spectrogram_gen.py`)
-4. **Review & curate** using the clip review tool (`scripts/review_clips.py`) — mark canonical clips, reject poor quality
-5. **Update** clips.json with canonical/rejected flags
+1. **Search** Xeno-canto for source recordings by species
+2. **Extract clips** from waveforms — click to set start time, adjust duration
+3. **Normalize** to -16 LUFS, mono, 0.5-3 seconds
+4. **Generate spectrograms** automatically on extraction
+5. **Curate** — rate quality, mark canonical clips, reject poor recordings
 
 ## Project Structure
 
@@ -158,12 +147,12 @@ src/ui-app/
 └── styles/       # Global CSS
 
 data/
-├── clips/        # NA audio files (mono, 0.5-3s, normalized to -16 LUFS)
+├── clips/        # NA + EU audio files (mono, 0.5-3s, normalized to -16 LUFS)
 ├── clips-nz/     # NZ audio files (DOC recordings)
 ├── spectrograms/ # PNG spectrograms (400x200px)
 ├── icons/        # Bird icon assets
-├── packs/        # Pack configuration JSON (including nz_*.json)
-├── clips.json    # NA clip metadata
+├── packs/        # Pack configuration JSON
+├── clips.json    # NA + EU clip metadata
 └── clips-nz.json # NZ clip metadata
 ```
 
@@ -172,14 +161,13 @@ data/
 ChipNotes is free and ad-free. If it helps you learn birds, consider:
 - [Supporting ChipNotes](https://ko-fi.com/chipnotes)
 - [Donating to Xeno-canto](https://xeno-canto.org/about/donate)
-- [Supporting Cornell Macaulay Library](https://www.birds.cornell.edu/home/support/)
 
 ## License
 
 MIT License
 
-Bird recordings from [Xeno-canto](https://xeno-canto.org) and [Cornell Macaulay Library](https://www.macaulaylibrary.org/) retain their original licenses. New Zealand bird recordings are courtesy of the [NZ Department of Conservation](https://www.doc.govt.nz/) (Crown Copyright).
+Bird recordings from [Xeno-canto](https://xeno-canto.org) retain their original Creative Commons licenses (see full attribution in the Bird Reference). New Zealand bird recordings are courtesy of the [NZ Department of Conservation](https://www.doc.govt.nz/) (Crown Copyright).
 
 ---
 
-*Built with [Claude Code](https://claude.ai/code) · v4.13 · January 2026*
+*Built with [Claude Code](https://claude.ai/code) · v5.06 · March 2026*
