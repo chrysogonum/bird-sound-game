@@ -930,7 +930,7 @@ function PreRoundPreview() {
               }}
               title={taxonomicSort ? 'Sort alphabetically' : 'Sort by taxonomy'}
             >
-              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.7)' }}>{taxonomicSort ? 'Taxonomic' : 'ABC'}</span>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.9)' }}>{taxonomicSort ? 'Taxonomic' : 'ABC'}</span>
             </button>
           </div>
         ) : (
@@ -960,7 +960,7 @@ function PreRoundPreview() {
               }}
               title={naDisplayMode === 'code' ? 'Show common names' : naDisplayMode === 'name' ? 'Show Latin names' : 'Show 4-letter codes'}
             >
-              <span style={{ fontSize: '11px', fontWeight: 600, fontStyle: naDisplayMode === 'latin' ? 'italic' : 'normal' }}>
+              <span style={{ fontSize: '11px', fontWeight: 600, fontStyle: naDisplayMode === 'latin' ? 'italic' : 'normal', color: 'rgba(255, 255, 255, 0.9)' }}>
                 {naDisplayMode === 'name' ? 'Names' : naDisplayMode === 'latin' ? 'Latin' : 'NOCA'}
               </span>
             </button>
@@ -981,7 +981,7 @@ function PreRoundPreview() {
               }}
               title={taxonomicSort ? 'Sort alphabetically' : 'Sort by taxonomy'}
             >
-              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.7)' }}>{taxonomicSort ? 'Taxonomic' : 'ABC'}</span>
+              <span style={{ fontSize: '11px', fontWeight: 600, color: 'rgba(255, 255, 255, 0.9)' }}>{taxonomicSort ? 'Taxonomic' : 'ABC'}</span>
             </button>
           </div>
         )}

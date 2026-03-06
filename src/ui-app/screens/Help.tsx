@@ -882,6 +882,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.06" date="March 5, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Android Layout Fix:</strong> Fixed species button panel getting cut off on narrow Android phones (360px viewports).</li>
+              <li><strong>Toggle Readability:</strong> Improved contrast of Names/Latin/NOCA and ABC sort toggles on the pre-round screen.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.05" date="March 4, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>New Species:</strong> Added Hooded Warbler (HOWA) and Cerulean Warbler (CERW) to the Warbler Academy and All North America packs. Warbler Academy now has 36 species, All NA has 122.</li>
