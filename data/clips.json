@@ -20980,24 +20980,6 @@
     "license": "CC BY-NC-SA 4.0 \u2713"
   },
   {
-    "clip_id": "BAOW_569818_1",
-    "species_code": "BAOW",
-    "common_name": "Barred Owl",
-    "vocalization_type": "call",
-    "duration_ms": 3000,
-    "quality_score": 5,
-    "loudness_lufs": -22.2,
-    "source": "xenocanto",
-    "source_id": "XC569818",
-    "source_url": "https://xeno-canto.org/569818",
-    "recordist": "Russ Wigh",
-    "file_path": "data/clips/BAOW_569818_1.wav",
-    "spectrogram_path": "data/spectrograms/BAOW_569818_1.png",
-    "canonical": true,
-    "rejected": false,
-    "license": "CC BY-NC-SA 4.0 \u2713"
-  },
-  {
     "clip_id": "BAOW_216000_1",
     "species_code": "BAOW",
     "common_name": "Barred Owl",
@@ -22866,6 +22848,24 @@
     "file_path": "data/clips/OATI_602846_1.wav",
     "spectrogram_path": "data/spectrograms/OATI_602846_1.png",
     "canonical": false,
+    "rejected": false,
+    "license": "CC BY-NC-SA 4.0 \u2713"
+  },
+  {
+    "clip_id": "BAOW_569818_2",
+    "species_code": "BAOW",
+    "common_name": "Barred Owl",
+    "vocalization_type": "call",
+    "duration_ms": 2800,
+    "quality_score": 5,
+    "loudness_lufs": -18.5,
+    "source": "xenocanto",
+    "source_id": "XC569818",
+    "source_url": "https://xeno-canto.org/569818",
+    "recordist": "Russ Wigh",
+    "file_path": "data/clips/BAOW_569818_2.wav",
+    "spectrogram_path": "data/spectrograms/BAOW_569818_2.png",
+    "canonical": true,
     "rejected": false,
     "license": "CC BY-NC-SA 4.0 \u2713"
   }
