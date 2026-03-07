@@ -22,7 +22,8 @@ function BirdIcon({ code, tileName, size = 32, color, twoRowLayout = false }: {
   // Dynamic font scale: shrink text for long bird names to prevent wrapping
   const labelScale = useMemo(() => {
     if (!twoRowLayout) return 1;
-    const maxCharsPerLine = 9; // approx chars that fit at base font size
+    // Conservative threshold (7) to account for Android font rendering being wider than iOS
+    const maxCharsPerLine = 7;
     // Longest unbreakable segment determines if a word must shrink to fit one line
     const words = labelCode.split(/[\s\-]/);
     const longestWordLen = Math.max(...words.map(w => w.length));
