@@ -1001,6 +1001,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.08" date="March 7, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Android Text Fix:</strong> Bird names like "American" no longer overflow on Android — dynamic font scaling kicks in earlier to account for wider font rendering.</li>
+              <li><strong>Help Page Polish:</strong> Added install-on-phone and offline tips callout box, continuous play link to Settings, updated Sorting section text.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.07" date="March 5, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Help Page Refresh:</strong> Reorganized sections — Sorting and 4-Letter Codes moved up, Scoring moved down. Added visual toolbar mockup to Sorting section. Updated text to reflect independent display mode and sort order controls.</li>
