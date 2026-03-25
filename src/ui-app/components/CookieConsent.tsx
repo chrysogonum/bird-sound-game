@@ -108,7 +108,7 @@ function CookieConsent() {
             We use Google Analytics to understand how people use ChipNotes and improve the app.
             This helps us know which features are useful and which birds people practice most.
             We anonymize your IP address and don't collect personal information.{' '}
-            <a href="/bird-sound-game/privacy" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+            <a href={`${import.meta.env.BASE_URL}privacy`} style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
               Learn more
             </a>
           </p>
