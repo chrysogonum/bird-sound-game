@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CONSENT_KEY = 'chipnotes_cookie_consent';
 
@@ -40,6 +41,7 @@ function loadGoogleAnalytics() {
 
 function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Check if user has already made a choice
@@ -108,9 +110,20 @@ function CookieConsent() {
             We use Google Analytics to understand how people use ChipNotes and improve the app.
             This helps us know which features are useful and which birds people practice most.
             We anonymize your IP address and don't collect personal information.{' '}
-            <a href="/bird-sound-game/privacy" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+            <button
+              onClick={() => navigate('/privacy')}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--color-accent)',
+                fontSize: '14px',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+                padding: 0,
+              }}
+            >
               Learn more
-            </a>
+            </button>
           </p>
         </div>
 

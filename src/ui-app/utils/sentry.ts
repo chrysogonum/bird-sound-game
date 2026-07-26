@@ -26,6 +26,18 @@ export function initSentry(): void {
         return null;
       }
 
+      // Drop circular-structure errors caused by page-injected scripts that
+      // monkey-patch DOM methods and JSON.stringify() the nodes passed to them.
+      // Any React-managed element throws: its __reactFiber$* property points at a
+      // fiber whose stateNode points back at the element. These scripts are eval'd
+      // into the page context, so their frames report as <anonymous> and the
+      // chrome-extension:// check above never matches them. The __reactFiber test
+      // keeps this narrow — a genuine cycle in our own data would not mention it,
+      // and we never stringify DOM nodes ourselves.
+      if (/circular structure to JSON/i.test(message) && /__reactFiber/.test(message)) {
+        return null;
+      }
+
       return event;
     },
   });
