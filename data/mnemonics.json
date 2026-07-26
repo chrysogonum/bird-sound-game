@@ -1,0 +1,83 @@
+{
+  "_comment": "Birding mnemonics + ID notes shown in the Bird Reference. Keyed by 4-letter species code. mnemonic = the catchy phrase birders use; id_note = how to tell it apart from look/sound-alikes. Independent of CSV-generated species.json, so it survives taxonomy regeneration. Expand freely.",
+  "NOCA": {
+    "mnemonic": "cheer-cheer-cheer, birdy-birdy-birdy",
+    "id_note": "Clear, loud, down-slurred whistles that carry a long way; also a sharp metallic 'chip.' Both sexes sing."
+  },
+  "CARW": {
+    "mnemonic": "teakettle-teakettle-teakettle",
+    "id_note": "Rich, rolling 'teakettle' phrase, astonishingly loud for such a small bird; also a dry, descending chatter."
+  },
+  "BLJA": {
+    "mnemonic": "jay! jay!  (also a musical queedle-queedle)",
+    "id_note": "Harsh, slurred screams plus a musical 'queedle' pump-handle note — and a convincing Red-shouldered Hawk imitation that fools everyone."
+  },
+  "AMCR": {
+    "mnemonic": "caw-caw-caw",
+    "id_note": "Familiar flat 'caw.' Compare Fish Crow, whose call is nasal and two-parted — 'uh-uh,' as if saying no."
+  },
+  "TUTI": {
+    "mnemonic": "peter-peter-peter",
+    "id_note": "Clear, whistled 'peter' repeated 3-8 times; also scratchy, scolding chickadee-like notes."
+  },
+  "AMRO": {
+    "mnemonic": "cheerily, cheer-up, cheer-o",
+    "id_note": "Liquid caroling of rising and falling phrases; sharp 'tut-tut-tut' alarm and a high, thin 'seee' flight note."
+  },
+  "WTSP": {
+    "mnemonic": "Oh-sweet-Canada-Canada (or Old-Sam-Peabody-Peabody)",
+    "id_note": "Pure, plaintive whistles on a steady or slightly shifting pitch. Cleaner and sadder than the buzzy, jumbled Song Sparrow."
+  },
+  "SOSP": {
+    "mnemonic": "madge-madge-madge, put-on-your-tea-kettle",
+    "id_note": "Two or three clear notes, then a jumble that drops into a trill. Highly variable, but that 'few sweet notes then a buzz' shape is the giveaway."
+  },
+  "CHSP": {
+    "mnemonic": "a dry mechanical trill, all one pitch",
+    "id_note": "Long, flat, mechanical trill like a sewing machine. Drier and faster than Swamp Sparrow; doesn't accelerate like Field Sparrow."
+  },
+  "SWSP": {
+    "mnemonic": "a slow, sweet, musical trill",
+    "id_note": "Loose, rich trill — slower and far more musical than Chipping Sparrow's dry rattle. Favors wet, marshy edges."
+  },
+  "SASP": {
+    "mnemonic": "tsip-tsip-tsip, seeee-saaay",
+    "id_note": "Thin, buzzy, insect-like: a few sharp ticks then two buzzes, the second lower. Sounds more like a grasshopper than a sparrow."
+  },
+  "FISP": {
+    "mnemonic": "a bouncing ping-pong ball coming to rest",
+    "id_note": "Sweet, downslurred whistles that accelerate into a trill — like a dropped ball speeding up as it settles. Unmistakable once learned."
+  },
+  "LISP": {
+    "mnemonic": "a bubbly, gurgling, wren-like jumble",
+    "id_note": "Rich and bubbling, recalling a House Wren or Purple Finch; rises then falls. Skulky bird — you'll hear it before you see it."
+  },
+  "DOWO": {
+    "mnemonic": "pik!  ...and a whinny that falls down a hill",
+    "id_note": "Soft, high 'pik'; the whinny clearly descends in pitch. Smaller bill than Hairy. Compare Hairy's louder 'peek' and level rattle."
+  },
+  "HAWO": {
+    "mnemonic": "PEEK!  ...and a sharp, even rattle",
+    "id_note": "Louder, sharper, lower 'peek!' than Downy; the rattle stays level instead of falling. Bill looks as long as the head is deep."
+  },
+  "RBWO": {
+    "mnemonic": "churrr  (and a chuckling cha-cha-cha)",
+    "id_note": "Rolling, throaty 'churr' or 'kwirr'; also a laughing 'cha-cha-cha.' Named for a faint red belly you'll rarely see."
+  },
+  "PIWO": {
+    "mnemonic": "kuk-kuk-kuk-kuk (a wild, ringing laugh)",
+    "id_note": "Loud, ringing series that rises and falls irregularly — wilder and deeper than a Flicker. Slow, resonant drum that trails off at the end."
+  },
+  "YBSA": {
+    "mnemonic": "a cat-like mew, then a stuttering Morse-code drum",
+    "id_note": "Nasal, cat-like 'mew' or 'queah'; the drum is irregular — a few quick taps then slowing, unlike any other woodpecker's even roll."
+  },
+  "NOFL": {
+    "mnemonic": "wick-wick-wick-wick (long and even); also klee-yer!",
+    "id_note": "Long, steady 'wick' series all on one pitch, plus a single loud 'klee-yer.' The even pitch separates it from the wilder Pileated."
+  },
+  "RHWO": {
+    "mnemonic": "tchur!  (harsh and raspy)",
+    "id_note": "Harsh, raspy 'tchur' or 'queeah' — higher, sharper, and grittier than Red-bellied Woodpecker's rounder roll."
+  }
+}
