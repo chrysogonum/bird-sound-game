@@ -1001,6 +1001,12 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.09" date="July 26, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Privacy Link Fix:</strong> The "Learn more" link in the cookie banner pointed at an old address and led to a missing page. It now opens the privacy policy correctly.</li>
+              <li><strong>Error Handling:</strong> Filtered browser-extension crashes from error tracking — some extensions modify the page in ways that break the app, and those reports were drowning out real issues.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.08" date="March 7, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Android Text Fix:</strong> Bird names like "American" no longer overflow on Android — dynamic font scaling kicks in earlier to account for wider font rendering.</li>
