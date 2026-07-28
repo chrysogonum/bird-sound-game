@@ -7,7 +7,7 @@ export function initSentry(): void {
 
   Sentry.init({
     dsn: SENTRY_DSN,
-    release: 'chipnotes@5.09',
+    release: 'chipnotes@5.10',
     sampleRate: 1.0,
     tracesSampleRate: 0,
     beforeSend(event) {

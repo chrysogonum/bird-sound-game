@@ -827,7 +827,10 @@ function Help() {
           <div style={{ textAlign: 'center', marginBottom: '16px' }}>
             <div style={{ fontSize: '32px', marginBottom: '8px' }}>🎧 🐦 🎵 ❤️</div>
             <div style={{ fontSize: '16px', fontWeight: 600, color: 'var(--color-text)', marginBottom: '4px' }}>
-              Created by Peter Repetti
+              Created by{' '}
+              <a href="https://ppr3.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-accent)', textDecoration: 'underline' }}>
+                Peter Repetti
+              </a>
             </div>
             <div style={{ fontSize: '14px', color: 'var(--color-text-muted)', lineHeight: 1.6 }}>
               Made with love by bird nerds, for bird nerds
@@ -1001,6 +1004,11 @@ function Help() {
             isExpanded={expandedSections.has('Full Version History')}
             onToggle={() => toggleSection('Full Version History')}
           >
+          <VersionEntry version="5.10" date="July 28, 2026">
+            <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
+              <li><strong>Creator Link:</strong> Peter Repetti's name in About &amp; Credits now links to his personal site.</li>
+            </ul>
+          </VersionEntry>
           <VersionEntry version="5.09" date="July 26, 2026">
             <ul style={{ margin: 0, paddingLeft: '20px', fontSize: '14px', color: 'var(--color-text-muted)' }}>
               <li><strong>Privacy Link Fix:</strong> The "Learn more" link in the cookie banner pointed at an old address and led to a missing page. It now opens the privacy policy correctly.</li>
